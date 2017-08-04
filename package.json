@@ -1,0 +1,25 @@
+{
+  "name": "oereb_client",
+  "version": "1.0.0-alpha.1",
+  "description": "OEREB Client based on AngularJS, OpenLayers 3 and Bootstrap.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/gf-bl/oereb_client.git"
+  },
+  "keywords": [
+    "oereb",
+    "client",
+    "angular",
+    "ol3",
+    "bootstrap",
+    "web",
+    "application"
+  ],
+  "author": "Karsten Deininger",
+  "license": "BSD-2-Clause",
+  "homepage": "https://gitlab.com/gf-bl/oereb_client#README",
+  "devDependencies": {
+    "angular": "1.6.5",
+    "openlayers": "4.2.0"
+  }
+}
