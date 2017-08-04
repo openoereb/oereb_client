@@ -20,9 +20,10 @@ cache:
 test:
   stage: test
   script:
+   - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
    - npm install
 
-# Analyze code quality   
+# Analyze code quality
 codeclimate:
   image: docker:latest
   variables:
