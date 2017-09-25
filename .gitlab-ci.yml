@@ -17,11 +17,13 @@ cache:
   paths:
   - node_modules/
 
-test:
+test-js:
   stage: test
   script:
    - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
    - npm install
+   - ./node_modules/.bin/eslint oereb_client/static/js/**/*.js test/js/**/*.spec.js
+   - ./node_modules/.bin/karma start karma.conf.js
 
 # Analyze code quality
 codeclimate:
