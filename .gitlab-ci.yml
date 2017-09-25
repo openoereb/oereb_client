@@ -1,31 +1,45 @@
-# This file is a template, and might need editing before it works on your project.
-# Official framework image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/node/tags/
-image: node:latest
+image: python:3.6
 
-# Pick zero or more services to be used on all builds.
-# Only needed when using a docker container to run your tests in.
-# Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-a-service
-# services:
-#   - mysql:latest
-#   - redis:latest
-#   - postgres:latest
+before_script:
+  - mkdir -p "$CI_PROJECT_DIR/.pip-cache"
 
-# This folder is cached between builds
-# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
   paths:
-  - node_modules/
+    - node_modules/
+
+test-py:2.7:
+  stage: test
+  image: python:2.7
+  allow_failure: false
+  script:
+    - pip install -r requirements.txt
+    - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
+    - flake8
+    - py.test -vv --cov-config .coveragerc --cov oereb_client test/py
+
+test-py:3.6:
+  stage: test
+  allow_failure: false
+  cache:
+    key: "PIP"
+    paths:
+      - "$CI_PROJECT_DIR/.pip-cache"
+  script:
+    - pip install -r requirements.txt
+    - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
+    - flake8
+    - py.test -vv --cov-config .coveragerc --cov oereb_client test/py
+
 
 test-js:
   stage: test
+  image: node:latest
   script:
-   - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
-   - npm install
-   - ./node_modules/.bin/eslint oereb_client/static/js/**/*.js test/js/**/*.spec.js
-   - ./node_modules/.bin/karma start karma.conf.js
+    - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
+    - npm install
+    - ./node_modules/.bin/eslint oereb_client/static/js/**/*.js test/js/**/*.spec.js
+    - ./node_modules/.bin/karma start karma.conf.js
 
-# Analyze code quality
 codeclimate:
   image: docker:latest
   variables:
