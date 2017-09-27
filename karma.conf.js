@@ -20,7 +20,9 @@ module.exports = function(config) {
       'node_modules/openlayers/dist/ol-debug.js',
       'node_modules/proj4/dist/proj4-src.js',
       'node_modules/angular-mocks/angular-mocks.js',
-      'oereb_client/static/js/**/*.js',
+      'node_modules/google-closure-library/closure/goog/base.js',
+      'test/js/deps.js',
+      {pattern: 'oereb_client/static/js/**/*.js', included: false, served: true},
       'test/js/**/*.spec.js'
     ],
 

@@ -1,4 +1,3 @@
 [run]
 omit =
     test/*
-    oereb_client/routes.py

@@ -18,22 +18,27 @@
   "author": "Karsten Deininger",
   "license": "BSD-2-Clause",
   "homepage": "https://gitlab.com/gf-bl/oereb_client#README",
-  "dependencies": {
-    "angular": "1.6.5",
-    "jquery": "1.9.1",
-    "openlayers": "4.2.0",
-    "proj4": "2.4.4"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "angular": "1.6.5",
+    "angular-animate": "1.6.6",
     "angular-mocks": "1.6.6",
+    "bootstrap": "3.3.7",
+    "clean-css": "4.1.9",
+    "clean-css-cli": "4.1.10",
     "eslint": "4.7.2",
+    "font-awesome": "4.7.0",
     "google-closure-compiler": "20170910.0.0",
     "google-closure-library": "20170910.0.0",
     "jasmine-core": "2.8.0",
+    "jquery": "1.9.1",
     "karma": "1.7.1",
     "karma-coverage": "1.1.1",
     "karma-jasmine": "1.1.0",
     "karma-phantomjs-launcher": "1.0.4",
-    "ng-html2js": "3.0.0"
+    "less": "2.7.2",
+    "ng-html2js": "3.0.0",
+    "openlayers": "4.2.0",
+    "proj4": "2.4.4"
   }
 }

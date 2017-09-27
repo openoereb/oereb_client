@@ -38,6 +38,10 @@ test-js:
     - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
     - npm install
     - ./node_modules/.bin/eslint oereb_client/static/js/**/*.js test/js/**/*.spec.js
+    - python node_modules/google-closure-library/closure/bin/build/depswriter.py
+      --root_with_prefix="./oereb_client/static/js ../../../../oereb_client/static/js"
+      --root_with_prefix="./node_modules/google-closure-library/closure/goog ../../../../node_modules/google-closure-library/closure/goog"
+      > test/js/deps.js
     - ./node_modules/.bin/karma start karma.conf.js
 
 codeclimate:

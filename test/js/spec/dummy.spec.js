@@ -1,3 +1,5 @@
+goog.require('oereb');
+
 describe('Module oereb', function() {
 
   beforeEach(angular.mock.module('oereb', function($provide) {

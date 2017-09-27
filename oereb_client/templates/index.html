@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de" ng-app="oereb" ng-controller="MainController as ctrl">
+    <head>
+        <title>ÖREB-Kataster, Kanton Basel-Landschaft</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        % if debug:
+            <link rel="stylesheet" href="${request.static_url('oereb_client:../node_modules/openlayers/dist/ol-debug.css')}" type="text/css">
+            <link rel="stylesheet" href="${request.static_url('oereb_client:static/css/oereb.css')}" type="text/css">
+        % else:
+            <link rel="stylesheet" href="${request.static_url('oereb_client:static/build/oereb.min.css')}" type="text/css">
+        % endif
+    </head>
+    <body>
+
+        <div id="map"></div>
+
+        <div id="extract" ng-class="{active: ctrl.extractActive}">
+            <div class="container-fluid">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+
+Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+
+At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+
+Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+
+Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+            </div>
+        </div>
+
+        <div id="search">
+            <img class="logo-oereb" src="${request.static_url('oereb_client:static/images/logo_oereb.png')}">
+            <img class="logo-bl" src="${request.static_url('oereb_client:static/images/logo_bl.png')}">
+            <div class="clearfix"></div>
+            <div class="container-fluid">
+                <input type="text" class="form-control" placeholder="Suche" ng-model="ctrl.searchText" />
+            </div>
+        </div>
+
+        <div style="position: fixed; left: 0px; bottom: 0px">
+            <button ng-click="ctrl.extractActive=!ctrl.extractActive">toggle</button>
+        </div>
+
+    % if debug:
+        <script src="${request.static_url('oereb_client:../node_modules/jquery/jquery.js')}"></script>
+        <script src="${request.static_url('oereb_client:../node_modules/angular/angular.js')}"></script>
+        <script src="${request.static_url('oereb_client:../node_modules/angular-animate/angular-animate.js')}"></script>
+        <script src="${request.static_url('oereb_client:../node_modules/openlayers/dist/ol-debug.js')}"></script>
+        <script src="${request.static_url('oereb_client:../node_modules/proj4/dist/proj4-src.js')}"></script>
+        <script src="${request.static_url('oereb_client:../node_modules/google-closure-library/closure/goog/base.js')}"></script>
+        <script src="${request.route_url('{0}/deps.js'.format(request.route_prefix))}"></script>
+        <script>
+            goog.require('oereb_client');
+        </script>
+    % else:
+        <script src="${request.static_url('oereb_client:static/lib/jquery.min.js')}"></script>
+        <script src="${request.static_url('oereb_client:static/lib/angular.min.js')}"></script>
+        <script src="${request.static_url('oereb_client:static/lib/angular-animate.min.js')}"></script>
+        <script src="${request.static_url('oereb_client:static/lib/ol.js')}"></script>
+        <script src="${request.static_url('oereb_client:static/lib/proj4.js')}"></script>
+        <script src="${request.static_url('oereb_client:static/build/oereb.min.js')}"></script>
+    % endif
+
+    </body>
+</html>
