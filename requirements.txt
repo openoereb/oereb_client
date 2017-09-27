@@ -1,3 +1,4 @@
+PyYAML
 tox
 pytest
 pytest-cov
