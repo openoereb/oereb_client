@@ -1,7 +1,13 @@
-/.idea
+/.idea/*
 /oereb_client.egg-info
-/node_modules
+/node_modules/*
 /npm-debug.log
-/.venv
-/.tox
+/.cache/*
+/.venv/*
+/.tox/*
 /.coverage
+/.coverage.*
+/oereb_client/static/lib/*
+/oereb_client/static/css/*
+/oereb_client/static/build/*
+/test/js/deps.js

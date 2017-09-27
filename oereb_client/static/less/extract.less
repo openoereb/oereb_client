@@ -1,0 +1,28 @@
+/**
+ * Extract styling
+ */
+
+@import "variables";
+
+div#extract {
+  width: @menu-with;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 0px;
+  padding-top: @header-height;
+  background-color: transparent;
+  box-shadow: @menu-shadow;
+  transition: height @animation-duration;
+  overflow: hidden;
+  div {
+    background-color: @menu-background-color;
+    overflow-y: scroll;
+    height: 100%;
+    padding-bottom: @default-padding;
+  }
+}
+
+div#extract.active {
+  height: 100%;
+}
