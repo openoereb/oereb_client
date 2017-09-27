@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 
 
 class Index(object):
@@ -10,6 +11,8 @@ class Index(object):
 
         """
         self.request_ = request
+        self.config_ = request.registry.settings.get('oereb_client', {})
+        assert isinstance(self.config_, dict)
 
     def is_debug_(self):
         """Returns true if requested in debug mode.
@@ -22,13 +25,24 @@ class Index(object):
         debug = self.request_.params.get('debug') == 'true'
         return local and debug
 
+    def get_base_layer_config_(self):
+        """Returns the JSON-encoded configuration for the base layer.
+
+        Returns:
+            str: The JSON-encoded base layer configuration.
+
+        """
+        base_layer_config = self.config_.get('base_layer', {})
+        return json.dumps(base_layer_config)
+
     def render(self):
         """Returns the dictionary with rendering parameters.
 
         Returns:
-            Dictionary with rendering parameters.
+            dict: Dictionary with rendering parameters.
 
         """
         return {
-            'debug': self.is_debug_()
+            'debug': self.is_debug_(),
+            'base_layer_config': self.get_base_layer_config_()
         }

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import yaml
 from pyramid.config import Configurator
 from pyramid_mako import add_mako_renderer
 
@@ -15,6 +15,9 @@ def main(global_config, **settings):  # pragma: no cover
     Push additional configuration in this section means it will not be used by the production
     environment at all!
     """
+    with open('oereb_client.yml') as f:
+        yml = yaml.safe_load(f.read())
+    settings.update(yml)
     config = Configurator(settings=settings)
     config.include('oereb_client')
     config.scan()

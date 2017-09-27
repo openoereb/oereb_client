@@ -73,6 +73,17 @@ Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming 
         <script src="${request.static_url('oereb_client:static/lib/proj4.js')}"></script>
         <script src="${request.static_url('oereb_client:static/build/oereb.min.js')}"></script>
     % endif
+    <script>
+        "use strict";
+
+        (function() {
+
+            var module = angular.module('oereb');
+            module.constant('oerebBaseLayerConfig', '${base_layer_config | n}');
+
+        })();
+
+    </script>
 
     </body>
 </html>
