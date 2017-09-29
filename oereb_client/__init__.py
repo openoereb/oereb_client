@@ -20,6 +20,7 @@ def main(global_config, **settings):  # pragma: no cover
     settings.update(yml)
     config = Configurator(settings=settings)
     config.include('oereb_client')
+    config.include('samples')
     config.scan()
     return config.make_wsgi_app()
 

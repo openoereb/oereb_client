@@ -1,13 +1,13 @@
 goog.require('oereb');
 goog.require('oereb.MapService');
 
-describe('Module oereb', function() {
+describe('MapService', function() {
 
   beforeEach(angular.mock.module('oereb', function() {
 
   }));
 
-  describe('MapService with invalid type', function() {
+  describe('with invalid type', function() {
 
     var MapService;
 
@@ -28,7 +28,7 @@ describe('Module oereb', function() {
 
   });
 
-  describe('MapService with WMS', function() {
+  describe('with WMS', function() {
 
     var MapService;
 
@@ -62,7 +62,7 @@ describe('Module oereb', function() {
 
   });
 
-  describe('MapService with WMTS', function() {
+  describe('with WMTS', function() {
 
     var MapService;
 
