@@ -38,6 +38,15 @@ test-js:
     - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
     - npm install
     - ./node_modules/.bin/eslint oereb_client/static/js/**/*.js test/js/**/*.spec.js
+    - mkdir -p oereb_client/static/build
+    - ./node_modules/.bin/nghtml2js
+      --module-name oereb
+      --base-path oereb_client/
+      --no-new-module
+      --header "goog.require('oereb');"
+      --whitespace spaces
+      --files 'oereb_client/static/html/**/*.html'
+      --output oereb_client/static/build/templates.js
     - python node_modules/google-closure-library/closure/bin/build/depswriter.py
       --root_with_prefix="./oereb_client/static/js ../../../../oereb_client/static/js"
       --root_with_prefix="./node_modules/google-closure-library/closure/goog ../../../../node_modules/google-closure-library/closure/goog"

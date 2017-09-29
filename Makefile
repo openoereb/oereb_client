@@ -19,6 +19,9 @@ LIB_JS = \
 	oereb_client/static/lib/ol.js \
 	oereb_client/static/lib/proj4.js
 
+# HTML source files
+SRC_HTML = $(shell find oereb_client/static/html -name '*.html')
+
 # LESS source files
 SRC_LESS = $(shell find oereb_client/static/less -name '*.less')
 
@@ -76,7 +79,17 @@ oereb_client/static/lib/ol.js: oereb_client/static/lib/.timestamp
 oereb_client/static/lib/proj4.js: oereb_client/static/lib/.timestamp
 	cp node_modules/proj4/dist/proj4.js oereb_client/static/lib/
 
-oereb_client/static/build/oereb.min.js: oereb_client/static/build/.timestamp node_modules/.timestamp $(SRC_JS)
+oereb_client/static/build/templates.js: oereb_client/static/build/.timestamp node_modules/.timestamp $(SRC_HTML)
+	./node_modules/.bin/nghtml2js \
+	--module-name oereb \
+	--base-path oereb_client/ \
+	--no-new-module \
+	--header "goog.require('oereb');" \
+	--whitespace spaces \
+	--files 'oereb_client/static/html/**/*.html' \
+	--output $@
+
+oereb_client/static/build/oereb.min.js: oereb_client/static/build/.timestamp node_modules/.timestamp oereb_client/static/build/templates.js $(SRC_JS)
 	java -jar $(COMPILER) \
 	--compilation_level='ADVANCED' \
 	--externs='node_modules/google-closure-compiler/contrib/externs/angular-1.5.js' \
@@ -88,6 +101,7 @@ oereb_client/static/build/oereb.min.js: oereb_client/static/build/.timestamp nod
 	--js='node_modules/google-closure-library/closure/goog/**.js' \
 	--js='!node_modules/google-closure-library/closure/goog/**_test.js' \
 	--js='oereb_client/static/js/**.js' \
+	--js='oereb_client/static/build/templates.js' \
 	--extra_annotation_name='ngdoc' \
 	--extra_annotation_name='ngname' \
 	--export_local_property_definitions \
@@ -100,7 +114,7 @@ oereb_client/static/build/oereb.min.js: oereb_client/static/build/.timestamp nod
 
 build-js: $(LIB_JS) oereb_client/static/build/oereb.min.js
 
-$(TEST_DEPS): node_modules/.timestamp $(SRC_JS)
+$(TEST_DEPS): node_modules/.timestamp $(SRC_JS) oereb_client/static/build/templates.js
 	.venv/bin/python $(DEPSWRITER) \
 	--root_with_prefix="./oereb_client/static/js ../../../../oereb_client/static/js" \
 	--root_with_prefix="./node_modules/google-closure-library/closure/goog ../../../../node_modules/google-closure-library/closure/goog" \
@@ -115,7 +129,15 @@ oereb_client/static/css/.timestamp: node_modules/.timestamp
 	mkdir -p oereb_client/static/css
 	touch $@
 
-oereb_client/static/css/oereb.css: oereb_client/static/css/.timestamp $(SRC_LESS)
+oereb_client/static/fonts/.timestamp:
+	mkdir -p oereb_client/static/fonts
+	touch $@
+
+oereb_client/static/fonts/.fa-timestamp: oereb_client/static/fonts/.timestamp
+	cp node_modules/font-awesome/fonts/*.* oereb_client/static/fonts/
+	touch $@
+
+oereb_client/static/css/oereb.css: oereb_client/static/css/.timestamp oereb_client/static/fonts/.fa-timestamp $(SRC_LESS)
 	./node_modules/.bin/lessc oereb_client/static/less/oereb.less $@
 
 oereb_client/static/build/oereb.min.css: oereb_client/static/build/.timestamp oereb_client/static/css/oereb.css
@@ -168,7 +190,7 @@ lint-js: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)
 	./node_modules/.bin/eslint $(SRC_JS) $(TEST_JS)
 
 .PHONY: test-js
-test-js: node_modules/.timestamp karma.conf.js $(SRC_JS) $(TEST_JS) $(TEST_DEPS)
+test-js: node_modules/.timestamp karma.conf.js $(SRC_JS) $(TEST_JS) $(TEST_DEPS) oereb_client/static/build/templates.js
 	./node_modules/.bin/karma start karma.conf.js
 
 .PHONY: check-js
