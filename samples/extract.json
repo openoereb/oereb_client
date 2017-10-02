@@ -1,0 +1,19 @@
+{
+  "GetExtractByIdResponse": {
+    "extract": {
+      "RealEstate": {
+        "Number": "1234",
+        "IdentDN": "SAMPLE",
+        "EGRID": "CH1234",
+        "Type": "RealEstate",
+        "Canton": "BL",
+        "Municipality": "Testwil",
+        "FosNr": 1000,
+        "LandRegistryArea": 500,
+        "Limit": null,
+        "RestrictionOnLandownership": [],
+        "Reference": []
+      }
+    }
+  }
+}

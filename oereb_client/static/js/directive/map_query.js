@@ -6,14 +6,16 @@ goog.require('oereb.EgridService');
 
 /**
  * Query and select EGRIDs on the map.
+ * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {oereb.MapService} MapService Service for map handling.
  * @param {oereb.EgridService} EgridService Service for querying EGRIDs.
+ * @param {string} oerebEventEgridSelected Event name for selected EGRID.
  * @returns {Object} Angular directive definition.
  * @ngInject
  * @ngdoc directive
  * @ngname oerebMapQuery
  */
-oereb.mapQueryDirective = function($timeout, MapService, EgridService) {
+oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEventEgridSelected) {
   return {
     restrict: 'E',
     replace: true,
@@ -90,11 +92,11 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService) {
        * @param {string} egrid The EGRID to load the extract for.
        * @export
        */
-      scope.select = function() {
+      scope.select = function(egrid) {
         $timeout(function() {
           scope.visible = false;
         });
-        // TODO: call extract service
+        scope.$emit(oerebEventEgridSelected, egrid);
       };
 
     }

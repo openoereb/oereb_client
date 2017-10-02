@@ -15,11 +15,17 @@ div#extract {
   box-shadow: @menu-shadow;
   transition: height @animation-duration;
   overflow: hidden;
-  div {
+  div.extract-wrapper {
+    z-index: 1;
     background-color: @menu-background-color;
     overflow-y: scroll;
     height: 100%;
     padding-bottom: @default-padding;
+  }
+  span.extract-close {
+    z-index: 2;
+    display: block;
+    float: right;
   }
 }
 

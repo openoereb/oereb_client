@@ -24,6 +24,7 @@ module.exports = function(config) {
       'node_modules/google-closure-library/closure/goog/base.js',
       'test/js/deps.js',
       {pattern: 'oereb_client/static/js/**/*.js', included: false, served: true},
+      {pattern: 'node_modules/google-closure-library/closure/goog/**/*.js', included: false, served: true},
       'test/js/**/*.spec.js',
       'oereb_client/static/build/templates.js'
     ],
