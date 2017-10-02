@@ -1,3 +1,13 @@
+# Check if running on CI
+ifeq ($(CI),true)
+  PIP_REQUIREMENTS=.requirements-timestamp
+  VENV_BIN=
+else
+  PIP_REQUIREMENTS=.venv/.requirements-timestamp
+  VENV_BIN=.venv/bin/
+endif
+
+
 # ********************
 # Variable definitions
 # ********************
@@ -39,12 +49,16 @@ SRC_PY = $(shell find oereb_client -name '*.py')
 # Set up environments
 # *******************
 
+.requirements-timestamp: requirements.txt
+	pip install --upgrade -r requirements.txt
+	touch $@
+
 .venv/.timestamp:
 	virtualenv .venv
 	touch $@
 
 .venv/.requirements-timestamp: .venv/.timestamp requirements.txt
-	.venv/bin/pip2 install -r requirements.txt
+	$(VENV_BIN)pip install -r requirements.txt
 	touch $@
 
 node_modules/.timestamp: package.json
@@ -115,7 +129,7 @@ oereb_client/static/build/oereb.min.js: oereb_client/static/build/.timestamp nod
 build-js: $(LIB_JS) oereb_client/static/build/oereb.min.js
 
 $(TEST_DEPS): node_modules/.timestamp $(SRC_JS) oereb_client/static/build/templates.js
-	.venv/bin/python $(DEPSWRITER) \
+	$(VENV_BIN)python $(DEPSWRITER) \
 	--root_with_prefix="./oereb_client/static/js ../../../../oereb_client/static/js" \
 	--root_with_prefix="./node_modules/google-closure-library/closure/goog ../../../../node_modules/google-closure-library/closure/goog" \
 	> $@
@@ -155,7 +169,7 @@ build-css: oereb_client/static/build/oereb.min.css
 # **************
 
 .PHONY: install
-install: .venv/.requirements-timestamp node_modules/.timestamp build
+install: $(PIP_REQUIREMENTS) node_modules/.timestamp build
 
 .PHONY: clean
 clean:
@@ -174,16 +188,16 @@ git-attributes:
 	git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
 
 .PHONY: lint-py
-lint-py: .venv/.requirements-timestamp setup.cfg $(SRC_PY)
-	.venv/bin/flake8
+lint-py: $(PIP_REQUIREMENTS) setup.cfg $(SRC_PY)
+	$(VENV_BIN)flake8
 
 .PHONY: test-py
-test-py: .venv/.requirements-timestamp $(SRC_PY)
-	.venv/bin/py.test -vv --cov-config .coveragerc --cov oereb_client test/py
+test-py: $(PIP_REQUIREMENTS) $(SRC_PY)
+	$(VENV_BIN)py.test -vv --cov-config .coveragerc --cov oereb_client test/py
 
 .PHONY: tox
-tox: .venv/.requirements-timestamp tox.ini $(SRC_PY)
-	.venv/bin/tox --recreate --skip-missing-interpreters
+tox: $(PIP_REQUIREMENTS) tox.ini $(SRC_PY)
+	$(VENV_BIN)tox --recreate --skip-missing-interpreters
 
 .PHONY: lint-js
 lint-js: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)
@@ -203,8 +217,8 @@ check-py: git-attributes lint-py tox
 check: check-py check-js
 
 .PHONY: serve
-serve: .venv/.requirements-timestamp node_modules/.timestamp development.ini
-	.venv/bin/pserve development.ini
+serve: $(PIP_REQUIREMENTS) node_modules/.timestamp development.ini
+	$(VENV_BIN)pserve development.ini
 
 .PHONY: build
 build: build-js build-css

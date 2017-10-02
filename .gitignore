@@ -5,6 +5,8 @@
 /.cache/*
 /.venv/*
 /.tox/*
+/dist/*
+/build/*
 /.coverage
 /.coverage.*
 /oereb_client/static/lib/*
