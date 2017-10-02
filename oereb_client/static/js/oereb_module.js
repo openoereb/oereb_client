@@ -9,3 +9,6 @@ goog.provide('oereb');
 oereb.module = angular.module('oereb', [
   'ngAnimate'
 ]);
+
+oereb.module.constant('oerebEventEgridSelected', 'oereb-event-egrid-selected');
+oereb.module.constant('oerebEventExtractLoaded', 'oereb-event-extract-loaded');

@@ -1,0 +1,86 @@
+goog.provide('oereb.ExtractService');
+
+goog.require('oereb');
+
+/**
+ * Angular service to request a specific extract.
+ * @param {angular.$http} $http Angular service for HTTP requests.
+ * @param {angular.$q} $q Angular service for deferrable objects.
+ * @param {angular.Module.constant} oerebApplicationUrl Angular service for HTTP requests.
+ * @constructor
+ * @ngInject
+ * @ngdoc service
+ * @ngname ExtractService
+ */
+oereb.ExtractService = function($http, $q, oerebApplicationUrl) {
+
+  this.$http_ = $http;
+  this.$q_ = $q;
+  this.applicationUrl_ = oerebApplicationUrl;
+
+  this.extract_ = undefined;
+  this.embeddable_ = undefined;
+
+};
+
+/**
+ * Requests the extract for the specified EGRID.
+ * @param {string} egrid The EGRID to request the extract for.
+ * @returns {angular.$q.Promise} Promise for the EGRID request.
+ */
+oereb.ExtractService.prototype.queryExtractById = function(egrid) {
+  this.extract_ = undefined;
+  this.embeddable_ = undefined;
+  var def = this.$q_.defer();
+  this.$http_.get(this.applicationUrl_ + '/extract/reduced/json/geometry/' + egrid).then(
+    function(response) {
+      if (angular.isObject(response.data['GetExtractByIdResponse'])) {
+        this.extract_ = response.data['GetExtractByIdResponse']['extract'];
+        if (angular.isObject(response.data['GetExtractByIdResponse']['embeddable'])) {
+          this.embeddable_ = response.data['GetExtractByIdResponse']['embeddable'];
+        }
+        def.resolve(response.data['GetExtractByIdResponse']);
+      }
+      else {
+        def.reject('Invalid response format.');
+      }
+    }.bind(this),
+    function(response) {
+      var error = 'Requesting extract for ' + egrid + ' failed.';
+      if (angular.isString(response.data)) {
+        error += ' ' + response.data;
+      }
+      def.reject(error);
+    }
+  );
+  return def.promise;
+};
+
+/**
+ * Returns the extract if available.
+ * @returns {Object|undefined} The extract object or undefined.
+ */
+oereb.ExtractService.prototype.getExtract = function() {
+  return this.extract_;
+};
+
+/**
+ * Returns the real estate data if available.
+ * @returns {Object|undefined} The real estate data or undefined.
+ */
+oereb.ExtractService.prototype.getRealEstate = function() {
+  if (angular.isDefined(this.getExtract())) {
+    return this.getExtract()['RealEstate'];
+  }
+  return undefined;
+};
+
+/**
+ * Returns the embeddable if available.
+ * @returns {Object|undefined} The extract object or undefined.
+ */
+oereb.ExtractService.prototype.getEmbeddable = function() {
+  return this.embeddable_;
+};
+
+oereb.module.service('ExtractService', oereb.ExtractService);

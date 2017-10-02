@@ -11,3 +11,11 @@ def includeme(config):
                     route_name='{0}/getegrid'.format(config.route_prefix),
                     renderer='json',
                     request_method='GET')
+
+    config.add_route('{0}/getextractbyid'.format(config.route_prefix),
+                     '/extract/reduced/json/geometry/CH1234')
+    config.add_view(Sample,
+                    attr='get_extract_by_id',
+                    route_name='{0}/getextractbyid'.format(config.route_prefix),
+                    renderer='json',
+                    request_method='GET')

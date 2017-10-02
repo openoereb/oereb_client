@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+import json
+
+from pyramid.httpexceptions import HTTPOk
 
 
 class Sample(object):
@@ -20,3 +23,8 @@ class Sample(object):
                 }
             ]
         }
+
+    def get_extract_by_id(self):
+        with open('samples/extract.json') as f:
+            content = json.loads(f.read())
+        return HTTPOk(json_body=content)
