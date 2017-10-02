@@ -1,21 +1,31 @@
 image: python:3.6
 
+variables:
+  PYPI_USER: SECURE
+  PYPI_PASSWORD: SECURE
+  PYPI_HOST: SECURE
+
+stages:
+  - test
+  - build
+  - deploy
+
 before_script:
   - mkdir -p "$CI_PROJECT_DIR/.pip-cache"
 
 cache:
   paths:
     - node_modules/
+    - oereb_client/static/build/
 
 test-py:2.7:
   stage: test
   image: python:2.7
   allow_failure: false
   script:
-    - pip install -r requirements.txt
-    - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
-    - flake8
-    - py.test -vv --cov-config .coveragerc --cov oereb_client test/py
+    - make git-attributes
+    - make lint-py
+    - make test-py
 
 test-py:3.6:
   stage: test
@@ -25,33 +35,63 @@ test-py:3.6:
     paths:
       - "$CI_PROJECT_DIR/.pip-cache"
   script:
-    - pip install -r requirements.txt
-    - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
-    - flake8
-    - py.test -vv --cov-config .coveragerc --cov oereb_client test/py
+    - make git-attributes
+    - make lint-py
+    - make test-py
 
 
 test-js:
   stage: test
-  image: node:latest
+  image: node:8-stretch
   script:
-    - git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
-    - npm install
-    - ./node_modules/.bin/eslint oereb_client/static/js/**/*.js test/js/**/*.spec.js
-    - mkdir -p oereb_client/static/build
-    - ./node_modules/.bin/nghtml2js
-      --module-name oereb
-      --base-path oereb_client/
-      --no-new-module
-      --header "goog.require('oereb');"
-      --whitespace spaces
-      --files 'oereb_client/static/html/**/*.html'
-      --output oereb_client/static/build/templates.js
-    - python node_modules/google-closure-library/closure/bin/build/depswriter.py
-      --root_with_prefix="./oereb_client/static/js ../../../../oereb_client/static/js"
-      --root_with_prefix="./node_modules/google-closure-library/closure/goog ../../../../node_modules/google-closure-library/closure/goog"
-      > test/js/deps.js
-    - ./node_modules/.bin/karma start karma.conf.js
+    - make git-attributes
+    - make lint-js
+    - make test-js
+
+
+build:
+  stage: build
+  image: node:8-stretch
+  allow_failure: false
+  script:
+    - apt-get update -qq
+    - apt-get install -y -qq openjdk-8-jre
+    - make build
+  artifacts:
+    paths:
+      - oereb_client/static/
+    expire_in: 1 day
+  only:
+    - /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$/
+  except:
+    - branches
+
+deploy:
+  stage: deploy
+  dependencies:
+    - build
+  allow_failure: false
+  cache:
+    key: "PIP"
+    paths:
+      - "$CI_PROJECT_DIR/.pip-cache"
+  script:
+    - pip install -r requirements.txt
+    - echo "[distutils]" >> ~/.pypirc
+    - echo "index-servers =" >> ~/.pypirc
+    - echo "    pypibl" >> ~/.pypirc
+    - echo "" >> ~/.pypirc
+    - echo "[pypibl]" >> ~/.pypirc
+    - echo "username:" ${PYPI_USER} >> ~/.pypirc
+    - echo "password:" ${PYPI_PASSWORD} >> ~/.pypirc
+    - echo "repository:" ${PYPI_HOST} >> ~/.pypirc
+    - python setup.py check bdist_wheel upload -r pypibl
+    - echo "" > ~/.pypirc && rm ~/.pypirc
+  only:
+    - /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$/
+  except:
+    - branches
+
 
 codeclimate:
   image: docker:latest
@@ -65,3 +105,9 @@ codeclimate:
     - docker run --env CODECLIMATE_CODE="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze -f json > codeclimate.json
   artifacts:
     paths: [codeclimate.json]
+  only:
+    - branches
+
+
+after_script:
+  - rm -vf ~/.pypirc
