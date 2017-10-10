@@ -175,8 +175,6 @@ $(dir $(CSS_DIR))oereb.css: $(NODE_MODULES) $(CSS_DIR) $(SRC_LESS) $(dir $(FONTS
 $(APP_CSS): $(NODE_MODULES) $(BUILD_DIR) $(dir $(CSS_DIR))oereb.css
 	./node_modules/.bin/cleancss -O2 -o $@ \
 	node_modules/openlayers/dist/ol.css \
-	node_modules/bootstrap/dist/css/bootstrap.min.css \
-	node_modules/font-awesome/css/font-awesome.min.css \
 	oereb_client/static/css/oereb.css
 
 
