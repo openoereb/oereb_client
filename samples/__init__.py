@@ -19,3 +19,5 @@ def includeme(config):
                     route_name='{0}/getextractbyid'.format(config.route_prefix),
                     renderer='json',
                     request_method='GET')
+
+    config.add_static_view('samples/static', 'samples:static', cache_max_age=3600)
