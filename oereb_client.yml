@@ -50,3 +50,9 @@ oereb_client:
       - 0.05
       - 0.025
       - 0.01
+  # Search field configuration
+  search:
+    service:
+      url: http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?
+      municipality: gemeinde
+      real_estate: grundstueck
