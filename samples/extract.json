@@ -1,6 +1,156 @@
 {
   "GetExtractByIdResponse": {
     "extract": {
+      "BaseData": [
+        {
+          "Text": "Daten der amtlichen Vermessung, Stand 16.10.2017.",
+          "Language": "de"
+        }
+      ],
+      "LogoPLRCadastreRef": "http://localhost:6543/oereb/image/logo/oereb",
+      "FederalLogoRef": "http://localhost:6543/oereb/image/logo/confederation",
+      "CantonalLogoRef": "http://localhost:6543/oereb/image/logo/canton",
+      "MunicipalityLogoRef": "http://localhost:6543/oereb/image/municipality/2771",
+      "ExtractIdentifier": "2e712cbe-b38c-470d-8d07-66977a159fbd",
+      "isReduced": true,
+      "PLRCadastreAuthority": {
+        "City": "Wabern",
+        "Name": [
+          {
+            "Text": "ÖREB-Katasteraufsichtsbehörde",
+            "Language": "de"
+          }
+        ],
+        "Number": 264,
+        "OfficeAtWeb": "https://www.cadastre.ch/en/oereb.html",
+        "Street": "Seftigenstrasse",
+        "PostalCode": 3084
+      },
+      "CreationDate": "2017-10-16T09:25:03",
+      "ConcernedTheme": [
+        {
+          "Text": {
+            "Text": "Belastete Standorte Öffentlicher Verkehr",
+            "Language": "de"
+          },
+          "Code": "ContaminatedPublicTransportSites"
+        }
+      ],
+      "NotConcernedTheme": [],
+      "ThemeWithoutData": [
+        {
+          "Text": {
+            "Text": "Nutzungsplanung",
+            "Language": "de"
+          },
+          "Code": "LandUsePlans"
+        },
+        {
+          "Text": {
+            "Text": "Projektierungszonen Nationalstrassen",
+            "Language": "de"
+          },
+          "Code": "MotorwaysProjectPlaningZones"
+        },
+        {
+          "Text": {
+            "Text": "Baulinien Nationalstrassen",
+            "Language": "de"
+          },
+          "Code": "MotorwaysBuildingLines"
+        },
+        {
+          "Text": {
+            "Text": "Baulinien Eisenbahnanlagen",
+            "Language": "de"
+          },
+          "Code": "RailwaysBuildingLines"
+        },
+        {
+          "Text": {
+            "Text": "Projektierungszonen Eisenbahnanlagen",
+            "Language": "de"
+          },
+          "Code": "RailwaysProjectPlanningZones"
+        },
+        {
+          "Text": {
+            "Text": "Projektierungszonen Flughafenanlagen",
+            "Language": "de"
+          },
+          "Code": "AirportsProjectPlanningZones"
+        },
+        {
+          "Text": {
+            "Text": "Baulinien Flughafenanlagen",
+            "Language": "de"
+          },
+          "Code": "AirportsBuildingLines"
+        },
+        {
+          "Text": {
+            "Text": "Sicherheitszonenplan Flughafen",
+            "Language": "de"
+          },
+          "Code": "AirportsSecurityZonePlans"
+        },
+        {
+          "Text": {
+            "Text": "Belastete Standorte",
+            "Language": "de"
+          },
+          "Code": "ContaminatedSites"
+        },
+        {
+          "Text": {
+            "Text": "Belastete Standorte Militär",
+            "Language": "de"
+          },
+          "Code": "ContaminatedMilitarySites"
+        },
+        {
+          "Text": {
+            "Text": "Belastete Standorte Zivile Flugplätze",
+            "Language": "de"
+          },
+          "Code": "ContaminatedCivilAviationSites"
+        },
+        {
+          "Text": {
+            "Text": "Grundwasserschutzzonen",
+            "Language": "de"
+          },
+          "Code": "GroundwaterProtectionZones"
+        },
+        {
+          "Text": {
+            "Text": "Grundwasserschutzareale",
+            "Language": "de"
+          },
+          "Code": "GroundwaterProtectionSites"
+        },
+        {
+          "Text": {
+            "Text": "Lärmemfindlichkeitsstufen",
+            "Language": "de"
+          },
+          "Code": "NoiseSensitivityLevels"
+        },
+        {
+          "Text": {
+            "Text": "Waldgrenzen",
+            "Language": "de"
+          },
+          "Code": "ForestPerimeters"
+        },
+        {
+          "Text": {
+            "Text": "Waldabstandslinien",
+            "Language": "de"
+          },
+          "Code": "ForestDistanceLines"
+        }
+      ],
       "RealEstate": {
         "Number": "1234",
         "IdentDN": "SAMPLE",
@@ -11,9 +161,177 @@
         "FosNr": 1000,
         "LandRegistryArea": 500,
         "Limit": null,
-        "RestrictionOnLandownership": [],
+        "PlanForLandRegister": {
+          "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.swisstopo-vd.amtliche-vermessung&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205"
+        },
+        "RestrictionOnLandownership": [
+          {
+            "PartInPercent": 22.3,
+            "Information": [
+              {
+                "Text": "Belastet, untersuchungsbedürftig",
+                "Language": "de"
+              }
+            ],
+            "Theme": {
+              "Text": {
+                "Text": "Belastete Standorte Öffentlicher Verkehr",
+                "Language": "de"
+              },
+              "Code": "ContaminatedPublicTransportSites"
+            },
+            "TypeCode": "StaoTyp2",
+            "Map": {
+              "LegendAtWeb": "https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&LAYER=ch.bav.kataster-belasteter-standorte-oev.oereb",
+              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205"
+            },
+            "LegalProvisions": [
+              {
+                "Reference": [
+                  {
+                    "OfficialNumber": "SR 814.01",
+                    "Title": [
+                      {
+                        "Text": "Umweltschutzgesetz",
+                        "Language": "de"
+                      }
+                    ],
+                    "Abbrevation": [
+                      {
+                        "Text": "USG",
+                        "Language": "de"
+                      }
+                    ],
+                    "ResponsibleOffice": {
+                      "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
+                      "Name": [
+                        {
+                          "Text": "Bundesamt für Verkehr BAV",
+                          "Language": "de"
+                        }
+                      ]
+                    },
+                    "TextAtWeb": [
+                      {
+                        "Text": "http://www.admin.ch/ch/d/sr/c814_01.html",
+                        "Language": "de"
+                      }
+                    ],
+                    "Lawstatus": {
+                      "Text": {
+                        "Text": "in Kraft",
+                        "Language": "de"
+                      },
+                      "Code": "inForce"
+                    }
+                  },
+                  {
+                    "OfficialNumber": "SR 814.680",
+                    "Title": [
+                      {
+                        "Text": "Altlasten-Verordnung",
+                        "Language": "de"
+                      }
+                    ],
+                    "Abbrevation": [
+                      {
+                        "Text": "AltlV",
+                        "Language": "de"
+                      }
+                    ],
+                    "ResponsibleOffice": {
+                      "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
+                      "Name": [
+                        {
+                          "Text": "Bundesamt für Verkehr BAV",
+                          "Language": "de"
+                        }
+                      ]
+                    },
+                    "TextAtWeb": [
+                      {
+                        "Text": "http://www.admin.ch/ch/d/sr/c814_680.html",
+                        "Language": "de"
+                      }
+                    ],
+                    "Lawstatus": {
+                      "Text": {
+                        "Text": "in Kraft",
+                        "Language": "de"
+                      },
+                      "Code": "inForce"
+                    }
+                  }
+                ],
+                "Title": [
+                  {
+                    "Text": "B61001",
+                    "Language": "de"
+                  }
+                ],
+                "Canton": "BL",
+                "ResponsibleOffice": {
+                  "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
+                  "Name": [
+                    {
+                      "Text": "Bundesamt für Verkehr BAV",
+                      "Language": "de"
+                    }
+                  ]
+                },
+                "TextAtWeb": [
+                  {
+                    "Text": "http://map.geo.admin.ch/?Y=608865&X=261929&zoom=12&bgLayer=ch.swisstopo.swissimage&layers=ch.bav.kataster-belasteter-standorte-oev&layers_opacity=1&bgOpacity=0.8&layers_visibility=true",
+                    "Language": "de"
+                  }
+                ],
+                "Lawstatus": {
+                  "Text": {
+                    "Text": "in Kraft",
+                    "Language": "de"
+                  },
+                  "Code": "inForce"
+                }
+              }
+            ],
+            "SymbolRef": "http://localhost:6543/oereb/image/symbol/ContaminatedPublicTransportSites?TEXT=eyJmciI6ICJQb2xsdVx1MDBlOSwgaW52ZXN0aWdhdGlvbiBuXHUwMGU5Y2Vzc2FpcmUiLCAiZGUiOiAiQmVsYXN0ZXQsIHVudGVyc3VjaHVuZ3NiZWRcdTAwZmNyZnRpZyIsICJpdCI6ICJJbnF1aW5hdG8sIFx1MDBlOCBuZWNlc3NhcmlvIHByb2NlZGVyZSBhIHVuP2luZGFnaW5lIn0%3D&CODE=StaoTyp2",
+            "Lawstatus": {
+              "Text": {
+                "Text": "in Kraft",
+                "Language": "de"
+              },
+              "Code": "inForce"
+            },
+            "Area": 7824.68,
+            "ResponsibleOffice": {
+              "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
+              "Name": [
+                {
+                  "Text": "Bundesamt für Verkehr BAV",
+                  "Language": "de"
+                }
+              ]
+            }
+          }
+        ],
         "Reference": []
-      }
+      },
+      "Glossary": [
+        {
+          "Content": [
+            {
+              "Text": "Definition",
+              "Language": "de"
+            }
+          ],
+          "Title": [
+            {
+              "Text": "Term",
+              "Language": "de"
+            }
+          ]
+        }
+      ]
     }
   }
 }
