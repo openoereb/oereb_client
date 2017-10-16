@@ -7,10 +7,10 @@
           "Language": "de"
         }
       ],
-      "LogoPLRCadastreRef": "http://localhost:6543/oereb/image/logo/oereb",
-      "FederalLogoRef": "http://localhost:6543/oereb/image/logo/confederation",
-      "CantonalLogoRef": "http://localhost:6543/oereb/image/logo/canton",
-      "MunicipalityLogoRef": "http://localhost:6543/oereb/image/municipality/2771",
+      "LogoPLRCadastreRef": "http://localhost:6543/samples/static/logo_oereb.png",
+      "FederalLogoRef": "http://localhost:6543/samples/static/logo_confederation.png",
+      "CantonalLogoRef": "http://localhost:6543/samples/static/logo_canton.png",
+      "MunicipalityLogoRef": "http://localhost:6543/samples/static/diegten.png",
       "ExtractIdentifier": "2e712cbe-b38c-470d-8d07-66977a159fbd",
       "isReduced": true,
       "PLRCadastreAuthority": {
