@@ -36,8 +36,7 @@
           "Code": "ContaminatedPublicTransportSites"
         }
       ],
-      "NotConcernedTheme": [],
-      "ThemeWithoutData": [
+      "NotConcernedTheme": [
         {
           "Text": {
             "Text": "Nutzungsplanung",
@@ -65,7 +64,9 @@
             "Language": "de"
           },
           "Code": "RailwaysBuildingLines"
-        },
+        }
+      ],
+      "ThemeWithoutData": [
         {
           "Text": {
             "Text": "Projektierungszonen Eisenbahnanlagen",

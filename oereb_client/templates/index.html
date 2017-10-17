@@ -21,6 +21,9 @@
             <div class="container-fluid extract-wrapper">
                 <span class="close extract-close" ng-click="ctrl.extractActive=false">&times;</span>
                 <oereb-real-estate></oereb-real-estate>
+                <oereb-concerned-theme toggled-group="ctrl.toggledGroup"></oereb-concerned-theme>
+                <oereb-not-concerned-theme toggled-group="ctrl.toggledGroup"></oereb-not-concerned-theme>
+                <oereb-theme-without-data toggled-group="ctrl.toggledGroup"></oereb-theme-without-data>
             </div>
         </div>
 
@@ -35,6 +38,7 @@
 
     % if debug:
         <script src="${request.static_url('oereb_client:../node_modules/jquery/jquery.js')}"></script>
+        <script src="${request.static_url('oereb_client:../node_modules/bootstrap/dist/js/bootstrap.js')}"></script>
         <script src="${request.static_url('oereb_client:../node_modules/angular/angular.js')}"></script>
         <script src="${request.static_url('oereb_client:../node_modules/angular-animate/angular-animate.js')}"></script>
         <script src="${request.static_url('oereb_client:../node_modules/openlayers/dist/ol-debug.js')}"></script>
@@ -46,6 +50,7 @@
         </script>
     % else:
         <script src="${request.static_url('oereb_client:static/lib/jquery.min.js')}"></script>
+        <script src="${request.static_url('oereb_client:static/lib/bootstrap.min.js')}"></script>
         <script src="${request.static_url('oereb_client:static/lib/angular.min.js')}"></script>
         <script src="${request.static_url('oereb_client:static/lib/angular-animate.min.js')}"></script>
         <script src="${request.static_url('oereb_client:static/lib/ol.js')}"></script>

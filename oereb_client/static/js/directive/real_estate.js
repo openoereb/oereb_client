@@ -17,10 +17,11 @@ oereb.realEstateDirective = function(ExtractService, oerebEventExtractLoaded) {
     restrict: 'E',
     replace: true,
     templateUrl: 'static/html/real_estate.html',
-    scope: {
-      extractData: '='
-    },
+    scope: {},
     link: function(scope) {
+
+      /** @export {Object} */
+      scope.data = {};
 
       // Update real estate data on loaded extract
       scope.$on(oerebEventExtractLoaded, function() {
