@@ -36,6 +36,7 @@ LIB_JS = \
 	$(dir $(LIB_DIR))angular.min.js \
 	$(dir $(LIB_DIR))angular-animate.min.js \
 	$(dir $(LIB_DIR))jquery.min.js \
+	$(dir $(LIB_DIR))bootstrap.min.js \
 	$(dir $(LIB_DIR))ol.js \
 	$(dir $(LIB_DIR))proj4.js
 
@@ -144,6 +145,9 @@ $(dir $(LIB_DIR))angular.min.js: $(LIB_DIR)
 
 $(dir $(LIB_DIR))angular-animate.min.js: $(LIB_DIR)
 	cp $(dir $(NODE_MODULES))angular-animate/angular-animate.min.js $(dir $(LIB_DIR))
+
+$(dir $(LIB_DIR))bootstrap.min.js: $(LIB_DIR)
+	cp $(dir $(NODE_MODULES))bootstrap/dist/js/bootstrap.min.js $(dir $(LIB_DIR))
 
 $(dir $(LIB_DIR))ol.js: $(LIB_DIR)
 	cp $(dir $(NODE_MODULES))openlayers/dist/ol.js $(dir $(LIB_DIR))

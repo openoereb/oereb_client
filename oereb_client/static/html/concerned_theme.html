@@ -1,0 +1,18 @@
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="button" id="{{id}}-heading" data-toggle="collapse"
+         href="#{{id}}-collapse" aria-expanded="true" aria-controls="{{id}}-collapse" ng-click="toggle()">
+      <h4 class="panel-title">
+          Betroffene Themen <span class="badge pull-right" ng-bind="data.length"></span>
+      </h4>
+    </div>
+    <div id="{{id}}-collapse" class="panel-collapse collapse" role="tabpanel"
+         aria-labelledby="{{id}}-heading">
+      <div class="list-group">
+        <button type="button" class="list-group-item" ng-repeat="theme in data">
+            {{theme['Text']['Text']}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

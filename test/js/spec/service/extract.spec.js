@@ -94,6 +94,99 @@ describe('ExtractService', function() {
 
   });
 
+  describe('getConcernedThemes', function() {
+
+    it('should return undefined if no extract is available', function() {
+      expect(ExtractService.getConcernedThemes()).toBeUndefined();
+    });
+
+    it('should return the concerned themes', function() {
+      var data = {
+        GetExtractByIdResponse: {
+          extract: {
+            ConcernedTheme: [
+              {
+                Code: 'topic1'
+              },
+              {
+                Code: 'topic2'
+              }
+            ]
+          }
+        }
+      };
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      ExtractService.queryExtractById('CHTEST');
+      $httpBackend.flush();
+      expect(ExtractService.getConcernedThemes().length).toBe(2);
+      expect(ExtractService.getConcernedThemes()[0]['Code']).toEqual('topic1');
+      expect(ExtractService.getConcernedThemes()[1]['Code']).toEqual('topic2');
+    });
+
+  });
+
+  describe('getNotConcernedThemes', function() {
+
+    it('should return undefined if no extract is available', function() {
+      expect(ExtractService.getNotConcernedThemes()).toBeUndefined();
+    });
+
+    it('should return the not concerned themes', function() {
+      var data = {
+        GetExtractByIdResponse: {
+          extract: {
+            NotConcernedTheme: [
+              {
+                Code: 'topic1'
+              },
+              {
+                Code: 'topic2'
+              }
+            ]
+          }
+        }
+      };
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      ExtractService.queryExtractById('CHTEST');
+      $httpBackend.flush();
+      expect(ExtractService.getNotConcernedThemes().length).toBe(2);
+      expect(ExtractService.getNotConcernedThemes()[0]['Code']).toEqual('topic1');
+      expect(ExtractService.getNotConcernedThemes()[1]['Code']).toEqual('topic2');
+    });
+
+  });
+
+  describe('getThemesWithoutData', function() {
+
+    it('should return undefined if no extract is available', function() {
+      expect(ExtractService.getThemesWithoutData()).toBeUndefined();
+    });
+
+    it('should return the concerned themes', function() {
+      var data = {
+        GetExtractByIdResponse: {
+          extract: {
+            ThemeWithoutData: [
+              {
+                Code: 'topic1'
+              },
+              {
+                Code: 'topic2'
+              }
+            ]
+          }
+        }
+      };
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      ExtractService.queryExtractById('CHTEST');
+      $httpBackend.flush();
+      expect(ExtractService.getThemesWithoutData().length).toBe(2);
+      expect(ExtractService.getThemesWithoutData()[0]['Code']).toEqual('topic1');
+      expect(ExtractService.getThemesWithoutData()[1]['Code']).toEqual('topic2');
+    });
+
+  });
+
   describe('getRealEstate', function() {
 
     it('should return undefined if no extract is available', function() {

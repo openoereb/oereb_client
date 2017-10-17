@@ -76,6 +76,39 @@ oereb.ExtractService.prototype.getRealEstate = function() {
 };
 
 /**
+ * Returns list of concerned themes.
+ * @returns {Array|undefined} The list of concerned themes.
+ */
+oereb.ExtractService.prototype.getConcernedThemes = function() {
+  if (angular.isDefined(this.getExtract())) {
+    return this.getExtract()['ConcernedTheme'];
+  }
+  return undefined;
+};
+
+/**
+ * Returns list of not concerned themes.
+ * @returns {Array|undefined} The list of not concerned themes.
+ */
+oereb.ExtractService.prototype.getNotConcernedThemes = function() {
+  if (angular.isDefined(this.getExtract())) {
+    return this.getExtract()['NotConcernedTheme'];
+  }
+  return undefined;
+};
+
+/**
+ * Returns list of themes without data.
+ * @returns {Array|undefined} The list of themes without data.
+ */
+oereb.ExtractService.prototype.getThemesWithoutData = function() {
+  if (angular.isDefined(this.getExtract())) {
+    return this.getExtract()['ThemeWithoutData'];
+  }
+  return undefined;
+};
+
+/**
  * Returns the embeddable if available.
  * @returns {Object|undefined} The extract object or undefined.
  */

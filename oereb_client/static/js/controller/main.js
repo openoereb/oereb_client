@@ -20,6 +20,9 @@ oereb.MainController = function($scope, ExtractService, oerebEventEgridSelected,
   /** @export {boolean} */
   this.extractActive = false;
 
+  /** @export {string} */
+  this.toggledGroup = undefined;
+
   // Load extract on selected egrid
   $scope.$on(oerebEventEgridSelected, function(event, egrid) {
     ExtractService.queryExtractById(egrid).then(
