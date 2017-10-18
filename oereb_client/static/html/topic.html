@@ -1,0 +1,22 @@
+<div class="panel-group" role="tablist" aria-multiselectable="true">
+  <div class="panel" ng-class="{'panel-primary': isSelected(), 'panel-default': !isSelected()}">
+    <div class="panel-heading"
+         role="button"
+         id="{{id}}-heading"
+         data-toggle="collapse"
+         href="#{{id}}-collapse"
+         aria-expanded="true"
+         aria-controls="{{id}}-collapse"
+         ng-click="select()">
+      <strong ng-bind="theme['Text']['Text']"></strong>
+    </div>
+    <div id="{{id}}-collapse"
+         class="panel-collapse collapse"
+         role="tabpanel"
+         aria-labelledby="{{id}}-heading">
+      <div class="panel-body">
+        coming soon...
+      </div>
+    </div>
+  </div>
+</div>

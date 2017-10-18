@@ -14,6 +14,17 @@ describe('ExtractService', function() {
     $httpBackend = _$httpBackend_;
   }));
 
+  beforeEach(function () {
+    $httpBackend.whenGET('http://example.com/extract/reduced/json/geometry/CH1234').respond(
+      function() {
+        var request = new XMLHttpRequest();
+        request.open('GET', 'base/samples/extract.json', false);
+        request.send(null);
+        return [request.status, request.response, {}];
+      }
+    );
+  });
+
   afterEach(function() {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
@@ -209,6 +220,22 @@ describe('ExtractService', function() {
       ExtractService.queryExtractById('CHTEST');
       $httpBackend.flush();
       expect(ExtractService.getRealEstate()).toEqual(data['GetExtractByIdResponse']['extract']['RealEstate']);
+    });
+
+  });
+
+  describe('getRestrictions', function() {
+
+    it('should return undefined if no extract is available', function() {
+      expect(ExtractService.getRestrictions('test')).toBeUndefined();
+    });
+
+    it('should return the restrictions for the specified topic', function() {
+      ExtractService.queryExtractById('CH1234');
+      $httpBackend.flush();
+      expect(ExtractService.getRestrictions('LandUsePlans')).toEqual([]);
+      expect(ExtractService.getRestrictions('ContaminatedPublicTransportSites').length).toBe(1);
+      expect(ExtractService.getRestrictions('ContaminatedPublicTransportSites')[0]['Area']).toBe(7824.68);
     });
 
   });

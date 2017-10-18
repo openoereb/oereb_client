@@ -109,6 +109,24 @@ oereb.ExtractService.prototype.getThemesWithoutData = function() {
 };
 
 /**
+ * Returns the public law restrictions of the specified topic.
+ * @param {string} themeCode The code of the topic to return the restrictions for.
+ * @returns {Array|undefined} The public law restrictions of the specified topic.
+ */
+oereb.ExtractService.prototype.getRestrictions = function(themeCode) {
+  if (angular.isDefined(this.getRealEstate())) {
+    var restrictions = [];
+    angular.forEach(this.getRealEstate()['RestrictionOnLandownership'], function(restriction) {
+      if (restriction['Theme']['Code'] === themeCode) {
+        restrictions.push(restriction);
+      }
+    });
+    return restrictions;
+  }
+  return undefined;
+};
+
+/**
  * Returns the embeddable if available.
  * @returns {Object|undefined} The extract object or undefined.
  */

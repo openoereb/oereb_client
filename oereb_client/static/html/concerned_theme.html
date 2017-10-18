@@ -1,17 +1,28 @@
 <div class="panel-group" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
-    <div class="panel-heading" role="button" id="{{id}}-heading" data-toggle="collapse"
-         href="#{{id}}-collapse" aria-expanded="true" aria-controls="{{id}}-collapse" ng-click="toggle()">
+    <div class="panel-heading"
+         role="button"
+         id="{{id}}-heading"
+         data-toggle="collapse"
+         href="#{{id}}-collapse"
+         aria-expanded="true"
+         aria-controls="{{id}}-collapse"
+         ng-click="toggle()">
       <h4 class="panel-title">
           Betroffene Themen <span class="badge pull-right" ng-bind="data.length"></span>
       </h4>
     </div>
-    <div id="{{id}}-collapse" class="panel-collapse collapse" role="tabpanel"
-         aria-labelledby="{{id}}-heading">
-      <div class="list-group">
-        <button type="button" class="list-group-item" ng-repeat="theme in data">
-            {{theme['Text']['Text']}}
-        </button>
+    <div id="{{id}}-collapse"
+         class="panel-collapse collapse"
+         role="tabpanel"
+         aria-labelledby="{{id}}-heading"
+         ng-controller="TopicController as topicCtrl">
+      <div class="list-group" ng-class="{'no-top-border': !$first}" ng-repeat="theme in data">
+        <oereb-topic class="list-group-item no-padding"
+                     ng-class="{'no-top-border': !$first}"
+                     theme="::theme"
+                     selected-theme="topicCtrl.selectedTheme">
+        </oereb-topic>
       </div>
     </div>
   </div>
