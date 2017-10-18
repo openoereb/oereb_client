@@ -1,0 +1,32 @@
+<div>
+    <img class="logo-oereb" src="{{oerebLogoUrl}}">
+    <img class="logo-bl" src="{{blLogoUrl}}">
+    <div class="clearfix"></div>
+    <div class="container-fluid">
+        <input type="text" class="form-control" placeholder="Suche" ng-model="searchText" />
+    </div>
+    <div ng-hide="!searchText">
+        <div class="list-group">
+            <div class="list-group-item" ng-show="egrids.length > 0">
+                <span class="badge">{{egrids.length}}</span>
+                EGRID</div>
+            <button class="list-group-item search-result" ng-repeat="egrid in egrids" ng-click="egridSelect(egrid)">
+                {{egrid.properties.label | searchResult}}
+            </button>
+            <div class="list-group-item bold" ng-show="addresses.length > 0">
+                <span class="badge">{{addresses.length}}</span>
+                Adressen
+            </div>
+            <button class="list-group-item search-result" ng-repeat="address in addresses" ng-click="addressSelect(address)">
+                {{address.properties.label | searchResult}}
+            </button>
+            <div class="list-group-item" ng-show="parcels.length > 0">
+                <span class="badge">{{parcels.length}}</span>
+                Parzellen
+            </div>
+            <button class="list-group-item search-result" ng-repeat="parcel in parcels" ng-click="parcelSelect(parcel)">
+                {{parcel.properties.label | searchResult}}
+            </button>
+        </div>
+    </div>
+</div>
