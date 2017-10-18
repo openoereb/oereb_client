@@ -28,7 +28,8 @@ module.exports = function(config) {
       {pattern: 'node_modules/google-closure-library/closure/goog/**/*.js', included: false, served: true},
       'test/js/**/*.spec.js',
       'oereb_client/static/build/templates.js',
-      {pattern: 'test/resources/**/*.*', included: false, served: true}
+      {pattern: 'test/resources/**/*.*', included: false, served: true},
+      {pattern: 'samples/**/*.json', included: false, served: true}
     ],
 
 

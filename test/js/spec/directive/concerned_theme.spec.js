@@ -54,7 +54,6 @@ describe('concernedThemeDirective', function() {
       expect(element.find('h4').length).toBe(1);
       expect(element.find('h4').eq(0).text()).toContain('Betroffene Themen');
       expect(element.find('.collapse').length).toBe(1);
-      expect(element.find('.list-group').length).toBe(1);
     });
 
   });
@@ -72,10 +71,9 @@ describe('concernedThemeDirective', function() {
       $rootScope.$digest();
       expect(isoScope.toggle).toHaveBeenCalled();
       expect(isoScope.data.length).toBe(2);
+      expect(element.find('.list-group').length).toBe(2);
       var listGroup = element.find('.list-group').eq(0);
-      expect(listGroup.children('button').length).toBe(2);
-      expect(listGroup.children().eq(0).text()).toContain(isoScope.data[0]['Text']['Text']);
-      expect(listGroup.children().eq(1).text()).toContain(isoScope.data[1]['Text']['Text']);
+      expect(listGroup.children('.list-group-item').length).toBe(1);
     });
 
   });

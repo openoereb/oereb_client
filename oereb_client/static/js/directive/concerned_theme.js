@@ -2,6 +2,8 @@ goog.provide('oereb.concernedThemeDirective');
 
 goog.require('oereb');
 goog.require('oereb.ExtractService');
+goog.require('oereb.topicDirective');
+goog.require('oereb.TopicController');
 
 /**
  * @function
@@ -33,6 +35,9 @@ oereb.concernedThemeDirective = function(ExtractService, oerebEventExtractLoaded
       // Update data on loaded extract
       scope.$on(oerebEventExtractLoaded, function() {
         scope.data = ExtractService.getConcernedThemes();
+        if (scope.data.length > 0) {
+          scope.selectedTheme = scope.data[0]['Code'];
+        }
         scope.toggle();
       });
 

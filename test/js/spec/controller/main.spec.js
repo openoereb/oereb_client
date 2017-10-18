@@ -1,4 +1,3 @@
-goog.require('oereb');
 goog.require('oereb.MainController');
 
 describe('MainController', function() {
