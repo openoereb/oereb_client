@@ -9,7 +9,8 @@
         <div class="list-group">
             <div class="list-group-item" ng-show="egrids.length > 0">
                 <span class="badge">{{egrids.length}}</span>
-                EGRID</div>
+                EGRID
+            </div>
             <button class="list-group-item search-result" ng-repeat="egrid in egrids" ng-click="egridSelect(egrid)">
                 {{egrid.properties.label | searchResult}}
             </button>

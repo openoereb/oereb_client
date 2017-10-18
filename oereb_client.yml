@@ -56,5 +56,5 @@ oereb_client:
       url: http://dev2.geoview.bl.ch/main/wsgi/bl_fulltextsearch?
       limit: 5
     wfs:
-      url: http://geowms.bl.ch
+      url: http://geowms.bl.ch?
       limit: 5
