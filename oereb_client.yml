@@ -52,7 +52,9 @@ oereb_client:
       - 0.01
   # Search field configuration
   search:
-    url: http://dev2.geoview.bl.ch/main/wsgi/bl_fulltextsearch?
-    municipality: gemeinde
-    real_estate: grundstueck
-    limit: 5
+    api:
+      url: http://dev2.geoview.bl.ch/main/wsgi/bl_fulltextsearch?
+      limit: 5
+    wfs:
+      url: http://geowms.bl.ch
+      limit: 5
