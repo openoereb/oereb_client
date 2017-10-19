@@ -10,6 +10,16 @@ settings = {
     'oereb_client': {
         'base_layer': {
             'type': 'wmts'
+        },
+        'search': {
+            'api': {
+                'url': 'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?',
+                'limit': 5
+            },
+            'wfs': {
+                'url': 'http://geowms.bl.ch?',
+                'limit': 5
+            }
         }
     }
 }
@@ -40,5 +50,12 @@ def test_render(mock_request):
         index = Index(mock_request)
         assert index.render() == {
             'debug': index.is_debug_(),
-            'base_layer_config': index.get_base_layer_config_()
+            'base_layer_config': index.get_base_layer_config_(),
+            'search_api_config': index.get_search_config_()
         }
+
+
+def test_get_search_config(mock_request):
+    with testConfig(settings=settings):
+        index = Index(mock_request)
+        assert index.get_search_config_() == json.dumps(settings.get('oereb_client').get('search'))

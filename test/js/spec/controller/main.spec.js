@@ -5,16 +5,25 @@ describe('MainController', function() {
 
   beforeEach(angular.mock.module('oereb', function($provide) {
     $provide.constant('oerebApplicationUrl', 'http://example.com');
+    $provide.constant('oerebBaseLayerConfig', angular.toJson({
+        type: 'wms',
+        url: 'http://geowms.bl.ch',
+        params: {
+          LAYERS: 'grundkarte_sw_group'
+        }
+      }));
   }));
 
-  var $controller, $httpBackend, $rootScope, ExtractService, oerebEventEgridSelected, oerebEventExtractLoaded;
+  var $controller, $httpBackend, $rootScope, ExtractService, MapService, oerebEventEgridSelected,
+    oerebEventExtractLoaded;
 
-  beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_, _ExtractService_,
+  beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_, _ExtractService_, _MapService_,
                              _oerebEventEgridSelected_, _oerebEventExtractLoaded_) {
     $controller = _$controller_;
     $httpBackend = _$httpBackend_;
     $rootScope = _$rootScope_;
     ExtractService = _ExtractService_;
+    MapService = _MapService_;
     oerebEventEgridSelected = _oerebEventEgridSelected_;
     oerebEventExtractLoaded = _oerebEventExtractLoaded_;
   }));
@@ -28,6 +37,7 @@ describe('MainController', function() {
     return $controller('MainController', {
       $scope: $rootScope.$new(),
       ExtractService: ExtractService,
+      MapService: MapService,
       oerebEventEgridSelected: oerebEventEgridSelected,
       oerebEventExtractLoaded: oerebEventExtractLoaded
     });
