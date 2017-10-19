@@ -53,7 +53,7 @@ oereb_client:
   # Search field configuration
   search:
     api:
-      url: http://dev2.geoview.bl.ch/main/wsgi/bl_fulltextsearch?
+      url: http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?
       limit: 5
     wfs:
       url: http://geowms.bl.ch?
