@@ -3,7 +3,7 @@ goog.provide('oereb.searchResultFilter');
 goog.require('oereb');
 
 oereb.searchResultFilter = function () {
-  return function(x){
+  return function(x) {
       return x.replace(/ \((.*?)\)/, '');
   };
 };
