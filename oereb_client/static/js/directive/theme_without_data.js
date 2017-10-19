@@ -11,7 +11,7 @@ goog.require('oereb.ExtractService');
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
  * @param {string} oerebEventExtractLoaded Name of the extract loaded event.
  *
- * @returns {Object} Angular directive definition object.
+ * @returns {angular.Directive} Angular directive definition object.
  *
  * @ngInject
  */
@@ -21,10 +21,11 @@ oereb.themeWithoutDataDirective = function(ExtractService, oerebEventExtractLoad
     replace: true,
     templateUrl: 'static/html/theme_without_data.html',
     scope: {
-      toggledGroup: '='
+      /** @export */ toggledGroup: '='
     },
     link: function(scope, element) {
 
+      /** @export {string} */
       scope.id = 'without-data-' + parseInt(Math.random() * Date.now());
 
       /** @export {Array} */

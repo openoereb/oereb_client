@@ -7,7 +7,7 @@ goog.require('oereb.ExtractService');
  * Angular directive for rendering the real estate data.
  * @param {oereb.ExtractService} ExtractService Angular service for extract loading.
  * @param {string} oerebEventExtractLoaded Event name for loaded extract.
- * @returns {Object} Angular directive definition object.
+ * @returns {angular.Directive} Angular directive definition object.
  * @ngInject
  * @ngdoc directive
  * @ngname oerebRealEstate

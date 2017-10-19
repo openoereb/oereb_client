@@ -127,6 +127,42 @@ oereb.ExtractService.prototype.getRestrictions = function(themeCode) {
 };
 
 /**
+ * Returns the legend entries of the specified topic.
+ * @param {string} themeCode The code of the topic to return the restrictions for.
+ * @returns {Array|undefined} The legend entries of the specified topic.
+ */
+oereb.ExtractService.prototype.getLegend = function(themeCode) {
+  var restrictions = this.getRestrictions(themeCode);
+  if (angular.isDefined(restrictions)) {
+    var legendEntries = [];
+    for (var i = 0; i < restrictions.length; i++) {
+      var existing = false;
+      for (var j = 0; j < legendEntries.length; j++) {
+        if (legendEntries[j]['TypeCode'] === restrictions[i]['TypeCode']) {
+          existing = true;
+          legendEntries[j]['Area'] += restrictions[i]['Area'];
+          legendEntries[j]['PartInPercent'] += restrictions[i]['PartInPercent'];
+          break;
+
+        }
+
+      }
+      if (!existing) {
+        legendEntries.push({
+          'TypeCode': restrictions[i]['TypeCode'],
+          'Information': restrictions[i]['Information'],
+          'Area': restrictions[i]['Area'],
+          'PartInPercent': restrictions[i]['PartInPercent'],
+          'SymbolRef': restrictions[i]['SymbolRef']
+        });
+      }
+    }
+    return legendEntries;
+  }
+  return undefined;
+};
+
+/**
  * Returns the embeddable if available.
  * @returns {Object|undefined} The extract object or undefined.
  */

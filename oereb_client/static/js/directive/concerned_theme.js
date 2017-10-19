@@ -13,7 +13,7 @@ goog.require('oereb.TopicController');
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
  * @param {string} oerebEventExtractLoaded Name of the extract loaded event.
  *
- * @returns {Object} Angular directive definition object.
+ * @returns {angular.Directive} Angular directive definition object.
  *
  * @ngInject
  */
@@ -23,10 +23,11 @@ oereb.concernedThemeDirective = function(ExtractService, oerebEventExtractLoaded
     replace: true,
     templateUrl: 'static/html/concerned_theme.html',
     scope: {
-      toggledGroup: '='
+      /** @export */ toggledGroup: '='
     },
     link: function(scope, element) {
 
+      /** @export {string} */
       scope.id = 'concerned-' + parseInt(Math.random() * Date.now());
 
       /** @export {Array} */

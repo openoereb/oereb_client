@@ -11,7 +11,7 @@ goog.require('oereb.ExtractService');
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
  * @param {string} oerebEventExtractLoaded Name of the extract loaded event.
  *
- * @returns {Object} Angular directive definition object.
+ * @returns {angular.Directive} Angular directive definition object.
  *
  * @ngInject
  */
@@ -21,10 +21,11 @@ oereb.notConcernedThemeDirective = function(ExtractService, oerebEventExtractLoa
     replace: true,
     templateUrl: 'static/html/not_concerned_theme.html',
     scope: {
-      toggledGroup: '='
+      /** @export */ toggledGroup: '='
     },
     link: function(scope, element) {
 
+      /** @export {string} */
       scope.id = 'not-concerned-' + parseInt(Math.random() * Date.now());
 
       /** @export {Array} */
