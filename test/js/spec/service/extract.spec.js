@@ -234,8 +234,25 @@ describe('ExtractService', function() {
       ExtractService.queryExtractById('CH1234');
       $httpBackend.flush();
       expect(ExtractService.getRestrictions('LandUsePlans')).toEqual([]);
-      expect(ExtractService.getRestrictions('ContaminatedPublicTransportSites').length).toBe(1);
+      expect(ExtractService.getRestrictions('ContaminatedPublicTransportSites').length).toBe(3);
       expect(ExtractService.getRestrictions('ContaminatedPublicTransportSites')[0]['Area']).toBe(7824.68);
+    });
+
+  });
+
+  describe('getLegend', function() {
+
+    it('should return undefined if no extract is available', function() {
+      expect(ExtractService.getLegend('test')).toBeUndefined();
+    });
+
+    it('should return the restrictions for the specified topic', function() {
+      ExtractService.queryExtractById('CH1234');
+      $httpBackend.flush();
+      expect(ExtractService.getLegend('LandUsePlans')).toEqual([]);
+      expect(ExtractService.getLegend('ContaminatedPublicTransportSites').length).toBe(2);
+      expect(ExtractService.getLegend('ContaminatedPublicTransportSites')[0]['Area']).toBe(13652.36);
+      expect(ExtractService.getLegend('ContaminatedPublicTransportSites')[0]['PartInPercent']).toBe(37.7);
     });
 
   });

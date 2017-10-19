@@ -3,34 +3,30 @@ goog.provide('oereb.topicDirective');
 goog.require('oereb');
 goog.require('oereb.ExtractService');
 goog.require('oereb.TopicController');
+goog.require('oereb.legendDirective');
 
 /**
  * @function
  *
  * @description Angular directive definition function.
  *
- * @param {angular.$timeout} $timeout Angular $timeout service.
- * @param {oereb.ExtractService} ExtractService The service for extract handling.
- *
- * @returns {Object} Angular directive definition object.
+ * @returns {angular.Directive} Angular directive definition object.
  *
  * @ngInject
  */
-oereb.topicDirective = function($timeout, ExtractService) {
+oereb.topicDirective = function() {
   return {
     restrict: 'E',
     replace: true,
     templateUrl: 'static/html/topic.html',
     scope: {
-      theme: '=',
-      selectedTheme: '='
+      /** @export */ theme: '=',
+      /** @export */ selectedTheme: '='
     },
     link: function(scope, element) {
 
+      /** @export {string} */
       scope.id = 'topic-' + parseInt(Math.random() * Date.now());
-
-      /** @export {Array|undefined} */
-      scope.data = ExtractService.getRestrictions(scope.themeCode);
 
       var collapsible = element.find('.collapse').eq(0);
 

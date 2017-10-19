@@ -10,7 +10,7 @@ goog.require('oereb.EgridService');
  * @param {oereb.MapService} MapService Service for map handling.
  * @param {oereb.EgridService} EgridService Service for querying EGRIDs.
  * @param {string} oerebEventEgridSelected Event name for selected EGRID.
- * @returns {Object} Angular directive definition.
+ * @returns {angular.Directive} Angular directive definition.
  * @ngInject
  * @ngdoc directive
  * @ngname oerebMapQuery
