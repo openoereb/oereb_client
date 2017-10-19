@@ -81,6 +81,23 @@ describe('MainController', function() {
       expect(ctrl.extractActive).toBe(true);
     });
 
+    it('should show the extract and center', function() {
+      var view = MapService.getMap().getView();
+      spyOn(view, 'fit');
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      spyOn(ExtractService, 'getExtract').and.returnValue('Test');
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        Limit: {
+          coordinates: []
+        }
+      });
+      var ctrl = getMainController();
+      $rootScope.$broadcast(oerebEventEgridSelected, 'CHTEST', true);
+      $httpBackend.flush();
+      expect(ctrl.extractActive).toBe(true);
+      expect(view.fit).toHaveBeenCalled();
+    });
+
     it('should hide the extract on invalid data', function() {
       $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, 'Test');
       spyOn(ExtractService, 'getExtract').and.returnValue(undefined);
