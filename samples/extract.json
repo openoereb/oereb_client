@@ -677,6 +677,10 @@
                         "Language": "de"
                       }
                     ],
+                    "ArticleNumber": [
+                      "Art. 1a",
+                      "Art. 2b"
+                    ],
                     "ResponsibleOffice": {
                       "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
                       "Name": [
@@ -879,6 +883,9 @@
                         "Text": "USG",
                         "Language": "de"
                       }
+                    ],
+                    "ArticleNumber": [
+                      "Art. 3c"
                     ],
                     "ResponsibleOffice": {
                       "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
