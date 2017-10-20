@@ -5,6 +5,7 @@ goog.require('oereb.ExtractService');
 goog.require('oereb.TopicController');
 goog.require('oereb.legendDirective');
 goog.require('oereb.legalDocumentsDirective');
+goog.require('oereb.responsibleOfficesDirective');
 
 /**
  * @function

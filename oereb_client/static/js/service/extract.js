@@ -277,6 +277,23 @@ oereb.ExtractService.prototype.getDocuments = function(themeCode) {
 };
 
 /**
+ * Returns the responsible offices of the specified topic.
+ * @param {string} themeCode The code of the topic to return the responsible offices for.
+ * @returns {Array|undefined} The responsible offices of the specified topic.
+ */
+oereb.ExtractService.prototype.getResponsibleOffices = function(themeCode) {
+  var restrictions = this.getRestrictions(themeCode);
+  if (angular.isArray(restrictions)) {
+    var offices = [];
+    for (var i = 0; i < restrictions.length; i++) {
+      this.addIfNotContains_(restrictions[i]['ResponsibleOffice'], offices);
+    }
+    return offices;
+  }
+  return undefined;
+};
+
+/**
  * Returns the embeddable if available.
  * @returns {Object|undefined} The extract object or undefined.
  */
