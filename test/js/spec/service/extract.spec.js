@@ -257,4 +257,184 @@ describe('ExtractService', function() {
 
   });
 
+  describe('addIfNotContains_', function() {
+
+    it('should add an array element if it is missing', function() {
+      var list = [];
+      ExtractService.addIfNotContains_({
+        value1: 'one',
+        value2: 'two'
+      }, list);
+      expect(list.length).toBe(1);
+      ExtractService.addIfNotContains_({
+        value1: 'three',
+        value2: 'four'
+      }, list);
+      expect(list.length).toBe(2);
+      ExtractService.addIfNotContains_({
+        value1: 'one',
+        value2: 'two'
+      }, list);
+      expect(list.length).toBe(2);
+    });
+
+  });
+
+  describe('addDocumentIfNotContained_', function() {
+
+    it('should add a document if it is missing', function() {
+      var list = [];
+      ExtractService.addDocumentIfNotContained_({
+        Title: 'doc1',
+        OfficialNumber: 'number1',
+        TextAtWeb: 'link1',
+        ArticleNumber: [
+          'art1'
+        ],
+        Article: [
+          {
+            Text: 'text1'
+          }
+        ]
+      }, list);
+      expect(list.length).toBe(1);
+      expect(list[0].ArticleNumber.length).toBe(1);
+      expect(list[0].Article.length).toBe(1);
+    });
+
+    it('should append articles and article numbers', function() {
+      var list = [];
+      var doc1 = {
+        Title: 'doc1',
+        OfficialNumber: 'number1',
+        TextAtWeb: 'link1',
+        ArticleNumber: [
+          'art1'
+        ],
+        Article: [
+          {
+            Text: 'text1'
+          }
+        ]
+      };
+      var doc2 = {
+        Title: 'doc1',
+        OfficialNumber: 'number1',
+        TextAtWeb: 'link1',
+        ArticleNumber: [
+          'art2'
+        ],
+        Article: [
+          {
+            Text: 'text2'
+          }
+        ]
+      };
+      ExtractService.addDocumentIfNotContained_(doc1, list);
+      expect(list.length).toBe(1);
+      expect(list[0].ArticleNumber.length).toBe(1);
+      expect(list[0].Article.length).toBe(1);
+      ExtractService.addDocumentIfNotContained_(doc2, list);
+      expect(list.length).toBe(1);
+      expect(list[0].ArticleNumber.length).toBe(2);
+      expect(list[0].Article.length).toBe(2);
+    });
+
+  });
+
+  describe('addDocumentsIfNotContained_', function() {
+
+    var documents = [
+      {
+        Title: 'doc1',
+        OfficialNumber: 'number1',
+        TextAtWeb: 'link1',
+        ArticleNumber: [],
+        Article: []
+      },
+      {
+        Title: 'doc2',
+        OfficialNumber: 'number2',
+        TextAtWeb: 'link2',
+        ArticleNumber: [],
+        Article: [],
+        Reference: [
+          {
+            Title: 'doc1',
+            OfficialNumber: 'number1',
+            TextAtWeb: 'link1',
+            ArticleNumber: [],
+            Article: []
+          },
+          {
+            Title: 'doc3',
+            OfficialNumber: 'number3',
+            TextAtWeb: 'link3',
+            ArticleNumber: [],
+            Article: []
+          }
+        ]
+      }
+    ];
+
+    it('should add each document if it is missing', function() {
+      var result = [];
+      ExtractService.addDocumentsIfNotContained_(documents, result);
+      expect(result.length).toBe(3);
+      for (var i = 0; i < result.length; i++) {
+        expect(result[i]['Title']).toEqual('doc' + (i + 1));
+        expect(result[i]['TextAtWeb']).toEqual('link' + (i + 1));
+      }
+    });
+
+  });
+
+  describe('getDocuments', function() {
+
+    var restrictions = [
+      {
+        LegalProvisions: [
+          {
+            Title: 'prov1',
+            TextAtWeb: 'link1',
+            Reference: [
+              {
+                Title: 'doc1',
+                TextAtWeb: 'link1'
+              }
+            ]
+          }
+        ]
+      }
+    ];
+
+    var realEstate = {
+      Reference: [
+        {
+          Title: 'doc2',
+          TextAtWeb: 'link2'
+        }
+      ]
+    };
+
+    it('should return undefined if no extract is available', function() {
+      expect(ExtractService.getDocuments('test')).toBeUndefined();
+    });
+
+    it('should return the legal documents for the specidied topic', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue(realEstate);
+      spyOn(ExtractService, 'getRestrictions').and.returnValue(restrictions);
+      var result = ExtractService.getDocuments('test');
+      expect(result['LegalProvisions'].length).toBe(1);
+      expect(result['LegalProvisions'][0]['Title']).toEqual('prov1');
+      expect(result['LegalProvisions'][0]['TextAtWeb']).toEqual('link1');
+      expect(result['Documents'].length).toBe(2);
+      for (var i = 0; i < result['Documents'].length; i++) {
+        expect(result['Documents'][i]['Title']).toEqual('doc' + (i + 1));
+        expect(result['Documents'][i]['TextAtWeb']).toEqual('link' + (i + 1));
+      }
+    });
+
+  });
+
 });

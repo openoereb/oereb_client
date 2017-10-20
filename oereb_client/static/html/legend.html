@@ -6,7 +6,7 @@
         <div class="col-xs-2"><small>Anteil</small></div>
     </div>
     <div class="row" ng-repeat="legend in legendEntries" ng-class="{'bottom-margin': !$last}">
-        <div class="col-xs-6">{{legend['Information'][0]['Text']}}</div>
+        <div class="col-xs-6">{{legend['Information'] | multilingualText}}</div>
         <div class="col-xs-1">
             <img class="symbol" ng-src="{{legend['SymbolRef']}}">
         </div>
