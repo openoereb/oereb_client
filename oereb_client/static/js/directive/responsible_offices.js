@@ -1,4 +1,4 @@
-goog.provide('oereb.legendDirective');
+goog.provide('oereb.responsibleOfficesDirective');
 
 goog.require('oereb');
 goog.require('oereb.multilingualTextFilter');
@@ -14,18 +14,18 @@ goog.require('oereb.multilingualTextFilter');
  *
  * @ngInject
  */
-oereb.legendDirective = function(ExtractService) {
+oereb.responsibleOfficesDirective = function(ExtractService) {
   return {
     restrict: 'E',
     replace: true,
-    templateUrl: 'static/html/legend.html',
+    templateUrl: 'static/html/responsible_offices.html',
     scope: {
       /** @export */ themeCode: '='
     },
     link: function(scope) {
 
       /** @export {Array|undefined} */
-      scope.legendEntries = ExtractService.getLegend(scope.themeCode);
+      scope.data = ExtractService.getResponsibleOffices(scope.themeCode);
 
     }
   };
@@ -33,12 +33,12 @@ oereb.legendDirective = function(ExtractService) {
 
 /**
  * @ngdoc directive
- * @name oerebLegend
+ * @name oerebResponsibleOffice
  * @module oereb
  * @restrict E
  *
- * @description The legend entries and calculations for the current topic.
+ * @description The responsible office for a specific topic.
  *
  * @param {Array} themeCode The code of the current topic.
  */
-oereb.module.directive('oerebLegend', oereb.legendDirective);
+oereb.module.directive('oerebResponsibleOffices', oereb.responsibleOfficesDirective);

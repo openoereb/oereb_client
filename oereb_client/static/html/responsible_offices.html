@@ -1,0 +1,9 @@
+<div class="container-fluid responsible-offices" ng-show="data.length > 0">
+    <dl>
+        <dt>Zust&auml;ndige Stellen</dt>
+        <dd ng-repeat="office in data">
+            <a ng-href="{{office['OfficeAtWeb']}}" target="_blank"
+               ng-bind="office['Name'] | multilingualText"></a>
+        </dd>
+    </dl>
+</div>

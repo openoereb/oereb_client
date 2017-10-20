@@ -437,4 +437,32 @@ describe('ExtractService', function() {
 
   });
 
+  describe('getResponsibleOffices', function() {
+
+    var restrictions = [
+      {
+        ResponsibleOffice: 'office1'
+      },
+      {
+        ResponsibleOffice: 'office2'
+      },
+      {
+        ResponsibleOffice: 'office1'
+      }
+    ];
+
+    it('should return undefined if no extract is available', function() {
+      expect(ExtractService.getResponsibleOffices('test')).toBeUndefined();
+    });
+
+    it('should return the responsible offices for the specified topic', function() {
+      spyOn(ExtractService, 'getRestrictions').and.returnValue(restrictions);
+      var offices = ExtractService.getResponsibleOffices('test');
+      expect(offices.length).toBe(2);
+      expect(offices[0]).toEqual('office1');
+      expect(offices[1]).toEqual('office2');
+    });
+
+  });
+
 });
