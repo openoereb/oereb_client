@@ -19,7 +19,7 @@
 
         <div id="extract" ng-class="{active: ctrl.extractActive}">
             <div class="container-fluid extract-wrapper">
-                <span class="close extract-close" ng-click="ctrl.extractActive=false">&times;</span>
+                <span class="close extract-close" ng-click="ctrl.closeExtract()">&times;</span>
                 <oereb-real-estate></oereb-real-estate>
                 <oereb-concerned-theme toggled-group="ctrl.toggledGroup">
                 </oereb-concerned-theme>

@@ -51,15 +51,15 @@ describe('legendDirective', function() {
       var scope = element.isolateScope();
       expect(ExtractService.getLegend).toHaveBeenCalledWith('test');
       expect(scope.legendEntries.length).toBe(2);
-      var rows = element.find('.row');
+      var rows = element.find('tr');
       expect(rows.length).toBe(3);
       expect(rows.eq(0).find('small').length).toBe(3);
-      expect(rows.eq(1).children('div').eq(0).text()).toContain(legendEntries[0].Information[0].Text);
-      expect(rows.eq(1).children('div').eq(2).text()).toContain(legendEntries[0].Area);
-      expect(rows.eq(1).children('div').eq(3).text()).toContain(legendEntries[0].PartInPercent);
-      expect(rows.eq(2).children('div').eq(0).text()).toContain(legendEntries[1].Information[0].Text);
-      expect(rows.eq(2).children('div').eq(2).text()).toContain(legendEntries[1].Area);
-      expect(rows.eq(2).children('div').eq(3).text()).toContain(legendEntries[1].PartInPercent);
+      expect(rows.eq(1).children('td').eq(0).text()).toContain(legendEntries[0].Information[0].Text);
+      expect(rows.eq(1).children('td').eq(2).text()).toContain(legendEntries[0].Area);
+      expect(rows.eq(1).children('td').eq(3).text()).toContain(legendEntries[0].PartInPercent);
+      expect(rows.eq(2).children('td').eq(0).text()).toContain(legendEntries[1].Information[0].Text);
+      expect(rows.eq(2).children('td').eq(2).text()).toContain(legendEntries[1].Area);
+      expect(rows.eq(2).children('td').eq(3).text()).toContain(legendEntries[1].PartInPercent);
     });
 
   });

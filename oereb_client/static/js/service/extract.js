@@ -294,6 +294,61 @@ oereb.ExtractService.prototype.getResponsibleOffices = function(themeCode) {
 };
 
 /**
+ * Creates a view service definition using the restriction's theme code and view service URL.
+ * @param {string} themeCode The restriction's theme code.
+ * @param {string} viewServiceUrl The restriction's view service URL.
+ * @returns {Object} The created view service definition.
+ * @private
+ */
+oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(themeCode, viewServiceUrl) {
+  var parts = viewServiceUrl.split('?');
+  var url = parts[0];
+  var definition = {
+    'topic': themeCode,
+    'url': url,
+    'params': {}
+  };
+  var params = parts[1].split('&');
+  for (var i = 0; i < params.length; i++) {
+    var param = params[i].split('=');
+    if (param[0].toUpperCase() === 'LAYERS') {
+      definition['params']['LAYERS'] = param[1];
+    }
+    else if (param[0].toUpperCase() === 'STYLES') {
+      definition['params']['STYLES'] = param[1];
+    }
+    else if (param[0].toUpperCase() === 'VERSION') {
+      definition['params']['VERSION'] = param[1];
+    }
+  }
+  return definition;
+};
+
+/**
+ * Returns a unique list of view services available in the extract.
+ * @returns {Array} A unique list of view service objects.
+ */
+oereb.ExtractService.prototype.getViewServices = function() {
+  var viewServices = [];
+  var realEstate = this.getRealEstate();
+  if (angular.isDefined(realEstate)) {
+    var restrictions = realEstate['RestrictionOnLandownership'];
+    if (angular.isArray(restrictions)) {
+      for (var i = 0; i < restrictions.length; i++) {
+        var url = restrictions[i]['Map']['ReferenceWMS'];
+        if (angular.isDefined(url)) {
+          this.addIfNotContains_(
+            this.getViewServiceFromUrl_(restrictions[i]['Theme']['Code'], url),
+            viewServices
+          );
+        }
+      }
+    }
+  }
+  return viewServices;
+};
+
+/**
  * Returns the embeddable if available.
  * @returns {Object|undefined} The extract object or undefined.
  */

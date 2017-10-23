@@ -1,16 +1,22 @@
 <div class="container-fluid legend">
-    <div class="row legend-border-bottom bottom-margin">
-        <div class="col-xs-6"><small>Typ</small></div>
-        <div class="col-xs-1"></div>
-        <div class="col-xs-3"><small>Fl&auml;che</small></div>
-        <div class="col-xs-2"><small>Anteil</small></div>
-    </div>
-    <div class="row" ng-repeat="legend in legendEntries" ng-class="{'bottom-margin': !$last}">
-        <div class="col-xs-6">{{legend['Information'] | multilingualText}}</div>
-        <div class="col-xs-1">
-            <img class="symbol" ng-src="{{legend['SymbolRef']}}">
-        </div>
-        <div class="col-xs-3">{{legend['Area']}} m<span class="sup">2</span></div>
-        <div class="col-xs-2">{{legend['PartInPercent']}}%</div>
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <td><small>Typ</small></td>
+                <td></td>
+                <td><small>Fl&auml;che</small></td>
+                <td><small>Anteil</small></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="legend in legendEntries">
+                <td class="col-xs-6">{{legend['Information'] | multilingualText}}</td>
+                <td class="col-xs-1">
+                    <img class="symbol" ng-src="{{legend['SymbolRef']}}">
+                </td>
+                <td class="col-xs-3">{{legend['Area']}} m<span class="sup">2</span></td>
+                <td class="col-xs-2">{{legend['PartInPercent']}}%</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

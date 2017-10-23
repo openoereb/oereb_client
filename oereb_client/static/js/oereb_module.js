@@ -12,3 +12,4 @@ oereb.module = angular.module('oereb', [
 
 oereb.module.constant('oerebEventEgridSelected', 'oereb-event-egrid-selected');
 oereb.module.constant('oerebEventExtractLoaded', 'oereb-event-extract-loaded');
+oereb.module.constant('oerebEventExtractClosed', 'oereb-event-extract-closed');
