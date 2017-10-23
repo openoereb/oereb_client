@@ -465,4 +465,78 @@ describe('ExtractService', function() {
 
   });
 
+  describe('getViewServiceFromUrl_', function() {
+
+    it('should return a view service definition for the specified url and topic', function() {
+      var topic = 'test';
+      var url = 'http://example.com/wms?SERVICE=WMS&version=1.1.1&Layers=layer1,layer2&STYLES=default';
+      var viewService = ExtractService.getViewServiceFromUrl_(topic, url);
+      expect(viewService).toEqual({
+        topic: 'test',
+        url: 'http://example.com/wms',
+        params: {
+          VERSION: '1.1.1',
+          LAYERS: 'layer1,layer2',
+          STYLES: 'default'
+        }
+      });
+    });
+
+  });
+
+  describe('getViewServices', function() {
+
+    it('should return empty array if no extract is available', function() {
+      expect(ExtractService.getViewServices()).toEqual([]);
+    });
+
+    it('should return a unique list of view service definitions', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        RestrictionOnLandownership: [
+          {
+            Theme: {
+              Code: 'topic1'
+            },
+            Map: {
+              ReferenceWMS: 'http://example.com/wms?SERVICE=WMS&VERSION=1.1.1&LAYERS=layer1&STYLES=default'
+            }
+          },
+          {
+            Theme: {
+              Code: 'topic2'
+            },
+            Map: {
+              ReferenceWMS: 'http://example.com/wms?SERVICE=WMS&VERSION=1.1.1&LAYERS=layer2&STYLES=default'
+            }
+          },
+          {
+            Theme: {
+              Code: 'topic1'
+            },
+            Map: {
+              ReferenceWMS: 'http://example.com/wms?SERVICE=WMS&VERSION=1.1.1&LAYERS=layer1&STYLES=default'
+            }
+          }
+        ]
+      });
+      var viewServices = ExtractService.getViewServices();
+      expect(viewServices.length).toBe(2);
+      expect(viewServices[0].topic).toEqual('topic1');
+      expect(viewServices[1].topic).toEqual('topic2');
+      expect(viewServices[0].url).toEqual('http://example.com/wms');
+      expect(viewServices[1].url).toEqual('http://example.com/wms');
+      expect(viewServices[0].params).toEqual({
+        VERSION: '1.1.1',
+        LAYERS: 'layer1',
+        STYLES: 'default'
+      });
+      expect(viewServices[1].params).toEqual({
+        VERSION: '1.1.1',
+        LAYERS: 'layer2',
+        STYLES: 'default'
+      });
+    });
+
+  });
+
 });

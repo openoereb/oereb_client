@@ -6,16 +6,20 @@ describe('MainController', function() {
     $provide.constant('oerebApplicationUrl', 'http://example.com');
   }));
 
-  var $controller, $httpBackend, $rootScope, ExtractService, oerebEventEgridSelected, oerebEventExtractLoaded;
+  var $controller, $httpBackend, $rootScope, $scope, ExtractService, oerebEventEgridSelected,
+    oerebEventExtractClosed, oerebEventExtractLoaded;
 
   beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_, _ExtractService_,
-                             _oerebEventEgridSelected_, _oerebEventExtractLoaded_) {
+                             _oerebEventEgridSelected_, _oerebEventExtractLoaded_,
+                             _oerebEventExtractClosed_) {
     $controller = _$controller_;
     $httpBackend = _$httpBackend_;
     $rootScope = _$rootScope_;
     ExtractService = _ExtractService_;
     oerebEventEgridSelected = _oerebEventEgridSelected_;
     oerebEventExtractLoaded = _oerebEventExtractLoaded_;
+    oerebEventExtractClosed = _oerebEventExtractClosed_;
+    $scope = $rootScope.$new();
   }));
 
   afterEach(function() {
@@ -25,7 +29,7 @@ describe('MainController', function() {
 
   var getMainController = function() {
     return $controller('MainController', {
-      $scope: $rootScope.$new(),
+      $scope: $scope,
       ExtractService: ExtractService,
       oerebEventEgridSelected: oerebEventEgridSelected,
       oerebEventExtractLoaded: oerebEventExtractLoaded
@@ -97,6 +101,24 @@ describe('MainController', function() {
       $rootScope.$broadcast(oerebEventEgridSelected, 'CHTEST');
       $httpBackend.flush();
       expect($rootScope.$broadcast).toHaveBeenCalledWith(oerebEventExtractLoaded);
+    });
+
+  });
+
+  describe('closeExtract', function() {
+
+    it('should hide the extract panel', function() {
+      var ctrl = getMainController();
+      ctrl.extractActive = true;
+      ctrl.closeExtract();
+      expect(ctrl.extractActive).toBe(false);
+    });
+
+    it('should fire event', function() {
+      var ctrl = getMainController();
+      spyOn($scope, '$broadcast');
+      ctrl.closeExtract();
+      expect($scope.$broadcast).toHaveBeenCalledWith(oerebEventExtractClosed);
     });
 
   });
