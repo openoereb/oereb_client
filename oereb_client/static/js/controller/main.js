@@ -8,6 +8,7 @@ goog.require('oereb.MapService');
  * `oereb_client` main controller.
  * @param {angular.Scope} $scope The controller scope.
  * @param {oereb.ExtractService} ExtractService Angular service for extract loading.
+ * @param {oereb.MapService} MapService Angular service for map handling.
  * @param {string} oerebEventEgridSelected Event name for selected EGRID.
  * @param {string} oerebEventExtractLoaded Event name for loaded extract.
  * @param {string} oerebEventExtractClosed Event name for closed extract.
@@ -16,8 +17,8 @@ goog.require('oereb.MapService');
  * @ngdoc controller
  * @ngname MainController
  */
-oereb.MainController = function($scope, ExtractService, oerebEventEgridSelected, oerebEventExtractLoaded,
-                                oerebEventExtractClosed) {
+oereb.MainController = function($scope, ExtractService, MapService, oerebEventEgridSelected,
+                                oerebEventExtractLoaded, oerebEventExtractClosed) {
 
   this.$scope_ = $scope;
   this.ExtractService_ = ExtractService;
@@ -35,11 +36,17 @@ oereb.MainController = function($scope, ExtractService, oerebEventEgridSelected,
   this.toggledGroup = undefined;
 
   // Load extract on selected egrid
-  this.$scope_.$on(this.oerebEventEgridSelected_, function(event, egrid) {
+  this.$scope_.$on(this.oerebEventEgridSelected_, function(event, egrid, center) {
     this.ExtractService_.queryExtractById(egrid).then(
       function() {
         this.$scope_.$broadcast(this.oerebEventExtractLoaded_);
         this.extractActive = angular.isDefined(this.ExtractService_.getExtract());
+        if (center) {
+          var geometry = new ol.geom.MultiPolygon(ExtractService.getRealEstate()["Limit"]["coordinates"]);
+          MapService.getMap().getView().fit(geometry, {
+            padding: [0, 0, 0, 500]
+          })
+        }
       }.bind(this),
       function() {
         this.extractActive = false;

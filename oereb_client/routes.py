@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from oereb_client.views.wfs_query import WfsQuery
 from views.deps import Depswriter
 from views.index import Index
 
@@ -28,6 +29,14 @@ def includeme(config):  # pragma: no cover
     config.add_view(Depswriter,
                     attr='render',
                     route_name='{0}/deps.js'.format(config.route_prefix),
+                    request_method='GET')
+
+    # wfs_query.xml
+    config.add_route('{0}/wfs_filter'.format(config.route_prefix), '/wfs_filter.xml')
+    config.add_view(WfsQuery,
+                    attr='provide_wfs_filter',
+                    route_name='{0}/wfs_filter'.format(config.route_prefix),
+                    renderer='oereb_client:templates/wfs_filter.xml',
                     request_method='GET')
 
     config.commit()

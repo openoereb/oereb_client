@@ -43,14 +43,7 @@
             </div>
         </div>
 
-        <div id="search">
-            <img class="logo-oereb" src="${request.static_url('oereb_client:static/images/logo_oereb.png')}">
-            <img class="logo-bl" src="${request.static_url('oereb_client:static/images/logo_bl.png')}">
-            <div class="clearfix"></div>
-            <div class="container-fluid">
-                <input type="text" class="form-control" placeholder="Suche" ng-model="ctrl.searchText" />
-            </div>
-        </div>
+        <oereb-search id="search"></oereb-search>
 
     % if debug:
         <script src="${request.static_url('oereb_client:../node_modules/jquery/jquery.js')}"></script>
@@ -81,8 +74,11 @@
             var module = angular.module('oereb');
             module.constant('oerebApplicationUrl', '${request.application_url}');
             module.constant('oerebBaseLayerConfig', '${base_layer_config | n}');
+            module.constant('searchServiceConfig', '${search_api_config | n}');
+            module.constant('wfsFilterServiceUrl', '${request.route_url('{0}/wfs_filter'.format(request.route_prefix))}');
+            module.constant('oerebLogoURL', '${request.static_url('oereb_client:static/images/logo_oereb.png')}');
+            module.constant('blLogoUrl', '${request.static_url('oereb_client:static/images/logo_bl.png')}');
             module.constant('oerebDefaultLanguage', 'de');
-
         })();
 
     </script>
