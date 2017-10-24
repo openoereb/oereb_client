@@ -1,0 +1,10 @@
+<div class="container-fluid glossary">
+    <dl class="dl-horizontal" ng-repeat="item in data">
+        <dt>
+            {{item['Title'] | multilingualText}}
+        </dt>
+        <dd>
+            {{item['Content'] | multilingualText}}
+        </dd>
+    </dl>
+</div>

@@ -2,6 +2,7 @@ goog.provide('oereb.informationPanelDirective');
 
 goog.require('oereb');
 goog.require('oereb.exclusionOfLiabilityDirective');
+goog.require('oereb.glossaryDirective');
 
 /**
  * Directive definition function.
