@@ -28,6 +28,9 @@ oereb.MainController = function($scope, ExtractService, oerebEventEgridSelected,
   /** @export {boolean} */
   this.extractActive = false;
 
+  /** @export {boolean} */
+  this.informationActive = false;
+
   /** @export {string} */
   this.toggledGroup = undefined;
 
@@ -51,8 +54,17 @@ oereb.MainController = function($scope, ExtractService, oerebEventEgridSelected,
  * @export
  */
 oereb.MainController.prototype.closeExtract = function() {
+  this.informationActive = false;
   this.extractActive = false;
   this.$scope_.$broadcast(this.oerebEventExtractClosed_);
+};
+
+/**
+ * Shows/hides the information panel.
+ * @export
+ */
+oereb.MainController.prototype.toggleInformation = function() {
+  this.informationActive = !this.informationActive;
 };
 
 oereb.module.controller('MainController', oereb.MainController);

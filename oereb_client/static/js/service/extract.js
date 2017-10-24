@@ -349,6 +349,17 @@ oereb.ExtractService.prototype.getViewServices = function() {
 };
 
 /**
+ * Returns the exclusions of liability for the current extract.
+ * @returns {Array} The exclusions of liability.
+ */
+oereb.ExtractService.prototype.getExclusionsOfLiability = function() {
+  if (angular.isDefined(this.getExtract()) && angular.isArray(this.getExtract()['ExclusionOfLiability'])) {
+    return this.getExtract()['ExclusionOfLiability'];
+  }
+  return [];
+};
+
+/**
  * Returns the embeddable if available.
  * @returns {Object|undefined} The extract object or undefined.
  */

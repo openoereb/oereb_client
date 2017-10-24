@@ -1015,6 +1015,70 @@
               "Language": "de"
             }
           ]
+        },
+        {
+          "Content": [
+            {
+              "Text": "Definition",
+              "Language": "de"
+            }
+          ],
+          "Title": [
+            {
+              "Text": "Term",
+              "Language": "de"
+            }
+          ]
+        },
+        {
+          "Content": [
+            {
+              "Text": "Definition",
+              "Language": "de"
+            }
+          ],
+          "Title": [
+            {
+              "Text": "Term",
+              "Language": "de"
+            }
+          ]
+        }
+      ],
+      "ExclusionOfLiability": [
+        {
+          "Content": [
+            {
+              "Text": "Der Kataster der belasteten Standorte (KbS) wurde anhand der vom Bundesamt für Umwelt BAFU festgelegten Kriterien erstellt und wird fortwährend aufgrund neuer Erkenntnisse (z.B. Untersuchungen) aktualisiert. Die im KbS eingetragenen Flächen können vom tatsächlichen Ausmass der Belastung abweichen. Erscheint ein Grundstück nicht im KbS, besteht keine absolute Gewähr, dass das Areal frei von jeglichen Abfall- oder Schadstoffbelastungen ist. Bahnbetrieblich, militärisch und für die Luftfahrt genutzte Standorte liegen im Zuständigkeitsbereich des Bundes. Für weitere Informationen wenden Sie sich an die kantonale Altlastenfachstelle, Amt für Umweltschutz und Energie (www.aue.bl.ch).",
+              "Language": "de"
+            }
+          ],
+          "Title": [
+            {
+              "Text": "Kataster der belasteten Standorte (KbS)",
+              "Language": "de"
+            }
+          ]
+        },
+        {
+          "Content": [
+            {
+              "Text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+              "Language": "de"
+            }
+          ],
+          "Title": [
+            {
+              "Text": "Test",
+              "Language": "de"
+            }
+          ]
+        }
+      ],
+      "GeneralInformation": [
+        {
+          "Text": "Bewilligungspflicht bei Veräusserung oder Teilung gemäss Art. 32dbis Abs. 3 des Umweltschutzgesetzes (USG; SR 814.01). Für die Veräusserung oder Teilung eines Grundstücks ist in Fällen mit der Bewertung „Belastet, keine schädlichen oder lästigen Einwirkungen zu erwarten“ oder „Belastet, weder überwachungs- noch sanierungsbedürftig“ keine individuelle Bewilligung gemäss Art. 32dbis Abs. 3 USG notwendig. Hier gilt die Allgemeinverfügung vom 17. Februar 2015 (siehe unter: www.aue.bl.ch / Altlasten).",
+          "Language": "de"
         }
       ]
     }

@@ -1,0 +1,61 @@
+/*
+ * Styling for the information panel and its button
+ */
+
+@import "variables";
+
+div.information-panel {
+  border: none;
+}
+
+#information {
+  position: fixed;
+  top: calc(@header-height~" - 100%");
+  left: calc(@menu-with~" - 100%");
+  margin: 0;
+  background-color: @info-background;
+  box-shadow: @default-shadow;
+  height: 100%;
+  width: 100%;
+  padding-left: 2*@info-padding + @menu-with;
+  padding-right: 2*@info-padding;
+  padding-top: 2*@info-padding;
+  padding-bottom: 2*@info-padding;
+  overflow-y: scroll;
+  transition: left @animation-duration, top @animation-duration;
+  .nav-tabs {
+    border-bottom: 1px solid @link-hover-color;
+    li {
+      a {
+        color: @text-color;
+        background-color: @info-background;
+        border: none;
+        margin: 0;
+      }
+      a:hover {
+        color: @text-color;
+        border-bottom: 4px solid @link-hover-color;
+      }
+    }
+    li.active {
+      a {
+        color: @text-color;
+        border-bottom: 4px solid @link-hover-color;
+      }
+    }
+  }
+  .tab-content {
+    margin-top: 2*@default-padding;
+  }
+  dl {
+    margin-bottom: 0;
+  }
+}
+
+#information.extract {
+  top: 0;
+}
+
+#information.active {
+  left: 0;
+}

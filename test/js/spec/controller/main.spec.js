@@ -54,6 +54,7 @@ describe('MainController', function() {
   it('should be initialized correctly', function() {
     var controller = getMainController();
     expect(controller.extractActive).toBe(false);
+    expect(controller.informationActive).toBe(false);
   });
 
   describe('EGRID selected event', function() {
@@ -110,8 +111,10 @@ describe('MainController', function() {
     it('should hide the extract panel', function() {
       var ctrl = getMainController();
       ctrl.extractActive = true;
+      ctrl.informationActive = true;
       ctrl.closeExtract();
       expect(ctrl.extractActive).toBe(false);
+      expect(ctrl.informationActive).toBe(false);
     });
 
     it('should fire event', function() {
@@ -119,6 +122,19 @@ describe('MainController', function() {
       spyOn($scope, '$broadcast');
       ctrl.closeExtract();
       expect($scope.$broadcast).toHaveBeenCalledWith(oerebEventExtractClosed);
+    });
+
+  });
+
+  describe('toggleInformation', function() {
+
+    it('should switch the information panel visibility', function() {
+      var ctrl = getMainController();
+      expect(ctrl.informationActive).toBe(false);
+      ctrl.toggleInformation();
+      expect(ctrl.informationActive).toBe(true);
+      ctrl.toggleInformation();
+      expect(ctrl.informationActive).toBe(false);
     });
 
   });
