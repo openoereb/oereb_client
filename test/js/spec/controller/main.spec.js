@@ -13,7 +13,7 @@ describe('MainController', function() {
       }));
   }));
 
-  var $controller, $httpBackend, $rootScope, $scope,ExtractService, MapService, oerebEventEgridSelected,
+  var $controller, $httpBackend, $rootScope, $scope, ExtractService, MapService, oerebEventEgridSelected,
     oerebEventExtractClosed, oerebEventExtractLoaded;
 
   beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_, _ExtractService_, _MapService_,
