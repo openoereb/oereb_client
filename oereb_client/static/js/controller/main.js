@@ -57,6 +57,7 @@ oereb.MainController.prototype.closeExtract = function() {
   this.informationActive = false;
   this.extractActive = false;
   this.$scope_.$broadcast(this.oerebEventExtractClosed_);
+  this.$location_.search('egrid', null);
 };
 
 /**
@@ -83,6 +84,7 @@ oereb.MainController.prototype.getExtractByEgrid = function(egrid, center) {
           padding: [0, 0, 0, 500]
         })
       }
+      this.$location_.search('egrid', egrid);
     }.bind(this),
     function() {
       this.extractActive = false;
