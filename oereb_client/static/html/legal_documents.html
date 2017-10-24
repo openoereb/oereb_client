@@ -1,0 +1,26 @@
+<div class="container-fluid legal-documents">
+    <dl>
+        <dt ng-if="data['LegalProvisions'].length > 0">Rechtsvorschriften</dt>
+        <dd ng-repeat="legalProvision in data['LegalProvisions']">
+            <a ng-href="{{legalProvision['TextAtWeb'] | multilingualText}}" target="_blank">
+                {{legalProvision['Title'] | multilingualText}}
+                <span ng-if="legalProvision['OfficialNumber']">({{legalProvision['OfficialNumber']}})</span>
+            </a>
+            <span ng-repeat="artNumber in legalProvision['ArticleNumber']">
+                &nbsp;<span class="label label-primary">{{artNumber}}</span>
+            </span>
+        </dd>
+        <dt ng-if="data['Documents'].length > 0">Gesetzliche Grundlagen</dt>
+        <dd ng-repeat="document in data['Documents']">
+            <a ng-href="{{document['TextAtWeb'] | multilingualText}}" target="_blank">
+                {{document['Title'] | multilingualText}}
+                <span ng-if="document['OfficialNumber']">
+                    ({{document['OfficialNumber']}})
+                </span>
+            </a>
+            <span ng-repeat="artNumber in document['ArticleNumber']">
+                &nbsp;<span class="label label-primary">{{artNumber}}</span>
+            </span>
+        </dd>
+    </dl>
+</div>

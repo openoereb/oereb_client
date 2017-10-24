@@ -7,7 +7,7 @@ goog.require('oereb.ExtractService');
  * Angular directive for rendering the real estate data.
  * @param {oereb.ExtractService} ExtractService Angular service for extract loading.
  * @param {string} oerebEventExtractLoaded Event name for loaded extract.
- * @returns {Object} Angular directive definition object.
+ * @returns {angular.Directive} Angular directive definition object.
  * @ngInject
  * @ngdoc directive
  * @ngname oerebRealEstate
@@ -17,10 +17,11 @@ oereb.realEstateDirective = function(ExtractService, oerebEventExtractLoaded) {
     restrict: 'E',
     replace: true,
     templateUrl: 'static/html/real_estate.html',
-    scope: {
-      extractData: '='
-    },
+    scope: {},
     link: function(scope) {
+
+      /** @export {Object} */
+      scope.data = {};
 
       // Update real estate data on loaded extract
       scope.$on(oerebEventExtractLoaded, function() {

@@ -4,14 +4,18 @@ goog.require('oereb');
 
 /**
  * Angular service for map handling.
- * @param {angular.Service} oerebBaseLayerConfig The base layer configuration.
+ * @param {angular.$q} $q Angular service for deferrable objects.
+ * @param {angular.$http} $http Angular service asynchronous requests.
+ * @param {Object} oerebBaseLayerConfig The base layer configuration.
  * @constructor
  * @ngInject
  * @ngdoc service
  * @ngname MapService
  */
-oereb.MapService = function(oerebBaseLayerConfig) {
+oereb.MapService = function($q, $http, oerebBaseLayerConfig) {
 
+  this.$q_ = $q;
+  this.$http_ = $http;
   this.baseLayerConfig_ = angular.fromJson(oerebBaseLayerConfig);
 
   // Define LV95 projection
@@ -28,19 +32,9 @@ oereb.MapService = function(oerebBaseLayerConfig) {
     extent: [2420000, 1030000, 2900000, 1350000]
   });
 
-  // Create base layer
-  this.baseLayer_ = new ol.layer.Tile({
-    preload: Infinity,
-    visible: true,
-    source: this.getBaseLayerSource_()
-  });
-
   // Create map
   this.map_ = new ol.Map({
     target: 'map',
-    layers: [
-      this.baseLayer_
-    ],
     controls: ol.control.defaults({
       attribution: false
     }),
@@ -51,6 +45,19 @@ oereb.MapService = function(oerebBaseLayerConfig) {
     }),
     logo: null
   });
+
+  // Create base layer
+  this.getBaseLayerSource_().then(
+    function(source) {
+      this.baseLayer_ = new ol.layer.Tile({
+        preload: Infinity,
+        visible: true,
+        source: source
+      });
+      this.map_.addLayer(this.baseLayer_);
+    }.bind(this),
+    function() {}
+  );
 
 };
 
@@ -65,7 +72,7 @@ oereb.MapService.prototype.getMap = function() {
 /**
  * Creates the source for the base layer.
  * @private
- * @returns {ol.source.Tile|undefined} The created base layer source.
+ * @returns {angular.$q.Promise} The promise handling the source request.
  */
 oereb.MapService.prototype.getBaseLayerSource_ = function() {
   if (this.baseLayerConfig_['type'].toLowerCase() === 'wms') {
@@ -74,49 +81,47 @@ oereb.MapService.prototype.getBaseLayerSource_ = function() {
   else if (this.baseLayerConfig_['type'].toLowerCase() === 'wmts') {
     return this.getBaseLayerWmtsSource_();
   }
-  return undefined;
+  return this.$q_.reject('Invalid base layer type');
 };
 
 /**
  * Creates a WMS source for the base layer.
  * @private
- * @returns {ol.source.TileWMS} The created base layer source.
+ * @returns {angular.$q.Promise} The promise handling the source request.
  */
 oereb.MapService.prototype.getBaseLayerWmsSource_ = function() {
-  return new ol.source.TileWMS({
+  return this.$q_.resolve(new ol.source.TileWMS({
     url: this.baseLayerConfig_['url'],
     params: this.baseLayerConfig_['params'],
     projection: this.proj_
-  });
+  }));
 };
 
 /**
  * Creates a WMTS source for the base layer.
  * @private
- * @returns {ol.source.WMTS} The created base layer source.
+ * @returns {angular.$q.Promise} The promise handling the source request.
  */
 oereb.MapService.prototype.getBaseLayerWmtsSource_ = function() {
-  var matrixIds = [];
-  for (var i = 0; i < this.baseLayerConfig_['resolutions'].length; i++) {
-    matrixIds.push(i);
-  }
-  return new ol.source.WMTS({
-    version: this.baseLayerConfig_['version'],
-    layer: this.baseLayerConfig_['layer'],
-    format: this.baseLayerConfig_['format'],
-    matrixSet: this.baseLayerConfig_['matrix_set'],
-    extent: this.proj_.getExtent(),
-    style: this.baseLayerConfig_['style'],
-    dimensions: this.baseLayerConfig_['dimensions'],
-    requestEncoding: this.baseLayerConfig_['request_encoding'],
-    projection: this.proj_,
-    tileGrid: new ol.tilegrid.WMTS({
-      origin: ol.extent.getTopLeft(this.proj_.getExtent()),
-      resolutions: this.baseLayerConfig_['resolutions'],
-      matrixIds: matrixIds
-    }),
-    urls: this.baseLayerConfig_['urls']
-  });
+  var def = this.$q_.defer();
+  var parser = new ol.format.WMTSCapabilities();
+  this.$http_.get(this.baseLayerConfig_['url']).then(
+    function(response) {
+      var wmtsCaps = parser.read(response.data);
+      var wmtsOptions = {};
+      angular.forEach(this.baseLayerConfig_, function(value, key) {
+        if (key !== 'url') {
+          wmtsOptions[key] = value;
+        }
+      });
+      var wmtsConfig = ol.source.WMTS.optionsFromCapabilities(wmtsCaps, wmtsOptions);
+      def.resolve(new ol.source.WMTS(wmtsConfig));
+    }.bind(this),
+    function(response) {
+      def.reject(response.data);
+    }
+  );
+  return def.promise;
 };
 
 oereb.module.service('MapService', oereb.MapService);

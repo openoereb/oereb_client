@@ -11,23 +11,33 @@ goog.require('oereb.MapService');
  * @param {oereb.MapService} MapService Angular service for map handling.
  * @param {string} oerebEventEgridSelected Event name for selected EGRID.
  * @param {string} oerebEventExtractLoaded Event name for loaded extract.
+ * @param {string} oerebEventExtractClosed Event name for closed extract.
  * @constructor
  * @ngInject
  * @ngdoc controller
  * @ngname MainController
  */
 oereb.MainController = function($scope, ExtractService, MapService, oerebEventEgridSelected,
-                                oerebEventExtractLoaded) {
+                                oerebEventExtractLoaded, oerebEventExtractClosed) {
+
+  this.$scope_ = $scope;
+  this.ExtractService_ = ExtractService;
+  this.oerebEventEgridSelected_ = oerebEventEgridSelected;
+  this.oerebEventExtractLoaded_ = oerebEventExtractLoaded;
+  this.oerebEventExtractClosed_ = oerebEventExtractClosed;
 
   /** @export {boolean} */
   this.extractActive = false;
 
+  /** @export {string} */
+  this.toggledGroup = undefined;
+
   // Load extract on selected egrid
-  $scope.$on(oerebEventEgridSelected, function(event, egrid, center) {
-    ExtractService.queryExtractById(egrid).then(
+  this.$scope_.$on(this.oerebEventEgridSelected_, function(event, egrid, center) {
+    this.ExtractService_.queryExtractById(egrid).then(
       function() {
-        $scope.$broadcast(oerebEventExtractLoaded);
-        this.extractActive = angular.isDefined(ExtractService.getExtract());
+        this.$scope_.$broadcast(this.oerebEventExtractLoaded_);
+        this.extractActive = angular.isDefined(this.ExtractService_.getExtract());
         if (center) {
           var geometry = new ol.geom.MultiPolygon(ExtractService.getRealEstate()["Limit"]["coordinates"]);
           MapService.getMap().getView().fit(geometry, {
@@ -41,6 +51,15 @@ oereb.MainController = function($scope, ExtractService, MapService, oerebEventEg
     );
   }.bind(this));
 
+};
+
+/**
+ * Hide the extract panel and fires the extract closed event.
+ * @export
+ */
+oereb.MainController.prototype.closeExtract = function() {
+  this.extractActive = false;
+  this.$scope_.$broadcast(this.oerebEventExtractClosed_);
 };
 
 oereb.module.controller('MainController', oereb.MainController);

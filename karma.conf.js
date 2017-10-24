@@ -16,6 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'node_modules/jquery/jquery.js',
+      'node_modules/bootstrap/dist/js/bootstrap.js',
       'node_modules/angular/angular.js',
       'node_modules/angular-animate/angular-animate.js',
       'node_modules/openlayers/dist/ol-debug.js',
@@ -26,7 +27,9 @@ module.exports = function(config) {
       {pattern: 'oereb_client/static/js/**/*.js', included: false, served: true},
       {pattern: 'node_modules/google-closure-library/closure/goog/**/*.js', included: false, served: true},
       'test/js/**/*.spec.js',
-      'oereb_client/static/build/templates.js'
+      'oereb_client/static/build/templates.js',
+      {pattern: 'test/resources/**/*.*', included: false, served: true},
+      {pattern: 'samples/**/*.json', included: false, served: true}
     ],
 
 
@@ -58,7 +61,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes
