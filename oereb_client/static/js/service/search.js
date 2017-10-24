@@ -16,13 +16,13 @@ oereb.SearchService = function ($http, $q, searchServiceConfig, wfsFilterService
   this.$http_ = $http;
   this.$q_ = $q;
   var config = angular.fromJson(searchServiceConfig);
-  this.searchServiceUrl_ = config.api.url;
-  this.searchServiceLimit_ = config.api.limit;
-  this.wfsUrl_ = config.wfs.url;
+  this.searchServiceUrl_ = config["api"]["url"];
+  this.searchServiceLimit_ = config["api"]["limit"];
+  this.wfsUrl_ = config["wfs"]["url"];
   if (this.wfsUrl_.indexOf('?') == -1) {
     this.wfsUrl_ = this.wfsUrl_ + '?';
   }
-  this.wfsLimit_ = config.wfs.limit;
+  this.wfsLimit_ = config["wfs"]["limit"];
   this.wfsFilterServiceUrl_ = wfsFilterServiceUrl;
   if (this.wfsFilterServiceUrl_.indexOf('?') == -1) {
     this.wfsFilterServiceUrl_ = this.wfsFilterServiceUrl_ + '?';
