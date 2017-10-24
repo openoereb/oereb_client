@@ -12,7 +12,6 @@ div#extract {
   height: 0;
   padding-top: @header-height;
   background-color: transparent;
-  box-shadow: @menu-shadow;
   transition: height @animation-duration;
   overflow: hidden;
   div.extract-wrapper {
@@ -40,4 +39,8 @@ div#extract {
 
 div#extract.active {
   height: 100%;
+}
+
+div#extract.information {
+  box-shadow: @menu-shadow;
 }

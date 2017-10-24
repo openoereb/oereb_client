@@ -1,0 +1,14 @@
+<div>
+    <div class="col-xs-6 pull-left" ng-repeat="exclusion in data">
+        <div class="well well-sm">
+            <dl>
+                <dt>
+                    {{exclusion['Title'] | multilingualText}}
+                </dt>
+                <dd>
+                    {{exclusion['Content'] | multilingualText}}
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

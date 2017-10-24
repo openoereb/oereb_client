@@ -539,4 +539,31 @@ describe('ExtractService', function() {
 
   });
 
+  describe('getExclusionsOfLiability', function() {
+
+    it('should return empty array if no extract is available', function() {
+      expect(ExtractService.getExclusionsOfLiability()).toEqual([]);
+    });
+
+    it('should return empty array if no exclusions are defined', function() {
+      spyOn(ExtractService, 'getExtract').and.returnValue({
+        ExclusionOfLiability: 'invalid'
+      });
+      expect(ExtractService.getExclusionsOfLiability()).toEqual([]);
+    });
+
+    it('should the exclusions of liability', function() {
+      spyOn(ExtractService, 'getExtract').and.returnValue({
+        ExclusionOfLiability: [
+          'dummy1',
+          'dummy2'
+        ]
+      });
+      expect(ExtractService.getExclusionsOfLiability().length).toBe(2);
+      expect(ExtractService.getExclusionsOfLiability()[0]).toEqual('dummy1');
+      expect(ExtractService.getExclusionsOfLiability()[1]).toEqual('dummy2');
+    });
+
+  });
+
 });

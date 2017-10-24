@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <span class="close extract-close" ng-click="close()">&times;</span>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#" role="tab" data-toggle="tab" ng-click="setActiveTab(0)">
+                <h5><strong>Allgemein</strong></h5>
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#" role="tab" data-toggle="tab" ng-click="setActiveTab(1)">
+                <h5><strong>Haftungsausschluss</strong></h5>
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#" role="tab" data-toggle="tab" ng-click="setActiveTab(2)">
+                <h5><strong>Glossar</strong></h5>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <oereb-exclusion-of-liability
+                class="tab-pane active"
+                ng-if="activeTab == 1">
+        </oereb-exclusion-of-liability>
+    </div>
+</div>

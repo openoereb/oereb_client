@@ -17,14 +17,29 @@
 
         <oereb-map-query id="map-query"></oereb-map-query>
 
-        <div id="extract" ng-class="{active: ctrl.extractActive}">
+        <oereb-information-panel
+                id="information"
+                ng-class="{'active': ctrl.informationActive, 'extract': ctrl.extractActive}"
+                information-active="ctrl.informationActive">
+        </oereb-information-panel>
+
+        <div id="extract" ng-class="{active: ctrl.extractActive, 'information': ctrl.informationActive}">
             <div class="container-fluid extract-wrapper">
                 <span class="close extract-close" ng-click="ctrl.closeExtract()">&times;</span>
                 <oereb-real-estate></oereb-real-estate>
-                <oereb-concerned-theme toggled-group="ctrl.toggledGroup">
-                </oereb-concerned-theme>
+                <oereb-concerned-theme toggled-group="ctrl.toggledGroup"></oereb-concerned-theme>
                 <oereb-not-concerned-theme toggled-group="ctrl.toggledGroup"></oereb-not-concerned-theme>
                 <oereb-theme-without-data toggled-group="ctrl.toggledGroup"></oereb-theme-without-data>
+                <div class="panel panel-default">
+                    <div class="panel-heading information-panel" role="button" ng-click="ctrl.toggleInformation()">
+                        <h4 class="panel-title">
+                            Allgemeinde und rechtliche Informationen
+                            <span class="badge pull-right">
+                                <span class="fa" ng-class="{'fa-chevron-right': !ctrl.informationActive, 'fa-chevron-left': ctrl.informationActive}"></span>
+                            </span>
+                        </h4>
+                    </div>
+                </div>
             </div>
         </div>
 

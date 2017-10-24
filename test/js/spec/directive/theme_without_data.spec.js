@@ -52,7 +52,7 @@ describe('themeWithoutDataDirective', function() {
       )(scope);
       scope.$digest();
       expect(element.find('h4').length).toBe(1);
-      expect(element.find('h4').eq(0).text()).toContain('Themen ohne Daten');
+      expect(element.find('h4').eq(0).text()).toContain('Nicht verfügbare Themen');
       expect(element.find('.collapse').length).toBe(1);
       expect(element.find('.list-group').length).toBe(1);
     });
