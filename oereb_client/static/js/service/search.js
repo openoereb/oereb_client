@@ -27,6 +27,7 @@ oereb.SearchService = function ($http, $q, searchServiceConfig, wfsFilterService
   if (this.wfsFilterServiceUrl_.indexOf('?') == -1) {
     this.wfsFilterServiceUrl_ = this.wfsFilterServiceUrl_ + '?';
   }
+  this.wfsFormatter = new ol.format.WFS();
 
 };
 
@@ -80,9 +81,8 @@ oereb.SearchService.prototype.searchEgrid = function (parcel_number, municipalit
           url: this.wfsUrl_,
           data: response.data
         }).then(function (wfs_response) {
-          var wfsFormatter = new ol.format.WFS();
-          def.resolve(wfsFormatter.readFeatures(wfs_response.data))
-        }, function (wfs_response) {
+          def.resolve(this.wfsFormatter.readFeatures(wfs_response.data))
+        }.bind(this), function (wfs_response) {
           var error = '';
           if (angular.isString(wfs_response.data)) {
             error += ' ' + wfs_response.data;
