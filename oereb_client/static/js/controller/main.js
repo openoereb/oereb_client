@@ -9,6 +9,7 @@ goog.require('oereb.MapService');
  * @param {angular.Scope} $scope The controller scope.
  * @param {angular.Location} $location The location provided by angular.
  * @param {oereb.ExtractService} ExtractService Angular service for extract loading.
+ * @param {oereb.MapService} MapService Angular service for map handling.
  * @param {string} oerebEventEgridSelected Event name for selected EGRID.
  * @param {string} oerebEventExtractLoaded Event name for loaded extract.
  * @param {string} oerebEventExtractClosed Event name for closed extract.
@@ -17,12 +18,13 @@ goog.require('oereb.MapService');
  * @ngdoc controller
  * @ngname MainController
  */
-oereb.MainController = function($scope, $location, ExtractService, oerebEventEgridSelected,
+oereb.MainController = function($scope, $location, ExtractService, MapService, oerebEventEgridSelected,
                                 oerebEventExtractLoaded, oerebEventExtractClosed) {
 
   this.$scope_ = $scope;
   this.$location_ = $location;
   this.ExtractService_ = ExtractService;
+  this.MapService_ = MapService;
   this.oerebEventEgridSelected_ = oerebEventEgridSelected;
   this.oerebEventExtractLoaded_ = oerebEventExtractLoaded;
   this.oerebEventExtractClosed_ = oerebEventExtractClosed;
@@ -37,13 +39,13 @@ oereb.MainController = function($scope, $location, ExtractService, oerebEventEgr
   this.toggledGroup = undefined;
 
   // Load extract on selected egrid
-  this.$scope_.$on(this.oerebEventEgridSelected_, function(event, egrid) {
-    this.getExtractByEgrid(egrid);
+  this.$scope_.$on(this.oerebEventEgridSelected_, function(event, egrid, center) {
+    this.getExtractByEgrid(egrid, center);
   }.bind(this));
   // Initially load stats if EGRID defined
   var egrid = this.$location_.search()['egrid'];
   if (angular.isString(egrid) && egrid.length > 0) {
-    this.getExtractByEgrid(egrid);
+    this.getExtractByEgrid(egrid, true);
   }
 };
 
@@ -70,12 +72,17 @@ oereb.MainController.prototype.toggleInformation = function() {
  * @param {string} egrid The EGRID as a string.
  * @export
  */
-oereb.MainController.prototype.getExtractByEgrid = function(egrid) {
+oereb.MainController.prototype.getExtractByEgrid = function(egrid, center) {
   this.ExtractService_.queryExtractById(egrid).then(
     function() {
       this.$scope_.$broadcast(this.oerebEventExtractLoaded_);
       this.extractActive = angular.isDefined(this.ExtractService_.getExtract());
-      this.$location_.search('egrid', egrid);
+      if (center) {
+        var geometry = new ol.geom.MultiPolygon(this.ExtractService_.getRealEstate()["Limit"]["coordinates"]);
+        this.MapService_.getMap().getView().fit(geometry, {
+          padding: [0, 0, 0, 500]
+        })
+      }
     }.bind(this),
     function() {
       this.extractActive = false;

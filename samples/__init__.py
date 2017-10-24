@@ -13,7 +13,7 @@ def includeme(config):
                     request_method='GET')
 
     config.add_route('{0}/getextractbyid'.format(config.route_prefix),
-                     '/extract/reduced/json/geometry/CH1234')
+                     '/extract/reduced/json/geometry/{egrid}')
     config.add_view(Sample,
                     attr='get_extract_by_id',
                     route_name='{0}/getextractbyid'.format(config.route_prefix),

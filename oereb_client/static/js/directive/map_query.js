@@ -22,6 +22,7 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
     templateUrl: 'static/html/map_query.html',
     scope: {},
     link: function(scope, element) {
+      var centerRealEstate = false;
 
       /** @export {boolean} */
       scope.visible = false;
@@ -46,17 +47,31 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
       // Add click listener
       scope.map_.on('singleclick', function(evt) {
         var coord = scope.map_.getEventCoordinate(evt.originalEvent);
-        scope.moveTo_(coord);
-        scope.queryEgrid_(coord);
+        scope.queryAt(coord);
       });
 
       /**
+       * Routine to provide the item picker for selecting unique egrid.
+       * @param {ol.Coordinate} coord The position to move to element to.
+       * @param {boolean} center Switch for centering map view on the selector or not.
+       * @export
+       */
+      scope.queryAt = function(coord, center) {
+        scope.moveTo_(coord);
+        scope.queryEgrid_(coord);
+        centerRealEstate = center;
+        if (center) {
+          scope.map_.getView().setCenter(coord);
+        }
+      };
+
+      /**
        * Move map query to pixel position and show loading indicator.
-       * @param {ol.Pixel} pixel The position to move to element to.
+       * @param {ol.Coordinate} coord The position to move to element to.
        * @private
        */
-      scope.moveTo_ = function(pixel) {
-        scope.overlay_.setPosition(pixel);
+      scope.moveTo_ = function(coord) {
+        scope.overlay_.setPosition(coord);
         $timeout(function() {
           scope.visible = true;
           scope.contentVisible = false;
@@ -88,7 +103,8 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
       };
 
       /**
-       * Load the extract for the specified EGRID.
+       * Load the extract for the specified EGRID. It uses the switch to recenter the map from
+       * centerRealEstate variable.
        * @param {string} egrid The EGRID to load the extract for.
        * @export
        */
@@ -96,7 +112,7 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
         $timeout(function() {
           scope.visible = false;
         });
-        scope.$emit(oerebEventEgridSelected, egrid);
+        scope.$emit(oerebEventEgridSelected, egrid, centerRealEstate);
       };
 
     }

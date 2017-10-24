@@ -10,3 +10,11 @@ oereb_client:
     projection: "EPSG:2056"
     style: default
     format: image/png
+# Search field configuration
+  search:
+    api:
+      url: http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?
+      limit: 5
+    wfs:
+      url: http://geowms.bl.ch?
+      limit: 5

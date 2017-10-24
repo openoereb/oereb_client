@@ -14,12 +14,13 @@ describe('mapQueryDirective', function() {
     }));
   }));
 
-  var $compile, $rootScope, $timeout;
+  var $compile, $rootScope, $timeout, MapService;
 
-  beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_) {
+  beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_, _MapService_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
     $timeout = _$timeout_;
+    MapService = _MapService_;
   }));
 
   describe('template', function() {
@@ -65,6 +66,25 @@ describe('mapQueryDirective', function() {
       $timeout.flush();
       expect(scope.visible).toBe(true);
       expect(scope.overlay_.getPosition()).toEqual([100, 200]);
+    });
+
+  });
+
+  describe('queryAt', function() {
+
+    it('should decide if map is recentered', function() {
+      var view = MapService.getMap().getView();
+      var element = $compile('<oereb-map-query></oereb-map-query>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      spyOn(scope, 'moveTo_');
+      spyOn(scope, 'queryEgrid_');
+      spyOn(view, 'setCenter');
+      expect(scope.visible).toBe(false);
+      scope.queryAt([100, 200], true);
+      expect(scope.moveTo_).toHaveBeenCalledWith([100, 200]);
+      expect(scope.queryEgrid_).toHaveBeenCalledWith([100, 200]);
+      expect(view.setCenter).toHaveBeenCalledWith([100, 200]);
     });
 
   });

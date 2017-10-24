@@ -63,6 +63,16 @@ class Index(object):
         cfg['url'] = self.get_base_layer_url_()
         return json.dumps(cfg)
 
+    def get_search_config_(self):
+        """Returns the JSON-encoded configuration for the search.
+
+        Returns:
+            str: The JSON-encoded search API configuration.
+
+        """
+        search_config = self.config_.get('search', {})
+        return json.dumps(search_config)
+
     def render(self):
         """Returns the dictionary with rendering parameters.
 
@@ -72,5 +82,6 @@ class Index(object):
         """
         return {
             'debug': self.is_debug_(),
-            'base_layer_config': self.get_base_layer_config_()
+            'base_layer_config': self.get_base_layer_config_(),
+            'search_api_config': self.get_search_config_()
         }

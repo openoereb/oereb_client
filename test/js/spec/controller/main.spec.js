@@ -4,18 +4,26 @@ describe('MainController', function() {
 
   beforeEach(angular.mock.module('oereb', function($provide) {
     $provide.constant('oerebApplicationUrl', 'http://example.com');
+    $provide.constant('oerebBaseLayerConfig', angular.toJson({
+        type: 'wms',
+        url: 'http://geowms.bl.ch',
+        params: {
+          LAYERS: 'grundkarte_sw_group'
+        }
+      }));
   }));
 
-  var $controller, $httpBackend, $rootScope, $scope, ExtractService, oerebEventEgridSelected,
+  var $controller, $httpBackend, $rootScope, $scope, ExtractService, MapService, oerebEventEgridSelected,
     oerebEventExtractClosed, oerebEventExtractLoaded;
 
-  beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_, _ExtractService_,
+  beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_, _ExtractService_, _MapService_,
                              _oerebEventEgridSelected_, _oerebEventExtractLoaded_,
                              _oerebEventExtractClosed_) {
     $controller = _$controller_;
     $httpBackend = _$httpBackend_;
     $rootScope = _$rootScope_;
     ExtractService = _ExtractService_;
+    MapService = _MapService_;
     oerebEventEgridSelected = _oerebEventEgridSelected_;
     oerebEventExtractLoaded = _oerebEventExtractLoaded_;
     oerebEventExtractClosed = _oerebEventExtractClosed_;
@@ -31,6 +39,7 @@ describe('MainController', function() {
     return $controller('MainController', {
       $scope: $scope,
       ExtractService: ExtractService,
+      MapService: MapService,
       oerebEventEgridSelected: oerebEventEgridSelected,
       oerebEventExtractLoaded: oerebEventExtractLoaded
     });
@@ -73,6 +82,23 @@ describe('MainController', function() {
       $rootScope.$broadcast(oerebEventEgridSelected, 'CHTEST');
       $httpBackend.flush();
       expect(ctrl.extractActive).toBe(true);
+    });
+
+    it('should show the extract and center', function() {
+      var view = MapService.getMap().getView();
+      spyOn(view, 'fit');
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      spyOn(ExtractService, 'getExtract').and.returnValue('Test');
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        Limit: {
+          coordinates: []
+        }
+      });
+      var ctrl = getMainController();
+      $rootScope.$broadcast(oerebEventEgridSelected, 'CHTEST', true);
+      $httpBackend.flush();
+      expect(ctrl.extractActive).toBe(true);
+      expect(view.fit).toHaveBeenCalled();
     });
 
     it('should hide the extract on invalid data', function() {
