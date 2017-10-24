@@ -89,7 +89,6 @@ oereb.SearchService.prototype.searchEgrid = function (parcel_number, municipalit
           }
           def.reject(error);
         })
-        //def.resolve(response.data);
       }.bind(this),
       function (response) {
         var error = '';
