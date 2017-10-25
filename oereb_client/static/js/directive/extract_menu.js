@@ -45,4 +45,4 @@ oereb.extractMenuDirective = function ($location, geoViewConfig) {
  * @description The menu which is shown in the extract to link to several related services.
  *
  */
-oereb.module.directive('extractMenu', oereb.extractMenuDirective);
+oereb.module.directive('oerebExtractMenu', oereb.extractMenuDirective);

@@ -4,7 +4,7 @@ goog.require('oereb.MainController');
 goog.require('oereb.mapQueryDirective');
 goog.require('oereb.informationPanelDirective');
 goog.require('oereb.realEstateDirective');
-goog.require('oereb.extractMenu');
+goog.require('oereb.extractMenuDirective');
 goog.require('oereb.searchDirective');
 goog.require('oereb.searchResultFilter');
 goog.require('oereb.concernedThemeDirective');
