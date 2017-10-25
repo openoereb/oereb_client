@@ -18,3 +18,5 @@ oereb_client:
     wfs:
       url: http://geowms.bl.ch?
       limit: 5
+  geo_view:
+    url: http://geoview.bl.ch?
