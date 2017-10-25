@@ -40,12 +40,12 @@ oereb.MainController = function($scope, $location, ExtractService, MapService, o
 
   // Load extract on selected egrid
   this.$scope_.$on(this.oerebEventEgridSelected_, function(event, egrid, center) {
-    this.getExtractByEgrid(egrid, center);
+    this.getExtractByEgrid_(egrid, center);
   }.bind(this));
   // Initially load stats if EGRID defined
   var egrid = this.$location_.search()['egrid'];
   if (angular.isString(egrid) && egrid.length > 0) {
-    this.getExtractByEgrid(egrid, true);
+    this.getExtractByEgrid_(egrid, true);
   }
 };
 
@@ -71,9 +71,10 @@ oereb.MainController.prototype.toggleInformation = function() {
 /**
  * Starts the extract creating with the desired egrid.
  * @param {string} egrid The EGRID as a string.
- * @export
+ * @param {boolean} center Switch if the map should be recentered or not.
+ * @private
  */
-oereb.MainController.prototype.getExtractByEgrid = function(egrid, center) {
+oereb.MainController.prototype.getExtractByEgrid_ = function(egrid, center) {
   this.ExtractService_.queryExtractById(egrid).then(
     function() {
       this.$scope_.$broadcast(this.oerebEventExtractLoaded_);
