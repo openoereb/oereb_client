@@ -13,7 +13,7 @@ describe('topicDirective', function() {
     }));
   }));
 
-  var $compile, $rootScope, ExtractService, scope;
+  var $compile, $rootScope, $timeout, ExtractService, scope;
 
   var themes = [
     {
@@ -32,10 +32,11 @@ describe('topicDirective', function() {
     }
   ];
 
-  beforeEach(inject(function(_$compile_, _$controller_, _$rootScope_, _ExtractService_,
+  beforeEach(inject(function(_$compile_, _$controller_, _$rootScope_, _$timeout_, _ExtractService_,
                              _oerebEventExtractLoaded_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
+    $timeout = _$timeout_;
     ExtractService = _ExtractService_;
     var $scope = $rootScope.$new();
     scope = $scope.$new();
@@ -108,6 +109,26 @@ describe('topicDirective', function() {
       scope.$digest();
       var isoScope = element.isolateScope();
       expect(isoScope.isSelected()).toBe(false);
+    });
+
+  });
+
+  describe('collapsible events', function() {
+
+    it('should switch the badge icon', function() {
+      var element = $compile(
+        '<oereb-topic theme="::theme" selected-theme="topicCtrl.selectedTheme"></oereb-topic>'
+      )(scope);
+      scope.$digest();
+      var isoScope = element.isolateScope();
+      expect(isoScope.badgeIcon).toEqual('fa-chevron-down');
+      var collapsible = element.find('.collapse').eq(0);
+      collapsible.trigger('show.bs.collapse');
+      $timeout.flush();
+      expect(isoScope.badgeIcon).toEqual('fa-chevron-up');
+      collapsible.trigger('hide.bs.collapse');
+      $timeout.flush();
+      expect(isoScope.badgeIcon).toEqual('fa-chevron-down');
     });
 
   });

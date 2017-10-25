@@ -1,16 +1,20 @@
 <div class="panel-group" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="button" id="{{id}}-heading" data-toggle="collapse"
-         href="#{{id}}-collapse" aria-expanded="true" aria-controls="{{id}}-collapse" ng-click="toggle()">
-      <h4 class="panel-title">
-          Nicht verf&uuml;gbare Themen <span class="badge pull-right" ng-bind="data.length"></span>
-      </h4>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="button" id="{{id}}-heading" data-toggle="collapse"
+             href="#{{id}}-collapse" aria-expanded="true" aria-controls="{{id}}-collapse" ng-click="toggle()">
+            <h4 class="panel-title">
+                Nicht verf&uuml;gbare Themen
+                <span class="badge pull-right">
+                    <strong>{{data.length}}</strong>
+                    <span class="fa fa-fw" ng-class="badgeIcon"></span>
+                </span>
+            </h4>
+        </div>
+        <div id="{{id}}-collapse" class="panel-collapse collapse" role="tabpanel"
+             aria-labelledby="{{id}}-heading">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="theme in data" ng-bind="theme['Text']['Text']"></li>
+            </ul>
+        </div>
     </div>
-    <div id="{{id}}-collapse" class="panel-collapse collapse" role="tabpanel"
-         aria-labelledby="{{id}}-heading">
-      <ul class="list-group">
-        <li class="list-group-item" ng-repeat="theme in data" ng-bind="theme['Text']['Text']"></li>
-      </ul>
-    </div>
-  </div>
 </div>

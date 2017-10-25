@@ -10,6 +10,7 @@ goog.require('oereb.TopicController');
  *
  * @description Directive definition function.
  *
+ * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
  * @param {string} oerebEventExtractLoaded Name of the extract loaded event.
  *
@@ -17,7 +18,7 @@ goog.require('oereb.TopicController');
  *
  * @ngInject
  */
-oereb.concernedThemeDirective = function(ExtractService, oerebEventExtractLoaded) {
+oereb.concernedThemeDirective = function($timeout, ExtractService, oerebEventExtractLoaded) {
   return {
     restrict: 'E',
     replace: true,
@@ -27,8 +28,14 @@ oereb.concernedThemeDirective = function(ExtractService, oerebEventExtractLoaded
     },
     link: function(scope, element) {
 
+      var badgeIconCollapsed = 'fa-chevron-down';
+      var badgeIconExpanded = 'fa-chevron-up';
+
       /** @export {string} */
       scope.id = 'concerned-' + parseInt(Math.random() * Date.now());
+
+      /** @export {string} */
+      scope.badgeIcon = badgeIconCollapsed;
 
       /** @export {Array} */
       scope.data = [];
@@ -43,7 +50,25 @@ oereb.concernedThemeDirective = function(ExtractService, oerebEventExtractLoaded
       });
 
       // Get collapsible element
-      var collapsible = element.find('.collapse').eq(0);
+      var collapsible = element.find('.collapse').first();
+
+      // Listen on show event to switch badge icon
+      collapsible.on('show.bs.collapse', function(evt) {
+        if (evt.target.id === scope.id + '-collapse') {
+          $timeout(function () {
+            scope.badgeIcon = badgeIconExpanded;
+          });
+        }
+      });
+
+      // Listen on hide event to switch badge icon
+      collapsible.on('hide.bs.collapse', function(evt) {
+        if (evt.target.id === scope.id + '-collapse') {
+          $timeout(function () {
+            scope.badgeIcon = badgeIconCollapsed;
+          });
+        }
+      });
 
       /** @export */
       scope.toggle = function () {
