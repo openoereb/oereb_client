@@ -1,9 +1,9 @@
-goog.provide('oereb.extractMenu');
+goog.provide('oereb.extractMenuDirective');
 
 goog.require('oereb');
 goog.require('oereb.staticExtractDirective');
 
-oereb.extractMenu = function ($location, geoViewConfig) {
+oereb.extractMenuDirective = function ($location, geoViewConfig) {
   return {
     restrict: 'E',
     replace: true,
@@ -45,4 +45,4 @@ oereb.extractMenu = function ($location, geoViewConfig) {
  * @description The menu which is shown in the extract to link to several related services.
  *
  */
-oereb.module.directive('extractMenu', oereb.extractMenu);
+oereb.module.directive('extractMenu', oereb.extractMenuDirective);
