@@ -566,4 +566,31 @@ describe('ExtractService', function() {
 
   });
 
+  describe('getGlossary', function() {
+
+    it('should return empty array if no extract is available', function() {
+      expect(ExtractService.getGlossary()).toEqual([]);
+    });
+
+    it('should return empty array if no glossary is defined', function() {
+      spyOn(ExtractService, 'getExtract').and.returnValue({
+        Glossary: 'invalid'
+      });
+      expect(ExtractService.getGlossary()).toEqual([]);
+    });
+
+    it('should the exclusions of liability', function() {
+      spyOn(ExtractService, 'getExtract').and.returnValue({
+        Glossary: [
+          'dummy1',
+          'dummy2'
+        ]
+      });
+      expect(ExtractService.getGlossary().length).toBe(2);
+      expect(ExtractService.getGlossary()[0]).toEqual('dummy1');
+      expect(ExtractService.getGlossary()[1]).toEqual('dummy2');
+    });
+
+  });
+
 });

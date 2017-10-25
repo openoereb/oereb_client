@@ -360,6 +360,17 @@ oereb.ExtractService.prototype.getExclusionsOfLiability = function() {
 };
 
 /**
+ * Returns the glossary for the current extract.
+ * @returns {Array} The exclusions of liability.
+ */
+oereb.ExtractService.prototype.getGlossary = function() {
+  if (angular.isDefined(this.getExtract()) && angular.isArray(this.getExtract()['Glossary'])) {
+    return this.getExtract()['Glossary'];
+  }
+  return [];
+};
+
+/**
  * Returns the embeddable if available.
  * @returns {Object|undefined} The extract object or undefined.
  */
