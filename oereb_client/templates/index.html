@@ -25,9 +25,7 @@
 
         <div id="extract" ng-class="{active: ctrl.extractActive, 'information': ctrl.informationActive}">
             <div class="container-fluid extract-wrapper">
-                <span class="pull-right" ng-click="ctrl.closeExtract()">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                </span>
+                <span class="close extract-close" ng-click="ctrl.closeExtract()">&times;</span>
                 <extract-menu class="pull-left" perma-link="ctrl.permaLink"></extract-menu>
                 <div class="clearfix"></div>
                 <oereb-real-estate></oereb-real-estate>
