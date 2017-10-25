@@ -39,17 +39,24 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
 
       /** @export {String} */
       scope.searchText = '';
+
       var clear = function () {
         scope.egrids.length = 0;
         scope.parcels.length = 0;
         scope.addresses.length = 0;
         scope.searchText = '';
       };
+
       var filter = $filter('searchResult');
+
+      /** @export {String} */
       scope.blLogoUrl = blLogoUrl;
+
+      /** @export {String} */
       scope.oerebLogoUrl = oerebLogoURL;
+
       scope.$watch('searchText', function(value) {
-        if (value != '') {
+        if (value !== '') {
           SearchService.searchTerm('egr ' + value).then(function(result) {
             scope.egrids = result.features;
           });

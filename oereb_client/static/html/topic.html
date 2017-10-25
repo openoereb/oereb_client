@@ -1,24 +1,27 @@
 <div class="panel-group" role="tablist" aria-multiselectable="true">
-  <div class="panel" ng-class="{'panel-primary': isSelected(), 'panel-default': !isSelected()}">
-    <div class="panel-heading"
-         role="button"
-         id="{{id}}-heading"
-         data-toggle="collapse"
-         href="#{{id}}-collapse"
-         aria-expanded="true"
-         aria-controls="{{id}}-collapse"
-         ng-click="select()">
-      <strong ng-bind="theme['Text']['Text']"></strong>
+    <div class="panel" ng-class="{'panel-primary': isSelected(), 'panel-default': !isSelected()}">
+        <div class="panel-heading"
+             role="button"
+             id="{{id}}-heading"
+             data-toggle="collapse"
+             href="#{{id}}-collapse"
+             aria-expanded="true"
+             aria-controls="{{id}}-collapse"
+             ng-click="select()">
+            <strong ng-bind="theme['Text']['Text']"></strong>
+            <span class="badge pull-right">
+                <span class="fa fa-fw" ng-class="badgeIcon"></span>
+            </span>
+        </div>
+        <div id="{{id}}-collapse"
+             class="panel-collapse collapse"
+             role="tabpanel"
+             aria-labelledby="{{id}}-heading">
+            <div class="panel-body">
+                <oereb-legend theme-code="::theme['Code']"></oereb-legend>
+                <oereb-legal-documents theme-code="::theme['Code']"></oereb-legal-documents>
+                <oereb-responsible-offices theme-code="::theme['Code']"></oereb-responsible-offices>
+            </div>
+        </div>
     </div>
-    <div id="{{id}}-collapse"
-         class="panel-collapse collapse"
-         role="tabpanel"
-         aria-labelledby="{{id}}-heading">
-      <div class="panel-body">
-        <oereb-legend theme-code="::theme['Code']"></oereb-legend>
-        <oereb-legal-documents theme-code="::theme['Code']"></oereb-legal-documents>
-        <oereb-responsible-offices theme-code="::theme['Code']"></oereb-responsible-offices>
-      </div>
-    </div>
-  </div>
 </div>
