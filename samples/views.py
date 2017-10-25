@@ -28,3 +28,12 @@ class Sample(object):
         with open('samples/extract.json') as f:
             content = json.loads(f.read())
         return HTTPOk(json_body=content)
+
+    def get_sample_pdf(self):
+        with open('samples/static/sample.pdf', 'rb') as f:
+            content = f.read()
+        response = self.request_.response
+        response.status_int = 200
+        response.content_type = 'application/pdf'
+        response.body = content
+        return response

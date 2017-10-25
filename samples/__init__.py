@@ -20,4 +20,11 @@ def includeme(config):
                     renderer='json',
                     request_method='GET')
 
+    config.add_route('{0}/samplepdf'.format(config.route_prefix),
+                     '/extract/{flavour}/pdf/{egrid}')
+    config.add_view(Sample,
+                    attr='get_sample_pdf',
+                    route_name='{0}/samplepdf'.format(config.route_prefix),
+                    request_method='GET')
+
     config.add_static_view('samples/static', 'samples:static', cache_max_age=3600)
