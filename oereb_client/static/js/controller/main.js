@@ -26,6 +26,9 @@ oereb.MainController = function($scope, ExtractService, MapService, oerebEventEg
   this.oerebEventExtractLoaded_ = oerebEventExtractLoaded;
   this.oerebEventExtractClosed_ = oerebEventExtractClosed;
 
+  /** @export {string} */
+  this.permaLink = '';
+
   /** @export {boolean} */
   this.extractActive = false;
 
