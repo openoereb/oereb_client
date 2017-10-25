@@ -22,6 +22,9 @@ settings = {
                 'url': 'http://geowms.bl.ch?',
                 'limit': 5
             }
+        },
+        'geo_view': {
+            'url': 'http: // geoview.bl.ch?'
         }
     }
 }
@@ -90,7 +93,8 @@ def test_render(mock_request):
         assert index.render() == {
             'debug': index.is_debug_(),
             'base_layer_config': index.get_base_layer_config_(),
-            'search_api_config': index.get_search_config_()
+            'search_api_config': index.get_search_config_(),
+            'geo_view_config': index.get_geo_view_config_()
         }
 
 
