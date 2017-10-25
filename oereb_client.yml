@@ -19,4 +19,4 @@ oereb_client:
       url: http://geowms.bl.ch?
       limit: 5
   geo_view:
-    url: http://geoview.bl.ch
+    url: http://geoview.bl.ch?
