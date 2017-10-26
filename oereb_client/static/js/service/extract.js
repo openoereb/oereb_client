@@ -129,12 +129,13 @@ oereb.ExtractService.prototype.getRestrictions = function(themeCode) {
 /**
  * Returns the legend entries of the specified topic.
  * @param {string} themeCode The code of the topic to return the restrictions for.
- * @returns {Array|undefined} The legend entries of the specified topic.
+ * @returns {Object|undefined} The legend entries of the specified topic.
  */
 oereb.ExtractService.prototype.getLegend = function(themeCode) {
   var restrictions = this.getRestrictions(themeCode);
   if (angular.isDefined(restrictions)) {
     var legendEntries = [];
+    var legendGraphics = [];
     for (var i = 0; i < restrictions.length; i++) {
       var existing = false;
       for (var j = 0; j < legendEntries.length; j++) {
@@ -156,8 +157,12 @@ oereb.ExtractService.prototype.getLegend = function(themeCode) {
           'SymbolRef': restrictions[i]['SymbolRef']
         });
       }
+      this.addIfNotContains_(restrictions[i]['Map']['LegendAtWeb'], legendGraphics);
     }
-    return legendEntries;
+    return {
+      'entries': legendEntries,
+      'graphics': legendGraphics
+    };
   }
   return undefined;
 };

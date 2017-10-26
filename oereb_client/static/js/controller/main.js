@@ -45,11 +45,13 @@ oereb.MainController = function($scope, $location, ExtractService, MapService, o
   this.$scope_.$on(this.oerebEventEgridSelected_, function(event, egrid, center) {
     this.getExtractByEgrid_(egrid, center);
   }.bind(this));
+
   // Initially load stats if EGRID defined
   var egrid = this.$location_.search()['egrid'];
   if (angular.isString(egrid) && egrid.length > 0) {
     this.getExtractByEgrid_(egrid, true);
   }
+
 };
 
 /**

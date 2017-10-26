@@ -9,13 +9,26 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="legend in legendEntries">
-                <td class="col-xs-6">{{legend['Information'] | multilingualText}}</td>
+            <tr ng-repeat="entry in legend['entries']">
+                <td class="col-xs-6">{{entry['Information'] | multilingualText}}</td>
                 <td class="col-xs-1">
-                    <img class="symbol" ng-src="{{legend['SymbolRef']}}">
+                    <img class="symbol" ng-src="{{entry['SymbolRef']}}">
                 </td>
-                <td class="col-xs-3">{{legend['Area']}} m<span class="sup">2</span></td>
-                <td class="col-xs-2">{{legend['PartInPercent']}}%</td>
+                <td class="col-xs-3">{{entry['Area']}} m<span class="sup">2</span></td>
+                <td class="col-xs-2">{{entry['PartInPercent']}}%</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <span role="button" ng-click="toggleGraphics()">
+                        <small>
+                            <i class="fa fa-fw" ng-class="graphicsIcon"></i>
+                            {{graphicsText}}
+                        </small>
+                    </span>
+                    <p class="collapse full-legend">
+                        <img ng-repeat="graphic in legend['graphics']" ng-src="{{graphic}}">
+                    </p>
+                </td>
             </tr>
         </tbody>
     </table>

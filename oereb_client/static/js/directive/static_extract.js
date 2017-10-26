@@ -19,7 +19,9 @@ oereb.staticExtractDirective = function($http, ExtractService, oerebApplicationU
     replace: true,
     templateUrl: 'static/html/static_extract.html',
     scope: {},
-    link: function(scope) {
+    link: function(scope, element) {
+
+      element.tooltip();
 
       var defaultIcon = 'fa-file-pdf-o';
       var loadingIcon = 'fa-spinner fa-pulse';
