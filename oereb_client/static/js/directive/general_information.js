@@ -22,6 +22,15 @@ oereb.generalInformationDirective = function(ExtractService) {
       /** @export {Object} */
       scope.office = ExtractService.getExtract()['PLRCadastreAuthority'];
 
+      /** @export {string} */
+      scope.logoCan = ExtractService.getExtract()['CantonalLogoRef'];
+
+      /** @export {string} */
+      scope.logoFed = ExtractService.getExtract()['FederalLogoRef'];
+
+      /** @export {string} */
+      scope.logoMun = ExtractService.getExtract()['MunicipalityLogoRef'];
+
     }
   };
 };

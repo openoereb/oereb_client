@@ -1,15 +1,30 @@
 <div class="container-fluid general-information">
     <h4>Katasterf&uuml;hrende Stelle</h4>
-    <address>
-        <dl>
-            <dt ng-bind="office['Name'] | multilingualText"></dt>
-            <dd ng-bind="office['Line1']"></dd>
-            <dd ng-bind="office['Line2']"></dd>
-            <dd ng-bind-template="{{office['Street']}} {{office['Number']}}"></dd>
-            <dd ng-bind-template="{{office['PostalCode']}} {{office['City']}}"></dd>
-            <dd>
-                <a ng-href="{{office['OfficeAtWeb']}}" target="_blank" ng-bind="office['OfficeAtWeb']"></a>
-            </dd>
-        </dl>
-    </address>
+    <div class="media">
+        <div class="media-left">
+            <a ng-href="{{office['OfficeAtWeb']}}" target="_blank">
+                <img ng-src="{{logoCan}}">
+            </a>
+        </div>
+        <div class="media-body">
+            <address>
+                <dl>
+                    <dt ng-bind="office['Name'] | multilingualText"></dt>
+                    <dd ng-bind="office['Line1']"></dd>
+                    <dd ng-bind="office['Line2']"></dd>
+                    <dd ng-bind-template="{{office['Street']}} {{office['Number']}}"></dd>
+                    <dd ng-bind-template="{{office['PostalCode']}} {{office['City']}}"></dd>
+                    <dd>
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        <a ng-href="{{office['OfficeAtWeb']}}" target="_blank"
+                           ng-bind="office['OfficeAtWeb']"></a>
+                    </dd>
+                </dl>
+            </address>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <h4>Weiterhin sind an diesem Auszug beteilig</h4>
+    <img class="img-responsive pull-left" ng-src="{{logoFed}}">
+    <img class="img-responsive" ng-src="{{logoMun}}">
 </div>
