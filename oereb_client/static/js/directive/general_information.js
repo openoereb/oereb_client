@@ -5,17 +5,22 @@ goog.require('oereb');
 /**
  * Directive definition function
  *
+ * @param {oereb.ExtractService} ExtractService The service for extract handling.
+ *
  * @returns {angular.Directive} Angular directive definition.
  *
  * @ngInject
  */
-oereb.generalInformationDirective = function() {
+oereb.generalInformationDirective = function(ExtractService) {
   return {
     restrict: 'E',
     replace: true,
     templateUrl: 'static/html/general_information.html',
     scope: {},
     link: function(scope) {
+
+      /** @export {Object} */
+      scope.office = ExtractService.getExtract()['PLRCadastreAuthority'];
 
     }
   };
