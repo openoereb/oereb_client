@@ -91,7 +91,7 @@
         (function() {
 
             var module = angular.module('oereb');
-            module.constant('oerebApplicationUrl', '${request.application_url}');
+            module.constant('oerebApplicationUrl', '${request.route_url('{0}/index'.format(request.route_prefix))}');
             module.constant('oerebBaseLayerConfig', '${base_layer_config | n}');
             module.constant('searchServiceConfig', '${search_api_config | n}');
             module.constant('geoViewConfig', '${geo_view_config | n}');
@@ -99,6 +99,7 @@
             module.constant('oerebLogoURL', '${request.static_url('oereb_client:static/images/logo_oereb.png')}');
             module.constant('blLogoUrl', '${request.static_url('oereb_client:static/images/logo_bl.png')}');
             module.constant('oerebDefaultLanguage', 'de');
+
         })();
 
     </script>

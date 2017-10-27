@@ -32,7 +32,7 @@ oereb.ExtractService.prototype.queryExtractById = function(egrid) {
   this.extract_ = undefined;
   this.embeddable_ = undefined;
   var def = this.$q_.defer();
-  this.$http_.get(this.applicationUrl_ + '/extract/reduced/json/geometry/' + egrid).then(
+  this.$http_.get(this.applicationUrl_ + 'extract/reduced/json/geometry/' + egrid).then(
     function(response) {
       if (angular.isObject(response.data['GetExtractByIdResponse'])) {
         this.extract_ = response.data['GetExtractByIdResponse']['extract'];
