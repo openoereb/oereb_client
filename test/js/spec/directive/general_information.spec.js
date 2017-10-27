@@ -7,12 +7,13 @@ describe('generalInformationDirective', function () {
     $provide.constant('oerebDefaultLanguage', 'de');
   }));
 
-  var $compile, $rootScope, ExtractService;
+  var $compile, $rootScope, ExtractService, oerebEventExtractLoaded;
 
-  beforeEach(inject(function (_$compile_, _$rootScope_, _ExtractService_) {
+  beforeEach(inject(function (_$compile_, _$rootScope_, _ExtractService_, _oerebEventExtractLoaded_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
     ExtractService = _ExtractService_;
+    oerebEventExtractLoaded = _oerebEventExtractLoaded_;
   }));
 
   var extract = {
@@ -48,13 +49,10 @@ describe('generalInformationDirective', function () {
     ]
   };
 
-  beforeEach(function () {
-    spyOn(ExtractService, 'getExtract').and.returnValue(extract);
-  });
-
   describe('template', function () {
 
     it('should be rendered', function () {
+      spyOn(ExtractService, 'getExtract').and.returnValue(extract);
       var element = $compile(
         '<oereb-general-information></oereb-general-information>'
       )($rootScope);
@@ -96,6 +94,38 @@ describe('generalInformationDirective', function () {
       expect(logos.children('img').length).toBe(2);
       expect(logos.children('img').eq(0).attr('src')).toEqual(extract.FederalLogoRef);
       expect(logos.children('img').eq(1).attr('src')).toEqual(extract.MunicipalityLogoRef);
+    });
+
+  });
+
+  describe('extract loaded event', function () {
+
+    it('should update the data', function () {
+      var data = true;
+      spyOn(ExtractService, 'getExtract').and.callFake(function() {
+        return data ? extract : undefined;
+      });
+      var element = $compile(
+        '<oereb-general-information></oereb-general-information>'
+      )($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      expect(scope.office).toEqual(extract.PLRCadastreAuthority);
+      expect(scope.logoCan).toEqual(extract.CantonalLogoRef);
+      expect(scope.logoFed).toEqual(extract.FederalLogoRef);
+      expect(scope.logoMun).toEqual(extract.MunicipalityLogoRef);
+      expect(scope.baseData).toEqual(extract.BaseData);
+      expect(scope.generalInformation).toEqual(extract.GeneralInformation);
+      data = false;
+      $rootScope.$broadcast(oerebEventExtractLoaded);
+      $rootScope.$apply();
+      expect(scope.office).toBeUndefined();
+      expect(scope.logoCan).toBeUndefined();
+      expect(scope.logoFed).toBeUndefined();
+      expect(scope.logoMun).toBeUndefined();
+      expect(scope.baseData).toEqual([]);
+      expect(scope.generalInformation).toEqual([]);
+      expect(ExtractService.getExtract).toHaveBeenCalledTimes(8);
     });
 
   });

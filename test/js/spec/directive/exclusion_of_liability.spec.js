@@ -7,12 +7,13 @@ describe('exclusionOfLiabilityDirective', function() {
     $provide.constant('oerebDefaultLanguage', 'de');
   }));
 
-  var $compile, $rootScope, ExtractService;
+  var $compile, $rootScope, ExtractService, oerebEventExtractLoaded;
 
-  beforeEach(inject(function(_$compile_, _$rootScope_, _ExtractService_) {
+  beforeEach(inject(function(_$compile_, _$rootScope_, _ExtractService_, _oerebEventExtractLoaded_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
     ExtractService = _ExtractService_;
+    oerebEventExtractLoaded = _oerebEventExtractLoaded_;
   }));
 
   describe('template', function() {
@@ -58,6 +59,21 @@ describe('exclusionOfLiabilityDirective', function() {
       expect(element.find('h4').eq(1).text()).toContain('title2');
       expect(element.find('p').eq(0).text()).toContain('content1');
       expect(element.find('p').eq(1).text()).toContain('content2');
+    });
+
+  });
+
+  describe('extract loaded event', function () {
+
+    it('should update the data', function () {
+      spyOn(ExtractService, 'getExclusionsOfLiability');
+      $compile(
+        '<oereb-exclusion-of-liability></oereb-exclusion-of-liability>'
+      )($rootScope);
+      $rootScope.$digest();
+      $rootScope.$broadcast(oerebEventExtractLoaded);
+      $rootScope.$apply();
+      expect(ExtractService.getExclusionsOfLiability).toHaveBeenCalledTimes(2);
     });
 
   });
