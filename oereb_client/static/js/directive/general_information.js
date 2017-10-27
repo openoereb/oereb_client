@@ -31,6 +31,12 @@ oereb.generalInformationDirective = function(ExtractService) {
       /** @export {string} */
       scope.logoMun = ExtractService.getExtract()['MunicipalityLogoRef'];
 
+      /** @export {Array} */
+      scope.baseData = ExtractService.getExtract()['BaseData'];
+
+      /** @export {Array} */
+      scope.generalInformation = ExtractService.getExtract()['GeneralInformation'];
+
     }
   };
 };
