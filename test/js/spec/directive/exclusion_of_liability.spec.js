@@ -52,12 +52,12 @@ describe('exclusionOfLiabilityDirective', function() {
         '<oereb-exclusion-of-liability></oereb-exclusion-of-liability>'
       )($rootScope);
       $rootScope.$digest();
-      var exclusions = element.find('.col-xs-6');
-      expect(exclusions.length).toBe(2);
-      expect(exclusions.eq(0).find('dt').eq(0).text()).toContain('title1');
-      expect(exclusions.eq(1).find('dt').eq(0).text()).toContain('title2');
-      expect(exclusions.eq(0).find('dd').eq(0).text()).toContain('content1');
-      expect(exclusions.eq(1).find('dd').eq(0).text()).toContain('content2');
+      expect(element.find('h4').length).toBe(2);
+      expect(element.find('blockquote').length).toBe(2);
+      expect(element.find('h4').eq(0).text()).toContain('title1');
+      expect(element.find('h4').eq(1).text()).toContain('title2');
+      expect(element.find('p').eq(0).text()).toContain('content1');
+      expect(element.find('p').eq(1).text()).toContain('content2');
     });
 
   });
