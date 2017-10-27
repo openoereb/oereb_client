@@ -15,11 +15,13 @@ goog.require('oereb');
  */
 oereb.sortGlossaryFilter = function($filter) {
 
+  var lang;
+
   var multilingualText = $filter('multilingualText');
 
   var compare = function(a, b) {
-    var titleA = multilingualText(a['Title']);
-    var titleB = multilingualText(b['Title']);
+    var titleA = multilingualText(a['Title'], lang);
+    var titleB = multilingualText(b['Title'], lang);
     if (titleA < titleB)
       return -1;
     if (titleA > titleB)
@@ -29,6 +31,7 @@ oereb.sortGlossaryFilter = function($filter) {
 
   return function(input, language) {
     if (angular.isArray(input)) {
+      lang = language;
       return input.sort(compare);
     }
     return input;
