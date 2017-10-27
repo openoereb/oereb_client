@@ -1,5 +1,5 @@
 <div class="container-fluid glossary">
-    <dl class="dl-horizontal" ng-repeat="item in data">
+    <dl class="dl-horizontal" ng-repeat="item in data | sortGlossary">
         <dt>
             {{item['Title'] | multilingualText}}
         </dt>
