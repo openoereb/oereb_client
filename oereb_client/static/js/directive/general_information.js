@@ -6,12 +6,13 @@ goog.require('oereb');
  * Directive definition function
  *
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
+ * @param {string} oerebEventExtractLoaded Name of the extract loaded event.
  *
  * @returns {angular.Directive} Angular directive definition.
  *
  * @ngInject
  */
-oereb.generalInformationDirective = function(ExtractService) {
+oereb.generalInformationDirective = function(ExtractService, oerebEventExtractLoaded) {
   return {
     restrict: 'E',
     replace: true,
@@ -19,23 +20,53 @@ oereb.generalInformationDirective = function(ExtractService) {
     scope: {},
     link: function(scope) {
 
-      /** @export {Object} */
-      scope.office = ExtractService.getExtract()['PLRCadastreAuthority'];
+      /** @export {Object|undefined} */
+      scope.office = undefined;
 
-      /** @export {string} */
-      scope.logoCan = ExtractService.getExtract()['CantonalLogoRef'];
+      /** @export {string|undefined} */
+      scope.logoCan = undefined;
 
-      /** @export {string} */
-      scope.logoFed = ExtractService.getExtract()['FederalLogoRef'];
+      /** @export {string|undefined} */
+      scope.logoFed = undefined;
 
-      /** @export {string} */
-      scope.logoMun = ExtractService.getExtract()['MunicipalityLogoRef'];
-
-      /** @export {Array} */
-      scope.baseData = ExtractService.getExtract()['BaseData'];
+      /** @export {string|undefined} */
+      scope.logoMun = undefined;
 
       /** @export {Array} */
-      scope.generalInformation = ExtractService.getExtract()['GeneralInformation'];
+      scope.baseData = [];
+
+      /** @export {Array} */
+      scope.generalInformation = [];
+
+      /**
+       * Updates the displayed data.
+       */
+      var update = function() {
+        if (angular.isDefined(ExtractService.getExtract())) {
+          scope.office = ExtractService.getExtract()['PLRCadastreAuthority'];
+          scope.logoCan = ExtractService.getExtract()['CantonalLogoRef'];
+          scope.logoFed = ExtractService.getExtract()['FederalLogoRef'];
+          scope.logoMun = ExtractService.getExtract()['MunicipalityLogoRef'];
+          scope.baseData = ExtractService.getExtract()['BaseData'];
+          scope.generalInformation = ExtractService.getExtract()['GeneralInformation'];
+        }
+        else {
+          scope.office = undefined;
+          scope.logoCan = undefined;
+          scope.logoFed = undefined;
+          scope.logoMun = undefined;
+          scope.baseData = [];
+          scope.generalInformation = [];
+        }
+      };
+
+      // Initialize data
+      update();
+
+      // Update data on extract loaded event
+      scope.$on(oerebEventExtractLoaded, function() {
+        update();
+      });
 
     }
   };
