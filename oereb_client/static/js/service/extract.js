@@ -193,26 +193,28 @@ oereb.ExtractService.prototype.addIfNotContains_ = function(item, target) {
  * @private
  */
 oereb.ExtractService.prototype.addDocumentIfNotContained_ = function(document, target) {
-  for (var i = 0; i < target.length; i++) {
-    // Check if document already exists (only use 'Title', 'OfficialNumber' and 'TextAtWeb' for comparison)
-    if (
-      angular.equals(target[i]['Title'], document['Title']) &&
-      angular.equals(target[i]['OfficialNumber'], document['OfficialNumber']) &&
-      angular.equals(target[i]['TextAtWeb'], document['TextAtWeb'])
-    ) {
-      // Add missing article numbers if document already exists
-      for (var j = 0; j < document['ArticleNumber'].length; j++) {
-        this.addIfNotContains_(document['ArticleNumber'][j], target[i]['ArticleNumber']);
+  if (angular.isArray(target)) {
+    for (var i = 0; i < target.length; i++) {
+      // Check if document already exists (only use 'Title', 'OfficialNumber' and 'TextAtWeb' for comparison)
+      if (
+        angular.equals(target[i]['Title'], document['Title']) &&
+        angular.equals(target[i]['OfficialNumber'], document['OfficialNumber']) &&
+        angular.equals(target[i]['TextAtWeb'], document['TextAtWeb'])
+      ) {
+        // Add missing article numbers if document already exists
+        for (var j = 0; j < document['ArticleNumber'].length; j++) {
+          this.addIfNotContains_(document['ArticleNumber'][j], target[i]['ArticleNumber']);
+        }
+        // Add missing articles if document already exists
+        for (var k = 0; k < document['Article'].length; k++) {
+          this.addIfNotContains_(document['Article'][k], target[i]['Article']);
+        }
+        return;
       }
-      // Add missing articles if document already exists
-      for (var k = 0; k < document['Article'].length; k++) {
-        this.addIfNotContains_(document['Article'][k], target[i]['Article']);
-      }
-      return;
     }
+    // Add document if it is missing
+    target.push(document);
   }
-  // Add document if it is missing
-  target.push(document);
 };
 
 /**
@@ -223,19 +225,21 @@ oereb.ExtractService.prototype.addDocumentIfNotContained_ = function(document, t
  */
 oereb.ExtractService.prototype.addDocumentsIfNotContained_ = function(documents, target) {
   // Iterate documents to be added
-  for (var i = 0; i < documents.length; i++) {
-    // Create document object with necessary properties and check if it needs to be added
-    this.addDocumentIfNotContained_({
-      'Title': documents[i]['Title'],
-      'OfficialNumber': documents[i]['OfficialNumber'],
-      'ArticleNumber': documents[i]['ArticleNumber'] || [],
-      'Article': documents[i]['Article'] || [],
-      'TextAtWeb': documents[i]['TextAtWeb']
-    }, target);
-    // Do the same for possible references
-    var references = documents[i]['Reference'];
-    if (angular.isArray(references)) {
-      this.addDocumentsIfNotContained_(references, target);
+  if (angular.isArray(documents) && angular.isArray(target)) {
+    for (var i = 0; i < documents.length; i++) {
+      // Create document object with necessary properties and check if it needs to be added
+      this.addDocumentIfNotContained_({
+        'Title': documents[i]['Title'],
+        'OfficialNumber': documents[i]['OfficialNumber'],
+        'ArticleNumber': documents[i]['ArticleNumber'] || [],
+        'Article': documents[i]['Article'] || [],
+        'TextAtWeb': documents[i]['TextAtWeb']
+      }, target);
+      // Do the same for possible references
+      var references = documents[i]['Reference'];
+      if (angular.isArray(references)) {
+        this.addDocumentsIfNotContained_(references, target);
+      }
     }
   }
 };
