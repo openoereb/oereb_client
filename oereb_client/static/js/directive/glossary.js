@@ -3,6 +3,7 @@ goog.provide('oereb.glossaryDirective');
 goog.require('oereb');
 goog.require('oereb.ExtractService');
 goog.require('oereb.multilingualTextFilter');
+goog.require('oereb.sortGlossaryFilter');
 
 /**
  * Directive definition function.

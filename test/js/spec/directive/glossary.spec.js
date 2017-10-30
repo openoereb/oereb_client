@@ -53,12 +53,12 @@ describe('glossaryDirective', function() {
         '<oereb-glossary></oereb-glossary>'
       )($rootScope);
       $rootScope.$digest();
-      expect(element.find('h4').length).toBe(2);
-      expect(element.find('blockquote').length).toBe(2);
-      expect(element.find('h4').eq(0).text()).toContain('title1');
-      expect(element.find('h4').eq(1).text()).toContain('title2');
-      expect(element.find('p').eq(0).text()).toContain('content1');
-      expect(element.find('p').eq(1).text()).toContain('content2');
+      var items = element.find('dl');
+      expect(items.length).toBe(2);
+      expect(items.eq(0).find('dt').eq(0).text()).toContain('title1');
+      expect(items.eq(1).find('dt').eq(0).text()).toContain('title2');
+      expect(items.eq(0).find('dd').eq(0).text()).toContain('content1');
+      expect(items.eq(1).find('dd').eq(0).text()).toContain('content2');
     });
 
   });
