@@ -1,10 +1,8 @@
 <div class="container-fluid glossary">
-    <dl class="dl-horizontal" ng-repeat="item in data | sortGlossary">
-        <dt>
-            {{item['Title'] | multilingualText}}
-        </dt>
-        <dd>
-            {{item['Content'] | multilingualText}}
-        </dd>
-    </dl>
+    <div ng-repeat="item in data | sortGlossary">
+        <h4><strong ng-bind="item['Title'] | multilingualText"></strong></h4>
+        <blockquote>
+            <p ng-bind="item['Content'] | multilingualText"></p>
+        </blockquote>
+    </div>
 </div>

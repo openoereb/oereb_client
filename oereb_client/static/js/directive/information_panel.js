@@ -1,6 +1,7 @@
 goog.provide('oereb.informationPanelDirective');
 
 goog.require('oereb');
+goog.require('oereb.generalInformationDirective');
 goog.require('oereb.exclusionOfLiabilityDirective');
 goog.require('oereb.glossaryDirective');
 
