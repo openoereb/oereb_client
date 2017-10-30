@@ -4,6 +4,7 @@ describe('informationPanelDirective', function() {
 
   beforeEach(angular.mock.module('oereb', function($provide) {
     $provide.constant('oerebApplicationUrl', 'http://example.com');
+    $provide.constant('oerebDefaultLanguage', 'de');
     $provide.constant('oerebBaseLayerConfig', angular.toJson({
       type: 'wms',
       url: 'http://geowms.bl.ch',
@@ -30,6 +31,19 @@ describe('informationPanelDirective', function() {
     });
   }));
 
+  var extract = {
+    PLRCadastreAuthority: 'dummy',
+    CantonalLogoRef: 'dummy',
+    FederalLogoRef: 'dummy',
+    MunicipalityLogoRef: 'dummy',
+    BaseData: [],
+    GeneralInformation: []
+  };
+
+  beforeEach(function() {
+    spyOn(ExtractService, 'getExtract').and.returnValue(extract);
+  });
+
   describe('template', function() {
 
     it('should be rendered', function() {
@@ -40,13 +54,13 @@ describe('informationPanelDirective', function() {
       expect(element.find('.close').length).toBe(1);
       var nav = element.children('.nav').eq(0);
       expect(nav.children('li').length).toBe(3);
-      expect(nav.find('strong').length).toBe(3);
-      expect(nav.find('strong').eq(0).text()).toContain('Allgemein');
-      expect(nav.find('strong').eq(1).text()).toContain('Haftungsausschluss');
-      expect(nav.find('strong').eq(2).text()).toContain('Glossar');
+      expect(nav.find('h4').length).toBe(3);
+      expect(nav.find('h4').eq(0).text()).toContain('Allgemein');
+      expect(nav.find('h4').eq(1).text()).toContain('Haftungsausschluss');
+      expect(nav.find('h4').eq(2).text()).toContain('Glossar');
       var tabs = element.children('.tab-content');
       expect(tabs.length).toBe(1);
-      expect(tabs.eq(0).children().length).toBe(0);
+      expect(tabs.eq(0).children().length).toBe(1);
       var isoScope = element.isolateScope();
       expect(isoScope.activeTab).toBe(0);
     });
