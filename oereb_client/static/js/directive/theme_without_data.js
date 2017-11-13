@@ -66,8 +66,10 @@ oereb.themeWithoutDataDirective = function($timeout, ExtractService, oerebEventE
 
       /** @export */
       scope.toggle = function () {
-        collapsible.collapse('show');
-        scope.toggledGroup = 'ThemeWithoutData';
+        if (scope.data.length > 0) {
+          collapsible.collapse('show');
+          scope.toggledGroup = 'ThemeWithoutData';
+        }
       };
 
       scope.$watch('toggledGroup', function(value) {

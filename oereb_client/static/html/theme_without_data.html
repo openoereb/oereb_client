@@ -6,12 +6,12 @@
                 Nicht verf&uuml;gbare Themen
                 <span class="badge pull-right">
                     <strong>{{data.length}}</strong>
-                    <span class="fa fa-fw" ng-class="badgeIcon"></span>
+                    <span ng-show="data.length > 0" class="fa fa-fw" ng-class="badgeIcon"></span>
                 </span>
             </h4>
         </div>
         <div id="{{id}}-collapse" class="panel-collapse collapse" role="tabpanel"
-             aria-labelledby="{{id}}-heading">
+             aria-labelledby="{{id}}-heading" ng-show="data.length > 0">
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="theme in data" ng-bind="theme['Text']['Text']"></li>
             </ul>

@@ -12,7 +12,7 @@
                 Betroffene Themen
                 <span class="badge pull-right">
                     <strong>{{data.length}}</strong>
-                    <span class="fa fa-fw" ng-class="badgeIcon"></span>
+                    <span ng-show="data.length > 0" class="fa fa-fw" ng-class="badgeIcon"></span>
                 </span>
             </h4>
         </div>
@@ -20,7 +20,8 @@
              class="panel-collapse collapse"
              role="tabpanel"
              aria-labelledby="{{id}}-heading"
-             ng-controller="TopicController as topicCtrl">
+             ng-controller="TopicController as topicCtrl"
+             ng-show="data.length > 0">
             <div class="list-group" ng-class="{'no-top-border': !$first}" ng-repeat="theme in data">
                 <oereb-topic class="list-group-item no-padding"
                              ng-class="{'no-top-border': !$first}"
