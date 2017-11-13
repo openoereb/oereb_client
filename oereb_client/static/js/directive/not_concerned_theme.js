@@ -66,8 +66,10 @@ oereb.notConcernedThemeDirective = function($timeout, ExtractService, oerebEvent
 
       /** @export */
       scope.toggle = function () {
-        collapsible.collapse('show');
-        scope.toggledGroup = 'NotConcernedTheme';
+        if (scope.data.length > 0) {
+          collapsible.collapse('show');
+          scope.toggledGroup = 'NotConcernedTheme';
+        }
       };
 
       scope.$watch('toggledGroup', function(value) {
