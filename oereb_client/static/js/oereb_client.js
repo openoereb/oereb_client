@@ -10,3 +10,4 @@ goog.require('oereb.searchResultFilter');
 goog.require('oereb.concernedThemeDirective');
 goog.require('oereb.notConcernedThemeDirective');
 goog.require('oereb.themeWithoutDataDirective');
+goog.require('oereb.historyDirective');

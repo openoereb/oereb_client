@@ -3,7 +3,12 @@
     <img class="logo-bl" src="{{blLogoUrl}}">
     <div class="clearfix"></div>
     <div class="container-fluid">
-        <input type="text" class="form-control" placeholder="Suche" ng-model="searchText" />
+        <div class="input-group">
+            <span class="input-group-btn">
+                <oereb-history class="input-group-btn"></oereb-history>
+            </span>
+            <input type="text" class="form-control" placeholder="Suche" ng-model="searchText">
+        </div>
     </div>
     <div ng-hide="!searchText">
         <div class="list-group">

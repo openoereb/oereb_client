@@ -10,20 +10,36 @@ goog.require('oereb');
  * @ngName StoreService
  */
 oereb.StoreService = function() {
-  localStorage.history = angular.toJson([]);
+  if (!angular.isDefined(localStorage.history)) {
+    localStorage.history = angular.toJson([]);
+  }
 };
 
 /**
- * Add egrid to storage.
+ * Add egrid to storage. The history will have 5 items in maximum. If it was already selected before, we do
+ * not need to add it again.
  * @param {string} egrid The coordinate to query the EGRID for.
- * @returns {angular.$q.Promise} Promise for the EGRID request.
+ * @returns {array} The array of previously loaded egrids.
  */
 oereb.StoreService.prototype.addEgrid = function(egrid) {
   var history = angular.fromJson(localStorage.history);
-  history.push(egrid);
-  if (history.length > 5) {
-    history.splice(0, 1);
+  if (history.indexOf(egrid) === -1) {
+    history.push(egrid);
+    if (history.length > 5) {
+      history.splice(0, 1);
+    }
   }
+  localStorage.history = angular.toJson(history);
+  return history;
+};
+
+/**
+ * Get the stored history of before used EGRIDS.
+ * @returns {array} The array of previously loaded egrids.
+ */
+oereb.StoreService.prototype.getHistory = function() {
+  var history = angular.fromJson(localStorage.history);
+  return history;
 };
 
 oereb.module.service('StoreService', oereb.StoreService);
