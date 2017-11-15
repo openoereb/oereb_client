@@ -1,27 +1,60 @@
-goog.require('oereb');
 goog.require('oereb.historyDirective');
 
 describe('historyDirective', function() {
 
-  beforeEach(angular.mock.module('oereb', function($provide, $qProvider) {
-
+  beforeEach(angular.mock.module('oereb', function($provide) {
+    localStorage.history = "[]";
+    $provide.constant('oerebApplicationUrl', 'http://example.com');
   }));
 
-  var $compile, $httpBackend, $rootScope, SearchService;
+  var $compile, $rootScope, ExtractService, oerebEventExtractLoaded, oerebEventEgridSelected;
 
-  beforeEach(inject(function(_$compile_, _$rootScope_, _$httpBackend_, _SearchService_) {
-
+  beforeEach(inject(function(_$compile_, _$rootScope_, _ExtractService_, _oerebEventExtractLoaded_,
+                             _oerebEventEgridSelected_) {
+    $rootScope = _$rootScope_;
+    $compile = _$compile_;
+    ExtractService = _ExtractService_;
+    oerebEventExtractLoaded = _oerebEventExtractLoaded_;
+    oerebEventEgridSelected = _oerebEventEgridSelected_;
   }));
-
-  afterEach(function() {
-
-  });
 
   describe('template', function() {
-
+    it('should be rendered', function() {
+      var element = $compile('<oereb-history></oereb-history>')($rootScope);
+      $rootScope.$digest();
+      expect(element.find('button').length).toBe(1);
+      expect(element.find('ul').length).toBe(1);
+    });
   });
 
-  describe('egrids', function() {
+  describe('history', function() {
 
+    it('should be empty array', function() {
+      var element = $compile('<oereb-history></oereb-history>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      expect(scope.history).toEqual([]);
+    });
+
+    it('should be array with length 1', function() {
+      var element = $compile('<oereb-history></oereb-history>')($rootScope);
+      $rootScope.$digest();
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({EGRID: 'CH12345678'});
+      $rootScope.$broadcast(oerebEventExtractLoaded);
+      $rootScope.$apply();
+      var scope = element.isolateScope();
+      expect(scope.history).toEqual(['CH12345678']);
+    });
+  });
+
+  describe('select', function(){
+    it('should call queryExtractById with EGRID', function() {
+      var element = $compile('<oereb-history></oereb-history>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      spyOn(scope, '$emit');
+      scope.select('CH12345678');
+      expect(scope.$emit).toHaveBeenCalledWith(oerebEventEgridSelected, 'CH12345678', true);
+    });
   });
 });

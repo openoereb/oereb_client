@@ -14,7 +14,8 @@ goog.require('oereb.StoreService');
  *
  * @ngInject
  */
-oereb.historyDirective = function(StoreService, ExtractService, oerebEventExtractLoaded) {
+oereb.historyDirective = function(StoreService, ExtractService, oerebEventExtractLoaded,
+                                  oerebEventEgridSelected) {
   return {
     restrict: 'E',
     replace: true,
@@ -26,7 +27,7 @@ oereb.historyDirective = function(StoreService, ExtractService, oerebEventExtrac
         scope.history = StoreService.addEgrid(ExtractService.getRealEstate()["EGRID"]);
       });
       scope.select = function (egrid) {
-        ExtractService.queryExtractById(egrid);
+        scope.$emit(oerebEventEgridSelected, egrid, true);
       }
     }
   }

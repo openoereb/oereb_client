@@ -3,7 +3,7 @@ goog.require('oereb.StoreService');
 describe('StoreService', function () {
 
   beforeEach(angular.mock.module('oereb', function() {
-
+    localStorage.history = "[]";
   }));
 
   var StoreService;
