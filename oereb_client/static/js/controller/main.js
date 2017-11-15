@@ -18,8 +18,8 @@ goog.require('oereb.MapService');
  * @ngdoc controller
  * @ngname MainController
  */
-oereb.MainController = function($scope, $location, ExtractService, MapService, oerebEventEgridSelected,
-                                oerebEventExtractLoaded, oerebEventExtractClosed) {
+oereb.MainController = function($scope, $location, ExtractService, MapService,
+                                oerebEventEgridSelected, oerebEventExtractLoaded, oerebEventExtractClosed) {
 
   this.$scope_ = $scope;
   this.$location_ = $location;
@@ -37,6 +37,9 @@ oereb.MainController = function($scope, $location, ExtractService, MapService, o
 
   /** @export {boolean} */
   this.informationActive = false;
+
+  /** @export {boolean} */
+  this.loading = false;
 
   /** @export {string} */
   this.toggledGroup = undefined;
@@ -80,8 +83,12 @@ oereb.MainController.prototype.toggleInformation = function() {
  * @private
  */
 oereb.MainController.prototype.getExtractByEgrid_ = function(egrid, center) {
+  this.informationActive = false;
+  this.extractActive = false;
+  this.loading = true;
   this.ExtractService_.queryExtractById(egrid).then(
     function() {
+      this.loading = false;
       this.$scope_.$broadcast(this.oerebEventExtractLoaded_);
       this.extractActive = angular.isDefined(this.ExtractService_.getExtract());
       if (center) {
@@ -93,10 +100,10 @@ oereb.MainController.prototype.getExtractByEgrid_ = function(egrid, center) {
       this.$location_.search('egrid', egrid);
     }.bind(this),
     function() {
+      this.loading = false;
       this.extractActive = false;
     }.bind(this)
   );
 };
-
 
 oereb.module.controller('MainController', oereb.MainController);
