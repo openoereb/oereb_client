@@ -14,7 +14,7 @@
                 <td class="col-xs-1">
                     <img class="symbol" ng-src="{{entry['SymbolRef']}}">
                 </td>
-                <td class="col-xs-3">{{entry['Area']}} m<span class="sup">2</span></td>
+                <td class="col-xs-3">{{entry['Area'] | number:2 | replace:',':'\''}} m<span class="sup">2</span></td>
                 <td class="col-xs-2">{{entry['PartInPercent']}}%</td>
             </tr>
             <tr>
