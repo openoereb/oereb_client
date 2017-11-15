@@ -40,7 +40,14 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       /** @export {String} */
       scope.searchText = '';
 
+      var egrLoading = false;
+      var adrLoading = false;
+      var gsLoading = false;
+
       var clear = function () {
+        egrLoading = false;
+        adrLoading = false;
+        gsLoading = false;
         scope.egrids.length = 0;
         scope.parcels.length = 0;
         scope.addresses.length = 0;
@@ -57,13 +64,19 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
 
       scope.$watch('searchText', function(value) {
         if (value !== '') {
+          egrLoading = true;
+          adrLoading = true;
+          gsLoading = true;
           SearchService.searchTerm('egr ' + value).then(function(result) {
+            egrLoading = false;
             scope.egrids = result.features;
           });
           SearchService.searchTerm('adr ' + value).then(function(result) {
+            adrLoading = false;
             scope.addresses = result.features;
           });
           SearchService.searchTerm('gs ' + value).then(function(result) {
+            gsLoading = false;
             scope.parcels = result.features;
           });
         }
@@ -111,6 +124,24 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
           }
         );
       };
+
+      /**
+       * Clear search text and close results.
+       * @export
+       */
+      scope.close = function() {
+        clear();
+      };
+
+      /**
+       * Returns true if one of the requests is still pending.
+       * @returns {boolean} True if one of the requests is still pending.
+       * @export
+       */
+      scope.isLoading = function() {
+        return egrLoading || adrLoading || gsLoading;
+      };
+
     }
   }
 };

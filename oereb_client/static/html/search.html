@@ -3,10 +3,18 @@
     <img class="logo-bl" src="{{blLogoUrl}}">
     <div class="clearfix"></div>
     <div class="container-fluid">
-        <input type="text" class="form-control" placeholder="Suche" ng-model="searchText" />
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Suche" ng-model="searchText" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="close()">
+                   <span class="fa fa-fw" ng-class="{'fa-times': !isLoading(), 'fa-spinner fa-pulse': isLoading()}">
+                   </span>
+                </button>
+            </span>
+        </div>
     </div>
-    <div ng-hide="!searchText">
-        <div class="list-group">
+    <div class="container-fluid" ng-hide="!searchText">
+        <div class="list-group result-list">
             <div class="list-group-item" ng-show="egrids.length > 0">
                 <span class="badge">{{egrids.length}}</span>
                 EGRID
