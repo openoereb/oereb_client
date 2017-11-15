@@ -249,10 +249,17 @@ describe('ExtractService', function() {
     it('should return the restrictions for the specified topic', function() {
       ExtractService.queryExtractById('CH1234');
       $httpBackend.flush();
-      expect(ExtractService.getLegend('LandUsePlans')).toEqual([]);
-      expect(ExtractService.getLegend('ContaminatedPublicTransportSites').length).toBe(2);
-      expect(ExtractService.getLegend('ContaminatedPublicTransportSites')[0]['Area']).toBe(13652.36);
-      expect(ExtractService.getLegend('ContaminatedPublicTransportSites')[0]['PartInPercent']).toBe(37.7);
+      expect(ExtractService.getLegend('LandUsePlans')).toEqual({
+        'entries': [],
+        'graphics': []
+      });
+      var entries = ExtractService.getLegend('ContaminatedPublicTransportSites')['entries'];
+      var graphics = ExtractService.getLegend('ContaminatedPublicTransportSites')['graphics'];
+      expect(entries.length).toBe(2);
+      expect(graphics.length).toBe(1);
+      expect(entries[0]['Area']).toBe(13652.36);
+      expect(entries[0]['PartInPercent']).toBe(37.7);
+      expect(graphics[0]).toContain('GetLegendGraphic');
     });
 
   });

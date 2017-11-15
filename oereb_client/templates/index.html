@@ -16,11 +16,11 @@
         <oereb-map-query id="map-query"></oereb-map-query>
         <oereb-information-panel
                 id="information"
-                ng-class="{'active': ctrl.informationActive, 'extract': ctrl.extractActive}"
+                ng-class="{'active': ctrl.informationActive, 'extract': ctrl.extractActive, 'loading': ctrl.loading}"
                 information-active="ctrl.informationActive">
         </oereb-information-panel>
 
-        <div id="extract" ng-class="{active: ctrl.extractActive, 'information': ctrl.informationActive}">
+        <div id="extract" ng-class="{'active': ctrl.extractActive, 'information': ctrl.informationActive, 'loading': ctrl.loading}">
             <div class="container-fluid extract-wrapper">
                 <span class="close extract-close" ng-click="ctrl.closeExtract()">&times;</span>
                 <oereb-extract-menu class="pull-left" perma-link="ctrl.permaLink"></oereb-extract-menu>
@@ -32,7 +32,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading information-panel" role="button" ng-click="ctrl.toggleInformation()">
                         <h4 class="panel-title">
-                            Allgemeinde und rechtliche Informationen
+                            Allgemeine und rechtliche Informationen
                             <span class="badge pull-right">
                                 <span class="fa fa-fw" ng-class="{'fa-chevron-right': !ctrl.informationActive, 'fa-chevron-left': ctrl.informationActive}"></span>
                             </span>
@@ -42,9 +42,14 @@
             </div>
         </div>
 
-
+        <div id="loading-indicator"
+             class="container-fluid text-center"
+             ng-class="{'loading': ctrl.loading}">
+            <h4><i class="fa fa-spinner fa-pulse"></i> Auszug wird generiert...</h4>
+        </div>
 
         <oereb-search id="search"></oereb-search>
+
         <div id="modal-permalink" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -61,6 +66,7 @@
                 </div>
           </div>
         </div>
+
     % if debug:
         <script src="${request.static_url('oereb_client:../node_modules/jquery/jquery.js')}"></script>
         <script src="${request.static_url('oereb_client:../node_modules/bootstrap/dist/js/bootstrap.js')}"></script>

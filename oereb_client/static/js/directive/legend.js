@@ -2,19 +2,21 @@ goog.provide('oereb.legendDirective');
 
 goog.require('oereb');
 goog.require('oereb.multilingualTextFilter');
+goog.require('oereb.replaceFilter');
 
 /**
  * @function
  *
  * @description Directive definition function
  *
+ * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {oereb.ExtractService} ExtractService Service for extract handling.
  *
  * @returns {angular.Directive} Directive definition object.
  *
  * @ngInject
  */
-oereb.legendDirective = function(ExtractService) {
+oereb.legendDirective = function($timeout, ExtractService) {
   return {
     restrict: 'E',
     replace: true,
@@ -22,10 +24,55 @@ oereb.legendDirective = function(ExtractService) {
     scope: {
       /** @export */ themeCode: '='
     },
-    link: function(scope) {
+    link: function(scope, element) {
 
-      /** @export {Array|undefined} */
-      scope.legendEntries = ExtractService.getLegend(scope.themeCode);
+      var graphicsTextHidden = 'vollständige Legende anzeigen';
+      var graphicsTextShown = 'vollständige Legende verbergen';
+      var graphicsIconHidden = 'fa-chevron-down';
+      var graphicsIconShown = 'fa-chevron-up';
+
+      var fullLegend = element.find('.full-legend').first();
+
+      fullLegend.collapse({
+        toggle: false
+      });
+
+      /** @export {string} */
+      scope.graphicsText = graphicsTextHidden;
+
+      /** @export {string} */
+      scope.graphicsIcon = graphicsIconHidden;
+
+      /** @export {Object|undefined} */
+      scope.legend = ExtractService.getLegend(scope.themeCode);
+
+      /**
+       * Show/hide the legend graphics.
+       * @export
+       */
+      scope.toggleGraphics = function() {
+        fullLegend.collapse('toggle');
+      };
+
+      // Change icon and text if graphics are shown
+      fullLegend.on('show.bs.collapse', function(evt) {
+        if (fullLegend[0] === evt.target) {
+          $timeout(function() {
+            scope.graphicsText = graphicsTextShown;
+            scope.graphicsIcon = graphicsIconShown;
+          });
+        }
+      });
+
+      // Change icon and text if graphics are hidden
+      fullLegend.on('hide.bs.collapse', function(evt) {
+        if (fullLegend[0] === evt.target) {
+          $timeout(function() {
+            scope.graphicsText = graphicsTextHidden;
+            scope.graphicsIcon = graphicsIconHidden;
+          });
+        }
+      });
 
     }
   };
