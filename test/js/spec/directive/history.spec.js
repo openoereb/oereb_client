@@ -7,7 +7,7 @@ describe('historyDirective', function() {
     $provide.constant('oerebApplicationUrl', 'http://example.com');
   }));
 
-  var $compile, $rootScope, ExtractService, oerebEventExtractLoaded, oerebEventEgridSelected;
+  var $compile, $rootScope, ExtractService, oerebEventEgridSelected, oerebEventExtractLoaded;
 
   beforeEach(inject(function(_$compile_, _$rootScope_, _ExtractService_, _oerebEventExtractLoaded_,
                              _oerebEventEgridSelected_) {
@@ -47,7 +47,7 @@ describe('historyDirective', function() {
     });
   });
 
-  describe('select', function(){
+  describe('select', function() {
     it('should call queryExtractById with EGRID', function() {
       var element = $compile('<oereb-history></oereb-history>')($rootScope);
       $rootScope.$digest();
