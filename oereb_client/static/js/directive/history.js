@@ -9,7 +9,7 @@ goog.require('oereb.StoreService');
  * @param {oereb.StoreService} StoreService The service for the handling of local storage.
  * @param {oereb.ExtractService} ExtractService Angular service for extract loading.
  * @param {string} oerebEventExtractLoaded Event name for loaded extract.
- *
+ * @param {string} oerebEventEgridSelected Event name for event when egrid was selected.
  * @returns {angular.Directive} Angular directive definition.
  *
  * @ngInject
@@ -24,10 +24,15 @@ oereb.historyDirective = function(StoreService, ExtractService, oerebEventExtrac
     link: function(scope) {
       scope.history = StoreService.getHistory();
       scope.$on(oerebEventExtractLoaded, function() {
-        scope.history = StoreService.addEgrid(ExtractService.getRealEstate()["EGRID"]);
+        var realEstate = {
+          egrid: ExtractService.getRealEstate()['EGRID'],
+          number: ExtractService.getRealEstate()['Number'],
+          municipality: ExtractService.getRealEstate()['Municipality']
+        };
+        scope.history = StoreService.addRealEstate(realEstate);
       });
-      scope.select = function (egrid) {
-        scope.$emit(oerebEventEgridSelected, egrid, true);
+      scope.select = function (realEstate) {
+        scope.$emit(oerebEventEgridSelected, realEstate.egrid, true);
       }
     }
   }

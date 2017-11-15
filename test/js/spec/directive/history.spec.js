@@ -3,7 +3,7 @@ goog.require('oereb.historyDirective');
 describe('historyDirective', function() {
 
   beforeEach(angular.mock.module('oereb', function($provide) {
-    localStorage.history = "[]";
+    localStorage.removeItem('history');
     $provide.constant('oerebApplicationUrl', 'http://example.com');
   }));
 
@@ -39,11 +39,17 @@ describe('historyDirective', function() {
     it('should be array with length 1', function() {
       var element = $compile('<oereb-history></oereb-history>')($rootScope);
       $rootScope.$digest();
-      spyOn(ExtractService, 'getRealEstate').and.returnValue({EGRID: 'CH12345678'});
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        EGRID: 'CH12345678',
+        Municipality: 'Testwil',
+        Number: 1000
+      });
       $rootScope.$broadcast(oerebEventExtractLoaded);
       $rootScope.$apply();
       var scope = element.isolateScope();
-      expect(scope.history).toEqual(['CH12345678']);
+      expect(scope.history[0].egrid).toEqual('CH12345678');
+      expect(scope.history[0].municipality).toEqual('Testwil');
+      expect(scope.history[0].number).toEqual(1000);
     });
   });
 
@@ -53,7 +59,7 @@ describe('historyDirective', function() {
       $rootScope.$digest();
       var scope = element.isolateScope();
       spyOn(scope, '$emit');
-      scope.select('CH12345678');
+      scope.select({egrid: 'CH12345678'});
       expect(scope.$emit).toHaveBeenCalledWith(oerebEventEgridSelected, 'CH12345678', true);
     });
   });

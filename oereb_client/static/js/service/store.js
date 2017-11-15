@@ -18,18 +18,24 @@ oereb.StoreService = function() {
 /**
  * Add egrid to storage. The history will have 5 items in maximum. If it was already selected before, we do
  * not need to add it again.
- * @param {string} egrid The coordinate to query the EGRID for.
+ * @param {Object} realEstate The small representation of the real estate. It contains EGRID,
+ *  municipality name and real estate number.
  * @returns {array} The array of previously loaded egrids.
  */
-oereb.StoreService.prototype.addEgrid = function(egrid) {
+oereb.StoreService.prototype.addRealEstate = function(realEstate) {
   var history = angular.fromJson(localStorage.history);
-  if (history.indexOf(egrid) === -1) {
-    history.push(egrid);
+  if (history.indexOf(angular.toJson(realEstate)) === -1) {
+    history.push(angular.toJson(realEstate));
     if (history.length > 5) {
       history.splice(0, 1);
     }
   }
   localStorage.history = angular.toJson(history);
+  var historyJsonContent = angular.fromJson(localStorage.history);
+  history = [];
+  angular.forEach(historyJsonContent, function (item) {
+    history.push(angular.fromJson(item));
+  });
   return history;
 };
 
@@ -38,7 +44,11 @@ oereb.StoreService.prototype.addEgrid = function(egrid) {
  * @returns {array} The array of previously loaded egrids.
  */
 oereb.StoreService.prototype.getHistory = function() {
-  var history = angular.fromJson(localStorage.history);
+  var historyJsonContent = angular.fromJson(localStorage.history);
+  var history = [];
+  angular.forEach(historyJsonContent, function (item) {
+    history.push(angular.fromJson(item));
+  });
   return history;
 };
 

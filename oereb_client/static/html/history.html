@@ -9,8 +9,10 @@
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-        <li ng-repeat="item in history">
-            <a href="#" ng-click="select(item)">{{item}}</a>
+        <li ng-repeat="realEstate in history">
+            <a href="#" ng-click="select(realEstate)">
+                {{realEstate.municipality}} {{realEstate.number}} ({{realEstate.egrid}})
+            </a>
         </li>
     </ul>
 </div>
