@@ -1,15 +1,15 @@
-<div class="btn-group" role="group">
+<div>
     <button
             type="button"
             class="btn btn-default dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false">
-        <i class="fa fa-history" aria-hidden="true"></i>
+        <i class="fa fa-history"></i>
         <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu pull-left">
-        <li class="dropdown-submenu pull-left" ng-repeat="item in history">
+    <ul class="dropdown-menu">
+        <li ng-repeat="item in history">
             <a href="#" ng-click="select(item)">{{item}}</a>
         </li>
     </ul>
