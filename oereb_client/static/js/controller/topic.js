@@ -89,9 +89,9 @@ oereb.TopicController.prototype.getRealEstateFeature_ = function() {
  * @export
  */
 oereb.TopicController.prototype.clearLayers = function() {
+  this.realEstateLayer_.setMap(null);
+  this.realEstateLayer_.getSource().clear();
   for (var i = this.layers_.length; i > 0; i--) {
-    this.realEstateLayer_.setMap(null);
-    this.realEstateLayer_.getSource().clear();
     this.layers_[i - 1].setMap(null);
     this.layers_.splice(i - 1, 1);
   }
