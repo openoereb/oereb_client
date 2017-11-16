@@ -100,7 +100,7 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
        */
       scope.addressSelect = function (address) {
         var selector = angular.element('#map-query');
-        var selectorScope = selector.isolateScope();
+        var selectorScope = selector['isolateScope']();
         clear();
         selectorScope.queryAt(address["geometry"]["coordinates"], true);
       };
