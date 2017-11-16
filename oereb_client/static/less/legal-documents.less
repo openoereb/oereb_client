@@ -9,5 +9,18 @@
   border-top: 1px solid @table-border-color;
   dl {
     margin: 0;
+    dd {
+      padding-left: @default-padding;
+      ul {
+        list-style: none;
+        padding-left: @default-padding;
+        margin: 0;
+        li {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
   }
 }
