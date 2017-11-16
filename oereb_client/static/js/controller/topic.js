@@ -119,6 +119,7 @@ oereb.TopicController.prototype.updateLayers_ = function() {
   if (angular.isDefined(realEstate)) {
     this.realEstateLayer_.getSource().addFeature(realEstate);
   }
+  this.realEstateLayer_.setMap(this.MapService_.getMap());
 };
 
 /**
