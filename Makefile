@@ -196,6 +196,7 @@ $(APP_JS): $(NODE_MODULES) $(BUILD_DIR) $(TEMPLATE_CACHE) $(SRC_JS) $(LIB_JS)
 	--externs='$(dir $(NODE_MODULES))openlayers/externs/olx.js' \
 	--externs='externs/ol.js' \
 	--externs='externs/bootstrap.js' \
+	--externs='externs/localStorage.js' \
 	--js='$(dir $(NODE_MODULES))google-closure-library/closure/goog/**.js' \
 	--js='!$(dir $(NODE_MODULES))google-closure-library/closure/goog/**_test.js' \
 	--js='$(PKG)/static/js/**.js' \

@@ -22,18 +22,28 @@ oereb.historyDirective = function(StoreService, ExtractService, oerebEventExtrac
     templateUrl: 'static/html/history.html',
     scope: {},
     link: function(scope) {
+
+      /** @export {array} */
       scope.history = StoreService.getHistory();
+
       scope.$on(oerebEventExtractLoaded, function() {
         var realEstate = {
-          egrid: ExtractService.getRealEstate()['EGRID'],
-          number: ExtractService.getRealEstate()['Number'],
-          municipality: ExtractService.getRealEstate()['Municipality']
+          'egrid': ExtractService.getRealEstate()['EGRID'],
+          'number': ExtractService.getRealEstate()['Number'],
+          'municipality': ExtractService.getRealEstate()['Municipality']
         };
         scope.history = StoreService.addRealEstate(realEstate);
       });
+
+      /**
+       * Loads the extract for the selected real estate.
+       * @param {Object} realEstate The real estate data.
+       * @export
+       */
       scope.select = function (realEstate) {
-        scope.$emit(oerebEventEgridSelected, realEstate.egrid, true);
+        scope.$emit(oerebEventEgridSelected, realEstate['egrid'], true);
       }
+
     }
   }
 };
