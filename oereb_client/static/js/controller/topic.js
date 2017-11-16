@@ -30,6 +30,21 @@ oereb.TopicController = function($scope, ExtractService, MapService, oerebEventE
    */
   this.layers_ = [];
 
+  /**
+   * @type {ol.layer.Vector}
+   * @private
+   */
+  this.realEstateLayer_ = new ol.layer.Vector({
+    source: new ol.source.Vector(),
+    style: new ol.style.Style({
+      fill: undefined,
+      stroke: new ol.style.Stroke({
+        color: [255, 0, 0, 0.75],
+        width: 7
+      })
+    })
+  });
+
   /** @export {string} */
   this.selectedTheme = undefined;
 
@@ -57,12 +72,26 @@ oereb.TopicController = function($scope, ExtractService, MapService, oerebEventE
 
 };
 
+oereb.TopicController.prototype.getRealEstateFeature_ = function() {
+  var realEstate = this.ExtractService_.getRealEstate();
+  if (
+    angular.isDefined(realEstate) &&
+    angular.isDefined(realEstate['Limit']) &&
+    angular.isDefined(realEstate['Limit']['coordinates'])
+  ) {
+    var geom = new ol.geom.MultiPolygon(realEstate['Limit']['coordinates']);
+    return new ol.Feature(geom);
+  }
+};
+
 /**
  * Clears the current set of layers.
  * @export
  */
 oereb.TopicController.prototype.clearLayers = function() {
   for (var i = this.layers_.length; i > 0; i--) {
+    this.realEstateLayer_.setMap(null);
+    this.realEstateLayer_.getSource().clear();
     this.layers_[i - 1].setMap(null);
     this.layers_.splice(i - 1, 1);
   }
@@ -86,6 +115,10 @@ oereb.TopicController.prototype.updateLayers_ = function() {
     layer.set('topic', viewServices[i]['topic']);
     this.layers_.push(layer);
   }
+  var realEstate = this.getRealEstateFeature_();
+  if (angular.isDefined(realEstate)) {
+    this.realEstateLayer_.getSource().addFeature(realEstate);
+  }
 };
 
 /**
@@ -94,6 +127,7 @@ oereb.TopicController.prototype.updateLayers_ = function() {
  * @private
  */
 oereb.TopicController.prototype.selectTheme_ = function(topic) {
+  this.realEstateLayer_.setMap(null);
   for (var i = 0; i < this.layers_.length; i++) {
     if (this.layers_[i].get('topic') === topic) {
       this.layers_[i].setMap(this.MapService_.getMap());
@@ -102,6 +136,7 @@ oereb.TopicController.prototype.selectTheme_ = function(topic) {
       this.layers_[i].setMap(null);
     }
   }
+  this.realEstateLayer_.setMap(this.MapService_.getMap());
 };
 
 oereb.module.controller('TopicController', oereb.TopicController);

@@ -108,11 +108,13 @@ describe('TopicController', function() {
       spyOn(layers[1], 'setMap');
       spyOn(layers, 'splice');
       var controller = getTopicController();
+      spyOn(controller.realEstateLayer_, 'setMap');
       controller.layers_ = layers;
       controller.clearLayers();
       expect(layers[0].setMap).toHaveBeenCalledWith(null);
       expect(layers[1].setMap).toHaveBeenCalledWith(null);
       expect(layers.splice).toHaveBeenCalledTimes(2);
+      expect(controller.realEstateLayer_.setMap).toHaveBeenCalledWith(null);
     });
 
   });
@@ -165,9 +167,49 @@ describe('TopicController', function() {
       controller.layers_.push(layer2);
       spyOn(layer1, 'setMap');
       spyOn(layer2, 'setMap');
+      spyOn(controller.realEstateLayer_, 'setMap');
       controller.selectTheme_('topic2');
       expect(layer1.setMap).toHaveBeenCalledWith(null);
       expect(layer2.setMap).toHaveBeenCalledWith(MapService.getMap());
+      expect(controller.realEstateLayer_.setMap).toHaveBeenCalledWith(MapService.getMap());
+    });
+
+  });
+
+  describe('getRealEstateFeature_', function() {
+
+    it('should return undefined if no extract is available', function() {
+      var controller = getTopicController();
+      expect(controller.getRealEstateFeature_()).toBeUndefined();
+    });
+
+    it('should return undefined if real estate has no geometry', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({});
+      var controller = getTopicController();
+      expect(controller.getRealEstateFeature_()).toBeUndefined();
+    });
+
+    it('should return undefined if real estate geometry has no coordinates', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        'Limit': {}
+      });
+      var controller = getTopicController();
+      expect(controller.getRealEstateFeature_()).toBeUndefined();
+    });
+
+    it('should return the real estate feature', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        'Limit': {
+          'coordinates': [[[[0, 0], [0, 1], [1, 1], [1, 0], [0, 0]]]]
+        }
+      });
+      var controller = getTopicController();
+      var feature = controller.getRealEstateFeature_();
+      expect(feature instanceof ol.Feature).toBe(true);
+      expect(feature.getGeometry() instanceof ol.geom.MultiPolygon).toBe(true);
+      expect(feature.getGeometry().getPolygons().length).toBe(1);
+      expect(feature.getGeometry().getPolygon(0).getLinearRingCount()).toBe(1);
+      expect(feature.getGeometry().getPolygon(0).getLinearRing(0).getCoordinates().length).toBe(5);
     });
 
   });

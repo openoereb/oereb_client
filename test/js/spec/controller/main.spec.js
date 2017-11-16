@@ -79,8 +79,11 @@ describe('MainController', function() {
       $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
       spyOn(ExtractService, 'getExtract').and.returnValue('Test');
       var ctrl = getMainController();
+      expect(ctrl.loading).toBe(false);
       $rootScope.$broadcast(oerebEventEgridSelected, 'CHTEST');
+      expect(ctrl.loading).toBe(true);
       $httpBackend.flush();
+      expect(ctrl.loading).toBe(false);
       expect(ctrl.extractActive).toBe(true);
     });
 

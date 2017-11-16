@@ -347,6 +347,30 @@ describe('ExtractService', function() {
       expect(list[0].Article.length).toBe(2);
     });
 
+    it('should merge attachments', function() {
+      var list = [];
+      var doc1 = {
+        Title: 'doc1',
+        OfficialNumber: 'number1',
+        TextAtWeb: ['link1'],
+        ArticleNumber: [],
+        Article: []
+      };
+      var doc2 = {
+        Title: 'doc1',
+        OfficialNumber: 'number1',
+        TextAtWeb: ['link2'],
+        ArticleNumber: [],
+        Article: []
+      };
+      ExtractService.addDocumentIfNotContained_(doc1, list);
+      expect(list.length).toBe(1);
+      expect(list[0].TextAtWeb.length).toBe(1);
+      ExtractService.addDocumentIfNotContained_(doc2, list);
+      expect(list.length).toBe(1);
+      expect(list[0].TextAtWeb.length).toBe(2);
+    });
+
   });
 
   describe('addDocumentsIfNotContained_', function() {
@@ -390,7 +414,7 @@ describe('ExtractService', function() {
       expect(result.length).toBe(3);
       for (var i = 0; i < result.length; i++) {
         expect(result[i]['Title']).toEqual('doc' + (i + 1));
-        expect(result[i]['TextAtWeb']).toEqual('link' + (i + 1));
+        expect(result[i]['TextAtWeb']).toEqual(['link' + (i + 1)]);
       }
     });
 
@@ -434,11 +458,11 @@ describe('ExtractService', function() {
       var result = ExtractService.getDocuments('test');
       expect(result['LegalProvisions'].length).toBe(1);
       expect(result['LegalProvisions'][0]['Title']).toEqual('prov1');
-      expect(result['LegalProvisions'][0]['TextAtWeb']).toEqual('link1');
+      expect(result['LegalProvisions'][0]['TextAtWeb']).toEqual(['link1']);
       expect(result['Documents'].length).toBe(2);
       for (var i = 0; i < result['Documents'].length; i++) {
         expect(result['Documents'][i]['Title']).toEqual('doc' + (i + 1));
-        expect(result['Documents'][i]['TextAtWeb']).toEqual('link' + (i + 1));
+        expect(result['Documents'][i]['TextAtWeb']).toEqual(['link' + (i + 1)]);
       }
     });
 

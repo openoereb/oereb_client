@@ -71,10 +71,10 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
        * @private
        */
       scope.moveTo_ = function(coord) {
-        scope.overlay_.setPosition(coord);
         $timeout(function() {
           scope.visible = true;
           scope.contentVisible = false;
+          scope.overlay_.setPosition(coord);
         });
       };
 
@@ -100,6 +100,17 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
             // TODO: display error message
           }
         );
+      };
+
+      /**
+       * Close the map query.
+       * @export
+       */
+      scope.close = function() {
+        $timeout(function() {
+          scope.contentVisible = false;
+          scope.visible = false;
+        });
       };
 
       /**

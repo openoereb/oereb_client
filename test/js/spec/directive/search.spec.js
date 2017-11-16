@@ -230,4 +230,24 @@ describe('searchDirective', function() {
       expect(scope.searchText).toEqual('');
     });*/
   });
+
+  describe('close', function() {
+
+    it('should clear search text and results', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.egrids = ['a', 'b'];
+      scope.parcels = ['a', 'b'];
+      scope.addresses = ['a', 'b'];
+      scope.searchText = 'test';
+      scope.close();
+      expect(scope.egrids.length).toBe(0);
+      expect(scope.parcels.length).toBe(0);
+      expect(scope.addresses.length).toBe(0);
+      expect(scope.searchText).toEqual('');
+    });
+
+  });
+
 });

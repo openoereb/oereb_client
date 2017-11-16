@@ -94,6 +94,7 @@ describe('concernedThemeDirective', function() {
       )(scope);
       scope.$digest();
       var isoScope = element.isolateScope();
+      isoScope.data = [1, 2];
       isoScope.toggle();
       scope.$digest();
       expect(isoScope.toggledGroup).toEqual('ConcernedTheme');

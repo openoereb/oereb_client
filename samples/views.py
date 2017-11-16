@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 
+import time
 from pyramid.httpexceptions import HTTPOk
 
 
@@ -9,6 +10,7 @@ class Sample(object):
         self.request_ = request
 
     def get_egrid(self):
+        time.sleep(2)
         return {
             'GetEGRIDResponse': [
                 {
@@ -25,6 +27,7 @@ class Sample(object):
         }
 
     def get_extract_by_id(self):
+        time.sleep(2)
         with open('samples/extract.json') as f:
             content = json.loads(f.read())
         return HTTPOk(json_body=content)

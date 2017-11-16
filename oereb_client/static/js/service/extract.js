@@ -198,8 +198,7 @@ oereb.ExtractService.prototype.addDocumentIfNotContained_ = function(document, t
       // Check if document already exists (only use 'Title', 'OfficialNumber' and 'TextAtWeb' for comparison)
       if (
         angular.equals(target[i]['Title'], document['Title']) &&
-        angular.equals(target[i]['OfficialNumber'], document['OfficialNumber']) &&
-        angular.equals(target[i]['TextAtWeb'], document['TextAtWeb'])
+        angular.equals(target[i]['OfficialNumber'], document['OfficialNumber'])
       ) {
         // Add missing article numbers if document already exists
         for (var j = 0; j < document['ArticleNumber'].length; j++) {
@@ -208,6 +207,10 @@ oereb.ExtractService.prototype.addDocumentIfNotContained_ = function(document, t
         // Add missing articles if document already exists
         for (var k = 0; k < document['Article'].length; k++) {
           this.addIfNotContains_(document['Article'][k], target[i]['Article']);
+        }
+        // Add missing files if document already exists
+        for (var l = 0; l < document['TextAtWeb'].length; l++) {
+          this.addIfNotContains_(document['TextAtWeb'][l], target[i]['TextAtWeb']);
         }
         return;
       }
@@ -233,7 +236,7 @@ oereb.ExtractService.prototype.addDocumentsIfNotContained_ = function(documents,
         'OfficialNumber': documents[i]['OfficialNumber'],
         'ArticleNumber': documents[i]['ArticleNumber'] || [],
         'Article': documents[i]['Article'] || [],
-        'TextAtWeb': documents[i]['TextAtWeb']
+        'TextAtWeb': [documents[i]['TextAtWeb']]
       }, target);
       // Do the same for possible references
       var references = documents[i]['Reference'];
@@ -266,7 +269,7 @@ oereb.ExtractService.prototype.getDocuments = function(themeCode) {
           'OfficialNumber': legalProvision[j]['OfficialNumber'],
           'ArticleNumber': legalProvision[j]['ArticleNumber'] || [],
           'Article': legalProvision[j]['Article'] || [],
-          'TextAtWeb': legalProvision[j]['TextAtWeb']
+          'TextAtWeb': [legalProvision[j]['TextAtWeb']]
         }, legalProvisions);
         // Add possible references to the documents
         var references = legalProvision[j]['Reference'];

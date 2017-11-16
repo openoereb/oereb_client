@@ -164,4 +164,21 @@ describe('mapQueryDirective', function() {
 
   });
 
+  describe('close', function() {
+
+    it('should hide the map query', function() {
+      var element = $compile('<oereb-map-query></oereb-map-query>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.visible = true;
+      scope.contentVisible = true;
+      scope.$digest();
+      scope.close();
+      $timeout.flush();
+      expect(scope.visible).toBe(false);
+      expect(scope.contentVisible).toBe(false);
+    });
+
+  });
+
 });
