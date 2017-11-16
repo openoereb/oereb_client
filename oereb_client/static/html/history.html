@@ -1,0 +1,18 @@
+<div>
+    <button
+            type="button"
+            class="btn btn-default dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+        <i class="fa fa-history"></i>
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li ng-repeat="realEstate in history">
+            <a href="#" ng-click="select(realEstate)">
+                {{realEstate['municipality']}} {{realEstate['number']}} ({{realEstate['egrid']}})
+            </a>
+        </li>
+    </ul>
+</div>

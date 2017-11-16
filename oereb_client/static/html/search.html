@@ -4,7 +4,8 @@
     <div class="clearfix"></div>
     <div class="container-fluid">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Suche" ng-model="searchText" />
+            <oereb-history class="input-group-btn"></oereb-history>
+            <input type="text" class="form-control" placeholder="Suche" ng-model="searchText">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button" ng-click="close()">
                    <span class="fa fa-fw" ng-class="{'fa-times': !isLoading(), 'fa-spinner fa-pulse': isLoading()}">
