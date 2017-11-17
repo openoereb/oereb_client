@@ -14,13 +14,14 @@ describe('mapQueryDirective', function() {
     }));
   }));
 
-  var $compile, $rootScope, $timeout, MapService;
+  var $compile, $rootScope, $timeout, MapService, oerebEventEgridSelected;
 
-  beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_, _MapService_) {
+  beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_, _MapService_, _oerebEventEgridSelected_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
     $timeout = _$timeout_;
     MapService = _MapService_;
+    oerebEventEgridSelected = _oerebEventEgridSelected_;
   }));
 
   describe('template', function() {
@@ -160,6 +161,33 @@ describe('mapQueryDirective', function() {
           expect(child.text()).toContain('Auszug für Parzelle ' + i);
         }
       }
+    });
+
+    it('should fire event if only one EGRID is returned', function() {
+      var realEstates = [
+        {
+          egrid: 'TEST1',
+          number: '1',
+          identDN: 'T1'
+        }
+      ];
+      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0').respond(200, {
+        GetEGRIDResponse: realEstates
+      });
+      var element = $compile('<oereb-map-query></oereb-map-query>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      spyOn(scope, '$emit');
+      scope.visible = true;
+      scope.queryEgrid_([0, 0]);
+      $timeout.flush();
+      expect(scope.visible).toBe(true);
+      expect(scope.contentVisible).toBe(false);
+      $httpBackend.flush();
+      $timeout.flush();
+      expect(scope.visible).toBe(false);
+      expect(scope.contentVisible).toBe(false);
+      expect(scope.$emit).toHaveBeenCalledWith(oerebEventEgridSelected, realEstates[0].egrid, false);
     });
 
   });
