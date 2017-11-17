@@ -20,7 +20,7 @@ oereb.StoreService = function() {
  * not need to add it again.
  * @param {Object} realEstate The small representation of the real estate. It contains EGRID,
  *  municipality name and real estate number.
- * @returns {array} The array of previously loaded egrids.
+ * @returns {Array} The array of previously loaded egrids.
  */
 oereb.StoreService.prototype.addRealEstate = function(realEstate) {
   var history = angular.fromJson(localStorage.history);
@@ -41,7 +41,7 @@ oereb.StoreService.prototype.addRealEstate = function(realEstate) {
 
 /**
  * Get the stored history of before used EGRIDS.
- * @returns {array} The array of previously loaded egrids.
+ * @returns {Array} The array of previously loaded egrids.
  */
 oereb.StoreService.prototype.getHistory = function() {
   var historyJsonContent = angular.fromJson(localStorage.history);

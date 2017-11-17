@@ -38,7 +38,10 @@ oereb.extractMenuDirective = function ($location, geoViewConfig) {
        */
       scope.goToGeoView = function() {
         var egrid = $location.search()['egrid'];
-        var url = angular.fromJson(geoViewConfig).url;
+        var url = angular.fromJson(geoViewConfig)['url'];
+        if (url.indexOf('?') === -1) {
+          url += '?';
+        }
         var parameters = [
           "wfs_layer=grundstueck",
           'wfs_egris_egrid=' + egrid,

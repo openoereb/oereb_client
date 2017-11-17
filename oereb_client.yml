@@ -1,5 +1,6 @@
 oereb_client:
 
+  # Base layer configuration
   base_layer:
     type: wmts
     http: http://tile.dev2.geoview.bl.ch/1.0.0/WMTSCapabilitiesDev2.xml
@@ -10,13 +11,16 @@ oereb_client:
     projection: "EPSG:2056"
     style: default
     format: image/png
-# Search field configuration
+
+  # Search field configuration
   search:
     api:
-      url: http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?
+      url: http://geoview.bl.ch/main/wsgi/bl_fulltextsearch
       limit: 5
     wfs:
-      url: http://geowms.bl.ch?
+      url: http://geowms.bl.ch
       limit: 5
+
+  # Link to GeoView BL
   geo_view:
-    url: http://geoview.bl.ch?
+    url: http://geoview.bl.ch
