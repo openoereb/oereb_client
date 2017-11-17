@@ -50,8 +50,7 @@ describe('searchDirective', function() {
     $provide.constant('blLogoUrl', blLogoUrl);
     $provide.constant('searchServiceConfig', searchServiceConfigMock);
     $provide.constant('wfsFilterServiceUrl', 'http://example.com/wfs_filter_service');
-    $provide.constant('oerebApplicationUrl', 'http://example.com');
-    $provide.constant('oerebApplicationUrl', 'http://example.com');
+    $provide.constant('oerebApplicationUrl', 'http://example.com/');
     $provide.constant('oerebBaseLayerConfig', angular.toJson({
       type: 'wms',
       url: 'http://geowms.bl.ch',

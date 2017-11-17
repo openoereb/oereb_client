@@ -6,6 +6,8 @@ goog.require('oereb');
  * Angular service to handle a search term passed to GeoViewBL search api.
  * @param {angular.$http} $http Angular service for HTTP requests.
  * @param {angular.$q} $q Angular service for deferrable objects.
+ * @param {string} searchServiceConfig JSON-encoded search configuration.
+ * @param {string} wfsFilterServiceUrl The WFS url.
  * @constructor
  * @ngInject
  * @ngdoc service
@@ -17,14 +19,17 @@ oereb.SearchService = function ($http, $q, searchServiceConfig, wfsFilterService
   this.$q_ = $q;
   var config = angular.fromJson(searchServiceConfig);
   this.searchServiceUrl_ = config["api"]["url"];
+  if (this.searchServiceUrl_.indexOf('?') === -1) {
+    this.searchServiceUrl_ = this.searchServiceUrl_ + '?';
+  }
   this.searchServiceLimit_ = config["api"]["limit"];
   this.wfsUrl_ = config["wfs"]["url"];
-  if (this.wfsUrl_.indexOf('?') == -1) {
+  if (this.wfsUrl_.indexOf('?') === -1) {
     this.wfsUrl_ = this.wfsUrl_ + '?';
   }
   this.wfsLimit_ = config["wfs"]["limit"];
   this.wfsFilterServiceUrl_ = wfsFilterServiceUrl;
-  if (this.wfsFilterServiceUrl_.indexOf('?') == -1) {
+  if (this.wfsFilterServiceUrl_.indexOf('?') === -1) {
     this.wfsFilterServiceUrl_ = this.wfsFilterServiceUrl_ + '?';
   }
   this.wfsFormatter = new ol.format.WFS();

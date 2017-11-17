@@ -49,7 +49,7 @@ oereb.staticExtractDirective = function($http, ExtractService, oerebApplicationU
       scope.request = function(flavour) {
         scope.iconClass = loadingIcon;
         var egrid = ExtractService.getRealEstate()['EGRID'];
-        var url = oerebApplicationUrl + '/extract/' + flavour + '/pdf/' + egrid;
+        var url = oerebApplicationUrl + 'extract/' + flavour + '/pdf/' + egrid;
         $http.get(url, {
           responseType: 'blob'
         }).then(

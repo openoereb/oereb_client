@@ -27,7 +27,7 @@ oereb.EgridService = function($http, $q, oerebApplicationUrl) {
  */
 oereb.EgridService.prototype.getEgridByCoord = function(coord) {
   var def = this.$q_.defer();
-  this.$http_.get(this.applicationUrl_ + '/getegrid.json?XY=' + coord[0] + ',' + coord[1]).then(
+  this.$http_.get(this.applicationUrl_ + 'getegrid.json?XY=' + coord[0] + ',' + coord[1]).then(
     function(response) {
       if (angular.isArray(response.data['GetEGRIDResponse'])) {
         def.resolve(response.data['GetEGRIDResponse']);

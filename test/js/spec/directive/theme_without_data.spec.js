@@ -3,7 +3,7 @@ goog.require('oereb.themeWithoutDataDirective');
 describe('themeWithoutDataDirective', function() {
 
   beforeEach(angular.mock.module('oereb', function($provide) {
-    $provide.constant('oerebApplicationUrl', 'http://example.com');
+    $provide.constant('oerebApplicationUrl', 'http://example.com/');
     $provide.constant('oerebBaseLayerConfig', angular.toJson({
       type: 'wms',
       url: 'http://geowms.bl.ch',
