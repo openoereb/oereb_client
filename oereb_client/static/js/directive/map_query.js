@@ -87,9 +87,20 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
         EgridService.getEgridByCoord(coord).then(
           function(data) {
             scope.realEstate = data;
-            $timeout(function() {
-              scope.contentVisible = true;
-            });
+            if (scope.realEstate.length < 2) {
+              if (scope.realEstate.length === 1) {
+                scope.$emit(oerebEventEgridSelected, scope.realEstate[0]['egrid'], centerRealEstate);
+              }
+              $timeout(function () {
+                scope.contentVisible = false;
+                scope.visible = false;
+              });
+            }
+            else {
+              $timeout(function () {
+                scope.contentVisible = true;
+              });
+            }
           },
           function() {
             scope.realEstate = [];
