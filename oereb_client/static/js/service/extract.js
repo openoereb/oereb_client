@@ -133,38 +133,52 @@ oereb.ExtractService.prototype.getRestrictions = function(themeCode) {
  */
 oereb.ExtractService.prototype.getLegend = function(themeCode) {
   var restrictions = this.getRestrictions(themeCode);
-  if (angular.isDefined(restrictions)) {
-    var legendEntries = [];
-    var legendGraphics = [];
-    for (var i = 0; i < restrictions.length; i++) {
-      var existing = false;
-      for (var j = 0; j < legendEntries.length; j++) {
-        if (legendEntries[j]['TypeCode'] === restrictions[i]['TypeCode']) {
-          existing = true;
-          legendEntries[j]['Area'] += restrictions[i]['Area'];
-          legendEntries[j]['PartInPercent'] += restrictions[i]['PartInPercent'];
-          break;
-
-        }
-
-      }
-      if (!existing) {
-        legendEntries.push({
-          'TypeCode': restrictions[i]['TypeCode'],
-          'Information': restrictions[i]['Information'],
-          'Area': restrictions[i]['Area'],
-          'PartInPercent': restrictions[i]['PartInPercent'],
-          'SymbolRef': restrictions[i]['SymbolRef']
-        });
-      }
-      this.addIfNotContains_(restrictions[i]['Map']['LegendAtWeb'], legendGraphics);
-    }
-    return {
-      'entries': legendEntries,
-      'graphics': legendGraphics
-    };
+  if (!angular.isDefined(restrictions)) {
+    return undefined;
   }
-  return undefined;
+  var legendEntries = [];
+  var legendGraphics = [];
+  for (var i = 0; i < restrictions.length; i++) {
+    var existing = false;
+    for (var j = 0; j < legendEntries.length; j++) {
+      if (legendEntries[j]['TypeCode'] === restrictions[i]['TypeCode']) {
+        existing = true;
+        if (angular.isDefined(restrictions[i]['Length'])) {
+          legendEntries[j]['Length'] += restrictions[i]['Length'];
+        }
+        if (angular.isDefined(restrictions[i]['Area'])) {
+          legendEntries[j]['Area'] += restrictions[i]['Area'];
+        }
+        if (angular.isDefined(restrictions[i]['PartInPercent'])) {
+          legendEntries[j]['PartInPercent'] += restrictions[i]['PartInPercent'];
+        }
+        break;
+      }
+    }
+    if (!existing) {
+      var legendEntry = {
+        'TypeCode': restrictions[i]['TypeCode'],
+        'Information': restrictions[i]['Information'],
+        'SymbolRef': restrictions[i]['SymbolRef'],
+        'SubTheme': restrictions[i]['SubTheme']
+      };
+      if (angular.isDefined(restrictions[i]['Length'])) {
+        legendEntry['Length'] = restrictions[i]['Length'];
+      }
+      if (angular.isDefined(restrictions[i]['Area'])) {
+        legendEntry['Area'] = restrictions[i]['Area'];
+      }
+      if (angular.isDefined(restrictions[i]['PartInPercent'])) {
+        legendEntry['PartInPercent'] = restrictions[i]['PartInPercent'];
+      }
+      legendEntries.push(legendEntry);
+    }
+    this.addIfNotContains_(restrictions[i]['Map']['LegendAtWeb'], legendGraphics);
+  }
+  return {
+    'entries': legendEntries,
+    'graphics': legendGraphics
+  };
 };
 
 /**

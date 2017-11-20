@@ -1,6 +1,7 @@
 goog.provide('oereb.legendDirective');
 
 goog.require('oereb');
+goog.require('oereb.sortLegendFilter');
 goog.require('oereb.multilingualTextFilter');
 goog.require('oereb.replaceFilter');
 
