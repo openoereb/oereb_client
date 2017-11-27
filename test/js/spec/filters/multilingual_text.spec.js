@@ -2,7 +2,7 @@ goog.require('oereb.multilingualTextFilter');
 
 describe('multilingualTextFilter', function() {
 
-  beforeEach(angular.mock.module('oereb', function($provide) {
+  beforeEach(module('oereb', function($provide) {
     $provide.constant('oerebDefaultLanguage', 'de');
   }));
 

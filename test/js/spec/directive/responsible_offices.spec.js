@@ -2,7 +2,7 @@ goog.require('oereb.responsibleOfficesDirective');
 
 describe('responsibleOfficesDirective', function() {
 
-  beforeEach(angular.mock.module('oereb', function($provide) {
+  beforeEach(module('oereb', function($provide) {
     $provide.constant('oerebApplicationUrl', 'http://example.com/');
     $provide.constant('oerebDefaultLanguage', 'de');
   }));

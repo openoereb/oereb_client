@@ -2,7 +2,7 @@ goog.require('oereb.sortGlossaryFilter');
 
 describe('sortGlossaryFilter', function() {
 
-  beforeEach(angular.mock.module('oereb', function($provide) {
+  beforeEach(module('oereb', function($provide) {
     $provide.constant('oerebDefaultLanguage', 'de');
   }));
 

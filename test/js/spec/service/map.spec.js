@@ -3,7 +3,7 @@ goog.require('oereb.MapService');
 
 describe('MapService', function() {
 
-  beforeEach(angular.mock.module('oereb', function() {
+  beforeEach(module('oereb', function() {
 
   }));
 
@@ -11,7 +11,7 @@ describe('MapService', function() {
 
     var $rootScope, MapService;
 
-    beforeEach(angular.mock.module('oereb', function($provide) {
+    beforeEach(module('oereb', function($provide) {
       $provide.constant('oerebBaseLayerConfig', angular.toJson({
         type: 'invalid'
       }));
@@ -42,7 +42,7 @@ describe('MapService', function() {
 
     var $rootScope, MapService;
 
-    beforeEach(angular.mock.module('oereb', function($provide) {
+    beforeEach(module('oereb', function($provide) {
       $provide.constant('oerebBaseLayerConfig', angular.toJson({
         type: 'wms',
         url: 'http://geowms.bl.ch',
@@ -84,7 +84,7 @@ describe('MapService', function() {
 
     var $httpBackend, MapService;
 
-    beforeEach(angular.mock.module('oereb', function($provide) {
+    beforeEach(module('oereb', function($provide) {
       $provide.constant('oerebBaseLayerConfig', angular.toJson({
         type: 'wmts',
         url: 'http://tile.dev2.geoview.bl.ch/1.0.0/WMTSCapabilitiesDev2.xml',

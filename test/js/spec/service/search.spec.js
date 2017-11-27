@@ -61,7 +61,7 @@ describe('SearchService', function () {
       }]
   };
 
-  beforeEach(angular.mock.module('oereb', function ($provide) {
+  beforeEach(module('oereb', function ($provide) {
     $provide.constant('searchServiceConfig', searchServiceConfigMock);
     $provide.constant('wfsFilterServiceUrl', 'http://example.com/wfs_filter_service?');
   }));

@@ -1,7 +1,7 @@
 goog.require('oereb.searchResultFilter');
 
 describe('searchResultFilter', function() {
-  beforeEach(angular.mock.module('oereb', function() {
+  beforeEach(module('oereb', function() {
 
   }));
 

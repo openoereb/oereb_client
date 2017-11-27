@@ -7,6 +7,7 @@ extends:
 globals:
   goog: false
   angular: false
+  module: false
   inject: false
   ol: false
   $: false
