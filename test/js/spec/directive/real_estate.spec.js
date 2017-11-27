@@ -49,7 +49,7 @@ describe('realEstateDirective', function() {
       $rootScope.$digest();
       expect(scope.data).toEqual(data);
       expect(element.children('h4').eq(0).text()).toContain(
-        'Parzelle ' + data.Number + ' in ' + data.Municipality
+        'Grundstück ' + data.Number + ' in ' + data.Municipality
       );
       expect(element.find('dd').eq(0).text()).toContain(data.EGRID);
       expect(element.find('dd').eq(1).text()).toContain(data.LandRegistryArea);
