@@ -2,7 +2,7 @@ goog.require('oereb.historyDirective');
 
 describe('historyDirective', function() {
 
-  beforeEach(angular.mock.module('oereb', function($provide) {
+  beforeEach(module('oereb', function($provide) {
     localStorage.removeItem('history');
     $provide.constant('oerebApplicationUrl', 'http://example.com');
   }));

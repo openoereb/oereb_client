@@ -3,7 +3,7 @@ goog.require('oereb.ExtractService');
 
 describe('ExtractService', function() {
 
-  beforeEach(angular.mock.module('oereb', function($provide) {
+  beforeEach(module('oereb', function($provide) {
     $provide.constant('oerebApplicationUrl', 'http://example.com/');
   }));
 

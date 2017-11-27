@@ -44,7 +44,7 @@ describe('searchDirective', function() {
     }
   }];
 
-  beforeEach(angular.mock.module('oereb', function($provide, $qProvider) {
+  beforeEach(module('oereb', function($provide, $qProvider) {
     $qProvider.errorOnUnhandledRejections(false);
     $provide.constant('oerebLogoURL', oerebLogoUrl);
     $provide.constant('blLogoUrl', blLogoUrl);

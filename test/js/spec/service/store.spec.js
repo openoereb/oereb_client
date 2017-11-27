@@ -2,7 +2,7 @@ goog.require('oereb.StoreService');
 
 describe('StoreService', function () {
 
-  beforeEach(angular.mock.module('oereb', function() {
+  beforeEach(module('oereb', function() {
     localStorage.removeItem('history');
   }));
 

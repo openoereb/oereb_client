@@ -2,7 +2,7 @@ goog.require('oereb.replaceFilter');
 
 describe('replaceFilter', function() {
 
-  beforeEach(angular.mock.module('oereb'));
+  beforeEach(module('oereb'));
 
   var $filter;
 

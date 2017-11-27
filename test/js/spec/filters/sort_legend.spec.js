@@ -2,7 +2,7 @@ goog.require('oereb.sortLegendFilter');
 
 describe('sortLegendFilter', function() {
 
-  beforeEach(angular.mock.module('oereb'));
+  beforeEach(module('oereb'));
 
   var $filter;
 
