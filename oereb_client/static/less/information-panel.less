@@ -9,6 +9,8 @@ div.information-panel {
 }
 
 #information {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: calc(@header-height~" - 100%");
   left: calc(@menu-with~" - 100%");
@@ -21,7 +23,6 @@ div.information-panel {
   padding-right: 2*@info-padding;
   padding-top: 2*@info-padding;
   padding-bottom: 2*@info-padding;
-  overflow-y: scroll;
   transition: left @animation-duration, top @animation-duration;
   .nav-tabs {
     border-bottom: 1px solid @link-hover-color;
@@ -36,6 +37,12 @@ div.information-panel {
         color: @text-color;
         border-bottom: 4px solid @link-hover-color;
       }
+      .form-inline {
+        padding-top: @info-padding;
+        padding-bottom: @info-padding;
+        padding-left: 1.5*@info-padding;
+        padding-right: 1.5*@info-padding;
+      }
     }
     li.active {
       a {
@@ -46,6 +53,14 @@ div.information-panel {
   }
   .tab-content {
     margin-top: 2*@default-padding;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  .close-button {
+    display: block;
+    position: absolute;
+    top: 2*@info-padding;
+    right: 2*@info-padding;
   }
 }
 
