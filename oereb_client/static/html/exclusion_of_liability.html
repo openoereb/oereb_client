@@ -1,8 +1,8 @@
 <div class="container-fluid exclusion-of-liability">
-    <div ng-repeat="exclusion in data">
-        <h4><strong ng-bind="exclusion['Title'] | multilingualText"></strong></h4>
+    <div ng-repeat="exclusion in data | searchInformation:search">
+        <h4><strong ng-bind-html="exclusion['Title'] | multilingualText | mark:search"></strong></h4>
         <blockquote>
-            <p ng-bind="exclusion['Content'] | multilingualText"></p>
+            <p ng-bind-html="exclusion['Content'] | multilingualText | mark:search"></p>
         </blockquote>
     </div>
 </div>

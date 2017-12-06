@@ -18,10 +18,13 @@
                 <h4>Glossar</h4>
             </a>
         </li>
-        <li role="presentation">
+        <li role="presentation" ng-show="activeTab > 0">
             <div class="form-inline">
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Begriff suchen..."/>
+                    <input class="form-control"
+                           type="text"
+                           placeholder="Begriff suchen..."
+                           ng-model="search"/>
                 </div>
             </div>
         </li>
@@ -29,7 +32,7 @@
     <div class="tab-content">
         <oereb-general-information class="tab-pane active" ng-if="activeTab == 0"></oereb-general-information>
         <oereb-exclusion-of-liability
-                class="tab-pane active" ng-if="activeTab == 1"></oereb-exclusion-of-liability>
-        <oereb-glossary class="tab-pane active" ng-if="activeTab == 2"></oereb-glossary>
+                class="tab-pane active" ng-if="activeTab == 1" search="search"></oereb-exclusion-of-liability>
+        <oereb-glossary class="tab-pane active" ng-if="activeTab == 2" search="search"></oereb-glossary>
     </div>
 </div>
