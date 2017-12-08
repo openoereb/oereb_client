@@ -72,6 +72,31 @@ describe('legendDirective', function() {
 
   });
 
+  describe('showGraphics', function() {
+
+    it('should return true if at least one legend graphic is available', function() {
+      $rootScope.themeCode = 'test';
+      var element = $compile(
+        '<oereb-legend theme-code="::themeCode"></oereb-legend>'
+      )($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      var rows = element.find('tr');
+      expect(rows.length).toBe(4);
+      expect(scope.showGraphics()).toBe(true);
+      expect(rows.last().hasClass('ng-hide')).toBe(false);
+      scope.legend['graphics'] = [];
+      scope.$digest();
+      expect(scope.showGraphics()).toBe(false);
+      expect(rows.last().hasClass('ng-hide')).toBe(true);
+      scope.legend = undefined;
+      scope.$digest();
+      expect(rows.last().hasClass('ng-hide')).toBe(true);
+      expect(scope.showGraphics()).toBe(false);
+    });
+
+  });
+
   describe('toggleGraphics', function() {
 
     it('should show/hide the legend graphics', function(done) {
