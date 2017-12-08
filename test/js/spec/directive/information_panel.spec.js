@@ -53,7 +53,7 @@ describe('informationPanelDirective', function() {
       scope.$digest();
       expect(element.find('.close').length).toBe(1);
       var nav = element.children('.nav').eq(0);
-      expect(nav.children('li').length).toBe(3);
+      expect(nav.children('li').length).toBe(4);
       expect(nav.find('h4').length).toBe(3);
       expect(nav.find('h4').eq(0).text()).toContain('Allgemein');
       expect(nav.find('h4').eq(1).text()).toContain('Haftungsausschluss');
@@ -76,11 +76,13 @@ describe('informationPanelDirective', function() {
       scope.ctrl.informationActive = true;
       scope.$digest();
       var isoScope = element.isolateScope();
+      isoScope.search = 'test';
       expect(isoScope.informationActive).toBe(true);
       isoScope.close();
       scope.$digest();
       expect(isoScope.informationActive).toBe(false);
       expect(scope.ctrl.informationActive).toBe(false);
+      expect(isoScope.search).toBeUndefined();
     });
 
   });
@@ -93,9 +95,11 @@ describe('informationPanelDirective', function() {
       )(scope);
       scope.$digest();
       var isoScope = element.isolateScope();
+      isoScope.search = 'test';
       expect(isoScope.activeTab).toBe(0);
       isoScope.setActiveTab(1);
       expect(isoScope.activeTab).toBe(1);
+      expect(isoScope.search).toBeUndefined();
     });
 
   });

@@ -1,5 +1,7 @@
 <div class="container-fluid">
-    <span class="close extract-close" ng-click="close()">&times;</span>
+    <div class="close-button">
+        <span class="close" ng-click="close()">&times;</span>
+    </div>
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active">
             <a href="#" role="tab" data-toggle="tab" ng-click="setActiveTab(0)">
@@ -16,11 +18,21 @@
                 <h4>Glossar</h4>
             </a>
         </li>
+        <li role="presentation" ng-show="activeTab > 0">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input class="form-control"
+                           type="text"
+                           placeholder="Begriff suchen..."
+                           ng-model="search"/>
+                </div>
+            </div>
+        </li>
     </ul>
     <div class="tab-content">
         <oereb-general-information class="tab-pane active" ng-if="activeTab == 0"></oereb-general-information>
         <oereb-exclusion-of-liability
-                class="tab-pane active" ng-if="activeTab == 1"></oereb-exclusion-of-liability>
-        <oereb-glossary class="tab-pane active" ng-if="activeTab == 2"></oereb-glossary>
+                class="tab-pane active" ng-if="activeTab == 1" search="search"></oereb-exclusion-of-liability>
+        <oereb-glossary class="tab-pane active" ng-if="activeTab == 2" search="search"></oereb-glossary>
     </div>
 </div>

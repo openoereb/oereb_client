@@ -4,6 +4,8 @@ goog.require('oereb');
 goog.require('oereb.ExtractService');
 goog.require('oereb.multilingualTextFilter');
 goog.require('oereb.sortGlossaryFilter');
+goog.require('oereb.searchInformationFilter');
+goog.require('oereb.markFilter');
 
 /**
  * Directive definition function.
@@ -20,7 +22,9 @@ oereb.glossaryDirective = function(ExtractService, oerebEventExtractLoaded) {
     restrict: 'E',
     replace: true,
     templateUrl: 'static/html/glossary.html',
-    scope: {},
+    scope: {
+      search: '='
+    },
     link: function(scope) {
 
       /** @export {Array} */

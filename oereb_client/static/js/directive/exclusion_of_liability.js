@@ -3,6 +3,8 @@ goog.provide('oereb.exclusionOfLiabilityDirective');
 goog.require('oereb');
 goog.require('oereb.ExtractService');
 goog.require('oereb.multilingualTextFilter');
+goog.require('oereb.searchInformationFilter');
+goog.require('oereb.markFilter');
 
 /**
  * Directive definition function.
@@ -19,7 +21,9 @@ oereb.exclusionOfLiabilityDirective = function(ExtractService, oerebEventExtract
     restrict: 'E',
     replace: true,
     templateUrl: 'static/html/exclusion_of_liability.html',
-    scope: {},
+    scope: {
+      search: '='
+    },
     link: function(scope) {
 
       /** @export {Array} */

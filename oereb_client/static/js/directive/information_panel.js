@@ -30,6 +30,7 @@ oereb.informationPanelDirective = function() {
        * @export
        */
       scope.close = function() {
+        scope.search = undefined;
         scope.informationActive = false;
       };
 
@@ -39,6 +40,7 @@ oereb.informationPanelDirective = function() {
        * @export
        */
       scope.setActiveTab = function(index) {
+        scope.search = undefined;
         scope.activeTab = index;
       };
 
