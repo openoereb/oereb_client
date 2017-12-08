@@ -48,6 +48,19 @@ oereb.legendDirective = function($timeout, ExtractService) {
       scope.legend = ExtractService.getLegend(scope.themeCode);
 
       /**
+       * Display legend graphics section only if it contains at least one graphic.
+       * @return {boolean} True, if there is at least one legend graphic available.
+       * @export
+       */
+      scope.showGraphics = function() {
+        if (angular.isObject(scope.legend)) {
+          var graphics = scope.legend['graphics'];
+          return angular.isArray(graphics) && graphics.length > 0;
+        }
+        return false;
+      };
+
+      /**
        * Show/hide the legend graphics.
        * @export
        */
