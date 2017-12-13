@@ -13,9 +13,9 @@
                 <td>
                     <img class="symbol" ng-src="{{entry['SymbolRef']}}">
                 </td>
-                <td class="no-wrap" ng-if="entry['Area']">{{entry['Area'] | number:2 | replace:',':'\''}} m<span class="sup">2</span></td>
-                <td class="no-wrap" ng-if="entry['Area']">{{entry['PartInPercent']}}%</td>
-                <td class="no-wrap" ng-if="entry['Length']" colspan="2">{{entry['Length'] | number:2 | replace:',':'\''}} m</td>
+                <td class="no-wrap" ng-if="entry['Area']">{{entry['Area'] | number:0 | replace:',':'\''}} m<span class="sup">2</span></td>
+                <td class="no-wrap" ng-if="entry['Area']">{{entry['PartInPercent'] | number:0 | replace:',':'\''}}%</td>
+                <td class="no-wrap" ng-if="entry['Length']" colspan="2">{{entry['Length'] | number:0 | replace:',':'\''}} m</td>
                 <td class="no-wrap" ng-if="!entry['Length'] && !entry['Area']" colspan="2"></td>
             </tr>
             <tr ng-show="showGraphics()">

@@ -2,6 +2,7 @@ goog.provide('oereb.realEstateDirective');
 
 goog.require('oereb');
 goog.require('oereb.ExtractService');
+goog.require('oereb.replaceFilter');
 
 /**
  * Angular directive for rendering the real estate data.
