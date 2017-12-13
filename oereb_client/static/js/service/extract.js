@@ -173,7 +173,9 @@ oereb.ExtractService.prototype.getLegend = function(themeCode) {
       }
       legendEntries.push(legendEntry);
     }
-    this.addIfNotContains_(restrictions[i]['Map']['LegendAtWeb'], legendGraphics);
+    if (angular.isString(restrictions[i]['Map']['LegendAtWeb'])) {
+      this.addIfNotContains_(restrictions[i]['Map']['LegendAtWeb'], legendGraphics);
+    }
   }
   return {
     'entries': legendEntries,
