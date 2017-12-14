@@ -17,11 +17,11 @@ requires = [
 ]
 
 setup(name='oereb_client',
-      version='1.0.0-alpha.1',
+      version='1.0.0-beta.1',
       description='ÖREB Client',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
-          "Development Status :: 3 - Alpha",
+          "Development Status :: 4 - Beta",
           "Programming Language :: Python :: 2.7",
           "Programming Language :: Python :: 3.6",
           "Framework :: Pyramid",
