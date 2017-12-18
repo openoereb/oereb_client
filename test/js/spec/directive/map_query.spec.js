@@ -158,7 +158,7 @@ describe('mapQueryDirective', function() {
           expect(child.children('span').length).toBe(1);
         }
         else {
-          expect(child.text()).toContain('Auszug für Parzelle ' + i);
+          expect(child.text()).toContain('Auszug für Grundstück ' + i);
         }
       }
     });
