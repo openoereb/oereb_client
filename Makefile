@@ -278,3 +278,14 @@ build: $(APP_CSS) $(APP_JS)
 
 .PHONY: install
 install: $(PIP_REQUIREMENTS) build
+
+.PHONY: updates-py
+updates-py: $(PIP_REQUIREMENTS)
+	$(VENV_BIN)pip list --outdated --format=columns
+
+.PHONY: updates-js
+updates-js: package.json
+	-npm outdated
+
+.PHONY: updates
+updates: updates-py updates-js
