@@ -113,10 +113,9 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       scope.parcelSelect = function (parcel) {
         var municipality_name = filter(parcel["properties"]["label"]).split(' ')[0];
         var parcel_number = filter(parcel["properties"]["label"]).split(' ')[1];
-        SearchService.searchEgrid(parcel_number, municipality_name, ['liegenschaft', 'selbstrecht']).then(
+        SearchService.searchEgrid(parcel_number, municipality_name, ['grundstueck']).then(
           function(features) {
-            var result = [];
-            result = result.concat(features[0], features[1]);
+            var result = features[0];
             if (result.length === 1) {
               clear();
               scope.$emit(oerebEventEgridSelected, result[0].get('egris_egrid'), true);

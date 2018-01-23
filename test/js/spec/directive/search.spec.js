@@ -199,7 +199,7 @@ describe('searchDirective', function() {
       var scope = element.isolateScope();
       spyOn(SearchService, 'searchEgrid').and.callThrough();
       scope.parcelSelect({properties: {label: 'Liestal 1000 (Grundstück)'}});
-      expect(SearchService.searchEgrid).toHaveBeenCalledWith('1000', 'Liestal', ['liegenschaft', 'selbstrecht']);
+      expect(SearchService.searchEgrid).toHaveBeenCalledWith('1000', 'Liestal', ['grundstueck']);
     });
 
     it('should call queryAt and clear values', function() {
