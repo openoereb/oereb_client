@@ -13,15 +13,17 @@ describe('TopicController', function() {
     }));
   }));
 
-  var $controller, $rootScope, $scope, ExtractService, MapService, oerebEventExtractClosed,
-    oerebEventExtractLoaded;
+  var $controller, $rootScope, $scope, ExtractService, MapService, oerebEventEgridSelected,
+    oerebEventExtractClosed, oerebEventExtractLoaded;
 
   beforeEach(inject(function(_$controller_, _$rootScope_, _ExtractService_, _MapService_,
-                             _oerebEventExtractLoaded_, _oerebEventExtractClosed_) {
+                             _oerebEventEgridSelected_, _oerebEventExtractLoaded_,
+                             _oerebEventExtractClosed_) {
     $controller = _$controller_;
     $rootScope = _$rootScope_;
     ExtractService = _ExtractService_;
     MapService = _MapService_;
+    oerebEventEgridSelected = _oerebEventEgridSelected_;
     oerebEventExtractLoaded = _oerebEventExtractLoaded_;
     oerebEventExtractClosed = _oerebEventExtractClosed_;
     $scope = $rootScope.$new();
@@ -77,6 +79,18 @@ describe('TopicController', function() {
       expect(controller.selectedTheme).toEqual('topic1');
       expect(controller.updateLayers_).toHaveBeenCalled();
       expect(controller.selectTheme_).toHaveBeenCalledWith('topic1');
+    });
+
+  });
+
+  describe('EGRID selected event', function() {
+
+    it('should clear the layers', function() {
+      var controller = getTopicController();
+      spyOn(controller, 'clearLayers');
+      $rootScope.$broadcast(oerebEventEgridSelected);
+      $rootScope.$apply();
+      expect(controller.clearLayers).toHaveBeenCalled();
     });
 
   });
