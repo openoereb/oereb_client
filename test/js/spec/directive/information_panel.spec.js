@@ -37,7 +37,10 @@ describe('informationPanelDirective', function() {
     FederalLogoRef: 'dummy',
     MunicipalityLogoRef: 'dummy',
     BaseData: [],
-    GeneralInformation: []
+    GeneralInformation: [],
+    RealEstate: {
+      Municipality: 'Testwil'
+    }
   };
 
   beforeEach(function() {
