@@ -105,8 +105,8 @@ oereb.TopicController.prototype.updateLayers_ = function() {
   var projection = this.MapService_.getMap().getView().getProjection();
   var viewServices = this.ExtractService_.getViewServices();
   for (var i = 0; i < viewServices.length; i++) {
-    var layer = new ol.layer.Image({
-      source: new ol.source.ImageWMS({
+    var layer = new ol.layer.Tile({
+      source: new ol.source.TileWMS({
         url: viewServices[i]['url'],
         params: viewServices[i]['params'],
         projection: projection
