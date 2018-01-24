@@ -1,18 +1,8 @@
-<div class="static-extract btn-group" role="group" title="Auszug als PDF anfordern"
-     data-toggle="tooltip"
-     data-placement="right">
-    <button
-            type="button"
-            class="btn btn-default dropdown-toggle"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false">
-        <i class="fa fa-fw" aria-hidden="true" ng-class="iconClass"></i>
-        <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-        <li ng-repeat="flavour in flavours">
-            <a href="#" ng-click="request(flavour.value)" ng-bind="flavour.label"></a>
-        </li>
-    </ul>
-</div>
+<button type="button"
+        class="btn btn-default"
+        title="Auszug als PDF anfordern"
+        ng-click="request()"
+        data-toggle="tooltip"
+        data-placement="right">
+    <i class="fa fa-fw" aria-hidden="true" ng-class="iconClass"></i>
+</button>

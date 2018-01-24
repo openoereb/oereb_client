@@ -23,21 +23,9 @@ describe('staticExtractDirective', function() {
         '<oereb-static-extract></oereb-static-extract>'
       )($rootScope);
       $rootScope.$digest();
-      var scope = element.isolateScope();
-      expect(element.children('button').length).toBe(1);
-      var button = element.children('button').eq(0);
-      expect(button.children('i').length).toBe(1);
-      expect(button.children('i').eq(0).hasClass('fa-file-pdf-o')).toBe(true);
-      expect(button.children('span').length).toBe(1);
-      expect(button.children('span').eq(0).hasClass('caret')).toBe(true);
-      expect(element.children('ul').length).toBe(1);
-      var ul = element.children('ul').eq(0);
-      expect(ul.children('li').length).toBe(2);
-      for (var i = 0; i < ul.children('li').length; i++) {
-        var li = ul.children('li').eq(i);
-        expect(li.children('a').length).toBe(1);
-        expect(li.children('a').eq(0).text()).toContain(scope.flavours[i].label);
-      }
+      expect(element.hasClass('btn')).toBe(true);
+      expect(element.attr('type')).toEqual('button');
+      expect(element.children('i').length).toBe(1);
     });
 
   });
@@ -65,7 +53,7 @@ describe('staticExtractDirective', function() {
       var icon = element.find('i').eq(0);
       expect(icon.hasClass('fa-file-pdf-o')).toBe(true);
       expect(icon.hasClass('fa-spinner')).toBe(false);
-      scope.request('reduced');
+      scope.request();
       $rootScope.$digest();
       expect(icon.hasClass('fa-file-pdf-o')).toBe(false);
       expect(icon.hasClass('fa-spinner')).toBe(true);
@@ -75,7 +63,7 @@ describe('staticExtractDirective', function() {
     });
 
     it('should return the received file', function() {
-      $httpBackend.expectGET('http://example.com/extract/full/pdf/CH1234').respond(200, 'content');
+      $httpBackend.expectGET('http://example.com/extract/reduced/pdf/CH1234').respond(200, 'content');
       var element = $compile(
         '<oereb-static-extract></oereb-static-extract>'
       )($rootScope);
@@ -85,7 +73,7 @@ describe('staticExtractDirective', function() {
       var icon = element.find('i').eq(0);
       expect(icon.hasClass('fa-file-pdf-o')).toBe(true);
       expect(icon.hasClass('fa-spinner')).toBe(false);
-      scope.request('full');
+      scope.request();
       $rootScope.$digest();
       expect(icon.hasClass('fa-file-pdf-o')).toBe(false);
       expect(icon.hasClass('fa-spinner')).toBe(true);
