@@ -111,8 +111,9 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
        * @export
        */
       scope.parcelSelect = function (parcel) {
-        var municipality_name = filter(parcel["properties"]["label"]).split(' ')[0];
-        var parcel_number = filter(parcel["properties"]["label"]).split(' ')[1];
+        var label = filter(parcel['properties']['label']).split(' ');
+        var parcel_number = label.pop();
+        var municipality_name = label.join(' ');
         SearchService.lookupEgrid(parcel_number, municipality_name, ['liegenschaft', 'selbstrecht']).then(
           function(features) {
             var result = [];

@@ -46,7 +46,10 @@ describe('generalInformationDirective', function () {
         Text: 'Allgemeine Hinweise',
         Language: 'de'
       }
-    ]
+    ],
+    RealEstate: {
+      Municipality: 'Testwil'
+    }
   };
 
   describe('template', function () {
@@ -85,15 +88,18 @@ describe('generalInformationDirective', function () {
         .toEqual(extract.PLRCadastreAuthority.OfficeAtWeb);
       expect(element.children('blockquote').eq(1).children('p').length).toEqual(1);
       expect(element.children('blockquote').eq(2).children('p').length).toEqual(1);
-      expect(element.children('blockquote').eq(3).children('p').length).toEqual(1);
+      expect(element.children('blockquote').eq(3).children('div').length).toEqual(1);
       expect(element.children('blockquote').eq(1).children('p').first().text())
         .toContain(extract.BaseData[0].Text);
       expect(element.children('blockquote').eq(2).children('p').first().text())
         .toContain(extract.GeneralInformation[0].Text);
-      var logos = element.children('blockquote').eq(3).children('p').first();
-      expect(logos.children('img').length).toBe(2);
-      expect(logos.children('img').eq(0).attr('src')).toEqual(extract.FederalLogoRef);
-      expect(logos.children('img').eq(1).attr('src')).toEqual(extract.MunicipalityLogoRef);
+      var logos = element.children('blockquote').eq(3).children('div').first();
+      expect(logos.hasClass('logos')).toBe(true);
+      expect(logos.find('img').length).toBe(2);
+      expect(logos.find('img').eq(0).attr('src')).toEqual(extract.FederalLogoRef);
+      expect(logos.find('img').eq(1).attr('src')).toEqual(extract.MunicipalityLogoRef);
+      expect(logos.find('span').length).toBe(1);
+      expect(logos.find('span').first().text()).toEqual(extract.RealEstate.Municipality);
     });
 
   });
@@ -125,7 +131,7 @@ describe('generalInformationDirective', function () {
       expect(scope.logoMun).toBeUndefined();
       expect(scope.baseData).toEqual([]);
       expect(scope.generalInformation).toEqual([]);
-      expect(ExtractService.getExtract).toHaveBeenCalledTimes(8);
+      expect(ExtractService.getExtract).toHaveBeenCalledTimes(10);
     });
 
   });

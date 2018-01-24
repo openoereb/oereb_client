@@ -33,16 +33,19 @@ oereb.MapService = function($q, $http, oerebBaseLayerConfig) {
   });
 
   // Create map
+  var view = new ol.View({
+    projection: this.proj_,
+    center: [2615000, 1255000],
+    zoom: 6
+  });
+  view.setMinZoom(5);
+  view.setMaxZoom(18);
   this.map_ = new ol.Map({
     target: 'map',
     controls: ol.control.defaults({
       attribution: false
     }),
-    view: new ol.View({
-      projection: this.proj_,
-      center: [2615000, 1255000],
-      zoom: 6
-    }),
+    view: view,
     logo: null
   });
 
