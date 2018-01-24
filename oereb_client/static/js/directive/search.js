@@ -67,18 +67,18 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
           egrLoading = true;
           adrLoading = true;
           gsLoading = true;
-          SearchService.searchTerm('egr ' + value).then(function(result) {
+          SearchService.searchEgrid(value).then(function(result) {
             egrLoading = false;
             scope.egrids = result.features;
-          });
-          SearchService.searchTerm('adr ' + value).then(function(result) {
+          }, function() {});
+          SearchService.searchAddress(value).then(function(result) {
             adrLoading = false;
             scope.addresses = result.features;
-          });
-          SearchService.searchTerm('gs ' + value).then(function(result) {
+          }, function() {});
+          SearchService.searchRealEstate(value).then(function(result) {
             gsLoading = false;
             scope.parcels = result.features;
-          });
+          }, function() {});
         }
 
       });
@@ -113,7 +113,7 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       scope.parcelSelect = function (parcel) {
         var municipality_name = filter(parcel["properties"]["label"]).split(' ')[0];
         var parcel_number = filter(parcel["properties"]["label"]).split(' ')[1];
-        SearchService.searchEgrid(parcel_number, municipality_name, ['liegenschaft', 'selbstrecht']).then(
+        SearchService.lookupEgrid(parcel_number, municipality_name, ['liegenschaft', 'selbstrecht']).then(
           function(features) {
             var result = [];
             result = result.concat(features[0], features[1]);
