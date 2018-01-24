@@ -43,6 +43,47 @@
             </div>
         </div>
 
+        <div id="error" ng-class="{'active': ctrl.errorActive, 'loading': ctrl.loading}">
+            <div class="container-fluid error-wrapper">
+                <span class="close extract-close" ng-click="ctrl.closeExtract()">&times;</span>
+                <h3>
+                    <i class="fa fa-exclamation-circle text-danger" aria-hidden="true"></i>
+                    Auszug fehlgeschlagen
+                </h3>
+                <p>
+                    Bei der Generierung des Auszugs ist ein Fehler aufgetreten.
+                    Bitte versuchen Sie, den Auszug erneut anzufordern.
+                </p>
+                <p>
+                    <button class="btn btn-primary" ng-click="ctrl.retryCallback()">Erneut versuchen</button>
+                </p>
+                <p>
+                    Sollte der Fehler wiederholt auftreten,
+                    kontaktieren Sie bitte die katasterführende Stelle:
+                    <address>
+                        <strong ng-bind="ctrl.support.office1"></strong><br />
+                        <span ng-if="ctrl.support.office2">
+                            {{ctrl.support.office2}}<br />
+                        </span>
+                        <span ng-if="ctrl.support.street">
+                            {{ctrl.support.street}}<br />
+                        </span>
+                        <span ng-if="ctrl.support.city">
+                            {{ctrl.support.city}}<br />
+                        </span>
+                        <span ng-if="ctrl.support.phone">
+                            <i class="fa fa-phone fa-fw" title="Telefon"></i>
+                            {{ctrl.support.phone}}<br />
+                        </span>
+                        <span ng-if="ctrl.support.email">
+                            <i class="fa fa-envelope fa-fw" title="E-Mail"></i>
+                            <a ng-href="mailto:{{ctrl.support.email}}">{{ctrl.support.email}}</a><br />
+                        </span>
+                    </address>
+                </p>
+            </div>
+        </div>
+
         <div id="loading-indicator"
              class="container-fluid text-center"
              ng-class="{'loading': ctrl.loading}">
@@ -115,6 +156,7 @@
             module.constant('oerebLogoURL', '${request.static_url('oereb_client:static/images/logo_oereb.png')}');
             module.constant('blLogoUrl', '${request.static_url('oereb_client:static/images/logo_bl.png')}');
             module.constant('oerebDefaultLanguage', 'de');
+            module.constant('oerebSupport', '${support | n}');
 
         })();
 

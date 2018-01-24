@@ -24,3 +24,12 @@ oereb_client:
   # Link to GeoView BL
   geo_view:
     url: http://geoview.bl.ch
+
+  # Support
+  support:
+    office1: Amt für Geoinformation
+    office2: GIS-Fachstelle
+    street: Mühlemattstrasse 36
+    city: 4410 Liestal
+    email: support.gis@bl.ch
+    phone: 061 552 56 73
