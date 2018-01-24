@@ -4,7 +4,7 @@ goog.require('oereb');
 
 oereb.searchResultFilter = function () {
   return function(searchResultString) {
-      return searchResultString.replace(/ \((.*?)\)/, '');
+      return searchResultString.replace(/ \((.*?)\)/g, '');
   };
 };
 
