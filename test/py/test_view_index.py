@@ -24,7 +24,10 @@ settings = {
             }
         },
         'geo_view': {
-            'url': 'http: // geoview.bl.ch?'
+            'url': 'http://geoview.bl.ch?'
+        },
+        'support': {
+            'office1': 'Test'
         }
     }
 }
@@ -94,7 +97,8 @@ def test_render(mock_request):
             'debug': index.is_debug_(),
             'base_layer_config': index.get_base_layer_config_(),
             'search_api_config': index.get_search_config_(),
-            'geo_view_config': index.get_geo_view_config_()
+            'geo_view_config': index.get_geo_view_config_(),
+            'support': index.get_support_config_()
         }
 
 
@@ -102,3 +106,9 @@ def test_get_search_config(mock_request):
     with testConfig(settings=settings):
         index = Index(mock_request)
         assert index.get_search_config_() == json.dumps(settings.get('oereb_client').get('search'))
+
+
+def test_get_support_config(mock_request):
+    with testConfig(settings=settings):
+        index = Index(mock_request)
+        assert index.get_support_config_() == json.dumps(settings.get('oereb_client').get('support'))
