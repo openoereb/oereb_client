@@ -10,6 +10,7 @@ goog.require('oereb.MapService');
  * @param {angular.Location} $location The location provided by angular.
  * @param {oereb.ExtractService} ExtractService Angular service for extract loading.
  * @param {oereb.MapService} MapService Angular service for map handling.
+ * @param {string} oerebSupport JSON-encoded support configuration.
  * @param {string} oerebEventEgridSelected Event name for selected EGRID.
  * @param {string} oerebEventExtractLoaded Event name for loaded extract.
  * @param {string} oerebEventExtractClosed Event name for closed extract.
@@ -18,7 +19,7 @@ goog.require('oereb.MapService');
  * @ngdoc controller
  * @ngname MainController
  */
-oereb.MainController = function($scope, $location, ExtractService, MapService,
+oereb.MainController = function($scope, $location, ExtractService, MapService, oerebSupport,
                                 oerebEventEgridSelected, oerebEventExtractLoaded, oerebEventExtractClosed) {
 
   this.$scope_ = $scope;
@@ -29,6 +30,9 @@ oereb.MainController = function($scope, $location, ExtractService, MapService,
   this.oerebEventExtractLoaded_ = oerebEventExtractLoaded;
   this.oerebEventExtractClosed_ = oerebEventExtractClosed;
 
+  /** @export {Object} */
+  this.support = angular.fromJson(oerebSupport);
+
   /** @export {string} */
   this.permaLink = '';
 
@@ -37,6 +41,12 @@ oereb.MainController = function($scope, $location, ExtractService, MapService,
 
   /** @export {boolean} */
   this.informationActive = false;
+
+  /** @export {boolean} */
+  this.errorActive = false;
+
+  /** @export {function} */
+  this.retryCallback = function() {};
 
   /** @export {boolean} */
   this.loading = false;
@@ -64,6 +74,7 @@ oereb.MainController = function($scope, $location, ExtractService, MapService,
 oereb.MainController.prototype.closeExtract = function() {
   this.informationActive = false;
   this.extractActive = false;
+  this.errorActive = false;
   this.$scope_.$broadcast(this.oerebEventExtractClosed_);
   this.$location_.search('egrid', null);
 };
@@ -85,6 +96,7 @@ oereb.MainController.prototype.toggleInformation = function() {
 oereb.MainController.prototype.getExtractByEgrid_ = function(egrid, center) {
   this.informationActive = false;
   this.extractActive = false;
+  this.errorActive = false;
   this.loading = true;
   this.ExtractService_.queryExtractById(egrid).then(
     function() {
@@ -101,7 +113,11 @@ oereb.MainController.prototype.getExtractByEgrid_ = function(egrid, center) {
     }.bind(this),
     function() {
       this.loading = false;
-      this.extractActive = false;
+      this.extractActive = true;
+      this.errorActive = true;
+      this.retryCallback = function() {
+        this.getExtractByEgrid_(egrid, center);
+      };
     }.bind(this)
   );
 };

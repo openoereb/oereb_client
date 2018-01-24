@@ -70,18 +70,25 @@ class Index(object):
             str: The JSON-encoded search API configuration.
 
         """
-        search_config = self.config_.get('search', {})
-        return json.dumps(search_config)
+        return json.dumps(self.config_.get('search', {}))
 
     def get_geo_view_config_(self):
         """Returns the JSON-encoded configuration for the geoViewBL linking.
 
         Returns:
-            str: The JSON-encoded search API configuration.
+            str: The JSON-encoded geoViewBL linking configuration.
 
         """
-        search_config = self.config_.get('geo_view', {})
-        return json.dumps(search_config)
+        return json.dumps(self.config_.get('geo_view', {}))
+
+    def get_support_config_(self):
+        """Returns the JSON-encoded configuration for the support.
+
+        Returns:
+            str: The JSON-encoded support configuration.
+
+        """
+        return json.dumps(self.config_.get('support', {}))
 
     def render(self):
         """Returns the dictionary with rendering parameters.
@@ -94,5 +101,6 @@ class Index(object):
             'debug': self.is_debug_(),
             'base_layer_config': self.get_base_layer_config_(),
             'search_api_config': self.get_search_config_(),
-            'geo_view_config': self.get_geo_view_config_()
+            'geo_view_config': self.get_geo_view_config_(),
+            'support': self.get_support_config_()
         }

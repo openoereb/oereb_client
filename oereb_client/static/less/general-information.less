@@ -8,4 +8,19 @@
   img {
     max-height: @image-max-height;
   }
+  .logos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      img, span {
+        display: block;
+      }
+    }
+  }
 }

@@ -6,8 +6,10 @@ goog.require('oereb.ExtractService');
 /**
  * Controller for concerned topics.
  * @param {angular.Scope} $scope The current scope.
+ * @param {angular.Scope} $rootScope The application root scope.
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
  * @param {oereb.MapService} MapService The service for map handling.
+ * @param {string} oerebEventEgridSelected Event name for selected EGRID.
  * @param {string} oerebEventExtractLoaded Name of the extract loaded event.
  * @param {string} oerebEventExtractClosed Name of the extract closed event.
  * @constructor
@@ -15,12 +17,14 @@ goog.require('oereb.ExtractService');
  * @ngdoc controller
  * @ngname TopicController
  */
-oereb.TopicController = function($scope, ExtractService, MapService, oerebEventExtractLoaded,
-                                 oerebEventExtractClosed) {
+oereb.TopicController = function($scope, $rootScope, ExtractService, MapService, oerebEventEgridSelected,
+                                 oerebEventExtractLoaded, oerebEventExtractClosed) {
 
   this.$scope_ = $scope;
+  this.$rootScope_ = $rootScope;
   this.ExtractService_ = ExtractService;
   this.MapService_ = MapService;
+  this.oerebEventEgridSelected_ = oerebEventEgridSelected;
   this.oerebEventExtractLoaded_ = oerebEventExtractLoaded;
   this.oerebEventExtractClosed_ = oerebEventExtractClosed;
 
@@ -63,6 +67,11 @@ oereb.TopicController = function($scope, ExtractService, MapService, oerebEventE
       this.selectedTheme = concernedThemes[0]['Code'];
       this.selectTheme_(this.selectedTheme);
     }
+  }.bind(this));
+
+  // Clear layers on selected EGRID
+  this.$rootScope_.$on(this.oerebEventEgridSelected_, function() {
+    this.clearLayers();
   }.bind(this));
 
   // Clear layers on closed extract

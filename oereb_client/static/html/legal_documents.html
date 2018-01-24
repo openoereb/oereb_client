@@ -4,7 +4,6 @@
         <dd ng-repeat="legalProvision in data['LegalProvisions']">
             <span>
                 {{legalProvision['Title'] | multilingualText}}
-                <span ng-if="legalProvision['OfficialNumber']">({{legalProvision['OfficialNumber']}})</span>
             </span>
             <span ng-repeat="artNumber in legalProvision['ArticleNumber']">
                 &nbsp;<span class="label label-primary">{{artNumber}}</span>
@@ -23,9 +22,6 @@
         <dd ng-repeat="document in data['Documents']">
             <span>
                 {{document['Title'] | multilingualText}}
-                <span ng-if="document['OfficialNumber']">
-                    ({{document['OfficialNumber']}})
-                </span>
             </span>
             <span ng-repeat="artNumber in document['ArticleNumber']">
                 &nbsp;<span class="label label-primary">{{artNumber}}</span>

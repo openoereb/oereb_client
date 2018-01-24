@@ -32,7 +32,7 @@
             </button>
             <div class="list-group-item" ng-show="parcels.length > 0">
                 <span class="badge">{{parcels.length}}</span>
-                Parzellen
+                Grundst&uuml;cke
             </div>
             <button class="list-group-item search-result" ng-repeat="parcel in parcels" ng-click="parcelSelect(parcel)">
                 {{parcel.properties.label | searchResult}}

@@ -11,6 +11,9 @@ describe('themeWithoutDataDirective', function() {
         LAYERS: 'grundkarte_sw_group'
       }
     }));
+    $provide.constant('oerebSupport', angular.toJson({
+      office1: 'Test'
+    }));
   }));
 
   var $compile, $rootScope, $timeout, ExtractService, oerebEventExtractLoaded, scope;

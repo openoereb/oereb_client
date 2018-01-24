@@ -5,25 +5,29 @@ describe('MainController', function() {
   beforeEach(module('oereb', function($provide) {
     $provide.constant('oerebApplicationUrl', 'http://example.com/');
     $provide.constant('oerebBaseLayerConfig', angular.toJson({
-        type: 'wms',
-        url: 'http://geowms.bl.ch',
-        params: {
-          LAYERS: 'grundkarte_sw_group'
-        }
-      }));
+      type: 'wms',
+      url: 'http://geowms.bl.ch',
+      params: {
+        LAYERS: 'grundkarte_sw_group'
+      }
+    }));
+    $provide.constant('oerebSupport', angular.toJson({
+      office1: 'Test'
+    }));
   }));
 
   var $controller, $httpBackend, $rootScope, $scope, ExtractService, MapService, oerebEventEgridSelected,
-    oerebEventExtractClosed, oerebEventExtractLoaded;
+    oerebEventExtractClosed, oerebEventExtractLoaded, oerebSupport;
 
   beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_, _ExtractService_, _MapService_,
-                             _oerebEventEgridSelected_, _oerebEventExtractLoaded_,
+                             _oerebSupport_, _oerebEventEgridSelected_, _oerebEventExtractLoaded_,
                              _oerebEventExtractClosed_) {
     $controller = _$controller_;
     $httpBackend = _$httpBackend_;
     $rootScope = _$rootScope_;
     ExtractService = _ExtractService_;
     MapService = _MapService_;
+    oerebSupport = _oerebSupport_;
     oerebEventEgridSelected = _oerebEventEgridSelected_;
     oerebEventExtractLoaded = _oerebEventExtractLoaded_;
     oerebEventExtractClosed = _oerebEventExtractClosed_;
@@ -40,6 +44,7 @@ describe('MainController', function() {
       $scope: $scope,
       ExtractService: ExtractService,
       MapService: MapService,
+      oerebSupport: oerebSupport,
       oerebEventEgridSelected: oerebEventEgridSelected,
       oerebEventExtractLoaded: oerebEventExtractLoaded
     });
@@ -63,7 +68,9 @@ describe('MainController', function() {
   it('should be initialized correctly', function() {
     var controller = getMainController();
     expect(controller.extractActive).toBe(false);
+    expect(controller.errorActive).toBe(false);
     expect(controller.informationActive).toBe(false);
+    expect(controller.loading).toBe(false);
   });
 
   describe('EGRID selected event', function() {
@@ -104,23 +111,25 @@ describe('MainController', function() {
       expect(view.fit).toHaveBeenCalled();
     });
 
-    it('should hide the extract on invalid data', function() {
+    it('should show the error message on invalid data', function() {
       $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, 'Test');
       spyOn(ExtractService, 'getExtract').and.returnValue(undefined);
       var ctrl = getMainController();
       ctrl.extractActive = true;
       $rootScope.$broadcast(oerebEventEgridSelected, 'CHTEST');
       $httpBackend.flush();
-      expect(ctrl.extractActive).toBe(false);
+      expect(ctrl.extractActive).toBe(true);
+      expect(ctrl.errorActive).toBe(true);
     });
 
-    it('should hide the extract on error', function() {
+    it('should show the error message on error', function() {
       $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(500, 'Test');
       var ctrl = getMainController();
       ctrl.extractActive = true;
       $rootScope.$broadcast(oerebEventEgridSelected, 'CHTEST');
       $httpBackend.flush();
-      expect(ctrl.extractActive).toBe(false);
+      expect(ctrl.extractActive).toBe(true);
+      expect(ctrl.errorActive).toBe(true);
     });
 
     it('should broadcast extract loaded event', function() {
@@ -141,9 +150,11 @@ describe('MainController', function() {
       var ctrl = getMainController();
       ctrl.extractActive = true;
       ctrl.informationActive = true;
+      ctrl.errorActive = true;
       ctrl.closeExtract();
       expect(ctrl.extractActive).toBe(false);
       expect(ctrl.informationActive).toBe(false);
+      expect(ctrl.errorActive).toBe(false);
     });
 
     it('should fire event', function() {

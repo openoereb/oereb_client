@@ -32,6 +32,9 @@ oereb.generalInformationDirective = function(ExtractService, oerebEventExtractLo
       /** @export {string|undefined} */
       scope.logoMun = undefined;
 
+      /** @export {string|undefined} */
+      scope.municipality = undefined;
+
       /** @export {Array} */
       scope.baseData = [];
 
@@ -49,12 +52,14 @@ oereb.generalInformationDirective = function(ExtractService, oerebEventExtractLo
           scope.logoMun = ExtractService.getExtract()['MunicipalityLogoRef'];
           scope.baseData = ExtractService.getExtract()['BaseData'];
           scope.generalInformation = ExtractService.getExtract()['GeneralInformation'];
+          scope.municipality = ExtractService.getRealEstate()['Municipality'];
         }
         else {
           scope.office = undefined;
           scope.logoCan = undefined;
           scope.logoFed = undefined;
           scope.logoMun = undefined;
+          scope.municipality = undefined;
           scope.baseData = [];
           scope.generalInformation = [];
         }
