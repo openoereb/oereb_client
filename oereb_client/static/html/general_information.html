@@ -35,9 +35,14 @@
     </blockquote>
     <h4><strong>Weiterhin an diesem Auszug beteilig sind</strong></h4>
     <blockquote>
-        <p>
-            <img class="img-responsive pull-left" ng-src="{{logoFed}}">
-            <img class="img-responsive" ng-src="{{logoMun}}">
-        </p>
+        <div class="logos">
+            <div>
+                <img class="img-responsive" ng-src="{{logoFed}}">
+            </div>
+            <div>
+                <img class="img-responsive" ng-src="{{logoMun}}">
+                <span ng-bind="municipality"></span>
+            </div>
+        </div>
     </blockquote>
 </div>
