@@ -29,27 +29,14 @@ oereb.staticExtractDirective = function($http, ExtractService, oerebApplicationU
       /** @export {string} */
       scope.iconClass = defaultIcon;
 
-      /** @export {Array} */
-      scope.flavours = [
-        {
-          'value': 'reduced',
-          'label': 'reduziert'
-        },
-        {
-          'value': 'full',
-          'label': 'vollständig'
-        }
-      ];
-
       /**
        * Requests the static extract.
-       * @param {string} flavour The flavour of the requested PDF extract.
        * @export
        */
-      scope.request = function(flavour) {
+      scope.request = function() {
         scope.iconClass = loadingIcon;
         var egrid = ExtractService.getRealEstate()['EGRID'];
-        var url = oerebApplicationUrl + 'extract/' + flavour + '/pdf/' + egrid;
+        var url = oerebApplicationUrl + 'extract/reduced/pdf/' + egrid;
         $http.get(url, {
           responseType: 'blob'
         }).then(
@@ -103,6 +90,6 @@ oereb.staticExtractDirective = function($http, ExtractService, oerebApplicationU
  * @module oereb
  * @restrict E
  *
- * @description Selector to request a reduced/full PDF extract.
+ * @description Button to request a PDF extract.
  */
 oereb.module.directive('oerebStaticExtract', oereb.staticExtractDirective);
