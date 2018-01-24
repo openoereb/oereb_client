@@ -12,6 +12,9 @@ describe('informationPanelDirective', function() {
         LAYERS: 'grundkarte_sw_group'
       }
     }));
+    $provide.constant('oerebSupport', angular.toJson({
+      office1: 'Test'
+    }));
   }));
 
   var $compile, $rootScope, ExtractService, scope;
