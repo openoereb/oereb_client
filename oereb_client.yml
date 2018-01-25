@@ -24,6 +24,7 @@ oereb_client:
   # Link to GeoView BL
   geo_view:
     url: http://geoview.bl.ch
+    tree_group: oereb
 
   # Support
   support:
