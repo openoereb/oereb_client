@@ -32,6 +32,27 @@ oereb.MapService = function($q, $http, oerebBaseLayerConfig) {
     extent: [2420000, 1030000, 2900000, 1350000]
   });
 
+  /**
+   * @type {Array.<ol.layer.Tile>}
+   * @private
+   */
+  this.topicLayers_ = [];
+
+  /**
+   * @type {ol.layer.Vector}
+   * @private
+   */
+  this.realEstateLayer_ = new ol.layer.Vector({
+    source: new ol.source.Vector(),
+    style: new ol.style.Style({
+      fill: undefined,
+      stroke: new ol.style.Stroke({
+        color: [255, 0, 0, 0.75],
+        width: 7
+      })
+    })
+  });
+
   // Create map
   var view = new ol.View({
     projection: this.proj_,
@@ -125,6 +146,59 @@ oereb.MapService.prototype.getBaseLayerWmtsSource_ = function() {
     }
   );
   return def.promise;
+};
+
+/**
+ * Adds the specified view services as topic layers.
+ * @param {Array.<Object>} viewServices The view service definition object.
+ */
+oereb.MapService.prototype.addTopicLayers = function(viewServices) {
+  var projection = this.map_.getView().getProjection();
+  for (var i = 0; i < viewServices.length; i++) {
+    var layer = new ol.layer.Tile({
+      source: new ol.source.TileWMS({
+        url: viewServices[i]['url'],
+        params: viewServices[i]['params'],
+        projection: projection
+      }),
+      visible: false
+    });
+    layer.set('topic', viewServices[i]['topic']);
+    this.topicLayers_.push(layer);
+    this.map_.addLayer(layer);
+  }
+};
+
+/**
+ * Updates the real estate layer with the specified feature.
+ * @param {ol.Feature} realEstate The real estate feature.
+ */
+oereb.MapService.prototype.updateRealEstate = function(realEstate) {
+  this.realEstateLayer_.getSource().clear();
+  if (realEstate instanceof ol.Feature) {
+    this.realEstateLayer_.getSource().addFeature(realEstate);
+  }
+  this.realEstateLayer_.setMap(this.map_);
+};
+
+/**
+ * Removes all layers from the map.
+ */
+oereb.MapService.prototype.clearLayers = function() {
+  this.realEstateLayer_.setMap(null);
+  this.realEstateLayer_.getSource().clear();
+  for (var i = this.topicLayers_.length; i > 0; i--) {
+    this.map_.removeLayer(this.topicLayers_[i - 1]);
+    this.topicLayers_.splice(i - 1, 1);
+  }
+};
+
+/**
+ * Returns the list of topic layers.
+ * @returns {Array<ol.layer.Tile>} The list of topic layers.
+ */
+oereb.MapService.prototype.getTopicLayers = function() {
+  return this.topicLayers_;
 };
 
 oereb.module.service('MapService', oereb.MapService);

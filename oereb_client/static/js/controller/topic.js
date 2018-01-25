@@ -28,27 +28,6 @@ oereb.TopicController = function($scope, $rootScope, ExtractService, MapService,
   this.oerebEventExtractLoaded_ = oerebEventExtractLoaded;
   this.oerebEventExtractClosed_ = oerebEventExtractClosed;
 
-  /**
-   * @type {Array.<ol.layer.Image>}
-   * @private
-   */
-  this.layers_ = [];
-
-  /**
-   * @type {ol.layer.Vector}
-   * @private
-   */
-  this.realEstateLayer_ = new ol.layer.Vector({
-    source: new ol.source.Vector(),
-    style: new ol.style.Style({
-      fill: undefined,
-      stroke: new ol.style.Stroke({
-        color: [255, 0, 0, 0.75],
-        width: 7
-      })
-    })
-  });
-
   /** @export {string} */
   this.selectedTheme = undefined;
 
@@ -71,16 +50,21 @@ oereb.TopicController = function($scope, $rootScope, ExtractService, MapService,
 
   // Clear layers on selected EGRID
   this.$rootScope_.$on(this.oerebEventEgridSelected_, function() {
-    this.clearLayers();
+    this.MapService_.clearLayers();
   }.bind(this));
 
   // Clear layers on closed extract
   this.$scope_.$on(this.oerebEventExtractClosed_, function() {
-    this.clearLayers();
+    this.MapService_.clearLayers();
   }.bind(this));
 
 };
 
+/**
+ * Creates an Openlayers feature for the current real estate data.
+ * @returns {ol.Feature} The real estate feature.
+ * @private
+ */
 oereb.TopicController.prototype.getRealEstateFeature_ = function() {
   var realEstate = this.ExtractService_.getRealEstate();
   if (
@@ -94,41 +78,12 @@ oereb.TopicController.prototype.getRealEstateFeature_ = function() {
 };
 
 /**
- * Clears the current set of layers.
- * @export
- */
-oereb.TopicController.prototype.clearLayers = function() {
-  this.realEstateLayer_.setMap(null);
-  this.realEstateLayer_.getSource().clear();
-  for (var i = this.layers_.length; i > 0; i--) {
-    this.layers_[i - 1].setMap(null);
-    this.layers_.splice(i - 1, 1);
-  }
-};
-
-/**
  * Updates the layers the currently loaded extract.
  */
 oereb.TopicController.prototype.updateLayers_ = function() {
-  this.clearLayers();
-  var projection = this.MapService_.getMap().getView().getProjection();
-  var viewServices = this.ExtractService_.getViewServices();
-  for (var i = 0; i < viewServices.length; i++) {
-    var layer = new ol.layer.Tile({
-      source: new ol.source.TileWMS({
-        url: viewServices[i]['url'],
-        params: viewServices[i]['params'],
-        projection: projection
-      })
-    });
-    layer.set('topic', viewServices[i]['topic']);
-    this.layers_.push(layer);
-  }
-  var realEstate = this.getRealEstateFeature_();
-  if (angular.isDefined(realEstate)) {
-    this.realEstateLayer_.getSource().addFeature(realEstate);
-  }
-  this.realEstateLayer_.setMap(this.MapService_.getMap());
+  this.MapService_.clearLayers();
+  this.MapService_.addTopicLayers(this.ExtractService_.getViewServices());
+  this.MapService_.updateRealEstate(this.getRealEstateFeature_());
 };
 
 /**
@@ -137,16 +92,15 @@ oereb.TopicController.prototype.updateLayers_ = function() {
  * @private
  */
 oereb.TopicController.prototype.selectTheme_ = function(topic) {
-  this.realEstateLayer_.setMap(null);
-  for (var i = 0; i < this.layers_.length; i++) {
-    if (this.layers_[i].get('topic') === topic) {
-      this.layers_[i].setMap(this.MapService_.getMap());
+  var layers = this.MapService_.getTopicLayers();
+  for (var i = 0; i < layers.length; i++) {
+    if (layers[i].get('topic') === topic) {
+      layers[i].setVisible(true);
     }
     else {
-      this.layers_[i].setMap(null);
+      layers[i].setVisible(false);
     }
   }
-  this.realEstateLayer_.setMap(this.MapService_.getMap());
 };
 
 oereb.module.controller('TopicController', oereb.TopicController);
