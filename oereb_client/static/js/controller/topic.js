@@ -92,7 +92,6 @@ oereb.TopicController.prototype.updateLayers_ = function() {
  * @private
  */
 oereb.TopicController.prototype.selectTheme_ = function(topic) {
-  this.MapService_.getRealEstateLayer().setMap(null);
   var layers = this.MapService_.getTopicLayers();
   for (var i = 0; i < layers.length; i++) {
     if (layers[i].get('topic') === topic) {
@@ -102,7 +101,6 @@ oereb.TopicController.prototype.selectTheme_ = function(topic) {
       layers[i].setVisible(false);
     }
   }
-  this.MapService_.getRealEstateLayer().setMap(this.MapService_.getMap());
 };
 
 oereb.module.controller('TopicController', oereb.TopicController);

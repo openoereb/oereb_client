@@ -86,11 +86,11 @@ describe('TopicController', function() {
   describe('EGRID selected event', function() {
 
     it('should clear the layers', function() {
-      var controller = getTopicController();
-      spyOn(controller, 'clearLayers');
+      getTopicController();
+      spyOn(MapService, 'clearLayers');
       $rootScope.$broadcast(oerebEventEgridSelected);
       $rootScope.$apply();
-      expect(controller.clearLayers).toHaveBeenCalled();
+      expect(MapService.clearLayers).toHaveBeenCalled();
     });
 
   });
@@ -98,37 +98,11 @@ describe('TopicController', function() {
   describe('extract closed event', function() {
 
     it('should clear the layers', function() {
-      var controller = getTopicController();
-      spyOn(controller, 'clearLayers');
+      getTopicController();
+      spyOn(MapService, 'clearLayers');
       $rootScope.$broadcast(oerebEventExtractClosed);
       $rootScope.$apply();
-      expect(controller.clearLayers).toHaveBeenCalled();
-    });
-
-  });
-
-  describe('clearLayers', function() {
-
-    it('should clear the list of layers', function() {
-      var layers = [
-        new ol.layer.Vector({
-          source: new ol.source.Vector()
-        }),
-        new ol.layer.Vector({
-          source: new ol.source.Vector()
-        })
-      ];
-      spyOn(layers[0], 'setMap');
-      spyOn(layers[1], 'setMap');
-      spyOn(layers, 'splice');
-      var controller = getTopicController();
-      spyOn(controller.realEstateLayer_, 'setMap');
-      controller.layers_ = layers;
-      controller.clearLayers();
-      expect(layers[0].setMap).toHaveBeenCalledWith(null);
-      expect(layers[1].setMap).toHaveBeenCalledWith(null);
-      expect(layers.splice).toHaveBeenCalledTimes(2);
-      expect(controller.realEstateLayer_.setMap).toHaveBeenCalledWith(null);
+      expect(MapService.clearLayers).toHaveBeenCalled();
     });
 
   });
@@ -136,31 +110,16 @@ describe('TopicController', function() {
   describe('updateLayers_', function() {
 
     it('should update the list of layers', function() {
-      var viewServices = [
-        {
-          topic: 'topic1',
-          url: 'http://example.com/wms',
-          params: {
-            LAYERS: 'layer1'
-          }
-        },
-        {
-          topic: 'topic2',
-          url: 'http://example.com/wms',
-          params: {
-            LAYERS: 'layer1'
-          }
-        }
-      ];
       var controller = getTopicController();
-      spyOn(ExtractService, 'getViewServices').and.returnValue(viewServices);
-      spyOn(controller, 'clearLayers').and.callThrough();
+      spyOn(ExtractService, 'getViewServices').and.returnValue('View services');
+      spyOn(controller, 'getRealEstateFeature_').and.returnValue('Real estate');
+      spyOn(MapService, 'clearLayers');
+      spyOn(MapService, 'addTopicLayers');
+      spyOn(MapService, 'updateRealEstate');
       controller.updateLayers_();
-      expect(controller.layers_.length).toBe(2);
-      expect(controller.layers_[0].get('topic')).toEqual('topic1');
-      expect(controller.layers_[1].get('topic')).toEqual('topic2');
-      expect(controller.layers_[0].getSource().getProjection())
-        .toBe(MapService.getMap().getView().getProjection());
+      expect(MapService.clearLayers).toHaveBeenCalled();
+      expect(MapService.addTopicLayers).toHaveBeenCalledWith('View services');
+      expect(MapService.updateRealEstate).toHaveBeenCalledWith('Real estate');
     });
 
   });
@@ -176,16 +135,14 @@ describe('TopicController', function() {
         source: new ol.source.Vector()
       });
       layer2.set('topic', 'topic2');
+      MapService.topicLayers_.push(layer1);
+      MapService.topicLayers_.push(layer2);
       var controller = getTopicController();
-      controller.layers_.push(layer1);
-      controller.layers_.push(layer2);
-      spyOn(layer1, 'setMap');
-      spyOn(layer2, 'setMap');
-      spyOn(controller.realEstateLayer_, 'setMap');
+      spyOn(layer1, 'setVisible');
+      spyOn(layer2, 'setVisible');
       controller.selectTheme_('topic2');
-      expect(layer1.setMap).toHaveBeenCalledWith(null);
-      expect(layer2.setMap).toHaveBeenCalledWith(MapService.getMap());
-      expect(controller.realEstateLayer_.setMap).toHaveBeenCalledWith(MapService.getMap());
+      expect(layer1.setVisible).toHaveBeenCalledWith(false);
+      expect(layer2.setVisible).toHaveBeenCalledWith(true);
     });
 
   });

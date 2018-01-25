@@ -201,12 +201,4 @@ oereb.MapService.prototype.getTopicLayers = function() {
   return this.topicLayers_;
 };
 
-/**
- * Returns the real estate layer.
- * @returns {ol.layer.Vector} The real estate layer.
- */
-oereb.MapService.prototype.getRealEstateLayer = function() {
-  return this.realEstateLayer_;
-};
-
 oereb.module.service('MapService', oereb.MapService);
