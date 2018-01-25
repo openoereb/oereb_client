@@ -67,18 +67,18 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
           egrLoading = true;
           adrLoading = true;
           gsLoading = true;
-          SearchService.searchTerm('egr ' + value).then(function(result) {
+          SearchService.searchEgrid(value).then(function(result) {
             egrLoading = false;
             scope.egrids = result.features;
-          });
-          SearchService.searchTerm('adr ' + value).then(function(result) {
+          }, function() {});
+          SearchService.searchAddress(value).then(function(result) {
             adrLoading = false;
             scope.addresses = result.features;
-          });
-          SearchService.searchTerm('gs ' + value).then(function(result) {
+          }, function() {});
+          SearchService.searchRealEstate(value).then(function(result) {
             gsLoading = false;
             scope.parcels = result.features;
-          });
+          }, function() {});
         }
 
       });
@@ -114,7 +114,7 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
         var label = filter(parcel['properties']['label']).split(' ');
         var parcel_number = label.pop();
         var municipality_name = label.join(' ');
-        SearchService.searchEgrid(parcel_number, municipality_name, ['grundstueck']).then(
+        SearchService.lookupEgrid(parcel_number, municipality_name, ['grundstueck']).then(
           function(features) {
             var result = features[0];
             if (result.length === 1) {
