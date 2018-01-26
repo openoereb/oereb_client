@@ -1,7 +1,7 @@
 Changelog
 ---------
 
-master
-******
+1.0.0
+*****
 
-- Initial repository
+- Initial version
