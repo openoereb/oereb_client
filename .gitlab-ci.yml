@@ -39,7 +39,6 @@ test-py:3.6:
     - make lint-py
     - make test-py
 
-
 test-js:
   stage: test
   image: node:8-stretch
@@ -47,7 +46,6 @@ test-js:
     - make git-attributes
     - make lint-js
     - make test-js
-
 
 build:
   stage: build
@@ -92,20 +90,19 @@ deploy:
   except:
     - branches
 
-
-# codequality:
-#   image: docker:latest
-#   variables:
-#     DOCKER_DRIVER: overlay
-#   services:
-#     - docker:dind
-#   script:
-#     - docker pull codeclimate/codeclimate
-#     - docker run --env CODECLIMATE_CODE="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate init
-#     - docker run --env CODECLIMATE_CODE="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze -f json > codeclimate.json
-#   artifacts:
-#     paths: [codeclimate.json]
-
+# Analyze code quality
+codequality:
+  image: docker:latest
+  variables:
+    DOCKER_DRIVER: overlay
+  services:
+    - docker:dind
+  script:
+    - docker pull codeclimate/codeclimate
+    - docker run --env CODECLIMATE_CODE="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate:0.69.0 init
+    - docker run --env CODECLIMATE_CODE="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate:0.69.0 analyze -f json > codeclimate.json || true
+  artifacts:
+    paths: [codeclimate.json]
 
 after_script:
   - rm -vf ~/.pypirc
