@@ -48,7 +48,9 @@ oereb.MapService = function($q, $http, oerebBaseLayerConfig) {
       fill: undefined,
       stroke: new ol.style.Stroke({
         color: [255, 0, 0, 0.75],
-        width: 7
+        width: 7,
+        lineCap: 'square',
+        lineJoin: 'miter'
       })
     })
   });
