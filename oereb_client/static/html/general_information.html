@@ -1,13 +1,13 @@
 <div class="container-fluid general-information">
     <h4><strong>Katasterf&uuml;hrende Stelle</strong></h4>
     <blockquote>
-        <div class="media">
-            <div class="media-left">
+        <div class="logos">
+            <div>
                 <a ng-href="{{office['OfficeAtWeb']}}" target="_blank">
-                    <img ng-src="{{logoCan}}">
+                    <img class="logo-canton" ng-src="{{logoCan}}">
                 </a>
             </div>
-            <div class="media-body">
+            <div>
                 <address>
                     <dl>
                         <dt ng-bind="office['Name'] | multilingualText"></dt>

@@ -48,7 +48,9 @@ oereb.MapService = function($q, $http, oerebBaseLayerConfig) {
       fill: undefined,
       stroke: new ol.style.Stroke({
         color: [255, 0, 0, 0.75],
-        width: 7
+        width: 7,
+        lineCap: 'square',
+        lineJoin: 'miter'
       })
     })
   });
@@ -155,8 +157,8 @@ oereb.MapService.prototype.getBaseLayerWmtsSource_ = function() {
 oereb.MapService.prototype.addTopicLayers = function(viewServices) {
   var projection = this.map_.getView().getProjection();
   for (var i = 0; i < viewServices.length; i++) {
-    var layer = new ol.layer.Tile({
-      source: new ol.source.TileWMS({
+    var layer = new ol.layer.Image({
+      source: new ol.source.ImageWMS({
         url: viewServices[i]['url'],
         params: viewServices[i]['params'],
         projection: projection
