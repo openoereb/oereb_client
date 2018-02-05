@@ -157,8 +157,8 @@ oereb.MapService.prototype.getBaseLayerWmtsSource_ = function() {
 oereb.MapService.prototype.addTopicLayers = function(viewServices) {
   var projection = this.map_.getView().getProjection();
   for (var i = 0; i < viewServices.length; i++) {
-    var layer = new ol.layer.Tile({
-      source: new ol.source.TileWMS({
+    var layer = new ol.layer.Image({
+      source: new ol.source.ImageWMS({
         url: viewServices[i]['url'],
         params: viewServices[i]['params'],
         projection: projection
