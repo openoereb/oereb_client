@@ -67,7 +67,7 @@ describe('generalInformationDirective', function () {
       expect(element.find('h4').eq(2).children('strong').first().text())
         .toContain('Allgemeine Informationen');
       expect(element.find('h4').eq(3).children('strong').first().text())
-        .toContain('Weiterhin an diesem Auszug beteilig sind');
+        .toContain('Weiterhin an diesem Auszug beteiligt sind');
       var office = element.children('blockquote').eq(0);
       expect(office.find('img').length).toBe(1);
       expect(office.find('img').first().attr('src')).toEqual(extract.CantonalLogoRef);
