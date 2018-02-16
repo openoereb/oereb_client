@@ -62,7 +62,8 @@ describe('generalInformationDirective', function () {
       $rootScope.$digest();
       expect(element.find('h4').length).toBe(4);
       expect(element.find('blockquote').length).toBe(4);
-      expect(element.find('h4').eq(0).children('strong').first().text()).toContain('Katasterführende Stelle');
+      expect(element.find('h4').eq(0).children('strong').first().text())
+        .toContain('Katasterverantwortliche Stelle');
       expect(element.find('h4').eq(1).children('strong').first().text()).toContain('Grundlagedaten');
       expect(element.find('h4').eq(2).children('strong').first().text())
         .toContain('Allgemeine Informationen');
