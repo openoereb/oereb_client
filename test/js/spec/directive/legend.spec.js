@@ -63,10 +63,10 @@ describe('legendDirective', function() {
       expect(rows.eq(0).find('small').length).toBe(2);
       expect(rows.eq(1).children('td').eq(0).text()).toContain(legendEntries[0].Information[0].Text);
       expect(rows.eq(1).children('td').eq(2).text()).toContain('568');
-      expect(rows.eq(1).children('td').eq(3).text()).toContain('57%');
+      expect(rows.eq(1).children('td').eq(3).text()).toContain('56.7%');
       expect(rows.eq(2).children('td').eq(0).text()).toContain(legendEntries[1].Information[0].Text);
       expect(rows.eq(2).children('td').eq(2).text()).toContain('123');
-      expect(rows.eq(2).children('td').eq(3).text()).toContain('12%');
+      expect(rows.eq(2).children('td').eq(3).text()).toContain('12.3%');
       expect(rows.eq(3).find('img').eq(0).attr('src')).toContain(legendGraphics[0]);
     });
 
