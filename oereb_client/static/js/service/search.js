@@ -19,19 +19,10 @@ oereb.SearchService = function ($http, $q, searchServiceConfig, wfsFilterService
   this.$q_ = $q;
   var config = angular.fromJson(searchServiceConfig);
   this.searchServiceUrl_ = config["api"]["url"];
-  if (this.searchServiceUrl_.indexOf('?') === -1) {
-    this.searchServiceUrl_ = this.searchServiceUrl_ + '?';
-  }
   this.searchServiceLimit_ = config["api"]["limit"];
   this.wfsUrl_ = config["wfs"]["url"];
-  if (this.wfsUrl_.indexOf('?') === -1) {
-    this.wfsUrl_ = this.wfsUrl_ + '?';
-  }
   this.wfsLimit_ = config["wfs"]["limit"];
   this.wfsFilterServiceUrl_ = wfsFilterServiceUrl;
-  if (this.wfsFilterServiceUrl_.indexOf('?') === -1) {
-    this.wfsFilterServiceUrl_ = this.wfsFilterServiceUrl_ + '?';
-  }
   this.wfsFormatter = new ol.format.WFS();
 
 };
@@ -44,11 +35,13 @@ oereb.SearchService = function ($http, $q, searchServiceConfig, wfsFilterService
  */
 oereb.SearchService.prototype.searchTerm_ = function (term) {
   var def = this.$q_.defer();
-  var urlItems = [
-    'limit=' + this.searchServiceLimit_,
-    'query=' + term
-  ];
-  this.$http_.get(this.searchServiceUrl_ + urlItems.join('&')).then(
+  var params = {
+    'limit': this.searchServiceLimit_,
+    'query': term
+  };
+  this.$http_.get(this.searchServiceUrl_, {
+    params: params
+  }).then(
     function (response) {
       def.resolve(response.data);
     },
@@ -149,13 +142,15 @@ oereb.SearchService.prototype.lookupEgrid = function (parcel_number, municipalit
   var queue = [];
   angular.forEach(layer_names, function (layer_name) {
     var def = this.$q_.defer();
-    var urlItems = [
-      'limit=' + this.wfsLimit_,
-      'layer_name=' + layer_name,
-      'municipality_name=' + municipality_name,
-      'parcel_number=' + parcel_number
-    ];
-    this.$http_.get(this.wfsFilterServiceUrl_ + urlItems.join('&')).then(
+    var params = {
+      'limit': this.wfsLimit_,
+      'layer_name': layer_name,
+      'municipality_name': municipality_name,
+      'parcel_number': parcel_number
+    };
+    this.$http_.get(this.wfsFilterServiceUrl_, {
+      params: params
+    }).then(
       function (response) {
         this.$http_({
           method: "POST",

@@ -4,11 +4,11 @@ goog.require('oereb.SearchService');
 describe('SearchService', function () {
   var searchServiceConfigMock = {
     api: {
-      url: 'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?',
+      url: 'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch',
       limit: 5
     },
     wfs: {
-      url: 'http://geowms.bl.ch?',
+      url: 'http://geowms.bl.ch',
       limit: 5
     }
   };
@@ -63,7 +63,7 @@ describe('SearchService', function () {
 
   beforeEach(module('oereb', function ($provide, $qProvider) {
     $provide.constant('searchServiceConfig', searchServiceConfigMock);
-    $provide.constant('wfsFilterServiceUrl', 'http://example.com/wfs_filter_service?');
+    $provide.constant('wfsFilterServiceUrl', 'http://example.com/wfs_filter_service');
     $qProvider.errorOnUnhandledRejections(false);
   }));
 
@@ -85,7 +85,7 @@ describe('SearchService', function () {
 
     it('should return error on failed request', function () {
       $httpBackend.expectGET(
-        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=5&query=adr liest'
+        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=5&query=adr+liest'
       ).respond(500, 'Test error.');
       var response = undefined;
       SearchService.searchTerm_('adr liest').then(
@@ -103,7 +103,7 @@ describe('SearchService', function () {
 
     it('should return the responded data', function () {
       $httpBackend.expectGET(
-        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=5&query=adr liest'
+        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=5&query=adr+liest'
       ).respond(200, fullTextSearchResponse);
       var response = undefined;
       SearchService.searchTerm_('adr liest').then(
@@ -301,7 +301,7 @@ describe('SearchService', function () {
         'http://example.com/wfs_filter_service?limit=5&layer_name=selbstrecht&municipality_name=Liestal&parcel_number=1000'
       ).respond(200, {});
       $httpBackend.expectPOST(
-        'http://geowms.bl.ch?'
+        'http://geowms.bl.ch'
       ).respond(200, {});
       var feature = new ol.Feature({
         geometry: new ol.geom.Point([100, 100]),
