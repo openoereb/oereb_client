@@ -1,7 +1,6 @@
 /oereb_client.egg-info
 /node_modules/
 /npm-debug.log
-/package-lock.json
 /.cache/
 /.venv/
 /.tox/
