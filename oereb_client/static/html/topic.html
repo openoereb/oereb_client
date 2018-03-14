@@ -18,6 +18,11 @@
              role="tabpanel"
              aria-labelledby="{{id}}-heading">
             <div class="panel-body">
+                <div class="opacity-control">
+                    <span class="opacity-label">Deckkraft:</span>
+                    <span class="opacity-value">{{opacity}}%</span>
+                    <input type="range" min="0" max="100" ng-model="opacity" />
+                </div>
                 <oereb-legend theme-code="::theme['Code']"></oereb-legend>
                 <oereb-legal-documents theme-code="::theme['Code']"></oereb-legal-documents>
                 <oereb-responsible-offices theme-code="::theme['Code']"></oereb-responsible-offices>
