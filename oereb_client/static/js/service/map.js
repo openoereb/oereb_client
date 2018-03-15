@@ -33,7 +33,7 @@ oereb.MapService = function($q, $http, oerebBaseLayerConfig) {
   });
 
   /**
-   * @type {Array.<ol.layer.Tile>}
+   * @type {Array.<ol.layer.Image>}
    * @private
    */
   this.topicLayers_ = [];
