@@ -91,6 +91,7 @@ describe('topicDirective', function() {
       expect(scope.layer instanceof ol.layer.Image).toBe(true);
       expect(scope.layer.get('topic')).toEqual(themes[0].Code);
       expect(scope.opacity).toBe(100);
+      expect(scope.isLoading).toBe(false);
     });
 
   });
@@ -138,6 +139,32 @@ describe('topicDirective', function() {
 
   });
 
+  describe('getBadgeIcon', function() {
+
+    it('should return loading indicator', function() {
+      var element = $compile(
+        '<oereb-topic theme="::theme" selected-theme="topicCtrl.selectedTheme"></oereb-topic>'
+      )($scope);
+      $scope.topicCtrl.selectedTheme = 'LandUsePlans';
+      $scope.$digest();
+      var scope = element.isolateScope();
+      scope.isLoading = true;
+      expect(scope.getBadgeIcon()).toEqual('fa-spinner fa-pulse');
+    });
+
+    it('should return chevron icon', function() {
+      var element = $compile(
+        '<oereb-topic theme="::theme" selected-theme="topicCtrl.selectedTheme"></oereb-topic>'
+      )($scope);
+      $scope.topicCtrl.selectedTheme = 'LandUsePlans';
+      $scope.$digest();
+      var scope = element.isolateScope();
+      scope.isLoading = false;
+      expect(scope.getBadgeIcon()).toEqual(scope.badgeIcon);
+    });
+
+  });
+
   describe('collapsible events', function() {
 
     it('should switch the badge icon', function() {
@@ -171,6 +198,56 @@ describe('topicDirective', function() {
       scope.opacity = 50;
       $scope.$digest();
       expect(layer.setOpacity).toHaveBeenCalledWith(0.5);
+    });
+
+  });
+
+  describe('source imageloadstart event', function() {
+
+    it('should update the loading status', function() {
+      var element = $compile(
+        '<oereb-topic theme="::theme" selected-theme="topicCtrl.selectedTheme"></oereb-topic>'
+      )($scope);
+      $scope.$digest();
+      var scope = element.isolateScope();
+      expect(scope.isLoading).toBe(false);
+      layer.getSource().dispatchEvent('imageloadstart');
+      $timeout.flush();
+      expect(scope.isLoading).toBe(true);
+    });
+
+  });
+
+  describe('source imageloadend event', function() {
+
+    it('should update the loading status', function() {
+      var element = $compile(
+        '<oereb-topic theme="::theme" selected-theme="topicCtrl.selectedTheme"></oereb-topic>'
+      )($scope);
+      $scope.$digest();
+      var scope = element.isolateScope();
+      scope.isLoading = true;
+      expect(scope.isLoading).toBe(true);
+      layer.getSource().dispatchEvent('imageloadend');
+      $timeout.flush();
+      expect(scope.isLoading).toBe(false);
+    });
+
+  });
+
+  describe('source imageloaderror event', function() {
+
+    it('should update the loading status', function() {
+      var element = $compile(
+        '<oereb-topic theme="::theme" selected-theme="topicCtrl.selectedTheme"></oereb-topic>'
+      )($scope);
+      $scope.$digest();
+      var scope = element.isolateScope();
+      scope.isLoading = true;
+      expect(scope.isLoading).toBe(true);
+      layer.getSource().dispatchEvent('imageloaderror');
+      $timeout.flush();
+      expect(scope.isLoading).toBe(false);
     });
 
   });

@@ -32,12 +32,27 @@ oereb.topicDirective = function($timeout, MapService) {
     link: function(scope, element) {
 
       /**
+       * @export {boolean}
+       */
+      scope.isLoading = false;
+
+      /**
        * @type {ol.layer.Layer|undefined}
        */
       scope.layer = undefined;
       angular.forEach(MapService.getTopicLayers(), function(layer) {
         if (layer.get('topic') === scope.theme['Code']) {
           scope.layer = layer;
+          scope.layer.getSource().on('imageloadstart', function() {
+            $timeout(function() {
+              scope.isLoading = true;
+            });
+          }, scope);
+          scope.layer.getSource().on(['imageloadend', 'imageloaderror'], function() {
+            $timeout(function() {
+              scope.isLoading = false;
+            });
+          }, scope);
           return false;
         }
       });
@@ -109,6 +124,18 @@ oereb.topicDirective = function($timeout, MapService) {
        */
       scope.isSelected = function() {
         return scope.theme['Code'] === scope.selectedTheme;
+      };
+
+      /**
+       * Returns the current badge icon class.
+       * @returns {string} The badge icon class.
+       * @export
+       */
+      scope.getBadgeIcon = function() {
+        if (scope.isLoading) {
+          return 'fa-spinner fa-pulse';
+        }
+        return scope.badgeIcon;
       };
 
     }
