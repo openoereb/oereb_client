@@ -87,7 +87,7 @@ describe('searchDirective', function() {
       expect(element.children('img').length).toBe(2);
       expect(element.children('img').eq(0).attr('src')).toEqual(oerebLogoUrl);
       expect(element.children('img').eq(1).attr('src')).toEqual(blLogoUrl);
-      expect(element.find('.list-group').eq(0).find('button').length).toBe(6);
+      expect(element.find('.list-group').eq(0).find('button').length).toBe(9);
     });
   });
 
@@ -230,6 +230,199 @@ describe('searchDirective', function() {
       expect(scope.parcels.length).toBe(0);
       expect(scope.addresses.length).toBe(0);
       expect(scope.searchText).toEqual('');
+    });
+
+  });
+
+  describe('isLV03', function() {
+
+    it('should return true', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '123456.7 234567.8';
+      expect(scope.isLV03()).toBe(true);
+    });
+
+    it('should return false', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '1234.5 2345.6';
+      expect(scope.isLV03()).toBe(false);
+    });
+
+  });
+
+  describe('isLV95', function() {
+
+    it('should return true', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '1234567.8 2345678.9';
+      expect(scope.isLV95()).toBe(true);
+    });
+
+    it('should return false', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '1234.5 2345.6';
+      expect(scope.isLV95()).toBe(false);
+    });
+
+  });
+
+  describe('isGNSS', function() {
+
+    it('should return true', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '7.8 45.6';
+      expect(scope.isGNSS()).toBe(true);
+    });
+
+    it('should return false', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '1234.5 2345.6';
+      expect(scope.isGNSS()).toBe(false);
+    });
+
+  });
+
+  describe('parseCoordinateMatch_', function() {
+
+    it('should return coordinate', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      expect(scope.parseCoordinateMatch_(['0', '1', '2', '3', '4', '5'])).toEqual([1.0, 4.0]);
+    });
+
+    it('should return null', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      expect(scope.parseCoordinateMatch_(null)).toBeNull();
+    });
+
+  });
+
+  describe('getLV03', function() {
+
+    it('should return coordinate', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '123456.7, 234567.8';
+      expect(scope.getLV03()).toEqual([123456.7, 234567.8]);
+    });
+
+    it('should return null', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '1234.5, 2345.6';
+      expect(scope.getLV03()).toBeNull();
+    });
+
+  });
+
+  describe('getLV95', function() {
+
+    it('should return coordinate', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '1234567.8, 2345678.9';
+      expect(scope.getLV95()).toEqual([1234567.8, 2345678.9]);
+    });
+
+    it('should return null', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '1234.5, 2345.6';
+      expect(scope.getLV95()).toBeNull();
+    });
+
+  });
+
+  describe('getGNSS', function() {
+
+    it('should return coordinate', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '7.8, 45.6';
+      expect(scope.getGNSS()).toEqual([7.8, 45.6]);
+    });
+
+    it('should return null', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      scope.searchText = '1234.5, 2345.6';
+      expect(scope.getGNSS()).toBeNull();
+    });
+
+  });
+
+  describe('coordinateSelect', function() {
+
+    var coordLV03 = [600500.0, 260500.0];
+    var coordLV95 = [2600500.0, 1260500.0];
+    var coordGNSS = [7.52620, 47.50660];
+
+    beforeEach(function() {
+      var selector = $compile('<oereb-map-query id="map-query"></oereb-map-query>')($rootScope);
+      $rootScope.$digest();
+      angular.element(document.body).append(selector);
+    });
+
+    it('should query with original LV95 coordinate', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      var selector = angular.element('#map-query');
+      var selectorScope = selector['isolateScope']();
+      spyOn(scope, 'isLV03').and.returnValue(false);
+      spyOn(scope, 'isGNSS').and.returnValue(false);
+      spyOn(selectorScope, 'queryAt');
+      scope.coordinateSelect(coordLV95);
+      expect(selectorScope.queryAt).toHaveBeenCalledWith(coordLV95, true);
+    });
+
+    it('should query with transformed LV03 coordinate', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      var selector = angular.element('#map-query');
+      var selectorScope = selector['isolateScope']();
+      var transformed = new ol.geom.Point(coordLV03).transform('EPSG:21781', 'EPSG:2056').getCoordinates();
+      spyOn(scope, 'isLV03').and.returnValue(true);
+      spyOn(scope, 'isGNSS').and.returnValue(false);
+      spyOn(selectorScope, 'queryAt');
+      scope.coordinateSelect(coordLV03);
+      expect(selectorScope.queryAt).toHaveBeenCalledWith(transformed, true);
+    });
+
+    it('should query with transformed GNSS coordinate', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      var selector = angular.element('#map-query');
+      var selectorScope = selector['isolateScope']();
+      var transformed = new ol.geom.Point(coordGNSS).transform('EPSG:4326', 'EPSG:2056').getCoordinates();
+      spyOn(scope, 'isLV03').and.returnValue(false);
+      spyOn(scope, 'isGNSS').and.returnValue(true);
+      spyOn(selectorScope, 'queryAt');
+      scope.coordinateSelect(coordGNSS);
+      expect(selectorScope.queryAt).toHaveBeenCalledWith(transformed, true);
     });
 
   });

@@ -16,6 +16,27 @@
     </div>
     <div class="container-fluid" ng-hide="!searchText">
         <div class="list-group result-list">
+            <div class="list-group-item" ng-show="isLV03()">
+                LV03-Koordinaten
+            </div>
+            <button class="list-group-item search-result" ng-show="isLV03()"
+                    ng-click="coordinateSelect(getLV03())">
+                {{getLV03()[0]}}, {{getLV03()[1]}}
+            </button>
+            <div class="list-group-item" ng-show="isLV95()">
+                LV95-Koordinaten
+            </div>
+            <button class="list-group-item search-result" ng-show="isLV95()"
+                    ng-click="coordinateSelect(getLV95())">
+                {{getLV95()[0]}}, {{getLV95()[1]}}
+            </button>
+            <div class="list-group-item" ng-show="isGNSS()">
+                Geografische Koordinaten (WGS84)
+            </div>
+            <button class="list-group-item search-result" ng-show="isGNSS()"
+                    ng-click="coordinateSelect(getGNSS())">
+                {{getGNSS()[0]}}, {{getGNSS()[1]}}
+            </button>
             <div class="list-group-item" ng-show="egrids.length > 0">
                 <span class="badge">{{egrids.length}}</span>
                 EGRID
