@@ -87,7 +87,7 @@ describe('searchDirective', function() {
       expect(element.children('img').length).toBe(2);
       expect(element.children('img').eq(0).attr('src')).toEqual(oerebLogoUrl);
       expect(element.children('img').eq(1).attr('src')).toEqual(blLogoUrl);
-      expect(element.find('.list-group').eq(0).find('button').length).toBe(6);
+      expect(element.find('.list-group').eq(0).find('button').length).toBe(9);
     });
   });
 
