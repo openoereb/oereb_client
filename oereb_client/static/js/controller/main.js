@@ -39,6 +39,11 @@ oereb.MainController = function($scope, $location, ExtractService, MapService, o
   /** @export {boolean} */
   this.extractActive = false;
 
+  /**
+   * @export {boolean}
+   */
+  this.extractCollapsed = false;
+
   /** @export {boolean} */
   this.informationActive = false;
 
@@ -77,6 +82,28 @@ oereb.MainController.prototype.closeExtract = function() {
   this.errorActive = false;
   this.$scope_.$broadcast(this.oerebEventExtractClosed_);
   this.$location_.search('egrid', null);
+};
+
+/**
+ * Collapse the extract panel.
+ * @export
+ */
+oereb.MainController.prototype.collapseExtract = function() {
+  this.informationActive = false;
+  this.extractActive = false;
+  this.errorActive = false;
+  this.extractCollapsed = true;
+};
+
+/**
+ * Expand the extract panel.
+ * @export
+ */
+oereb.MainController.prototype.expandExtract = function() {
+  this.extractCollapsed = false;
+  this.informationActive = false;
+  this.errorActive = false;
+  this.extractActive = true;
 };
 
 /**

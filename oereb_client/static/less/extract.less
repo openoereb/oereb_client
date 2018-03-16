@@ -6,20 +6,26 @@
 
 div#extract {
   width: @menu-with;
+  max-width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   height: 0;
   padding-top: @header-height;
-  background-color: transparent;
+  background-color: #fff;
   transition: height @animation-duration;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   div.extract-wrapper {
     z-index: 1;
     background-color: @menu-background-color;
     overflow-y: scroll;
-    height: 100%;
+    flex: 1;
     padding-bottom: @default-padding;
+    margin-top: @default-padding;
   }
   span.extract-close {
     z-index: 2;
