@@ -23,7 +23,7 @@ div.information-panel {
   padding-right: 2*@info-padding;
   padding-top: 2*@info-padding;
   padding-bottom: 2*@info-padding;
-  transition: left @animation-duration, top @animation-duration;
+  transition: left linear @animation-duration, top linear @animation-duration;
   .nav-tabs {
     border-bottom: 1px solid @link-hover-color;
     li {
@@ -101,7 +101,7 @@ div.information-panel {
     width: @menu-with;
     max-width: 100%;
     padding-left: 2*@info-padding;
-    transition: width @animation-duration;
+    transition: width linear @animation-duration, top linear @animation-duration;
   }
   div#information.active {
     width: 100%;

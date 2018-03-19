@@ -10,10 +10,10 @@ div#extract {
   position: fixed;
   top: 0;
   left: 0;
-  height: 0;
+  height: @header-height;
   padding-top: @header-height;
   background-color: #fff;
-  transition: height @animation-duration;
+  transition: height linear @animation-duration;
   overflow: hidden;
   display: flex;
   flex-direction: column;
