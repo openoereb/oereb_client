@@ -103,9 +103,9 @@
 
         <oereb-search id="search"></oereb-search>
 
-        <div id="expand-extract" ng-show="ctrl.extractCollapsed" class="hidden-lg"
+        <div id="expand-extract" class="hidden-lg"
              ng-class="{'expanded': !ctrl.extractCollapsed}">
-            <button class="btn btn-default" ng-click="ctrl.expandExtract()">
+            <button class="btn btn-default" ng-click="ctrl.expandExtract()" ng-show="ctrl.extractCollapsed">
                 <span class="fa fa-fw fa-chevron-down"></span>
             </button>
         </div>
