@@ -46,7 +46,8 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid text-center collapse-extract" ng-hide="ctrl.extractCollapsed">
+            <div class="container-fluid text-center collapse-extract hidden-lg"
+                 ng-hide="ctrl.extractCollapsed">
                 <button class="btn btn-default" ng-click="ctrl.collapseExtract()">
                     <span class="fa fa-chevron-up"></span>
                 </button>
@@ -102,7 +103,7 @@
 
         <oereb-search id="search"></oereb-search>
 
-        <div id="expand-extract" ng-show="ctrl.extractCollapsed"
+        <div id="expand-extract" ng-show="ctrl.extractCollapsed" class="hidden-lg"
              ng-class="{'expanded': !ctrl.extractCollapsed}">
             <button class="btn btn-default" ng-click="ctrl.expandExtract()">
                 <span class="fa fa-chevron-down"></span>

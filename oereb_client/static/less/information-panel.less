@@ -75,3 +75,17 @@ div.information-panel {
 #information.active {
   left: 0;
 }
+
+@media (max-width: @screen-md-max) {
+  div#information {
+    left: 0;
+    width: @menu-with;
+    max-width: 100%;
+    padding-left: 2*@info-padding;
+    transition: width @animation-duration;
+  }
+  div#information.active {
+    width: 100%;
+    z-index: 10;
+  }
+}
