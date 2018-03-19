@@ -1,9 +1,13 @@
 <div class="container-fluid real-estate">
     <h4>Grundst&uuml;ck {{data['Number']}} in {{data['Municipality']}}</h4>
-    <dl class="dl-horizontal">
-        <dt>EGRID</dt>
-        <dd>{{data['EGRID']}}</dd>
-        <dt>Fl&auml;che</dt>
-        <dd>{{data['LandRegistryArea'] | number:0 | replace:',':''}} m<sup>2</sup></dd>
-    </dl>
+    <div class="row">
+        <div class="col-xs-3">
+            <strong>EGRID:</strong>
+        </div>
+        <div class="col-xs-9">{{data['EGRID']}}</div>
+        <div class="col-xs-3">
+            <strong>Fl&auml;che:</strong>
+        </div>
+        <div class="col-xs-9">{{data['LandRegistryArea'] | number:0 | replace:',':''}} m<sup>2</sup></div>
+    </div>
 </div>
