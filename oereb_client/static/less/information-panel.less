@@ -51,6 +51,25 @@ div.information-panel {
       }
     }
   }
+  .nav-pills {
+    li {
+      a {
+        color: @text-color;
+      }
+      a:hover, a:focus {
+        background-color: transparent;
+        color: #f00;
+      }
+    }
+    li.active {
+      a {
+        color: #fff;
+      }
+      a:hover, a:focus {
+        background-color: @brand-primary;
+      }
+    }
+  }
   .tab-content {
     margin-top: 2*@default-padding;
     flex-grow: 1;
