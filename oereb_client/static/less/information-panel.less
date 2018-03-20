@@ -23,7 +23,7 @@ div.information-panel {
   padding-right: 2*@info-padding;
   padding-top: 2*@info-padding;
   padding-bottom: 2*@info-padding;
-  transition: left @animation-duration, top @animation-duration;
+  transition: left linear @animation-duration, top linear @animation-duration;
   .nav-tabs {
     border-bottom: 1px solid @link-hover-color;
     li {
@@ -51,6 +51,25 @@ div.information-panel {
       }
     }
   }
+  .nav-pills {
+    li {
+      a {
+        color: @text-color;
+      }
+      a:hover, a:focus {
+        background-color: transparent;
+        color: #f00;
+      }
+    }
+    li.active {
+      a {
+        color: #fff;
+      }
+      a:hover, a:focus {
+        background-color: @brand-primary;
+      }
+    }
+  }
   .tab-content {
     margin-top: 2*@default-padding;
     flex-grow: 1;
@@ -74,4 +93,18 @@ div.information-panel {
 
 #information.active {
   left: 0;
+}
+
+@media (max-width: @screen-md-max) {
+  div#information {
+    left: 0;
+    width: @menu-with;
+    max-width: 100%;
+    padding-left: 2*@info-padding;
+    transition: width linear @animation-duration, top linear @animation-duration;
+  }
+  div#information.active {
+    width: 100%;
+    z-index: 10;
+  }
 }

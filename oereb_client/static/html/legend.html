@@ -8,7 +8,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="entry in legend['entries'] | sortLegend">
+            <tr class="hidden-xs" ng-repeat="entry in legend['entries'] | sortLegend">
                 <td>{{entry['Information'] | multilingualText}}</td>
                 <td>
                     <img class="symbol" ng-src="{{entry['SymbolRef']}}">
@@ -17,6 +17,19 @@
                 <td class="no-wrap" ng-if="entry['Area']">{{entry['PartInPercent'] | number:1 | replace:',':''}}%</td>
                 <td class="no-wrap" ng-if="entry['Length']" colspan="2">{{entry['Length'] | number:0 | replace:',':''}} m</td>
                 <td class="no-wrap" ng-if="!entry['Length'] && !entry['Area']" colspan="2"></td>
+            </tr>
+            <tr class="visible-xs" ng-repeat-start="entry in legend['entries'] | sortLegend">
+                <td colspan="4">{{entry['Information'] | multilingualText}}</td>
+            </tr>
+            <tr class="visible-xs" ng-repeat-end>
+                <td class="no-top-border">
+                    <img class="symbol" ng-src="{{entry['SymbolRef']}}">
+                </td>
+                <td class="no-top-border"></td>
+                <td class="no-top-border no-wrap" ng-if="entry['Area']">{{entry['Area'] | number:0 | replace:',':''}} m<span class="sup">2</span></td>
+                <td class="no-top-border no-wrap" ng-if="entry['Area']">{{entry['PartInPercent'] | number:1 | replace:',':''}}%</td>
+                <td class="no-top-border no-wrap" ng-if="entry['Length']" colspan="2">{{entry['Length'] | number:0 | replace:',':''}} m</td>
+                <td class="no-top-border no-wrap" ng-if="!entry['Length'] && !entry['Area']" colspan="2"></td>
             </tr>
             <tr ng-show="showGraphics()">
                 <td colspan="4">

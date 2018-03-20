@@ -1,0 +1,23 @@
+/*
+ * Styling for the expand button.
+ */
+
+@import "variables";
+
+div#expand-extract {
+  position: fixed;
+  top: @header-height;
+  left: 0;
+  width: @menu-with;
+  max-width: 100%;
+  text-align: center;
+  .btn {
+    border-top-width: 0;
+    box-shadow: @default-shadow;
+  }
+  transition: top linear @animation-duration;
+}
+
+div#expand-extract.expanded {
+  top: 100%;
+}

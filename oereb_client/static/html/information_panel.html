@@ -1,8 +1,10 @@
 <div class="container-fluid">
-    <div class="close-button">
+
+    <!-- Large screen nav -->
+    <div class="close-button hidden-xs">
         <span class="close" ng-click="close()">&times;</span>
     </div>
-    <ul class="nav nav-tabs" role="tablist">
+    <ul class="nav nav-tabs hidden-xs" role="tablist">
         <li role="presentation" class="active">
             <a href="#" role="tab" data-toggle="tab" ng-click="setActiveTab(0)">
                 <h4>Allgemein</h4>
@@ -29,6 +31,41 @@
             </div>
         </li>
     </ul>
+
+    <!-- Small screen nav -->
+    <p class="text-right visible-xs">
+        <button class="btn btn-default" ng-click="close()">
+            <span class="fa fa-fw fa-close"></span>
+        </button>
+    </p>
+    <ul class="nav nav-pills nav-stacked visible-xs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#" role="tab" data-toggle="tab" ng-click="setActiveTab(0)">
+                <strong>Allgemein</strong>
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#" role="tab" data-toggle="tab" ng-click="setActiveTab(1)">
+                <strong>Haftungsausschluss</strong>
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#" role="tab" data-toggle="tab" ng-click="setActiveTab(2)">
+                <strong>Glossar</strong>
+            </a>
+        </li>
+        <li role="presentation" ng-show="activeTab > 0">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input class="form-control"
+                           type="text"
+                           placeholder="Begriff suchen..."
+                           ng-model="search"/>
+                </div>
+            </div>
+        </li>
+    </ul>
+
     <div class="tab-content">
         <oereb-general-information class="tab-pane active" ng-if="activeTab == 0"></oereb-general-information>
         <oereb-exclusion-of-liability

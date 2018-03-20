@@ -22,12 +22,12 @@ describe('realEstateDirective', function() {
       var element = $compile('<oereb-real-estate></oereb-real-estate>')($rootScope);
       $rootScope.$digest();
       expect(element.children('h4').length).toBe(1);
-      expect(element.children('dl').length).toBe(1);
-      var dl = element.children('dl').eq(0);
-      expect(dl.children('dt').length).toBe(2);
-      expect(dl.children('dd').length).toBe(2);
-      expect(dl.children('dt').eq(0).text()).toEqual('EGRID');
-      expect(dl.children('dt').eq(1).text()).toEqual('Fläche');
+      expect(element.children('div').length).toBe(1);
+      var row = element.children('div').eq(0);
+      expect(row.children('div.col-xs-3').length).toBe(2);
+      expect(row.children('div.col-xs-9').length).toBe(2);
+      expect(row.children('div.col-xs-3').eq(0).text()).toContain('EGRID');
+      expect(row.children('div.col-xs-3').eq(1).text()).toContain('Fläche');
     });
 
   });
@@ -51,8 +51,8 @@ describe('realEstateDirective', function() {
       expect(element.children('h4').eq(0).text()).toContain(
         'Grundstück ' + data.Number + ' in ' + data.Municipality
       );
-      expect(element.find('dd').eq(0).text()).toContain(data.EGRID);
-      expect(element.find('dd').eq(1).text()).toContain(data.LandRegistryArea);
+      expect(element.find('div.col-xs-9').eq(0).text()).toContain(data.EGRID);
+      expect(element.find('div.col-xs-9').eq(1).text()).toContain(data.LandRegistryArea);
     });
 
   });

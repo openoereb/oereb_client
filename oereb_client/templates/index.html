@@ -21,11 +21,16 @@
                 information-active="ctrl.informationActive">
         </oereb-information-panel>
 
-        <div id="extract" ng-class="{'active': ctrl.extractActive, 'information': ctrl.informationActive, 'loading': ctrl.loading}">
-            <div class="container-fluid extract-wrapper">
-                <span class="close extract-close" ng-click="ctrl.closeExtract()">&times;</span>
+        <div id="extract"
+             class="container-fluid"
+             ng-class="{'active': ctrl.extractActive, 'information': ctrl.informationActive, 'loading': ctrl.loading}">
+            <div>
+                <button type="button" class="btn btn-default pull-right" ng-click="ctrl.closeExtract()">
+                    <span class="fa fa-fw fa-close"></span>
+                </button>
                 <oereb-extract-menu class="pull-left" perma-link="ctrl.permaLink"></oereb-extract-menu>
-                <div class="clearfix"></div>
+            </div>
+            <div class="row container-fluid extract-wrapper">
                 <oereb-real-estate></oereb-real-estate>
                 <oereb-concerned-theme toggled-group="ctrl.toggledGroup"></oereb-concerned-theme>
                 <oereb-not-concerned-theme toggled-group="ctrl.toggledGroup"></oereb-not-concerned-theme>
@@ -33,13 +38,19 @@
                 <div class="panel panel-default">
                     <div class="panel-heading information-panel" role="button" ng-click="ctrl.toggleInformation()">
                         <h4 class="panel-title">
-                            Allgemeine und rechtliche Informationen
                             <span class="badge pull-right">
                                 <span class="fa fa-fw" ng-class="{'fa-chevron-right': !ctrl.informationActive, 'fa-chevron-left': ctrl.informationActive}"></span>
                             </span>
+                            Allgemeine und rechtliche Informationen
                         </h4>
                     </div>
                 </div>
+            </div>
+            <div class="container-fluid text-center collapse-extract hidden-lg"
+                 ng-hide="ctrl.extractCollapsed">
+                <button class="btn btn-default" ng-click="ctrl.collapseExtract()">
+                    <span class="fa fa-fw fa-chevron-up"></span>
+                </button>
             </div>
         </div>
 
@@ -92,21 +103,27 @@
 
         <oereb-search id="search"></oereb-search>
 
+        <div id="expand-extract" class="hidden-lg"
+             ng-class="{'expanded': !ctrl.extractCollapsed}">
+            <button class="btn btn-default" ng-click="ctrl.expandExtract()" ng-show="ctrl.extractCollapsed">
+                <span class="fa fa-fw fa-chevron-down"></span>
+            </button>
+        </div>
+
         <div id="modal-permalink" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-                            &times;
-                        </span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">Permalink</h4>
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Permalink</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" class="form-control" ng-model="ctrl.permaLink">
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <input type="text" class="form-control" ng-model="ctrl.permaLink">
-                </div>
-          </div>
+            </div>
         </div>
 
     % if debug:
@@ -130,25 +147,26 @@
         <script src="${request.static_url('oereb_client:static/lib/proj4.js')}"></script>
         <script src="${request.static_url('oereb_client:static/build/oereb.min.js')}"></script>
     % endif
-    <script>
-        "use strict";
 
-        (function() {
+        <script>
+            "use strict";
 
-            var module = angular.module('oereb');
-            module.constant('oerebApplicationUrl', '${request.route_url('{0}/index'.format(request.route_prefix))}');
-            module.constant('oerebBaseLayerConfig', '${base_layer_config | n}');
-            module.constant('searchServiceConfig', '${search_api_config | n}');
-            module.constant('geoViewConfig', '${geo_view_config | n}');
-            module.constant('wfsFilterServiceUrl', '${request.route_url('{0}/wfs_filter'.format(request.route_prefix))}');
-            module.constant('oerebLogoURL', '${request.static_url('oereb_client:static/images/logo_oereb.png')}');
-            module.constant('blLogoUrl', '${request.static_url('oereb_client:static/images/logo_bl.png')}');
-            module.constant('oerebDefaultLanguage', 'de');
-            module.constant('oerebSupport', '${support | n}');
+            (function() {
 
-        })();
+                var module = angular.module('oereb');
+                module.constant('oerebApplicationUrl', '${request.route_url('{0}/index'.format(request.route_prefix))}');
+                module.constant('oerebBaseLayerConfig', '${base_layer_config | n}');
+                module.constant('searchServiceConfig', '${search_api_config | n}');
+                module.constant('geoViewConfig', '${geo_view_config | n}');
+                module.constant('wfsFilterServiceUrl', '${request.route_url('{0}/wfs_filter'.format(request.route_prefix))}');
+                module.constant('oerebLogoURL', '${request.static_url('oereb_client:static/images/logo_oereb.png')}');
+                module.constant('blLogoUrl', '${request.static_url('oereb_client:static/images/logo_bl.png')}');
+                module.constant('oerebDefaultLanguage', 'de');
+                module.constant('oerebSupport', '${support | n}');
 
-    </script>
+            })();
+
+        </script>
 
     </body>
 </html>
