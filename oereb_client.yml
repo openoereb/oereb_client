@@ -15,7 +15,7 @@ oereb_client:
   # Availability layer
   availability:
     url: http://geowms.bl.ch
-    layer: bodenkarte_group
+    layer: oereb_published_municipalities
 
   # Search field configuration
   search:
