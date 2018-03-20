@@ -11,6 +11,10 @@ describe('concernedThemeDirective', function() {
         LAYERS: 'grundkarte_sw_group'
       }
     }));
+    $provide.constant('oerebAvailabilityConfig', angular.toJson({
+      url: 'http://geowms.bl.ch',
+      layer: 'oereb_availability'
+    }));
     $provide.constant('oerebSupport', angular.toJson({
       office1: 'Test'
     }));

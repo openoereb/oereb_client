@@ -3,7 +3,8 @@ goog.require('oereb.StoreService');
 describe('StoreService', function () {
 
   beforeEach(module('oereb', function() {
-    localStorage.removeItem('history');
+    localStorage.removeItem('blOerebHistory');
+    localStorage.removeItem('blOerebAvailability');
   }));
 
   var StoreService;
@@ -17,6 +18,7 @@ describe('StoreService', function () {
     it('should return an empty array', function () {
       expect(StoreService.getHistory()).toEqual([]);
     });
+
   });
 
   describe('addEgrid', function () {
@@ -82,5 +84,20 @@ describe('StoreService', function () {
         municipality: 'Testwil'
       }).length).toBe(5);
     });
+
   });
+
+  describe('showAvailability', function () {
+
+    it('should return false', function () {
+      expect(StoreService.showAvailability()).toBe(false);
+    });
+
+    it('should return true', function () {
+      expect(StoreService.showAvailability(true)).toBe(true);
+      expect(StoreService.showAvailability()).toBe(true);
+    });
+
+  });
+
 });
