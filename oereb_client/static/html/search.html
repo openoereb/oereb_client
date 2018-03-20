@@ -4,10 +4,11 @@
     <div class="clearfix"></div>
     <div class="container-fluid">
         <div class="input-group">
+            <oereb-settings class="input-group-btn"></oereb-settings>
             <oereb-history class="input-group-btn"></oereb-history>
-            <input type="text" class="form-control" placeholder="Suche" ng-model="searchText">
+            <input type="text" class="form-control no-left-margin" placeholder="Suche" ng-model="searchText">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button" ng-click="close()">
+                <button class="btn btn-default no-left-border" type="button" ng-click="close()">
                    <span class="fa fa-fw" ng-class="{'fa-times': !isLoading(), 'fa-spinner fa-pulse': isLoading()}">
                    </span>
                 </button>

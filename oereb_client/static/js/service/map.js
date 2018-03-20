@@ -6,17 +6,19 @@ goog.require('oereb');
  * Angular service for map handling.
  * @param {angular.$q} $q Angular service for deferrable objects.
  * @param {angular.$http} $http Angular service asynchronous requests.
- * @param {Object} oerebBaseLayerConfig The base layer configuration.
+ * @param {string} oerebBaseLayerConfig The base layer configuration.
+ * @param {string} oerebAvailabilityConfig The availability layer configuration.
  * @constructor
  * @ngInject
  * @ngdoc service
  * @ngname MapService
  */
-oereb.MapService = function($q, $http, oerebBaseLayerConfig) {
+oereb.MapService = function($q, $http, oerebBaseLayerConfig, oerebAvailabilityConfig) {
 
   this.$q_ = $q;
   this.$http_ = $http;
   this.baseLayerConfig_ = angular.fromJson(oerebBaseLayerConfig);
+  this.availabilityConfig_ = angular.fromJson(oerebAvailabilityConfig);
 
   // Define LV03 projection
   proj4.defs(
@@ -79,6 +81,17 @@ oereb.MapService = function($q, $http, oerebBaseLayerConfig) {
     logo: null
   });
 
+  // Create availability layer
+  this.availabilityLayer_ = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+      url: this.availabilityConfig_['url'],
+      params: {
+        'LAYERS': this.availabilityConfig_['layer']
+      },
+      projection: this.proj_
+    })
+  });
+
   // Create base layer
   this.getBaseLayerSource_().then(
     function(source) {
@@ -88,6 +101,7 @@ oereb.MapService = function($q, $http, oerebBaseLayerConfig) {
         source: source
       });
       this.map_.addLayer(this.baseLayer_);
+      this.map_.addLayer(this.availabilityLayer_);
     }.bind(this),
     function() {}
   );
@@ -208,6 +222,21 @@ oereb.MapService.prototype.clearLayers = function() {
  */
 oereb.MapService.prototype.getTopicLayers = function() {
   return this.topicLayers_;
+};
+
+/**
+ * Shows/hides the availability layer.
+ * @param {boolean|undefined} visible Undefined to switch visibility, true to show and false to hide layer.
+ */
+oereb.MapService.prototype.toggleAvailability = function(visible) {
+  var show = undefined;
+  if (angular.isDefined(visible)) {
+    show = visible;
+  }
+  else {
+    show = !this.availabilityLayer_.getVisible();
+  }
+  this.availabilityLayer_.setVisible(show);
 };
 
 oereb.module.service('MapService', oereb.MapService);

@@ -12,6 +12,11 @@ oereb_client:
     style: default
     format: image/png
 
+  # Availability layer
+  availability:
+    url: http://geowms.bl.ch
+    layer: bodenkarte_group
+
   # Search field configuration
   search:
     api:

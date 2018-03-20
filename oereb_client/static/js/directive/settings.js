@@ -1,0 +1,37 @@
+goog.provide('oereb.settingsDirective');
+
+goog.require('oereb');
+goog.require('oereb.MapService');
+goog.require('oereb.StoreService');
+
+/**
+ * Angular directive for rendering the real estate data.
+ * @param {oereb.MapService} MapService Angular service for map handling.
+ * @param {oereb.StoreService} StoreService Angular service for local storage handling.
+ * @returns {angular.Directive} Angular directive definition object.
+ * @ngInject
+ * @ngdoc directive
+ * @ngname oerebSettings
+ */
+oereb.settingsDirective = function(MapService, StoreService) {
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: 'static/html/settings.html',
+    scope: {},
+    link: function(scope) {
+
+      scope.showAvailability = StoreService.showAvailability();
+
+      scope.$watch('showAvailability', function(show) {
+        console.log(show, StoreService.showAvailability());
+        if (angular.isDefined(show)) {
+          MapService.toggleAvailability(StoreService.showAvailability(show));
+        }
+      });
+
+    }
+  }
+};
+
+oereb.module.directive('oerebSettings', oereb.settingsDirective);
