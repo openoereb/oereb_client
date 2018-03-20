@@ -256,6 +256,20 @@ describe('MapService', function() {
 
     });
 
+    describe('toggleAvailability', function() {
+
+      it('should switch the availability layer visibility', function() {
+        expect(MapService.availabilityLayer_.getVisible()).toBe(true);
+        MapService.toggleAvailability();
+        expect(MapService.availabilityLayer_.getVisible()).toBe(false);
+        MapService.toggleAvailability(false);
+        expect(MapService.availabilityLayer_.getVisible()).toBe(false);
+        MapService.toggleAvailability(true);
+        expect(MapService.availabilityLayer_.getVisible()).toBe(true);
+      });
+
+    });
+
   });
 
 });
