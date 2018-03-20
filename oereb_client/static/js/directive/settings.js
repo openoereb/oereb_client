@@ -21,10 +21,12 @@ oereb.settingsDirective = function(MapService, StoreService) {
     scope: {},
     link: function(scope) {
 
+      /**
+       * @export {boolean}
+       */
       scope.showAvailability = StoreService.showAvailability();
 
       scope.$watch('showAvailability', function(show) {
-        console.log(show, StoreService.showAvailability());
         if (angular.isDefined(show)) {
           MapService.toggleAvailability(StoreService.showAvailability(show));
         }
