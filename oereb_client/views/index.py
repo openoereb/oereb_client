@@ -70,7 +70,6 @@ class Index(object):
             str: The JSON-encoded availability layer configuration.
 
         """
-        cfg = dict()
         availability_layer_config = self.config_.get('availability', {})
         if not availability_layer_config:
             raise ConfigurationError('Missing availability layer configuration')

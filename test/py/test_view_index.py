@@ -13,6 +13,10 @@ settings = {
             'type': 'wmts',
             'http': 'http://example.com/WMTSCapabilities.xml'
         },
+        'availability': {
+            'url': 'http://geowms.bl.ch',
+            'layer': 'oereb_availability'
+        },
         'search': {
             'api': {
                 'url': 'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?',
@@ -90,12 +94,22 @@ def test_get_base_layer_config(mock_request):
         })
 
 
+def test_get_availability_config(mock_request):
+    with testConfig(settings=settings):
+        index = Index(mock_request)
+        assert index.get_availability_config_() == json.dumps({
+            'url': 'http://geowms.bl.ch',
+            'layer': 'oereb_availability'
+        })
+
+
 def test_render(mock_request):
     with testConfig(settings=settings):
         index = Index(mock_request)
         assert index.render() == {
             'debug': index.is_debug_(),
             'base_layer_config': index.get_base_layer_config_(),
+            'availability_config': index.get_availability_config_(),
             'search_api_config': index.get_search_config_(),
             'geo_view_config': index.get_geo_view_config_(),
             'support': index.get_support_config_()
