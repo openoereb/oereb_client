@@ -6,6 +6,7 @@ goog.require('oereb.EgridService');
 goog.require('oereb.searchResultFilter');
 goog.require('oereb.ExtractService');
 goog.require('oereb.mapQueryDirective');
+goog.require('oereb.settingsDirective');
 
 /**
  * Query search API.

@@ -3,7 +3,8 @@ goog.require('oereb.historyDirective');
 describe('historyDirective', function() {
 
   beforeEach(module('oereb', function($provide) {
-    localStorage.removeItem('history');
+    localStorage.removeItem('blOerebHistory');
+    localStorage.removeItem('blOerebAvailability');
     $provide.constant('oerebApplicationUrl', 'http://example.com');
   }));
 

@@ -63,6 +63,18 @@ class Index(object):
         cfg['url'] = self.get_base_layer_url_()
         return json.dumps(cfg)
 
+    def get_availability_config_(self):
+        """Returns the JSON-encoded configuration for the availability layer.
+
+        Returns:
+            str: The JSON-encoded availability layer configuration.
+
+        """
+        availability_layer_config = self.config_.get('availability', {})
+        if not availability_layer_config:
+            raise ConfigurationError('Missing availability layer configuration')
+        return json.dumps(availability_layer_config)
+
     def get_search_config_(self):
         """Returns the JSON-encoded configuration for the search.
 
@@ -100,6 +112,7 @@ class Index(object):
         return {
             'debug': self.is_debug_(),
             'base_layer_config': self.get_base_layer_config_(),
+            'availability_config': self.get_availability_config_(),
             'search_api_config': self.get_search_config_(),
             'geo_view_config': self.get_geo_view_config_(),
             'support': self.get_support_config_()

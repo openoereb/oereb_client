@@ -15,6 +15,10 @@ describe('MapService', function() {
       $provide.constant('oerebBaseLayerConfig', angular.toJson({
         type: 'invalid'
       }));
+      $provide.constant('oerebAvailabilityConfig', angular.toJson({
+        url: 'http://geowms.bl.ch',
+        layer: 'oereb_availability'
+      }));
     }));
 
     beforeEach(inject(function(_$rootScope_, _MapService_) {
@@ -50,6 +54,10 @@ describe('MapService', function() {
           LAYERS: 'grundkarte_sw_group'
         }
       }));
+      $provide.constant('oerebAvailabilityConfig', angular.toJson({
+        url: 'http://geowms.bl.ch',
+        layer: 'oereb_availability'
+      }));
     }));
 
     beforeEach(inject(function(_$rootScope_, _MapService_) {
@@ -75,7 +83,7 @@ describe('MapService', function() {
       $rootScope.$apply();
       var map = MapService.getMap();
       expect(map instanceof ol.Map).toBe(true);
-      expect(map.getLayers().getLength()).toBe(1);
+      expect(map.getLayers().getLength()).toBe(2);
     });
 
   });
@@ -93,6 +101,10 @@ describe('MapService', function() {
         projection: 'EPSG:2056',
         style: 'default',
         format: 'image/png'
+      }));
+      $provide.constant('oerebAvailabilityConfig', angular.toJson({
+        url: 'http://geowms.bl.ch',
+        layer: 'oereb_availability'
       }));
     }));
 
@@ -139,6 +151,10 @@ describe('MapService', function() {
         params: {
           LAYERS: 'grundkarte_sw_group'
         }
+      }));
+      $provide.constant('oerebAvailabilityConfig', angular.toJson({
+        url: 'http://geowms.bl.ch',
+        layer: 'oereb_availability'
       }));
     }));
 
@@ -236,6 +252,20 @@ describe('MapService', function() {
 
       it('should return the list of topic layers', function() {
         expect(MapService.getTopicLayers()).toBe(MapService.topicLayers_);
+      });
+
+    });
+
+    describe('toggleAvailability', function() {
+
+      it('should switch the availability layer visibility', function() {
+        expect(MapService.availabilityLayer_.getVisible()).toBe(true);
+        MapService.toggleAvailability();
+        expect(MapService.availabilityLayer_.getVisible()).toBe(false);
+        MapService.toggleAvailability(false);
+        expect(MapService.availabilityLayer_.getVisible()).toBe(false);
+        MapService.toggleAvailability(true);
+        expect(MapService.availabilityLayer_.getVisible()).toBe(true);
       });
 
     });
