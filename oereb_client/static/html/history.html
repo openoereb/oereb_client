@@ -9,7 +9,7 @@
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-        <li ng-repeat="realEstate in history">
+        <li ng-repeat="realEstate in history | orderBy:'-'">
             <a href="#" ng-click="select(realEstate)">
                 {{realEstate['municipality']}} {{realEstate['number']}} ({{realEstate['egrid']}})
             </a>

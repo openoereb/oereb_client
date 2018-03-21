@@ -29,12 +29,14 @@ oereb.StoreService = function() {
  */
 oereb.StoreService.prototype.addRealEstate = function(realEstate) {
   var history = angular.fromJson(localStorage.blOerebHistory);
-  if (history.indexOf(angular.toJson(realEstate)) === -1) {
-    history.push(angular.toJson(realEstate));
-    if (history.length > 5) {
-      history.splice(0, 1);
-    }
+  var index = history.indexOf(angular.toJson(realEstate));
+  if (index > -1) {
+    history.splice(index, 1);
   }
+  else if (history.length > 4) {
+    history.splice(0, 1);
+  }
+  history.push(angular.toJson(realEstate));
   localStorage.blOerebHistory = angular.toJson(history);
   var historyJsonContent = angular.fromJson(localStorage.blOerebHistory);
   history = [];
