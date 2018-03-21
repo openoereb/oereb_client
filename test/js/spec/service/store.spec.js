@@ -89,13 +89,13 @@ describe('StoreService', function () {
 
   describe('showAvailability', function () {
 
-    it('should return false', function () {
-      expect(StoreService.showAvailability()).toBe(false);
+    it('should return true', function () {
+      expect(StoreService.showAvailability()).toBe(true);
     });
 
-    it('should return true', function () {
-      expect(StoreService.showAvailability(true)).toBe(true);
-      expect(StoreService.showAvailability()).toBe(true);
+    it('should return false', function () {
+      expect(StoreService.showAvailability(false)).toBe(false);
+      expect(StoreService.showAvailability()).toBe(false);
     });
 
   });
