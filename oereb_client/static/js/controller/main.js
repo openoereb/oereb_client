@@ -132,8 +132,12 @@ oereb.MainController.prototype.getExtractByEgrid_ = function(egrid, center) {
       this.extractActive = angular.isDefined(this.ExtractService_.getExtract());
       if (center) {
         var geometry = new ol.geom.MultiPolygon(this.ExtractService_.getRealEstate()["Limit"]["coordinates"]);
+        var padding = [0, 0, 0, 500];
+        if (angular.element(document.body).width() < 1200) {
+          padding = [130, 0, 0, 0];
+        }
         this.MapService_.getMap().getView().fit(geometry, {
-          padding: [0, 0, 0, 500]
+          padding: padding
         })
       }
       this.$location_.search('egrid', egrid);
