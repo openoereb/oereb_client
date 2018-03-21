@@ -15,7 +15,7 @@ oereb.StoreService = function() {
   }
   if (!angular.isDefined(localStorage.blOerebAvailability)) {
     localStorage.blOerebAvailability = angular.toJson({
-      'show': false
+      'show': true
     });
   }
 };
