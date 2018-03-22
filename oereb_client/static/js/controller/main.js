@@ -123,6 +123,7 @@ oereb.MainController.prototype.toggleInformation = function() {
 oereb.MainController.prototype.getExtractByEgrid_ = function(egrid, center) {
   this.informationActive = false;
   this.extractActive = false;
+  this.extractCollapsed = false;
   this.errorActive = false;
   this.loading = true;
   this.ExtractService_.queryExtractById(egrid).then(
