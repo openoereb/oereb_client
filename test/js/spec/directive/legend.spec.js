@@ -59,7 +59,7 @@ describe('legendDirective', function() {
       expect(scope.legend['entries'].length).toBe(2);
       expect(scope.legend['graphics'].length).toBe(1);
       var rows = element.find('tr');
-      expect(rows.length).toBe(8);
+      expect(rows.length).toBe(7);
       expect(rows.eq(0).find('small').length).toBe(2);
       expect(rows.eq(1).children('td').eq(0).text()).toContain(legendEntries[0].Information[0].Text);
       expect(rows.eq(1).children('td').eq(2).text()).toContain('568');
@@ -67,7 +67,9 @@ describe('legendDirective', function() {
       expect(rows.eq(2).children('td').eq(0).text()).toContain(legendEntries[1].Information[0].Text);
       expect(rows.eq(2).children('td').eq(2).text()).toContain('123');
       expect(rows.eq(2).children('td').eq(3).text()).toContain('12.3%');
-      expect(rows.eq(7).find('img').eq(0).attr('src')).toContain(legendGraphics[0]);
+      expect(element.children('div.full-legend-wrapper').length).toBe(1);
+      expect(element.children('div.full-legend-wrapper').first().find('img').eq(0).attr('src'))
+        .toContain(legendGraphics[0]);
     });
 
   });
@@ -81,17 +83,16 @@ describe('legendDirective', function() {
       )($rootScope);
       $rootScope.$digest();
       var scope = element.isolateScope();
-      var rows = element.find('tr');
-      expect(rows.length).toBe(8);
+      var wrapper = element.find('div.full-legend-wrapper').first();
       expect(scope.showGraphics()).toBe(true);
-      expect(rows.last().hasClass('ng-hide')).toBe(false);
+      expect(wrapper.hasClass('ng-hide')).toBe(false);
       scope.legend['graphics'] = [];
       scope.$digest();
       expect(scope.showGraphics()).toBe(false);
-      expect(rows.last().hasClass('ng-hide')).toBe(true);
+      expect(wrapper.hasClass('ng-hide')).toBe(true);
       scope.legend = undefined;
       scope.$digest();
-      expect(rows.last().hasClass('ng-hide')).toBe(true);
+      expect(wrapper.hasClass('ng-hide')).toBe(true);
       expect(scope.showGraphics()).toBe(false);
     });
 
@@ -106,7 +107,7 @@ describe('legendDirective', function() {
       )($rootScope);
       $rootScope.$digest();
       var scope = element.isolateScope();
-      var button = element.find('tr').eq(7).find('span').first();
+      var button = element.find('div.full-legend-wrapper').first().find('span').first();
       var collapsible = element.find('.collapse').first();
       expect(button.find('small').first().text()).toContain('vollständige Legende anzeigen');
       expect(button.find('i').first().hasClass('fa-chevron-down')).toBe(true);

@@ -31,19 +31,17 @@
                 <td class="no-top-border no-wrap" ng-if="entry['Length']" colspan="2">{{entry['Length'] | number:0 | replace:',':''}} m</td>
                 <td class="no-top-border no-wrap" ng-if="!entry['Length'] && !entry['Area']" colspan="2"></td>
             </tr>
-            <tr ng-show="showGraphics()">
-                <td colspan="4">
-                    <span role="button" ng-click="toggleGraphics()">
-                        <small>
-                            <i class="fa fa-fw" ng-class="graphicsIcon"></i>
-                            {{graphicsText}}
-                        </small>
-                    </span>
-                    <p class="collapse full-legend">
-                        <img ng-repeat="graphic in legend['graphics']" ng-src="{{graphic}}">
-                    </p>
-                </td>
-            </tr>
         </tbody>
     </table>
+    <div class="full-legend-wrapper" ng-show="showGraphics()">
+        <span role="button" ng-click="toggleGraphics()">
+            <small>
+                <i class="fa fa-fw" ng-class="graphicsIcon"></i>
+                {{graphicsText}}
+            </small>
+        </span>
+        <p class="collapse full-legend">
+            <img ng-repeat="graphic in legend['graphics']" ng-src="{{graphic}}">
+        </p>
+    </div>
 </div>
