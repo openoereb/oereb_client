@@ -1,6 +1,11 @@
 Changelog
 ---------
 
+1.1.1
+*****
+
+- Fix search results in IE, https://gitlab.com/gf-bl/oereb_client/issues/67
+
 1.1.0
 *****
 
