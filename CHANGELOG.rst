@@ -10,6 +10,8 @@ Changelog
   (https://gitlab.com/gf-bl/oereb_client/issues/66)
 - Show availability map on top of topic layers
   (https://gitlab.com/gf-bl/oereb_client/issues/68)
+- Fix error message visibility in IE
+- Adjust information panel font size on small screens
 - Add fade out at top and bottom of extract wrapper
   (not working with IE)
 
