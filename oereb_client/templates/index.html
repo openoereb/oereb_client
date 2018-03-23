@@ -25,7 +25,8 @@
              class="container-fluid"
              ng-class="{'active': ctrl.extractActive, 'information': ctrl.informationActive, 'loading': ctrl.loading}">
             <div>
-                <button type="button" class="btn btn-default pull-right" ng-click="ctrl.closeExtract()">
+                <button id="extract-close" type="button" class="btn btn-default pull-right"
+                        ng-click="ctrl.closeExtract()">
                     <span class="fa fa-fw fa-close"></span>
                 </button>
                 <oereb-extract-menu class="pull-left" perma-link="ctrl.permaLink"></oereb-extract-menu>

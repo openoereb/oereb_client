@@ -70,6 +70,14 @@ oereb.MainController = function($scope, $location, ExtractService, MapService, o
     this.getExtractByEgrid_(egrid, true);
   }
 
+  // Add tooltip for close button
+  angular.element('button#extract-close').tooltip({
+    placement: 'right',
+    trigger: 'hover',
+    container: 'body',
+    title: 'Auszug schliessen'
+  });
+
 };
 
 /**
