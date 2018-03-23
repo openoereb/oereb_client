@@ -10,6 +10,7 @@ Changelog
   (https://gitlab.com/gf-bl/oereb_client/issues/66)
 - Show availability map on top of topic layers
   (https://gitlab.com/gf-bl/oereb_client/issues/68)
+- Adjust information panel font size on small screens
 
 1.1.0
 *****
