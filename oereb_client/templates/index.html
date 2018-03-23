@@ -58,8 +58,13 @@
         </div>
 
         <div id="error" ng-class="{'active': ctrl.errorActive, 'loading': ctrl.loading}">
+            <div class="container-fluid">
+                <button id="error-close" type="button" class="btn btn-default pull-right"
+                        ng-click="ctrl.closeExtract()">
+                    <span class="fa fa-fw fa-close"></span>
+                </button>
+            </div>
             <div class="container-fluid error-wrapper">
-                <span class="close extract-close" ng-click="ctrl.closeExtract()">&times;</span>
                 <h3>
                     <i class="fa fa-exclamation-circle text-danger" aria-hidden="true"></i>
                     Auszug fehlgeschlagen
@@ -73,7 +78,7 @@
                 </p>
                 <p>
                     Sollte der Fehler wiederholt auftreten,
-                    kontaktieren Sie bitte die katasterführende Stelle:
+                    kontaktieren Sie bitte die katasterverantwortliche Stelle:
                     <address>
                         <strong ng-bind="ctrl.support.office1"></strong><br />
                         <span ng-if="ctrl.support.office2">
