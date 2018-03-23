@@ -31,9 +31,8 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
     link: function(scope, element) {
 
       element.find('span.input-group-btn').first().children('button').tooltip({
-        placement: 'right',
+        placement: 'left',
         trigger: 'hover',
-        container: 'body',
         title: 'Eingabe verwerfen'
       });
 

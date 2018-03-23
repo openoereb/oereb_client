@@ -72,9 +72,8 @@ oereb.MainController = function($scope, $location, ExtractService, MapService, o
 
   // Add tooltip for close button
   angular.element('button#extract-close').tooltip({
-    placement: 'right',
+    placement: 'left',
     trigger: 'hover',
-    container: 'body',
     title: 'Auszug schliessen'
   });
 
