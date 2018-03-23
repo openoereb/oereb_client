@@ -11,6 +11,7 @@ Changelog
 - Show availability map on top of topic layers
   (https://gitlab.com/gf-bl/oereb_client/issues/68)
 - Fix error message visibility in IE
+- Adjust information panel font size on small screens
 
 1.1.0
 *****
