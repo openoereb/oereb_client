@@ -4,7 +4,12 @@ Changelog
 1.1.1
 *****
 
-- Fix search results in IE, https://gitlab.com/gf-bl/oereb_client/issues/67
+- Fix search results in IE 
+  (https://gitlab.com/gf-bl/oereb_client/issues/67)
+- Hide expand button on new extract
+  (https://gitlab.com/gf-bl/oereb_client/issues/66)
+- Show availability map on top of topic layers
+  (https://gitlab.com/gf-bl/oereb_client/issues/68)
 
 1.1.0
 *****
