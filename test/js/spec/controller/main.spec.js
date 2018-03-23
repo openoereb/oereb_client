@@ -72,6 +72,7 @@ describe('MainController', function() {
   it('should be initialized correctly', function() {
     var controller = getMainController();
     expect(controller.extractActive).toBe(false);
+    expect(controller.extractCollapsed).toBe(false);
     expect(controller.errorActive).toBe(false);
     expect(controller.informationActive).toBe(false);
     expect(controller.loading).toBe(false);
