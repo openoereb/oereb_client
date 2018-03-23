@@ -26,6 +26,24 @@ div#extract {
     flex: 1;
     padding-bottom: @default-padding;
     margin-top: @default-padding;
+    .fade-top {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      margin-bottom: -20px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+    .fade-bottom {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      margin-top: -20px;
+      background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
   }
   span.extract-close {
     z-index: 2;
