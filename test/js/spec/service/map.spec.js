@@ -192,6 +192,8 @@ describe('MapService', function() {
     describe('addTopicLayers', function() {
 
       it('should update the list of topic layers', function() {
+        spyOn(MapService.getMap(), 'removeLayer').and.callThrough();
+        spyOn(MapService.getMap(), 'addLayer').and.callThrough();
         var viewServices = [
           {
             topic: 'topic1',
@@ -217,6 +219,8 @@ describe('MapService', function() {
             .toBe(MapService.getMap().getView().getProjection());
           expect(MapService.getMap().getLayers().item(i)).toBe(MapService.topicLayers_[i]);
         }
+        expect(MapService.getMap().removeLayer).toHaveBeenCalledWith(MapService.availabilityLayer_);
+        expect(MapService.getMap().addLayer).toHaveBeenCalledWith(MapService.availabilityLayer_);
       });
 
     });
