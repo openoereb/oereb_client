@@ -21,7 +21,13 @@ oereb.historyDirective = function(StoreService, ExtractService, oerebEventExtrac
     replace: true,
     templateUrl: 'static/html/history.html',
     scope: {},
-    link: function(scope) {
+    link: function(scope, element) {
+
+      element.children('button').tooltip({
+        placement: 'right',
+        trigger: 'hover',
+        title: 'zuletzt gewählte Grundstücke'
+      });
 
       /** @export {array} */
       scope.history = StoreService.getHistory();

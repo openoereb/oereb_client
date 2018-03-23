@@ -14,6 +14,8 @@ Changelog
 - Adjust information panel font size on small screens
 - Add fade out at top and bottom of extract wrapper
   (not working with IE)
+- Add missing tool tips
+  (https://gitlab.com/gf-bl/oereb_client/issues/69)
 
 1.1.0
 *****

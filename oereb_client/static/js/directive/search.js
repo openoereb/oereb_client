@@ -28,7 +28,13 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
     replace: true,
     templateUrl: 'static/html/search.html',
     scope: {},
-    link: function(scope) {
+    link: function(scope, element) {
+
+      element.find('span.input-group-btn').first().children('button').tooltip({
+        placement: 'left',
+        trigger: 'hover',
+        title: 'Eingabe verwerfen'
+      });
 
       /** @export {Array} */
       scope.egrids = [];

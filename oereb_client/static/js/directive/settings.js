@@ -19,7 +19,13 @@ oereb.settingsDirective = function(MapService, StoreService) {
     replace: true,
     templateUrl: 'static/html/settings.html',
     scope: {},
-    link: function(scope) {
+    link: function(scope, element) {
+
+      element.children('button').tooltip({
+        placement: 'right',
+        trigger: 'hover',
+        title: 'Einstellungen'
+      });
 
       /**
        * @export {boolean}
