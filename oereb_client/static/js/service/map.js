@@ -176,6 +176,7 @@ oereb.MapService.prototype.getBaseLayerWmtsSource_ = function() {
  * @param {Array.<Object>} viewServices The view service definition object.
  */
 oereb.MapService.prototype.addTopicLayers = function(viewServices) {
+  this.map_.removeLayer(this.availabilityLayer_);
   var projection = this.map_.getView().getProjection();
   for (var i = 0; i < viewServices.length; i++) {
     var layer = new ol.layer.Image({
@@ -190,6 +191,7 @@ oereb.MapService.prototype.addTopicLayers = function(viewServices) {
     this.topicLayers_.push(layer);
     this.map_.addLayer(layer);
   }
+  this.map_.addLayer(this.availabilityLayer_);
 };
 
 /**
