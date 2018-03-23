@@ -10,6 +10,8 @@ Changelog
   (https://gitlab.com/gf-bl/oereb_client/issues/66)
 - Show availability map on top of topic layers
   (https://gitlab.com/gf-bl/oereb_client/issues/68)
+- Add fade out at top and bottom of extract wrapper
+  (not working with IE)
 
 1.1.0
 *****
