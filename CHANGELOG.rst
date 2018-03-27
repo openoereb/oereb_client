@@ -16,6 +16,8 @@ Changelog
   (not working with IE)
 - Add missing tool tips
   (https://gitlab.com/gf-bl/oereb_client/issues/69)
+- Add cache buster to HTTP requests
+  (https://gitlab.com/gf-bl/oereb_client/issues/70)
 
 1.1.0
 *****

@@ -37,7 +37,8 @@ oereb.SearchService.prototype.searchTerm_ = function (term) {
   var def = this.$q_.defer();
   var params = {
     'limit': this.searchServiceLimit_,
-    'query': term
+    'query': term,
+    '_dc': new Date().getTime()
   };
   this.$http_.get(this.searchServiceUrl_, {
     params: params
@@ -146,16 +147,20 @@ oereb.SearchService.prototype.lookupEgrid = function (parcel_number, municipalit
       'limit': this.wfsLimit_,
       'layer_name': layer_name,
       'municipality_name': municipality_name,
-      'parcel_number': parcel_number
+      'parcel_number': parcel_number,
+      '_dc': new Date().getTime()
     };
     this.$http_.get(this.wfsFilterServiceUrl_, {
       params: params
     }).then(
       function (response) {
         this.$http_({
-          method: "POST",
+          method: 'POST',
           url: this.wfsUrl_,
-          data: response.data
+          data: response.data,
+          params: {
+            '_dc': new Date().getTime()
+          }
         }).then(function (wfs_response) {
           def.resolve(this.wfsFormatter.readFeatures(wfs_response.data))
         }.bind(this), function (wfs_response) {

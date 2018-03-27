@@ -96,11 +96,22 @@ describe('mapQueryDirective', function() {
 
   describe('queryEgrid', function() {
 
-    var $httpBackend;
+    var $httpBackend, dc;
 
     beforeEach(inject(function(_$httpBackend_) {
       $httpBackend = _$httpBackend_;
     }));
+
+    beforeEach(function() {
+      jasmine.clock().install();
+      var baseTime = new Date(2018, 1, 1);
+      jasmine.clock().mockDate(baseTime);
+      dc = baseTime.getTime();
+    });
+
+    afterEach(function() {
+      jasmine.clock().uninstall();
+    });
 
     afterEach(function() {
       $httpBackend.verifyNoOutstandingExpectation();
@@ -108,7 +119,7 @@ describe('mapQueryDirective', function() {
     });
 
     it('should close loading indicator on error', function() {
-      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0').respond(500, 'Test error.');
+      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0&_dc=' + dc).respond(500, 'Test error.');
       var element = $compile('<oereb-map-query></oereb-map-query>')($rootScope);
       $rootScope.$digest();
       var scope = element.isolateScope();
@@ -136,7 +147,7 @@ describe('mapQueryDirective', function() {
           identDN: 'T2'
         }
       ];
-      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0').respond(200, {
+      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0&_dc=' + dc).respond(200, {
         GetEGRIDResponse: realEstates
       });
       var element = $compile('<oereb-map-query></oereb-map-query>')($rootScope);
@@ -175,7 +186,7 @@ describe('mapQueryDirective', function() {
           identDN: 'T1'
         }
       ];
-      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0').respond(200, {
+      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0&_dc=' + dc).respond(200, {
         GetEGRIDResponse: realEstates
       });
       var element = $compile('<oereb-map-query></oereb-map-query>')($rootScope);

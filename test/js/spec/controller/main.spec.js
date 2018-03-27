@@ -20,7 +20,7 @@ describe('MainController', function() {
     }));
   }));
 
-  var $controller, $httpBackend, $rootScope, $scope, ExtractService, MapService, oerebEventEgridSelected,
+  var $controller, $httpBackend, $rootScope, $scope, ExtractService, MapService, dc, oerebEventEgridSelected,
     oerebEventExtractClosed, oerebEventExtractLoaded, oerebSupport;
 
   beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_, _ExtractService_, _MapService_,
@@ -37,6 +37,17 @@ describe('MainController', function() {
     oerebEventExtractClosed = _oerebEventExtractClosed_;
     $scope = $rootScope.$new();
   }));
+
+  beforeEach(function() {
+    jasmine.clock().install();
+    var baseTime = new Date(2018, 1, 1);
+    jasmine.clock().mockDate(baseTime);
+    dc = baseTime.getTime();
+  });
+
+  afterEach(function() {
+    jasmine.clock().uninstall();
+  });
 
   afterEach(function() {
     $httpBackend.verifyNoOutstandingExpectation();
@@ -88,7 +99,8 @@ describe('MainController', function() {
     });
 
     it('should show the extract', function() {
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
+        .respond(200, data);
       spyOn(ExtractService, 'getExtract').and.returnValue('Test');
       var ctrl = getMainController();
       expect(ctrl.loading).toBe(false);
@@ -102,7 +114,8 @@ describe('MainController', function() {
     it('should show the extract and center', function() {
       var view = MapService.getMap().getView();
       spyOn(view, 'fit');
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
+        .respond(200, data);
       spyOn(ExtractService, 'getExtract').and.returnValue('Test');
       spyOn(ExtractService, 'getRealEstate').and.returnValue({
         Limit: {
@@ -117,7 +130,8 @@ describe('MainController', function() {
     });
 
     it('should show the error message on invalid data', function() {
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, 'Test');
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
+        .respond(200, 'Test');
       spyOn(ExtractService, 'getExtract').and.returnValue(undefined);
       var ctrl = getMainController();
       ctrl.extractActive = true;
@@ -128,7 +142,8 @@ describe('MainController', function() {
     });
 
     it('should show the error message on error', function() {
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(500, 'Test');
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
+        .respond(500, 'Test');
       var ctrl = getMainController();
       ctrl.extractActive = true;
       $rootScope.$broadcast(oerebEventEgridSelected, 'CHTEST');
@@ -139,7 +154,8 @@ describe('MainController', function() {
 
     it('should broadcast extract loaded event', function() {
       spyOn($rootScope, '$broadcast').and.callThrough();
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
+        .respond(200, data);
       spyOn(ExtractService, 'getExtract').and.returnValue('Test');
       getMainController();
       $rootScope.$broadcast(oerebEventEgridSelected, 'CHTEST');

@@ -7,15 +7,22 @@ describe('ExtractService', function() {
     $provide.constant('oerebApplicationUrl', 'http://example.com/');
   }));
 
-  var $httpBackend, ExtractService;
+  var $httpBackend, ExtractService, dc;
 
   beforeEach(inject(function(_ExtractService_, _$httpBackend_) {
     ExtractService = _ExtractService_;
     $httpBackend = _$httpBackend_;
   }));
 
+  beforeEach(function() {
+    jasmine.clock().install();
+    var baseTime = new Date(2018, 1, 1);
+    jasmine.clock().mockDate(baseTime);
+    dc = baseTime.getTime();
+  });
+
   beforeEach(function () {
-    $httpBackend.whenGET('http://example.com/extract/reduced/json/geometry/CH1234').respond(
+    $httpBackend.whenGET('http://example.com/extract/reduced/json/geometry/CH1234?_dc=' + dc).respond(
       function() {
         var request = new XMLHttpRequest();
         request.open('GET', 'base/samples/extract.json', false);
@@ -23,6 +30,10 @@ describe('ExtractService', function() {
         return [request.status, request.response, {}];
       }
     );
+  });
+
+  afterEach(function() {
+    jasmine.clock().uninstall();
   });
 
   afterEach(function() {
@@ -38,7 +49,7 @@ describe('ExtractService', function() {
     });
 
     it('should return error on failed request', function() {
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST')
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
         .respond(500, 'Test error.');
       var response = undefined;
       ExtractService.queryExtractById('CHTEST').then(
@@ -55,9 +66,12 @@ describe('ExtractService', function() {
     });
 
     it('should return error on invalid response format', function() {
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, {
-        GetExtractByIdResponse: 'invalid'
-      });
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc).respond(
+        200,
+        {
+          GetExtractByIdResponse: 'invalid'
+        }
+      );
       var response = undefined;
       ExtractService.queryExtractById('CHTEST').then(
         function(data) {
@@ -87,7 +101,8 @@ describe('ExtractService', function() {
           }
         }
       };
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
+        .respond(200, data);
       var response = undefined;
       ExtractService.queryExtractById('CHTEST').then(
         function(data) {
@@ -126,7 +141,8 @@ describe('ExtractService', function() {
           }
         }
       };
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
+        .respond(200, data);
       ExtractService.queryExtractById('CHTEST');
       $httpBackend.flush();
       expect(ExtractService.getConcernedThemes().length).toBe(2);
@@ -157,7 +173,8 @@ describe('ExtractService', function() {
           }
         }
       };
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
+        .respond(200, data);
       ExtractService.queryExtractById('CHTEST');
       $httpBackend.flush();
       expect(ExtractService.getNotConcernedThemes().length).toBe(2);
@@ -188,7 +205,8 @@ describe('ExtractService', function() {
           }
         }
       };
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
+        .respond(200, data);
       ExtractService.queryExtractById('CHTEST');
       $httpBackend.flush();
       expect(ExtractService.getThemesWithoutData().length).toBe(2);
@@ -216,7 +234,8 @@ describe('ExtractService', function() {
           }
         }
       };
-      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST').respond(200, data);
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
+        .respond(200, data);
       ExtractService.queryExtractById('CHTEST');
       $httpBackend.flush();
       expect(ExtractService.getRealEstate()).toEqual(data['GetExtractByIdResponse']['extract']['RealEstate']);

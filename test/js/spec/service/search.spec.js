@@ -67,7 +67,7 @@ describe('SearchService', function () {
     $qProvider.errorOnUnhandledRejections(false);
   }));
 
-  var $httpBackend, $q, $rootScope, SearchService;
+  var $httpBackend, $q, $rootScope, SearchService, dc;
 
   beforeEach(inject(function (_$httpBackend_, _$q_, _$rootScope_, _SearchService_) {
     SearchService = _SearchService_;
@@ -75,6 +75,17 @@ describe('SearchService', function () {
     $q = _$q_;
     $rootScope = _$rootScope_;
   }));
+
+  beforeEach(function() {
+    jasmine.clock().install();
+    var baseTime = new Date(2018, 1, 1);
+    jasmine.clock().mockDate(baseTime);
+    dc = baseTime.getTime();
+  });
+
+  afterEach(function() {
+    jasmine.clock().uninstall();
+  });
 
   afterEach(function () {
     $httpBackend.verifyNoOutstandingExpectation();
@@ -85,7 +96,7 @@ describe('SearchService', function () {
 
     it('should return error on failed request', function () {
       $httpBackend.expectGET(
-        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=5&query=adr+liest'
+        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=5&query=adr+liest&_dc=' + dc
       ).respond(500, 'Test error.');
       var response = undefined;
       SearchService.searchTerm_('adr liest').then(
@@ -103,7 +114,7 @@ describe('SearchService', function () {
 
     it('should return the responded data', function () {
       $httpBackend.expectGET(
-        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=5&query=adr+liest'
+        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=5&query=adr+liest&_dc=' + dc
       ).respond(200, fullTextSearchResponse);
       var response = undefined;
       SearchService.searchTerm_('adr liest').then(
@@ -262,7 +273,7 @@ describe('SearchService', function () {
 
     it('should return error on failed request', function () {
       $httpBackend.expectGET(
-        'http://example.com/wfs_filter_service?limit=5&layer_name=liegenschaft&municipality_name=Liestal&parcel_number=1000'
+        'http://example.com/wfs_filter_service?limit=5&layer_name=liegenschaft&municipality_name=Liestal&parcel_number=1000&_dc=' + dc
       ).respond(500, 'Test error.');
       var response = undefined;
       SearchService.lookupEgrid(1000, 'Liestal', ['liegenschaft']).then(
@@ -280,7 +291,7 @@ describe('SearchService', function () {
 
     it('should return error on failed request', function () {
       $httpBackend.expectGET(
-        'http://example.com/wfs_filter_service?limit=5&layer_name=selbstrecht&municipality_name=Liestal&parcel_number=1000'
+        'http://example.com/wfs_filter_service?limit=5&layer_name=selbstrecht&municipality_name=Liestal&parcel_number=1000&_dc=' + dc
       ).respond(500, 'Test error.');
       var response = undefined;
       SearchService.lookupEgrid(1000, 'Liestal', ['selbstrecht']).then(
@@ -298,10 +309,10 @@ describe('SearchService', function () {
 
     it('should return feature', function () {
       $httpBackend.expectGET(
-        'http://example.com/wfs_filter_service?limit=5&layer_name=selbstrecht&municipality_name=Liestal&parcel_number=1000'
+        'http://example.com/wfs_filter_service?limit=5&layer_name=selbstrecht&municipality_name=Liestal&parcel_number=1000&_dc=' + dc
       ).respond(200, {});
       $httpBackend.expectPOST(
-        'http://geowms.bl.ch'
+        'http://geowms.bl.ch?_dc=' + dc
       ).respond(200, {});
       var feature = new ol.Feature({
         geometry: new ol.geom.Point([100, 100]),
