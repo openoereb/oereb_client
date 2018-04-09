@@ -1,8 +1,18 @@
 Changelog
 ---------
 
+1.1.2
+*****
+
+https://gitlab.com/gf-bl/oereb_client/milestones/9
+
+- Fix PDF download on iOS
+- Combine built JavaScript code in one file
+
 1.1.1
 *****
+
+https://gitlab.com/gf-bl/oereb_client/milestones/8
 
 - Fix search results in IE
   (https://gitlab.com/gf-bl/oereb_client/issues/67)
