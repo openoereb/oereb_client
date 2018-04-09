@@ -170,6 +170,7 @@ $(dir $(BUILD_DIR))build.js: $(NODE_MODULES) $(BUILD_DIR) $(TEMPLATE_CACHE) $(SR
 	--externs='externs/ol.js' \
 	--externs='externs/bootstrap.js' \
 	--externs='externs/localStorage.js' \
+	--externs='externs/file-saver.js' \
 	--js='$(dir $(NODE_MODULES))google-closure-library/closure/goog/**.js' \
 	--js='!$(dir $(NODE_MODULES))google-closure-library/closure/goog/**_test.js' \
 	--js='$(PKG)/static/js/**.js' \
