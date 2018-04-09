@@ -12,6 +12,9 @@ endif
 # Variable definitions
 # ********************
 
+# Node modules
+NODE_MODULES = node_modules/.timestamp
+
 # Google Closure Library depswriter script
 DEPSWRITER = $(shell find node_modules/google-closure-library -name 'depswriter.py')
 
@@ -25,7 +28,6 @@ PKG = oereb_client
 BUILD_DIR = $(PKG)/static/build/.timestamp
 CSS_DIR = $(PKG)/static/css/.timestamp
 FONTS_DIR = $(PKG)/static/fonts/.timestamp
-LIB_DIR = $(PKG)/static/lib/.timestamp
 
 # Compiled files
 APP_JS = $(dir $(BUILD_DIR))oereb.min.js
@@ -33,12 +35,13 @@ APP_CSS = $(dir $(BUILD_DIR))oereb.min.css
 
 # External JavaScript libraries
 LIB_JS = \
-	$(dir $(LIB_DIR))angular.min.js \
-	$(dir $(LIB_DIR))angular-animate.min.js \
-	$(dir $(LIB_DIR))jquery.min.js \
-	$(dir $(LIB_DIR))bootstrap.min.js \
-	$(dir $(LIB_DIR))ol.js \
-	$(dir $(LIB_DIR))proj4.js
+	$(dir $(NODE_MODULES))jquery/jquery.min.js \
+	$(dir $(NODE_MODULES))bootstrap/dist/js/bootstrap.min.js \
+	$(dir $(NODE_MODULES))angular/angular.min.js \
+	$(dir $(NODE_MODULES))angular-animate/angular-animate.min.js \
+	$(dir $(NODE_MODULES))angular-file-saver/dist/angular-file-saver.bundle.min.js \
+	$(dir $(NODE_MODULES))openlayers/dist/ol.js \
+	$(dir $(NODE_MODULES))proj4/dist/proj4.js
 
 # JavaScript source files
 SRC_JS = $(shell find $(PKG)/static/js -name '*.js')
@@ -60,9 +63,6 @@ TEMPLATE_CACHE = $(dir $(BUILD_DIR))templates.js
 
 # Python source files
 SRC_PY = $(shell find oereb_client -name '*.py')
-
-# Node modules
-NODE_MODULES = node_modules/.timestamp
 
 
 # *******************
@@ -102,10 +102,6 @@ $(FONTS_DIR):
 	mkdir -p $(dir $(FONTS_DIR))
 	touch $@
 
-$(LIB_DIR):
-	mkdir -p $(dir $(LIB_DIR))
-	touch $@
-
 
 # **************************************************
 # Build test dependencies for Google Closure Library
@@ -131,29 +127,6 @@ $(TEMPLATE_CACHE): $(NODE_MODULES) $(BUILD_DIR) $(SRC_HTML)
 	--whitespace spaces \
 	--files 'oereb_client/static/html/**/*.html' \
 	--output $@
-
-
-# *********************
-# Copy application libs
-# *********************
-
-$(dir $(LIB_DIR))jquery.min.js: $(LIB_DIR)
-	cp $(dir $(NODE_MODULES))jquery/jquery.min.js $(dir $(LIB_DIR))
-
-$(dir $(LIB_DIR))angular.min.js: $(LIB_DIR)
-	cp $(dir $(NODE_MODULES))angular/angular.min.js $(dir $(LIB_DIR))
-
-$(dir $(LIB_DIR))angular-animate.min.js: $(LIB_DIR)
-	cp $(dir $(NODE_MODULES))angular-animate/angular-animate.min.js $(dir $(LIB_DIR))
-
-$(dir $(LIB_DIR))bootstrap.min.js: $(LIB_DIR)
-	cp $(dir $(NODE_MODULES))bootstrap/dist/js/bootstrap.min.js $(dir $(LIB_DIR))
-
-$(dir $(LIB_DIR))ol.js: $(LIB_DIR)
-	cp $(dir $(NODE_MODULES))openlayers/dist/ol.js $(dir $(LIB_DIR))
-
-$(dir $(LIB_DIR))proj4.js: $(LIB_DIR)
-	cp $(dir $(NODE_MODULES))proj4/dist/proj4.js $(dir $(LIB_DIR))
 
 
 # **********************
@@ -186,7 +159,7 @@ $(APP_CSS): $(NODE_MODULES) $(BUILD_DIR) $(dir $(CSS_DIR))oereb.css
 # Build application JS
 # ********************
 
-$(APP_JS): $(NODE_MODULES) $(BUILD_DIR) $(TEMPLATE_CACHE) $(SRC_JS) $(LIB_JS)
+$(dir $(BUILD_DIR))build.js: $(NODE_MODULES) $(BUILD_DIR) $(TEMPLATE_CACHE) $(SRC_JS) $(LIB_JS)
 	java -jar $(COMPILER) \
 	--compilation_level='ADVANCED' \
 	--externs='$(dir $(NODE_MODULES))google-closure-compiler/contrib/externs/angular-1.5.js' \
@@ -197,6 +170,7 @@ $(APP_JS): $(NODE_MODULES) $(BUILD_DIR) $(TEMPLATE_CACHE) $(SRC_JS) $(LIB_JS)
 	--externs='externs/ol.js' \
 	--externs='externs/bootstrap.js' \
 	--externs='externs/localStorage.js' \
+	--externs='externs/file-saver.js' \
 	--js='$(dir $(NODE_MODULES))google-closure-library/closure/goog/**.js' \
 	--js='!$(dir $(NODE_MODULES))google-closure-library/closure/goog/**_test.js' \
 	--js='$(PKG)/static/js/**.js' \
@@ -210,6 +184,10 @@ $(APP_JS): $(NODE_MODULES) $(BUILD_DIR) $(TEMPLATE_CACHE) $(SRC_JS) $(LIB_JS)
 	--angular_pass \
 	--create_source_map='$(dir $(BUILD_DIR))oereb.min.js.map' \
     > $@
+
+$(APP_JS): $(dir $(BUILD_DIR))build.js $(LIB_JS)
+	awk 'FNR==1{print ""}1' $(LIB_JS) $< > $@
+
 
 
 # **************

@@ -8,12 +8,14 @@ goog.require('oereb');
  * @param {angular.$http} $http Angular service for HTTP requests.
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
  * @param {string} oerebApplicationUrl The application base URL.
+ * @param {FileSaver} FileSaver The FileSaver service.
+ * @param {Blob} Blob The Blob service.
  *
  * @returns {angular.Directive} Angular directive definition.
  *
  * @ngInject
  */
-oereb.staticExtractDirective = function($http, ExtractService, oerebApplicationUrl) {
+oereb.staticExtractDirective = function($http, ExtractService, oerebApplicationUrl, FileSaver, Blob) {
   return {
     restrict: 'E',
     replace: true,
@@ -57,27 +59,9 @@ oereb.staticExtractDirective = function($http, ExtractService, oerebApplicationU
        * @private
        */
       scope.getFile_ = function(content) {
-        var pdfLink = document.createElement('a');
-        var mimeType = 'application/pdf';
+        var data = new Blob([content], {'type': 'application/pdf'});
         var fileName = ExtractService.getExtract()['ExtractIdentifier'] + '.pdf';
-        if (navigator.msSaveBlob) {
-          navigator.msSaveBlob(new Blob([content], {
-            type: mimeType
-          }), fileName);
-        }
-        else if (URL && 'download' in pdfLink) {
-          pdfLink.href = URL.createObjectURL(new Blob([content], {
-            type: mimeType
-          }));
-          pdfLink.setAttribute('download', fileName);
-          pdfLink.style.visibility = 'hidden';
-          document.body.appendChild(pdfLink);
-          pdfLink.click();
-          document.body.removeChild(pdfLink);
-        }
-        else {
-          location.href = 'data:application/octet-stream,' + encodeURIComponent(content);
-        }
+        FileSaver.saveAs(data, fileName);
       };
 
     }
