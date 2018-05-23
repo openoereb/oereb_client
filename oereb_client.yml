@@ -29,7 +29,27 @@ oereb_client:
   # Link to GeoView BL
   geo_view:
     url: http://geoview.bl.ch
-    tree_group: oereb
+    tree_groups:
+      - name: Bau- und Strassenlinien
+        layers:
+          - statische_waldgrenzen
+          - baulinien_kommunal_waldabstandslinien
+          - baulinien_kommunal
+          - baulinien_kantonal
+      - name: Kataster belasteter Standorte
+        layers:
+          - kbs_kataster_standorte
+      - name: Lärm
+        layers:
+          - laermempfindlichkeitsstufen
+      - name: Nutzungsplan
+        layers:
+          - nutzungsplanung_kantonal_grundnutzung_group
+          - nutzungsplanung_kommunal_grundnutzung_group
+          - nutzungsplanung_kantonal_ueberlagernd_rechtsverbindlich_group
+          - nutzungsplanung_kommunal_ueberlagernd_rechtsverbindlich_group
+          - nutzungsplanung_kantonal_perimeter_tiefbau_umrandung
+          - nutzungsplanung_kommunal_sondernutzungsplan_umrandung
 
   # Support
   support:

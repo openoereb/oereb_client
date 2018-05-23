@@ -42,23 +42,23 @@ oereb.extractMenuDirective = function ($location, MapService, geoViewConfig) {
         var egrid = $location.search()['egrid'];
         var config = angular.fromJson(geoViewConfig);
         var url = config['url'];
-        var treeGroup = config['tree_group'];
+        var treeGroups = config['tree_groups'];
         if (url.indexOf('?') === -1) {
           url += '?';
         }
-        var layers = [];
-        angular.forEach(MapService.getTopicLayers(), function(layer) {
-          if (layer.getVisible()) {
-            layers.push(layer.getSource().getParams()['LAYERS']);
-          }
-        });
         var parameters = [
           'wfs_layer=grundstueck',
           'wfs_egris_egrid=' + egrid,
-          'tree_groups=' + treeGroup,
-          'tree_group_layers_' + treeGroup + '=' + layers.join(','),
           'no_redirect='
         ];
+        var layerNames = [];
+        for (var i = 0; i < treeGroups.length; i++) {
+          parameters.push(
+            'tree_group_layers_' + treeGroups[i]['name'] + '=' + treeGroups[i]['layers'].join(',')
+          );
+          layerNames.push(treeGroups[i]['name']);
+        }
+        parameters.push('tree_groups=' + layerNames.join(','));
         window.open(
           url + parameters.join('&'),
           '_blank'
