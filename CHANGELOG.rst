@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+1.1.3
+*****
+
+https://gitlab.com/gf-bl/oereb_client/milestones/10
+
+- Configure GeoView BL layers via YAML
+
 1.1.2
 *****
 
