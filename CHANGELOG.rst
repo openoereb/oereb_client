@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+1.1.4
+*****
+
+https://gitlab.com/gf-bl/oereb_client/milestones/11
+
+- Fix URL encoding in link to GeoView BL
+
 1.1.3
 *****
 
