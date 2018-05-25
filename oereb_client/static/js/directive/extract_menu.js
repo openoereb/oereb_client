@@ -60,7 +60,7 @@ oereb.extractMenuDirective = function ($location, MapService, geoViewConfig) {
         }
         parameters.push('tree_groups=' + layerNames.join(','));
         window.open(
-          url + parameters.join('&'),
+          encodeURI(url + parameters.join('&')),
           '_blank'
         );
       };
