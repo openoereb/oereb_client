@@ -27,25 +27,6 @@ class Index(object):
         debug = self.request_.params.get('debug') == 'true'
         return local and debug
 
-    def get_base_layer_url_(self):
-        """Returns the base layer URL corresponding to the instance type (HTTP, HTTPS or intranet).
-
-        Returns:
-            str: The base layer URL for the current type of instance.
-
-        """
-        base_layer_config = self.config_.get('base_layer')
-        if not base_layer_config:
-            raise ConfigurationError('Missing base layer configuration')
-
-        if self.request_.scheme == 'https':
-            if self.request_.environ.get('intranet', 0) == '1':
-                return base_layer_config['intranet']
-            else:
-                return base_layer_config['https']
-        else:
-            return base_layer_config['http']
-
     def get_base_layer_config_(self):
         """Returns the JSON-encoded configuration for the base layer.
 
@@ -53,15 +34,10 @@ class Index(object):
             str: The JSON-encoded base layer configuration.
 
         """
-        cfg = dict()
         base_layer_config = self.config_.get('base_layer', {})
         if not base_layer_config:
             raise ConfigurationError('Missing base layer configuration')
-        for k in base_layer_config:
-            if k not in ['http', 'https', 'intranet']:
-                cfg[k] = base_layer_config[k]
-        cfg['url'] = self.get_base_layer_url_()
-        return json.dumps(cfg)
+        return json.dumps(base_layer_config)
 
     def get_availability_config_(self):
         """Returns the JSON-encoded configuration for the availability layer.
