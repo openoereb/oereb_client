@@ -18,7 +18,7 @@ requires = [
 
 setup(
     name='oereb_client',
-    version='1.1.4',
+    version='1.1.4-dev.1',
     description='ÖREB Client',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
