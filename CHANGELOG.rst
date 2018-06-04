@@ -1,8 +1,10 @@
 Changelog
 ---------
 
-1.1.5-dev.1
-***********
+1.1.5
+*****
+
+https://gitlab.com/gf-bl/oereb_client/milestones/12
 
 - dismiss all non https urls for WMTS
 
