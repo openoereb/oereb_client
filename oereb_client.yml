@@ -3,9 +3,7 @@ oereb_client:
   # Base layer configuration
   base_layer:
     type: wmts
-    http: http://tile.dev2.geoview.bl.ch/1.0.0/WMTSCapabilitiesDev2.xml
-    https: https://tile.dev2.geoview.my.bl.ch/1.0.0/WMTSCapabilitiesDev2SecureInter.xml
-    intranet: https://kww.tile.dev2.geoview.bl.ch/1.0.0/WMTSCapabilitiesDev2SecureIntra.xml
+    url: https://tile.dev2.geoview.bl.ch/1.0.0/WMTSCapabilitiesDev2.xml
     layer: grundkarte_sw
     matrixSet: swissgrid
     projection: "EPSG:2056"
@@ -20,15 +18,15 @@ oereb_client:
   # Search field configuration
   search:
     api:
-      url: http://geoview.bl.ch/main/wsgi/bl_fulltextsearch
+      url: https://dev2.geoview.bl.ch/main/wsgi/bl_fulltextsearch
       limit: 5
     wfs:
-      url: http://geowms.bl.ch
+      url: https://dev2.geowms.bl.ch
       limit: 5
 
   # Link to GeoView BL
   geo_view:
-    url: http://geoview.bl.ch
+    url: https://dev2.geoview.bl.ch
     tree_groups:
       - name: Bau- und Strassenlinien
         layers:
