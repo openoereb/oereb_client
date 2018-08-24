@@ -1,6 +1,11 @@
 Changelog
 ---------
 
+1.2.0
+*****
+
+https://gitlab.com/gf-bl/oereb_client/milestones/13
+
 1.1.5
 *****
 
