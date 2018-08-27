@@ -21,7 +21,7 @@ goog.require('oereb.settingsDirective');
  * @ngdoc directive
  * @ngname oerebSearch
  */
-oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogoURL, blLogoUrl,
+oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogoURL, appLogoUrl,
                                  oerebEventEgridSelected) {
   return {
     restrict: 'E',
@@ -69,7 +69,7 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       var filter = $filter('searchResult');
 
       /** @export {String} */
-      scope.blLogoUrl = blLogoUrl;
+      scope.appLogoUrl = appLogoUrl;
 
       /** @export {String} */
       scope.oerebLogoUrl = oerebLogoURL;
