@@ -33,6 +33,8 @@ class Index(object):
             raise ConfigurationError('Missing application configuration')
         if application_config.get('title') is None:
             raise ConfigurationError('Missing application title')
+        if application_config.get('logo') is None:
+            raise ConfigurationError('Missing application logo')
         return application_config
 
     def get_base_layer_config_(self):
@@ -96,6 +98,7 @@ class Index(object):
         return {
             'title': self.get_application_config_().get('title'),
             'icon': self.get_application_config_().get('icon'),
+            'logo': self.get_application_config_().get('logo'),
             'debug': self.is_debug_(),
             'base_layer_config': self.get_base_layer_config_(),
             'availability_config': self.get_availability_config_(),

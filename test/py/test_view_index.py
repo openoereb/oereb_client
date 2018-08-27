@@ -12,7 +12,8 @@ settings = {
     'oereb_client': {
         'application': {
             'title': 'Test',
-            'icon': 'http://example.com/favicon.png'
+            'icon': 'http://example.com/favicon.png',
+            'logo': 'http://example.com/logo.png'
         },
         'base_layer': {
             'type': 'wmts',
@@ -80,6 +81,7 @@ def test_render(mock_request):
         assert index.render() == {
             'title': 'Test',
             'icon': 'http://example.com/favicon.png',
+            'logo': 'http://example.com/logo.png',
             'debug': index.is_debug_(),
             'base_layer_config': index.get_base_layer_config_(),
             'availability_config': index.get_availability_config_(),
@@ -110,7 +112,12 @@ def test_get_application_config(mock_request):
 @pytest.mark.parametrize('cfg', [
     None,
     {
-        'title': None
+        'title': None,
+        'logo': 'logo.png'
+    },
+    {
+        'title': 'Test',
+        'logo': None
     }
 ])
 def test_get_application_config_fail(cfg, mock_request):

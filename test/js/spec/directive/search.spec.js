@@ -5,7 +5,7 @@ goog.require('oereb.SearchService');
 
 describe('searchDirective', function() {
   var oerebLogoUrl = 'http://example.com/oereb_logo';
-  var blLogoUrl = 'http://example.com/bl_logo';
+  var appLogoUrl = 'http://example.com/bl_logo';
   var searchServiceConfigMock = {
     api: {
       url: 'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?',
@@ -47,7 +47,7 @@ describe('searchDirective', function() {
   beforeEach(module('oereb', function($provide, $qProvider) {
     $qProvider.errorOnUnhandledRejections(false);
     $provide.constant('oerebLogoURL', oerebLogoUrl);
-    $provide.constant('blLogoUrl', blLogoUrl);
+    $provide.constant('appLogoUrl', appLogoUrl);
     $provide.constant('searchServiceConfig', searchServiceConfigMock);
     $provide.constant('wfsFilterServiceUrl', 'http://example.com/wfs_filter_service');
     $provide.constant('oerebApplicationUrl', 'http://example.com/');
@@ -90,7 +90,7 @@ describe('searchDirective', function() {
       $rootScope.$digest();
       expect(element.children('img').length).toBe(2);
       expect(element.children('img').eq(0).attr('src')).toEqual(oerebLogoUrl);
-      expect(element.children('img').eq(1).attr('src')).toEqual(blLogoUrl);
+      expect(element.children('img').eq(1).attr('src')).toEqual(appLogoUrl);
       expect(element.find('.list-group').eq(0).find('button').length).toBe(9);
     });
   });
@@ -136,13 +136,13 @@ describe('searchDirective', function() {
     });
   });
 
-  describe('blLogoUrl', function() {
+  describe('appLogoUrl', function() {
 
     it('should be url', function() {
       var element = $compile('<oereb-search></oereb-search>')($rootScope);
       $rootScope.$digest();
       var scope = element.isolateScope();
-      expect(scope.blLogoUrl).toEqual(blLogoUrl);
+      expect(scope.appLogoUrl).toEqual(appLogoUrl);
     });
   });
 
