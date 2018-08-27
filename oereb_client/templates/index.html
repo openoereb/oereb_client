@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="de" ng-app="oereb" ng-controller="MainController as ctrl">
     <head>
-        <title>ÖREB-Kataster, Kanton Basel-Landschaft</title>
+        <title>${title}</title>
+        % if icon is not None:
+            <link rel="shortcut icon" type="image/png" href="${icon}"/>
+        % endif
         <meta charset="utf-8">
         <meta http-equiv="X-UA-COMPATIBLE" content="IE=9,IE=10,IE=edge,chrome=1" />
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">

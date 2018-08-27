@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import json
 
+import pytest
+from pyramid.config import ConfigurationError
 from pyramid.testing import testConfig
 
 from oereb_client.views.index import Index
@@ -8,6 +10,10 @@ from oereb_client.views.index import Index
 
 settings = {
     'oereb_client': {
+        'application': {
+            'title': 'Test',
+            'icon': 'http://example.com/favicon.png'
+        },
         'base_layer': {
             'type': 'wmts',
             'url': 'http://example.com/WMTSCapabilities.xml'
@@ -72,6 +78,8 @@ def test_render(mock_request):
     with testConfig(settings=settings):
         index = Index(mock_request)
         assert index.render() == {
+            'title': 'Test',
+            'icon': 'http://example.com/favicon.png',
             'debug': index.is_debug_(),
             'base_layer_config': index.get_base_layer_config_(),
             'availability_config': index.get_availability_config_(),
@@ -91,3 +99,25 @@ def test_get_support_config(mock_request):
     with testConfig(settings=settings):
         index = Index(mock_request)
         assert index.get_support_config_() == json.dumps(settings.get('oereb_client').get('support'))
+
+
+def test_get_application_config(mock_request):
+    with testConfig(settings=settings):
+        index = Index(mock_request)
+        assert index.get_application_config_() == settings.get('oereb_client').get('application')
+
+
+@pytest.mark.parametrize('cfg', [
+    None,
+    {
+        'title': None
+    }
+])
+def test_get_application_config_fail(cfg, mock_request):
+    test_settings = dict(settings).update({
+        'application': cfg
+    })
+    with testConfig(settings=test_settings):
+        index = Index(mock_request)
+        with pytest.raises(ConfigurationError):
+            index.get_application_config_()
