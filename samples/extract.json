@@ -574,7 +574,7 @@
               },
               "Code": "inForce"
             },
-            "Area": 7824.68,
+            "AreaShare": 7824.68,
             "ResponsibleOffice": {
               "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
               "Name": [
@@ -781,7 +781,7 @@
               },
               "Code": "inForce"
             },
-            "Area": 5827.68,
+            "AreaShare": 5827.68,
             "ResponsibleOffice": {
               "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
               "Name": [
@@ -984,7 +984,7 @@
               },
               "Code": "inForce"
             },
-            "Length": 351.82,
+            "LengthShare": 351.82,
             "ResponsibleOffice": {
               "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
               "Name": [
@@ -1187,7 +1187,7 @@
               },
               "Code": "inForce"
             },
-            "Length": 110.75,
+            "LengthShare": 110.75,
             "ResponsibleOffice": {
               "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
               "Name": [
@@ -1364,6 +1364,7 @@
               },
               "Code": "inForce"
             },
+            "NrOfPoints": 1,
             "ResponsibleOffice": {
               "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
               "Name": [

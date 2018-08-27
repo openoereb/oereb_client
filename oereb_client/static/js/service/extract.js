@@ -147,11 +147,14 @@ oereb.ExtractService.prototype.getLegend = function(themeCode) {
     for (var j = 0; j < legendEntries.length; j++) {
       if (legendEntries[j]['TypeCode'] === restrictions[i]['TypeCode']) {
         existing = true;
-        if (angular.isDefined(restrictions[i]['Length'])) {
-          legendEntries[j]['Length'] += restrictions[i]['Length'];
+        if (angular.isDefined(restrictions[i]['NrOfPoints'])) {
+          legendEntries[j]['NrOfPoints'] += restrictions[i]['NrOfPoints'];
         }
-        if (angular.isDefined(restrictions[i]['Area'])) {
-          legendEntries[j]['Area'] += restrictions[i]['Area'];
+        if (angular.isDefined(restrictions[i]['LengthShare'])) {
+          legendEntries[j]['LengthShare'] += restrictions[i]['LengthShare'];
+        }
+        if (angular.isDefined(restrictions[i]['AreaShare'])) {
+          legendEntries[j]['AreaShare'] += restrictions[i]['AreaShare'];
         }
         if (angular.isDefined(restrictions[i]['PartInPercent'])) {
           legendEntries[j]['PartInPercent'] += restrictions[i]['PartInPercent'];
@@ -166,11 +169,14 @@ oereb.ExtractService.prototype.getLegend = function(themeCode) {
         'SymbolRef': restrictions[i]['SymbolRef'],
         'SubTheme': restrictions[i]['SubTheme']
       };
-      if (angular.isDefined(restrictions[i]['Length'])) {
-        legendEntry['Length'] = restrictions[i]['Length'];
+      if (angular.isDefined(restrictions[i]['NrOfPoints'])) {
+        legendEntry['NrOfPoints'] = restrictions[i]['NrOfPoints'];
       }
-      if (angular.isDefined(restrictions[i]['Area'])) {
-        legendEntry['Area'] = restrictions[i]['Area'];
+      if (angular.isDefined(restrictions[i]['LengthShare'])) {
+        legendEntry['LengthShare'] = restrictions[i]['LengthShare'];
+      }
+      if (angular.isDefined(restrictions[i]['AreaShare'])) {
+        legendEntry['AreaShare'] = restrictions[i]['AreaShare'];
       }
       if (angular.isDefined(restrictions[i]['PartInPercent'])) {
         legendEntry['PartInPercent'] = restrictions[i]['PartInPercent'];
