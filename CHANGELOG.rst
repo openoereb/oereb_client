@@ -8,6 +8,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/13
 
 - Build and upload tagged versions to public PyPI
 - Set title and favicon via configuration
+- Set logo URL via configuration
 
 1.1.5
 *****

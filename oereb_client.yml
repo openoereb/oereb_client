@@ -3,11 +3,13 @@ oereb_client:
   # Application configuration
   # Mandatory:
   #   "title" - The application title
+  #   "logo"  - URL to logo image
   # Optional:
-  #   "icon": - URL to image used as favicon
+  #   "icon"  - URL to image used as favicon
   application:
     title: ÖREB-Kataster, Kanton Basel-Landschaft
     icon: http://localhost:6543/static/images/favicon.png
+    logo: http://localhost:6543/samples/static/logo_bl.png
 
   # Base layer configuration
   base_layer:
