@@ -75,16 +75,8 @@ deploy:
       - "$CI_PROJECT_DIR/.pip-cache"
   script:
     - pip install -r requirements.txt
-    - echo "[distutils]" >> ~/.pypirc
-    - echo "index-servers =" >> ~/.pypirc
-    - echo "    pypibl" >> ~/.pypirc
-    - echo "" >> ~/.pypirc
-    - echo "[pypibl]" >> ~/.pypirc
-    - echo "username:" ${PYPI_USER} >> ~/.pypirc
-    - echo "password:" ${PYPI_PASSWORD} >> ~/.pypirc
-    - echo "repository:" ${PYPI_HOST} >> ~/.pypirc
-    - python setup.py check bdist_wheel upload -r pypibl
-    - echo "" > ~/.pypirc && rm ~/.pypirc
+    - .venv/bin/python setup.py clean check sdist bdist_wheel
+    - .venv/bin/twine upload dist/* -u ${PYPI_USER} -p ${PYPI_PASSWORD}
   only:
     - /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$/
   except:
@@ -107,6 +99,3 @@ code_quality:
         "registry.gitlab.com/gitlab-org/security-products/codequality:$SP_VERSION" /code
   artifacts:
     paths: [gl-code-quality-report.json]
-
-after_script:
-  - rm -vf ~/.pypirc
