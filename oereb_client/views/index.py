@@ -27,6 +27,14 @@ class Index(object):
         debug = self.request_.params.get('debug') == 'true'
         return local and debug
 
+    def get_application_config_(self):
+        application_config = self.config_.get('application')
+        if not isinstance(application_config, dict):
+            raise ConfigurationError('Missing application configuration')
+        if application_config.get('title') is None:
+            raise ConfigurationError('Missing application title')
+        return application_config
+
     def get_base_layer_config_(self):
         """Returns the JSON-encoded configuration for the base layer.
 
@@ -86,6 +94,8 @@ class Index(object):
 
         """
         return {
+            'title': self.get_application_config_().get('title'),
+            'icon': self.get_application_config_().get('icon'),
             'debug': self.is_debug_(),
             'base_layer_config': self.get_base_layer_config_(),
             'availability_config': self.get_availability_config_(),
