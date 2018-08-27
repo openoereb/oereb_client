@@ -10,6 +10,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/13
 - Set title and favicon via configuration
 - Set logo URL via configuration
 - Show link to GeoView BL only if configured
+- Apply new property names in legend
 
 1.1.5
 *****

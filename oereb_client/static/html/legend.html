@@ -4,7 +4,7 @@
             <tr>
                 <td><small>Typ</small></td>
                 <td></td>
-                <td colspan="2"><small>Anteil</small></td>
+                <td colspan="2"><small>Anteil / Anzahl</small></td>
             </tr>
         </thead>
         <tbody>
@@ -13,10 +13,11 @@
                 <td>
                     <img class="symbol" ng-src="{{entry['SymbolRef']}}">
                 </td>
-                <td class="no-wrap" ng-if="entry['Area']">{{entry['Area'] | number:0 | replace:',':''}} m<span class="sup">2</span></td>
-                <td class="no-wrap" ng-if="entry['Area']">{{entry['PartInPercent'] | number:1 | replace:',':''}}%</td>
-                <td class="no-wrap" ng-if="entry['Length']" colspan="2">{{entry['Length'] | number:0 | replace:',':''}} m</td>
-                <td class="no-wrap" ng-if="!entry['Length'] && !entry['Area']" colspan="2"></td>
+                <td class="no-wrap" ng-if="entry['AreaShare']">{{entry['AreaShare'] | number:0 | replace:',':''}} m<span class="sup">2</span></td>
+                <td class="no-wrap" ng-if="entry['AreaShare']">{{entry['PartInPercent'] | number:1 | replace:',':''}}%</td>
+                <td class="no-wrap" ng-if="entry['LengthShare']" colspan="2">{{entry['LengthShare'] | number:0 | replace:',':''}} m</td>
+                <td class="no-wrap" ng-if="entry['NrOfPoints']" colspan="2">{{entry['NrOfPoints'] | number:0 | replace:',':''}}</td>
+                <td class="no-wrap" ng-if="!entry['NrOfPoints'] && !entry['LengthShare'] && !entry['AreaShare']" colspan="2"></td>
             </tr>
             <tr class="visible-xs" ng-repeat-start="entry in legend['entries'] | sortLegend">
                 <td colspan="4">{{entry['Information'] | multilingualText}}</td>
@@ -26,10 +27,11 @@
                     <img class="symbol" ng-src="{{entry['SymbolRef']}}">
                 </td>
                 <td class="no-top-border"></td>
-                <td class="no-top-border no-wrap" ng-if="entry['Area']">{{entry['Area'] | number:0 | replace:',':''}} m<span class="sup">2</span></td>
-                <td class="no-top-border no-wrap" ng-if="entry['Area']">{{entry['PartInPercent'] | number:1 | replace:',':''}}%</td>
-                <td class="no-top-border no-wrap" ng-if="entry['Length']" colspan="2">{{entry['Length'] | number:0 | replace:',':''}} m</td>
-                <td class="no-top-border no-wrap" ng-if="!entry['Length'] && !entry['Area']" colspan="2"></td>
+                <td class="no-top-border no-wrap" ng-if="entry['AreaShare']">{{entry['AreaShare'] | number:0 | replace:',':''}} m<span class="sup">2</span></td>
+                <td class="no-top-border no-wrap" ng-if="entry['AreaShare']">{{entry['PartInPercent'] | number:1 | replace:',':''}}%</td>
+                <td class="no-top-border no-wrap" ng-if="entry['LengthShare']" colspan="2">{{entry['LengthShare'] | number:0 | replace:',':''}} m</td>
+                <td class="no-top-border no-wrap" ng-if="entry['NrOfPoints']" colspan="2">{{entry['NrOfPoints'] | number:0 | replace:',':''}}</td>
+                <td class="no-top-border no-wrap" ng-if="!entry['NrOfPoints'] && !entry['LengthShare'] && !entry['AreaShare']" colspan="2"></td>
             </tr>
         </tbody>
     </table>

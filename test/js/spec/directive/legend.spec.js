@@ -15,7 +15,7 @@ describe('legendDirective', function() {
       Information: [{
         Text: 'Legend 1'
       }],
-      Area: 123.4,
+      AreaShare: 123.4,
       PartInPercent: 12.3,
       SymbolRef: 'http://example.com/symbol1.png'
     },
@@ -24,7 +24,7 @@ describe('legendDirective', function() {
       Information: [{
         Text: 'Legend 2'
       }],
-      Area: 567.8,
+      AreaShare: 567.8,
       PartInPercent: 56.7,
       SymbolRef: 'http://example.com/symbol2.png'
     }
@@ -62,11 +62,11 @@ describe('legendDirective', function() {
       expect(rows.length).toBe(7);
       expect(rows.eq(0).find('small').length).toBe(2);
       expect(rows.eq(1).children('td').eq(0).text()).toContain(legendEntries[0].Information[0].Text);
-      expect(rows.eq(1).children('td').eq(2).text()).toContain('568');
-      expect(rows.eq(1).children('td').eq(3).text()).toContain('56.7%');
+      expect(rows.eq(1).children('td').eq(2).text()).toContain('123');
+      expect(rows.eq(1).children('td').eq(3).text()).toContain('12.3%');
       expect(rows.eq(2).children('td').eq(0).text()).toContain(legendEntries[1].Information[0].Text);
-      expect(rows.eq(2).children('td').eq(2).text()).toContain('123');
-      expect(rows.eq(2).children('td').eq(3).text()).toContain('12.3%');
+      expect(rows.eq(2).children('td').eq(2).text()).toContain('568');
+      expect(rows.eq(2).children('td').eq(3).text()).toContain('56.7%');
       expect(element.children('div.full-legend-wrapper').length).toBe(1);
       expect(element.children('div.full-legend-wrapper').first().find('img').eq(0).attr('src'))
         .toContain(legendGraphics[0]);
