@@ -6,6 +6,8 @@ Changelog
 
 https://gitlab.com/gf-bl/oereb_client/milestones/13
 
+- Set title and favicon via configuration
+
 1.1.5
 *****
 
