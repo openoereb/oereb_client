@@ -4,7 +4,7 @@
         <i class="fa fa-link" aria-hidden="true"></i>
     </button>
     <button class="btn btn-default" type="button" title="zu GeoView BL wechseln" data-toggle="tooltip"
-            data-placement="right" ng-click="goToGeoView()">
+            data-placement="right" ng-click="goToGeoView()" ng-if="hasLinkConfig()">
         <i class="fa fa-map-o" aria-hidden="true"></i>
     </button>
     <oereb-static-extract></oereb-static-extract>

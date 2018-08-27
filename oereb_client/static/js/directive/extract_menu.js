@@ -2,20 +2,18 @@ goog.provide('oereb.extractMenuDirective');
 
 goog.require('oereb');
 goog.require('oereb.staticExtractDirective');
-goog.require('oereb.MapService');
 
 /**
  * Drirective definition function.
  *
  * @param {angular.$location} $location Angular $location service.
- * @param {oereb.MapService} MapService Angular service for map handling.
  * @param {string} geoViewConfig JSON-encoded GeoView BL configuration.
  *
  * @returns {angular.Directive} Angular directive definition.
  *
  * @ngInject
  */
-oereb.extractMenuDirective = function ($location, MapService, geoViewConfig) {
+oereb.extractMenuDirective = function ($location, geoViewConfig) {
   return {
     restrict: 'E',
     replace: true,
@@ -35,34 +33,46 @@ oereb.extractMenuDirective = function ($location, MapService, geoViewConfig) {
       scope.permaLink = '';
 
       /**
+       * Returns true, if a valid config has been passed.
+       * @returns {boolean} True, if a valid config has been passed, false otherwise.
+       * @export
+       */
+      scope.hasLinkConfig = function() {
+        var config = angular.fromJson(geoViewConfig);
+        return angular.isObject(config) && !angular.equals(config, {});
+      };
+
+      /**
        * Switch to GeoView BL at the currently selected EGRID.
        * @export
        */
       scope.goToGeoView = function() {
         var egrid = $location.search()['egrid'];
         var config = angular.fromJson(geoViewConfig);
-        var url = config['url'];
-        var treeGroups = config['tree_groups'];
-        if (url.indexOf('?') === -1) {
-          url += '?';
-        }
-        var parameters = [
-          'wfs_layer=grundstueck',
-          'wfs_egris_egrid=' + egrid,
-          'no_redirect='
-        ];
-        var layerNames = [];
-        for (var i = 0; i < treeGroups.length; i++) {
-          parameters.push(
-            'tree_group_layers_' + treeGroups[i]['name'] + '=' + treeGroups[i]['layers'].join(',')
+        if (!angular.equals(config, {})) {
+          var url = config['url'];
+          var treeGroups = config['tree_groups'];
+          if (url.indexOf('?') === -1) {
+            url += '?';
+          }
+          var parameters = [
+            'wfs_layer=grundstueck',
+            'wfs_egris_egrid=' + egrid,
+            'no_redirect='
+          ];
+          var layerNames = [];
+          for (var i = 0; i < treeGroups.length; i++) {
+            parameters.push(
+              'tree_group_layers_' + treeGroups[i]['name'] + '=' + treeGroups[i]['layers'].join(',')
+            );
+            layerNames.push(treeGroups[i]['name']);
+          }
+          parameters.push('tree_groups=' + layerNames.join(','));
+          window.open(
+            encodeURI(url + parameters.join('&')),
+            '_blank'
           );
-          layerNames.push(treeGroups[i]['name']);
         }
-        parameters.push('tree_groups=' + layerNames.join(','));
-        window.open(
-          encodeURI(url + parameters.join('&')),
-          '_blank'
-        );
       };
 
       /**
