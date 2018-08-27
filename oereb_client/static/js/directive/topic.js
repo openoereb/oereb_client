@@ -69,7 +69,7 @@ oereb.topicDirective = function($timeout, MapService) {
       /**
        * @export {number}
        */
-      scope.opacity = 100;
+      scope.opacity = parseInt(Math.round(scope.layer.getOpacity() * 100));
 
       // Get collapsible element
       var collapsible = element.find('.collapse').first();

@@ -381,6 +381,9 @@
         "PlanForLandRegister": {
           "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.swisstopo-vd.amtliche-vermessung&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205"
         },
+        "PlanForLandRegisterMainPage": {
+          "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.swisstopo-vd.amtliche-vermessung&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205"
+        },
         "RestrictionOnLandownership": [
           {
             "PartInPercent": 22.3,
@@ -455,7 +458,8 @@
             "TypeCode": "StaoTyp2",
             "Map": {
               "LegendAtWeb": "https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&LAYER=ch.bav.kataster-belasteter-standorte-oev.oereb",
-              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205"
+              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205",
+              "layerOpacity": 0.75
             },
             "LegalProvisions": [
               {
@@ -658,7 +662,8 @@
             "TypeCode": "StaoTyp2",
             "Map": {
               "LegendAtWeb": "https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&LAYER=ch.bav.kataster-belasteter-standorte-oev.oereb",
-              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205"
+              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205",
+              "layerOpacity": 0.75
             },
             "LegalProvisions": [
               {
@@ -862,7 +867,8 @@
             "TypeCode": "StaoTyp3",
             "Map": {
               "LegendAtWeb": "https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&LAYER=ch.bav.kataster-belasteter-standorte-oev.oereb",
-              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205"
+              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205",
+              "layerOpacity": 0.75
             },
             "LegalProvisions": [
               {
@@ -1065,7 +1071,8 @@
             "TypeCode": "StaoTyp3",
             "Map": {
               "LegendAtWeb": "https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&LAYER=ch.bav.kataster-belasteter-standorte-oev.oereb",
-              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205"
+              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205",
+              "layerOpacity": 0.75
             },
             "LegalProvisions": [
               {
@@ -1242,7 +1249,8 @@
             "TypeCode": "StaoTyp1",
             "Map": {
               "LegendAtWeb": "https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetLegendGraphic&VERSION=1.1.1&FORMAT=image/png&LAYER=ch.bav.kataster-belasteter-standorte-oev.oereb",
-              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205"
+              "ReferenceWMS": "https://wms.geo.admin.ch/?STYLES=default&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SERVICE=WMS&FORMAT=image%2Fpng&REQUEST=GetMap&SRS=EPSG%3A2056&HEIGHT=280&WIDTH=493&VERSION=1.1.1&BBOX=2608548.36072%2C1261661.8625%2C2609210.13928%2C1262037.7205",
+              "layerOpacity": 0.75
             },
             "LegalProvisions": [
               {

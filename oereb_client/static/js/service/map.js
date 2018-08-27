@@ -179,13 +179,15 @@ oereb.MapService.prototype.addTopicLayers = function(viewServices) {
   this.map_.removeLayer(this.availabilityLayer_);
   var projection = this.map_.getView().getProjection();
   for (var i = 0; i < viewServices.length; i++) {
+    var opacity = viewServices[i]['opacity'];
     var layer = new ol.layer.Image({
       source: new ol.source.ImageWMS({
         url: viewServices[i]['url'],
         params: viewServices[i]['params'],
         projection: projection
       }),
-      visible: false
+      visible: false,
+      opacity: angular.isNumber(opacity) ? opacity : 1.0
     });
     layer.set('topic', viewServices[i]['topic']);
     this.topicLayers_.push(layer);

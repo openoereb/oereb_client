@@ -335,16 +335,18 @@ oereb.ExtractService.prototype.getResponsibleOffices = function(themeCode) {
  * Creates a view service definition using the restriction's theme code and view service URL.
  * @param {string} themeCode The restriction's theme code.
  * @param {string} viewServiceUrl The restriction's view service URL.
+ * @param {number} opacity The opacity applied to the view service's layers.
  * @returns {Object} The created view service definition.
  * @private
  */
-oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(themeCode, viewServiceUrl) {
+oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(themeCode, viewServiceUrl, opacity) {
   var parts = viewServiceUrl.split('?');
   var url = parts[0];
   var definition = {
     'topic': themeCode,
     'url': url,
-    'params': {}
+    'params': {},
+    'opacity': opacity
   };
   var params = parts[1].split('&');
   for (var i = 0; i < params.length; i++) {
@@ -374,9 +376,10 @@ oereb.ExtractService.prototype.getViewServices = function() {
     if (angular.isArray(restrictions)) {
       for (var i = 0; i < restrictions.length; i++) {
         var url = restrictions[i]['Map']['ReferenceWMS'];
+        var opacity = restrictions[i]['Map']['layerOpacity'];
         if (angular.isDefined(url)) {
           this.addIfNotContains_(
-            this.getViewServiceFromUrl_(restrictions[i]['Theme']['Code'], url),
+            this.getViewServiceFromUrl_(restrictions[i]['Theme']['Code'], url, opacity),
             viewServices
           );
         }
