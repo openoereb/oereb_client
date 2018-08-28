@@ -43,16 +43,18 @@ oereb.topicDirective = function($timeout, MapService) {
       angular.forEach(MapService.getTopicLayers(), function(layer) {
         if (layer.get('topic') === scope.theme['Code']) {
           scope.layer = layer;
-          scope.layer.getSource().on('imageloadstart', function() {
-            $timeout(function() {
-              scope.isLoading = true;
-            });
-          }, scope);
-          scope.layer.getSource().on(['imageloadend', 'imageloaderror'], function() {
-            $timeout(function() {
-              scope.isLoading = false;
-            });
-          }, scope);
+          scope.layer.getLayers().forEach(function(l) {
+            l.getSource().on('imageloadstart', function() {
+              $timeout(function() {
+                scope.isLoading = true;
+              });
+            }, scope);
+            l.getSource().on(['imageloadend', 'imageloaderror'], function() {
+              $timeout(function() {
+                scope.isLoading = false;
+              });
+            }, scope);
+          });
           return false;
         }
       });

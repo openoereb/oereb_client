@@ -342,11 +342,36 @@ oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(themeCode, mapO
   var parts = mapObject['ReferenceWMS'].split('?');
   var url = parts[0];
   var definition = {
-    'topic': themeCode,
     'url': url,
     'params': {},
-    'opacity': mapObject['layerOpacity']
+    'opacity': mapObject['layerOpacity'],
+    'zIndex': mapObject['layerIndex']
   };
+  var hasNS95 = angular.isObject(mapObject['min_NS95']) && angular.isObject(mapObject['max_NS95']);
+  var hasNS03 = angular.isObject(mapObject['min_NS03']) && angular.isObject(mapObject['max_NS03']);
+  if (hasNS95 || hasNS03) {
+    var minNS = hasNS95 ? mapObject['min_NS95'] : mapObject['min_NS03'];
+    var maxNS = hasNS95 ? mapObject['max_NS95'] : mapObject['max_NS03'];
+    var minCoords = minNS['coordinates'];
+    var maxCoords = maxNS['coordinates'];
+    if (
+      angular.isArray(minCoords) && minCoords.length === 2 &&
+      angular.isArray(maxCoords) && maxCoords.length === 2
+    ) {
+      if (angular.isString(minNS['crs'])) {
+        minCoords = proj4(minNS['crs'], 'EPSG:2056', minCoords);
+      }
+      if (angular.isString(maxNS['crs'])) {
+        maxCoords = proj4(maxNS['crs'], 'EPSG:2056', maxCoords);
+      }
+      definition['extent'] = [
+        minCoords[0],
+        minCoords[1],
+        maxCoords[0],
+        maxCoords[1]
+      ];
+    }
+  }
   var params = parts[1].split('&');
   for (var i = 0; i < params.length; i++) {
     var param = params[i].split('=');
@@ -365,20 +390,24 @@ oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(themeCode, mapO
 
 /**
  * Returns a unique list of view services available in the extract.
- * @returns {Array} A unique list of view service objects.
+ * @returns {Object} A unique list of view service objects grouped by topic.
  */
 oereb.ExtractService.prototype.getViewServices = function() {
-  var viewServices = [];
+  var viewServices = {};
   var realEstate = this.getRealEstate();
   if (angular.isDefined(realEstate)) {
     var restrictions = realEstate['RestrictionOnLandownership'];
     if (angular.isArray(restrictions)) {
       for (var i = 0; i < restrictions.length; i++) {
+        var themeCode = restrictions[i]['Theme']['Code'];
         var mapObject = restrictions[i]['Map'];
+        if (!angular.isArray(viewServices[themeCode])) {
+          viewServices[themeCode] = [];
+        }
         if (angular.isDefined(mapObject['ReferenceWMS'])) {
           this.addIfNotContains_(
-            this.getViewServiceFromUrl_(restrictions[i]['Theme']['Code'], mapObject),
-            viewServices
+            this.getViewServiceFromUrl_(themeCode, mapObject),
+            viewServices[themeCode]
           );
         }
       }

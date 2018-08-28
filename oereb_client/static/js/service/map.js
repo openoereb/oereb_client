@@ -173,26 +173,36 @@ oereb.MapService.prototype.getBaseLayerWmtsSource_ = function() {
 
 /**
  * Adds the specified view services as topic layers.
- * @param {Array.<Object>} viewServices The view service definition object.
+ * @param {Object} viewServicesByTopic The view service definition object.
  */
-oereb.MapService.prototype.addTopicLayers = function(viewServices) {
+oereb.MapService.prototype.addTopicLayers = function(viewServicesByTopic) {
   this.map_.removeLayer(this.availabilityLayer_);
   var projection = this.map_.getView().getProjection();
-  for (var i = 0; i < viewServices.length; i++) {
-    var opacity = viewServices[i]['opacity'];
-    var layer = new ol.layer.Image({
-      source: new ol.source.ImageWMS({
-        url: viewServices[i]['url'],
-        params: viewServices[i]['params'],
-        projection: projection
-      }),
+  angular.forEach(viewServicesByTopic, function(viewServices, topic) {
+    var layers = [];
+    for (var i = 0; i < viewServices.length; i++) {
+      var opacity = viewServices[i]['opacity'];
+      var layer = new ol.layer.Image({
+        source: new ol.source.ImageWMS({
+          url: viewServices[i]['url'],
+          params: viewServices[i]['params'],
+          projection: projection
+        }),
+        visible: true,
+        opacity: angular.isNumber(opacity) ? opacity : 1.0,
+        zIndex: viewServices[i]['zIndex']
+      });
+      layers.push(layer);
+    }
+    var group = new ol.layer.Group({
+      layers: layers,
       visible: false,
-      opacity: angular.isNumber(opacity) ? opacity : 1.0
+      opacity: 1
     });
-    layer.set('topic', viewServices[i]['topic']);
-    this.topicLayers_.push(layer);
-    this.map_.addLayer(layer);
-  }
+    group.set('topic', topic);
+    this.topicLayers_.push(group);
+    this.map_.addLayer(group);
+  }.bind(this));
   this.map_.addLayer(this.availabilityLayer_);
 };
 
