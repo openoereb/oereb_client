@@ -472,8 +472,10 @@
             },
             "LegalProvisions": [
               {
+                "DocumentType": "LegalProvision",
                 "Reference": [
                   {
+                    "DocumentType": "Law",
                     "OfficialNumber": "SR 814.01",
                     "Title": [
                       {
@@ -511,6 +513,7 @@
                     }
                   },
                   {
+                    "DocumentType": "Hint",
                     "OfficialNumber": "SR 814.680",
                     "Title": [
                       {
@@ -685,8 +688,10 @@
             },
             "LegalProvisions": [
               {
+                "DocumentType": "LegalProvision",
                 "Reference": [
                   {
+                    "DocumentType": "Law",
                     "OfficialNumber": "SR 814.01",
                     "Title": [
                       {
@@ -699,10 +704,6 @@
                         "Text": "USG",
                         "Language": "de"
                       }
-                    ],
-                    "ArticleNumber": [
-                      "Art. 1a",
-                      "Art. 2b"
                     ],
                     "ResponsibleOffice": {
                       "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
@@ -728,6 +729,7 @@
                     }
                   },
                   {
+                    "DocumentType": "Hint",
                     "OfficialNumber": "SR 814.680",
                     "Title": [
                       {
@@ -891,8 +893,10 @@
             },
             "LegalProvisions": [
               {
+                "DocumentType": "LegalProvision",
                 "Reference": [
                   {
+                    "DocumentType": "Law",
                     "OfficialNumber": "SR 814.01",
                     "Title": [
                       {
@@ -905,9 +909,6 @@
                         "Text": "USG",
                         "Language": "de"
                       }
-                    ],
-                    "ArticleNumber": [
-                      "Art. 3c"
                     ],
                     "ResponsibleOffice": {
                       "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
@@ -933,6 +934,7 @@
                     }
                   },
                   {
+                    "DocumentType": "Hint",
                     "OfficialNumber": "SR 814.680",
                     "Title": [
                       {
@@ -1096,8 +1098,10 @@
             },
             "LegalProvisions": [
               {
+                "DocumentType": "LegalProvision",
                 "Reference": [
                   {
+                    "DocumentType": "Law",
                     "OfficialNumber": "SR 814.01",
                     "Title": [
                       {
@@ -1110,9 +1114,6 @@
                         "Text": "USG",
                         "Language": "de"
                       }
-                    ],
-                    "ArticleNumber": [
-                      "Art. 3c"
                     ],
                     "ResponsibleOffice": {
                       "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
@@ -1138,6 +1139,7 @@
                     }
                   },
                   {
+                    "DocumentType": "Hint",
                     "OfficialNumber": "SR 814.680",
                     "Title": [
                       {
@@ -1283,8 +1285,10 @@
             },
             "LegalProvisions": [
               {
+                "DocumentType": "LegalProvision",
                 "Reference": [
                   {
+                    "DocumentType": "Law",
                     "OfficialNumber": "SR 814.01",
                     "Title": [
                       {
@@ -1297,9 +1301,6 @@
                         "Text": "USG",
                         "Language": "de"
                       }
-                    ],
-                    "ArticleNumber": [
-                      "Art. 3c"
                     ],
                     "ResponsibleOffice": {
                       "OfficeAtWeb": "http://www.bav.admin.ch/themen/verkehrspolitik/00709/index.html",
@@ -1325,6 +1326,7 @@
                     }
                   },
                   {
+                    "DocumentType": "Hint",
                     "OfficialNumber": "SR 814.680",
                     "Title": [
                       {
