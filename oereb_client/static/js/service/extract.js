@@ -333,12 +333,11 @@ oereb.ExtractService.prototype.getResponsibleOffices = function(themeCode) {
 
 /**
  * Creates a view service definition using the restriction's theme code and view service URL.
- * @param {string} themeCode The restriction's theme code.
  * @param {Object} mapObject The restriction's view service definition.
  * @returns {Object} The created view service definition.
  * @private
  */
-oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(themeCode, mapObject) {
+oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(mapObject) {
   var parts = mapObject['ReferenceWMS'].split('?');
   var url = parts[0];
   var definition = {
@@ -406,7 +405,7 @@ oereb.ExtractService.prototype.getViewServices = function() {
         }
         if (angular.isDefined(mapObject['ReferenceWMS'])) {
           this.addIfNotContains_(
-            this.getViewServiceFromUrl_(themeCode, mapObject),
+            this.getViewServiceFromUrl_(mapObject),
             viewServices[themeCode]
           );
         }

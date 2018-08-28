@@ -275,7 +275,7 @@ describe('ExtractService', function() {
       var entries = ExtractService.getLegend('ContaminatedPublicTransportSites')['entries'];
       var graphics = ExtractService.getLegend('ContaminatedPublicTransportSites')['graphics'];
       expect(entries.length).toBe(3);
-      expect(graphics.length).toBe(1);
+      expect(graphics.length).toBe(3);
       expect(entries[0]['AreaShare']).toBe(13652.36);
       expect(entries[0]['PartInPercent']).toBe(37.7);
       expect(entries[0]['LengthShare']).toBeUndefined();
@@ -529,16 +529,19 @@ describe('ExtractService', function() {
 
     it('should return a view service definition for the specified url and topic', function() {
       var topic = 'test';
-      var url = 'http://example.com/wms?SERVICE=WMS&version=1.1.1&Layers=layer1,layer2&STYLES=default';
-      var viewService = ExtractService.getViewServiceFromUrl_(topic, url);
+      var mapObject = {
+        ReferenceWMS: 'http://example.com/wms?SERVICE=WMS&version=1.1.1&Layers=layer1,layer2&STYLES=default'
+      };
+      var viewService = ExtractService.getViewServiceFromUrl_(mapObject);
       expect(viewService).toEqual({
-        topic: 'test',
         url: 'http://example.com/wms',
         params: {
           VERSION: '1.1.1',
           LAYERS: 'layer1,layer2',
           STYLES: 'default'
-        }
+        },
+        opacity: undefined,
+        zIndex: undefined
       });
     });
 
@@ -546,8 +549,8 @@ describe('ExtractService', function() {
 
   describe('getViewServices', function() {
 
-    it('should return empty array if no extract is available', function() {
-      expect(ExtractService.getViewServices()).toEqual([]);
+    it('should return empty object if no extract is available', function() {
+      expect(ExtractService.getViewServices()).toEqual({});
     });
 
     it('should return a unique list of view service definitions', function() {
@@ -580,17 +583,17 @@ describe('ExtractService', function() {
         ]
       });
       var viewServices = ExtractService.getViewServices();
-      expect(viewServices.length).toBe(2);
-      expect(viewServices[0].topic).toEqual('topic1');
-      expect(viewServices[1].topic).toEqual('topic2');
-      expect(viewServices[0].url).toEqual('http://example.com/wms');
-      expect(viewServices[1].url).toEqual('http://example.com/wms');
-      expect(viewServices[0].params).toEqual({
+      expect(Object.keys(viewServices).length).toBe(2);
+      expect(viewServices['topic1']).toBeDefined();
+      expect(viewServices['topic2']).toBeDefined();
+      expect(viewServices['topic1'][0].url).toEqual('http://example.com/wms');
+      expect(viewServices['topic2'][0].url).toEqual('http://example.com/wms');
+      expect(viewServices['topic1'][0].params).toEqual({
         VERSION: '1.1.1',
         LAYERS: 'layer1',
         STYLES: 'default'
       });
-      expect(viewServices[1].params).toEqual({
+      expect(viewServices['topic2'][0].params).toEqual({
         VERSION: '1.1.1',
         LAYERS: 'layer2',
         STYLES: 'default'

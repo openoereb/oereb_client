@@ -50,8 +50,12 @@ describe('topicDirective', function() {
       oerebEventExtractLoaded: _oerebEventExtractLoaded_
     });
     $scope.theme = themes[0];
-    layer = new ol.layer.Image({
-      source: new ol.source.ImageCanvas({})
+    layer = new ol.layer.Group({
+      layers: [
+        new ol.layer.Image({
+          source: new ol.source.ImageCanvas({})
+        })
+      ]
     });
     layer.set('topic', themes[0].Code);
     MapService.topicLayers_.push(layer);
@@ -92,7 +96,7 @@ describe('topicDirective', function() {
       )($scope);
       $scope.$digest();
       var scope = element.isolateScope();
-      expect(scope.layer instanceof ol.layer.Image).toBe(true);
+      expect(scope.layer instanceof ol.layer.Group).toBe(true);
       expect(scope.layer.get('topic')).toEqual(themes[0].Code);
       expect(scope.opacity).toBe(100);
       expect(scope.isLoading).toBe(false);
@@ -215,7 +219,7 @@ describe('topicDirective', function() {
       $scope.$digest();
       var scope = element.isolateScope();
       expect(scope.isLoading).toBe(false);
-      layer.getSource().dispatchEvent('imageloadstart');
+      layer.getLayers().item(0).getSource().dispatchEvent('imageloadstart');
       $timeout.flush();
       expect(scope.isLoading).toBe(true);
     });
@@ -232,7 +236,7 @@ describe('topicDirective', function() {
       var scope = element.isolateScope();
       scope.isLoading = true;
       expect(scope.isLoading).toBe(true);
-      layer.getSource().dispatchEvent('imageloadend');
+      layer.getLayers().item(0).getSource().dispatchEvent('imageloadend');
       $timeout.flush();
       expect(scope.isLoading).toBe(false);
     });
@@ -249,7 +253,7 @@ describe('topicDirective', function() {
       var scope = element.isolateScope();
       scope.isLoading = true;
       expect(scope.isLoading).toBe(true);
-      layer.getSource().dispatchEvent('imageloaderror');
+      layer.getLayers().item(0).getSource().dispatchEvent('imageloaderror');
       $timeout.flush();
       expect(scope.isLoading).toBe(false);
     });

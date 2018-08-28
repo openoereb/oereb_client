@@ -37,9 +37,9 @@ oereb.topicDirective = function($timeout, MapService) {
       scope.isLoading = false;
 
       /**
-       * @type {ol.layer.Layer|undefined}
+       * @type {ol.layer.Group}
        */
-      scope.layer = undefined;
+      scope.layer = new ol.layer.Group();
       angular.forEach(MapService.getTopicLayers(), function(layer) {
         if (layer.get('topic') === scope.theme['Code']) {
           scope.layer = layer;
@@ -68,9 +68,7 @@ oereb.topicDirective = function($timeout, MapService) {
       /** @export {string} */
       scope.badgeIcon = badgeIconCollapsed;
 
-      /**
-       * @export {number}
-       */
+      /** @export {number} */
       scope.opacity = parseInt(Math.round(scope.layer.getOpacity() * 100));
 
       // Get collapsible element
