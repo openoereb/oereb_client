@@ -194,28 +194,30 @@ describe('MapService', function() {
       it('should update the list of topic layers', function() {
         spyOn(MapService.getMap(), 'removeLayer').and.callThrough();
         spyOn(MapService.getMap(), 'addLayer').and.callThrough();
-        var viewServices = [
-          {
-            topic: 'topic1',
-            url: 'http://example.com/wms',
-            params: {
-              LAYERS: 'layer1'
+        var viewServicesByTopic = {
+          topic1: [
+            {
+              url: 'http://example.com/wms',
+              params: {
+                LAYERS: 'layer1'
+              }
             }
-          },
-          {
-            topic: 'topic2',
-            url: 'http://example.com/wms',
-            params: {
-              LAYERS: 'layer1'
+          ],
+          topic2: [
+            {
+              url: 'http://example.com/wms',
+              params: {
+                LAYERS: 'layer1'
+              }
             }
-          }
-        ];
-        MapService.addTopicLayers(viewServices);
+          ]
+        };
+        MapService.addTopicLayers(viewServicesByTopic);
         expect(MapService.topicLayers_.length).toBe(2);
-        for (var i = 0; i < viewServices.length; i++) {
+        for (var i = 0; i < viewServicesByTopic.length; i++) {
           expect(MapService.topicLayers_[i].get('topic')).toEqual('topic' + (i + 1));
           expect(MapService.topicLayers_[i].getVisible()).toBe(false);
-          expect(MapService.topicLayers_[i].getSource().getProjection())
+          expect(MapService.topicLayers_[i].getLayers().item(0).getSource().getProjection())
             .toBe(MapService.getMap().getView().getProjection());
           expect(MapService.getMap().getLayers().item(i)).toBe(MapService.topicLayers_[i]);
         }

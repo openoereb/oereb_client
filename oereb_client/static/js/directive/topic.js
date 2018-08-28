@@ -37,22 +37,24 @@ oereb.topicDirective = function($timeout, MapService) {
       scope.isLoading = false;
 
       /**
-       * @type {ol.layer.Layer|undefined}
+       * @type {ol.layer.Group}
        */
-      scope.layer = undefined;
+      scope.layer = new ol.layer.Group();
       angular.forEach(MapService.getTopicLayers(), function(layer) {
         if (layer.get('topic') === scope.theme['Code']) {
           scope.layer = layer;
-          scope.layer.getSource().on('imageloadstart', function() {
-            $timeout(function() {
-              scope.isLoading = true;
-            });
-          }, scope);
-          scope.layer.getSource().on(['imageloadend', 'imageloaderror'], function() {
-            $timeout(function() {
-              scope.isLoading = false;
-            });
-          }, scope);
+          scope.layer.getLayers().forEach(function(l) {
+            l.getSource().on('imageloadstart', function() {
+              $timeout(function() {
+                scope.isLoading = true;
+              });
+            }, scope);
+            l.getSource().on(['imageloadend', 'imageloaderror'], function() {
+              $timeout(function() {
+                scope.isLoading = false;
+              });
+            }, scope);
+          });
           return false;
         }
       });
@@ -66,10 +68,8 @@ oereb.topicDirective = function($timeout, MapService) {
       /** @export {string} */
       scope.badgeIcon = badgeIconCollapsed;
 
-      /**
-       * @export {number}
-       */
-      scope.opacity = 100;
+      /** @export {number} */
+      scope.opacity = parseInt(Math.round(scope.layer.getOpacity() * 100));
 
       // Get collapsible element
       var collapsible = element.find('.collapse').first();
