@@ -528,9 +528,10 @@ describe('ExtractService', function() {
   describe('getViewServiceFromUrl_', function() {
 
     it('should return a view service definition for the specified url and topic', function() {
-      var topic = 'test';
       var mapObject = {
-        ReferenceWMS: 'http://example.com/wms?SERVICE=WMS&version=1.1.1&Layers=layer1,layer2&STYLES=default'
+        ReferenceWMS: 'http://example.com/wms?SERVICE=WMS&version=1.1.1&Layers=layer1,layer2&STYLES=default',
+        layerOpacity: 0.5,
+        layerIndex: 1
       };
       var viewService = ExtractService.getViewServiceFromUrl_(mapObject);
       expect(viewService).toEqual({
@@ -540,8 +541,64 @@ describe('ExtractService', function() {
           LAYERS: 'layer1,layer2',
           STYLES: 'default'
         },
-        opacity: undefined,
-        zIndex: undefined
+        opacity: 0.5,
+        zIndex: 1
+      });
+    });
+
+    it('should pass NS95', function() {
+      var mapObject = {
+        ReferenceWMS: 'http://example.com/wms?SERVICE=WMS&version=1.1.1&Layers=layer1,layer2&STYLES=default',
+        layerOpacity: 0.5,
+        layerIndex: 1,
+        min_NS95: {
+          crs: 'EPSG:2056',
+          coordinates: [1, 2]
+        },
+        max_NS95: {
+          crs: 'EPSG:2056',
+          coordinates: [3, 4]
+        }
+      };
+      var viewService = ExtractService.getViewServiceFromUrl_(mapObject);
+      expect(viewService).toEqual({
+        url: 'http://example.com/wms',
+        params: {
+          VERSION: '1.1.1',
+          LAYERS: 'layer1,layer2',
+          STYLES: 'default'
+        },
+        opacity: 0.5,
+        zIndex: 1,
+        extent: [1, 2, 3, 4]
+      });
+    });
+
+    it('should pass NS03', function() {
+      var mapObject = {
+        ReferenceWMS: 'http://example.com/wms?SERVICE=WMS&version=1.1.1&Layers=layer1,layer2&STYLES=default',
+        layerOpacity: 0.5,
+        layerIndex: 1,
+        min_NS03: {
+          crs: 'EPSG:21781',
+          coordinates: [1, 2]
+        },
+        max_NS03: {
+          crs: 'EPSG:21781',
+          coordinates: [3, 4]
+        }
+      };
+      var viewService = ExtractService.getViewServiceFromUrl_(mapObject);
+      expect(viewService).toEqual({
+        url: 'http://example.com/wms',
+        params: {
+          VERSION: '1.1.1',
+          LAYERS: 'layer1,layer2',
+          STYLES: 'default'
+        },
+        opacity: 0.5,
+        zIndex: 1,
+        extent: [2000001, 1000002, 2000003, 1000004]
       });
     });
 

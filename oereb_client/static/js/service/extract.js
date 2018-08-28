@@ -364,10 +364,10 @@ oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(mapObject) {
         maxCoords = proj4(maxNS['crs'], 'EPSG:2056', maxCoords);
       }
       definition['extent'] = [
-        minCoords[0],
-        minCoords[1],
-        maxCoords[0],
-        maxCoords[1]
+        Math.round(minCoords[0] * 100) / 100,
+        Math.round(minCoords[1] * 100) / 100,
+        Math.round(maxCoords[0] * 100) / 100,
+        Math.round(maxCoords[1] * 100) / 100
       ];
     }
   }
