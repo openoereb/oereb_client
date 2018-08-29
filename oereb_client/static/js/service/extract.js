@@ -219,30 +219,31 @@ oereb.ExtractService.prototype.addIfNotContains_ = function(item, target) {
  * @private
  */
 oereb.ExtractService.prototype.addDocumentIfNotContained_ = function(document, target) {
-  if (angular.isArray(target)) {
-    for (var i = 0; i < target.length; i++) {
+  var targetArray = target[document['DocumentType']];
+  if (angular.isObject(target) && angular.isArray(targetArray)) {
+    for (var i = 0; i < targetArray.length; i++) {
       // Check if document already exists (only use 'Title', 'OfficialNumber' and 'TextAtWeb' for comparison)
       if (
-        angular.equals(target[i]['Title'], document['Title']) &&
-        angular.equals(target[i]['OfficialNumber'], document['OfficialNumber'])
+        angular.equals(targetArray[i]['Title'], document['Title']) &&
+        angular.equals(targetArray[i]['OfficialNumber'], document['OfficialNumber'])
       ) {
         // Add missing article numbers if document already exists
         for (var j = 0; j < document['ArticleNumber'].length; j++) {
-          this.addIfNotContains_(document['ArticleNumber'][j], target[i]['ArticleNumber']);
+          this.addIfNotContains_(document['ArticleNumber'][j], targetArray[i]['ArticleNumber']);
         }
         // Add missing articles if document already exists
         for (var k = 0; k < document['Article'].length; k++) {
-          this.addIfNotContains_(document['Article'][k], target[i]['Article']);
+          this.addIfNotContains_(document['Article'][k], targetArray[i]['Article']);
         }
         // Add missing files if document already exists
         for (var l = 0; l < document['TextAtWeb'].length; l++) {
-          this.addIfNotContains_(document['TextAtWeb'][l], target[i]['TextAtWeb']);
+          this.addIfNotContains_(document['TextAtWeb'][l], targetArray[i]['TextAtWeb']);
         }
         return;
       }
     }
     // Add document if it is missing
-    target.push(document);
+    targetArray.push(document);
   }
 };
 
@@ -254,10 +255,11 @@ oereb.ExtractService.prototype.addDocumentIfNotContained_ = function(document, t
  */
 oereb.ExtractService.prototype.addDocumentsIfNotContained_ = function(documents, target) {
   // Iterate documents to be added
-  if (angular.isArray(documents) && angular.isArray(target)) {
+  if (angular.isArray(documents) && angular.isObject(target)) {
     for (var i = 0; i < documents.length; i++) {
       // Create document object with necessary properties and check if it needs to be added
       this.addDocumentIfNotContained_({
+        'DocumentType': documents[i]['DocumentType'],
         'Title': documents[i]['Title'],
         'OfficialNumber': documents[i]['OfficialNumber'],
         'ArticleNumber': documents[i]['ArticleNumber'] || [],
@@ -282,8 +284,11 @@ oereb.ExtractService.prototype.getDocuments = function(themeCode) {
   // Get the restrictions for the specified topic
   var restrictions = this.getRestrictions(themeCode);
   if (angular.isArray(restrictions)) {
-    var legalProvisions = [];
-    var documents = [];
+    var documents = {
+      'LegalProvision': [],
+      'Law': [],
+      'Hint': []
+    };
     // Iterate the resulting restrictions
     for (var i = 0; i < restrictions.length; i++) {
       // Iterate the legal provisions for each restriction
@@ -291,12 +296,13 @@ oereb.ExtractService.prototype.getDocuments = function(themeCode) {
       for (var j = 0; j < legalProvision.length; j++) {
         // Create legal provision object with necessary properties and check if it needs to be added
         this.addDocumentIfNotContained_({
+          'DocumentType': legalProvision[j]['DocumentType'],
           'Title': legalProvision[j]['Title'],
           'OfficialNumber': legalProvision[j]['OfficialNumber'],
           'ArticleNumber': legalProvision[j]['ArticleNumber'] || [],
           'Article': legalProvision[j]['Article'] || [],
           'TextAtWeb': [legalProvision[j]['TextAtWeb']]
-        }, legalProvisions);
+        }, documents);
         // Add possible references to the documents
         var references = legalProvision[j]['Reference'];
         if (angular.isArray(references)) {
@@ -306,10 +312,7 @@ oereb.ExtractService.prototype.getDocuments = function(themeCode) {
     }
     // Add possible references for the real estate to the documents
     this.addDocumentsIfNotContained_(this.getRealEstate()['Reference'], documents);
-    return {
-      'LegalProvisions': legalProvisions,
-      'Documents': documents
-    };
+    return documents;
   }
   return undefined;
 };
