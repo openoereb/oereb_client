@@ -12,12 +12,14 @@ goog.require('oereb.replaceFilter');
  *
  * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {oereb.ExtractService} ExtractService Service for extract handling.
+ * @param {oereb.ExtractService} StoreService Service for localStorage handling.
+ * @param {string} oerebEventSymbolZoomEnabled Symbol zoom status event name.
  *
  * @returns {angular.Directive} Directive definition object.
  *
  * @ngInject
  */
-oereb.legendDirective = function($timeout, ExtractService) {
+oereb.legendDirective = function($timeout, ExtractService, StoreService, oerebEventSymbolZoomEnabled) {
   return {
     restrict: 'E',
     replace: true,
@@ -85,6 +87,38 @@ oereb.legendDirective = function($timeout, ExtractService) {
             scope.graphicsText = graphicsTextHidden;
             scope.graphicsIcon = graphicsIconHidden;
           });
+        }
+      });
+
+      scope.enableSymbolZoom_ = function() {
+        element.find('img.symbol').popover({
+          container: 'body',
+          placement: 'right',
+          html: true,
+          template: '<div class="popover symbol-zoom" role="tooltip">' +
+                      '<div class="arrow"></div>' +
+                      '<h3 class="popover-title"></h3>' +
+                      '<div class="popover-content"></div>' +
+                    '</div>'
+        });
+      };
+
+      scope.disableSymbolZoom_ = function() {
+        element.find('img.symbol').popover('destroy');
+      };
+
+      scope.$watch('legend', function() {
+        if (StoreService.showSymbolZoom()) {
+          scope.enableSymbolZoom_();
+        }
+      });
+
+      scope.$on(oerebEventSymbolZoomEnabled, function(evt, show) {
+        if (show) {
+          scope.enableSymbolZoom_();
+        }
+        else {
+          scope.disableSymbolZoom_();
         }
       });
 

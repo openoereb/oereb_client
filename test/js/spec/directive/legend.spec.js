@@ -5,9 +5,10 @@ describe('legendDirective', function() {
   beforeEach(module('oereb', function($provide) {
     $provide.constant('oerebApplicationUrl', 'http://example.com/');
     $provide.constant('oerebDefaultLanguage', 'de');
+    $provide.constant('oerebLocalStoragePrefix', 'bl');
   }));
 
-  var $compile, $rootScope, $timeout, ExtractService;
+  var $compile, $rootScope, $timeout, ExtractService, StoreService, oerebEventSymbolZoomEnabled;
 
   var legendEntries = [
     {
@@ -32,11 +33,14 @@ describe('legendDirective', function() {
 
   var legendGraphics = ['http://example.com/wms?SERVICE=WMS&REQUEST=GetLegendGraphic&LAYERS=test'];
 
-  beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_, _ExtractService_) {
+  beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_, _ExtractService_, _StoreService_,
+                             _oerebEventSymbolZoomEnabled_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
     $timeout = _$timeout_;
     ExtractService = _ExtractService_;
+    StoreService = _StoreService_;
+    oerebEventSymbolZoomEnabled = _oerebEventSymbolZoomEnabled_;
   }));
 
   beforeEach(function () {
@@ -127,6 +131,74 @@ describe('legendDirective', function() {
           done();
         }, 600);
       }, 600);
+    });
+
+  });
+
+  describe('legend watcher', function() {
+
+    it('should enable legend zoom', function() {
+      $rootScope.themeCode = 'test';
+      var element = $compile(
+        '<oereb-legend theme-code="::themeCode"></oereb-legend>'
+      )($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      spyOn(StoreService, 'showSymbolZoom').and.returnValue(true);
+      spyOn(scope, 'enableSymbolZoom_');
+      scope.legend = {
+        'entries': legendEntries,
+        'graphics': legendGraphics
+      };
+      $rootScope.$digest();
+      expect(scope.enableSymbolZoom_).toHaveBeenCalled();
+    });
+
+    it('should not enable legend zoom', function() {
+      $rootScope.themeCode = 'test';
+      var element = $compile(
+        '<oereb-legend theme-code="::themeCode"></oereb-legend>'
+      )($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      spyOn(StoreService, 'showSymbolZoom').and.returnValue(false);
+      spyOn(scope, 'enableSymbolZoom_');
+      scope.legend = {
+        'entries': legendEntries,
+        'graphics': legendGraphics
+      };
+      $rootScope.$digest();
+      expect(scope.enableSymbolZoom_).toHaveBeenCalledTimes(0);
+    });
+
+  });
+
+  describe('oerebEventSymbolZoomEnabled', function() {
+
+    it('should enable legend zoom', function() {
+      $rootScope.themeCode = 'test';
+      var element = $compile(
+        '<oereb-legend theme-code="::themeCode"></oereb-legend>'
+      )($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      spyOn(scope, 'enableSymbolZoom_');
+      $rootScope.$broadcast(oerebEventSymbolZoomEnabled, true);
+      $rootScope.$apply();
+      expect(scope.enableSymbolZoom_).toHaveBeenCalled();
+    });
+
+    it('should disable legend zoom', function() {
+      $rootScope.themeCode = 'test';
+      var element = $compile(
+        '<oereb-legend theme-code="::themeCode"></oereb-legend>'
+      )($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      spyOn(scope, 'disableSymbolZoom_');
+      $rootScope.$broadcast(oerebEventSymbolZoomEnabled, false);
+      $rootScope.$apply();
+      expect(scope.disableSymbolZoom_).toHaveBeenCalled();
     });
 
   });

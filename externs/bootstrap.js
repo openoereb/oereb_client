@@ -57,6 +57,44 @@ jQuery.tooltip.prototype.delay;
  */
 jQuery.prototype.tooltip = function(opt_eventOrOptions) {};
 
+// --- Popovers ---
+
+/** @constructor */
+jQuery.popover.options = function() {};
+
+/** @type {boolean} */
+jQuery.popover.prototype.animation;
+
+/** @type {string|boolean} */
+jQuery.popover.prototype.container;
+
+/** @type {boolean} */
+jQuery.popover.prototype.html;
+
+/** @type {string|function} */
+jQuery.popover.prototype.placement;
+
+/** @type {string} */
+jQuery.popover.prototype.selector;
+
+/** @type {string} */
+jQuery.popover.prototype.template;
+
+/** @type {string|function} */
+jQuery.popover.prototype.title;
+
+/** @type {string} */
+jQuery.popover.prototype.trigger;
+
+/** @type {number|{show: number, hide: number}} */
+jQuery.popover.prototype.delay;
+
+/**
+ * @param {=(string|jQuery.tooltip.options)} opt_eventOrOptions
+ * @return {jQuery}
+ */
+jQuery.prototype.popover = function(opt_eventOrOptions) {};
+
 // --- Collapse ---
 
 /** @constructor */

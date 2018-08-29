@@ -13,6 +13,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/13
 - Apply new property names in legend
 - Adapt new document types
 - Add section for hints
+- Add magnifier for legend symbols (with on/off switch)
 
 1.1.5
 *****

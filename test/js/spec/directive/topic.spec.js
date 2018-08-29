@@ -15,6 +15,7 @@ describe('topicDirective', function() {
       url: 'http://geowms.bl.ch',
       layer: 'oereb_availability'
     }));
+    $provide.constant('oerebLocalStoragePrefix', 'bl');
   }));
 
   var $compile, $rootScope, $scope, $timeout, ExtractService, MapService, layer;

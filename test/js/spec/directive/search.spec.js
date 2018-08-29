@@ -62,6 +62,7 @@ describe('searchDirective', function() {
       url: 'http://geowms.bl.ch',
       layer: 'oereb_availability'
     }));
+    $provide.constant('oerebLocalStoragePrefix', 'bl');
   }));
 
   var $compile, $httpBackend, $rootScope, SearchService;

@@ -13,7 +13,8 @@ settings = {
         'application': {
             'title': 'Test',
             'icon': 'http://example.com/favicon.png',
-            'logo': 'http://example.com/logo.png'
+            'logo': 'http://example.com/logo.png',
+            'local_storage_prefix': 'bl'
         },
         'base_layer': {
             'type': 'wmts',
@@ -82,6 +83,7 @@ def test_render(mock_request):
             'title': 'Test',
             'icon': 'http://example.com/favicon.png',
             'logo': 'http://example.com/logo.png',
+            'local_storage_prefix': 'bl',
             'debug': index.is_debug_(),
             'base_layer_config': index.get_base_layer_config_(),
             'availability_config': index.get_availability_config_(),

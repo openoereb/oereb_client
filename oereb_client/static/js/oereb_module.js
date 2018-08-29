@@ -37,3 +37,5 @@ oereb.module.config(oereb.config);
 oereb.module.constant('oerebEventEgridSelected', 'oereb-event-egrid-selected');
 oereb.module.constant('oerebEventExtractLoaded', 'oereb-event-extract-loaded');
 oereb.module.constant('oerebEventExtractClosed', 'oereb-event-extract-closed');
+
+oereb.module.constant('oerebEventSymbolZoomEnabled', 'oereb-event-symbol-zoom-enabled');
