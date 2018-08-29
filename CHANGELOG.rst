@@ -11,6 +11,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/13
 - Set logo URL via configuration
 - Show link to GeoView BL only if configured
 - Apply new property names in legend
+- Add magnifier for legend symbols (with on/off switch)
 
 1.1.5
 *****
