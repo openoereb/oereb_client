@@ -17,12 +17,11 @@ describe('settingsDirective', function() {
     }));
   }));
 
-  var $compile, $rootScope, MapService, StoreService;
+  var $compile, $rootScope, StoreService;
 
-  beforeEach(inject(function(_$compile_, _$rootScope_, _MapService_, _StoreService_) {
+  beforeEach(inject(function(_$compile_, _$rootScope_, _StoreService_) {
     $rootScope = _$rootScope_;
     $compile = _$compile_;
-    MapService = _MapService_;
     StoreService = _StoreService_;
   }));
 
