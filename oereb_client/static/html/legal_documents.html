@@ -1,15 +1,15 @@
 <div class="container-fluid legal-documents">
     <dl>
-        <dt ng-if="data['LegalProvisions'].length > 0">Rechtsvorschriften</dt>
-        <dd ng-repeat="legalProvision in data['LegalProvisions']">
+        <dt ng-if="data['LegalProvision'].length > 0">Rechtsvorschriften</dt>
+        <dd ng-repeat="lp in data['LegalProvision']">
             <span>
-                {{legalProvision['Title'] | multilingualText}}
+                {{lp['Title'] | multilingualText}}
             </span>
-            <span ng-repeat="artNumber in legalProvision['ArticleNumber']">
+            <span ng-repeat="artNumber in lp['ArticleNumber']">
                 &nbsp;<span class="label label-primary">{{artNumber}}</span>
             </span>
             <ul>
-                <li ng-repeat="link in legalProvision['TextAtWeb']">
+                <li ng-repeat="link in lp['TextAtWeb']">
                     <small>
                         <a ng-href="{{link | multilingualText}}" target="_blank">
                             {{link | multilingualText}}
@@ -18,16 +18,34 @@
                 </li>
             </ul>
         </dd>
-        <dt ng-if="data['Documents'].length > 0">Gesetzliche Grundlagen</dt>
-        <dd ng-repeat="document in data['Documents']">
+        <dt ng-if="data['Law'].length > 0">Gesetzliche Grundlagen</dt>
+        <dd ng-repeat="l in data['Law']">
             <span>
-                {{document['Title'] | multilingualText}}
+                {{l['Title'] | multilingualText}}
             </span>
-            <span ng-repeat="artNumber in document['ArticleNumber']">
+            <span ng-repeat="artNumber in l['ArticleNumber']">
                 &nbsp;<span class="label label-primary">{{artNumber}}</span>
             </span>
             <ul>
-                <li ng-repeat="link in document['TextAtWeb']">
+                <li ng-repeat="link in l['TextAtWeb']">
+                    <small>
+                        <a ng-href="{{link | multilingualText}}" target="_blank">
+                            {{link | multilingualText}}
+                        </a>
+                    </small>
+                </li>
+            </ul>
+        </dd>
+        <dt ng-if="data['Hint'].length > 0">Weitere Informationen und Hinweise</dt>
+        <dd ng-repeat="h in data['Hint']">
+            <span>
+                {{h['Title'] | multilingualText}}
+            </span>
+            <span ng-repeat="artNumber in h['ArticleNumber']">
+                &nbsp;<span class="label label-primary">{{artNumber}}</span>
+            </span>
+            <ul>
+                <li ng-repeat="link in h['TextAtWeb']">
                     <small>
                         <a ng-href="{{link | multilingualText}}" target="_blank">
                             {{link | multilingualText}}

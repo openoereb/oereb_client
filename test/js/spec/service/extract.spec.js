@@ -319,8 +319,11 @@ describe('ExtractService', function() {
   describe('addDocumentIfNotContained_', function() {
 
     it('should add a document if it is missing', function() {
-      var list = [];
+      var target = {
+        Law: []
+      };
       ExtractService.addDocumentIfNotContained_({
+        DocumentType: 'Law',
         Title: 'doc1',
         OfficialNumber: 'number1',
         TextAtWeb: 'link1',
@@ -332,15 +335,18 @@ describe('ExtractService', function() {
             Text: 'text1'
           }
         ]
-      }, list);
-      expect(list.length).toBe(1);
-      expect(list[0].ArticleNumber.length).toBe(1);
-      expect(list[0].Article.length).toBe(1);
+      }, target);
+      expect(target['Law'].length).toBe(1);
+      expect(target['Law'][0].ArticleNumber.length).toBe(1);
+      expect(target['Law'][0].Article.length).toBe(1);
     });
 
     it('should append articles and article numbers', function() {
-      var list = [];
+      var target = {
+        Law: []
+      };
       var doc1 = {
+        DocumentType: 'Law',
         Title: 'doc1',
         OfficialNumber: 'number1',
         TextAtWeb: 'link1',
@@ -354,6 +360,7 @@ describe('ExtractService', function() {
         ]
       };
       var doc2 = {
+        DocumentType: 'Law',
         Title: 'doc1',
         OfficialNumber: 'number1',
         TextAtWeb: 'link1',
@@ -366,19 +373,22 @@ describe('ExtractService', function() {
           }
         ]
       };
-      ExtractService.addDocumentIfNotContained_(doc1, list);
-      expect(list.length).toBe(1);
-      expect(list[0].ArticleNumber.length).toBe(1);
-      expect(list[0].Article.length).toBe(1);
-      ExtractService.addDocumentIfNotContained_(doc2, list);
-      expect(list.length).toBe(1);
-      expect(list[0].ArticleNumber.length).toBe(2);
-      expect(list[0].Article.length).toBe(2);
+      ExtractService.addDocumentIfNotContained_(doc1, target);
+      expect(target['Law'].length).toBe(1);
+      expect(target['Law'][0].ArticleNumber.length).toBe(1);
+      expect(target['Law'][0].Article.length).toBe(1);
+      ExtractService.addDocumentIfNotContained_(doc2, target);
+      expect(target['Law'].length).toBe(1);
+      expect(target['Law'][0].ArticleNumber.length).toBe(2);
+      expect(target['Law'][0].Article.length).toBe(2);
     });
 
     it('should merge attachments', function() {
-      var list = [];
+      var target = {
+        Law: []
+      };
       var doc1 = {
+        DocumentType: 'Law',
         Title: 'doc1',
         OfficialNumber: 'number1',
         TextAtWeb: ['link1'],
@@ -386,18 +396,19 @@ describe('ExtractService', function() {
         Article: []
       };
       var doc2 = {
+        DocumentType: 'Law',
         Title: 'doc1',
         OfficialNumber: 'number1',
         TextAtWeb: ['link2'],
         ArticleNumber: [],
         Article: []
       };
-      ExtractService.addDocumentIfNotContained_(doc1, list);
-      expect(list.length).toBe(1);
-      expect(list[0].TextAtWeb.length).toBe(1);
-      ExtractService.addDocumentIfNotContained_(doc2, list);
-      expect(list.length).toBe(1);
-      expect(list[0].TextAtWeb.length).toBe(2);
+      ExtractService.addDocumentIfNotContained_(doc1, target);
+      expect(target['Law'].length).toBe(1);
+      expect(target['Law'][0].TextAtWeb.length).toBe(1);
+      ExtractService.addDocumentIfNotContained_(doc2, target);
+      expect(target['Law'].length).toBe(1);
+      expect(target['Law'][0].TextAtWeb.length).toBe(2);
     });
 
   });
@@ -406,6 +417,7 @@ describe('ExtractService', function() {
 
     var documents = [
       {
+        DocumentType: 'Law',
         Title: 'doc1',
         OfficialNumber: 'number1',
         TextAtWeb: 'link1',
@@ -413,6 +425,7 @@ describe('ExtractService', function() {
         Article: []
       },
       {
+        DocumentType: 'Law',
         Title: 'doc2',
         OfficialNumber: 'number2',
         TextAtWeb: 'link2',
@@ -420,6 +433,7 @@ describe('ExtractService', function() {
         Article: [],
         Reference: [
           {
+            DocumentType: 'Law',
             Title: 'doc1',
             OfficialNumber: 'number1',
             TextAtWeb: 'link1',
@@ -427,6 +441,7 @@ describe('ExtractService', function() {
             Article: []
           },
           {
+            DocumentType: 'Law',
             Title: 'doc3',
             OfficialNumber: 'number3',
             TextAtWeb: 'link3',
@@ -438,12 +453,14 @@ describe('ExtractService', function() {
     ];
 
     it('should add each document if it is missing', function() {
-      var result = [];
+      var result = {
+        Law: []
+      };
       ExtractService.addDocumentsIfNotContained_(documents, result);
-      expect(result.length).toBe(3);
-      for (var i = 0; i < result.length; i++) {
-        expect(result[i]['Title']).toEqual('doc' + (i + 1));
-        expect(result[i]['TextAtWeb']).toEqual(['link' + (i + 1)]);
+      expect(result['Law'].length).toBe(3);
+      for (var i = 0; i < result['Law'].length; i++) {
+        expect(result['Law'][i]['Title']).toEqual('doc' + (i + 1));
+        expect(result['Law'][i]['TextAtWeb']).toEqual(['link' + (i + 1)]);
       }
     });
 
@@ -455,10 +472,12 @@ describe('ExtractService', function() {
       {
         LegalProvisions: [
           {
+            DocumentType: 'LegalProvision',
             Title: 'prov1',
             TextAtWeb: 'link1',
             Reference: [
               {
+                DocumentType: 'Law',
                 Title: 'doc1',
                 TextAtWeb: 'link1'
               }
@@ -471,6 +490,7 @@ describe('ExtractService', function() {
     var realEstate = {
       Reference: [
         {
+          DocumentType: 'Hint',
           Title: 'doc2',
           TextAtWeb: 'link2'
         }
@@ -485,14 +505,15 @@ describe('ExtractService', function() {
       spyOn(ExtractService, 'getRealEstate').and.returnValue(realEstate);
       spyOn(ExtractService, 'getRestrictions').and.returnValue(restrictions);
       var result = ExtractService.getDocuments('test');
-      expect(result['LegalProvisions'].length).toBe(1);
-      expect(result['LegalProvisions'][0]['Title']).toEqual('prov1');
-      expect(result['LegalProvisions'][0]['TextAtWeb']).toEqual(['link1']);
-      expect(result['Documents'].length).toBe(2);
-      for (var i = 0; i < result['Documents'].length; i++) {
-        expect(result['Documents'][i]['Title']).toEqual('doc' + (i + 1));
-        expect(result['Documents'][i]['TextAtWeb']).toEqual(['link' + (i + 1)]);
-      }
+      expect(result['LegalProvision'].length).toBe(1);
+      expect(result['LegalProvision'][0]['Title']).toEqual('prov1');
+      expect(result['LegalProvision'][0]['TextAtWeb']).toEqual(['link1']);
+      expect(result['Law'].length).toBe(1);
+      expect(result['Law'][0]['Title']).toEqual('doc1');
+      expect(result['Law'][0]['TextAtWeb']).toEqual(['link1']);
+      expect(result['Hint'].length).toBe(1);
+      expect(result['Hint'][0]['Title']).toEqual('doc2');
+      expect(result['Hint'][0]['TextAtWeb']).toEqual(['link2']);
     });
 
   });
