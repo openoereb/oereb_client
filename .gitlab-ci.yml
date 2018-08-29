@@ -75,8 +75,8 @@ deploy:
       - "$CI_PROJECT_DIR/.pip-cache"
   script:
     - pip install -r requirements.txt
-    - .venv/bin/python setup.py clean check sdist bdist_wheel
-    - .venv/bin/twine upload dist/* -u ${PYPI_USER} -p ${PYPI_PASSWORD}
+    - python setup.py clean check sdist bdist_wheel
+    - twine upload dist/* -u ${PYPI_USER} -p ${PYPI_PASSWORD}
   only:
     - /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$/
   except:
