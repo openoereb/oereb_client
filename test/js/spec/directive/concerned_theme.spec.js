@@ -18,6 +18,7 @@ describe('concernedThemeDirective', function() {
     $provide.constant('oerebSupport', angular.toJson({
       office1: 'Test'
     }));
+    $provide.constant('oerebLocalStoragePrefix', 'bl');
   }));
 
   var $compile, $rootScope, $timeout, ExtractService, oerebEventExtractLoaded, scope;

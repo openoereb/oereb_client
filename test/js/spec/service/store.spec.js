@@ -2,15 +2,20 @@ goog.require('oereb.StoreService');
 
 describe('StoreService', function () {
 
-  beforeEach(module('oereb', function() {
+  beforeEach(module('oereb', function($provide) {
     localStorage.removeItem('blOerebHistory');
     localStorage.removeItem('blOerebAvailability');
+    localStorage.removeItem('blOerebSymbolZoom');
+
+    $provide.constant('oerebLocalStoragePrefix', 'bl');
   }));
 
-  var StoreService;
+  var $rootScope, StoreService, oerebEventSymbolZoomEnabled;
 
-  beforeEach(inject(function (_StoreService_) {
+  beforeEach(inject(function (_$rootScope_, _StoreService_, _oerebEventSymbolZoomEnabled_) {
+    $rootScope = _$rootScope_;
     StoreService = _StoreService_;
+    oerebEventSymbolZoomEnabled = _oerebEventSymbolZoomEnabled_;
   }));
 
   describe('getHistory', function () {
@@ -96,6 +101,26 @@ describe('StoreService', function () {
     it('should return false', function () {
       expect(StoreService.showAvailability(false)).toBe(false);
       expect(StoreService.showAvailability()).toBe(false);
+    });
+
+  });
+
+  describe('showSymbolZoom', function() {
+
+    it('should return true', function() {
+      expect(StoreService.showSymbolZoom()).toBe(true);
+    });
+
+    it('should return false', function() {
+      var event = false;
+      $rootScope.$on(oerebEventSymbolZoomEnabled, function(evt, show) {
+        expect(show).toBe(false);
+        event = true;
+      });
+      expect(StoreService.showSymbolZoom(false)).toBe(false);
+      $rootScope.$apply();
+      expect(event).toBe(true);
+      expect(StoreService.showSymbolZoom()).toBe(false);
     });
 
   });

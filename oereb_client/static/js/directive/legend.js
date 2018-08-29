@@ -90,7 +90,7 @@ oereb.legendDirective = function($timeout, ExtractService, StoreService, oerebEv
         }
       });
 
-      var enableSymbolZoom = function() {
+      scope.enableSymbolZoom_ = function() {
         element.find('img.symbol').popover({
           container: 'body',
           placement: 'right',
@@ -103,22 +103,22 @@ oereb.legendDirective = function($timeout, ExtractService, StoreService, oerebEv
         });
       };
 
-      var disableSymbolZoom = function() {
+      scope.disableSymbolZoom_ = function() {
         element.find('img.symbol').popover('destroy');
       };
 
       scope.$watch('legend', function() {
         if (StoreService.showSymbolZoom()) {
-          enableSymbolZoom();
+          scope.enableSymbolZoom_();
         }
       });
 
       scope.$on(oerebEventSymbolZoomEnabled, function(evt, show) {
         if (show) {
-          enableSymbolZoom();
+          scope.enableSymbolZoom_();
         }
         else {
-          disableSymbolZoom();
+          scope.disableSymbolZoom_();
         }
       });
 

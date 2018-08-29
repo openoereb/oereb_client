@@ -5,7 +5,9 @@ describe('historyDirective', function() {
   beforeEach(module('oereb', function($provide) {
     localStorage.removeItem('blOerebHistory');
     localStorage.removeItem('blOerebAvailability');
+    localStorage.removeItem('blOerebSymbolZoom');
     $provide.constant('oerebApplicationUrl', 'http://example.com');
+    $provide.constant('oerebLocalStoragePrefix', 'bl');
   }));
 
   var $compile, $rootScope, ExtractService, oerebEventEgridSelected, oerebEventExtractLoaded;
