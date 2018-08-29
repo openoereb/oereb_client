@@ -11,7 +11,7 @@
             <tr class="hidden-xs" ng-repeat="entry in legend['entries'] | sortLegend">
                 <td>{{entry['Information'] | multilingualText}}</td>
                 <td>
-                    <img class="symbol" ng-src="{{entry['SymbolRef']}}">
+                    <img class="symbol" ng-src="{{entry['SymbolRef']}}" data-toggle="popover" data-trigger="hover" data-content="<img src=&quot;{{entry['SymbolRef']}}&quot;>">
                 </td>
                 <td class="no-wrap" ng-if="entry['AreaShare']">{{entry['AreaShare'] | number:0 | replace:',':''}} m<span class="sup">2</span></td>
                 <td class="no-wrap" ng-if="entry['AreaShare']">{{entry['PartInPercent'] | number:1 | replace:',':''}}%</td>
@@ -24,7 +24,7 @@
             </tr>
             <tr class="visible-xs" ng-repeat-end>
                 <td class="no-top-border">
-                    <img class="symbol" ng-src="{{entry['SymbolRef']}}">
+                    <img class="symbol" ng-src="{{entry['SymbolRef']}}" data-toggle="popover" data-trigger="click" data-content="<img src=&quot;{{entry['SymbolRef']}}&quot;>">
                 </td>
                 <td class="no-top-border"></td>
                 <td class="no-top-border no-wrap" ng-if="entry['AreaShare']">{{entry['AreaShare'] | number:0 | replace:',':''}} m<span class="sup">2</span></td>

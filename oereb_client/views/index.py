@@ -99,6 +99,7 @@ class Index(object):
             'title': self.get_application_config_().get('title'),
             'icon': self.get_application_config_().get('icon'),
             'logo': self.get_application_config_().get('logo'),
+            'local_storage_prefix': self.get_application_config_().get('local_storage_prefix'),
             'debug': self.is_debug_(),
             'base_layer_config': self.get_base_layer_config_(),
             'availability_config': self.get_availability_config_(),

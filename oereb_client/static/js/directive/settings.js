@@ -32,9 +32,20 @@ oereb.settingsDirective = function(MapService, StoreService) {
        */
       scope.showAvailability = StoreService.showAvailability();
 
+      /**
+       * @export {boolean}
+       */
+      scope.showSymbolZoom = StoreService.showSymbolZoom();
+
       scope.$watch('showAvailability', function(show) {
         if (angular.isDefined(show)) {
           MapService.toggleAvailability(StoreService.showAvailability(show));
+        }
+      });
+
+      scope.$watch('showSymbolZoom', function(show) {
+        if (angular.isDefined(show)) {
+          StoreService.showSymbolZoom(show);
         }
       });
 
