@@ -10,8 +10,9 @@ describe('legalDocumentsDirective', function() {
   var $compile, $rootScope, ExtractService;
 
   var data = {
-    LegalProvisions: [
+    LegalProvision: [
       {
+        DocumentType: 'LegalProvision',
         Title: [
           {
             Text: 'RV',
@@ -31,8 +32,9 @@ describe('legalDocumentsDirective', function() {
         Article: []
       }
     ],
-    Documents: [
+    Law: [
       {
+        DocumentType: 'Law',
         Title: [
           {
             Text: 'G1',
@@ -53,19 +55,22 @@ describe('legalDocumentsDirective', function() {
           'A2'
         ],
         Article: []
-      },
+      }
+    ],
+    Hint: [
       {
+        DocumentType: 'Hint',
         Title: [
           {
-            Text: 'G2',
+            Text: 'H1',
             Language: 'de'
           }
         ],
-        OfficialNumber: 'g.2',
+        OfficialNumber: 'h.1',
         TextAtWeb: [
           [
             {
-              Text: 'http://example.com/g2',
+              Text: 'http://example.com/h1',
               Language: 'de'
             }
           ]
@@ -96,23 +101,25 @@ describe('legalDocumentsDirective', function() {
       $rootScope.$digest();
       var scope = element.isolateScope();
       expect(ExtractService.getDocuments).toHaveBeenCalledWith('test');
-      expect(scope.data.LegalProvisions.length).toBe(1);
-      expect(scope.data.Documents.length).toBe(2);
+      expect(scope.data.LegalProvision.length).toBe(1);
+      expect(scope.data.Law.length).toBe(1);
+      expect(scope.data.Hint.length).toBe(1);
       var dt = element.find('dt');
-      expect(dt.length).toBe(2);
+      expect(dt.length).toBe(3);
       expect(dt.eq(0).text()).toContain('Rechtsvorschriften');
       expect(dt.eq(1).text()).toContain('Gesetzliche Grundlagen');
+      expect(dt.eq(2).text()).toContain('Weitere Informationen und Hinweise');
       var dd = element.find('dd');
       expect(dd.length).toBe(3);
-      expect(dd.eq(0).children('span').eq(0).text()).toContain(data.LegalProvisions[0].Title[0].Text);
+      expect(dd.eq(0).children('span').eq(0).text()).toContain(data.LegalProvision[0].Title[0].Text);
       expect(dd.eq(0).find('ul').eq(0).find('a').eq(0).attr('href'))
-        .toEqual(data.LegalProvisions[0].TextAtWeb[0][0].Text);
-      expect(dd.eq(1).children('span').eq(0).text()).toContain(data.Documents[0].Title[0].Text);
+        .toEqual(data.LegalProvision[0].TextAtWeb[0][0].Text);
+      expect(dd.eq(1).children('span').eq(0).text()).toContain(data.Law[0].Title[0].Text);
       expect(dd.eq(1).find('ul').eq(0).find('a').eq(0).attr('href'))
-        .toEqual(data.Documents[0].TextAtWeb[0][0].Text);
-      expect(dd.eq(2).children('span').eq(0).text()).toContain(data.Documents[1].Title[0].Text);
+        .toEqual(data.Law[0].TextAtWeb[0][0].Text);
+      expect(dd.eq(2).children('span').eq(0).text()).toContain(data.Hint[0].Title[0].Text);
       expect(dd.eq(2).find('ul').eq(0).find('a').eq(0).attr('href'))
-        .toEqual(data.Documents[1].TextAtWeb[0][0].Text);
+        .toEqual(data.Hint[0].TextAtWeb[0][0].Text);
       var articles = dd.eq(1).children('span');
       expect(articles.length).toBe(3);
       expect(articles.eq(1).text()).toContain('A1');
