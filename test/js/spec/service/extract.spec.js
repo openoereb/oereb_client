@@ -49,6 +49,7 @@ describe('ExtractService', function() {
     });
 
     it('should return error on failed request', function() {
+      spyOn(ExtractService, 'validate_').and.returnValue(true);
       $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc)
         .respond(500, 'Test error.');
       var response = undefined;
@@ -66,6 +67,7 @@ describe('ExtractService', function() {
     });
 
     it('should return error on invalid response format', function() {
+      spyOn(ExtractService, 'validate_').and.returnValue(true);
       $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc).respond(
         200,
         {
@@ -86,7 +88,42 @@ describe('ExtractService', function() {
       expect(response).toEqual('Invalid response format.');
     });
 
+    it('should return error on failed validation', function() {
+      spyOn(ExtractService, 'validate_').and.returnValue(false);
+      var data = {
+        GetExtractByIdResponse: {
+          extract: {
+            RealEstate: {
+              Number: '1234',
+              IdentDN: 'SAMPLE',
+              EGRID: 'CH1234'
+            }
+          },
+          embeddable: {
+            test: 'Test'
+          }
+        }
+      };
+      $httpBackend.expectGET('http://example.com/extract/reduced/json/geometry/CHTEST?_dc=' + dc).respond(
+        200,
+        data
+      );
+      var response = undefined;
+      ExtractService.queryExtractById('CHTEST').then(
+        function(data) {
+          response = data;
+        },
+        function(data) {
+          response = data;
+        }
+      );
+      $httpBackend.flush();
+      expect(angular.isString(response)).toBe(true);
+      expect(response).toEqual('Extract validation failed.');
+    });
+
     it('should return the received extract', function() {
+      spyOn(ExtractService, 'validate_').and.returnValue(true);
       var data = {
         GetExtractByIdResponse: {
           extract: {
@@ -122,6 +159,10 @@ describe('ExtractService', function() {
 
   describe('getConcernedThemes', function() {
 
+    beforeEach(function() {
+      spyOn(ExtractService, 'validate_').and.returnValue(true);
+    });
+
     it('should return undefined if no extract is available', function() {
       expect(ExtractService.getConcernedThemes()).toBeUndefined();
     });
@@ -153,6 +194,10 @@ describe('ExtractService', function() {
   });
 
   describe('getNotConcernedThemes', function() {
+
+    beforeEach(function() {
+      spyOn(ExtractService, 'validate_').and.returnValue(true);
+    });
 
     it('should return undefined if no extract is available', function() {
       expect(ExtractService.getNotConcernedThemes()).toBeUndefined();
@@ -186,6 +231,10 @@ describe('ExtractService', function() {
 
   describe('getThemesWithoutData', function() {
 
+    beforeEach(function() {
+      spyOn(ExtractService, 'validate_').and.returnValue(true);
+    });
+
     it('should return undefined if no extract is available', function() {
       expect(ExtractService.getThemesWithoutData()).toBeUndefined();
     });
@@ -217,6 +266,10 @@ describe('ExtractService', function() {
   });
 
   describe('getRealEstate', function() {
+
+    beforeEach(function() {
+      spyOn(ExtractService, 'validate_').and.returnValue(true);
+    });
 
     it('should return undefined if no extract is available', function() {
       expect(ExtractService.getRealEstate()).toBeUndefined();
@@ -730,6 +783,50 @@ describe('ExtractService', function() {
       expect(ExtractService.getGlossary().length).toBe(2);
       expect(ExtractService.getGlossary()[0]).toEqual('dummy1');
       expect(ExtractService.getGlossary()[1]).toEqual('dummy2');
+    });
+
+  });
+
+  describe('validate_', function() {
+
+    it('should return true', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        RestrictionOnLandownership: [
+          {
+            LegalProvisions: [
+              {
+                DocumentType: 'LegalProvision'
+              }
+            ]
+          }
+        ]
+      });
+      expect(ExtractService.validate_()).toBe(true);
+    });
+
+    it('should return false on missing restrictions', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({});
+      expect(ExtractService.validate_()).toBe(false);
+    });
+
+    it('should return false on undefined legal provisions', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        RestrictionOnLandownership: [
+          {}
+        ]
+      });
+      expect(ExtractService.validate_()).toBe(false);
+    });
+
+    it('should return false on empty legal provisions array', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        RestrictionOnLandownership: [
+          {
+            LegalProvisions: []
+          }
+        ]
+      });
+      expect(ExtractService.validate_()).toBe(false);
     });
 
   });

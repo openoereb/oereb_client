@@ -91,6 +91,10 @@ describe('MainController', function() {
 
   describe('EGRID selected event', function() {
 
+    beforeEach(function() {
+      spyOn(ExtractService, 'validate_').and.returnValue(true);
+    });
+
     it('should call the extract service', function() {
       getMainController();
       spyOn(ExtractService, 'queryExtractById').and.callThrough();
