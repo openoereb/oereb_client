@@ -293,20 +293,22 @@ oereb.ExtractService.prototype.getDocuments = function(themeCode) {
     for (var i = 0; i < restrictions.length; i++) {
       // Iterate the legal provisions for each restriction
       var legalProvision = restrictions[i]['LegalProvisions'];
-      for (var j = 0; j < legalProvision.length; j++) {
-        // Create legal provision object with necessary properties and check if it needs to be added
-        this.addDocumentIfNotContained_({
-          'DocumentType': legalProvision[j]['DocumentType'],
-          'Title': legalProvision[j]['Title'],
-          'OfficialNumber': legalProvision[j]['OfficialNumber'],
-          'ArticleNumber': legalProvision[j]['ArticleNumber'] || [],
-          'Article': legalProvision[j]['Article'] || [],
-          'TextAtWeb': [legalProvision[j]['TextAtWeb']]
-        }, documents);
-        // Add possible references to the documents
-        var references = legalProvision[j]['Reference'];
-        if (angular.isArray(references)) {
-          this.addDocumentsIfNotContained_(references, documents);
+      if (angular.isArray(legalProvision)) {
+        for (var j = 0; j < legalProvision.length; j++) {
+          // Create legal provision object with necessary properties and check if it needs to be added
+          this.addDocumentIfNotContained_({
+            'DocumentType': legalProvision[j]['DocumentType'],
+            'Title': legalProvision[j]['Title'],
+            'OfficialNumber': legalProvision[j]['OfficialNumber'],
+            'ArticleNumber': legalProvision[j]['ArticleNumber'] || [],
+            'Article': legalProvision[j]['Article'] || [],
+            'TextAtWeb': [legalProvision[j]['TextAtWeb']]
+          }, documents);
+          // Add possible references to the documents
+          var references = legalProvision[j]['Reference'];
+          if (angular.isArray(references)) {
+            this.addDocumentsIfNotContained_(references, documents);
+          }
         }
       }
     }

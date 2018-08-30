@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+1.2.1
+*****
+
+https://gitlab.com/gf-bl/oereb_client/milestones/14
+
+- Avoid error if restriction contains no legal provisions
+
 1.2.0
 *****
 

@@ -4,7 +4,7 @@ from pyramid.config import Configurator
 from pyramid_mako import add_mako_renderer
 
 
-__version__ = '1.2.0'
+__version__ = '1.2.1'
 
 
 def main(global_config, **settings):  # pragma: no cover
