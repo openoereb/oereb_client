@@ -3,7 +3,6 @@ image: python:3.6
 variables:
   PYPI_USER: SECURE
   PYPI_PASSWORD: SECURE
-  PYPI_HOST: SECURE
 
 stages:
   - test
@@ -76,7 +75,7 @@ deploy:
   script:
     - pip install -r requirements.txt
     - python setup.py clean check sdist bdist_wheel
-    - twine upload dist/* -u ${PYPI_USER} -p ${PYPI_PASSWORD}
+    - twine upload dist/* -u "${PYPI_USER}" -p "${PYPI_PASSWORD}"
   only:
     - /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$/
   except:
