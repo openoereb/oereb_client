@@ -43,7 +43,12 @@ oereb.ExtractService.prototype.queryExtractById = function(egrid) {
         if (angular.isObject(response.data['GetExtractByIdResponse']['embeddable'])) {
           this.embeddable_ = response.data['GetExtractByIdResponse']['embeddable'];
         }
-        def.resolve(response.data['GetExtractByIdResponse']);
+        if (this.validate_()) {
+          def.resolve(response.data['GetExtractByIdResponse']);
+        }
+        else {
+          def.reject('Extract validation failed.');
+        }
       }
       else {
         def.reject('Invalid response format.');
@@ -446,6 +451,34 @@ oereb.ExtractService.prototype.getGlossary = function() {
  */
 oereb.ExtractService.prototype.getEmbeddable = function() {
   return this.embeddable_;
+};
+
+/**
+ * Validates the received extract data.
+ * @returns {boolean} True if the validation succeeds, false otherwise.
+ * @private
+ */
+oereb.ExtractService.prototype.validate_ = function() {
+
+  // Check for restrictions to be an array
+  var restrictions = this.getRealEstate()['RestrictionOnLandownership'];
+  if (!angular.isArray(restrictions)) {
+    return false;
+  }
+
+  // Check for restrictions without legal provisions
+  for (var i = 0; i < restrictions.length; i++) {
+    var restriction = restrictions[i];
+    var legalProvisions = restriction['LegalProvisions'];
+    if (!angular.isArray(legalProvisions)) {
+      return false;
+    }
+    else if (legalProvisions.length === 0) {
+      return false;
+    }
+  }
+
+  return true;
 };
 
 oereb.module.service('ExtractService', oereb.ExtractService);
