@@ -33,7 +33,7 @@ describe('EgridService', function() {
   describe('getEgridByCoord', function() {
 
     it('should return error on failed request', function() {
-      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0&_dc=' + dc).respond(500, 'Test error.');
+      $httpBackend.expectGET('http://example.com/getegrid/json/?XY=0,0&_dc=' + dc).respond(500, 'Test error.');
       var response = undefined;
       EgridService.getEgridByCoord([0, 0]).then(
         function(data) {
@@ -49,7 +49,7 @@ describe('EgridService', function() {
     });
 
     it('should return error on invalid response format', function() {
-      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0&_dc=' + dc).respond(200, {
+      $httpBackend.expectGET('http://example.com/getegrid/json/?XY=0,0&_dc=' + dc).respond(200, {
         GetEGRIDResponse: 'invalid'
       });
       var response = undefined;
@@ -79,7 +79,7 @@ describe('EgridService', function() {
           identDN: 'T2'
         }
       ];
-      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0&_dc=' + dc).respond(200, {
+      $httpBackend.expectGET('http://example.com/getegrid/json/?XY=0,0&_dc=' + dc).respond(200, {
         GetEGRIDResponse: realEstates
       });
       var response = undefined;
