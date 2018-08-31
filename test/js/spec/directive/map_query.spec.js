@@ -119,7 +119,7 @@ describe('mapQueryDirective', function() {
     });
 
     it('should close loading indicator on error', function() {
-      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0&_dc=' + dc).respond(500, 'Test error.');
+      $httpBackend.expectGET('http://example.com/getegrid/json/?XY=0,0&_dc=' + dc).respond(500, 'Test error.');
       var element = $compile('<oereb-map-query></oereb-map-query>')($rootScope);
       $rootScope.$digest();
       var scope = element.isolateScope();
@@ -147,7 +147,7 @@ describe('mapQueryDirective', function() {
           identDN: 'T2'
         }
       ];
-      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0&_dc=' + dc).respond(200, {
+      $httpBackend.expectGET('http://example.com/getegrid/json/?XY=0,0&_dc=' + dc).respond(200, {
         GetEGRIDResponse: realEstates
       });
       var element = $compile('<oereb-map-query></oereb-map-query>')($rootScope);
@@ -186,7 +186,7 @@ describe('mapQueryDirective', function() {
           identDN: 'T1'
         }
       ];
-      $httpBackend.expectGET('http://example.com/getegrid.json?XY=0,0&_dc=' + dc).respond(200, {
+      $httpBackend.expectGET('http://example.com/getegrid/json/?XY=0,0&_dc=' + dc).respond(200, {
         GetEGRIDResponse: realEstates
       });
       var element = $compile('<oereb-map-query></oereb-map-query>')($rootScope);

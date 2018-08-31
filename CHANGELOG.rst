@@ -7,6 +7,7 @@ Changelog
 https://gitlab.com/gf-bl/oereb_client/milestones/14
 
 - Avoid error if restriction contains no legal provisions
+- Use new getegrid URL (with format parameter)
 
 1.2.0
 *****
