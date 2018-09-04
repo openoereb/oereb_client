@@ -8,6 +8,8 @@ https://gitlab.com/gf-bl/oereb_client/milestones/14
 
 - Avoid error if restriction contains no legal provisions
 - Use new getegrid URL (with format parameter)
+- Update map center and zoom level in URL parameters
+- Use URL parameters to specify initial extent
 
 1.2.0
 *****
