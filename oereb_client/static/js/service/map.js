@@ -6,6 +6,8 @@ goog.require('oereb');
  * Angular service for map handling.
  * @param {angular.$q} $q Angular service for deferrable objects.
  * @param {angular.$http} $http Angular service asynchronous requests.
+ * @param {angular.$location} $location Angular location service.
+ * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {string} oerebBaseLayerConfig The base layer configuration.
  * @param {string} oerebAvailabilityConfig The availability layer configuration.
  * @constructor
@@ -13,12 +15,19 @@ goog.require('oereb');
  * @ngdoc service
  * @ngname MapService
  */
-oereb.MapService = function($q, $http, oerebBaseLayerConfig, oerebAvailabilityConfig) {
+oereb.MapService = function($q, $http, $location, $timeout, oerebBaseLayerConfig, oerebAvailabilityConfig) {
 
   this.$q_ = $q;
   this.$http_ = $http;
+  this.$location_ = $location;
+  this.$timeout_ = $timeout;
   this.baseLayerConfig_ = angular.fromJson(oerebBaseLayerConfig);
   this.availabilityConfig_ = angular.fromJson(oerebAvailabilityConfig);
+
+  // Initial extent
+  var mapX = parseFloat(this.$location_.search()['map_x']) || 2615000;
+  var mapY = parseFloat(this.$location_.search()['map_y']) || 1255000;
+  var mapZoom = parseInt(this.$location_.search()['map_zoom']) || 6;
 
   // Define LV03 projection
   proj4.defs(
@@ -67,8 +76,8 @@ oereb.MapService = function($q, $http, oerebBaseLayerConfig, oerebAvailabilityCo
   // Create map
   var view = new ol.View({
     projection: this.proj_,
-    center: [2615000, 1255000],
-    zoom: 6
+    center: [mapX, mapY],
+    zoom: mapZoom
   });
   view.setMinZoom(5);
   view.setMaxZoom(18);
@@ -106,6 +115,23 @@ oereb.MapService = function($q, $http, oerebBaseLayerConfig, oerebAvailabilityCo
     function() {}
   );
 
+  // Update URL parameters after each map movement
+  this.map_.on('moveend', function() {
+    this.updateUrlParams_();
+  }.bind(this));
+
+};
+
+/**
+ * Updates the parameters for map center and zoom level in the URL.
+ * @private
+ */
+oereb.MapService.prototype.updateUrlParams_ = function() {
+  this.$timeout_(function() {
+    this.$location_.search('map_x', this.map_.getView().getCenter()[0]);
+    this.$location_.search('map_y', this.map_.getView().getCenter()[1]);
+    this.$location_.search('map_zoom', this.map_.getView().getZoom());
+  }.bind(this));
 };
 
 /**
