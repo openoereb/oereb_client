@@ -128,8 +128,8 @@ oereb.MapService = function($q, $http, $location, $timeout, oerebBaseLayerConfig
  */
 oereb.MapService.prototype.updateUrlParams_ = function() {
   this.$timeout_(function() {
-    this.$location_.search('map_x', this.map_.getView().getCenter()[0]);
-    this.$location_.search('map_y', this.map_.getView().getCenter()[1]);
+    this.$location_.search('map_x', this.map_.getView().getCenter()[0].toFixed(3));
+    this.$location_.search('map_y', this.map_.getView().getCenter()[1].toFixed(3));
     this.$location_.search('map_zoom', this.map_.getView().getZoom());
   }.bind(this));
 };

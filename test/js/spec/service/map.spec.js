@@ -172,8 +172,8 @@ describe('MapService', function() {
         view.setCenter([234.5, 678.9]);
         MapService.updateUrlParams_();
         $timeout.flush();
-        expect($location.search()['map_x']).toEqual(234.5);
-        expect($location.search()['map_y']).toEqual(678.9);
+        expect($location.search()['map_x']).toEqual('234.500');
+        expect($location.search()['map_y']).toEqual('678.900');
         expect($location.search()['map_zoom']).toEqual(10);
       });
 
