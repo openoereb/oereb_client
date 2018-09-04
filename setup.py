@@ -1,8 +1,19 @@
 # -*- coding: utf-8 -*-
 import codecs
 import os
+import sys
 
 from setuptools import setup, find_packages
+from datetime import datetime
+
+VERSION = '1.2.1'
+
+test_mode = False
+timestamp = datetime.now().strftime('%Y%m%d%H%M')
+
+if "--test" in sys.argv:
+    test_mode = True
+    sys.argv.remove("--test")
 
 here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
@@ -18,11 +29,11 @@ requires = [
 
 setup(
     name='oereb_client',
-    version='1.2.1',
+    version=VERSION + '.dev{0}'.format(timestamp) if test_mode else VERSION,
     description='ÖREB Client',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
-        "Development Status :: 5 - Production/Stable",
+        "Development Status :: 4 - Beta" if test_mode else "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.6",
         "Framework :: Pyramid",
