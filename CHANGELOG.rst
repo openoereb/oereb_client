@@ -1,7 +1,7 @@
 Changelog
 ---------
 
-1.2.2
+1.2.3
 *****
 
 - Fix broken package on PyPI
