@@ -61,6 +61,18 @@ class Index(object):
             raise ConfigurationError('Missing availability layer configuration')
         return json.dumps(availability_layer_config)
 
+    def get_initial_extent_config_(self):
+        """Returns the JSON-encoded configuration for the initial extent.
+
+        Returns:
+            str: The JSON-encoded initial extent configuration.
+
+        """
+        initial_extent_config = self.config_.get('initial_extent', {})
+        if not initial_extent_config:
+            raise ConfigurationError('Missing initial extent configuration')
+        return json.dumps(initial_extent_config)
+
     def get_search_config_(self):
         """Returns the JSON-encoded configuration for the search.
 
@@ -101,6 +113,7 @@ class Index(object):
             'logo': self.get_application_config_().get('logo'),
             'local_storage_prefix': self.get_application_config_().get('local_storage_prefix'),
             'debug': self.is_debug_(),
+            'initial_extent_config': self.get_initial_extent_config_(),
             'base_layer_config': self.get_base_layer_config_(),
             'availability_config': self.get_availability_config_(),
             'search_api_config': self.get_search_config_(),

@@ -12,6 +12,12 @@ oereb_client:
     logo: http://localhost:6543/samples/static/logo_bl.png
     local_storage_prefix: bl
 
+  # Initial extent
+  initial_extent:
+    map_x: 2615000
+    map_y: 1255000
+    map_zoom: 6
+
   # Base layer configuration
   base_layer:
     type: wmts

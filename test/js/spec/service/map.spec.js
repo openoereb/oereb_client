@@ -15,6 +15,11 @@ describe('MapService', function() {
       $provide.constant('oerebBaseLayerConfig', angular.toJson({
         type: 'invalid'
       }));
+      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+        map_x: 2615000,
+        map_y: 1255000,
+        map_zoom: 6
+      }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
         layer: 'oereb_availability'
@@ -53,6 +58,11 @@ describe('MapService', function() {
         params: {
           LAYERS: 'grundkarte_sw_group'
         }
+      }));
+      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+        map_x: 2615000,
+        map_y: 1255000,
+        map_zoom: 6
       }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
@@ -102,6 +112,11 @@ describe('MapService', function() {
         style: 'default',
         format: 'image/png'
       }));
+      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+        map_x: 2615000,
+        map_y: 1255000,
+        map_zoom: 6
+      }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
         layer: 'oereb_availability'
@@ -142,7 +157,7 @@ describe('MapService', function() {
 
   describe('method', function() {
 
-    var MapService;
+    var $location, $timeout, MapService;
 
     beforeEach(module('oereb', function($provide) {
       $provide.constant('oerebBaseLayerConfig', angular.toJson({
@@ -152,15 +167,37 @@ describe('MapService', function() {
           LAYERS: 'grundkarte_sw_group'
         }
       }));
+      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+        map_x: 2615000,
+        map_y: 1255000,
+        map_zoom: 6
+      }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
         layer: 'oereb_availability'
       }));
     }));
 
-    beforeEach(inject(function(_MapService_) {
+    beforeEach(inject(function(_$location_, _$timeout_, _MapService_) {
+      $location = _$location_;
+      $timeout = _$timeout_;
       MapService = _MapService_;
     }));
+
+    describe('updateUrlParams_', function() {
+
+      it('should set the current URL parameters', function () {
+        const view = MapService.getMap().getView();
+        view.setZoom(10);
+        view.setCenter([234.5, 678.9]);
+        MapService.updateUrlParams_();
+        $timeout.flush();
+        expect($location.search()['map_x']).toEqual('234.500');
+        expect($location.search()['map_y']).toEqual('678.900');
+        expect($location.search()['map_zoom']).toEqual(10);
+      });
+
+    });
 
     describe('clearLayers', function() {
 
