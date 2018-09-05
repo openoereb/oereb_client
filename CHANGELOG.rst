@@ -4,6 +4,11 @@ Changelog
 1.2.3
 *****
 
+https://gitlab.com/gf-bl/oereb_client/milestones/15
+
+1.2.2
+*****
+
 - Fix broken package on PyPI
 
 1.2.1
