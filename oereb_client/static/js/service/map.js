@@ -9,25 +9,28 @@ goog.require('oereb');
  * @param {angular.$location} $location Angular location service.
  * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {string} oerebBaseLayerConfig The base layer configuration.
+ * @param {string} oerebInitialExtentConfig The initial extent configuration.
  * @param {string} oerebAvailabilityConfig The availability layer configuration.
  * @constructor
  * @ngInject
  * @ngdoc service
  * @ngname MapService
  */
-oereb.MapService = function($q, $http, $location, $timeout, oerebBaseLayerConfig, oerebAvailabilityConfig) {
+oereb.MapService = function($q, $http, $location, $timeout, oerebBaseLayerConfig, oerebInitialExtentConfig,
+                            oerebAvailabilityConfig) {
 
   this.$q_ = $q;
   this.$http_ = $http;
   this.$location_ = $location;
   this.$timeout_ = $timeout;
   this.baseLayerConfig_ = angular.fromJson(oerebBaseLayerConfig);
+  this.initialExtentConfig_ = angular.fromJson(oerebInitialExtentConfig);
   this.availabilityConfig_ = angular.fromJson(oerebAvailabilityConfig);
 
   // Initial extent
-  var mapX = parseFloat(this.$location_.search()['map_x']) || 2615000;
-  var mapY = parseFloat(this.$location_.search()['map_y']) || 1255000;
-  var mapZoom = parseInt(this.$location_.search()['map_zoom']) || 6;
+  var mapX = parseFloat(this.$location_.search()['map_x']) || this.initialExtentConfig_['map_x'];
+  var mapY = parseFloat(this.$location_.search()['map_y']) || this.initialExtentConfig_['map_y'];
+  var mapZoom = parseInt(this.$location_.search()['map_zoom']) || this.initialExtentConfig_['map_zoom'];
 
   // Define LV03 projection
   proj4.defs(

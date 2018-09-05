@@ -15,6 +15,11 @@ describe('MapService', function() {
       $provide.constant('oerebBaseLayerConfig', angular.toJson({
         type: 'invalid'
       }));
+      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+        map_x: 2615000,
+        map_y: 1255000,
+        map_zoom: 6
+      }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
         layer: 'oereb_availability'
@@ -53,6 +58,11 @@ describe('MapService', function() {
         params: {
           LAYERS: 'grundkarte_sw_group'
         }
+      }));
+      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+        map_x: 2615000,
+        map_y: 1255000,
+        map_zoom: 6
       }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
@@ -101,6 +111,11 @@ describe('MapService', function() {
         projection: 'EPSG:2056',
         style: 'default',
         format: 'image/png'
+      }));
+      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+        map_x: 2615000,
+        map_y: 1255000,
+        map_zoom: 6
       }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
@@ -151,6 +166,11 @@ describe('MapService', function() {
         params: {
           LAYERS: 'grundkarte_sw_group'
         }
+      }));
+      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+        map_x: 2615000,
+        map_y: 1255000,
+        map_zoom: 6
       }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
