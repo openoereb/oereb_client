@@ -462,19 +462,21 @@ oereb.ExtractService.prototype.validate_ = function() {
 
   // Check for restrictions to be an array
   var restrictions = this.getRealEstate()['RestrictionOnLandownership'];
-  if (!angular.isArray(restrictions)) {
+  if (angular.isDefined(restrictions) && !angular.isArray(restrictions)) {
     return false;
   }
 
   // Check for restrictions without legal provisions
-  for (var i = 0; i < restrictions.length; i++) {
-    var restriction = restrictions[i];
-    var legalProvisions = restriction['LegalProvisions'];
-    if (!angular.isArray(legalProvisions)) {
-      return false;
-    }
-    else if (legalProvisions.length === 0) {
-      return false;
+  if (angular.isArray(restrictions)) {
+    for (var i = 0; i < restrictions.length; i++) {
+      var restriction = restrictions[i];
+      var legalProvisions = restriction['LegalProvisions'];
+      if (!angular.isArray(legalProvisions)) {
+        return false;
+      }
+      else if (legalProvisions.length === 0) {
+        return false;
+      }
     }
   }
 
