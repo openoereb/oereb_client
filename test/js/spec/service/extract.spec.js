@@ -804,9 +804,16 @@ describe('ExtractService', function() {
       expect(ExtractService.validate_()).toBe(true);
     });
 
-    it('should return false on missing restrictions', function() {
-      spyOn(ExtractService, 'getRealEstate').and.returnValue({});
+    it('should return false on invalid restrictions', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        RestrictionOnLandownership: 'invalid'
+      });
       expect(ExtractService.validate_()).toBe(false);
+    });
+
+    it('should return true on missing restrictions', function() {
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({});
+      expect(ExtractService.validate_()).toBe(true);
     });
 
     it('should return false on undefined legal provisions', function() {

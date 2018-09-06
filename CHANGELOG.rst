@@ -6,6 +6,8 @@ Changelog
 
 https://gitlab.com/gf-bl/oereb_client/milestones/15
 
+- Allow extracts without restrictions (e.g. in unpublished municipalities)
+
 1.2.2
 *****
 
