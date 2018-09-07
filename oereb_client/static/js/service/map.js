@@ -83,8 +83,6 @@ oereb.MapService = function($q, $http, $location, $timeout, oerebBaseLayerConfig
     zoom: mapZoom,
     resolutions: this.viewConfig_['resolutions']
   });
-  view.setMinZoom(5);
-  view.setMaxZoom(18);
   this.map_ = new ol.Map({
     target: 'map',
     controls: ol.control.defaults({
