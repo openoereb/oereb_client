@@ -11,7 +11,7 @@ describe('themeWithoutDataDirective', function() {
         LAYERS: 'grundkarte_sw_group'
       }
     }));
-    $provide.constant('oerebInitialExtentConfig', angular.toJson({
+    $provide.constant('oerebViewConfig', angular.toJson({
       map_x: 2615000,
       map_y: 1255000,
       map_zoom: 6

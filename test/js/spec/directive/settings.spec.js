@@ -11,7 +11,7 @@ describe('settingsDirective', function() {
     $provide.constant('oerebBaseLayerConfig', angular.toJson({
       type: 'invalid'
     }));
-    $provide.constant('oerebInitialExtentConfig', angular.toJson({
+    $provide.constant('oerebViewConfig', angular.toJson({
       map_x: 2615000,
       map_y: 1255000,
       map_zoom: 6

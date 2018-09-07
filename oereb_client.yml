@@ -12,11 +12,12 @@ oereb_client:
     logo: http://localhost:6543/samples/static/logo_bl.png
     local_storage_prefix: bl
 
-  # Initial extent
-  initial_extent:
+  # View configuration
+  view:
     map_x: 2615000
     map_y: 1255000
     map_zoom: 6
+    resolutions: [250, 100, 50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05, 0.025, 0.01]
 
   # Base layer configuration
   base_layer:

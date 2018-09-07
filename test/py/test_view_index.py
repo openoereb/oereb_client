@@ -16,10 +16,11 @@ settings = {
             'logo': 'http://example.com/logo.png',
             'local_storage_prefix': 'bl'
         },
-        'initial_extent': {
+        'view': {
             'map_x': 2615000,
             'map_y': 1255000,
-            'map_zoom': 6
+            'map_zoom': 6,
+            'resolutions': [1, 2]
         },
         'base_layer': {
             'type': 'wmts',
@@ -81,13 +82,14 @@ def test_get_availability_config(mock_request):
         })
 
 
-def test_get_initial_extent_config(mock_request):
+def test_get_view_config(mock_request):
     with testConfig(settings=settings):
         index = Index(mock_request)
-        assert index.get_initial_extent_config_() == json.dumps({
+        assert index.get_view_config_() == json.dumps({
             'map_x': 2615000,
             'map_y': 1255000,
-            'map_zoom': 6
+            'map_zoom': 6,
+            'resolutions': [1, 2]
         })
 
 
@@ -100,7 +102,7 @@ def test_render(mock_request):
             'logo': 'http://example.com/logo.png',
             'local_storage_prefix': 'bl',
             'debug': index.is_debug_(),
-            'initial_extent_config': index.get_initial_extent_config_(),
+            'view_config': index.get_view_config_(),
             'base_layer_config': index.get_base_layer_config_(),
             'availability_config': index.get_availability_config_(),
             'search_api_config': index.get_search_config_(),
