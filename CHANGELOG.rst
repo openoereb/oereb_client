@@ -7,6 +7,7 @@ Changelog
 https://gitlab.com/gf-bl/oereb_client/milestones/15
 
 - Allow extracts without restrictions (e.g. in unpublished municipalities)
+- Define ol.View resolutions via configuration
 
 1.2.2
 *****

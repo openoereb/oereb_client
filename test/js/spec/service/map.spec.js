@@ -15,7 +15,7 @@ describe('MapService', function() {
       $provide.constant('oerebBaseLayerConfig', angular.toJson({
         type: 'invalid'
       }));
-      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+      $provide.constant('oerebViewConfig', angular.toJson({
         map_x: 2615000,
         map_y: 1255000,
         map_zoom: 6
@@ -59,7 +59,7 @@ describe('MapService', function() {
           LAYERS: 'grundkarte_sw_group'
         }
       }));
-      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+      $provide.constant('oerebViewConfig', angular.toJson({
         map_x: 2615000,
         map_y: 1255000,
         map_zoom: 6
@@ -112,7 +112,7 @@ describe('MapService', function() {
         style: 'default',
         format: 'image/png'
       }));
-      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+      $provide.constant('oerebViewConfig', angular.toJson({
         map_x: 2615000,
         map_y: 1255000,
         map_zoom: 6
@@ -167,7 +167,7 @@ describe('MapService', function() {
           LAYERS: 'grundkarte_sw_group'
         }
       }));
-      $provide.constant('oerebInitialExtentConfig', angular.toJson({
+      $provide.constant('oerebViewConfig', angular.toJson({
         map_x: 2615000,
         map_y: 1255000,
         map_zoom: 6
