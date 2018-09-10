@@ -72,7 +72,7 @@ describe('informationPanelDirective', function() {
       expect(nav.find('h4').length).toBe(3);
       expect(nav.find('h4').eq(0).text()).toContain('Allgemein');
       expect(nav.find('h4').eq(1).text()).toContain('Haftungsausschluss');
-      expect(nav.find('h4').eq(2).text()).toContain('Glossar');
+      expect(nav.find('h4').eq(2).text()).toContain('Abkürzungen');
       var tabs = element.children('.tab-content');
       expect(tabs.length).toBe(1);
       expect(tabs.eq(0).children().length).toBe(1);
