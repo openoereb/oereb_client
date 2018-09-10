@@ -266,7 +266,7 @@ oereb.ExtractService.prototype.addDocumentsIfNotContained_ = function(documents,
       this.addDocumentIfNotContained_({
         'DocumentType': documents[i]['DocumentType'],
         'Title': documents[i]['Title'],
-        'Abbrevation': documents[i]['Abbrevation'],
+        'Abbreviation': documents[i]['Abbreviation'],
         'OfficialNumber': documents[i]['OfficialNumber'],
         'ArticleNumber': documents[i]['ArticleNumber'] || [],
         'Article': documents[i]['Article'] || [],
@@ -304,7 +304,7 @@ oereb.ExtractService.prototype.getDocuments = function(themeCode) {
         this.addDocumentIfNotContained_({
           'DocumentType': legalProvision[j]['DocumentType'],
           'Title': legalProvision[j]['Title'],
-          'Abbrevation': legalProvision[j]['Abbrevation'],
+          'Abbreviation': legalProvision[j]['Abbreviation'],
           'OfficialNumber': legalProvision[j]['OfficialNumber'],
           'ArticleNumber': legalProvision[j]['ArticleNumber'] || [],
           'Article': legalProvision[j]['Article'] || [],

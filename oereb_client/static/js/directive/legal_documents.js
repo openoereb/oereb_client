@@ -39,8 +39,8 @@ oereb.legalDocumentsDirective = function($filter, ExtractService) {
        */
       scope.getTitle = function(record) {
         var title = multilingualText(record['Title']);
-        if (angular.isArray(record['Abbrevation']) && record['Abbrevation'].length > 0) {
-          title += ' (' + multilingualText(record['Abbrevation']) + ')';
+        if (angular.isArray(record['Abbreviation']) && record['Abbreviation'].length > 0) {
+          title += ' (' + multilingualText(record['Abbreviation']) + ')';
         }
         if (angular.isString(record['OfficialNumber'])) {
           title += ', ' + record['OfficialNumber'];
