@@ -194,7 +194,7 @@ describe('MapService', function() {
         $timeout.flush();
         expect($location.search()['map_x']).toEqual('234.500');
         expect($location.search()['map_y']).toEqual('678.900');
-        expect($location.search()['map_zoom']).toEqual(10);
+        expect($location.search()['map_zoom']).toEqual('10');
       });
 
     });
