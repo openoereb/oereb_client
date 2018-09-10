@@ -3,7 +3,7 @@
         <dt ng-if="data['LegalProvision'].length > 0">Rechtsvorschriften</dt>
         <dd ng-repeat="lp in data['LegalProvision']">
             <span>
-                {{lp['Title'] | multilingualText}}
+                {{getTitle(lp)}}
             </span>
             <span ng-repeat="artNumber in lp['ArticleNumber']">
                 &nbsp;<span class="label label-primary">{{artNumber}}</span>
@@ -21,7 +21,7 @@
         <dt ng-if="data['Law'].length > 0">Gesetzliche Grundlagen</dt>
         <dd ng-repeat="l in data['Law']">
             <span>
-                {{l['Title'] | multilingualText}}
+                {{getTitle(l)}}
             </span>
             <span ng-repeat="artNumber in l['ArticleNumber']">
                 &nbsp;<span class="label label-primary">{{artNumber}}</span>
@@ -39,7 +39,7 @@
         <dt ng-if="data['Hint'].length > 0">Weitere Informationen und Hinweise</dt>
         <dd ng-repeat="h in data['Hint']">
             <span>
-                {{h['Title'] | multilingualText}}
+                {{getTitle(h)}}
             </span>
             <span ng-repeat="artNumber in h['ArticleNumber']">
                 &nbsp;<span class="label label-primary">{{artNumber}}</span>

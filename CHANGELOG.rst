@@ -9,6 +9,8 @@ https://gitlab.com/gf-bl/oereb_client/milestones/15
 - Allow extracts without restrictions (e.g. in unpublished municipalities)
 - Define ol.View resolutions via configuration
 - Round zoom level value in URL
+- Rename "Glossar" to "Abkürzungen"
+- Include abbreviation and official number in document title, if available
 
 1.2.2
 *****
