@@ -21,6 +21,7 @@ describe('topicDirective', function() {
       layer: 'oereb_availability'
     }));
     $provide.constant('oerebLocalStoragePrefix', 'bl');
+    $provide.constant('oerebDefaultLanguage', 'de');
   }));
 
   var $compile, $rootScope, $scope, $timeout, ExtractService, MapService, layer;

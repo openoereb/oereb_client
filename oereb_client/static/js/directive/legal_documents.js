@@ -6,13 +6,14 @@ goog.require('oereb.multilingualTextFilter');
 /**
  * Element containing the legal documents for a specified topic.
  *
+ * @param {angular.$filter} $filter The angular filter service.
  * @param {oereb.ExtractService} ExtractService The service for the extract handling.
  *
  * @returns {angular.Directive} Directive definition object.
  *
  * @ngInject
  */
-oereb.legalDocumentsDirective = function(ExtractService) {
+oereb.legalDocumentsDirective = function($filter, ExtractService) {
   return {
     restrict: 'E',
     replace: true,
@@ -25,8 +26,27 @@ oereb.legalDocumentsDirective = function(ExtractService) {
     },
     link: function(scope) {
 
+      var multilingualText = $filter('multilingualText');
+
       /** @export {Object|undefined} */
       scope.data = ExtractService.getDocuments(scope.themeCode);
+
+      /**
+       * Creates the complete document title, including abbreviation and number.
+       * @param {Object} record The legal document record.
+       * @returns {string} The complete document title (with abbreviation and number).
+       * @export
+       */
+      scope.getTitle = function(record) {
+        var title = multilingualText(record['Title']);
+        if (angular.isArray(record['Abbrevation']) && record['Abbrevation'].length > 0) {
+          title += ' (' + multilingualText(record['Abbrevation']) + ')';
+        }
+        if (angular.isString(record['OfficialNumber'])) {
+          title += ', ' + record['OfficialNumber'];
+        }
+        return title;
+      };
 
     }
   }

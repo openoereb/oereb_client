@@ -24,6 +24,7 @@ describe('concernedThemeDirective', function() {
       office1: 'Test'
     }));
     $provide.constant('oerebLocalStoragePrefix', 'bl');
+    $provide.constant('oerebDefaultLanguage', 'de');
   }));
 
   var $compile, $rootScope, $timeout, ExtractService, oerebEventExtractLoaded, scope;
