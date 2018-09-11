@@ -6,6 +6,8 @@ Changelog
 
 https://gitlab.com/gf-bl/oereb_client/milestones/16
 
+- Adjust legend titles according to PDF specification
+
 1.2.3
 *****
 

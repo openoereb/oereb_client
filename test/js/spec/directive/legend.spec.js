@@ -64,7 +64,7 @@ describe('legendDirective', function() {
       expect(scope.legend['graphics'].length).toBe(1);
       var rows = element.find('tr');
       expect(rows.length).toBe(7);
-      expect(rows.eq(0).find('small').length).toBe(2);
+      expect(rows.eq(0).find('small').length).toBe(3);
       expect(rows.eq(1).children('td').eq(0).text()).toContain(legendEntries[0].Information[0].Text);
       expect(rows.eq(1).children('td').eq(2).text()).toContain('123');
       expect(rows.eq(1).children('td').eq(3).text()).toContain('12.3%');
