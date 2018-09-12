@@ -33,8 +33,10 @@ class Index(object):
             raise ConfigurationError('Missing application configuration')
         if application_config.get('title') is None:
             raise ConfigurationError('Missing application title')
-        if application_config.get('logo') is None:
-            raise ConfigurationError('Missing application logo')
+        if application_config.get('logo_canton') is None:
+            raise ConfigurationError('Missing cantonal logo')
+        if application_config.get('logo_oereb') is None:
+            raise ConfigurationError('Missing oereb logo')
         return application_config
 
     def get_base_layer_config_(self):
@@ -110,7 +112,8 @@ class Index(object):
         return {
             'title': self.get_application_config_().get('title'),
             'icon': self.get_application_config_().get('icon'),
-            'logo': self.get_application_config_().get('logo'),
+            'logo_canton': self.get_application_config_().get('logo_canton'),
+            'logo_oereb': self.get_application_config_().get('logo_oereb'),
             'local_storage_prefix': self.get_application_config_().get('local_storage_prefix'),
             'debug': self.is_debug_(),
             'view_config': self.get_view_config_(),
