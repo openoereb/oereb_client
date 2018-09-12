@@ -335,6 +335,11 @@ oereb.ExtractService.prototype.getResponsibleOffices = function(themeCode) {
     var offices = [];
     for (var i = 0; i < restrictions.length; i++) {
       this.addIfNotContains_(restrictions[i]['ResponsibleOffice'], offices);
+      if (angular.isArray(restrictions[i]['Geometry'])) {
+        for (var j = 0; j < restrictions[i]['Geometry'].length; j++) {
+          this.addIfNotContains_(restrictions[i]['Geometry'][j]['ResponsibleOffice'], offices);
+        }
+      }
     }
     return offices;
   }
