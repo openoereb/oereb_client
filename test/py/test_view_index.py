@@ -13,7 +13,8 @@ settings = {
         'application': {
             'title': 'Test',
             'icon': 'http://example.com/favicon.png',
-            'logo': 'http://example.com/logo.png',
+            'logo_canton': 'http://example.com/logo_canton.png',
+            'logo_oereb': 'http://example.com/logo_oereb.png',
             'local_storage_prefix': 'bl'
         },
         'view': {
@@ -99,7 +100,8 @@ def test_render(mock_request):
         assert index.render() == {
             'title': 'Test',
             'icon': 'http://example.com/favicon.png',
-            'logo': 'http://example.com/logo.png',
+            'logo_canton': 'http://example.com/logo_canton.png',
+            'logo_oereb': 'http://example.com/logo_oereb.png',
             'local_storage_prefix': 'bl',
             'debug': index.is_debug_(),
             'view_config': index.get_view_config_(),
