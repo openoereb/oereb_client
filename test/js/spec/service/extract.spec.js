@@ -581,7 +581,12 @@ describe('ExtractService', function() {
         ResponsibleOffice: 'office2'
       },
       {
-        ResponsibleOffice: 'office1'
+        ResponsibleOffice: 'office1',
+        Geometry: [
+          {
+            ResponsibleOffice: 'office3'
+          }
+        ]
       }
     ];
 
@@ -592,9 +597,10 @@ describe('ExtractService', function() {
     it('should return the responsible offices for the specified topic', function() {
       spyOn(ExtractService, 'getRestrictions').and.returnValue(restrictions);
       var offices = ExtractService.getResponsibleOffices('test');
-      expect(offices.length).toBe(2);
+      expect(offices.length).toBe(3);
       expect(offices[0]).toEqual('office1');
       expect(offices[1]).toEqual('office2');
+      expect(offices[2]).toEqual('office3');
     });
 
   });
