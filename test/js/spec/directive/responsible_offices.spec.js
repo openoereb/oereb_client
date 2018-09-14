@@ -53,7 +53,7 @@ describe('responsibleOfficesDirective', function() {
       expect(scope.data.length).toBe(2);
       var dt = element.find('dt');
       expect(dt.length).toBe(1);
-      expect(dt.eq(0).text()).toContain('Zuständige Stellen');
+      expect(dt.eq(0).text()).toContain('Zuständige Stelle');
       var dd = element.find('dd');
       expect(dd.length).toBe(2);
       expect(dd.eq(0).children('a').eq(0).text()).toContain(data[0].Name[0].Text);

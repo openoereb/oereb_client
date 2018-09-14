@@ -1,6 +1,6 @@
 {
   "name": "oereb_client",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "OEREB Client based on AngularJS, OpenLayers 3 and Bootstrap.",
   "repository": {
     "type": "git",
