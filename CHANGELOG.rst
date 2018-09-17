@@ -7,6 +7,7 @@ Changelog
 https://gitlab.com/gf-bl/oereb_client/milestones/17
 
 - Improve layout for responsible offices
+- Improve sorting of glossary
 
 1.2.4
 *****

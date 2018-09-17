@@ -22,6 +22,8 @@ oereb.sortGlossaryFilter = function($filter) {
   var compare = function(a, b) {
     var titleA = multilingualText(a['Title'], lang);
     var titleB = multilingualText(b['Title'], lang);
+    if (angular.isString(titleA) && angular.isString(titleB))
+      return titleA.localeCompare(titleB);
     if (titleA < titleB)
       return -1;
     if (titleA > titleB)
