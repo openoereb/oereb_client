@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+1.2.5
+*****
+
+https://gitlab.com/gf-bl/oereb_client/milestones/17
+
+- Improve layout for responsible offices
+
 1.2.4
 *****
 
