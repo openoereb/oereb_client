@@ -14,7 +14,7 @@ module.exports = function versionProcessor(moduleMap) {
     docs.push({
       name: 'VERSION',
       template: 'constant-data.template.js',
-      outputPath: 'src/version.js',
+      outputPath: 'src/version-data.js',
       items: version
     });
 

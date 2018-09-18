@@ -18,8 +18,8 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/">OeREB Client Documentation</a>
                 </div>
-                <p class="navbar-text">
-                    <small>version</small>
+                <p class="navbar-text" ng-controller="VersionController as ctrl">
+                    <small ng-bind="ctrl.version"></small>
                 </p>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -53,12 +53,13 @@
         <!-- angular app -->
         <script src="src/app.module.js"></script>
         <script src="src/app.config.js"></script>
+        <script src="src/version.js"></script>
         <script src="src/api.js"></script>
         <script src="src/guide.js"></script>
 
         <!-- page data -->
+        <script src="src/version-data.js"></script>
         <script src="src/api-data.js"></script>
-        <script src="src/version.js"></script>
         <script src="src/guide-data.js"></script>
     </body>
 </html>

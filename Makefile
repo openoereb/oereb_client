@@ -21,8 +21,9 @@ DEPSWRITER = $(shell find node_modules/google-closure-library -name 'depswriter.
 # Google Closure Compiler
 COMPILER = $(shell find node_modules/google-closure-compiler -name 'compiler.jar')
 
-# Package name
+# Package name and version
 PKG = oereb_client
+PKG_VERSION = $(if ${VERSION},${VERSION},master)
 
 # Static directories
 BUILD_DIR = $(PKG)/static/build/.timestamp
@@ -267,3 +268,8 @@ updates-js: package.json
 
 .PHONY: updates
 updates: updates-py updates-js
+
+.PHONY: doc
+doc: $(NODE_MODULES)
+	rm -rf docs/build
+	./node_modules/.bin/gulp --PACKAGE_VERSION=$(PKG_VERSION) dgeni

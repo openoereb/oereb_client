@@ -96,6 +96,20 @@ deploy-test:
   only:
     - master
 
+pages:
+  stage: deploy
+  image: node:8-stretch
+  script:
+  - make doc VERSION=test
+  - mv docs/build/ public/
+  artifacts:
+    paths:
+    - public
+    expire_in: 1 day
+#  only:
+#  - tags
+#  - master
+
 # Analyze code quality
 code_quality:
   image: docker:stable
