@@ -27,9 +27,19 @@ a:focus {
     width: 300px;
     height: 100%;
     background-color: #343131;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
 }
 
-#menu h3 {
+#menu .scrollable {
+    flex: 1;
+    overflow-y: auto;
+    margin: 0;
+}
+
+#menu h2 {
     display: inline-block;
     width: 100%;
     text-align: center;
@@ -41,22 +51,27 @@ a:focus {
     font-size: 100%;
 }
 
-#menu h3 span {
+#menu h2 span {
     display: inline-block;
     font-weight: normal;
     color: rgba(255,255,255,0.3);
     margin-top: 1em;
 }
 
+#menu h3 {
+    color: #ffffff;
+    font-weight: bold;
+}
+
 #menu h4 {
     color: #ffffff;
 }
 
-#menu h3 a,
-#menu h3 a:hover,
-#menu h3 a:active,
-#menu h3 a:visited,
-#menu h3 a:focus {
+#menu h2 a,
+#menu h2 a:hover,
+#menu h2 a:active,
+#menu h2 a:visited,
+#menu h2 a:focus {
     color: #ffffff;
 }
 

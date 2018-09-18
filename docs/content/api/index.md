@@ -1,7 +1,7 @@
 @ngdoc content
-@name OeREB Client Documentation
+@name API reference
 @description
 
-# OeREB Client Documentation
+# API reference
 
 Content follows...

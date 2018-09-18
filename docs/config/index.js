@@ -10,6 +10,7 @@ module.exports = new Package('oereb_client_doc', [
   .processor(require('./processors/index-page'))
   .processor(require('./processors/version'))
   .processor(require('./processors/api-data'))
+  .processor(require('./processors/guide-data'))
 
   .config(function (log, readFilesProcessor, writeFilesProcessor) {
 

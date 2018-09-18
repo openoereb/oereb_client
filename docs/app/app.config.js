@@ -8,7 +8,10 @@ function config(API_DATA, $routeProvider) {
     .when('/api', {
       templateUrl: 'partials/api.html'
     })
-    .otherwise('/api');
+    .when('/guide', {
+      templateUrl: 'partials/guide.html'
+    })
+    .otherwise('/guide');
 
   // Looping through all of our API pages
   angular.forEach(API_DATA, function (parent) {

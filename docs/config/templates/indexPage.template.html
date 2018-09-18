@@ -15,16 +15,24 @@
 
         <div id="wrapper">
 
-            <div id="menu" ng-controller="ApiController as ctrl">
+            <div id="menu" ng-controller="ApiController as api" ng-controller="GuideController as guide">
 
-                <div ng-repeat="page in ctrl.allPages | filter:{ type: 'module' }">
+                <h2 class=>
+                    <a ng-href="#!/api">OeREB Client Documentation</a><br />
+                    <span>{{ api.version }}</span>
+                </h2>
 
-                    <h3>
-                        <a ng-href="js/#!/api">OeREB Client Documentation</a><br />
-                        <span>{{ ctrl.version }}</span>
-                    </h3>
+                <div class="container-fluid scrollable">
 
-                    <div class="container-fluid">
+                    <h3>User guide</h3>
+
+                    <div ng-repeat="page in guide.allPages | filter:{ type: 'module' }">
+
+                    </div>
+
+                    <h3>API reference</h3>
+
+                    <div ng-repeat="page in api.allPages | filter:{ type: 'module' }">
 
                         <h4>
                             <strong>
@@ -82,11 +90,11 @@
         <script src="src/app.module.js"></script>
         <script src="src/app.config.js"></script>
         <script src="src/api.js"></script>
-        <!--?<script src="src/guide.js"></script>-->
+        <script src="src/guide.js"></script>
 
         <!-- page data -->
         <script src="src/api-data.js"></script>
         <script src="src/version.js"></script>
-        <!--?<script src="src/guide-data.js"></script>-->
+        <script src="src/guide-data.js"></script>
     </body>
 </html>
