@@ -2,5 +2,5 @@
 // Creating the root app module
 angular
   .module('docs', [
-    'ngRoute'
+    'ui.router'
   ]);

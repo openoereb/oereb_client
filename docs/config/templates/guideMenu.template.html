@@ -1,0 +1,8 @@
+<div>
+    <h3>User guide</h3>
+    <ol class="list-unstyled">
+        <li ng-repeat="page in ctrl.allPages | filter:{url:'!guide'}:true">
+            <a ng-href="{{page.url}}" ng-bind="page.name"></a>
+        </li>
+    </ol>
+</div>

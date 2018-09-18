@@ -1,0 +1,34 @@
+<div>
+    <h3>API reference</h3>
+    <div ng-repeat="page in ctrl.allPages | filter:{ type: 'module' }">
+        <h4>
+            <strong>
+                <a ng-href="{{page.url}}">Module {{page.name}}</a>
+            </strong>
+        </h4>
+        <h4>Controller</h4>
+        <ol class="list-unstyled">
+            <li ng-repeat="child in page.docs | filter:{ type: 'function' }">
+                <a ng-href="{{child.url}}" ng-bind="child.name"></a>
+            </li>
+        </ol>
+        <h4>Directives</h4>
+        <ol class="list-unstyled">
+            <li ng-repeat="child in page.docs | filter:{ type: 'directive' }">
+                <a ng-href="{{child.url}}" ng-bind="child.name"></a>
+            </li>
+        </ol>
+        <h4>Filter</h4>
+        <ol class="list-unstyled">
+            <li ng-repeat="child in page.docs | filter:{ type: 'filter' }">
+                <a ng-href="{{child.url}}" ng-bind="child.name"></a>
+            </li>
+        </ol>
+        <h4>Services</h4>
+        <ol class="list-unstyled">
+            <li ng-repeat="child in page.docs | filter:{ type: 'service' }">
+                <a ng-href="{{child.url}}" ng-bind="child.name"></a>
+            </li>
+        </ol>
+    </div>
+</div>
