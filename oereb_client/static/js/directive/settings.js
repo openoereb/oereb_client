@@ -5,13 +5,18 @@ goog.require('oereb.MapService');
 goog.require('oereb.StoreService');
 
 /**
- * Angular directive for rendering the real estate data.
+ * @function
+ *
+ * @description
+ *
+ * Directive definition function.
+ *
  * @param {oereb.MapService} MapService Angular service for map handling.
  * @param {oereb.StoreService} StoreService Angular service for local storage handling.
+ *
  * @returns {angular.Directive} Angular directive definition object.
+ *
  * @ngInject
- * @ngdoc directive
- * @ngname oerebSettings
  */
 oereb.settingsDirective = function(MapService, StoreService) {
   return {
@@ -53,4 +58,14 @@ oereb.settingsDirective = function(MapService, StoreService) {
   }
 };
 
+/**
+ * @ngdoc directive
+ * @name oerebSettings
+ * @module oereb
+ * @restrict E
+ *
+ * @description
+ *
+ * Angular directive for rendering the real estate data.
+ */
 oereb.module.directive('oerebSettings', oereb.settingsDirective);

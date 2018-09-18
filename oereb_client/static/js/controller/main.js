@@ -5,7 +5,14 @@ goog.require('oereb.ExtractService');
 goog.require('oereb.MapService');
 
 /**
+ * @ngdoc function
+ * @module oereb
+ * @name MainController
+ *
+ * @description
+ *
  * `oereb_client` main controller.
+ *
  * @param {angular.Scope} $scope The controller scope.
  * @param {angular.Location} $location The location provided by angular.
  * @param {oereb.ExtractService} ExtractService Angular service for extract loading.
@@ -14,10 +21,9 @@ goog.require('oereb.MapService');
  * @param {string} oerebEventEgridSelected Event name for selected EGRID.
  * @param {string} oerebEventExtractLoaded Event name for loaded extract.
  * @param {string} oerebEventExtractClosed Event name for closed extract.
+ *
  * @constructor
  * @ngInject
- * @ngdoc controller
- * @ngname MainController
  */
 oereb.MainController = function($scope, $location, ExtractService, MapService, oerebSupport,
                                 oerebEventEgridSelected, oerebEventExtractLoaded, oerebEventExtractClosed) {
@@ -80,7 +86,13 @@ oereb.MainController = function($scope, $location, ExtractService, MapService, o
 };
 
 /**
+ * @ngdoc method
+ * @name MainController#closeExtract
+ *
+ * @description
+ *
  * Hide the extract panel and fires the extract closed event.
+ *
  * @export
  */
 oereb.MainController.prototype.closeExtract = function() {
@@ -92,7 +104,13 @@ oereb.MainController.prototype.closeExtract = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MainController#collapseExtract
+ *
+ * @description
+ *
  * Collapse the extract panel.
+ *
  * @export
  */
 oereb.MainController.prototype.collapseExtract = function() {
@@ -103,7 +121,13 @@ oereb.MainController.prototype.collapseExtract = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MainController#expandExtract
+ *
+ * @description
+ *
  * Expand the extract panel.
+ *
  * @export
  */
 oereb.MainController.prototype.expandExtract = function() {
@@ -114,7 +138,13 @@ oereb.MainController.prototype.expandExtract = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MainController#toggleInformation
+ *
+ * @description
+ *
  * Shows/hides the information panel.
+ *
  * @export
  */
 oereb.MainController.prototype.toggleInformation = function() {
@@ -122,9 +152,16 @@ oereb.MainController.prototype.toggleInformation = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MainController#getExtractByEgrid_
+ *
+ * @description
+ *
  * Starts the extract creating with the desired egrid.
+ *
  * @param {string} egrid The EGRID as a string.
  * @param {boolean} center Switch if the map should be recentered or not.
+ *
  * @private
  */
 oereb.MainController.prototype.getExtractByEgrid_ = function(egrid, center) {

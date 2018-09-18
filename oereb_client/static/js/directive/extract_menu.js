@@ -4,7 +4,11 @@ goog.require('oereb');
 goog.require('oereb.staticExtractDirective');
 
 /**
- * Drirective definition function.
+ * @function
+ *
+ * @description
+ *
+ * Directive definition function.
  *
  * @param {angular.$location} $location Angular $location service.
  * @param {string} geoViewConfig JSON-encoded GeoView BL configuration.
@@ -33,8 +37,15 @@ oereb.extractMenuDirective = function ($location, geoViewConfig) {
       scope.permaLink = '';
 
       /**
+       * @ngdoc method
+       * @name oerebExtractMenu#hasLinkConfig
+       *
+       * @description
+       *
        * Returns true, if a valid config has been passed.
+       *
        * @returns {boolean} True, if a valid config has been passed, false otherwise.
+       *
        * @export
        */
       scope.hasLinkConfig = function() {
@@ -43,7 +54,13 @@ oereb.extractMenuDirective = function ($location, geoViewConfig) {
       };
 
       /**
+       * @ngdoc method
+       * @name oerebExtractMenu#goToGeoView
+       *
+       * @description
+       *
        * Switch to GeoView BL at the currently selected EGRID.
+       *
        * @export
        */
       scope.goToGeoView = function() {
@@ -76,7 +93,13 @@ oereb.extractMenuDirective = function ($location, geoViewConfig) {
       };
 
       /**
+       * @ngdoc method
+       * @name oerebExtractMenu#providePermalink
+       *
+       * @description
+       *
        * Show the permalink in a modal window.
+       *
        * @export
        */
       scope.providePermalink = function() {
@@ -94,7 +117,9 @@ oereb.extractMenuDirective = function ($location, geoViewConfig) {
  * @module oereb
  * @restrict E
  *
- * @description The menu which is shown in the extract to link to several related services.
+ * @description
+ *
+ * The menu which is shown in the extract to link to several related services.
  *
  * @param {string} permaLink The permalink variable.
  */

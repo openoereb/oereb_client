@@ -4,7 +4,11 @@ goog.require('oereb');
 goog.require('oereb.multilingualTextFilter');
 
 /**
- * Element containing the legal documents for a specified topic.
+ * @function
+ *
+ * @description
+ *
+ * Directive definition function.
  *
  * @param {angular.$filter} $filter The angular filter service.
  * @param {oereb.ExtractService} ExtractService The service for the extract handling.
@@ -32,9 +36,17 @@ oereb.legalDocumentsDirective = function($filter, ExtractService) {
       scope.data = ExtractService.getDocuments(scope.themeCode);
 
       /**
+       * @ngdoc method
+       * @name oerebLegalDocuments#getTitle
+       *
+       * @description
+       *
        * Creates the complete document title, including abbreviation and number.
+       *
        * @param {Object} record The legal document record.
+       *
        * @returns {string} The complete document title (with abbreviation and number).
+       *
        * @export
        */
       scope.getTitle = function(record) {
@@ -57,6 +69,10 @@ oereb.legalDocumentsDirective = function($filter, ExtractService) {
  * @name oerebLegalDocuments
  * @module oereb
  * @restrict E
+ *
+ * @description
+ *
+ * Element containing the legal documents for a specified topic.
  *
  * @param {string} themeCode The code of the theme to show the legal documents for.
  */

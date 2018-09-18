@@ -3,14 +3,20 @@ goog.provide('oereb.ExtractService');
 goog.require('oereb');
 
 /**
+ * @ngdoc service
+ * @name ExtractService
+ * @module oereb
+ *
+ * @description
+ *
  * Angular service to request a specific extract.
+ *
  * @param {angular.$http} $http Angular service for HTTP requests.
  * @param {angular.$q} $q Angular service for deferrable objects.
  * @param {angular.Module.constant} oerebApplicationUrl Angular service for HTTP requests.
+ *
  * @constructor
  * @ngInject
- * @ngdoc service
- * @ngname ExtractService
  */
 oereb.ExtractService = function($http, $q, oerebApplicationUrl) {
 
@@ -24,8 +30,15 @@ oereb.ExtractService = function($http, $q, oerebApplicationUrl) {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#queryExtractById
+ *
+ * @description
+ *
  * Requests the extract for the specified EGRID.
+ *
  * @param {string} egrid The EGRID to request the extract for.
+ *
  * @returns {angular.$q.Promise} Promise for the EGRID request.
  */
 oereb.ExtractService.prototype.queryExtractById = function(egrid) {
@@ -66,7 +79,13 @@ oereb.ExtractService.prototype.queryExtractById = function(egrid) {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getExtract
+ *
+ * @description
+ *
  * Returns the extract if available.
+ *
  * @returns {Object|undefined} The extract object or undefined.
  */
 oereb.ExtractService.prototype.getExtract = function() {
@@ -74,7 +93,13 @@ oereb.ExtractService.prototype.getExtract = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getRealEstate
+ *
+ * @description
+ *
  * Returns the real estate data if available.
+ *
  * @returns {Object|undefined} The real estate data or undefined.
  */
 oereb.ExtractService.prototype.getRealEstate = function() {
@@ -85,7 +110,13 @@ oereb.ExtractService.prototype.getRealEstate = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getConcernedThemes
+ *
+ * @description
+ *
  * Returns list of concerned themes.
+ *
  * @returns {Array|undefined} The list of concerned themes.
  */
 oereb.ExtractService.prototype.getConcernedThemes = function() {
@@ -96,7 +127,13 @@ oereb.ExtractService.prototype.getConcernedThemes = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getNotConcernedThemes
+ *
+ * @description
+ *
  * Returns list of not concerned themes.
+ *
  * @returns {Array|undefined} The list of not concerned themes.
  */
 oereb.ExtractService.prototype.getNotConcernedThemes = function() {
@@ -107,7 +144,13 @@ oereb.ExtractService.prototype.getNotConcernedThemes = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getThemesWithoutData
+ *
+ * @description
+ *
  * Returns list of themes without data.
+ *
  * @returns {Array|undefined} The list of themes without data.
  */
 oereb.ExtractService.prototype.getThemesWithoutData = function() {
@@ -118,8 +161,15 @@ oereb.ExtractService.prototype.getThemesWithoutData = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getRestrictions
+ *
+ * @description
+ *
  * Returns the public law restrictions of the specified topic.
+ *
  * @param {string} themeCode The code of the topic to return the restrictions for.
+ *
  * @returns {Array|undefined} The public law restrictions of the specified topic.
  */
 oereb.ExtractService.prototype.getRestrictions = function(themeCode) {
@@ -136,8 +186,15 @@ oereb.ExtractService.prototype.getRestrictions = function(themeCode) {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getLegend
+ *
+ * @description
+ *
  * Returns the legend entries of the specified topic.
+ *
  * @param {string} themeCode The code of the topic to return the restrictions for.
+ *
  * @returns {Object|undefined} The legend entries of the specified topic.
  */
 oereb.ExtractService.prototype.getLegend = function(themeCode) {
@@ -199,10 +256,17 @@ oereb.ExtractService.prototype.getLegend = function(themeCode) {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#addIfNotContains_
+ *
+ * @description
+ *
  * Adds the item to the specified target array if it's not already contained. `angular.equals` is used for the
  * comparison.
+ *
  * @param {Object|Array|string|number} item The element to be added.
  * @param {Array} target The target array to add the element to.
+ *
  * @private
  */
 oereb.ExtractService.prototype.addIfNotContains_ = function(item, target) {
@@ -217,10 +281,17 @@ oereb.ExtractService.prototype.addIfNotContains_ = function(item, target) {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#addDocumentIfNotContained_
+ *
+ * @description
+ *
  * Adds the document to the specified target array if it's not already contained. `angular.equals` is used for
  * the comparison.
+ *
  * @param {Object} document The document to be added.
  * @param {Array} target The target array to add the element to.
+ *
  * @private
  */
 oereb.ExtractService.prototype.addDocumentIfNotContained_ = function(document, target) {
@@ -253,9 +324,16 @@ oereb.ExtractService.prototype.addDocumentIfNotContained_ = function(document, t
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#addDocumentsIfNotContained_
+ *
+ * @description
+ *
  * Add each listed document to the target array if it's not already contained.
+ *
  * @param {Array} documents The documents to be added.
  * @param {Array} target The target array.
+ *
  * @private
  */
 oereb.ExtractService.prototype.addDocumentsIfNotContained_ = function(documents, target) {
@@ -282,8 +360,15 @@ oereb.ExtractService.prototype.addDocumentsIfNotContained_ = function(documents,
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getDocuments
+ *
+ * @description
+ *
  * Returns the legal documents of the specified topic.
+ *
  * @param {string} themeCode The code of the topic to return the restrictions for.
+ *
  * @returns {Object|undefined} The legal documents of the specified topic.
  */
 oereb.ExtractService.prototype.getDocuments = function(themeCode) {
@@ -325,8 +410,15 @@ oereb.ExtractService.prototype.getDocuments = function(themeCode) {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getResponsibleOffices
+ *
+ * @description
+ *
  * Returns the responsible offices of the specified topic.
+ *
  * @param {string} themeCode The code of the topic to return the responsible offices for.
+ *
  * @returns {Array|undefined} The responsible offices of the specified topic.
  */
 oereb.ExtractService.prototype.getResponsibleOffices = function(themeCode) {
@@ -347,9 +439,17 @@ oereb.ExtractService.prototype.getResponsibleOffices = function(themeCode) {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getViewServiceFromUrl_
+ *
+ * @description
+ *
  * Creates a view service definition using the restriction's theme code and view service URL.
+ *
  * @param {Object} mapObject The restriction's view service definition.
+ *
  * @returns {Object} The created view service definition.
+ *
  * @private
  */
 oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(mapObject) {
@@ -403,7 +503,13 @@ oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(mapObject) {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getViewServices
+ *
+ * @description
+ *
  * Returns a unique list of view services available in the extract.
+ *
  * @returns {Object} A unique list of view service objects grouped by topic.
  */
 oereb.ExtractService.prototype.getViewServices = function() {
@@ -431,7 +537,13 @@ oereb.ExtractService.prototype.getViewServices = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getExclusionsOfLiability
+ *
+ * @description
+ *
  * Returns the exclusions of liability for the current extract.
+ *
  * @returns {Array} The exclusions of liability.
  */
 oereb.ExtractService.prototype.getExclusionsOfLiability = function() {
@@ -442,7 +554,13 @@ oereb.ExtractService.prototype.getExclusionsOfLiability = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getGlossary
+ *
+ * @description
+ *
  * Returns the glossary for the current extract.
+ *
  * @returns {Array} The exclusions of liability.
  */
 oereb.ExtractService.prototype.getGlossary = function() {
@@ -453,7 +571,13 @@ oereb.ExtractService.prototype.getGlossary = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name ExtractService#getEmbeddable
+ *
+ * @description
+ *
  * Returns the embeddable if available.
+ *
  * @returns {Object|undefined} The extract object or undefined.
  */
 oereb.ExtractService.prototype.getEmbeddable = function() {
@@ -461,8 +585,19 @@ oereb.ExtractService.prototype.getEmbeddable = function() {
 };
 
 /**
- * Validates the received extract data.
+ * @ngdoc method
+ * @name ExtractService#validate_
+ *
+ * @description
+ *
+ * Validates the received extract data. Currently implemented checks are:
+ *
+ * - `RestrictionOnLandownership` has to be an array
+ * - `LegalProvisions` has to be an array
+ * - `LegalProvisions` has to contain at least one legal document
+ *
  * @returns {boolean} True if the validation succeeds, false otherwise.
+ *
  * @private
  */
 oereb.ExtractService.prototype.validate_ = function() {

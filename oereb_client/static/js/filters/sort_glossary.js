@@ -5,6 +5,8 @@ goog.require('oereb');
 /**
  * @constructor
  *
+ * @description
+ *
  * Angular filter definition function.
  *
  * @param {angular.$filter} $filter The angular $filter service.
@@ -46,7 +48,9 @@ oereb.sortGlossaryFilter = function($filter) {
  * @name orderGlossary
  * @module oereb
  *
- * @description Sorts the glossary elements respecting the specified language.
+ * @description
+ *
+ * Sorts the glossary elements respecting the specified language.
  *
  * @param {string} language The language for sorting.
  */

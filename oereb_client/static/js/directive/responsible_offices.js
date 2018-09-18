@@ -6,7 +6,9 @@ goog.require('oereb.multilingualTextFilter');
 /**
  * @function
  *
- * @description Directive definition function
+ * @description
+ *
+ * Directive definition function
  *
  * @param {oereb.ExtractService} ExtractService Service for extract handling.
  *
@@ -37,7 +39,9 @@ oereb.responsibleOfficesDirective = function(ExtractService) {
  * @module oereb
  * @restrict E
  *
- * @description The responsible office for a specific topic.
+ * @description
+ *
+ * The responsible office for a specific topic.
  *
  * @param {Array} themeCode The code of the current topic.
  */

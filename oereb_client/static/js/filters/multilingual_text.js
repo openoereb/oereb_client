@@ -5,7 +5,9 @@ goog.require('oereb');
 /**
  * @constructor
  *
- * Extracts the specified language or default language from a multilingual array.
+ * @description
+ *
+ * Angular filter definition function.
  *
  * @param {string} oerebDefaultLanguage The default language for the application.
  *
@@ -47,7 +49,9 @@ oereb.multilingualTextFilter = function(oerebDefaultLanguage) {
  * @name multilingualText
  * @module oereb
  *
- * @description Extracts the specified language from a multilingual array.
+ * @description
+ *
+ * Extracts the specified language or default language from a multilingual array.
  *
  * - If no language is specified, the default language will be used.
  * - If no language matches, the first element will be returned

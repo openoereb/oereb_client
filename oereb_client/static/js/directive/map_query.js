@@ -5,15 +5,20 @@ goog.require('oereb.MapService');
 goog.require('oereb.EgridService');
 
 /**
- * Query and select EGRIDs on the map.
+ * @function
+ *
+ * @description
+ *
+ * Directive definition function.
+ *
  * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {oereb.MapService} MapService Service for map handling.
  * @param {oereb.EgridService} EgridService Service for querying EGRIDs.
  * @param {string} oerebEventEgridSelected Event name for selected EGRID.
+ *
  * @returns {angular.Directive} Angular directive definition.
+ *
  * @ngInject
- * @ngdoc directive
- * @ngname oerebMapQuery
  */
 oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEventEgridSelected) {
   return {
@@ -51,9 +56,16 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
       });
 
       /**
+       * @ngdoc method
+       * @name oerebMapQuery#queryAt
+       *
+       * @description
+       *
        * Routine to provide the item picker for selecting unique egrid.
+       *
        * @param {ol.Coordinate} coord The position to move to element to.
        * @param {boolean} center Switch for centering map view on the selector or not.
+       *
        * @export
        */
       scope.queryAt = function(coord, center) {
@@ -66,8 +78,15 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
       };
 
       /**
+       * @ngdoc method
+       * @name oerebMapQuery#moveTo_
+       *
+       * @description
+       *
        * Move map query to pixel position and show loading indicator.
+       *
        * @param {ol.Coordinate} coord The position to move to element to.
+       *
        * @private
        */
       scope.moveTo_ = function(coord) {
@@ -79,8 +98,15 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
       };
 
       /**
+       * @ngdoc method
+       * @name oerebMapQuery#queryEgrid_
+       *
+       * @description
+       *
        * Query EGRID for the specified coordinate.
+       *
        * @param {ol.Coordinate} coord The coordinate to query the EGRID for.
+       *
        * @private
        */
       scope.queryEgrid_ = function(coord) {
@@ -114,7 +140,13 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
       };
 
       /**
+       * @ngdoc method
+       * @name oerebMapQuery#close
+       *
+       * @description
+       *
        * Close the map query.
+       *
        * @export
        */
       scope.close = function() {
@@ -125,9 +157,16 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
       };
 
       /**
+       * @ngdoc method
+       * @name oerebMapQuery#select
+       *
+       * @description
+       *
        * Load the extract for the specified EGRID. It uses the switch to recenter the map from
        * centerRealEstate variable.
+       *
        * @param {string} egrid The EGRID to load the extract for.
+       *
        * @export
        */
       scope.select = function(egrid) {
@@ -141,4 +180,14 @@ oereb.mapQueryDirective = function($timeout, MapService, EgridService, oerebEven
   }
 };
 
+/**
+ * @ngdoc directive
+ * @name oerebMapQuery
+ * @module oereb
+ * @restrict E
+ *
+ * @description
+ *
+ * Query and select EGRIDs on the map.
+ */
 oereb.module.directive('oerebMapQuery', oereb.mapQueryDirective);

@@ -21,10 +21,10 @@ module.exports = new Package('oereb_client_doc', [
 
     // Specify our source files that we want to extract
     readFilesProcessor.sourceFiles = [
-      // { // All of our application files
-      //   include: 'oereb_client/static/js/**/*.js',
-      //   basePath: 'oereb_client/static/js'
-      // },
+      { // All of our application files
+        include: 'oereb_client/static/js/**/*.js',
+        basePath: 'oereb_client/static/js'
+      },
       { // Our static Markdown documents
         include: 'docs/content/**/*.md',
         basePath: 'docs/content',

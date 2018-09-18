@@ -8,7 +8,9 @@ goog.require('oereb.TopicController');
 /**
  * @function
  *
- * @description Directive definition function.
+ * @description
+ *
+ * Directive definition function.
  *
  * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
@@ -92,8 +94,11 @@ oereb.concernedThemeDirective = function($timeout, ExtractService, oerebEventExt
  * @ngdoc directive
  * @name oerebConcernedTheme
  * @module oereb
+ * @restrict E
  *
- * @description Collapsible element containing the concerned themes.
+ * @description
+ *
+ * Collapsible element containing the concerned themes.
  *
  * @param {string} toggledGroup The currently toggled group.
  */

@@ -3,6 +3,10 @@ goog.provide('oereb.staticExtractDirective');
 goog.require('oereb');
 
 /**
+ * @function
+ *
+ * @description
+ *
  * Directive definition function.
  *
  * @param {angular.$http} $http Angular service for HTTP requests.
@@ -32,7 +36,13 @@ oereb.staticExtractDirective = function($http, ExtractService, oerebApplicationU
       scope.iconClass = defaultIcon;
 
       /**
+       * @ngdoc method
+       * @name oerebStaticExtract#request
+       *
+       * @description
+       *
        * Requests the static extract.
+       *
        * @export
        */
       scope.request = function() {
@@ -54,8 +64,15 @@ oereb.staticExtractDirective = function($http, ExtractService, oerebApplicationU
       };
 
       /**
+       * @ngdoc method
+       * @name oerebStaticExtract#getFile_
+       *
+       * @description
+       *
        * Returns the received PDF as download.
+       *
        * @param {string} content The PDF content
+       *
        * @private
        */
       scope.getFile_ = function(content) {
@@ -74,6 +91,8 @@ oereb.staticExtractDirective = function($http, ExtractService, oerebApplicationU
  * @module oereb
  * @restrict E
  *
- * @description Button to request a PDF extract.
+ * @description
+ *
+ * Button to request a PDF extract.
  */
 oereb.module.directive('oerebStaticExtract', oereb.staticExtractDirective);

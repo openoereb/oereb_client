@@ -8,7 +8,9 @@ goog.require('oereb.replaceFilter');
 /**
  * @function
  *
- * @description Directive definition function
+ * @description
+ *
+ * Directive definition function
  *
  * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {oereb.ExtractService} ExtractService Service for extract handling.
@@ -50,8 +52,15 @@ oereb.legendDirective = function($timeout, ExtractService, StoreService, oerebEv
       scope.legend = ExtractService.getLegend(scope.themeCode);
 
       /**
+       * @ngdoc method
+       * @name oerebLegend#showGraphics
+       *
+       * @description
+       *
        * Display legend graphics section only if it contains at least one graphic.
+       *
        * @return {boolean} True, if there is at least one legend graphic available.
+       *
        * @export
        */
       scope.showGraphics = function() {
@@ -63,7 +72,13 @@ oereb.legendDirective = function($timeout, ExtractService, StoreService, oerebEv
       };
 
       /**
+       * @ngdoc method
+       * @name oerebLegend#toggleGraphics
+       *
+       * @description
+       *
        * Show/hide the legend graphics.
+       *
        * @export
        */
       scope.toggleGraphics = function() {
@@ -90,6 +105,16 @@ oereb.legendDirective = function($timeout, ExtractService, StoreService, oerebEv
         }
       });
 
+      /**
+       * @ngdoc method
+       * @name oerebLegend#enableSymbolZoom_
+       *
+       * @description
+       *
+       * Enables the zoom for legend symbols.
+       *
+       * @private
+       */
       scope.enableSymbolZoom_ = function() {
         element.find('img.symbol').popover({
           container: 'body',
@@ -103,6 +128,16 @@ oereb.legendDirective = function($timeout, ExtractService, StoreService, oerebEv
         });
       };
 
+      /**
+       * @ngdoc method
+       * @name oerebLegend#disableSymbolZoom_
+       *
+       * @description
+       *
+       * Disables the zoom for legend symbols.
+       *
+       * @private
+       */
       scope.disableSymbolZoom_ = function() {
         element.find('img.symbol').popover('destroy');
       };
@@ -132,7 +167,9 @@ oereb.legendDirective = function($timeout, ExtractService, StoreService, oerebEv
  * @module oereb
  * @restrict E
  *
- * @description The legend entries and calculations for the current topic.
+ * @description
+ *
+ * The legend entries and calculations for the current topic.
  *
  * @param {Array} themeCode The code of the current topic.
  */
