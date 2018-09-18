@@ -1,0 +1,116 @@
+html,
+body,
+#wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgba(0,0,0,0.05);
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+    color: #2980B9;
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #343131;
+}
+
+#menu h3 {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #2980B9;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+#menu h3 span {
+    display: inline-block;
+    font-weight: normal;
+    color: rgba(255,255,255,0.3);
+    margin-top: 1em;
+}
+
+#menu h4 {
+    color: #ffffff;
+}
+
+#menu h3 a,
+#menu h3 a:hover,
+#menu h3 a:active,
+#menu h3 a:visited,
+#menu h3 a:focus {
+    color: #ffffff;
+}
+
+#menu a,
+#menu a:hover,
+#menu a:active,
+#menu a:visited,
+#menu a:focus {
+    color: #b3b3b3;
+}
+
+#content {
+    margin-left: 300px;
+    width: 800px;
+    background-color: #ffffff;
+}
+
+#menu .container-fluid,
+#content .container-fluid {
+    padding: 25px 50px;
+}
+
+table.definition-table td,
+table.definition-table th {
+    padding: 5px;
+}
+table.definition-table td p {
+    margin: 0;
+}
+
+table.variables-matrix td,
+table.variables-matrix th {
+    padding: 5px;
+}
+table.variables-matrix td p {
+    margin: 0;
+}
+table.variables-matrix td a,
+table.variables-matrix td a:hover,
+table.variables-matrix td a:active,
+table.variables-matrix td a:visited,
+table.variables-matrix td a:focus {
+    color: #000000;
+}
+
+ol.naked-list,
+ul.methods,
+div.usage ul {
+    list-style: none;
+    padding: 0;
+}
+ol.naked-list li {
+    font-style: italic;
+}
+div.usage ul li pre {
+    margin-top: 5px;
+}

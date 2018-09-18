@@ -1,0 +1,92 @@
+<!doctype html>
+<html ng-app="docs">
+    <head>
+        <base href="/">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>OeREB Client Documentation</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="src/app.css">
+
+    </head>
+    <body>
+
+        <div id="wrapper">
+
+            <div id="menu" ng-controller="ApiController as ctrl">
+
+                <div ng-repeat="page in ctrl.allPages | filter:{ type: 'module' }">
+
+                    <h3>
+                        <a ng-href="js/#!/api">OeREB Client Documentation</a><br />
+                        <span>{{ ctrl.version }}</span>
+                    </h3>
+
+                    <div class="container-fluid">
+
+                        <h4>
+                            <strong>
+                                <a ng-href="#!/{{page.url}}">Module {{page.name}}</a>
+                            </strong>
+                        </h4>
+
+                        <h4>Controller</h4>
+                        <ol class="list-unstyled">
+                            <li ng-repeat="child in page.docs | filter:{ type: 'function' }">
+                                <a ng-href="#!/{{child.url}}" ng-bind="child.name"></a>
+                            </li>
+                        </ol>
+
+                        <h4>Directives</h4>
+                        <ol class="list-unstyled">
+                            <li ng-repeat="child in page.docs | filter:{ type: 'directive' }">
+                                <a ng-href="#!/{{child.url}}" ng-bind="child.name"></a>
+                            </li>
+                        </ol>
+
+                        <h4>Filter</h4>
+                        <ol class="list-unstyled">
+                            <li ng-repeat="child in page.docs | filter:{ type: 'filter' }">
+                                <a ng-href="#!/{{child.url}}" ng-bind="child.name"></a>
+                            </li>
+                        </ol>
+
+                        <h4>Services</h4>
+                        <ol class="list-unstyled">
+                            <li ng-repeat="child in page.docs | filter:{ type: 'service' }">
+                                <a ng-href="#!/{{child.url}}" ng-bind="child.name"></a>
+                            </li>
+                        </ol>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="content">
+                <img src="src/BL_Logo_VGD_AGI_C_r_rgb.png" style="border: none; max-width: 250px; margin: 25px 50px;float: right">
+                <div class="clearfix"></div>
+                <div class="container-fluid" ng-view></div>
+            </div>
+
+        </div>
+
+        <!-- vendors -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js"></script>
+
+        <!-- angular app -->
+        <script src="src/app.module.js"></script>
+        <script src="src/app.config.js"></script>
+        <script src="src/api.js"></script>
+        <!--?<script src="src/guide.js"></script>-->
+
+        <!-- page data -->
+        <script src="src/api-data.js"></script>
+        <script src="src/version.js"></script>
+        <!--?<script src="src/guide-data.js"></script>-->
+    </body>
+</html>
