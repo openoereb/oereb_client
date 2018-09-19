@@ -271,5 +271,4 @@ updates: updates-py updates-js
 
 .PHONY: doc
 doc: $(NODE_MODULES)
-	rm -rf docs/build
-	./node_modules/.bin/gulp --PACKAGE_VERSION=$(PKG_VERSION) dgeni
+	./node_modules/.bin/gulp --PACKAGE_VERSION=$(PKG_VERSION) --URL_PREFIX=${URL_PREFIX} dgeni

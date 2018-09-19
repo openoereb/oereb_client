@@ -1,3 +1,5 @@
+var gutil = require('gulp-util');
+
 module.exports = function indexPageProcessor() {
   return {
     $runAfter: ['adding-extra-docs'],
@@ -7,12 +9,15 @@ module.exports = function indexPageProcessor() {
 
   function process(docs) {
 
+    var urlPrefix = gutil.env.URL_PREFIX || '';
+
     docs.push({
       docType: 'indexPage',
       template: 'indexPage.template.html',
       outputPath: 'index.html',
       path: 'index.html',
-      id: 'index'
+      id: 'index',
+      urlPrefix: urlPrefix
     });
 
   }
