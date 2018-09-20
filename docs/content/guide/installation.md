@@ -58,3 +58,71 @@ Alternatively, you could add `oereb_client` to a file, like
 ```
 
 ## Include the plugin
+
+Once you have installed the package into your virtual environment, there
+are two ways to include it into your Pyramid application.
+
+### 1. Using `config.include()`
+
+Your Pyramid application should start with a kind of *main* method,
+similar to this one:
+
+```python
+def main(global_config, **settings):
+    """
+    This function returns a Pyramid WSGI application.
+    """
+    config = Configurator(settings=settings)
+    ...
+    config.scan()
+    return config.make_wsgi_app()
+```
+
+To include the plugin, you can add the following line somewhere before
+`config.scan()`:
+
+```python
+config.include('oereb_client')
+```
+
+After restarting the application, the plugin should be loaded, but you
+may get some errors because of the still missing configuration.
+
+### 2. Via the application's *.ini file
+
+Usually you create one or more *.ini file for a Pyramid application,
+e.g. *development.ini* and *production.ini*, where you configure the
+application entry point, logging and maybe other global preferences.
+
+It should start similar to this example:
+
+```
+###
+# module configuration
+###
+
+[app:main]
+use = egg:oereb_client
+
+pyramid.reload_templates = true
+pyramid.default_locale_name = en
+...
+```
+
+Within the *app:main* section, you can also define plugins to be
+included:
+
+```
+[app:main]
+use = egg:oereb_client
+
+pyramid.reload_templates = true
+pyramid.default_locale_name = en
+
+pyramid.includes =
+    oereb_client
+    any_other_plugin
+...
+```
+
+After including the plugin, you can proceed with the configuration part.
