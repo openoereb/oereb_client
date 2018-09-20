@@ -33,6 +33,7 @@ setup(
     description='ÖREB Client',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
+        "License :: OSI Approved :: BSD License",
         "Development Status :: 4 - Beta" if test_mode else "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.6",

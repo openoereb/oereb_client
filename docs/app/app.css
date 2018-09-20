@@ -7,10 +7,6 @@ body,
     padding: 0;
 }
 
-body {
-    padding-top: 50px;
-}
-
 #wrapper {
     display: flex;
     flex-direction: row;
@@ -18,7 +14,60 @@ body {
     justify-content: flex-start;
 }
 
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    font-family: "Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;;
+}
+
+#header {
+    background-color: #2980B9;
+    width: 300px;
+    padding: 15px 25px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+}
+
+#nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    padding-left: 1px;
+    padding-right: 1px;
+    background-color: #2980B9;
+}
+
+#nav a {
+    flex: 1;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px;
+    color: #ffffff;
+    background-color: #9b9b9b;
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+#nav a.active, #nav a:hover {
+    flex: 1;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px;
+    color: #ffffff;
+    background-color: #5e5e5e;
+}
+
 #menu {
+    flex: 1;
     width: 300px;
     padding: 15px 25px;
     overflow-y: auto;
@@ -30,17 +79,33 @@ body {
     color: #dddddd;
 }
 
+#menu h6 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#menu ol {
+    padding-left: 15px;
+}
+
 #content {
-    padding: 15px;
-    overflow-y: auto;
+    flex: 1;
+    overflow-y: scroll;
+    background-color: rgba(0,0,0,0.05);
+}
+
+#content .container-fluid {
+    max-width: 800px;
+    margin: 0;
+    background-color: #fcfcfc;
+    padding: 15px 25px;
 }
 
 #logo {
-    position: fixed;
-    top: 65px;
-    right: 15px;
     border: none;
     max-width: 250px;
+    float: right;
+    margin-bottom: 15px;
 }
 
 table.definition-table td,
@@ -77,4 +142,11 @@ ol.naked-list li {
 }
 div.usage ul li pre {
     margin-top: 5px;
+}
+
+blockquote {
+    font-size: unset;
+    color: #777777;
+    background-color: rgba(199, 37, 78, 0.1);
+    border-left-color: #c7254e;
 }
