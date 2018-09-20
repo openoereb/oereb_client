@@ -2,31 +2,31 @@
     <div ng-repeat="page in ctrl.allPages | filter:{ type: 'module' }">
         <h4>
             <strong>
-                <a ng-href="{{page.url}}">Module {{page.name}}</a>
+                <a ng-href="#!/{{page.url}}">Module {{page.name}}</a>
             </strong>
         </h4>
         <h6>Controller</h6>
         <ol class="list-unstyled">
             <li ng-repeat="child in page.docs | filter:{ type: 'function' }">
-                <a ng-href="{{child.url}}" ng-bind="child.name"></a>
+                <a ng-href="#!/{{child.url}}" ng-bind="child.name"></a>
             </li>
         </ol>
         <h6>Directives</h6>
         <ol class="list-unstyled">
             <li ng-repeat="child in page.docs | filter:{ type: 'directive' }">
-                <a ng-href="{{child.url}}" ng-bind="child.name"></a>
+                <a ng-href="#!/{{child.url}}" ng-bind="child.name"></a>
             </li>
         </ol>
         <h6>Filter</h6>
         <ol class="list-unstyled">
             <li ng-repeat="child in page.docs | filter:{ type: 'filter' }">
-                <a ng-href="{{child.url}}" ng-bind="child.name"></a>
+                <a ng-href="#!/{{child.url}}" ng-bind="child.name"></a>
             </li>
         </ol>
         <h6>Services</h6>
         <ol class="list-unstyled">
             <li ng-repeat="child in page.docs | filter:{ type: 'service' }">
-                <a ng-href="{{child.url}}" ng-bind="child.name"></a>
+                <a ng-href="#!/{{child.url}}" ng-bind="child.name"></a>
             </li>
         </ol>
     </div>

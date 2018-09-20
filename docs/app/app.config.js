@@ -5,7 +5,7 @@ angular
 function config($locationProvider, $stateProvider, API_DATA, GUIDE_DATA, $urlRouterProvider) {
 
   // Set HTML5 Mode
-  $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(false);
 
   // Configure URL Router to redirect to /api
   // if state doesn't exist

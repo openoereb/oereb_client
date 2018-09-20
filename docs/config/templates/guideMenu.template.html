@@ -1,7 +1,7 @@
 <div>
     <h4 ng-repeat="page in ctrl.allPages | filter:{url:'!guide'}:true">
         <strong>
-            <a ng-href="{{page.url}}" ng-bind="page.name"></a>
+            <a ng-href="#!/{{page.url}}" ng-bind="page.name"></a>
         </strong>
     </h4>
 </div>
