@@ -100,7 +100,7 @@ pages:
   stage: deploy
   image: node:8-stretch
   script:
-  - make doc VERSION=test
+  - make doc VERSION=test URL_PREFIX=$CI_PROJECT_NAME/
   - mv docs/build/ public/
   artifacts:
     paths:

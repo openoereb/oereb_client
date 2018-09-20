@@ -2,27 +2,27 @@ angular
   .module('docs')
   .config(config);
 
-function config($locationProvider, $stateProvider, API_DATA, GUIDE_DATA, $urlRouterProvider, urlPrefix) {
+function config($locationProvider, $stateProvider, API_DATA, GUIDE_DATA, $urlRouterProvider) {
 
   // Set HTML5 Mode
   $locationProvider.html5Mode(true);
 
   // Configure URL Router to redirect to /api
   // if state doesn't exist
-  $urlRouterProvider.otherwise('/' + urlPrefix + 'guide');
+  $urlRouterProvider.otherwise('/guide');
 
   // Assign our root state for API pages to var
   // Assigning the basepage as the partials
   // Setup the sidebar to use our ApiController and template
   var apiState = {
     name: 'api',
-    url: '/' + urlPrefix + 'api',
+    url: '/api',
     views: {
       'content': {
-        templateUrl: urlPrefix + 'partials/api.html'
+        templateUrl: 'partials/api.html'
       },
       'menu': {
-        templateUrl: urlPrefix + 'partials/api-menu.html',
+        templateUrl: 'partials/api-menu.html',
         controller: 'ApiController as ctrl'
       }
     }
@@ -31,13 +31,13 @@ function config($locationProvider, $stateProvider, API_DATA, GUIDE_DATA, $urlRou
   // Same thing for our guide page
   var guideState = {
     name: 'guide',
-    url: '/' + urlPrefix + 'guide',
+    url: '/guide',
     views: {
       'content': {
-        templateUrl: urlPrefix + 'partials/guide.html'
+        templateUrl: 'partials/guide.html'
       },
       'menu': {
-        templateUrl: urlPrefix + 'partials/guide-menu.html',
+        templateUrl: 'partials/guide-menu.html',
         controller: 'GuideController as ctrl'
       }
     }
@@ -55,13 +55,13 @@ function config($locationProvider, $stateProvider, API_DATA, GUIDE_DATA, $urlRou
 
     var newState = {
       name: parent.name,
-      url: '/' + urlPrefix + parent.url,
+      url: '/' + parent.url,
       views: {
         'content': {
-          templateUrl: urlPrefix + parent.outputPath
+          templateUrl: parent.outputPath
         },
         'menu': {
-          templateUrl: urlPrefix + 'partials/api-menu.html',
+          templateUrl: 'partials/api-menu.html',
           controller: 'ApiController as ctrl'
         }
       }
@@ -77,13 +77,13 @@ function config($locationProvider, $stateProvider, API_DATA, GUIDE_DATA, $urlRou
 
       var newState = {
         name: doc.name,
-        url: '/' + urlPrefix + doc.url,
+        url: '/' + doc.url,
         views: {
           'content': {
-            templateUrl: urlPrefix + doc.outputPath
+            templateUrl: doc.outputPath
           },
           'menu': {
-            templateUrl: urlPrefix + 'partials/api-menu.html',
+            templateUrl: 'partials/api-menu.html',
             controller: 'ApiController as ctrl'
           }
         }
@@ -102,13 +102,13 @@ function config($locationProvider, $stateProvider, API_DATA, GUIDE_DATA, $urlRou
 
     var newState = {
       name: parent.name,
-      url: '/' + urlPrefix + parent.url,
+      url: '/' + parent.url,
       views: {
         'content': {
-          templateUrl: urlPrefix + parent.outputPath
+          templateUrl: parent.outputPath
         },
         'menu': {
-          templateUrl: urlPrefix + 'partials/guide-menu.html',
+          templateUrl: 'partials/guide-menu.html',
           controller: 'GuideController as ctrl'
         }
       }
@@ -121,6 +121,4 @@ function config($locationProvider, $stateProvider, API_DATA, GUIDE_DATA, $urlRou
 
 }
 
-config.$inject = [
-  "$locationProvider", "$stateProvider", "API_DATA", "GUIDE_DATA", "$urlRouterProvider", "urlPrefix"
-];
+config.$inject = ["$locationProvider", "$stateProvider", "API_DATA", "GUIDE_DATA", "$urlRouterProvider"];
