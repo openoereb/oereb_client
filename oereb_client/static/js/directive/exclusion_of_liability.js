@@ -7,6 +7,10 @@ goog.require('oereb.searchInformationFilter');
 goog.require('oereb.markFilter');
 
 /**
+ * @function
+ *
+ * @description
+ *
  * Directive definition function.
  *
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
@@ -42,7 +46,12 @@ oereb.exclusionOfLiabilityDirective = function(ExtractService, oerebEventExtract
  * @ngdoc directive
  * @name oerebExclusionOfLiability
  * @module oereb
+ * @restrict E
  *
- * @description Directive showing the exclusions of liability for the current extract.
+ * @description
+ *
+ * Directive showing the exclusions of liability for the current extract.
+ *
+ * @param {string} search The filter term.
  */
 oereb.module.directive('oerebExclusionOfLiability', oereb.exclusionOfLiabilityDirective);

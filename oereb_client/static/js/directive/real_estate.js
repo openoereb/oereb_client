@@ -5,13 +5,18 @@ goog.require('oereb.ExtractService');
 goog.require('oereb.replaceFilter');
 
 /**
- * Angular directive for rendering the real estate data.
+ * @function
+ *
+ * @description
+ *
+ * Directive definition function.
+ *
  * @param {oereb.ExtractService} ExtractService Angular service for extract loading.
  * @param {string} oerebEventExtractLoaded Event name for loaded extract.
+ *
  * @returns {angular.Directive} Angular directive definition object.
+ *
  * @ngInject
- * @ngdoc directive
- * @ngname oerebRealEstate
  */
 oereb.realEstateDirective = function(ExtractService, oerebEventExtractLoaded) {
   return {
@@ -33,4 +38,14 @@ oereb.realEstateDirective = function(ExtractService, oerebEventExtractLoaded) {
   }
 };
 
+/**
+ * @ngdoc directive
+ * @name oerebRealEstate
+ * @module oereb
+ * @restrict E
+ *
+ * @description
+ *
+ * Angular directive for rendering the real estate data.
+ */
 oereb.module.directive('oerebRealEstate', oereb.realEstateDirective);

@@ -1,19 +1,23 @@
-/**
- * @module oereb
- */
-
 goog.provide('oereb');
 
 
-/** @type {!angular.Module} */
+/**
+ * @ngdoc module
+ * @name oereb
+ *
+ * @description
+ *
+ * The OeREB client application module.
+ *
+ * @type {!angular.Module}
+ */
 oereb.module = angular.module('oereb', [
   'ngAnimate',
   'ngFileSaver'
 ]);
 
 /**
- * @ngdoc function
- * @name oereb#config
+ * @function
  *
  * @description The module configuration.
  *

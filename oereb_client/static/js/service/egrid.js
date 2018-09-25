@@ -3,14 +3,20 @@ goog.provide('oereb.EgridService');
 goog.require('oereb');
 
 /**
+ * @ngdoc service
+ * @name EgridService
+ * @module oereb
+ *
+ * @description
+ *
  * Angular service to handle the GetEGRID request for the available input types.
+ *
  * @param {angular.$http} $http Angular service for HTTP requests.
  * @param {angular.$q} $q Angular service for deferrable objects.
  * @param {angular.Module.constant} oerebApplicationUrl The application base url.
+ *
  * @constructor
  * @ngInject
- * @ngdoc service
- * @ngName EgridService
  */
 oereb.EgridService = function($http, $q, oerebApplicationUrl) {
 
@@ -21,8 +27,15 @@ oereb.EgridService = function($http, $q, oerebApplicationUrl) {
 };
 
 /**
+ * @ngdoc method
+ * @name EgridService#getEgridByCoord
+ *
+ * @description
+ *
  * Query the EGRID for a specified coordinate.
+ *
  * @param {ol.Coordinate} coord The coordinate to query the EGRID for.
+ *
  * @returns {angular.$q.Promise} Promise for the EGRID request.
  */
 oereb.EgridService.prototype.getEgridByCoord = function(coord) {

@@ -5,6 +5,8 @@ goog.require('oereb');
 /**
  * @constructor
  *
+ * @description
+ *
  * Angular filter definition function.
  *
  * @param {angular.$sce} $sce Angular $sce service.
@@ -34,7 +36,9 @@ oereb.markFilter = function($sce) {
  * @name mark
  * @module oereb
  *
- * @description Marks all occurrences of the specified substring.
+ * @description
+ *
+ * Marks all occurrences of the specified substring.
  *
  * @param {string} target The target substring.
  */

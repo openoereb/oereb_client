@@ -4,7 +4,14 @@ goog.require('oereb');
 goog.require('oereb.ExtractService');
 
 /**
+ * @ngdoc function
+ * @module oereb
+ * @name TopicController
+ *
+ * @description
+ *
  * Controller for concerned topics.
+ *
  * @param {angular.Scope} $scope The current scope.
  * @param {angular.Scope} $rootScope The application root scope.
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
@@ -12,10 +19,9 @@ goog.require('oereb.ExtractService');
  * @param {string} oerebEventEgridSelected Event name for selected EGRID.
  * @param {string} oerebEventExtractLoaded Name of the extract loaded event.
  * @param {string} oerebEventExtractClosed Name of the extract closed event.
+ *
  * @constructor
  * @ngInject
- * @ngdoc controller
- * @ngname TopicController
  */
 oereb.TopicController = function($scope, $rootScope, ExtractService, MapService, oerebEventEgridSelected,
                                  oerebEventExtractLoaded, oerebEventExtractClosed) {
@@ -61,8 +67,15 @@ oereb.TopicController = function($scope, $rootScope, ExtractService, MapService,
 };
 
 /**
+ * @ngdoc method
+ * @name TopicController#getRealEstateFeature_
+ *
+ * @description
+ *
  * Creates an Openlayers feature for the current real estate data.
+ *
  * @returns {ol.Feature} The real estate feature.
+ *
  * @private
  */
 oereb.TopicController.prototype.getRealEstateFeature_ = function() {
@@ -78,7 +91,14 @@ oereb.TopicController.prototype.getRealEstateFeature_ = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name TopicController#updateLayers_
+ *
+ * @description
+ *
  * Updates the layers the currently loaded extract.
+ *
+ * @private
  */
 oereb.TopicController.prototype.updateLayers_ = function() {
   this.MapService_.clearLayers();
@@ -87,8 +107,15 @@ oereb.TopicController.prototype.updateLayers_ = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name TopicController#selectTheme_
+ *
+ * @description
+ *
  * Show the layer for the specified theme code.
+ *
  * @param {string} topic The theme code to be selected.
+ *
  * @private
  */
 oereb.TopicController.prototype.selectTheme_ = function(topic) {

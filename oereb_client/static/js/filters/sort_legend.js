@@ -5,6 +5,8 @@ goog.require('oereb');
 /**
  * @constructor
  *
+ * @description
+ *
  * Angular filter definition function.
  *
  * @returns {angular.Filter} Angular filter function.
@@ -43,6 +45,8 @@ oereb.sortLegendFilter = function() {
  * @name sortLegend
  * @module oereb
  *
- * @description Sorts the legend elements respecting their sub theme, area and length.
+ * @description
+ *
+ * Sorts the legend elements respecting their sub theme, area and length.
  */
 oereb.module.filter('sortLegend', oereb.sortLegendFilter);

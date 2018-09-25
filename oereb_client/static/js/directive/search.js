@@ -9,17 +9,22 @@ goog.require('oereb.mapQueryDirective');
 goog.require('oereb.settingsDirective');
 
 /**
- * Query search API.
+ * @function
+ *
+ * @description
+ *
+ * Directive definition function.
+ *
  * @param {function} $filter The angular filter system.
  * @param {oereb.SearchService} SearchService Angular service for querying search API.
  * @param {oereb.EgridService} EgridService The service to handle egrid related stuff.
  * @param {String} oerebLogoURL The url to the oereb logo.
- * @param {String} blLogoUrl The url to the canton logo.
- * @param {String} oerebEventEgridSelected The
+ * @param {String} appLogoUrl The url to the canton logo.
+ * @param {String} oerebEventEgridSelected The EGRID selected event name.
+ *
  * @returns {Object} Angular directive definition.
+ *
  * @ngInject
- * @ngdoc directive
- * @ngname oerebSearch
  */
 oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogoURL, appLogoUrl,
                                  oerebEventEgridSelected) {
@@ -95,8 +100,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       });
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#isLV03
+       *
+       * @description
+       *
        * Return true, if the search text is a valid LV03 coordinate.
+       *
        * @returns {boolean} True, if the search text is a valid LV03 coordinate.
+       *
        * @export
        */
       scope.isLV03 = function() {
@@ -104,8 +116,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#isLV95
+       *
+       * @description
+       *
        * Return true, if the search text is a valid LV95 coordinate.
+       *
        * @returns {boolean} True, if the search text is a valid LV95 coordinate.
+       *
        * @export
        */
       scope.isLV95 = function() {
@@ -113,8 +132,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#isGNSS
+       *
+       * @description
+       *
        * Return true, if the search text is a valid WGS84 coordinate.
+       *
        * @returns {boolean} True, if the search text is a valid WGS84 coordinate.
+       *
        * @export
        */
       scope.isGNSS = function() {
@@ -122,9 +148,17 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#parseCoordinateMatch_
+       *
+       * @description
+       *
        * Returns the matched coordinate.
+       *
        * @param {RegExpExecArray|null} match The coordinate match.
+       *
        * @returns {ol.Coordinate|null} The matched coordinate.
+       *
        * @private
        */
       scope.parseCoordinateMatch_ = function(match) {
@@ -138,8 +172,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#getLV03
+       *
+       * @description
+       *
        * Returns the LV03 match.
+       *
        * @returns {ol.Coordinate|null} The matched coordinate.
+       *
        * @export
        */
       scope.getLV03 = function() {
@@ -147,8 +188,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#getLV95
+       *
+       * @description
+       *
        * Returns the LV95 match.
+       *
        * @returns {ol.Coordinate|null} The matched coordinate.
+       *
        * @export
        */
       scope.getLV95 = function() {
@@ -156,8 +204,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#getGNSS
+       *
+       * @description
+       *
        * Returns the WGS84 match.
+       *
        * @returns {ol.Coordinate|null} The matched coordinate.
+       *
        * @export
        */
       scope.getGNSS = function() {
@@ -165,8 +220,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#egridSelect
+       *
+       * @description
+       *
        * The function which is used if user selects EGRID out of search results.
+       *
        * @param {Object} egrid The EGRID which was selected by the user from search API results.
+       *
        * @export
        */
       scope.egridSelect = function(egrid) {
@@ -175,8 +237,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#addressSelect
+       *
+       * @description
+       *
        * The function which is used if user selects an address out of search results.
+       *
        * @param {Object} address The address which was selected by the user from search API results.
+       *
        * @export
        */
       scope.addressSelect = function (address) {
@@ -187,8 +256,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#coordinateSelect
+       *
+       * @description
+       *
        * Queries the real estate at the matched coordinates.
+       *
        * @param {ol.Coordinate|null} coordinate The matched coordinate.
+       *
        * @export
        */
       scope.coordinateSelect = function(coordinate) {
@@ -210,8 +286,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#parcelSelect
+       *
+       * @description
+       *
        * The function which is used if user selects a parcel out of search results.
+       *
        * @param {Object} parcel The parcel which was selected by the user from search API results.
+       *
        * @export
        */
       scope.parcelSelect = function (parcel) {
@@ -230,7 +313,13 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#close
+       *
+       * @description
+       *
        * Clear search text and close results.
+       *
        * @export
        */
       scope.close = function() {
@@ -238,8 +327,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
       };
 
       /**
+       * @ngdoc method
+       * @name oerebSearch#isLoading
+       *
+       * @description
+       *
        * Returns true if one of the requests is still pending.
+       *
        * @returns {boolean} True if one of the requests is still pending.
+       *
        * @export
        */
       scope.isLoading = function() {
@@ -250,4 +346,14 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
   }
 };
 
+/**
+ * @ngdoc directive
+ * @name oerebSearch
+ * @module oereb
+ * @restrict E
+ *
+ * @description
+ *
+ * Query search API.
+ */
 oereb.module.directive('oerebSearch', oereb.searchDirective);

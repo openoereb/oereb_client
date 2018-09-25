@@ -3,15 +3,21 @@ goog.provide('oereb.SearchService');
 goog.require('oereb');
 
 /**
+ * @ngdoc service
+ * @name SearchService
+ * @module oereb
+ *
+ * @description
+ *
  * Angular service to handle a search term passed to GeoViewBL search api.
+ *
  * @param {angular.$http} $http Angular service for HTTP requests.
  * @param {angular.$q} $q Angular service for deferrable objects.
  * @param {string} searchServiceConfig JSON-encoded search configuration.
  * @param {string} wfsFilterServiceUrl The WFS url.
+ *
  * @constructor
  * @ngInject
- * @ngdoc service
- * @ngName SearchService
  */
 oereb.SearchService = function ($http, $q, searchServiceConfig, wfsFilterServiceUrl) {
 
@@ -28,9 +34,17 @@ oereb.SearchService = function ($http, $q, searchServiceConfig, wfsFilterService
 };
 
 /**
+ * @ngdoc method
+ * @name SearchService#searchTerm_
+ *
+ * @description
+ *
  * Query the GeoViewBL search api with the passed term.
+ *
  * @param {String} term The term which is used for searching in the GeoViewBL search API.
+ *
  * @returns {angular.$q.Promise} Promise search request.
+ *
  * @private
  */
 oereb.SearchService.prototype.searchTerm_ = function (term) {
@@ -58,8 +72,15 @@ oereb.SearchService.prototype.searchTerm_ = function (term) {
 };
 
 /**
+ * @ngdoc method
+ * @name SearchService#searchEgrid
+ *
+ * @description
+ *
  * Query the GeoViewBL search api with the passed EGRID.
+ *
  * @param {String} value The EGRID to be searched using the GeoViewBL search API.
+ *
  * @returns {angular.$q.Promise} Promise search request.
  */
 oereb.SearchService.prototype.searchEgrid = function(value) {
@@ -83,8 +104,15 @@ oereb.SearchService.prototype.searchEgrid = function(value) {
 };
 
 /**
+ * @ngdoc method
+ * @name SearchService#searchAddress
+ *
+ * @description
+ *
  * Query the GeoViewBL search api with the passed address.
+ *
  * @param {String} value The address to be searched using the GeoViewBL search API.
+ *
  * @returns {angular.$q.Promise} Promise search request.
  */
 oereb.SearchService.prototype.searchAddress = function(value) {
@@ -108,8 +136,15 @@ oereb.SearchService.prototype.searchAddress = function(value) {
 };
 
 /**
+ * @ngdoc method
+ * @name SearchService#searchRealEstate
+ *
+ * @description
+ *
  * Query the GeoViewBL search api with the passed real estate.
+ *
  * @param {String} value The real estate to be searched using the GeoViewBL search API.
+ *
  * @returns {angular.$q.Promise} Promise search request.
  */
 oereb.SearchService.prototype.searchRealEstate = function(value) {
@@ -133,10 +168,17 @@ oereb.SearchService.prototype.searchRealEstate = function(value) {
 };
 
 /**
+ * @ngdoc method
+ * @name SearchService#lookupEgrid
+ *
+ * @description
+ *
  * Query a WFS for obtaining egrid to combination of parcel number and municipality name.
+ *
  * @param {String} parcel_number The parcel number for the WFS query.
  * @param {String} municipality_name The municipality name for the WFS query.
  * @param {Array} layer_names The layer name for the WFS query.
+ *
  * @returns {angular.$q.Promise} Promise search request.
  */
 oereb.SearchService.prototype.lookupEgrid = function (parcel_number, municipality_name, layer_names) {
@@ -182,6 +224,7 @@ oereb.SearchService.prototype.lookupEgrid = function (parcel_number, municipalit
   }.bind(this));
 
   return this.$q_.all(queue);
+
 };
 
 oereb.module.service('SearchService', oereb.SearchService);

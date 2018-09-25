@@ -3,7 +3,14 @@ goog.provide('oereb.MapService');
 goog.require('oereb');
 
 /**
+ * @ngdoc service
+ * @name MapService
+ * @module oereb
+ *
+ * @description
+ *
  * Angular service for map handling.
+ *
  * @param {angular.$q} $q Angular service for deferrable objects.
  * @param {angular.$http} $http Angular service asynchronous requests.
  * @param {angular.$location} $location Angular location service.
@@ -11,10 +18,9 @@ goog.require('oereb');
  * @param {string} oerebBaseLayerConfig The base layer configuration.
  * @param {string} oerebViewConfig The view configuration.
  * @param {string} oerebAvailabilityConfig The availability layer configuration.
+ *
  * @constructor
  * @ngInject
- * @ngdoc service
- * @ngname MapService
  */
 oereb.MapService = function($q, $http, $location, $timeout, oerebBaseLayerConfig, oerebViewConfig,
                             oerebAvailabilityConfig) {
@@ -125,7 +131,13 @@ oereb.MapService = function($q, $http, $location, $timeout, oerebBaseLayerConfig
 };
 
 /**
+ * @ngdoc method
+ * @name MapService#updateUrlParams_
+ *
+ * @description
+ *
  * Updates the parameters for map center and zoom level in the URL.
+ *
  * @private
  */
 oereb.MapService.prototype.updateUrlParams_ = function() {
@@ -137,7 +149,13 @@ oereb.MapService.prototype.updateUrlParams_ = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MapService#getMap
+ *
+ * @description
+ *
  * Returns the created map instance.
+ *
  * @returns {ol.Map} The created map instance.
  */
 oereb.MapService.prototype.getMap = function() {
@@ -145,9 +163,16 @@ oereb.MapService.prototype.getMap = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MapService#getBaseLayerSource_
+ *
+ * @description
+ *
  * Creates the source for the base layer.
- * @private
+ *
  * @returns {angular.$q.Promise} The promise handling the source request.
+ *
+ * @private
  */
 oereb.MapService.prototype.getBaseLayerSource_ = function() {
   if (this.baseLayerConfig_['type'].toLowerCase() === 'wms') {
@@ -160,9 +185,16 @@ oereb.MapService.prototype.getBaseLayerSource_ = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MapService#getBaseLayerWmsSource_
+ *
+ * @description
+ *
  * Creates a WMS source for the base layer.
- * @private
+ *
  * @returns {angular.$q.Promise} The promise handling the source request.
+ *
+ * @private
  */
 oereb.MapService.prototype.getBaseLayerWmsSource_ = function() {
   return this.$q_.resolve(new ol.source.TileWMS({
@@ -173,9 +205,16 @@ oereb.MapService.prototype.getBaseLayerWmsSource_ = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MapService#getBaseLayerWmtsSource_
+ *
+ * @description
+ *
  * Creates a WMTS source for the base layer.
- * @private
+ *
  * @returns {angular.$q.Promise} The promise handling the source request.
+ *
+ * @private
  */
 oereb.MapService.prototype.getBaseLayerWmtsSource_ = function() {
   var def = this.$q_.defer();
@@ -200,7 +239,13 @@ oereb.MapService.prototype.getBaseLayerWmtsSource_ = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MapService#addTopicLayers
+ *
+ * @description
+ *
  * Adds the specified view services as topic layers.
+ *
  * @param {Object} viewServicesByTopic The view service definition object.
  */
 oereb.MapService.prototype.addTopicLayers = function(viewServicesByTopic) {
@@ -235,7 +280,13 @@ oereb.MapService.prototype.addTopicLayers = function(viewServicesByTopic) {
 };
 
 /**
+ * @ngdoc method
+ * @name MapService#updateRealEstate
+ *
+ * @description
+ *
  * Updates the real estate layer with the specified feature.
+ *
  * @param {ol.Feature} realEstate The real estate feature.
  */
 oereb.MapService.prototype.updateRealEstate = function(realEstate) {
@@ -247,6 +298,11 @@ oereb.MapService.prototype.updateRealEstate = function(realEstate) {
 };
 
 /**
+ * @ngdoc method
+ * @name MapService#clearLayers
+ *
+ * @description
+ *
  * Removes all layers from the map.
  */
 oereb.MapService.prototype.clearLayers = function() {
@@ -259,7 +315,13 @@ oereb.MapService.prototype.clearLayers = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MapService#getTopicLayers
+ *
+ * @description
+ *
  * Returns the list of topic layers.
+ *
  * @returns {Array<ol.layer.Tile>} The list of topic layers.
  */
 oereb.MapService.prototype.getTopicLayers = function() {
@@ -267,7 +329,13 @@ oereb.MapService.prototype.getTopicLayers = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name MapService#toggleAvailability
+ *
+ * @description
+ *
  * Shows/hides the availability layer.
+ *
  * @param {boolean|undefined} visible Undefined to switch visibility, true to show and false to hide layer.
  */
 oereb.MapService.prototype.toggleAvailability = function(visible) {

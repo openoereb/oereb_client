@@ -3,6 +3,10 @@ goog.provide('oereb.generalInformationDirective');
 goog.require('oereb');
 
 /**
+ * @function
+ *
+ * @description
+ *
  * Directive definition function
  *
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
@@ -83,6 +87,8 @@ oereb.generalInformationDirective = function(ExtractService, oerebEventExtractLo
  * @module oereb
  * @restrict E
  *
- * @description Element to display the general information for the current extract.
+ * @description
+ *
+ * Element to display the general information for the current extract.
  */
 oereb.module.directive('oerebGeneralInformation', oereb.generalInformationDirective);

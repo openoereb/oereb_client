@@ -11,7 +11,9 @@ goog.require('oereb.responsibleOfficesDirective');
 /**
  * @function
  *
- * @description Angular directive definition function.
+ * @description
+ *
+ * Angular directive definition function.
  *
  * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {oereb.MapService} MapService Angular service for map handling.
@@ -110,7 +112,13 @@ oereb.topicDirective = function($timeout, MapService) {
       });
 
       /**
+       * @ngdoc method
+       * @name oerebTopic#select
+       *
+       * @description
+       *
        * Updates the selected theme.
+       *
        * @export
        */
       scope.select = function() {
@@ -118,8 +126,15 @@ oereb.topicDirective = function($timeout, MapService) {
       };
 
       /**
+       * @ngdoc method
+       * @name oerebTopic#isSelected
+       *
+       * @description
+       *
        * Returns true if the theme is currently selected.
+       *
        * @returns {boolean}
+       *
        * @export
        */
       scope.isSelected = function() {
@@ -127,8 +142,15 @@ oereb.topicDirective = function($timeout, MapService) {
       };
 
       /**
+       * @ngdoc method
+       * @name oerebTopic#getBadgeIcon
+       *
+       * @description
+       *
        * Returns the current badge icon class.
+       *
        * @returns {string} The badge icon class.
+       *
        * @export
        */
       scope.getBadgeIcon = function() {
@@ -148,7 +170,9 @@ oereb.topicDirective = function($timeout, MapService) {
  * @module oereb
  * @restrict E
  *
- * @description Collapsible container for the data of a certain topic.
+ * @description
+ *
+ * Collapsible container for the data of a certain topic.
  *
  * @param {Object} theme The theme object.
  * @param {string} selectedTheme The currently selected theme.

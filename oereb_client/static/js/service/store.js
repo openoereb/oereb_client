@@ -3,15 +3,20 @@ goog.provide('oereb.StoreService');
 goog.require('oereb');
 
 /**
- * Angular service to handle the local browser storage.
- * @constructor
- * @ngInject
  * @ngdoc service
- * @ngName StoreService
+ * @name StoreService
+ * @module oereb
+ *
+ * @description
+ *
+ * Angular service to handle the local browser storage.
  *
  * @param {angular.Scope} $rootScope The application's root scope.
  * @param {string} oerebEventSymbolZoomEnabled Symbol zoom status event name.
  * @param {string} oerebLocalStoragePrefix Prefix for the localStorage properties.
+ *
+ * @constructor
+ * @ngInject
  */
 oereb.StoreService = function($rootScope, oerebEventSymbolZoomEnabled, oerebLocalStoragePrefix) {
 
@@ -40,11 +45,18 @@ oereb.StoreService = function($rootScope, oerebEventSymbolZoomEnabled, oerebLoca
 };
 
 /**
+ * @ngdoc method
+ * @name StoreService#addRealEstate
+ *
+ * @description
+ *
  * Add egrid to storage. The history will have 5 items in maximum. If it was already selected before, we do
  * not need to add it again.
- * @param {Object} realEstate The small representation of the real estate. It contains EGRID,
- *  municipality name and real estate number.
- * @returns {Array} The array of previously loaded egrids.
+ *
+ * @param {Object} realEstate The small representation of the real estate. It contains EGRID, municipality
+ *                            name and real estate number.
+ *
+ * @returns {Array} The array of previously loaded EGRIDs.
  */
 oereb.StoreService.prototype.addRealEstate = function(realEstate) {
   var history = angular.fromJson(localStorage[this.historyProperty_]);
@@ -66,8 +78,14 @@ oereb.StoreService.prototype.addRealEstate = function(realEstate) {
 };
 
 /**
- * Get the stored history of before used EGRIDS.
- * @returns {Array} The array of previously loaded egrids.
+ * @ngdoc method
+ * @name StoreService#getHistory
+ *
+ * @description
+ *
+ * Get the stored history of before used EGRIDs.
+ *
+ * @returns {Array} The array of previously loaded EGRIDs.
  */
 oereb.StoreService.prototype.getHistory = function() {
   var historyJsonContent = angular.fromJson(localStorage[this.historyProperty_]);
@@ -79,8 +97,15 @@ oereb.StoreService.prototype.getHistory = function() {
 };
 
 /**
+ * @ngdoc method
+ * @name StoreService#showAvailability
+ *
+ * @description
+ *
  * Updates the visibilty if defined and returns the current value.
+ *
  * @param {boolean|undefined} show True or false to update visibility.
+ *
  * @returns {boolean} The availability layer visibility.
  */
 oereb.StoreService.prototype.showAvailability = function(show) {
@@ -93,8 +118,15 @@ oereb.StoreService.prototype.showAvailability = function(show) {
 };
 
 /**
+ * @ngdoc method
+ * @name StoreService#showSymbolZoom
+ *
+ * @description
+ *
  * Enables/disables popovers for legend symbols and returns the current value.
+ *
  * @param {boolean|undefined} show True or false to enable/disable popovers.
+ *
  * @returns {boolean} True if popovers are enabled, false otherwise.
  */
 oereb.StoreService.prototype.showSymbolZoom = function(show) {

@@ -5,6 +5,8 @@ goog.require('oereb');
 /**
  * @constructor
  *
+ * @description
+ *
  * Angular filter definition function.
  *
  * @param {angular.$filter} $filter The angular $filter service.
@@ -42,7 +44,9 @@ oereb.searchInformationFilter = function($filter) {
  * @name searchInformation
  * @module oereb
  *
- * @description Search for the specified input in glossary or exclusion of liability records.
+ * @description
+ *
+ * Search for the specified input in glossary or exclusion of liability records.
  *
  * @param {string} language The language for sorting.
  */

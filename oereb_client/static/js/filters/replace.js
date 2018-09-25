@@ -5,8 +5,10 @@ goog.require('oereb');
 /**
  * @constructor
  *
+ * @description
+ *
  * Angular filter definition function.
- **
+ *
  * @returns {angular.Filter} Angular filter function.
  *
  * @ngInject
@@ -27,7 +29,9 @@ oereb.replaceFilter = function() {
  * @name replace
  * @module oereb
  *
- * @description Replaces all occurrences of the specified substring with the defined replacement.
+ * @description
+ *
+ * Replaces all occurrences of the specified substring with the defined replacement.
  *
  * @param {string} target The target substring.
  * @param {string} replacement The replacement.

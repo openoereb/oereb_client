@@ -6,7 +6,9 @@ goog.require('oereb.ExtractService');
 /**
  * @function
  *
- * @description Directive definition function.
+ * @description
+ *
+ * Directive definition function.
  *
  * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {oereb.ExtractService} ExtractService The service for extract handling.
@@ -64,7 +66,16 @@ oereb.notConcernedThemeDirective = function($timeout, ExtractService, oerebEvent
         }
       });
 
-      /** @export */
+      /**
+       * @ngdoc method
+       * @name oerebNotConcernedTheme#toggle
+       *
+       * @description
+       *
+       * Toggles not concerned themes.
+       *
+       * @export
+       */
       scope.toggle = function () {
         if (scope.data.length > 0) {
           collapsible.collapse('show');
@@ -86,8 +97,11 @@ oereb.notConcernedThemeDirective = function($timeout, ExtractService, oerebEvent
  * @ngdoc directive
  * @name oerebNotConcernedTheme
  * @module oereb
+ * @restrict E
  *
- * @description Collapsible element containing the not concerned themes.
+ * @description
+ *
+ * Collapsible element containing the not concerned themes.
  *
  * @param {string} toggledGroup The currently toggled group.
  */

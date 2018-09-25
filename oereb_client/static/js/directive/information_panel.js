@@ -6,6 +6,10 @@ goog.require('oereb.exclusionOfLiabilityDirective');
 goog.require('oereb.glossaryDirective');
 
 /**
+ * @function
+ *
+ * @description
+ *
  * Directive definition function.
  *
  * @returns {angular.Directive} Angular directive definition.
@@ -26,7 +30,13 @@ oereb.informationPanelDirective = function() {
       scope.activeTab = 0;
 
       /**
+       * @ngdoc method
+       * @name oerebInformationPanel#close
+       *
+       * @description
+       *
        * Closes the information panel.
+       *
        * @export
        */
       scope.close = function() {
@@ -35,8 +45,15 @@ oereb.informationPanelDirective = function() {
       };
 
       /**
+       * @ngdoc method
+       * @name oerebInformationPanel#setActiveTab
+       *
+       * @description
+       *
        * Switches the active tab.
+       *
        * @param {number} index The index of the tab to be shown.
+       *
        * @export
        */
       scope.setActiveTab = function(index) {
@@ -52,7 +69,12 @@ oereb.informationPanelDirective = function() {
  * @ngdoc directive
  * @name oerebInformationPanel
  * @module oereb
+ * @restrict E
  *
- * @description Directive showing the information panel for the current extract.
+ * @description
+ *
+ * Directive showing the information panel for the current extract.
+ *
+ * @param {boolean} informationActive The visibility flag.
  */
 oereb.module.directive('oerebInformationPanel', oereb.informationPanelDirective);
