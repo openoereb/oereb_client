@@ -27,7 +27,7 @@ within the *app:main* section:
 oereb_client.cfg = %(here)s/oereb_client.yml
 ```
 
-You can call it whatever you want, but it make sense to use the package
+You can call it whatever you want, but it makes sense to use the package
 name. You could also use an already existing file, e.g. from
 `pyramid_oereb`. The variable `%(here)s` stands for the root directory
 and will be replaced by its absolute path.
