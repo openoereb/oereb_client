@@ -101,8 +101,8 @@ pages:
   stage: deploy
   image: node:8-stretch
   script:
-#  - make doc VERSION=$CI_COMMIT_TAG URL_PREFIX=$CI_PROJECT_NAME/
-  - make doc VERSION=master
+#  - make doc VERSION=$CI_COMMIT_TAG
+  - make doc VERSION=v1.2.5
   - mv docs/build/ public/
   artifacts:
     paths:

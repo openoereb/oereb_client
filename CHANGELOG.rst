@@ -1,6 +1,14 @@
 Changelog
 ---------
 
+1.2.6
+*****
+
+https://gitlab.com/gf-bl/oereb_client/milestones/18
+
+- Move repository into oereb subgroup
+- Update URLs in documentation
+
 1.2.5
 *****
 
