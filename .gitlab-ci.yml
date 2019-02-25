@@ -101,15 +101,14 @@ pages:
   stage: deploy
   image: node:8-stretch
   script:
-#  - make doc VERSION=$CI_COMMIT_TAG
-  - make doc VERSION=v1.2.5
+  - make doc VERSION=$CI_COMMIT_TAG
   - mv docs/build/ public/
   artifacts:
     paths:
     - public
     expire_in: 1 day
-#  only:
-#  - tags
+  only:
+  - tags
 
 # Analyze code quality
 code_quality:
