@@ -1,14 +1,14 @@
 <!doctype html>
 <html ng-app="docs">
     <head>
-        <base href="/{$ doc.urlPrefix $}">
+        <base href="{$ doc.ciPagesUrl $}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>OeREB Client Documentation</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="/{$ doc.urlPrefix $}src/app.css">
+        <link rel="stylesheet" href="{$ doc.ciPagesUrl $}src/app.css">
 
     </head>
     <body>
@@ -39,7 +39,7 @@
 
             <div id="content">
                 <div class="container-fluid">
-                    <img id="logo" src="/{$ doc.urlPrefix $}src/BL_Logo_VGD_AGI_C_r_rgb.png">
+                    <img id="logo" src="{$ doc.ciPagesUrl $}src/BL_Logo_VGD_AGI_C_r_rgb.png">
                     <div class="clearfix"></div>
                     <div class="text-right" ng-controller="VersionController as ctrl">
                         <img alt="license" src="https://img.shields.io/pypi/l/oereb_client.svg" />
@@ -65,16 +65,16 @@
         <script src="//unpkg.com/@uirouter/angularjs@1.0.20/release/angular-ui-router.min.js"></script>
 
         <!-- angular app -->
-        <script src="/{$ doc.urlPrefix $}src/app.module.js"></script>
-        <script src="/{$ doc.urlPrefix $}src/app.config.js"></script>
-        <script src="/{$ doc.urlPrefix $}src/version.js"></script>
-        <script src="/{$ doc.urlPrefix $}src/nav.js"></script>
-        <script src="/{$ doc.urlPrefix $}src/api.js"></script>
-        <script src="/{$ doc.urlPrefix $}src/guide.js"></script>
+        <script src="{$ doc.ciPagesUrl $}src/app.module.js"></script>
+        <script src="{$ doc.ciPagesUrl $}src/app.config.js"></script>
+        <script src="{$ doc.ciPagesUrl $}src/version.js"></script>
+        <script src="{$ doc.ciPagesUrl $}src/nav.js"></script>
+        <script src="{$ doc.ciPagesUrl $}src/api.js"></script>
+        <script src="{$ doc.ciPagesUrl $}src/guide.js"></script>
 
         <!-- page data -->
-        <script src="/{$ doc.urlPrefix $}src/version-data.js"></script>
-        <script src="/{$ doc.urlPrefix $}src/api-data.js"></script>
-        <script src="/{$ doc.urlPrefix $}src/guide-data.js"></script>
+        <script src="{$ doc.ciPagesUrl $}src/version-data.js"></script>
+        <script src="{$ doc.ciPagesUrl $}src/api-data.js"></script>
+        <script src="{$ doc.ciPagesUrl $}src/guide-data.js"></script>
     </body>
 </html>

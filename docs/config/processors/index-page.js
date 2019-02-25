@@ -9,7 +9,7 @@ module.exports = function indexPageProcessor() {
 
   function process(docs) {
 
-    var urlPrefix = gutil.env.URL_PREFIX || '';
+    var ciPagesUrl = gutil.env.CI_PAGES_URL || '';
 
     docs.push({
       docType: 'indexPage',
@@ -17,7 +17,7 @@ module.exports = function indexPageProcessor() {
       outputPath: 'index.html',
       path: 'index.html',
       id: 'index',
-      urlPrefix: urlPrefix
+      ciPagesUrl: ciPagesUrl
     });
 
   }
