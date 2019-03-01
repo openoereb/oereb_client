@@ -44,30 +44,18 @@ oereb_client:
       url: https://dev2.geowms.bl.ch
       limit: 5
 
-  # Link to GeoView BL
-  geo_view:
-    url: https://dev2.geoview.bl.ch
-    tree_groups:
-      - name: Bau- und Strassenlinien
-        layers:
-          - statische_waldgrenzen
-          - baulinien_kommunal_waldabstandslinien
-          - baulinien_kommunal
-          - baulinien_kantonal
-      - name: Kataster belasteter Standorte
-        layers:
-          - kbs_kataster_standorte
-      - name: Lärm
-        layers:
-          - laermempfindlichkeitsstufen
-      - name: Nutzungsplan
-        layers:
-          - nutzungsplanung_kantonal_grundnutzung_group
-          - nutzungsplanung_kommunal_grundnutzung_group
-          - nutzungsplanung_kantonal_ueberlagernd_rechtsverbindlich_group
-          - nutzungsplanung_kommunal_ueberlagernd_rechtsverbindlich_group
-          - nutzungsplanung_kantonal_perimeter_tiefbau_umrandung
-          - nutzungsplanung_kommunal_sondernutzungsplan_umrandung
+  # Link to external viewer/portal
+  external_viewer:
+    url: https://geoview.bl.ch
+    params:
+      - "wfs_layer=grundstueck"
+      - "wfs_egris_egrid={egrid}"
+      - "no_redirect="
+      - "tree_groups=Bau- und Strassenlinien,Kataster belasteter Standorte,Lärm,Nutzungsplan"
+      - "tree_group_layers_Bau- und Strassenlinien=statische_waldgrenzen,baulinien_kommunal_waldabstandslinien,baulinien_kommunal,baulinien_kantonal"
+      - "tree_group_layers_Kataster belasteter Standorte=kbs_kataster_standorte"
+      - "tree_group_layers_Lärm=laermempfindlichkeitsstufen"
+      - "tree_group_layers_Nutzungsplan=nutzungsplanung_kantonal_grundnutzung_group,nutzungsplanung_kommunal_grundnutzung_group,nutzungsplanung_kantonal_ueberlagernd_rechtsverbindlich_group,nutzungsplanung_kommunal_ueberlagernd_rechtsverbindlich_group,nutzungsplanung_kantonal_perimeter_tiefbau_umrandung,nutzungsplanung_kommunal_sondernutzungsplan_umrandung"
 
   # Support
   support:

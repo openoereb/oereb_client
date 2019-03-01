@@ -3,6 +3,7 @@ goog.provide('oereb.extractMenuDirective');
 goog.require('oereb');
 goog.require('oereb.staticExtractDirective');
 goog.require('oereb.formatFilter');
+goog.require('oereb.ExtractService');
 
 /**
  * @function
@@ -11,14 +12,16 @@ goog.require('oereb.formatFilter');
  *
  * Directive definition function.
  *
+ * @param {angular.$filter} $filter Angular $filter service.
  * @param {angular.$location} $location Angular $location service.
- * @param {string} geoViewConfig JSON-encoded GeoView BL configuration.
+ * @param {oereb.ExtractService} ExtractService Service for extract handling.
+ * @param {string} oerebExternalViewerConfig JSON-encoded viewer linking configuration.
  *
  * @returns {angular.Directive} Angular directive definition.
  *
  * @ngInject
  */
-oereb.extractMenuDirective = function ($location, geoViewConfig) {
+oereb.extractMenuDirective = function ($filter, $location, ExtractService, oerebExternalViewerConfig) {
   return {
     restrict: 'E',
     replace: true,
@@ -50,13 +53,13 @@ oereb.extractMenuDirective = function ($location, geoViewConfig) {
        * @export
        */
       scope.hasLinkConfig = function() {
-        var config = angular.fromJson(geoViewConfig);
+        var config = angular.fromJson(oerebExternalViewerConfig);
         return angular.isObject(config) && !angular.equals(config, {});
       };
 
       /**
        * @ngdoc method
-       * @name oerebExtractMenu#goToGeoView
+       * @name oerebExtractMenu#goToExternalViewer
        *
        * @description
        *
@@ -64,30 +67,33 @@ oereb.extractMenuDirective = function ($location, geoViewConfig) {
        *
        * @export
        */
-      scope.goToGeoView = function() {
-        var egrid = $location.search()['egrid'];
-        var config = angular.fromJson(geoViewConfig);
+      scope.goToExternalViewer = function() {
+        if (!angular.isDefined(ExtractService.getRealEstate())) {
+          return;
+        }
+        var values = {
+          'map_x': $location.search()['map_x'],
+          'map_y': $location.search()['map_y'],
+          'map_zoom': $location.search()['map_zoom'],
+          'canton': ExtractService.getRealEstate()['Canton'],
+          'egrid': ExtractService.getRealEstate()['EGRID'],
+          'fosnr': ExtractService.getRealEstate()['FosNr'],
+          'identdn': ExtractService.getRealEstate()['IdentDN'],
+          'municipality': ExtractService.getRealEstate()['Municipality'],
+          'number': ExtractService.getRealEstate()['Number']
+        };
+        var config = angular.fromJson(oerebExternalViewerConfig);
         if (!angular.equals(config, {})) {
           var url = config['url'];
-          var treeGroups = config['tree_groups'];
           if (url.indexOf('?') === -1) {
             url += '?';
           }
-          var parameters = [
-            'wfs_layer=grundstueck',
-            'wfs_egris_egrid=' + egrid,
-            'no_redirect='
-          ];
-          var layerNames = [];
-          for (var i = 0; i < treeGroups.length; i++) {
-            parameters.push(
-              'tree_group_layers_' + treeGroups[i]['name'] + '=' + treeGroups[i]['layers'].join(',')
-            );
-            layerNames.push(treeGroups[i]['name']);
+          var params = config['params'];
+          if (angular.isArray(params)) {
+            url += params.join('&');
           }
-          parameters.push('tree_groups=' + layerNames.join(','));
           window.open(
-            encodeURI(url + parameters.join('&')),
+            encodeURI($filter('format')(url, values)),
             '_blank'
           );
         }
