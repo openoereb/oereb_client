@@ -22,7 +22,9 @@ describe('MapService', function() {
       }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
-        layer: 'oereb_availability'
+        params: {
+          LAYERS: 'oereb_availability'
+        }
       }));
     }));
 
@@ -66,7 +68,9 @@ describe('MapService', function() {
       }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
-        layer: 'oereb_availability'
+        params: {
+          LAYERS: 'oereb_availability'
+        }
       }));
     }));
 
@@ -119,7 +123,9 @@ describe('MapService', function() {
       }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
-        layer: 'oereb_availability'
+        params: {
+          LAYERS: 'oereb_availability'
+        }
       }));
     }));
 
@@ -174,7 +180,9 @@ describe('MapService', function() {
       }));
       $provide.constant('oerebAvailabilityConfig', angular.toJson({
         url: 'http://geowms.bl.ch',
-        layer: 'oereb_availability'
+        params: {
+          LAYERS: 'oereb_availability'
+        }
       }));
     }));
 

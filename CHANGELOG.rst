@@ -1,13 +1,14 @@
 Changelog
 ---------
 
-1.2.6
+1.3.0
 *****
 
 https://gitlab.com/gf-bl/oereb_client/milestones/18
 
 - Move repository into oereb subgroup
 - Update URLs in documentation
+- Configurable parameters for availability layer
 
 1.2.5
 *****
