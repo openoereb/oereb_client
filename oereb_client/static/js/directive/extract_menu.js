@@ -2,6 +2,7 @@ goog.provide('oereb.extractMenuDirective');
 
 goog.require('oereb');
 goog.require('oereb.staticExtractDirective');
+goog.require('oereb.formatFilter');
 
 /**
  * @function

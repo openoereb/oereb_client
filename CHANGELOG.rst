@@ -8,6 +8,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/18
 
 - Move repository into oereb subgroup
 - Update URLs in documentation
+- Configurable link to WebGIS
 
 1.2.5
 *****
