@@ -23,7 +23,7 @@ oereb_client:
   # Base layer configuration
   base_layer:
     type: wmts
-    url: https://tile.dev2.geoview.bl.ch/1.0.0/WMTSCapabilitiesDev2.xml
+    url: https://tile.geoview.bl.ch/1.0.0/WMTSCapabilities.xml
     layer: grundkarte_sw
     matrixSet: swissgrid
     projection: "EPSG:2056"
@@ -32,8 +32,10 @@ oereb_client:
 
   # Availability layer
   availability:
-    url: http://dev2.geowms.bl.ch
-    layer: oereb_published_municipalities
+    url: https://geowms.bl.ch
+    params:
+      LAYERS: oereb_published_municipalities
+      FORMAT: image/png
 
   # Search field configuration
   search:
