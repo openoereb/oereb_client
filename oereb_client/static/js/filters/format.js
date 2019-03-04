@@ -15,12 +15,12 @@ goog.require('oereb');
  */
 oereb.formatFilter = function() {
 
-  const regex = new RegExp('({([\\w]*)})', 'g');
+  var regex = new RegExp('({([\\w]*)})', 'g');
 
   return function(input, values) {
     if (angular.isString(input)) {
-      let result = input;
-      let match;
+      var result = input;
+      var match;
       while ((match = regex.exec(input)) !== null) {
         result = result.replace(match[1], values[match[2]] || '');
       }
