@@ -50,7 +50,8 @@ settings = {
         },
         'support': {
             'office1': 'Test'
-        }
+        },
+        'google_analytics': 'UA-12345678-9'
     }
 }
 
@@ -113,7 +114,8 @@ def test_render(mock_request):
             'availability_config': index.get_availability_config_(),
             'search_api_config': index.get_search_config_(),
             'external_viewer_config': index.get_external_viewer_config_(),
-            'support': index.get_support_config_()
+            'support': index.get_support_config_(),
+            'google_analytics': index.get_google_analytics_()
         }
 
 
@@ -133,6 +135,12 @@ def test_get_application_config(mock_request):
     with testConfig(settings=settings):
         index = Index(mock_request)
         assert index.get_application_config_() == settings.get('oereb_client').get('application')
+
+
+def test_get_google_analytics(mock_request):
+    with testConfig(settings=settings):
+        index = Index(mock_request)
+        assert index.get_google_analytics_() == settings.get('oereb_client').get('google_analytics')
 
 
 @pytest.mark.parametrize('cfg', [

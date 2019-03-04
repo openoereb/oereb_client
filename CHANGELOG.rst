@@ -10,6 +10,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/18
 - Update URLs in documentation
 - Configurable parameters for availability layer
 - Configurable link to WebGIS
+- Add configuration for Google Analytics
 
 1.2.5
 *****
