@@ -181,7 +181,7 @@ oereb_client:
     city: 1234 City
     email: support@example.com
     phone: 061 123 45 67
-    
+
   # Enable Google Analytics by specifying account key. Leave this
   # parameter undefined to disable Google Analytics.
   google_analytics: UA-12345678-9
