@@ -4,26 +4,29 @@ describe('extractMenuDirective with configured link', function() {
 
   beforeEach(module('oereb', function($provide) {
     $provide.constant('oerebApplicationUrl', 'http://example.com');
-    $provide.constant('geoViewConfig', angular.toJson({
+    $provide.constant('oerebExternalViewerConfig', angular.toJson({
       url: 'https://dev2.geoview.bl.ch',
-      tree_groups: [
-        {
-          name: 'Bau- und Strassenlinien',
-          layers: [
-            'statische_waldgrenzen',
-            'baulinien_kommunal_waldabstandslinien'
-          ]
-        }
+      params: [
+        'map_x={map_x}',
+        'map_y={map_y}',
+        'map_zoom={map_zoom}',
+        'egrid={egrid}',
+        'canton={canton}',
+        'fosnr={fosnr}',
+        'identdn={identdn}',
+        'municipality={municipality}',
+        'number={number}'
       ]
     }));
   }));
 
-  var $compile, $location, $rootScope;
+  var $compile, $location, $rootScope, ExtractService;
 
-  beforeEach(inject(function(_$compile_, _$location_, _$rootScope_) {
+  beforeEach(inject(function(_$compile_, _$location_, _$rootScope_, _ExtractService_) {
     $rootScope = _$rootScope_;
     $location = _$location_;
     $compile = _$compile_;
+    ExtractService = _ExtractService_;
   }));
 
   describe('template', function() {
@@ -49,19 +52,36 @@ describe('extractMenuDirective with configured link', function() {
 
   });
 
-  describe('goToGeoView', function() {
+  describe('goToExternalViewer', function() {
 
-    it('should open GeoView BL in new tab', function() {
+    it('should open external viewer in new tab', function() {
       var element = $compile('<oereb-extract-menu perma-link="permaLink"></oereb-extract-menu>')($rootScope);
       $rootScope.$digest();
       var scope = element.isolateScope();
-      $location.search('egrid', 'CH1234');
+      spyOn(ExtractService, 'getRealEstate').and.returnValue({
+        EGRID: 'CH1234',
+        Canton: 'BL',
+        FosNr: 1234,
+        IdentDN: 'BL1234',
+        Municipality: 'Testwil',
+        Number: '1000'
+      });
+      $location.search('map_x', '1234.0');
+      $location.search('map_y', '5678.0');
+      $location.search('map_zoom', '3');
       spyOn(window, 'open');
-      scope.goToGeoView();
+      scope.goToExternalViewer();
       expect(window.open).toHaveBeenCalledWith(encodeURI(
-        'https://dev2.geoview.bl.ch?wfs_layer=grundstueck&wfs_egris_egrid=CH1234&no_redirect=' +
-        '&tree_group_layers_Bau- und Strassenlinien=statische_waldgrenzen,' +
-        'baulinien_kommunal_waldabstandslinien&tree_groups=Bau- und Strassenlinien'
+        'https://dev2.geoview.bl.ch?' +
+        'map_x=1234.0&' +
+        'map_y=5678.0&' +
+        'map_zoom=3&' +
+        'egrid=CH1234&' +
+        'canton=BL&' +
+        'fosnr=1234&' +
+        'identdn=BL1234&' +
+        'municipality=Testwil&' +
+        'number=1000'
       ), '_blank');
     });
 
@@ -87,7 +107,7 @@ describe('extractMenuDirective without configured link', function() {
 
   beforeEach(module('oereb', function($provide) {
     $provide.constant('oerebApplicationUrl', 'http://example.com');
-    $provide.constant('geoViewConfig', angular.toJson({}));
+    $provide.constant('oerebExternalViewerConfig', angular.toJson({}));
   }));
 
   var $compile, $rootScope;
@@ -120,14 +140,14 @@ describe('extractMenuDirective without configured link', function() {
 
   });
 
-  describe('goToGeoView', function() {
+  describe('goToExternalViewer', function() {
 
     it('should do nothing', function() {
       var element = $compile('<oereb-extract-menu perma-link="permaLink"></oereb-extract-menu>')($rootScope);
       $rootScope.$digest();
       var scope = element.isolateScope();
       spyOn(window, 'open');
-      scope.goToGeoView();
+      scope.goToExternalViewer();
       expect(window.open).toHaveBeenCalledTimes(0);
     });
 

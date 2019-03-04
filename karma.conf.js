@@ -78,6 +78,12 @@ module.exports = function(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true,
 
+    browserConsoleLogOptions: {
+      level: 'log',
+      format: '%b %T: %m',
+      terminal: true
+    },
+
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,

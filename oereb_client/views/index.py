@@ -84,14 +84,14 @@ class Index(object):
         """
         return json.dumps(self.config_.get('search', {}))
 
-    def get_geo_view_config_(self):
-        """Returns the JSON-encoded configuration for the geoViewBL linking.
+    def get_external_viewer_config_(self):
+        """Returns the JSON-encoded configuration for the external viewer linking.
 
         Returns:
-            str: The JSON-encoded geoViewBL linking configuration.
+            str: The JSON-encoded viewer linking configuration.
 
         """
-        return json.dumps(self.config_.get('geo_view', {}))
+        return json.dumps(self.config_.get('external_viewer', {}))
 
     def get_support_config_(self):
         """Returns the JSON-encoded configuration for the support.
@@ -120,6 +120,6 @@ class Index(object):
             'base_layer_config': self.get_base_layer_config_(),
             'availability_config': self.get_availability_config_(),
             'search_api_config': self.get_search_config_(),
-            'geo_view_config': self.get_geo_view_config_(),
+            'external_viewer_config': self.get_external_viewer_config_(),
             'support': self.get_support_config_()
         }

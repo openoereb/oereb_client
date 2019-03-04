@@ -41,8 +41,12 @@ settings = {
                 'limit': 5
             }
         },
-        'geo_view': {
-            'url': 'http://geoview.bl.ch?'
+        'external_viewer': {
+            'url': 'http://geoview.bl.ch?',
+            'params': [
+                'param1=foo',
+                'param2=bar'
+            ]
         },
         'support': {
             'office1': 'Test'
@@ -108,7 +112,7 @@ def test_render(mock_request):
             'base_layer_config': index.get_base_layer_config_(),
             'availability_config': index.get_availability_config_(),
             'search_api_config': index.get_search_config_(),
-            'geo_view_config': index.get_geo_view_config_(),
+            'external_viewer_config': index.get_external_viewer_config_(),
             'support': index.get_support_config_()
         }
 
