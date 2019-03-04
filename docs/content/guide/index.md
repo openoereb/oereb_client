@@ -13,5 +13,5 @@ It is wrapped into a
 [Pyramid](http://docs.pylonsproject.org/projects/pyramid/en/latest/)
 plugin and consumes the JSON extract according to the PLR-cadastre
 specification. This way, it can be used as front-end for the
-[pyramid_oereb](https://camptocamp.github.io/pyramid_oereb/doc/) library
+[pyramid_oereb](https://openoereb.github.io/pyramid_oereb/doc/) library
 with just a few additional configuration steps.
