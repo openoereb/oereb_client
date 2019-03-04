@@ -7,6 +7,7 @@ Changelog
 https://gitlab.com/gf-bl/oereb/oereb_client/milestones/19
 
 - Parse format parameter from view service URL
+- Add configurable custom CSS file
 
 1.3.0
 *****

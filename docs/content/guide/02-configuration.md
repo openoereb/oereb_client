@@ -182,6 +182,10 @@ oereb_client:
     email: support@example.com
     phone: 061 123 45 67
 
+  # Custom CSS file
+  # Add the URL to a custom CSS file to adjust styles.
+  custom_css_url: https://example.com/mystyle.css
+
   # Enable Google Analytics by specifying account key. Leave this
   # parameter undefined to disable Google Analytics.
   google_analytics: UA-12345678-9
