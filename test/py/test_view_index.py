@@ -115,7 +115,8 @@ def test_render(mock_request):
             'search_api_config': index.get_search_config_(),
             'external_viewer_config': index.get_external_viewer_config_(),
             'support': index.get_support_config_(),
-            'google_analytics': index.get_google_analytics_()
+            'google_analytics': index.get_google_analytics_(),
+            'custom_css_url': index.get_custom_css_url_()
         }
 
 
@@ -141,6 +142,12 @@ def test_get_google_analytics(mock_request):
     with testConfig(settings=settings):
         index = Index(mock_request)
         assert index.get_google_analytics_() == settings.get('oereb_client').get('google_analytics')
+
+
+def test_get_custom_css_url(mock_request):
+    with testConfig(settings=settings):
+        index = Index(mock_request)
+        assert index.get_custom_css_url_() == settings.get('oereb_client').get('custom_css_url')
 
 
 @pytest.mark.parametrize('cfg', [

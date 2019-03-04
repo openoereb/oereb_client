@@ -111,6 +111,15 @@ class Index(object):
         """
         return self.config_.get('google_analytics', None)
 
+    def get_custom_css_url_(self):
+        """Returns the URL of the custom CSS file.
+
+        Returns:
+            str or None: The URL of the custom CSS file.
+
+        """
+        return self.config_.get('custom_css_url', None)
+
     def render(self):
         """Returns the dictionary with rendering parameters.
 
@@ -131,5 +140,6 @@ class Index(object):
             'search_api_config': self.get_search_config_(),
             'external_viewer_config': self.get_external_viewer_config_(),
             'support': self.get_support_config_(),
-            'google_analytics': self.get_google_analytics_()
+            'google_analytics': self.get_google_analytics_(),
+            'custom_css_url': self.get_custom_css_url_()
         }

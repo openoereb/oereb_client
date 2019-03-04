@@ -14,6 +14,9 @@
         % else:
             <link rel="stylesheet" href="${request.static_url('oereb_client:static/build/oereb.min.css')}" type="text/css">
         % endif
+        % if custom_css_url:
+            <link rel="stylesheet" href="${custom_css_url}" type="text/css">
+        % endif
     </head>
     <body>
         <div id="map"></div>
