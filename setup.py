@@ -6,7 +6,7 @@ import sys
 from setuptools import setup, find_packages
 from datetime import datetime
 
-VERSION = '1.3.0'
+VERSION = '1.3.1'
 
 test_mode = False
 timestamp = datetime.now().strftime('%Y%m%d%H%M')
