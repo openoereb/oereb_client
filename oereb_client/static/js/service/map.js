@@ -102,9 +102,7 @@ oereb.MapService = function($q, $http, $location, $timeout, oerebBaseLayerConfig
   this.availabilityLayer_ = new ol.layer.Image({
     source: new ol.source.ImageWMS({
       url: this.availabilityConfig_['url'],
-      params: {
-        'LAYERS': this.availabilityConfig_['layer']
-      },
+      params: this.availabilityConfig_['params'],
       projection: this.proj_
     })
   });
