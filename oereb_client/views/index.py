@@ -102,6 +102,15 @@ class Index(object):
         """
         return json.dumps(self.config_.get('support', {}))
 
+    def get_google_analytics_(self):
+        """Returns the configuration for Google Analytics.
+
+        Returns:
+            str or None: The Google Analytics configuration.
+
+        """
+        return self.config_.get('google_analytics', None)
+
     def render(self):
         """Returns the dictionary with rendering parameters.
 
@@ -121,5 +130,6 @@ class Index(object):
             'availability_config': self.get_availability_config_(),
             'search_api_config': self.get_search_config_(),
             'external_viewer_config': self.get_external_viewer_config_(),
-            'support': self.get_support_config_()
+            'support': self.get_support_config_(),
+            'google_analytics': self.get_google_analytics_()
         }

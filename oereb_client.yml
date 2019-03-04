@@ -67,3 +67,6 @@ oereb_client:
     city: 4410 Liestal
     email: support.gis@bl.ch
     phone: 061 552 56 73
+
+  # Enable Google Analytics by specifying account key
+  # google_analytics: UA-12345678-9
