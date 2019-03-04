@@ -76,6 +76,7 @@ deploy:
     - pip install -r requirements.txt
     - python setup.py clean check sdist bdist_wheel
     - twine upload dist/* -u "${PYPI_USER}" -p "${PYPI_PASSWORD}"
+    - twine upload --repository-url https://test.pypi.org/legacy/ dist/* -u "${PYPI_TEST_USER}" -p "${PYPI_TEST_PASSWORD}"
   only:
     - /^v(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$/
   except:

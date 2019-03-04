@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+1.3.1
+*****
+
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/19
+
+- Parse format parameter from view service URL
+
 1.3.0
 *****
 

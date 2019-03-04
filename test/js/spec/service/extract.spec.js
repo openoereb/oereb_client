@@ -609,7 +609,8 @@ describe('ExtractService', function() {
 
     it('should return a view service definition for the specified url and topic', function() {
       var mapObject = {
-        ReferenceWMS: 'http://example.com/wms?SERVICE=WMS&version=1.1.1&Layers=layer1,layer2&STYLES=default',
+        ReferenceWMS: 'http://example.com/wms?SERVICE=WMS&version=1.1.1&Layers=layer1,layer2&STYLES=default' +
+          '&FORMAT=image/png&foo=bar',
         layerOpacity: 0.5,
         layerIndex: 1
       };
@@ -619,7 +620,8 @@ describe('ExtractService', function() {
         params: {
           VERSION: '1.1.1',
           LAYERS: 'layer1,layer2',
-          STYLES: 'default'
+          STYLES: 'default',
+          FORMAT: 'image/png'
         },
         opacity: 0.5,
         zIndex: 1

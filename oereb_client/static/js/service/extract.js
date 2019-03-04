@@ -490,13 +490,16 @@ oereb.ExtractService.prototype.getViewServiceFromUrl_ = function(mapObject) {
   for (var i = 0; i < params.length; i++) {
     var param = params[i].split('=');
     if (param[0].toUpperCase() === 'LAYERS') {
-      definition['params']['LAYERS'] = param[1];
+      definition['params']['LAYERS'] = decodeURIComponent(param[1]);
     }
     else if (param[0].toUpperCase() === 'STYLES') {
-      definition['params']['STYLES'] = param[1];
+      definition['params']['STYLES'] = decodeURIComponent(param[1]);
     }
     else if (param[0].toUpperCase() === 'VERSION') {
-      definition['params']['VERSION'] = param[1];
+      definition['params']['VERSION'] = decodeURIComponent(param[1]);
+    }
+    else if (param[0].toUpperCase() === 'FORMAT') {
+      definition['params']['FORMAT'] = decodeURIComponent(param[1]);
     }
   }
   return definition;
