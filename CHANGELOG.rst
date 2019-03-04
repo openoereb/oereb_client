@@ -4,7 +4,7 @@ Changelog
 1.3.0
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/18
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/18
 
 - Move repository into oereb subgroup
 - Update URLs in documentation
@@ -15,7 +15,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/18
 1.2.5
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/17
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/17
 
 - Improve layout for responsible offices
 - Improve sorting of glossary
@@ -23,7 +23,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/17
 1.2.4
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/16
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/16
 
 - Adjust legend titles according to PDF specification
 - Add responsible offices from geometries
@@ -32,7 +32,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/16
 1.2.3
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/15
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/15
 
 - Allow extracts without restrictions (e.g. in unpublished municipalities)
 - Define ol.View resolutions via configuration
@@ -48,7 +48,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/15
 1.2.1
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/14
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/14
 
 - Reject extract if restriction contains no legal provisions
 - Use new getegrid URL (with format parameter)
@@ -58,7 +58,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/14
 1.2.0
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/13
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/13
 
 - Build and upload tagged versions to public PyPI
 - Set title and favicon via configuration
@@ -72,7 +72,7 @@ https://gitlab.com/gf-bl/oereb_client/milestones/13
 1.1.5
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/12
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/12
 
 - dismiss all non https urls for WMTS
 
@@ -80,21 +80,21 @@ https://gitlab.com/gf-bl/oereb_client/milestones/12
 1.1.4
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/11
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/11
 
 - Fix URL encoding in link to GeoView BL
 
 1.1.3
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/10
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/10
 
 - Configure GeoView BL layers via YAML
 
 1.1.2
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/9
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/9
 
 - Fix PDF download on iOS
 - Combine built JavaScript code in one file
@@ -102,27 +102,27 @@ https://gitlab.com/gf-bl/oereb_client/milestones/9
 1.1.1
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/8
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/8
 
 - Fix search results in IE
-  (https://gitlab.com/gf-bl/oereb_client/issues/67)
+  (https://gitlab.com/gf-bl/oereb/oereb_client/issues/67)
 - Hide expand button on new extract
-  (https://gitlab.com/gf-bl/oereb_client/issues/66)
+  (https://gitlab.com/gf-bl/oereb/oereb_client/issues/66)
 - Show availability map on top of topic layers
-  (https://gitlab.com/gf-bl/oereb_client/issues/68)
+  (https://gitlab.com/gf-bl/oereb/oereb_client/issues/68)
 - Fix error message content and visibility in IE
 - Adjust information panel font size on small screens
 - Add fade out at top and bottom of extract wrapper
   (not working with IE)
 - Add missing tool tips
-  (https://gitlab.com/gf-bl/oereb_client/issues/69)
+  (https://gitlab.com/gf-bl/oereb/oereb_client/issues/69)
 - Add cache buster to HTTP requests
-  (https://gitlab.com/gf-bl/oereb_client/issues/70)
+  (https://gitlab.com/gf-bl/oereb/oereb_client/issues/70)
 
 1.1.0
 *****
 
-https://gitlab.com/gf-bl/oereb_client/milestones/7
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/7
 
 - Optimize user interface for mobile devices
 - Add availability map
