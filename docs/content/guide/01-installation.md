@@ -23,7 +23,7 @@ the application.
 
 To make use of the front-end application, you also need a back-end part.
 For that, you can include
-[pyramid_oereb](https://camptocamp.github.io/pyramid_oereb/doc/) in the
+[pyramid_oereb](https://openoereb.github.io/pyramid_oereb/doc/) in the
 same Pyramid application, for example.
 
 Having all set up, you can proceed with installation of the OeREB

@@ -130,10 +130,14 @@ oereb_client:
 
   # The availability layer can be used to display an overview of the
   # available/published municipalities. You have to define a WMS URL and
-  # a layer name.
+  # params according to the ol.source.ImageWMS documentation:
+  # https://openlayers.org/en/v4.2.0/apidoc/ol.source.ImageWMS.html
+  # At least "LAYERS" has to be defined.
   availability:
     url: https://example.com/wms
-    layer: oereb_published_municipalities
+    params:
+      LAYERS: oereb_published_municipalities
+      FORMAT: image/png
 
   # The API used for the search field. The client currently works with
   # the full text search API of GeoMapfish and its WFS. But you could
@@ -147,6 +151,28 @@ oereb_client:
       url: https://my.geomapfish.com/wsgi/mapserv_proxy
       limit: 5
 
+  # Link to external viewer/portal
+  # Use this parameter to configure the link to an external viewer or
+  # portal. The defined URL gets opened in a new tab. The list of
+  # parameters gets joined with "&" and is appended to the URL. You
+  # can add special keywords, e.g. "{egrid}", that are replaced by the
+  # current values of the real estate and the map. The available
+  # keywords are:
+  # - map_x             Center of map (X value)
+  # - map_y             Center of map (Y value)
+  # - map_zoom          Map zoom level
+  # - egrid             EGRID of current real estate
+  # - canton            Canton of current extract
+  # - fosnr             FOS number of current municipality
+  # - identdn           Ident DN of current real estate
+  # - municipality      Current municipality name
+  # - number            Number of current real estate
+  external_viewer:
+    url: https://my.webgis.com
+    params:
+      - "egrid={egrid}"
+      - "foo=bar"
+
   # Your support address. This will be shown if an error occurs.
   support:
     office1: My Department
@@ -155,4 +181,8 @@ oereb_client:
     city: 1234 City
     email: support@example.com
     phone: 061 123 45 67
+
+  # Enable Google Analytics by specifying account key. Leave this
+  # parameter undefined to disable Google Analytics.
+  google_analytics: UA-12345678-9
 ```
