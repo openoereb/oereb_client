@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+1.3.2
+*****
+
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/20
+
+- Configurable tooltip for link to external viewer
+
 1.3.1
 *****
 
