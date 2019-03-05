@@ -3,8 +3,9 @@
             data-placement="right" ng-click="providePermalink()">
         <i class="fa fa-link" aria-hidden="true"></i>
     </button>
-    <button class="btn btn-default" type="button" title="zu GeoView BL wechseln" data-toggle="tooltip"
-            data-placement="right" ng-click="goToExternalViewer()" ng-if="hasLinkConfig()">
+    <button class="btn btn-default" type="button" ng-attr-title="{{externalViewerTooltip}}"
+            data-toggle="tooltip" data-placement="right" ng-click="goToExternalViewer()"
+            ng-if="hasLinkConfig()">
         <i class="fa fa-map-o" aria-hidden="true"></i>
     </button>
     <oereb-static-extract></oereb-static-extract>

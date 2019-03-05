@@ -48,6 +48,7 @@ oereb_client:
 
   # Link to external viewer/portal
   external_viewer:
+    tooltip: zu GeoView BL wechseln
     url: https://geoview.bl.ch
     params:
       - "wfs_layer=grundstueck"

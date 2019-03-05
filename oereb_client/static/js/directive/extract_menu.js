@@ -14,6 +14,7 @@ goog.require('oereb.ExtractService');
  *
  * @param {angular.$filter} $filter Angular $filter service.
  * @param {angular.$location} $location Angular $location service.
+ * @param {angular.$timeout} $timeout Angular $timeout service.
  * @param {oereb.ExtractService} ExtractService Service for extract handling.
  * @param {string} oerebExternalViewerConfig JSON-encoded viewer linking configuration.
  *
@@ -21,7 +22,8 @@ goog.require('oereb.ExtractService');
  *
  * @ngInject
  */
-oereb.extractMenuDirective = function ($filter, $location, ExtractService, oerebExternalViewerConfig) {
+oereb.extractMenuDirective = function ($filter, $location, $timeout, ExtractService,
+                                       oerebExternalViewerConfig) {
   return {
     restrict: 'E',
     replace: true,
@@ -34,8 +36,12 @@ oereb.extractMenuDirective = function ($filter, $location, ExtractService, oereb
     },
     link: function(scope, element) {
 
-      // Initialize tooltip
-      element.children('button').tooltip();
+      var config = angular.fromJson(oerebExternalViewerConfig);
+
+      /**
+       * @export {string}
+       */
+      scope.externalViewerTooltip = config['tooltip'];
 
       /** @export {string} */
       scope.permaLink = '';
@@ -82,7 +88,6 @@ oereb.extractMenuDirective = function ($filter, $location, ExtractService, oereb
           'municipality': ExtractService.getRealEstate()['Municipality'],
           'number': ExtractService.getRealEstate()['Number']
         };
-        var config = angular.fromJson(oerebExternalViewerConfig);
         if (!angular.equals(config, {})) {
           var url = config['url'];
           if (url.indexOf('?') === -1) {
@@ -113,6 +118,11 @@ oereb.extractMenuDirective = function ($filter, $location, ExtractService, oereb
         scope.permaLink = $location.absUrl();
         angular.element('#modal-permalink').modal('toggle');
       };
+
+      $timeout(function () {
+        // Initialize tooltip
+        element.children('button').tooltip();
+      });
 
     }
   }

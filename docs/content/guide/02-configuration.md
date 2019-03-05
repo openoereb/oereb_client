@@ -168,6 +168,7 @@ oereb_client:
   # - municipality      Current municipality name
   # - number            Number of current real estate
   external_viewer:
+    tooltip: Open in external viewer
     url: https://my.webgis.com
     params:
       - "egrid={egrid}"
