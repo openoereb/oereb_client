@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+1.3.3
+*****
+
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/21
+
+- Fix sorting of legend entries
+
 1.3.2
 *****
 

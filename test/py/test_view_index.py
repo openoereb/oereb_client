@@ -5,6 +5,7 @@ import pytest
 from pyramid.config import ConfigurationError
 from pyramid.testing import testConfig
 
+from oereb_client import __version__
 from oereb_client.views.index import Index
 
 
@@ -103,6 +104,7 @@ def test_render(mock_request):
     with testConfig(settings=settings):
         index = Index(mock_request)
         assert index.render() == {
+            'version': __version__,
             'title': 'Test',
             'icon': 'http://example.com/favicon.png',
             'logo_canton': 'http://example.com/logo_canton.png',

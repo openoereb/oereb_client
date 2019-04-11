@@ -20,13 +20,13 @@ oereb.sortLegendFilter = function() {
       return -1;
     if (a['SubTheme'] > b['SubTheme'])
       return 1;
-    if ((a['Area'] || 0) > (b['Area'] || 0))
+    if ((a['AreaShare'] || 0) > (b['AreaShare'] || 0))
       return -1;
-    if ((a['Area'] || 0) < (b['Area'] || 0))
+    if ((a['AreaShare'] || 0) < (b['AreaShare'] || 0))
       return 1;
-    if ((a['Length'] || 0) > (b['Length'] || 0))
+    if ((a['LengthShare'] || 0) > (b['LengthShare'] || 0))
       return -1;
-    if ((a['Length'] || 0) < (b['Length'] || 0))
+    if ((a['LengthShare'] || 0) < (b['LengthShare'] || 0))
       return 1;
     return 0;
   };

@@ -2,6 +2,7 @@
 import json
 
 from pyramid.exceptions import ConfigurationError
+from oereb_client import __version__
 
 
 class Index(object):
@@ -128,6 +129,7 @@ class Index(object):
 
         """
         return {
+            'version': __version__,
             'title': self.get_application_config_().get('title'),
             'icon': self.get_application_config_().get('icon'),
             'logo_canton': self.get_application_config_().get('logo_canton'),

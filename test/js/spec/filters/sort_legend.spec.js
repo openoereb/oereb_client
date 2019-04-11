@@ -20,37 +20,37 @@ describe('sortLegendFilter', function() {
       {
         id: 'h',
         SubTheme: 'B',
-        Length: 23
+        LengthShare: 23
       },
       {
         id: 'd',
         SubTheme: 'A',
-        Length: 9
+        LengthShare: 9
       },
       {
         id: 'f',
         SubTheme: 'B',
-        Area: 321
+        AreaShare: 321
       },
       {
         id: 'c',
         SubTheme: 'A',
-        Length: 10
+        LengthShare: 10
       },
       {
         id: 'b',
         SubTheme: 'A',
-        Area: 90
+        AreaShare: 90
       },
       {
         id: 'a',
         SubTheme: 'A',
-        Area: 100
+        AreaShare: 100
       },
       {
         id: 'i',
         SubTheme: 'B',
-        Length: 17
+        LengthShare: 17
       },
       {
         id: 'j',
@@ -63,7 +63,7 @@ describe('sortLegendFilter', function() {
       {
         id: 'g',
         SubTheme: 'B',
-        Area: 210
+        AreaShare: 210
       },
       {
         id: 'k',
