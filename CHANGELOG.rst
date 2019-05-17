@@ -7,6 +7,7 @@ Changelog
 https://gitlab.com/gf-bl/oereb/oereb_client/milestones/21
 
 - Fix sorting of legend entries
+- Fix search handling on multiple results for one EGRID
 
 1.3.2
 *****
