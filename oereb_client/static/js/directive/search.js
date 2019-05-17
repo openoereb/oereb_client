@@ -304,7 +304,7 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
         SearchService.lookupEgrid(parcel_number, municipality_name, ['grundstueck']).then(
           function(features) {
             var result = features[0];
-            if (result.length === 1) {
+            if (result.length > 0) {
               clear();
               scope.$emit(oerebEventEgridSelected, result[0].get('egris_egrid'), true);
             }
