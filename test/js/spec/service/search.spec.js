@@ -41,6 +41,28 @@ describe('SearchService', function () {
         geometry: {
           type: "Point",
           coordinates: [
+            2623521.607,
+            1258599.86
+          ]
+        },
+        properties: {
+          params: null,
+          layer_name: "adresse",
+          label: "Liestal A22 7 (Adresse)"
+        },
+        type: "Feature",
+        bbox: [
+          2623521.607,
+          1258599.86,
+          2623521.607,
+          1258599.86
+        ],
+        id: 76910509
+      },
+      {
+        geometry: {
+          type: "Point",
+          coordinates: [
             2621312.368,
             1260386.62
           ]
@@ -96,7 +118,7 @@ describe('SearchService', function () {
 
     it('should return error on failed request', function () {
       $httpBackend.expectGET(
-        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=5&query=adr+liest&_dc=' + dc
+        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=15&query=adr+liest&_dc=' + dc
       ).respond(500, 'Test error.');
       var response = undefined;
       SearchService.searchTerm_('adr liest').then(
@@ -112,9 +134,9 @@ describe('SearchService', function () {
       expect(response).toEqual('Requesting search term failed: adr liest Test error.');
     });
 
-    it('should return the responded data', function () {
+    it('should return unique data', function () {
       $httpBackend.expectGET(
-        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=5&query=adr+liest&_dc=' + dc
+        'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?limit=15&query=adr+liest&_dc=' + dc
       ).respond(200, fullTextSearchResponse);
       var response = undefined;
       SearchService.searchTerm_('adr liest').then(
@@ -126,7 +148,9 @@ describe('SearchService', function () {
         }
       );
       $httpBackend.flush();
-      expect(response).toEqual(fullTextSearchResponse);
+      expect(response.features.length).toBe(2);
+      expect(response.features[0]).toEqual(fullTextSearchResponse.features[1]);
+      expect(response.features[1]).toEqual(fullTextSearchResponse.features[2]);
     });
 
   });
