@@ -18,8 +18,8 @@
                 <td class="no-wrap text-right" ng-if="entry['LengthShare']">{{entry['LengthShare'] | number:0 | replace:',':''}} m</td>
                 <td class="no-wrap text-right" ng-if="entry['NrOfPoints']">{{entry['NrOfPoints'] | number:0 | replace:',':''}}</td>
                 <td class="no-wrap text-right" ng-if="!entry['NrOfPoints'] && !entry['LengthShare'] && !entry['AreaShare']"></td>
-                <td class="no-wrap text-right" ng-if="entry['PartInPercent']">{{entry['PartInPercent'] | number:1 | replace:',':''}}%</td>
-                <td class="no-wrap text-right" ng-if="!entry['PartInPercent']"></td>
+                <td class="no-wrap text-right" ng-if="entry['PartInPercent'] !== undefined">{{entry['PartInPercent'] | number:1 | replace:',':''}}%</td>
+                <td class="no-wrap text-right" ng-if="entry['PartInPercent'] === undefined"></td>
             </tr>
             <tr class="visible-xs" ng-repeat-start="entry in legend['entries'] | sortLegend">
                 <td colspan="4">{{entry['Information'] | multilingualText}}</td>
