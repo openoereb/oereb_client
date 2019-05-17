@@ -50,7 +50,7 @@ oereb.SearchService = function ($http, $q, searchServiceConfig, wfsFilterService
 oereb.SearchService.prototype.searchTerm_ = function (term) {
   var def = this.$q_.defer();
   var params = {
-    'limit': this.searchServiceLimit_,
+    'limit': this.searchServiceLimit_ + 10,
     'query': term,
     '_dc': new Date().getTime()
   };
@@ -58,8 +58,23 @@ oereb.SearchService.prototype.searchTerm_ = function (term) {
     params: params
   }).then(
     function (response) {
+      for (var i = response.data['features'].length; i > 0; i--) {
+        for (var j = 0; j < i - 1; j++) {
+          var propI = response.data['features'][i - 1]['properties'];
+          var propJ = response.data['features'][j]['properties'];
+          if (propI['layer_name'] === propJ['layer_name'] && propI['label'] === propJ['label']) {
+            response.data['features'].splice(i - 1, 1);
+          }
+        }
+      }
+      if (response.data['features'].length > this.searchServiceLimit_) {
+        response.data['features'].splice(
+          this.searchServiceLimit_,
+          response.data['features'].length - this.searchServiceLimit_
+        );
+      }
       def.resolve(response.data);
-    },
+    }.bind(this),
     function (response) {
       var error = 'Requesting search term failed: ' + term;
       if (angular.isString(response.data)) {
