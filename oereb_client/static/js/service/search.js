@@ -64,6 +64,7 @@ oereb.SearchService.prototype.searchTerm_ = function (term) {
           var propJ = response.data['features'][j]['properties'];
           if (propI['layer_name'] === propJ['layer_name'] && propI['label'] === propJ['label']) {
             response.data['features'].splice(i - 1, 1);
+            break;
           }
         }
       }
