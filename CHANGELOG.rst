@@ -6,6 +6,8 @@ Changelog
 
 https://gitlab.com/gf-bl/oereb/oereb_client/milestones/22
 
+- Fix unique search results
+
 1.3.3
 *****
 
