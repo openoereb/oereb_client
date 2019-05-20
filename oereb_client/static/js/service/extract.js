@@ -51,7 +51,7 @@ oereb.ExtractService.prototype.queryExtractById = function(egrid) {
     params: {
       '_dc': new Date().getTime()
     },
-    timeout: 60000
+    timeout: 120000
   }).then(
     function(response) {
       if (angular.isObject(response.data['GetExtractByIdResponse'])) {
