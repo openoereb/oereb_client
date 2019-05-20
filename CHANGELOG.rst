@@ -8,6 +8,7 @@ https://gitlab.com/gf-bl/oereb/oereb_client/milestones/21
 
 - Fix sorting of legend entries
 - Fix search handling on multiple results for one EGRID
+- Print 0.0% values in legend
 
 1.3.2
 *****
