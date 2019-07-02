@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from oereb_client.views.wfs_query import WfsQuery
-from views.deps import Depswriter
-from views.index import Index
+from oereb_client.views.deps import Depswriter
+from oereb_client.views.index import Index
 
 
 def includeme(config):  # pragma: no cover

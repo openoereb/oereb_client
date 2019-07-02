@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+1.3.5
+*****
+
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/23
+
+- Use absolute imports to fix Python 3 compatibility
+
 1.3.4
 *****
 
