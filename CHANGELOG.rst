@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+1.3.6
+*****
+
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/24
+
+- Add optional property 'egrid' in search results
+
 1.3.5
 *****
 
