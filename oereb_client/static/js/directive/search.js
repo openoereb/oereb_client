@@ -233,7 +233,12 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
        */
       scope.egridSelect = function(egrid) {
         clear();
-        scope.$emit(oerebEventEgridSelected, filter(egrid["properties"]["label"]), true);
+        if (angular.isDefined(egrid['properties']) && angular.isDefined(egrid['properties']['egrid'])) {
+          scope.$emit(oerebEventEgridSelected, egrid['properties']['egrid'], true);
+        }
+        else {
+          scope.$emit(oerebEventEgridSelected, filter(egrid['properties']['label']), true);
+        }
       };
 
       /**
@@ -249,10 +254,15 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
        * @export
        */
       scope.addressSelect = function (address) {
-        var selector = angular.element('#map-query');
-        var selectorScope = selector['isolateScope']();
         clear();
-        selectorScope.queryAt(address["geometry"]["coordinates"], true);
+        if (angular.isDefined(address['properties']) && angular.isDefined(address['properties']['egrid'])) {
+          scope.$emit(oerebEventEgridSelected, address['properties']['egrid'], true);
+        }
+        else {
+          var selector = angular.element('#map-query');
+          var selectorScope = selector['isolateScope']();
+          selectorScope.queryAt(address['geometry']['coordinates'], true);
+        }
       };
 
       /**
@@ -298,18 +308,23 @@ oereb.searchDirective = function($filter, SearchService, EgridService, oerebLogo
        * @export
        */
       scope.parcelSelect = function (parcel) {
-        var label = filter(parcel['properties']['label']).split(' ');
-        var parcel_number = label.pop();
-        var municipality_name = label.join(' ');
-        SearchService.lookupEgrid(parcel_number, municipality_name, ['grundstueck']).then(
-          function(features) {
-            var result = features[0];
-            if (result.length > 0) {
-              clear();
-              scope.$emit(oerebEventEgridSelected, result[0].get('egris_egrid'), true);
+        clear();
+        if (angular.isDefined(parcel['properties']) && angular.isDefined(parcel['properties']['egrid'])) {
+          scope.$emit(oerebEventEgridSelected, parcel['properties']['egrid'], true);
+        }
+        else {
+          var label = filter(parcel['properties']['label']).split(' ');
+          var parcel_number = label.pop();
+          var municipality_name = label.join(' ');
+          SearchService.lookupEgrid(parcel_number, municipality_name, ['grundstueck']).then(
+            function (features) {
+              var result = features[0];
+              if (result.length > 0) {
+                scope.$emit(oerebEventEgridSelected, result[0].get('egris_egrid'), true);
+              }
             }
-          }
-        );
+          );
+        }
       };
 
       /**

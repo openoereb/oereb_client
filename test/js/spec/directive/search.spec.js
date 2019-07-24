@@ -165,7 +165,7 @@ describe('searchDirective', function() {
 
   describe('egridSelect', function() {
 
-    it('should emit listener and clear values', function() {
+    it('should emit event by label and clear values', function() {
       var element = $compile('<oereb-search></oereb-search>')($rootScope);
       $rootScope.$digest();
       var scope = element.isolateScope();
@@ -177,6 +177,25 @@ describe('searchDirective', function() {
       expect(scope.addresses).toEqual([]);
       expect(scope.searchText).toEqual('');
     });
+
+    it('should emit event by egrid and clear values', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      spyOn(scope, '$emit');
+      scope.egridSelect({
+        properties: {
+          label: 'CH1234 (this should be removed)',
+          egrid: 'CH5678'
+        }
+      });
+      expect(scope.$emit).toHaveBeenCalledWith('oereb-event-egrid-selected', 'CH5678', true);
+      expect(scope.egrids).toEqual([]);
+      expect(scope.parcels).toEqual([]);
+      expect(scope.addresses).toEqual([]);
+      expect(scope.searchText).toEqual('');
+    });
+
   });
 
   describe('addressSelect', function() {
@@ -200,6 +219,33 @@ describe('searchDirective', function() {
       expect(scope.addresses).toEqual([]);
       expect(scope.searchText).toEqual('');
     });
+
+    it('should emit event with egrid and clear values', function() {
+      // Compile element
+      var selector = $compile('<oereb-map-query id="map-query"></oereb-map-query>')($rootScope);
+      // force digest cycle for preparing angular mechanism
+      $rootScope.$digest();
+      // add element to the document body to have it prepared for further testing
+      $(document.body).append(selector);
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      spyOn(scope, '$emit');
+      scope.addressSelect({
+        geometry: {
+          coordinates: [100, 100]
+        },
+        properties: {
+          egrid: 'CH1234'
+        }
+      });
+      expect(scope.$emit).toHaveBeenCalledWith('oereb-event-egrid-selected', 'CH1234', true);
+      expect(scope.egrids).toEqual([]);
+      expect(scope.parcels).toEqual([]);
+      expect(scope.addresses).toEqual([]);
+      expect(scope.searchText).toEqual('');
+    });
+
   });
   describe('parcelSelect', function() {
 
@@ -217,6 +263,24 @@ describe('searchDirective', function() {
       $rootScope.$digest();
       var scope = element.isolateScope();
       scope.parcelSelect({properties: {label: 'Liestal 1000 (Grundstück)'}});
+      expect(scope.egrids).toEqual([]);
+      expect(scope.parcels).toEqual([]);
+      expect(scope.addresses).toEqual([]);
+      expect(scope.searchText).toEqual('');
+    });
+
+    it('should emit event with egrid and clear values', function() {
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      $rootScope.$digest();
+      var scope = element.isolateScope();
+      spyOn(scope, '$emit');
+      scope.parcelSelect({
+        properties: {
+          label: 'Liestal 1000 (Grundstück)',
+          egrid: 'CH1234'
+        }
+      });
+      expect(scope.$emit).toHaveBeenCalledWith('oereb-event-egrid-selected', 'CH1234', true);
       expect(scope.egrids).toEqual([]);
       expect(scope.parcels).toEqual([]);
       expect(scope.addresses).toEqual([]);
