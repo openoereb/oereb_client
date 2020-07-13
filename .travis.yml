@@ -62,13 +62,13 @@ jobs:
         - bash <(curl -s https://codecov.io/bash)
 
     - name: "Test JavaScript"
-      language: node_js
-      node_js: 'lts/*'
       stage: test
+      install:
+        - sudo apt-get install -y -qq nodejs npm
       script:
         - make git-attributes
-        - make lint-py
-        - make test-py
+        - make lint-js
+        - make test-js
       after_success:
         - bash <(curl -s https://codecov.io/bash)
 

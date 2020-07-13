@@ -71,11 +71,13 @@ SRC_PY = $(shell find oereb_client -name '*.py')
 # *******************
 
 .requirements-timestamp: requirements.txt
-	pip install --upgrade -r requirements.txt
+	pip install wheel
+	pip install -r requirements.txt
 	touch $@
 
 .venv/.timestamp:
 	virtualenv .venv
+	$(VENV_BIN)pip install wheel
 	touch $@
 
 .venv/.requirements-timestamp: .venv/.timestamp requirements.txt
