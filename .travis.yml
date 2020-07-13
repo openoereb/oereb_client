@@ -18,6 +18,8 @@ jobs:
         - make git-attributes
         - make lint-py
         - make test-py
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
 
     - name: "Test Python 3.5"
       python: '3.5'
@@ -26,6 +28,8 @@ jobs:
         - make git-attributes
         - make lint-py
         - make test-py
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
 
     - name: "Test Python 3.6"
       python: '3.6'
@@ -34,6 +38,8 @@ jobs:
         - make git-attributes
         - make lint-py
         - make test-py
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
 
     - name: "Test Python 3.7"
       python: '3.7'
@@ -42,6 +48,8 @@ jobs:
         - make git-attributes
         - make lint-py
         - make test-py
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
 
     - name: "Test Python 3.8"
       python: '3.8'
@@ -50,6 +58,8 @@ jobs:
         - make git-attributes
         - make lint-py
         - make test-py
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
 
     - name: "Test JavaScript"
       language: node_js
@@ -59,6 +69,8 @@ jobs:
         - make git-attributes
         - make lint-py
         - make test-py
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
 
     - name: "Build JavaScript"
       stage: build

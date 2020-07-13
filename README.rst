@@ -13,7 +13,7 @@ For detailed information, please refer to the documentation_.
 
 .. _pyramid_oereb: https://github.com/openoereb/pyramid_oereb
 .. _documentation: https://geo-bl-ch.gitlab.io/oereb/oereb_client
-.. |build status| image:: https://gitlab.com/geo-bl-ch/oereb/oereb_client/badges/master/pipeline.svg
-   :target: https://gitlab.com/geo-bl-ch/oereb/oereb_client/commits/master
-.. |coverage report| image:: https://gitlab.com/geo-bl-ch/oereb/oereb_client/badges/master/coverage.svg
-   :target: https://gitlab.com/geo-bl-ch/oereb/oereb_client/commits/master
+.. |build status| image:: https://travis-ci.org/openoereb/oereb_client.svg?branch=master
+   :target: https://travis-ci.org/github/openoereb/oereb_client
+.. |coverage report| image:: https://codecov.io/gh/openoereb/oereb_client/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/openoereb/oereb_client
