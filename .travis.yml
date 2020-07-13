@@ -14,8 +14,6 @@ jobs:
     - name: "Test Python 2.7"
       python: '2.7'
       stage: test
-      install:
-        - sudo apt-get install -y python-dev
       script:
         - make git-attributes
         - make lint-py
@@ -26,8 +24,6 @@ jobs:
     - name: "Test Python 3.5"
       python: '3.5'
       stage: test
-      install:
-        - sudo apt-get install -y python3-dev
       script:
         - make git-attributes
         - make lint-py
@@ -38,8 +34,6 @@ jobs:
     - name: "Test Python 3.6"
       python: '3.6'
       stage: test
-      install:
-        - sudo apt-get install -y python3-dev
       script:
         - make git-attributes
         - make lint-py
@@ -50,8 +44,6 @@ jobs:
     - name: "Test Python 3.7"
       python: '3.7'
       stage: test
-      install:
-        - sudo apt-get install -y python3-dev
       script:
         - make git-attributes
         - make lint-py
@@ -62,8 +54,6 @@ jobs:
     - name: "Test Python 3.8"
       python: '3.8'
       stage: test
-      install:
-        - sudo apt-get install -y python3-dev
       script:
         - make git-attributes
         - make lint-py
