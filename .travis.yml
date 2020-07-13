@@ -1,0 +1,118 @@
+sudo: required
+
+language: python
+python: '3.8'
+
+stages:
+  - test
+  - build
+  - deploy
+
+jobs:
+  include:
+
+    - name: "Test Python 2.7"
+      python: '2.7'
+      stage: test
+      script:
+        - make git-attributes
+        - make lint-py
+        - make test-py
+
+    - name: "Test Python 3.5"
+      python: '3.5'
+      stage: test
+      script:
+        - make git-attributes
+        - make lint-py
+        - make test-py
+
+    - name: "Test Python 3.6"
+      python: '3.6'
+      stage: test
+      script:
+        - make git-attributes
+        - make lint-py
+        - make test-py
+
+    - name: "Test Python 3.7"
+      python: '3.7'
+      stage: test
+      script:
+        - make git-attributes
+        - make lint-py
+        - make test-py
+
+    - name: "Test Python 3.8"
+      python: '3.8'
+      stage: test
+      script:
+        - make git-attributes
+        - make lint-py
+        - make test-py
+
+    - name: "Test JavaScript"
+      language: node_js
+      node_js: 'lts/*'
+      stage: test
+      script:
+        - make git-attributes
+        - make lint-py
+        - make test-py
+
+    - name: "Build JavaScript"
+      stage: build
+      install:
+        - sudo apt-get install -y -qq nodejs npm openjdk-8-jre
+      script:
+        - make build
+
+    - name: "Deploy Dev"
+      stage: deploy
+      if: branch = master AND NOT type = pull_request
+      install:
+        - sudo apt-get install -y -qq nodejs npm openjdk-8-jre
+      before_deploy:
+        - make install
+        - sed -i "s/\(version='[0-9]*\.[0-9]*\.[0-9]*\)\('\)/\1-dev.$(date +%Y%m%d%H%M%S)\2/g" setup.py
+        - sed -i "s/5 - Production\/Stable/4 - Beta/g" setup.py
+      deploy:
+        - provider: pypi
+          server: https://test.pypi.org/legacy/
+          user: kdeininger
+          password:
+            secure: "D5gVZYSdVYYCf0ZtbvmZHXOcdGsJog6kqm51whMyVrle/MGKFCNR/Vfo4kB6UDTItcgLZhYhUEFCxIi1E94eTgunEPj5/0ZkcLI+hO270CGTE6OaLUriyEcWVoQ9MCqZcdUV0QhsgoDRsZ/44IEDORB33hi432GmghAH1lQQ1ouZ8ZSGBivN+bGJoC7UOjXu/zzQXgjYpUlTzGDTUhuZjo4KamKxHGC5llPcnr38ZWrBwPiUZY8W7fxlOo+Ek8wlVbNQmyfuwOE3kUwAb/6QyQS3rKz+Aa7Yd5qgp1V9/9QaijwOkO8hsCeyoazJ1l4AQwuygGMVhT52Te/xM6FmSaAa2w+XFVa43gyEkbb51JCsk/eaarXBN/gHKUb7/zsOgL974fAZHu748lIlNaNrkb2COJ8DN+c7PF7RRljclWhyq3CI9+8ynz3QLCAL49pvRSySMU7ixoqVxRUtqipbF50R+KipbuT+J0q3LR0Jbc0/eaVKJ14zU80CQORy9LCw3291zhr+SmOKQH+E+RqQvYtt0eFaQC/B+bEeGWZYcS+sXodZ306pMyZPaAFMayEDT9yGhLiZNXT6lpFEgjDNaBXEj6Rzui5KfgecpPR00ACTntTdCwFqSXum7qZdGDjUMvKTSdD5i5AlBjzh76KQhCC8N72M/sxnhogayu1taHs="
+          distributions: sdist bdist_wheel
+          skip_upload_docs: true
+          skip_cleanup: true
+
+    - name: "Deploy Tag"
+      stage: deploy
+      if: tag IS present AND NOT type = pull_request
+      install:
+        - sudo apt-get install -y -qq nodejs npm openjdk-8-jre
+      before_deploy:
+        - make install
+      deploy:
+        - provider: pypi
+          server: https://upload.pypi.org/legacy/
+          user: kdeininger
+          password:
+            secure: "D5gVZYSdVYYCf0ZtbvmZHXOcdGsJog6kqm51whMyVrle/MGKFCNR/Vfo4kB6UDTItcgLZhYhUEFCxIi1E94eTgunEPj5/0ZkcLI+hO270CGTE6OaLUriyEcWVoQ9MCqZcdUV0QhsgoDRsZ/44IEDORB33hi432GmghAH1lQQ1ouZ8ZSGBivN+bGJoC7UOjXu/zzQXgjYpUlTzGDTUhuZjo4KamKxHGC5llPcnr38ZWrBwPiUZY8W7fxlOo+Ek8wlVbNQmyfuwOE3kUwAb/6QyQS3rKz+Aa7Yd5qgp1V9/9QaijwOkO8hsCeyoazJ1l4AQwuygGMVhT52Te/xM6FmSaAa2w+XFVa43gyEkbb51JCsk/eaarXBN/gHKUb7/zsOgL974fAZHu748lIlNaNrkb2COJ8DN+c7PF7RRljclWhyq3CI9+8ynz3QLCAL49pvRSySMU7ixoqVxRUtqipbF50R+KipbuT+J0q3LR0Jbc0/eaVKJ14zU80CQORy9LCw3291zhr+SmOKQH+E+RqQvYtt0eFaQC/B+bEeGWZYcS+sXodZ306pMyZPaAFMayEDT9yGhLiZNXT6lpFEgjDNaBXEj6Rzui5KfgecpPR00ACTntTdCwFqSXum7qZdGDjUMvKTSdD5i5AlBjzh76KQhCC8N72M/sxnhogayu1taHs="
+          distributions: sdist bdist_wheel
+          skip_upload_docs: true
+          skip_cleanup: true
+
+    - name: "Deploy docs"
+      stage: deploy
+      if: tag IS present AND NOT type = pull_request
+      install:
+        - sudo apt-get install -y -qq nodejs npm
+      before_deploy:
+        - make doc VERSION=$TRAVIS_TAG
+        - touch docs/build/.nojekyll
+      deploy:
+        - provider: pages
+          skip-cleanup: true
+          github-token: $GITHUB_TOKEN
+          local-dir: docs/build
