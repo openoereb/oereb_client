@@ -1,0 +1,118 @@
+sudo: required
+language: python
+python: '3.8'
+stages:
+- test
+- build
+- deploy
+jobs:
+  include:
+  - name: Test Python 2.7
+    python: '2.7'
+    stage: test
+    script:
+    - make git-attributes
+    - make lint-py
+    - make test-py
+    after_success:
+    - bash <(curl -s https://codecov.io/bash)
+  - name: Test Python 3.5
+    python: '3.5'
+    stage: test
+    script:
+    - make git-attributes
+    - make lint-py
+    - make test-py
+    after_success:
+    - bash <(curl -s https://codecov.io/bash)
+  - name: Test Python 3.6
+    python: '3.6'
+    stage: test
+    script:
+    - make git-attributes
+    - make lint-py
+    - make test-py
+    after_success:
+    - bash <(curl -s https://codecov.io/bash)
+  - name: Test Python 3.7
+    python: '3.7'
+    stage: test
+    script:
+    - make git-attributes
+    - make lint-py
+    - make test-py
+    after_success:
+    - bash <(curl -s https://codecov.io/bash)
+  - name: Test Python 3.8
+    python: '3.8'
+    stage: test
+    script:
+    - make git-attributes
+    - make lint-py
+    - make test-py
+    after_success:
+    - bash <(curl -s https://codecov.io/bash)
+  - name: Test JavaScript
+    stage: test
+    install:
+    - sudo apt-get install -y -qq nodejs npm
+    script:
+    - make git-attributes
+    - make lint-js
+    - make test-js
+    after_success:
+    - bash <(curl -s https://codecov.io/bash)
+  - name: Build JavaScript
+    stage: build
+    install:
+    - sudo apt-get install -y -qq nodejs npm openjdk-8-jre
+    script:
+    - make build
+  - name: Deploy Dev
+    stage: deploy
+    if: branch = master AND NOT type = pull_request
+    install:
+    - sudo apt-get install -y -qq nodejs npm openjdk-8-jre
+    before_deploy:
+    - make install
+    - sed -i "s/\(version='[0-9]*\.[0-9]*\.[0-9]*\)\('\)/\1-dev.$(date +%Y%m%d%H%M%S)\2/g"
+      setup.py
+    - sed -i "s/5 - Production\/Stable/4 - Beta/g" setup.py
+    deploy:
+    - provider: pypi
+      server: https://test.pypi.org/legacy/
+      user: '__token__'
+      password:
+        secure: qMi0nUZNLQwPkgmuwzYn1o5lJhBp+hvmvHg0tAWV1AIlHCztgr9W6k21d9d1QwNstIFO/SxOtiIdyGbPa49sK3htXEKJ57OrtTSLWsI+JzJCYojERjm9XcmTGisg+GmWN9Rwtop4W1oxJncjvELO0Zh75rHsFDpYFfbNJmKFV8jgiIgCasLiyRsyRjuevtITqmU9g3pTIRi6wnpycYLOMPQdwnYWjXRo6XRT/9NHlEYJx6QWL8kwVsFMZ2BppFHz6dHQS1mAF7yo4gdg6tSqnGc8UsF6WdmjdQKtRe1qwYYu/fHphsuITO0/pPNnMS0mO7hBqhh90x8l5ZrQA9bCah3dzkLtGv5cNjUD3ISDwSlfj9sUIoGuBsBuwTU1lCS60IIUi9NKGaQ2mpej+SK672gFvKWrfXHWVrFFaehIKNNODJaHi5qWPPeKEk0LlyutZopZGTFELn+t6NSz0QOPrTe9DkheFSSMdLu0RJU4NdArZMJir+3bGpt3yjN9SsRM/fuotYTY71srr1dQdSv2DMtsvGaBp/LupEsDViV+u72lgHOF5co/Hjfu1/ffZb1dFWdg/ujk/fUKq5DpdJbO7YxdoabPXr1nkQK1fB6qVXaqXKfm+xxKHjzIX/z9YfqGTSsIUThXoSWm4/eyy0f9t/jF1rHInvr6504MIYv3whE=
+      distributions: sdist bdist_wheel
+      skip_upload_docs: true
+      skip_cleanup: true
+  - name: Deploy Tag
+    stage: deploy
+    if: tag IS present AND NOT type = pull_request
+    install:
+    - sudo apt-get install -y -qq nodejs npm openjdk-8-jre
+    before_deploy:
+    - make install
+    deploy:
+    - provider: pypi
+      server: https://upload.pypi.org/legacy/
+      user: __token__
+      password:
+        secure: sDEUf40RPmQP3v66q3Ze/O25lseLgXUgKGxSxfyo1CU+3WLi7jFP/o6NDKNzCd7Y2b9XtabKOaRpigU8WHNm92wMoX1M2GKc8OTZvylSlgr8t8DHqkSwpBbOXR4jkOL4UBukoj0cFe1LnkMF7xSRmuTWl1ED6shr+ppVWbZonIoEQCO+tKhEqLu0tp4zOoZ95GJU6vLAokrmY3EAdJ+kD1Z/hqKi8NXHwWDK0P/qA500QXZN9FraSbG8Y5NikzhXb1o5SD4wKWs+netG99oUtHTUQ6698LEum62L2DivoGYIW4CV6iZM3T6xOabJmueGBFlvinkY+HCRag27ual6T7sglgyI3om5hfwoZAExKdPpl4A5nZ0oLMmZNPwCIpdYPqin2RY2OkMJ00hC6KM6OoJs3CCvbdatoVPKR5QB2ksN4TZjT3/58N/2SlW4OhB5pyGwzfjs/EX6Jof2vCNi5spJZ5/AojB8h0w43SPBl+RFXFq43Q0fSTvZT18LiJ37quOKh8R+hWSzJLvj4qmJK0U/W3GykxbRcVr3DmTa4kJZes4nlpeKVNoDW4sJqyPxHQYgYC4WAfzJzelzbYYwO2cUd4QasY6Vp3oRws/En/eOo15X8tLTrJquyVIl8yPShmVf5TL9Zr1jD3RLusk2e+41CWsWXWWEE0jP6kd1+Po=
+      distributions: sdist bdist_wheel
+      skip_upload_docs: true
+      skip_cleanup: true
+  - name: Deploy docs
+    stage: deploy
+    if: tag IS present AND NOT type = pull_request
+    install:
+    - sudo apt-get install -y -qq nodejs npm
+    before_deploy:
+    - make doc VERSION=$TRAVIS_TAG
+    - touch docs/build/.nojekyll
+    deploy:
+    - provider: pages
+      skip-cleanup: true
+      github-token: "$GITHUB_TOKEN"
+      local-dir: docs/build
