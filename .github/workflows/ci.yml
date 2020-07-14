@@ -1,0 +1,148 @@
+name: CI/CD
+
+on:
+  push:
+  release:
+    types:
+      - published
+
+jobs:
+
+  test-py:
+    name: Test Python
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version:
+          - 2.7
+          - 3.5
+          - 3.6
+          - 3.7
+          - 3.8
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run checks for Python ${{ matrix.python-version }}
+        env:
+          CI: true
+        run: |
+          make git-attributes
+          make lint-py
+          make test-py
+
+  test-js:
+    name: Test JavaScript
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+      - name: Run checks
+        env:
+          CI: true
+        run: |
+          make git-attributes
+          make lint-js
+          make test-js
+
+  build:
+    name: Build Application
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+          java-package: jre
+      - name: Set up Python
+        uses: actions/setup-python@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+      - name: Run build
+        env:
+          CI: true
+        run: |
+          make build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: static
+          path: oereb_client/static
+
+  deploy-dev:
+    name: Deploy to PyPI Test
+    needs:
+      - build
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v1
+        with:
+          name: static
+      - name: Build packages
+        run: |
+          pip install wheel -r requirements.txt
+          python setup.py --test clean check sdist bdist_wheel
+      - name: Upload to PyPI Test
+        uses: pypa/gh-action-pypi-publish@v1.3.1
+        with:
+          password: ${{ secrets.TEST_PYPI_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
+
+  deploy-tag:
+    name: Deploy to PyPI
+    needs:
+      - build
+    if: ${{ startsWith(github.ref, 'refs/tags') }}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v1
+        with:
+          name: static
+      - name: Build packages
+        run: |
+          pip install wheel -r requirements.txt
+          python setup.py clean check sdist bdist_wheel
+      - name: Upload to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.3.1
+        with:
+          password: ${{ secrets.PYPI_TOKEN }}
+
+  deploy-doc:
+    name: Deploy docs to GitHub Pages
+    needs:
+      - build
+    if: ${{ startsWith(github.ref, 'refs/tags') }}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+      - name: Get tag
+        id: get_tag
+        run: |
+          echo ::set-output name=COMMIT_TAG::${GITHUB_REF#refs/tags/}
+      - name: Build docs
+        run: |
+          npm install natives
+          make doc VERSION=${{ steps.get_tag.outputs.COMMIT_TAG }}
+          touch docs/build/.nojekyll
+          ls -la docs/build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs/build
