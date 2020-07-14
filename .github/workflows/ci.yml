@@ -143,6 +143,7 @@ jobs:
         run: |
           npm install natives
           make doc VERSION=${{ steps.get_tag.outputs.COMMIT_TAG }}
+          touch docs/build/.nojekyll
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
