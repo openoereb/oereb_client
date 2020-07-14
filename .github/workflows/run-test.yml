@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: 2.7
       - name: Run checks
-        run: >-
+        run: |
           make git-attributes
           make lint-py
           make test-py
