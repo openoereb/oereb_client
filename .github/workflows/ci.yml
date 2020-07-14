@@ -68,6 +68,8 @@ jobs:
         env:
           CI: true
         run: |
+          pwd
+          ls -la
           make build
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
