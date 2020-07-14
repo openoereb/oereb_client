@@ -86,8 +86,7 @@ jobs:
       # if: branch = master AND NOT type = pull_request
       install:
         - sudo apt-get update -y
-        - sudo apt-get install -y -qq nodejs npm
-        - sudo apt-get install -y -qq openjdk-11-jre
+        - sudo apt-get install -y -qq nodejs npm openjdk-8-jre
       before_deploy:
         - echo "foo"
         # - make install
@@ -108,7 +107,7 @@ jobs:
       if: tag IS present AND NOT type = pull_request
       install:
         - sudo apt-get update -y
-        - sudo apt-get install -y -qq nodejs npm openjdk-11-jre
+        - sudo apt-get install -y -qq nodejs npm openjdk-8-jre
       before_deploy:
         - make install
       deploy:
