@@ -3,4 +3,4 @@ angular
   .module('docs')
 
   // Creating an Angular constant and rendering a list of items as JSON
-  .constant('VERSION', "refs/heads/fix-deploy");
+  .constant('VERSION', "refs/heads/fix-docs");
