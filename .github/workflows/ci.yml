@@ -124,3 +124,29 @@ jobs:
         uses: pypa/gh-action-pypi-publish@v1.3.1
         with:
           password: ${{ secrets.PYPI_TOKEN }}
+
+  deploy-doc:
+    name: Deploy to PyPI
+    needs:
+      - build
+    # if: ${{ startsWith(github.ref, 'refs/tags') }}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+      - name: Get tag
+        id: get_tag
+        run: |
+          echo ::set-output name=COMMIT_TAG::${GITHUB_REF#refs/tags/}
+      - name: Build packages
+        run: |
+          make doc VERSION=${{ steps.get_tag.outputs.COMMIT_TAG }}
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs/build
