@@ -50,9 +50,6 @@ jobs:
 
   build:
     name: Build Application
-    needs:
-      - test-py
-      - test-js
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
