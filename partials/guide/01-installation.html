@@ -1,0 +1,93 @@
+
+    <h1 id="installation">Installation</h1>
+<p>Please use the following instructions to install the OeREB Client. The
+code samples are based on a Linux system but may be adapted for
+Windows environments.</p>
+<blockquote>
+<p><strong>Note:</strong> The usage of a virtual environment is recommended but not
+necessary. For the examples, a virtual environment under &quot;.venv&quot; is
+assumed.</p>
+</blockquote>
+<h2 id="requirements">Requirements</h2>
+<p>As the OeREB Client is designed as a plugin for the
+<a href="http://docs.pylonsproject.org/projects/pyramid/en/latest/">Pyramid Web Framework</a>,
+you need an existing Pyramid application. If you don&#39;t already have one,
+please follow the instructions in the Pyramid documentation to set up
+the application.</p>
+<p>To make use of the front-end application, you also need a back-end part.
+For that, you can include
+<a href="https://openoereb.github.io/pyramid_oereb/doc/">pyramid_oereb</a> in the
+same Pyramid application, for example.</p>
+<p>Having all set up, you can proceed with installation of the OeREB
+Client.</p>
+<h2 id="download-the-package">Download the package</h2>
+<p>The OeREB Client is available as a
+<a href="https://pypi.org/project/oereb-client/">Python package</a> on the Python
+Package Index (PyPI). The recommended way is to install it from there
+using <code>pip</code>.</p>
+<pre><code class="lang-console">.venv/bin/pip install oereb_client
+</code></pre>
+<p>If you want to install a certain version of the package, you can
+specifiy it. For example:</p>
+<pre><code class="lang-console">.venv/bin/pip install oereb_client==1.0.0
+</code></pre>
+<blockquote>
+<p><strong>NOTE:</strong> Use the latest release as long as there is no need for a
+certain version.</p>
+</blockquote>
+<p>Alternatively, you could add <code>oereb_client</code> to a file, like
+<em>requirements.txt</em> and use it for downloading:</p>
+<pre><code class="lang-console">.venv/bin/pip install -r requirements.txt
+</code></pre>
+<h2 id="include-the-plugin">Include the plugin</h2>
+<p>Once you have installed the package into your virtual environment, there
+are two ways to include it into your Pyramid application.</p>
+<h3 id="1-using-config-include-">1. Using <code>config.include()</code></h3>
+<p>Your Pyramid application should start with a kind of <em>main</em> method,
+similar to this one:</p>
+<pre><code class="lang-python">def main(global_config, **settings):
+&quot;&quot;&quot;
+This function returns a Pyramid WSGI application.
+&quot;&quot;&quot;
+config = Configurator(settings=settings)
+...
+config.scan()
+return config.make_wsgi_app()
+</code></pre>
+<p>To include the plugin, you can add the following line somewhere before
+<code>config.scan()</code>:</p>
+<pre><code class="lang-python">config.include(&#39;oereb_client&#39;)
+</code></pre>
+<p>After restarting the application, the plugin should be loaded, but you
+may get some errors because of the still missing configuration.</p>
+<h3 id="2-via-the-application-s-ini-file">2. Via the application&#39;s *.ini file</h3>
+<p>Usually you create one or more <em>.ini file for a Pyramid application,
+e.g. </em>development.ini<em> and </em>production.ini*, where you configure the
+application entry point, logging and maybe other global preferences.</p>
+<p>It should start similar to this example:</p>
+<pre><code>###
+# module configuration
+###
+
+[app:main]
+use = egg:oereb_client
+
+pyramid.reload_templates = true
+pyramid.default_locale_name = en
+...
+</code></pre>
+<p>Within the <em>app:main</em> section, you can also define plugins to be
+included:</p>
+<pre><code>[app:main]
+use = egg:oereb_client
+
+pyramid.reload_templates = true
+pyramid.default_locale_name = en
+
+pyramid.includes =
+    oereb_client
+    any_other_plugin
+...
+</code></pre>
+<p>After including the plugin, you can proceed with the configuration part.</p>
+

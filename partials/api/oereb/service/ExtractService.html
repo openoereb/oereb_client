@@ -1,0 +1,892 @@
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">ExtractService</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+  
+
+    <li>
+      - service in module <a href="api/oereb">oereb</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>Angular service to request a specific extract.</p>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+
+  
+
+  <h2 id="usage">Usage</h2>
+    
+      <p><code>ExtractService($http, $q, oerebApplicationUrl);</code></p>
+
+
+    
+
+    
+<section class="api-section">
+  <h3>Arguments</h3>
+
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        $http
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-angular">angular.$http</a>
+      </td>
+      <td>
+        <p>Angular service for HTTP requests.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        $q
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-angular">angular.$q</a>
+      </td>
+      <td>
+        <p>Angular service for deferrable objects.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        oerebApplicationUrl
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-angular">angular.Module.constant</a>
+      </td>
+      <td>
+        <p>Angular service for HTTP requests.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+</section>
+    
+    
+
+  
+<h2>Methods</h2>
+<ul class="methods">
+  <li id="queryExtractById">
+    <h3><p><code>queryExtractById(egrid);</code></p>
+
+</h3>
+    <div><p>Requests the extract for the specified EGRID.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        egrid
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-string">string</a>
+      </td>
+      <td>
+        <p>The EGRID to request the extract for.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-angular">angular.$q.Promise</a></td>
+    <td><p>Promise for the EGRID request.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getExtract">
+    <h3><p><code>getExtract();</code></p>
+
+</h3>
+    <div><p>Returns the extract if available.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-object">Object</a><a href="" class="label type-hint type-hint-undefined">undefined</a></td>
+    <td><p>The extract object or undefined.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getRealEstate">
+    <h3><p><code>getRealEstate();</code></p>
+
+</h3>
+    <div><p>Returns the real estate data if available.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-object">Object</a><a href="" class="label type-hint type-hint-undefined">undefined</a></td>
+    <td><p>The real estate data or undefined.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getConcernedThemes">
+    <h3><p><code>getConcernedThemes();</code></p>
+
+</h3>
+    <div><p>Returns list of concerned themes.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-array">Array</a><a href="" class="label type-hint type-hint-undefined">undefined</a></td>
+    <td><p>The list of concerned themes.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getNotConcernedThemes">
+    <h3><p><code>getNotConcernedThemes();</code></p>
+
+</h3>
+    <div><p>Returns list of not concerned themes.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-array">Array</a><a href="" class="label type-hint type-hint-undefined">undefined</a></td>
+    <td><p>The list of not concerned themes.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getThemesWithoutData">
+    <h3><p><code>getThemesWithoutData();</code></p>
+
+</h3>
+    <div><p>Returns list of themes without data.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-array">Array</a><a href="" class="label type-hint type-hint-undefined">undefined</a></td>
+    <td><p>The list of themes without data.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getRestrictions">
+    <h3><p><code>getRestrictions(themeCode);</code></p>
+
+</h3>
+    <div><p>Returns the public law restrictions of the specified topic.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        themeCode
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-string">string</a>
+      </td>
+      <td>
+        <p>The code of the topic to return the restrictions for.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-array">Array</a><a href="" class="label type-hint type-hint-undefined">undefined</a></td>
+    <td><p>The public law restrictions of the specified topic.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getLegend">
+    <h3><p><code>getLegend(themeCode);</code></p>
+
+</h3>
+    <div><p>Returns the legend entries of the specified topic.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        themeCode
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-string">string</a>
+      </td>
+      <td>
+        <p>The code of the topic to return the restrictions for.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-object">Object</a><a href="" class="label type-hint type-hint-undefined">undefined</a></td>
+    <td><p>The legend entries of the specified topic.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="addIfNotContains_">
+    <h3><p><code>addIfNotContains_(item, target);</code></p>
+
+</h3>
+    <div><p>Adds the item to the specified target array if it&#39;s not already contained. <code>angular.equals</code> is used for the
+comparison.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        item
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-object">Object</a><a href="" class="label type-hint type-hint-array">Array</a><a href="" class="label type-hint type-hint-string">string</a><a href="" class="label type-hint type-hint-number">number</a>
+      </td>
+      <td>
+        <p>The element to be added.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        target
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-array">Array</a>
+      </td>
+      <td>
+        <p>The target array to add the element to.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+
+  </li>
+  
+  <li id="addDocumentIfNotContained_">
+    <h3><p><code>addDocumentIfNotContained_(document, target);</code></p>
+
+</h3>
+    <div><p>Adds the document to the specified target array if it&#39;s not already contained. <code>angular.equals</code> is used for
+the comparison.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        document
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-object">Object</a>
+      </td>
+      <td>
+        <p>The document to be added.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        target
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-array">Array</a>
+      </td>
+      <td>
+        <p>The target array to add the element to.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+
+  </li>
+  
+  <li id="addDocumentsIfNotContained_">
+    <h3><p><code>addDocumentsIfNotContained_(documents, target);</code></p>
+
+</h3>
+    <div><p>Add each listed document to the target array if it&#39;s not already contained.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        documents
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-array">Array</a>
+      </td>
+      <td>
+        <p>The documents to be added.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        target
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-array">Array</a>
+      </td>
+      <td>
+        <p>The target array.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+
+  </li>
+  
+  <li id="getDocuments">
+    <h3><p><code>getDocuments(themeCode);</code></p>
+
+</h3>
+    <div><p>Returns the legal documents of the specified topic.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        themeCode
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-string">string</a>
+      </td>
+      <td>
+        <p>The code of the topic to return the restrictions for.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-object">Object</a><a href="" class="label type-hint type-hint-undefined">undefined</a></td>
+    <td><p>The legal documents of the specified topic.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getResponsibleOffices">
+    <h3><p><code>getResponsibleOffices(themeCode);</code></p>
+
+</h3>
+    <div><p>Returns the responsible offices of the specified topic.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        themeCode
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-string">string</a>
+      </td>
+      <td>
+        <p>The code of the topic to return the responsible offices for.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-array">Array</a><a href="" class="label type-hint type-hint-undefined">undefined</a></td>
+    <td><p>The responsible offices of the specified topic.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getViewServiceFromUrl_">
+    <h3><p><code>getViewServiceFromUrl_(mapObject);</code></p>
+
+</h3>
+    <div><p>Creates a view service definition using the restriction&#39;s theme code and view service URL.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        mapObject
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-object">Object</a>
+      </td>
+      <td>
+        <p>The restriction&#39;s view service definition.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-object">Object</a></td>
+    <td><p>The created view service definition.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getViewServices">
+    <h3><p><code>getViewServices();</code></p>
+
+</h3>
+    <div><p>Returns a unique list of view services available in the extract.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-object">Object</a></td>
+    <td><p>A unique list of view service objects grouped by topic.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getExclusionsOfLiability">
+    <h3><p><code>getExclusionsOfLiability();</code></p>
+
+</h3>
+    <div><p>Returns the exclusions of liability for the current extract.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-array">Array</a></td>
+    <td><p>The exclusions of liability.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getGlossary">
+    <h3><p><code>getGlossary();</code></p>
+
+</h3>
+    <div><p>Returns the glossary for the current extract.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-array">Array</a></td>
+    <td><p>The exclusions of liability.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getEmbeddable">
+    <h3><p><code>getEmbeddable();</code></p>
+
+</h3>
+    <div><p>Returns the embeddable if available.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-object">Object</a><a href="" class="label type-hint type-hint-undefined">undefined</a></td>
+    <td><p>The extract object or undefined.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="validate_">
+    <h3><p><code>validate_();</code></p>
+
+</h3>
+    <div><p>Validates the received extract data. Currently implemented checks are:</p>
+<ul>
+<li><code>RestrictionOnLandownership</code> has to be an array</li>
+<li><code>LegalProvisions</code> has to be an array</li>
+<li><code>LegalProvisions</code> has to contain at least one legal document</li>
+</ul>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-boolean">boolean</a></td>
+    <td><p>True if the validation succeeds, false otherwise.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  </ul>
+  
+  
+
+
+
+  
+</div>
+
+

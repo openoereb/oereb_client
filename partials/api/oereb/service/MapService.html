@@ -1,0 +1,475 @@
+
+
+
+<header class="api-profile-header">
+  <h1 class="api-profile-header-heading">MapService</h1>
+  <ol class="api-profile-header-structure naked-list step-list">
+    
+  
+
+    <li>
+      - service in module <a href="api/oereb">oereb</a>
+    </li>
+  </ol>
+</header>
+
+
+
+<div class="api-profile-description">
+  <p>Angular service for map handling.</p>
+
+</div>
+
+
+
+
+
+
+<div>
+  
+
+  
+
+  <h2 id="usage">Usage</h2>
+    
+      <p><code>MapService($q, $http, $location, $timeout, oerebBaseLayerConfig, oerebViewConfig, oerebAvailabilityConfig);</code></p>
+
+
+    
+
+    
+<section class="api-section">
+  <h3>Arguments</h3>
+
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        $q
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-angular">angular.$q</a>
+      </td>
+      <td>
+        <p>Angular service for deferrable objects.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        $http
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-angular">angular.$http</a>
+      </td>
+      <td>
+        <p>Angular service asynchronous requests.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        $location
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-angular">angular.$location</a>
+      </td>
+      <td>
+        <p>Angular location service.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        $timeout
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-angular">angular.$timeout</a>
+      </td>
+      <td>
+        <p>Angular $timeout service.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        oerebBaseLayerConfig
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-string">string</a>
+      </td>
+      <td>
+        <p>The base layer configuration.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        oerebViewConfig
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-string">string</a>
+      </td>
+      <td>
+        <p>The view configuration.</p>
+
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        oerebAvailabilityConfig
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-string">string</a>
+      </td>
+      <td>
+        <p>The availability layer configuration.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+</section>
+    
+    
+
+  
+<h2>Methods</h2>
+<ul class="methods">
+  <li id="updateUrlParams_">
+    <h3><p><code>updateUrlParams_();</code></p>
+
+</h3>
+    <div><p>Updates the parameters for map center and zoom level in the URL.</p>
+</div>
+
+    
+
+    
+
+    
+
+  </li>
+  
+  <li id="getMap">
+    <h3><p><code>getMap();</code></p>
+
+</h3>
+    <div><p>Returns the created map instance.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-ol">ol.Map</a></td>
+    <td><p>The created map instance.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getBaseLayerSource_">
+    <h3><p><code>getBaseLayerSource_();</code></p>
+
+</h3>
+    <div><p>Creates the source for the base layer.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-angular">angular.$q.Promise</a></td>
+    <td><p>The promise handling the source request.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getBaseLayerWmsSource_">
+    <h3><p><code>getBaseLayerWmsSource_();</code></p>
+
+</h3>
+    <div><p>Creates a WMS source for the base layer.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-angular">angular.$q.Promise</a></td>
+    <td><p>The promise handling the source request.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="getBaseLayerWmtsSource_">
+    <h3><p><code>getBaseLayerWmtsSource_();</code></p>
+
+</h3>
+    <div><p>Creates a WMTS source for the base layer.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-angular">angular.$q.Promise</a></td>
+    <td><p>The promise handling the source request.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="addTopicLayers">
+    <h3><p><code>addTopicLayers(viewServicesByTopic);</code></p>
+
+</h3>
+    <div><p>Adds the specified view services as topic layers.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        viewServicesByTopic
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-object">Object</a>
+      </td>
+      <td>
+        <p>The view service definition object.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+
+  </li>
+  
+  <li id="updateRealEstate">
+    <h3><p><code>updateRealEstate(realEstate);</code></p>
+
+</h3>
+    <div><p>Updates the real estate layer with the specified feature.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        realEstate
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-ol">ol.Feature</a>
+      </td>
+      <td>
+        <p>The real estate feature.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+
+  </li>
+  
+  <li id="clearLayers">
+    <h3><p><code>clearLayers();</code></p>
+
+</h3>
+    <div><p>Removes all layers from the map.</p>
+</div>
+
+    
+
+    
+
+    
+
+  </li>
+  
+  <li id="getTopicLayers">
+    <h3><p><code>getTopicLayers();</code></p>
+
+</h3>
+    <div><p>Returns the list of topic layers.</p>
+</div>
+
+    
+
+    
+
+    
+    <h4>Returns</h4>
+    <table class="variables-matrix return-arguments">
+  <tr>
+    <td><a href="" class="label type-hint type-hint-array">Array&lt;ol.layer.Tile&gt;</a></td>
+    <td><p>The list of topic layers.</p>
+</td>
+  </tr>
+</table>
+    
+
+  </li>
+  
+  <li id="toggleAvailability">
+    <h3><p><code>toggleAvailability(visible);</code></p>
+
+</h3>
+    <div><p>Shows/hides the availability layer.</p>
+</div>
+
+    
+    <h4>Parameters</h4>
+    
+<table class="variables-matrix input-arguments">
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        visible
+        
+        
+      </td>
+      <td>
+        <a href="" class="label type-hint type-hint-boolean">boolean</a><a href="" class="label type-hint type-hint-undefined">undefined</a>
+      </td>
+      <td>
+        <p>Undefined to switch visibility, true to show and false to hide layer.</p>
+
+        
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+    
+
+    
+
+    
+
+  </li>
+  </ul>
+  
+  
+
+
+
+  
+</div>
+
+
