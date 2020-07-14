@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+1.3.7
+*****
+
+https://github.com/openoereb/oereb_client/milestone/1
+
+- Dependency updates
+
 1.3.6
 *****
 
