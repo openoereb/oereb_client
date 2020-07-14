@@ -122,9 +122,9 @@ jobs:
 
   deploy-doc:
     name: Deploy docs to GitHub Pages
-    needs:
-      - build
-    if: ${{ startsWith(github.ref, 'refs/tags') }}
+#    needs:
+#      - build
+#    if: ${{ startsWith(github.ref, 'refs/tags') }}
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -135,6 +135,8 @@ jobs:
         run: |
           echo ::set-output name=COMMIT_TAG::${GITHUB_REF#refs/tags/}
       - name: Build docs
+        env:
+          CI_PAGES_URL: https://openoereb.github.io/oereb_client/
         run: |
           npm install natives
           make doc VERSION=${{ steps.get_tag.outputs.COMMIT_TAG }}

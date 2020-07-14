@@ -6,6 +6,7 @@ Changelog
 
 https://github.com/openoereb/oereb_client/milestone/1
 
+- Move project to https://github.com/openoereb/oereb_client
 - Dependency updates
 
 1.3.6
