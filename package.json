@@ -26,7 +26,7 @@
     "angular-mocks": "1.6.6",
     "angular-template-cache": "1.2.0",
     "bootstrap": "3.4.1",
-    "canonical-path": "0.0.2",
+    "canonical-path": "1.0.0",
     "clean-css": "4.1.11",
     "clean-css-cli": "4.1.10",
     "dgeni": "0.4.10",
