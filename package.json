@@ -30,7 +30,7 @@
     "canonical-path": "1.0.0",
     "clean-css": "4.2.3",
     "clean-css-cli": "4.1.10",
-    "dgeni": "0.4.10",
+    "dgeni": "0.4.12",
     "dgeni-packages": "^0.28.4",
     "eslint": "^7.4.0",
     "font-awesome": "4.7.0",
