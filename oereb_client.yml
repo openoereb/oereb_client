@@ -8,9 +8,9 @@ oereb_client:
   #   "icon"  - URL to image used as favicon
   application:
     title: ÖREB-Kataster, Kanton Basel-Landschaft
-    icon: http://localhost:6543/static/images/favicon.png
-    logo_canton: http://localhost:6543/samples/static/logo_bl.png
-    logo_oereb: http://localhost:6543/samples/static/logo_oereb.png
+    icon: http://localhost:8080/static/images/favicon.png
+    logo_canton: http://localhost:8080/samples/static/logo_bl.png
+    logo_oereb: http://localhost:8080/samples/static/logo_oereb.png
     local_storage_prefix: bl
 
   # View configuration
@@ -40,10 +40,10 @@ oereb_client:
   # Search field configuration
   search:
     api:
-      url: https://dev2.geoview.bl.ch/main/wsgi/bl_fulltextsearch
+      url: https://geoview.bl.ch/main/wsgi/bl_fulltextsearch
       limit: 5
     wfs:
-      url: https://dev2.geowms.bl.ch
+      url: https://geowms.bl.ch
       limit: 5
 
   # Link to external viewer/portal

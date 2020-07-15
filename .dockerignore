@@ -1,0 +1,4 @@
+Dockerfile
+.github
+.venv
+node_modules
