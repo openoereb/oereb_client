@@ -28,11 +28,13 @@ jobs:
       - name: Run checks for Python ${{ matrix.python-version }}
         env:
           CI: true
-          CODECOV_TOKEN: 7b2eb0c8-15df-4a61-99af-5b5607edab07
         run: |
           make git-attributes
           make lint-py
           make test-py
+      - name: Send coverage
+        run: |
+          bash <(curl -s https://codecov.io/bash)
 
   test-js:
     name: Test JavaScript
@@ -44,11 +46,13 @@ jobs:
       - name: Run checks
         env:
           CI: true
-          CODECOV_TOKEN: 7b2eb0c8-15df-4a61-99af-5b5607edab07
         run: |
           make git-attributes
           make lint-js
           make test-js
+      - name: Send coverage
+        run: |
+          bash <(curl -s https://codecov.io/bash)
 
   build:
     name: Build Application
