@@ -36,7 +36,7 @@ APP_CSS = $(dir $(BUILD_DIR))oereb.min.css
 
 # External JavaScript libraries
 LIB_JS = \
-	$(dir $(NODE_MODULES))jquery/jquery.min.js \
+	$(dir $(NODE_MODULES))jquery/dist/jquery.min.js \
 	$(dir $(NODE_MODULES))bootstrap/dist/js/bootstrap.min.js \
 	$(dir $(NODE_MODULES))angular/angular.min.js \
 	$(dir $(NODE_MODULES))angular-animate/angular-animate.min.js \
@@ -166,7 +166,7 @@ $(dir $(BUILD_DIR))build.js: $(NODE_MODULES) $(BUILD_DIR) $(TEMPLATE_CACHE) $(SR
 	java -jar $(COMPILER) \
 	--compilation_level='ADVANCED' \
 	--externs='$(dir $(NODE_MODULES))google-closure-compiler/contrib/externs/angular-1.5.js' \
-	--externs='$(dir $(NODE_MODULES))google-closure-compiler/contrib/externs/jquery-1.9.js' \
+	--externs='$(dir $(NODE_MODULES))google-closure-compiler/contrib/externs/jquery-1.12_and_2.2.js' \
 	--externs='$(dir $(NODE_MODULES))openlayers/externs/proj4js.js' \
 	--externs='$(dir $(NODE_MODULES))openlayers/externs/oli.js' \
 	--externs='$(dir $(NODE_MODULES))openlayers/externs/olx.js' \
