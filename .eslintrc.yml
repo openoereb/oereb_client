@@ -11,6 +11,7 @@ globals:
   inject: false
   ol: false
   $: false
+  jQuery: false
   proj4: false
   oereb: false
 parserOptions:
