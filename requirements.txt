@@ -1,6 +1,6 @@
 PyYAML==5.3.1
 pluggy<0.7,>=0.5
-tox==3.0.0
+tox==3.17.1
 pytest==3.5.0
 pytest-cov==2.5.1
 pyflakes==2.2.0
