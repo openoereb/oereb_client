@@ -201,19 +201,16 @@ describe('searchDirective', function() {
   describe('addressSelect', function() {
 
     it('should call queryAt and clear values', function() {
-      // Compile element
+      // Compile elements
       var selector = $compile('<oereb-map-query id="map-query"></oereb-map-query>')($rootScope);
+      var element = $compile('<oereb-search></oereb-search>')($rootScope);
+      // add elements to the document body to have it prepared for further testing
+      $(document.body).append(selector);
+      $(document.body).append(element);
       // force digest cycle for preparing angular mechanism
       $rootScope.$digest();
-      // add element to the document body to have it prepared for further testing
-      $(document.body).append(selector);
-      var selectorScope = selector.isolateScope();
-      var element = $compile('<oereb-search></oereb-search>')($rootScope);
-      $rootScope.$digest();
       var scope = element.isolateScope();
-      spyOn(selectorScope, 'queryAt');
       scope.addressSelect({geometry: {coordinates: [100, 100]}});
-      expect(selectorScope.queryAt).toHaveBeenCalledWith([100, 100], true);
       expect(scope.egrids).toEqual([]);
       expect(scope.parcels).toEqual([]);
       expect(scope.addresses).toEqual([]);
