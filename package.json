@@ -45,7 +45,7 @@
     "karma-jasmine": "4.0.1",
     "karma-phantomjs-launcher": "1.0.4",
     "less": "^3.12.2",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "lodash.template": ">=4.5.0",
     "minimist": ">=0.2.1",
     "openlayers": "4.2.0",
