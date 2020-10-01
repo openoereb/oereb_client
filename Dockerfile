@@ -1,17 +1,17 @@
-FROM alpine:3.12
-
+FROM alpine:3.12 AS dev
 ENV CI=true \
     PATH="/app/.local/bin:${PATH}"
 
 RUN adduser -D -S -h /app -s /sbin/nologin -G root --uid 1001 app && \
-    apk --update add build-base python3 py3-pip nodejs npm openjdk11-jre && \
-    ln -s /usr/bin/python3 /usr/bin/python
-
-COPY --chown=1001:0 . /app
+    apk --update add build-base python3 py3-pip nodejs npm openjdk11-jre
 
 WORKDIR /app
 
 EXPOSE 8080
+
+FROM dev
+
+COPY --chown=1001:0 . /app
 
 USER 1001
 

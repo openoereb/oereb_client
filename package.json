@@ -34,8 +34,6 @@
     "dgeni-packages": "^0.28.4",
     "eslint": "^7.10.0",
     "font-awesome": "4.7.0",
-    "google-closure-compiler": "20170910.0.0",
-    "google-closure-library": "20170910.0.0",
     "gulp": "^4.0.2",
     "gulp-util": "3.0.8",
     "jasmine-core": "3.5.0",
@@ -51,6 +49,8 @@
     "openlayers": "4.6.5",
     "proj4": "2.6.2",
     "randomatic": ">=3.0.0",
-    "set-value": ">=2.0.1"
+    "set-value": ">=2.0.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }

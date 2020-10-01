@@ -1,25 +1,9 @@
-# Check if running on CI
-ifeq ($(CI),true)
-  PIP_REQUIREMENTS=.requirements-timestamp
-  VENV_BIN=
-else
-  PIP_REQUIREMENTS=.venv/.requirements-timestamp
-  VENV_BIN=.venv/bin/
-endif
-
-
 # ********************
 # Variable definitions
 # ********************
 
 # Node modules
 NODE_MODULES = node_modules/.timestamp
-
-# Google Closure Library depswriter script
-DEPSWRITER = $(shell find node_modules/google-closure-library -name 'depswriter.py')
-
-# Google Closure Compiler
-COMPILER = $(shell find node_modules/google-closure-compiler -name 'compiler.jar')
 
 # Package name and version
 PKG = oereb_client
@@ -56,9 +40,6 @@ SRC_LESS = $(shell find oereb_client/static/less -name '*.less')
 # JavaScript test specifications
 TEST_JS = $(shell find test/js -name '*.spec.js')
 
-# Google Closure Library dependencies for tests
-TEST_DEPS = test/js/deps.js
-
 # Angular template cache
 TEMPLATE_CACHE = $(dir $(BUILD_DIR))templates.js
 
@@ -70,22 +51,17 @@ SRC_PY = $(shell find oereb_client -name '*.py')
 # Set up environments
 # *******************
 
-.requirements-timestamp: requirements.txt
-	pip install wheel
-	pip install -r requirements.txt
+.venv/.venv-timestamp:
+	python3 -m venv .venv
 	touch $@
 
-.venv/.timestamp:
-	virtualenv .venv
-	$(VENV_BIN)pip install wheel
-	touch $@
-
-.venv/.requirements-timestamp: .venv/.timestamp requirements.txt
-	$(VENV_BIN)pip install -r requirements.txt
+.venv/.requirements-timestamp: .venv/.venv-timestamp requirements.txt
+	.venv/bin/pip3 install wheel
+	.venv/bin/pip3 install -r requirements.txt
 	touch $@
 
 $(NODE_MODULES): package.json
-	npm install
+	npm install --cache /tmp
 	touch $@
 
 
@@ -104,17 +80,6 @@ $(CSS_DIR):
 $(FONTS_DIR):
 	mkdir -p $(dir $(FONTS_DIR))
 	touch $@
-
-
-# **************************************************
-# Build test dependencies for Google Closure Library
-# **************************************************
-
-$(TEST_DEPS): $(NODE_MODULES) $(SRC_JS)
-	$(VENV_BIN)python $(DEPSWRITER) \
-	--root_with_prefix="./oereb_client/static/js ../../../../oereb_client/static/js" \
-	--root_with_prefix="./node_modules/google-closure-library/closure/goog ../../../../node_modules/google-closure-library/closure/goog" \
-	> $@
 
 
 # ****************************
@@ -163,34 +128,10 @@ $(APP_CSS): $(NODE_MODULES) $(BUILD_DIR) $(dir $(CSS_DIR))oereb.css
 # ********************
 
 $(dir $(BUILD_DIR))build.js: $(NODE_MODULES) $(BUILD_DIR) $(TEMPLATE_CACHE) $(SRC_JS) $(LIB_JS)
-	java -jar $(COMPILER) \
-	--compilation_level='ADVANCED' \
-	--externs='$(dir $(NODE_MODULES))google-closure-compiler/contrib/externs/angular-1.5.js' \
-	--externs='$(dir $(NODE_MODULES))google-closure-compiler/contrib/externs/jquery-1.12_and_2.2.js' \
-	--externs='$(dir $(NODE_MODULES))openlayers/externs/proj4js.js' \
-	--externs='$(dir $(NODE_MODULES))openlayers/externs/oli.js' \
-	--externs='$(dir $(NODE_MODULES))openlayers/externs/olx.js' \
-	--externs='externs/ol.js' \
-	--externs='externs/bootstrap.js' \
-	--externs='externs/localStorage.js' \
-	--externs='externs/file-saver.js' \
-	--js='$(dir $(NODE_MODULES))google-closure-library/closure/goog/**.js' \
-	--js='!$(dir $(NODE_MODULES))google-closure-library/closure/goog/**_test.js' \
-	--js='$(PKG)/static/js/**.js' \
-	--js='$(TEMPLATE_CACHE)' \
-	--extra_annotation_name='ngdoc' \
-	--extra_annotation_name='ngname' \
-	--export_local_property_definitions \
-	--generate_exports \
-	--dependency_mode='LOOSE' \
-	--entry_point='$(PKG)' \
-	--angular_pass \
-	--create_source_map='$(dir $(BUILD_DIR))oereb.min.js.map' \
-    > $@
+	touch $@
 
 $(APP_JS): $(dir $(BUILD_DIR))build.js $(LIB_JS)
 	awk 'FNR==1{print ""}1' $(LIB_JS) $< > $@
-
 
 
 # **************
@@ -204,7 +145,6 @@ clean:
 	rm -rf build
 	rm -rf dist
 	rm -rf $(PKG).egg-info
-	rm -rf .tox
 	rm -rf .cache
 	rm -f .coverage
 	rm -f npm-debug.log
@@ -212,23 +152,18 @@ clean:
 	rm -rf $(dir $(CSS_DIR))
 	rm -rf $(dir $(FONTS_DIR))
 	rm -rf $(dir $(BUILD_DIR))
-	rm -f $(TEST_DEPS)
 
 .PHONY: git-attributes
 git-attributes:
 	git --no-pager diff --check `git log --oneline | tail -1 | cut --fields=1 --delimiter=' '`
 
 .PHONY: lint-py
-lint-py: $(PIP_REQUIREMENTS) setup.cfg $(SRC_PY)
-	$(VENV_BIN)flake8
+lint-py: .venv/.requirements-timestamp setup.cfg $(SRC_PY)
+	.venv/bin/flake8
 
 .PHONY: test-py
-test-py: $(PIP_REQUIREMENTS) $(SRC_PY)
-	$(VENV_BIN)py.test -vv --cov-config .coveragerc --cov oereb_client test/py
-
-.PHONY: tox
-tox: $(PIP_REQUIREMENTS) tox.ini $(SRC_PY)
-	$(VENV_BIN)tox --recreate --skip-missing-interpreters
+test-py: .venv/.requirements-timestamp $(SRC_PY)
+	.venv/bin/py.test -vv --cov-config .coveragerc --cov oereb_client test/py
 
 .PHONY: lint-js
 lint-js: $(NODE_MODULES) .eslintrc.yml $(SRC_JS) $(TEST_JS)
@@ -251,18 +186,18 @@ check: check-py check-js
 less: $(dir $(CSS_DIR))oereb.css
 
 .PHONY: serve
-serve: $(PIP_REQUIREMENTS) $(NODE_MODULES) $(dir $(CSS_DIR))oereb.css development.ini
-	$(VENV_BIN)pserve development.ini
+serve: .venv/.requirements-timestamp $(NODE_MODULES) $(dir $(CSS_DIR))oereb.css development.ini
+	.venv/bin/pserve development.ini --reload
 
 .PHONY: build
 build: $(APP_CSS) $(APP_JS)
 
 .PHONY: install
-install: $(PIP_REQUIREMENTS) build
+install: .venv/.requirements-timestamp build
 
 .PHONY: updates-py
-updates-py: $(PIP_REQUIREMENTS)
-	$(VENV_BIN)pip list --outdated --format=columns
+updates-py: .venv/.requirements-timestamp
+	.venv/bin/pip3 list --outdated --format=columns
 
 .PHONY: updates-js
 updates-js: package.json

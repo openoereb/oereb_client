@@ -2,6 +2,16 @@ version: '3.7'
 
 services:
   app:
-    build: .
+    build:
+      context: .
+      target: dev
     ports:
       - '8080:8080'
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    command:
+      - make
+      - serve
+    user: "${DOCKER_COMPOSE_USER:-1001}"
