@@ -39,7 +39,7 @@
     "gulp": "^4.0.2",
     "gulp-util": "3.0.8",
     "jasmine-core": "3.5.0",
-    "jquery": "1.12.4",
+    "jquery": "2.2.4",
     "karma": "^5.2.3",
     "karma-coverage": "2.0.3",
     "karma-jasmine": "4.0.1",
