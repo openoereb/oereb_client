@@ -53,7 +53,7 @@ describe('realEstateDirective', function() {
       expect(element.children('h4').eq(0).text()).toContain(
         'Grundstück ' + data.Number + ' in ' + data.Municipality
       );
-      expect(element.find('div.col-xs-9').eq(0).text()).toContain(data.EGRID);
+      expect(element.find('div.col-egrid-value').eq(0).text()).toContain(data.EGRID);
       expect(element.find('div.col-xs-9').eq(1).text()).toContain(data.LandRegistryArea);
     });
 
