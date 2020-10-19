@@ -29,7 +29,7 @@ describe('realEstateDirective', function() {
       expect(row.children('div.col-egrid-header').length).toBe(1);
       expect(row.children('div.col-egrid-value').length).toBe(1);
       expect(row.children('div.col-egrid-header').eq(0).text()).toContain('EGRID');
-      expect(row.children('div.col-xs-3').eq(1).text()).toContain('Fläche');
+      expect(row.children('div.col-xs-3').eq(0).text()).toContain('Fläche');
     });
 
   });
@@ -54,7 +54,7 @@ describe('realEstateDirective', function() {
         'Grundstück ' + data.Number + ' in ' + data.Municipality
       );
       expect(element.find('div.col-egrid-value').eq(0).text()).toContain(data.EGRID);
-      expect(element.find('div.col-xs-9').eq(1).text()).toContain(data.LandRegistryArea);
+      expect(element.find('div.col-xs-9').eq(0).text()).toContain(data.LandRegistryArea);
     });
 
   });
