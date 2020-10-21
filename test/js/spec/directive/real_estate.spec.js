@@ -22,14 +22,15 @@ describe('realEstateDirective', function() {
       var element = $compile('<oereb-real-estate></oereb-real-estate>')($rootScope);
       $rootScope.$digest();
       expect(element.children('h4').length).toBe(1);
-      expect(element.children('div').length).toBe(1);
-      var row = element.children('div').eq(0);
-      expect(row.children('div.col-egrid-header').length).toBe(1);
-      expect(row.children('div.col-egrid-value').length).toBe(1);
-      expect(row.children('div.col-data-header').length).toBe(1);
-      expect(row.children('div.col-data-value').length).toBe(1);
-      expect(row.children('div.col-egrid-header').eq(0).text()).toContain('EGRID');
-      expect(row.children('div.col-data-header').eq(0).text()).toContain('Fläche');
+      expect(element.children('div').length).toBe(2);
+      var row1 = element.children('div').eq(0);
+      expect(row1.children('div.col-egrid-header').length).toBe(1);
+      expect(row1.children('div.col-egrid-value').length).toBe(1);
+      expect(row1.children('div.col-egrid-header').eq(0).text()).toContain('EGRID');
+      var row2 = element.children('div').eq(1);
+      expect(row2.children('div.col-data-header').length).toBe(1);
+      expect(row2.children('div.col-data-value').length).toBe(1);
+      expect(row2.children('div.col-data-header').eq(0).text()).toContain('Fläche');
     });
 
   });
