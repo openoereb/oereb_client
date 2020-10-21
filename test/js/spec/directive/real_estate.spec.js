@@ -24,12 +24,12 @@ describe('realEstateDirective', function() {
       expect(element.children('h4').length).toBe(1);
       expect(element.children('div').length).toBe(1);
       var row = element.children('div').eq(0);
-      expect(row.children('div.col-xs-3').length).toBe(1);
-      expect(row.children('div.col-xs-9').length).toBe(1);
       expect(row.children('div.col-egrid-header').length).toBe(1);
       expect(row.children('div.col-egrid-value').length).toBe(1);
+      expect(row.children('div.col-data-header').length).toBe(1);
+      expect(row.children('div.col-data-value').length).toBe(1);
       expect(row.children('div.col-egrid-header').eq(0).text()).toContain('EGRID');
-      expect(row.children('div.col-xs-3').eq(0).text()).toContain('Fläche');
+      expect(row.children('div.col-data-header').eq(0).text()).toContain('Fläche');
     });
 
   });
@@ -54,7 +54,7 @@ describe('realEstateDirective', function() {
         'Grundstück ' + data.Number + ' in ' + data.Municipality
       );
       expect(element.find('div.col-egrid-value').eq(0).text()).toContain(data.EGRID);
-      expect(element.find('div.col-xs-9').eq(0).text()).toContain(data.LandRegistryArea);
+      expect(element.find('div.col-data-value').eq(0).text()).toContain(data.LandRegistryArea);
     });
 
   });

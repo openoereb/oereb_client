@@ -1,13 +1,13 @@
 <div class="container-fluid real-estate">
     <h4>Grundst&uuml;ck {{data['Number']}} in {{data['Municipality']}}</h4>
     <div class="row">
-        <div class="col-egrid-header">
+        <div class="col-xs-3 col-egrid-header">
             <strong>EGRID:</strong>
         </div>
-        <div class="col-egrid-value">{{data['EGRID']}}</div>
-        <div class="col-xs-3">
+        <div class="col-xs-9 col-egrid-value">{{data['EGRID']}}</div>
+        <div class="col-xs-3 col-data-header">
             <strong>Fl&auml;che:</strong>
         </div>
-        <div class="col-xs-9">{{data['LandRegistryArea'] | number:0 | replace:',':''}} m<sup>2</sup></div>
+        <div class="col-xs-9 col-data-value">{{data['LandRegistryArea'] | number:0 | replace:',':''}} m<sup>2</sup></div>
     </div>
 </div>
