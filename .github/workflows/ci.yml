@@ -118,10 +118,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v1
       - name: Download build artifacts
-          uses: actions/download-artifact@v2
-          with:
-            name: static
-            path: oereb_client/static
+        uses: actions/download-artifact@v2
+        with:
+          name: static
+          path: oereb_client/static
       - name: Build packages
         run: |
           ls -ls oereb_client/static/build
