@@ -1,6 +1,14 @@
 Changelog
 ---------
 
+1.3.8
+*****
+
+https://github.com/openoereb/oereb_client/milestone/2
+
+- Fix missing artifacts for deployment
+- Dependency updates
+
 1.3.7
 *****
 

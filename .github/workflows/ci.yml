@@ -73,8 +73,8 @@ jobs:
           CI: true
         run: |
           make build
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v1
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
         with:
           name: static
           path: oereb_client/static
@@ -83,14 +83,14 @@ jobs:
     name: Deploy to PyPI Test
     needs:
       - build
-    if: ${{ github.ref == 'refs/heads/master' }}
+    # if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v1
-      - name: Download math result for job 1
-        uses: actions/download-artifact@v1
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
         with:
           name: static
       - name: Build packages
