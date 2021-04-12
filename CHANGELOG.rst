@@ -1,6 +1,14 @@
 Changelog
 ---------
 
+1.3.9 (current dev)
+*******************
+
+https://github.com/openoereb/oereb_client/milestone/4
+
+- Fix duplicate workflow runs
+- Dependency updates
+
 1.3.8
 *****
 
