@@ -1,4 +1,4 @@
-PyYAML==5.3.1
+PyYAML==5.4.1
 pluggy>=0.5,<0.14
 tox==3.22.0
 pytest==4.6.11
