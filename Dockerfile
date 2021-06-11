@@ -1,11 +1,14 @@
-FROM alpine:3.12
+FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.12
 
-ENV CI=true \
-    PATH="/app/.local/bin:${PATH}"
+USER 0
 
-RUN adduser -D -S -h /app -s /sbin/nologin -G root --uid 1001 app && \
-    apk --update add build-base python3 py3-pip nodejs npm openjdk11-jre && \
-    ln -s /usr/bin/python3 /usr/bin/python
+RUN apk --update add \
+        build-base \
+        nodejs \
+        npm \
+        uwsgi-python3
+
+ENV PATH="/app/.local/bin:${PATH}"
 
 COPY --chown=1001:0 . /app
 
@@ -15,6 +18,6 @@ EXPOSE 8080
 
 USER 1001
 
-RUN make install
+RUN make build
 
 CMD ["make", "serve"]
