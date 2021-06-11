@@ -1,10 +1,10 @@
+/.vscode/
 /oereb_client.egg-info
 /node_modules/
 /npm-debug.log
 /.cache/
 /.pytest_cache/
 /.venv/
-/.tox/
 /dist/
 /build/
 /.coverage
@@ -13,5 +13,4 @@
 /oereb_client/static/css/
 /oereb_client/static/fonts/
 /oereb_client/static/build/
-/test/js/deps.js
 /docs/build/
