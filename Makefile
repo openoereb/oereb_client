@@ -38,6 +38,7 @@ node_modules/.timestamp: package.json
 
 .PHONY: clean
 clean:
+	rm -rf $(shell find . -name '__pycache__')
 	rm -rf .venv
 	rm -rf node_modules
 	rm -rf build

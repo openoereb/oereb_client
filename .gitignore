@@ -14,3 +14,4 @@
 /oereb_client/static/fonts/
 /oereb_client/static/build/
 /docs/build/
+__pycache__
