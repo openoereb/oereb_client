@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from oereb_client.views.wfs_query import WfsQuery
-from oereb_client.views.deps import Depswriter
 from oereb_client.views.index import Index
 
 
@@ -22,13 +21,6 @@ def includeme(config):  # pragma: no cover
                     attr='render',
                     route_name='{0}/index'.format(config.route_prefix),
                     renderer='oereb_client:templates/index.html',
-                    request_method='GET')
-
-    # deps.js
-    config.add_route('{0}/deps.js'.format(config.route_prefix), '/deps.js')
-    config.add_view(Depswriter,
-                    attr='render',
-                    route_name='{0}/deps.js'.format(config.route_prefix),
                     request_method='GET')
 
     # wfs_query.xml

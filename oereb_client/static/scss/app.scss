@@ -2,8 +2,7 @@
  * Main style definitions
  */
 
-@import "./../../../node_modules/bootstrap/less/bootstrap";
-@import "./../../../node_modules/font-awesome/less/font-awesome";
+@import "bootstrap";
 
 @import "variables";
 @import "map";
@@ -32,7 +31,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  color: @text-color;
+  // color: $text-color;
 }
 
 .no-padding {
@@ -66,8 +65,10 @@ html, body {
   max-width: none;
 }
 
-@media (max-width: @screen-xs-max) {
-  blockquote {
-    font-size: small;
-  }
+blockquote {
+  font-size: small;
+}
+
+h4, dt {
+  font-size: medium;
 }

@@ -7,7 +7,10 @@ PKG = oereb_client
 PKG_VERSION = $(if ${VERSION},${VERSION},master)
 
 # JavaScript source files
-SRC_JS = $(shell find $(PKG)/static/js -name '*.js')
+SRC_JS = $(shell find $(PKG)/static/src -name '*.js')
+
+# Style source files
+SRC_SCSS = $(shell find $(PKG)/static/src -name '*.scss')
 
 # JavaScript test specifications
 TEST_JS = $(shell find test/js -name '*.spec.js')
@@ -29,6 +32,16 @@ TEST_JS = $(shell find test/js -name '*.spec.js')
 
 node_modules/.timestamp: package.json
 	npm install
+	touch $@
+
+
+# *****************
+# Build application
+# *****************
+
+oereb_client/static/build/.timestamp: node_modules/.timestamp webpack.config.js $(SRC_JS) $(SRC_SCSS)
+	rm -rf oereb_client/static/build/
+	./node_modules/.bin/webpack
 	touch $@
 
 
@@ -81,7 +94,7 @@ check: check-py check-js
 install: .venv/.requirements.timestamp node_modules/.timestamp
 
 .PHONY: build
-build: install
+build: install oereb_client/static/build/.timestamp
 
 .PHONY: serve
 serve: build app.ini

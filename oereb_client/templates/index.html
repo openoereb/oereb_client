@@ -10,17 +10,21 @@
         <meta http-equiv="X-UA-COMPATIBLE" content="IE=9,IE=10,IE=edge,chrome=1" />
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
         % if debug:
-            <link rel="stylesheet" href="${request.static_url('oereb_client:../node_modules/openlayers/dist/ol-debug.css')}" type="text/css">
-            <link rel="stylesheet" href="${request.static_url('oereb_client:static/css/oereb.css')}" type="text/css">
-        % else:
-            <link rel="stylesheet" href="${request.static_url('oereb_client:static/build/oereb.min.css')}" type="text/css">
+        <link rel="stylesheet" href="${request.static_url('oereb_client:../node_modules/openlayers/dist/ol-debug.css')}" type="text/css">
         % endif
+        <link rel="stylesheet" href="${request.static_url('oereb_client:static/build/app.css')}" type="text/css">
         % if custom_css_url:
-            <link rel="stylesheet" href="${custom_css_url}" type="text/css">
+        <link rel="stylesheet" href="${custom_css_url}" type="text/css">
         % endif
     </head>
     <body>
-        <div id="map"></div>
+
+        <div id="config">
+            ${config | n}
+        </div>
+        <div id="app"></div>
+
+        <!-- <div id="map"></div>
         <oereb-map-query id="map-query"></oereb-map-query>
         <oereb-information-panel
                 id="information"
@@ -139,47 +143,32 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-    % if debug:
-        <script src="${request.static_url('oereb_client:../node_modules/jquery/jquery.js')}"></script>
-        <script src="${request.static_url('oereb_client:../node_modules/bootstrap/dist/js/bootstrap.js')}"></script>
-        <script src="${request.static_url('oereb_client:../node_modules/angular/angular.js')}"></script>
-        <script src="${request.static_url('oereb_client:../node_modules/angular-animate/angular-animate.js')}"></script>
-        <script src="${request.static_url('oereb_client:../node_modules/angular-file-saver/dist/angular-file-saver.bundle.js')}"></script>
-        <script src="${request.static_url('oereb_client:../node_modules/openlayers/dist/ol-debug.js')}"></script>
-        <script src="${request.static_url('oereb_client:../node_modules/proj4/dist/proj4-src.js')}"></script>
-        <script src="${request.static_url('oereb_client:../node_modules/google-closure-library/closure/goog/base.js')}"></script>
-        <script src="${request.route_url('{0}/deps.js'.format(request.route_prefix))}"></script>
-        <script>
-            goog.require('oereb_client');
-        </script>
-    % else:
-        <script src="${request.static_url('oereb_client:static/build/oereb.min.js')}"></script>
-    % endif
+    <script src="${request.static_url('oereb_client:static/build/app.js')}"></script>
 
-        <script>
-            "use strict";
+    <script>
+        "use strict";
 
-            (function() {
+        (function() {
 
-                var module = angular.module('oereb');
-                module.constant('oerebApplicationUrl', '${request.route_url('{0}/index'.format(request.route_prefix))}');
-                module.constant('oerebBaseLayerConfig', '${base_layer_config | n}');
-                module.constant('oerebViewConfig', '${view_config | n}');
-                module.constant('oerebAvailabilityConfig', '${availability_config | n}');
-                module.constant('searchServiceConfig', '${search_api_config | n}');
-                module.constant('oerebExternalViewerConfig', '${external_viewer_config | n}');
-                module.constant('wfsFilterServiceUrl', '${request.route_url('{0}/wfs_filter'.format(request.route_prefix))}');
-                module.constant('oerebLogoURL', '${logo_oereb}');
-                module.constant('appLogoUrl', '${logo_canton}');
-                module.constant('oerebDefaultLanguage', 'de');
-                module.constant('oerebSupport', '${support | n}');
-                module.constant('oerebLocalStoragePrefix', '${local_storage_prefix}')
+            // var module = angular.module('oereb');
+            // module.constant('oerebApplicationUrl', '${request.route_url('{0}/index'.format(request.route_prefix))}');
+            // module.constant('oerebBaseLayerConfig', '${base_layer_config | n}');
+            // module.constant('oerebViewConfig', '${view_config | n}');
+            // module.constant('oerebAvailabilityConfig', '${availability_config | n}');
+            // module.constant('searchServiceConfig', '${search_api_config | n}');
+            // module.constant('oerebExternalViewerConfig', '${external_viewer_config | n}');
+            // module.constant('wfsFilterServiceUrl', '${request.route_url('{0}/wfs_filter'.format(request.route_prefix))}');
+            // module.constant('oerebLogoURL', '${logo_oereb}');
+            // module.constant('appLogoUrl', '${logo_canton}');
+            // module.constant('oerebDefaultLanguage', 'de');
+            // module.constant('oerebSupport', '${support | n}');
+            // module.constant('oerebLocalStoragePrefix', '${local_storage_prefix}')
 
-            })();
+        })();
 
-        </script>
+    </script>
 
     % if google_analytics:
         <script type="text/javascript">

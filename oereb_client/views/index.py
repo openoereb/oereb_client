@@ -121,6 +121,18 @@ class Index(object):
         """
         return self.config_.get('custom_css_url', None)
 
+    def get_config(self):
+        """Returns the JSON-encoded configuration.
+
+        Returns:
+            str: The JSON-encoded configuration.
+
+        """
+        return json.dumps({
+            'view': self.config_.get('view', {}),
+            'base_layer': self.config_.get('base_layer', {})
+        })
+
     def render(self):
         """Returns the dictionary with rendering parameters.
 
@@ -143,5 +155,6 @@ class Index(object):
             'external_viewer_config': self.get_external_viewer_config_(),
             'support': self.get_support_config_(),
             'google_analytics': self.get_google_analytics_(),
-            'custom_css_url': self.get_custom_css_url_()
+            'custom_css_url': self.get_custom_css_url_(),
+            'config': self.get_config()
         }
