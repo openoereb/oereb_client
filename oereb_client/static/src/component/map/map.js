@@ -1,45 +1,120 @@
 import './map.scss';
-import OerebView from '../view/view';
-import OerebBaseLayer from '../base_layer/base_layer';
-import React from 'react';
+
+import React, { useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadAt } from '../../reducer/map_query';
+
 import Map from 'ol/Map';
+import View from 'ol/View';
 import {defaults} from 'ol/control';
+import TileLayer from 'ol/layer/Tile';
+import TileWMS from 'ol/source/TileWMS';
+import WMTS, { optionsFromCapabilities } from 'ol/source/WMTS';
+import WMTSCapabilities from 'ol/format/WMTSCapabilities';
 
-class OerebMap extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            map: new Map({
-                controls: defaults({
-                    attribution: false
-                })
-            })
-        }
-    }
+import OerebMapQuery from '../map_query/map_query';
 
-    componentDidMount() {
-        this.state.map.setTarget(this._element);
-        this.state.map.on('moveend', function() {
-            this.updateUrlParams();
-        }.bind(this));
-    }
+function OerebMap(props) {
+    const mapElement = useRef(null);
+    const config = useSelector((state) => state.config).config;
+    const dispatch = useDispatch();
+    const query = new URLSearchParams(window.location.search);
 
-    render() {
-        return (
-            <div ref={el => (this._element = el)} class="oereb-client-map">
-                <OerebView map={this.state.map} />
-                <OerebBaseLayer map={this.state.map} />
-            </div>
-        );
-    }
+    // Add view
+    const mapX = parseFloat(query.get('map_x')) || config.view.map_x;
+    const mapY = parseFloat(query.get('map_y')) || config.view.map_y;
+    const mapZoom = parseFloat(query.get('map_zoom')) || config.view.map_zoom;
+    const map = new Map({
+        controls: defaults({
+            attribution: false
+        }),
+        view: new View({
+            center: [mapX, mapY],
+            zoom: mapZoom,
+            resolutions: config.view.resolutions,
+            projection: 'EPSG:2056'
+        })
+    });
 
-    updateUrlParams() {
+    // Add base layer
+    getBaseLayerSource(config['base_layer']).then(function(source) {
+        const baseLayer = new TileLayer({
+            preload: Infinity,
+            visible: true,
+            source: source
+        });
+        map.addLayer(baseLayer);
+    });
+
+    useEffect(() => {
+        map.setTarget(mapElement.current);
+    });
+
+    map.on('moveend', function() {
         const query = new URLSearchParams(window.location.search);
-        query.set('map_x', this.state.map.getView().getCenter()[0].toFixed(3));
-        query.set('map_y', this.state.map.getView().getCenter()[1].toFixed(3));
-        query.set('map_zoom', this.state.map.getView().getZoom().toFixed(0));
+        query.set('map_x', map.getView().getCenter()[0].toFixed(3));
+        query.set('map_y', map.getView().getCenter()[1].toFixed(3));
+        query.set('map_zoom', map.getView().getZoom().toFixed(0));
         window.history.pushState(null, null, '?' + query.toString());
+    });
+
+    map.on('singleclick', function(evt) {
+        const coord = map.getEventCoordinate(evt.originalEvent);
+        dispatch(loadAt({
+            posX: coord[0],
+            posY: coord[1]
+        }));
+    });
+
+    return (
+        <div>
+            <OerebMapQuery map={map} />
+            <div ref={mapElement} class="oereb-client-map"></div>
+        </div>
+    );
+
+}
+
+function getBaseLayerSource(config) {
+    if (config['type'].toLowerCase() === 'wms') {
+        return getBaseLayerSourceWms(config);
     }
+    else if (config['type'].toLowerCase() === 'wmts') {
+        return getBaseLayerSourceWmts(config);
+    }
+    else {
+        return Promise.reject('Invalid base layer type');
+    }
+}
+
+function getBaseLayerSourceWms(config) {
+    return Promise.resolve(new TileWMS({
+        url: config['url'],
+        params: config['params'],
+        projection: 'EPSG:2056'
+    }));
+}
+
+function getBaseLayerSourceWmts(config) {
+    const parser = new WMTSCapabilities();
+    return new Promise(function(resolve, reject) {
+        fetch(config['url'])
+        .then(response => response.text())
+        .then((xml) => {
+            const wmtsCaps = parser.read(xml);
+            let wmtsOptions = {};
+            Object.entries(config).forEach(([key, value]) => {
+                if (key !== 'url') {
+                    wmtsOptions[key] = value;
+                }
+            });
+            const wmtsConfig = optionsFromCapabilities(wmtsCaps, wmtsOptions);
+            resolve(new WMTS(wmtsConfig));
+        })
+        .catch((error) => {
+            reject(error);
+        });
+    });
 }
 
 export default OerebMap;

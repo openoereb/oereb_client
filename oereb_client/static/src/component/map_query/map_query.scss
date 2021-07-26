@@ -1,0 +1,83 @@
+// $map-query-shadow: $default-shadow;
+// $map-query-loader-size: 34px;
+// $map-query-loader-bg: #ffffff;
+// $map-query-content-bg: $map-query-loader-bg;
+// $map-query-content-width: 250px;
+// $map-query-icon-color: #ff0000;
+// $map-query-icon-line-width: 4px;
+
+.oereb-client-overlay {
+  position: absolute;
+  overflow: visible;
+}
+
+// #oereb-map-query {
+//   position: absolute;
+//   overflow: visible;
+//   div.loader, div.loader-bg {
+//     position: absolute;
+//     margin-top: -$map-query-loader-size/2;
+//     margin-left: -$map-query-loader-size/2;
+//     width: $map-query-loader-size;
+//     height: $map-query-loader-size;
+//     border-radius: $map-query-loader-size/2;
+//   }
+//   div.loader-bg {
+//     z-index: 1;
+//     box-shadow: $map-query-shadow;
+//   }
+//   div.loader {
+//     z-index: 3;
+//     background-color: $map-query-loader-bg;
+//     text-align: center;
+//     line-height: $map-query-loader-size;
+//     i {
+//       line-height: $map-query-loader-size;
+//     }
+//   }
+//   div.content {
+//     position: absolute;
+//     z-index: 2;
+//     width: $map-query-content-width;
+//     background-color: $map-query-content-bg;
+//     padding: 0;
+//     box-shadow: $map-query-shadow;
+//     div.list-group {
+//       margin-bottom: 0;
+//       button.list-group-item {
+//         padding-left: $map-query-loader-size/2 + 15px;
+//         padding-top: 3px;
+//         padding-bottom: 3px;
+//         padding-right: 10px;
+//       }
+//     }
+//   }
+//   div.icon {
+//     z-index: 4;
+//     position: absolute;
+//     background-color: transparent;
+//     margin-top: -$map-query-loader-size/2;
+//     margin-left: -$map-query-loader-size/2;
+//     width: $map-query-loader-size;
+//     height: $map-query-loader-size;
+//     div.icon-outer {
+//       position: relative;
+//       width: $map-query-loader-size;
+//       height: $map-query-loader-size;
+//       border-style: solid;
+//       border-width: $map-query-icon-line-width;
+//       border-color: $map-query-icon-color;
+//       border-radius: $map-query-loader-size/2;
+//       background-color: $map-query-loader-bg;
+//       div.icon-inner {
+//         position: relative;
+//         background-color: $map-query-icon-color;
+//         border-radius: ($map-query-loader-size - 4*$map-query-icon-line-width) / 2;
+//         width: $map-query-loader-size - 4*$map-query-icon-line-width;
+//         height: $map-query-loader-size - 4*$map-query-icon-line-width;
+//         top: $map-query-icon-line-width;
+//         left: $map-query-icon-line-width;
+//       }
+//     }
+//   }
+// }
