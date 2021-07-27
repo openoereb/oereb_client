@@ -13,8 +13,8 @@ import WMTS, { optionsFromCapabilities } from 'ol/source/WMTS';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
 
 import OerebMapQuery from '../map_query/map_query';
-import { queryEgridByCoord } from '../../util/query_egrid';
-import { queryExtractById } from '../../util/query_extract';
+import { queryEgridByCoord } from '../../api/egrid';
+import { queryExtractById } from '../../api/extract';
 
 function OerebMap(props) {
     const mapElement = useRef(null);

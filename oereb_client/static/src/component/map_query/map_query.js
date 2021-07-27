@@ -5,9 +5,9 @@ import Overlay from 'ol/Overlay';
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { hide, show } from '../../reducer/map_query';
+import { hide } from '../../reducer/map_query';
 import { loadExtract, showExtract, showError } from '../../reducer/extract';
-import { queryExtractById } from '../../util/query_extract';
+import { queryExtractById } from '../../api/extract';
 
 function OerebMapQuery(props) {
     const config = useSelector((state) => state.config).config;
@@ -70,7 +70,7 @@ function OerebMapQuery(props) {
                     <div class="background-icon"></div>
                     <div class="content list-group">
                         <button onClick={close} type="button" class="list-group-item list-group-item-action text-end">
-                            <strong>&times;</strong>
+                            <strong class="bi bi-x"></strong>
                         </button>
                         {listResults}
                     </div>

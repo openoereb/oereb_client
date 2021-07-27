@@ -76,15 +76,6 @@ class Index(object):
             raise ConfigurationError('Missing view configuration')
         return json.dumps(initial_extent_config)
 
-    def get_search_config_(self):
-        """Returns the JSON-encoded configuration for the search.
-
-        Returns:
-            str: The JSON-encoded search API configuration.
-
-        """
-        return json.dumps(self.config_.get('search', {}))
-
     def get_external_viewer_config_(self):
         """Returns the JSON-encoded configuration for the external viewer linking.
 
@@ -135,7 +126,8 @@ class Index(object):
             'view': self.config_.get('view', {}),
             'base_layer': self.config_.get('base_layer', {}),
             'logo_canton': self.get_application_config_().get('logo_canton'),
-            'logo_oereb': self.get_application_config_().get('logo_oereb')
+            'logo_oereb': self.get_application_config_().get('logo_oereb'),
+            'search': self.config_.get('search', {})
         })
 
     def render(self):
@@ -154,7 +146,6 @@ class Index(object):
             'view_config': self.get_view_config_(),
             'base_layer_config': self.get_base_layer_config_(),
             'availability_config': self.get_availability_config_(),
-            'search_api_config': self.get_search_config_(),
             'external_viewer_config': self.get_external_viewer_config_(),
             'support': self.get_support_config_(),
             'google_analytics': self.get_google_analytics_(),
