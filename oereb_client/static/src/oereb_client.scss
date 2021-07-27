@@ -2,10 +2,23 @@
  * Main style definitions
  */
 
- @import "bootstrap";
- @import "bootstrap-icons/font/bootstrap-icons.css";
+@import "bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";
 
- html, body {
+// Padding
+$default-padding: 10px;
+$logo-padding: $default-padding;
+
+// Shadow
+$default-shadow: 3px 3px 5px #777777;
+
+// Left menu bar
+$menu-with: 500px;
+$menu-background-color: #ffffff;
+$menu-shadow: $default-shadow;
+$header-height: 130px;
+
+html, body {
     position: relative;
     width: 100%;
     height: 100%;

@@ -133,7 +133,9 @@ class Index(object):
                 '{0}/index'.format(self.request_.route_prefix)
             ),
             'view': self.config_.get('view', {}),
-            'base_layer': self.config_.get('base_layer', {})
+            'base_layer': self.config_.get('base_layer', {}),
+            'logo_canton': self.get_application_config_().get('logo_canton'),
+            'logo_oereb': self.get_application_config_().get('logo_oereb')
         })
 
     def render(self):
@@ -147,8 +149,6 @@ class Index(object):
             'version': __version__,
             'title': self.get_application_config_().get('title'),
             'icon': self.get_application_config_().get('icon'),
-            'logo_canton': self.get_application_config_().get('logo_canton'),
-            'logo_oereb': self.get_application_config_().get('logo_oereb'),
             'local_storage_prefix': self.get_application_config_().get('local_storage_prefix'),
             'debug': self.is_debug_(),
             'view_config': self.get_view_config_(),

@@ -4,12 +4,18 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { update } from '../../reducer/config';
+import OerebMenu from '../menu/menu';
 
 function App(props) {
     const dispatch = useDispatch();
     dispatch(update(props.config));
 
-    return <OerebMap />;
+    return (
+        <div>
+            <OerebMap />
+            <OerebMenu />
+        </div>
+    );
 }
 
 export default App;
