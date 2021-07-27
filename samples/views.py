@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import json
-
 import time
+import pkg_resources
+
 from pyramid.httpexceptions import HTTPOk, HTTPServerError
 
 
@@ -29,13 +30,13 @@ class Sample(object):
     def get_extract_by_id(self):
         time.sleep(2)
         if self._request.matchdict.get('egrid') == 'CH1234':
-            with open('samples/extract.json') as f:
+            with open(pkg_resources.resource_filename('samples', 'extract.json')) as f:
                 content = json.loads(f.read())
             return HTTPOk(json_body=content)
         return HTTPServerError('An error occurred.')
 
     def get_sample_pdf(self):
-        with open('samples/static/sample.pdf', 'rb') as f:
+        with open(pkg_resources.resource_filename('samples', 'static/sample.pdf'), 'rb') as f:
             content = f.read()
         response = self._request.response
         response.status_int = 200

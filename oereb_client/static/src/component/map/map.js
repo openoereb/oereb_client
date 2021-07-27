@@ -2,7 +2,7 @@ import './map.scss';
 
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadAt } from '../../reducer/map_query';
+import { loadAt, show, hide } from '../../reducer/map_query';
 
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -13,12 +13,15 @@ import WMTS, { optionsFromCapabilities } from 'ol/source/WMTS';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
 
 import OerebMapQuery from '../map_query/map_query';
+import { queryEgridByCoord } from '../../util/query_egrid';
+import { queryExtractById } from '../../util/query_extract';
 
 function OerebMap(props) {
     const mapElement = useRef(null);
     const config = useSelector((state) => state.config).config;
     const dispatch = useDispatch();
     const query = new URLSearchParams(window.location.search);
+    const applicationUrl = config.application_url;
 
     // Add view
     const mapX = parseFloat(query.get('map_x')) || config.view.map_x;
@@ -64,6 +67,35 @@ function OerebMap(props) {
             posX: coord[0],
             posY: coord[1]
         }));
+        queryEgridByCoord(applicationUrl, coord)
+        .then((egrids) => {
+            const results = egrids.GetEGRIDResponse;
+            if (results.length > 1) {
+                dispatch(show({
+                    results: results
+                }));
+            }
+            else if (results.length === 1) {
+                const egrid = results[0].egrid;
+                dispatch(hide());
+                dispatch(loadExtract());
+                queryExtractById(applicationUrl, egrid)
+                .then((extract) => {
+                    dispatch(showExtract({
+                        extract: extract
+                    }));
+                })
+                .catch((error) => {
+                    dispatch(showError());
+                });
+            }
+            else {
+                dispatch(hide());
+            }
+        })
+        .catch((error) => {
+            dispatch(hide());
+        });
     });
 
     return (

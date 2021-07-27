@@ -13,8 +13,10 @@ export const mapQuerySlice = createSlice({
         loadAt: (state, action) => {
             if (!state.loading) {
                 state.loading = true;
+                state.visible = false;
                 state.posX = action.payload.posX;
                 state.posY = action.payload.posY;
+                state.results = [];
             }
         },
         show: (state, action) => {
@@ -29,6 +31,6 @@ export const mapQuerySlice = createSlice({
     }
 });
 
-export const { loadAt, showAt, hide } = mapQuerySlice.actions;
+export const { loadAt, show, hide } = mapQuerySlice.actions;
 
 export default mapQuerySlice.reducer;

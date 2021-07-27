@@ -129,6 +129,9 @@ class Index(object):
 
         """
         return json.dumps({
+            'application_url': self.request_.route_url(
+                '{0}/index'.format(self.request_.route_prefix)
+            ),
             'view': self.config_.get('view', {}),
             'base_layer': self.config_.get('base_layer', {})
         })
