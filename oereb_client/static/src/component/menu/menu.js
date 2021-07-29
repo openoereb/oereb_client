@@ -14,8 +14,7 @@ function OerebMenu(props) {
 
     const [search, setSearch] = useState('');
     const [pendingRequests, setPendingRequests] = useState([]);
-
-    console.log(config);
+    const [searchResults, setSearchResults] = useState([]);
 
     const searchConfig = [
         {
@@ -44,36 +43,53 @@ function OerebMenu(props) {
     function handleSearch(evt) {
         const searchValue = evt.target.value;
         setSearch(searchValue);
-        if (searchValue.length > 2) {
-            pendingRequests.forEach((request) => {
-                request.cancel();
-            });
+        pendingRequests.forEach((request) => {
+            request.cancel();
+        });
+        if (searchValue.length > 0) {
             const promises = [];
             const requests = [];
             searchConfig.forEach((cfg) => {
-                const request = searchTerm(
-                    cfg.url,
-                    searchValue,
-                    cfg.limit,
-                    cfg.prefix
-                );
+                const request = searchTerm(cfg, searchValue);
                 promises.push(request.promise);
                 requests.push(request);
             });
             const searchPromise = Promise.all(promises);
             setPendingRequests(requests);
             searchPromise.then((results) => {
-                console.log(results);
-            }).catch((error) => {
-                console.log(error);
-            });
+                setSearchResults(results);
+            }).catch((error) => {});
             
         }
     }
 
     function resetSearch(evt) {
         setSearch('');
+        setSearchResults([]);
     }
+
+    const searchResultList = searchResults.map((resultSet) => {
+        if (resultSet.data.features.length > 0) {
+            const results = resultSet.data.features.map((result) => {
+                return (
+                    <button class="list-group-item search-result text-start">
+                        {result.properties.label}
+                    </button>
+                );
+            });
+            const title = (
+                <div class="list-group result-list">
+                    <div class="list-group-item">
+                        <strong>{resultSet.title}</strong>
+                        <span class="badge bg-secondary float-end">{resultSet.data.features.length}</span>
+                    </div>
+                    {results}
+                </div>
+            );
+            return title;
+        }
+        return null;
+    });
 
     return (
         <div class="oereb-client-menu">
@@ -113,6 +129,9 @@ function OerebMenu(props) {
                         <i class="bi bi-x-lg"></i>
                     </button>
                 </div>
+            </div>
+            <div class="container-fluid">
+                {searchResultList}
             </div>
         </div>
     );

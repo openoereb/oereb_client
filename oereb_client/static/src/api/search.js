@@ -1,14 +1,18 @@
-export function searchTerm(searchUrl, value, limit, prefix) {
-    const url = new URL(searchUrl);
-    url.searchParams.append('query', prefix ? prefix + ' ' + value : value);
-    url.searchParams.append('limit', limit);
+export function searchTerm(config, value) {
+    const url = new URL(config.url);
+    url.searchParams.append('query', config.prefix ? config.prefix + ' ' + value : value);
+    url.searchParams.append('limit', config.limit);
     url.searchParams.append('_dc', new Date().getTime());
     let cancel;
     return {
         promise: new Promise((resolve, reject) => {
             fetch(url)
-            .then((response) => {
-                resolve(response.json())
+            .then(response => response.json())
+            .then((data) => {
+                resolve({
+                    title: config.title,
+                    data: data
+                })
             })
             .catch((error) => {
                 reject(error);

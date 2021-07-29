@@ -88,33 +88,6 @@ function OerebMapQuery(props) {
             <div class="oereb-client-overlay" ref={mapQueryElement}></div>
         );
     }
-
-    // return (
-    //     <div id="oereb-map-query">
-    //         <div class="loader-bg"></div>
-    //         <div class="content" ng-show="contentVisible">
-    //             <div class="list-group">
-    //                 <button type="button" class="list-group-item" ng-click="close()">
-    //                     <span class="pull-right"><strong>&times;</strong></span>
-    //                 </button>
-    //                 <button type="button"
-    //                         class="list-group-item"
-    //                         ng-repeat="re in realEstate"
-    //                         ng-click="select(re.egrid)">
-    //                     Auszug f&uuml;r Grundst&uuml;ck {{re.number}}
-    //                 </button>
-    //             </div>
-    //         </div>
-    //         <div class="loader" ng-show="!contentVisible">
-    //             <i class="fa fa-spinner fa-pulse fa-2x"></i>
-    //         </div>
-    //         <div class="icon" ng-show="contentVisible">
-    //             <div class="icon-outer">
-    //                 <div class="icon-inner"></div>
-    //             </div>
-    //         </div>
-    //     </div>
-    // );
 }
 
 export default OerebMapQuery;
