@@ -10,8 +10,10 @@ export function searchTerm(config, value) {
             .then(response => response.json())
             .then((data) => {
                 resolve({
-                    title: config.title,
-                    data: data
+                    config: config,
+                    data: data.features.map((feature) => {
+                        return feature.properties.label;
+                    })
                 })
             })
             .catch((error) => {
@@ -23,4 +25,16 @@ export function searchTerm(config, value) {
         }),
         cancel: cancel
     };
+}
+
+export function sanitzeSearchResult(originalResult, config) {
+    let result = originalResult;
+    if (config.filters instanceof Array) {
+        config.filters.forEach((filter) => {
+            if (filter.regex instanceof RegExp) {
+                result = result.replace(filter.regex, filter.value);
+            }
+        });
+    }
+    return result;
 }

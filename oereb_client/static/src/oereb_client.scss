@@ -2,7 +2,10 @@
  * Main style definitions
  */
 
-@import "bootstrap";
+// Bootstrap options
+$enable-rounded: false;
+
+@import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
 // Padding

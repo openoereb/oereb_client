@@ -5,7 +5,7 @@ import { Dropdown } from 'bootstrap';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { searchTerm } from '../../api/search';
+import { sanitzeSearchResult, searchTerm } from '../../api/search';
 
 function OerebMenu(props) {
     const config = useSelector((state) => state.config).config;
@@ -16,13 +16,23 @@ function OerebMenu(props) {
     const [pendingRequests, setPendingRequests] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
 
+    const reLV03 = new RegExp('^(\\d{6}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{6}(\\.\\d+)?)');
+    const reLV95 = new RegExp('^(\\d{7}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{7}(\\.\\d+)?)');
+    const reGNSS = new RegExp('^(\\d{1}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{2}(\\.\\d+)?)');
+
     const searchConfig = [
         {
             url: config.search.api.url,
             limit: config.search.api.limit,
             prefix: 'egr',
             title: 'EGRID',
-            wfs: false
+            wfs: false,
+            filters: [
+                {
+                    regex: / \((.*?)\)/g,
+                    value: ''
+                }
+            ]
         },
         {
             url: config.search.api.url,
@@ -30,13 +40,25 @@ function OerebMenu(props) {
             prefix: 'adr',
             title: 'Adressen',
             wfs: false,
+            filters: [
+                {
+                    regex: / \((.*?)\)/g,
+                    value: ''
+                }
+            ]
         },
         {
             url: config.search.api.url,
             limit: config.search.api.limit,
             prefix: 'gs',
             title: 'Grundstücke',
-            wfs: true
+            wfs: true,
+            filters: [
+                {
+                    regex: / \((.*?)\)/g,
+                    value: ''
+                }
+            ]
         }
     ];
 
@@ -57,7 +79,33 @@ function OerebMenu(props) {
             const searchPromise = Promise.all(promises);
             setPendingRequests(requests);
             searchPromise.then((results) => {
-                setSearchResults(results);
+                let allResults = [];
+                if (reLV03.test(searchValue)) {
+                    allResults = allResults.concat([{
+                        config: {
+                            title: 'LV03-Koordinaten'
+                        },
+                        data: [searchValue]
+                    }]);
+                }
+                if (reLV95.test(searchValue)) {
+                    allResults = allResults.concat([{
+                        config: {
+                            title: 'LV95-Koordinaten'
+                        },
+                        data: [searchValue]
+                    }]);
+                }
+                if (reGNSS.test(searchValue)) {
+                    allResults = allResults.concat([{
+                        config: {
+                            title: 'Geografische Koordinaten (WGS84)'
+                        },
+                        data: [searchValue]
+                    }]);
+                }
+                allResults = allResults.concat(results);
+                setSearchResults(allResults);
             }).catch((error) => {});
             
         }
@@ -69,19 +117,23 @@ function OerebMenu(props) {
     }
 
     const searchResultList = searchResults.map((resultSet) => {
-        if (resultSet.data.features.length > 0) {
-            const results = resultSet.data.features.map((result) => {
+        if (resultSet.data.length > 0) {
+            const results = resultSet.data.map((result) => {
+                const sanitizedResult = sanitzeSearchResult(
+                    result,
+                    resultSet.config
+                );
                 return (
                     <button class="list-group-item search-result text-start">
-                        {result.properties.label}
+                        {sanitizedResult}
                     </button>
                 );
             });
             const title = (
                 <div class="list-group result-list">
                     <div class="list-group-item">
-                        <strong>{resultSet.title}</strong>
-                        <span class="badge bg-secondary float-end">{resultSet.data.features.length}</span>
+                        <strong>{resultSet.config.title}</strong>
+                        <span class="badge bg-secondary float-end">{resultSet.data.length}</span>
                     </div>
                     {results}
                 </div>
