@@ -6,7 +6,7 @@ export const extractSlice = createSlice({
         loading: false,
         visible: false,
         error: false,
-        extract: {}
+        data: {}
     },
     reducers: {
         loadExtract: (state, action) => {
@@ -15,28 +15,28 @@ export const extractSlice = createSlice({
                 state.loading = true;
                 state.visible = false;
                 state.error = false;
-                state.extract = {};
+                state.data = {};
             }
         },
         showExtract: (state, action) => {
             state.loading = false;
             state.visible = true;
             state.error = false;
-            state.extract = action.payload.extract;
-            console.log('Extract loaded', state.extract);
+            state.data = action.payload.extract;
+            console.log('Extract loaded', state.data);
         },
         showError: (state, action) => {
             state.loading = false;
             state.visible = false;
             state.error = true;
-            state.extract = {};
+            state.data = {};
             console.log('Extract failed');
         },
         hideExtract: (state, action) => {
             state.loading = false;
             state.visible = false;
             state.error = false;
-            state.extract = {};
+            state.data = {};
             console.log('Extract closed');
         }
     }

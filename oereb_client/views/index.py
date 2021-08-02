@@ -85,15 +85,6 @@ class Index(object):
         """
         return json.dumps(self.config_.get('external_viewer', {}))
 
-    def get_support_config_(self):
-        """Returns the JSON-encoded configuration for the support.
-
-        Returns:
-            str: The JSON-encoded support configuration.
-
-        """
-        return json.dumps(self.config_.get('support', {}))
-
     def get_google_analytics_(self):
         """Returns the configuration for Google Analytics.
 
@@ -127,7 +118,8 @@ class Index(object):
             'base_layer': self.config_.get('base_layer', {}),
             'logo_canton': self.get_application_config_().get('logo_canton'),
             'logo_oereb': self.get_application_config_().get('logo_oereb'),
-            'search': self.config_.get('search', {})
+            'search': self.config_.get('search', {}),
+            'support': self.config_.get('support', {})
         })
 
     def render(self):
@@ -147,7 +139,6 @@ class Index(object):
             'base_layer_config': self.get_base_layer_config_(),
             'availability_config': self.get_availability_config_(),
             'external_viewer_config': self.get_external_viewer_config_(),
-            'support': self.get_support_config_(),
             'google_analytics': self.get_google_analytics_(),
             'custom_css_url': self.get_custom_css_url_(),
             'config': self.get_config()
