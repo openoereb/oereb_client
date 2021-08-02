@@ -15,6 +15,7 @@ function OerebMenu(props) {
     const [search, setSearch] = useState('');
     const [pendingRequests, setPendingRequests] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const reLV03 = new RegExp('^(\\d{6}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{6}(\\.\\d+)?)');
     const reLV95 = new RegExp('^(\\d{7}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{7}(\\.\\d+)?)');
@@ -71,6 +72,7 @@ function OerebMenu(props) {
         if (searchValue.length > 0) {
             const promises = [];
             const requests = [];
+            setLoading(true);
             searchConfig.forEach((cfg) => {
                 const request = searchTerm(cfg, searchValue);
                 promises.push(request.promise);
@@ -106,7 +108,10 @@ function OerebMenu(props) {
                 }
                 allResults = allResults.concat(results);
                 setSearchResults(allResults);
-            }).catch((error) => {});
+                setLoading(false);
+            }).catch((error) => {
+                setLoading(false);
+            });
             
         }
     }
@@ -143,6 +148,38 @@ function OerebMenu(props) {
         return null;
     });
 
+    function getSearchResetButton() {
+        if (search.length === 0) {
+            return (
+                <button class="btn btn-outline-secondary"
+                        type="button"
+                        disabled>
+                    <i class="bi bi-trash"></i>
+                </button>
+            );
+        }
+        else if (loading) {
+            return (
+                <button class="btn btn-outline-secondary"
+                        type="button"
+                        disabled>
+                    <span class="spinner-grow spinner-grow-sm" role="status"></span>
+                </button>
+            );
+        }
+        else {
+            return (
+                <button onClick={resetSearch}
+                        class="btn btn-outline-secondary"
+                        type="button">
+                    <i class="bi bi-trash"></i>
+                </button>
+            );
+        }
+    }
+
+    const searchResetButton = getSearchResetButton();
+
     return (
         <div class="oereb-client-menu">
             <img class="logo-oereb" src={oerebLogoUrl} />
@@ -175,11 +212,7 @@ function OerebMenu(props) {
                             value={search}
                             onChange={handleSearch}
                             placeholder="Suche" />
-                    <button onClick={resetSearch}
-                            class="btn btn-outline-secondary"
-                            type="button">
-                        <i class="bi bi-x-lg"></i>
-                    </button>
+                    {searchResetButton}
                 </div>
             </div>
             <div class="container-fluid">

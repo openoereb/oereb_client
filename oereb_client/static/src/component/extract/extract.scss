@@ -10,7 +10,7 @@ div.oereb-client-extract {
     box-shadow: $default-shadow;
     transition: height linear $animation-duration;
 
-    div {
-        padding-top: $default-padding;
+    & > div {
+        padding-bottom: 1em;
     }
 }

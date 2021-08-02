@@ -4,10 +4,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import OerebExtractLoading from './extract_loading';
 import OerebExtractError from './extract_error';
+import OerebExtractData from './extract_data';
 
 function OerebExtract(props) {
     const extract = useSelector((state) => state.extract);
-    console.log(extract);
 
     function getContent(cfg) {
         if (cfg.loading) {
@@ -22,7 +22,7 @@ function OerebExtract(props) {
         }
         else if (cfg.visible) {
             return (
-                <div>DATA</div>
+                <OerebExtractData data={extract.data.GetExtractByIdResponse.extract} />
             );
         }
         else {
