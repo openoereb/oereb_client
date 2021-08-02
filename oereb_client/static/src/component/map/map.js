@@ -78,7 +78,9 @@ function OerebMap(props) {
             else if (results.length === 1) {
                 const egrid = results[0].egrid;
                 dispatch(hide());
-                dispatch(loadExtract());
+                dispatch(loadExtract({
+                    egrid: egrid
+                }));
                 queryExtractById(applicationUrl, egrid)
                 .then((extract) => {
                     dispatch(showExtract({

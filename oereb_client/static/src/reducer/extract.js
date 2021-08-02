@@ -6,6 +6,7 @@ export const extractSlice = createSlice({
         loading: false,
         visible: false,
         error: false,
+        egrid: null,
         data: {}
     },
     reducers: {
@@ -15,6 +16,7 @@ export const extractSlice = createSlice({
                 state.loading = true;
                 state.visible = false;
                 state.error = false;
+                state.egrid = action.payload.egrid;
                 state.data = {};
             }
         },
@@ -36,6 +38,7 @@ export const extractSlice = createSlice({
             state.loading = false;
             state.visible = false;
             state.error = false;
+            state.egrid = null;
             state.data = {};
             console.log('Extract closed');
         }

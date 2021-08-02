@@ -42,7 +42,9 @@ function OerebMapQuery(props) {
 
     function queryExtract(egrid) {
         dispatch(hide());
-        dispatch(loadExtract());
+        dispatch(loadExtract({
+            egrid: egrid
+        }));
         queryExtractById(applicationUrl, egrid)
         .then((extract) => {
             dispatch(showExtract({
