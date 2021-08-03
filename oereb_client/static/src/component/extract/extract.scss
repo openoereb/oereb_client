@@ -13,4 +13,8 @@ div.oereb-client-extract {
     & > div {
         padding-bottom: 1em;
     }
+
+    .category:not(.show) {
+        border: 0px;
+    }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { hideExtract } from '../../reducer/extract';
+import OerebCategory from '../category/category';
 import OerebRealEstate from '../real_estate/real_estate';
 
 function OerebExtractData(props) {
@@ -35,6 +36,11 @@ function OerebExtractData(props) {
             </div>
             <div class="clearfix"></div>
             <OerebRealEstate data={extract.RealEstate} />
+            <div class="accordion accordion-flush">
+                <OerebCategory title="Test1" />
+                <OerebCategory title="Test2" />
+                <OerebCategory title="Test2" />
+            </div>
         </div>
     )
 }
