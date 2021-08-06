@@ -4,6 +4,7 @@ USER 0
 
 RUN apk --update add \
         bash \
+        bash-completion \
         shadow \
         build-base \
         nodejs \
