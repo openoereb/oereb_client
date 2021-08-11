@@ -9,7 +9,7 @@ function OerebTopicsWithoutRestriction(props) {
     });
 
     return (
-        <div class="accordion-body">
+        <div class="accordion-body p-0">
             <ul class="list-group list-group-flush">
                 {topicList}
             </ul>

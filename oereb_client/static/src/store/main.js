@@ -2,14 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import configReducer from '../reducer/config';
 import mapQueryReducer from '../reducer/map_query';
 import extractReducer from '../reducer/extract';
-import categoryReducer from '../reducer/category';
+import accordionReducer from '../reducer/accordion';
 
 const MainStore = configureStore({
     reducer: {
         config: configReducer,
         mapQuery: mapQueryReducer,
         extract: extractReducer,
-        category: categoryReducer
+        accordion: accordionReducer
     }
 });
 

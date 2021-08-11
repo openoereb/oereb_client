@@ -78,7 +78,7 @@ function OerebExtractError(props) {
     }
 
     return (
-        <div class="container-fluid">
+        <div class="oereb-client-extract error container-fluid">
             <p class="text-end">
                 <button onClick={closeExtract}
                         class="btn btn-outline-secondary"

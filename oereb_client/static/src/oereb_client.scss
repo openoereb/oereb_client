@@ -4,6 +4,8 @@
 
 // Bootstrap options
 $enable-rounded: false;
+$accordion-button-active-bg: #fff;
+$accordion-button-active-color: #000;
 
 @import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-icons/font/bootstrap-icons.css";

@@ -3,8 +3,9 @@ import { Collapse } from 'bootstrap';
 import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setActiveCategory } from '../../reducer/category';
-import OerebTopicsWithoutRestriction from '../topics/topics_without_restriction';
+import { setActiveCategory, setActiveTopic } from '../../reducer/accordion';
+import OerebTopicsWithoutRestriction from '../topic_list/topics_without_restriction';
+import OerebTopicsWithRestriction from '../topic_list/topics_with_restrictions';
 
 function OerebCategory(props) {
     const title = props.title;
@@ -12,14 +13,14 @@ function OerebCategory(props) {
     const restriction = props.restriction;
     const collapseEl = useRef(null);
     const [active, setActive] = useState(false);
-    const activeCategory = useSelector((state) => state.category).category;
+    const activeCategory = useSelector((state) => state.accordion).category;
     const dispatch = useDispatch();
 
     useEffect(() => {
         const collapse = new Collapse(collapseEl.current, {
             toggle: false
         });
-        if (activeCategory === collapseEl) {
+        if (activeCategory === collapseEl.current) {
             active ? collapse.show() : collapse.hide();
         }
         else {
@@ -29,29 +30,28 @@ function OerebCategory(props) {
 
     const buttonClass = (() => {
         if (active && activeCategory === collapseEl) {
-            return 'accordion-button';
+            return 'accordion-button ps-1';
         }
         else { 
-            return 'accordion-button collapsed';
+            return 'accordion-button collapsed ps-1';
         }
     })();
 
     const toggle = function() {
-        if (activeCategory === collapseEl) {
+        if (activeCategory === collapseEl.current) {
             setActive(!active);
         }
         else {
             setActive(true);
         }
-        dispatch(setActiveCategory(collapseEl));
+        dispatch(setActiveCategory(collapseEl.current));
+        dispatch(setActiveTopic(null));
     }
 
     const topicList = (() => {
         if (restriction) {
             return (
-                <div class="accordion-body">
-                    foo
-                </div>
+                <OerebTopicsWithRestriction data={topics} />
             );
         }
         else {

@@ -26,17 +26,13 @@ function OerebExtract(props) {
             );
         }
         else {
-            return null;
+            return (
+                <div class="oereb-client-extract hidden"></div>
+            );
         }
     }
 
-    const content = getContent(extract);
-
-    return (
-        <div class="oereb-client-extract">
-            {content}
-        </div>
-    );
+    return getContent(extract);
 }
 
 export default OerebExtract;

@@ -9,12 +9,30 @@ div.oereb-client-extract {
     background-color: $menu-background-color;
     box-shadow: $default-shadow;
     transition: height linear $animation-duration;
-
-    & > div {
-        padding-bottom: 1em;
-    }
+    padding-bottom: 1em;
 
     .category:not(.show) {
         border: 0px;
+    }
+}
+
+div.hidden {
+    height: $header-height;
+}
+
+div.loading, div.error {
+    max-height: 100%;
+}
+
+div.data {
+    height: 100%;
+
+    & > div.accordion {
+        overflow-y: scroll;
+
+        button.accordion-button:focus,
+        button.accordion-button:not(.collapsed) {
+            box-shadow: none;
+        }
     }
 }
