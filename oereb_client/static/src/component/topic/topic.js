@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setActiveTopic } from '../../reducer/accordion';
+import OerebLegend from '../legend/legend';
 
 function OerebTopic(props) {
     const topic = props.topic;
@@ -55,7 +56,7 @@ function OerebTopic(props) {
             </h2>
             <div class="accordion-collapse collapse" ref={collapseEl}>
                 <div class="accordion-body">
-                    foo
+                    <OerebLegend />
                 </div>
             </div>
         </div>
