@@ -7,10 +7,13 @@ import { setActiveTopic } from '../../reducer/accordion';
 
 function OerebTopic(props) {
     const topic = props.topic;
+    const restrictions = props.restrictions;
     const collapseEl = useRef(null);
     const [active, setActive] = useState(false);
     const activeTopic = useSelector((state) => state.accordion).topic;
     const dispatch = useDispatch();
+
+    console.log(restrictions);
 
     useEffect(() => {
         const collapse = new Collapse(collapseEl.current, {

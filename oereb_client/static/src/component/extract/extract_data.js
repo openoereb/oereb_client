@@ -41,7 +41,7 @@ function OerebExtractData(props) {
             </div>
             <OerebRealEstate data={extract.RealEstate} />
             <div class="accordion accordion-flush flex-grow-1 mt-1">
-                <OerebCategory title="Betroffene Themen" data={extract.NotConcernedTheme} restriction={true} />
+                <OerebCategory title="Betroffene Themen" data={extract.ConcernedTheme} restriction={true} />
                 <OerebCategory title="Nicht betroffene Themen" data={extract.NotConcernedTheme} restriction={false} />
                 <OerebCategory title="Nicht verfügbare Themen" data={extract.ThemeWithoutData} restriction={false} />
             </div>

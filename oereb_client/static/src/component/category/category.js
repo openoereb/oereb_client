@@ -2,6 +2,7 @@ import { Collapse } from 'bootstrap';
 
 import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { groupRestrictionsByTopic } from '../../api/extract';
 
 import { setActiveCategory, setActiveTopic } from '../../reducer/accordion';
 import OerebTopicsWithoutRestriction from '../topic_list/topics_without_restriction';
@@ -14,6 +15,8 @@ function OerebCategory(props) {
     const collapseEl = useRef(null);
     const [active, setActive] = useState(false);
     const activeCategory = useSelector((state) => state.accordion).category;
+    const extract = useSelector((state) => state.extract).data.GetExtractByIdResponse.extract;
+    const restrictions = groupRestrictionsByTopic(extract.RealEstate.RestrictionOnLandownership);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -51,7 +54,7 @@ function OerebCategory(props) {
     const topicList = (() => {
         if (restriction) {
             return (
-                <OerebTopicsWithRestriction data={topics} />
+                <OerebTopicsWithRestriction data={topics} restrictions={restrictions} />
             );
         }
         else {
