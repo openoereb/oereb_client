@@ -1,14 +1,14 @@
-import { Collapse } from 'bootstrap';
+import {Collapse} from 'bootstrap';
+import PropTypes from 'prop-types';
+import React, {useEffect, useRef, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
-import React, { useRef, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { groupRestrictionsByTopic } from '../../api/extract';
-
-import { setActiveCategory, setActiveTopic } from '../../reducer/accordion';
-import OerebTopicsWithoutRestriction from '../topic_list/topics_without_restriction';
+import {groupRestrictionsByTopic} from '../../api/extract';
+import {setActiveCategory, setActiveTopic} from '../../reducer/accordion';
 import OerebTopicsWithRestriction from '../topic_list/topics_with_restrictions';
+import OerebTopicsWithoutRestriction from '../topic_list/topics_without_restriction';
 
-function OerebCategory(props) {
+const OerebCategory = function(props) {
     const title = props.title;
     const topics = props.data;
     const restriction = props.restriction;
@@ -24,7 +24,12 @@ function OerebCategory(props) {
             toggle: false
         });
         if (activeCategory === collapseEl.current) {
-            active ? collapse.show() : collapse.hide();
+            if (active) {
+                collapse.show();
+            }
+            else {
+                collapse.hide();
+            }
         }
         else {
             collapse.hide();
@@ -35,9 +40,9 @@ function OerebCategory(props) {
         if (active && activeCategory === collapseEl) {
             return 'accordion-button ps-1';
         }
-        else { 
+
             return 'accordion-button collapsed ps-1';
-        }
+
     })();
 
     const toggle = function() {
@@ -57,28 +62,34 @@ function OerebCategory(props) {
                 <OerebTopicsWithRestriction data={topics} restrictions={restrictions} />
             );
         }
-        else {
+
             return (
                 <OerebTopicsWithoutRestriction data={topics} />
             );
-        }
+
     })();
 
     return (
-        <div class="accordion-item mt-3">
-            <h2 class="accordion-header">
-                <button class={buttonClass} type="button" onClick={toggle}>
-                    <div class="container-fluid">
+        <div className="accordion-item mt-3">
+            <h2 className="accordion-header">
+                <button className={buttonClass} type="button" onClick={toggle}>
+                    <div className="container-fluid">
                         <strong>{title}</strong>
-                        <span class="badge rounded-pill bg-secondary float-end">{topics.length}</span>
+                        <span className="badge rounded-pill bg-secondary float-end">{topics.length}</span>
                     </div>
                 </button>
             </h2>
-            <div class="accordion-collapse collapse" ref={collapseEl}>
+            <div className="accordion-collapse collapse" ref={collapseEl}>
                 {topicList}
             </div>
         </div>
     );
-}
+};
+
+OerebCategory.propTypes = {
+    title: PropTypes.string.isRequired,
+    data: PropTypes.array.isRequired,
+    restriction: PropTypes.bool.isRequired
+};
 
 export default OerebCategory;

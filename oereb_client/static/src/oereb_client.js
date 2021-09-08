@@ -1,11 +1,13 @@
 import './oereb_client.scss';
+
+import {register} from 'ol/proj/proj4';
 import proj4 from 'proj4';
-import { register } from 'ol/proj/proj4';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+
 import App from './component/app/app';
 import MainStore from './store/main';
-import { Provider } from 'react-redux';
 
 // Define LV95 projection
 proj4.defs(
@@ -21,17 +23,3 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('app')
 );
-
-// goog.provide('oereb_client');
-
-// goog.require('oereb.MainController');
-// goog.require('oereb.mapQueryDirective');
-// goog.require('oereb.informationPanelDirective');
-// goog.require('oereb.realEstateDirective');
-// goog.require('oereb.extractMenuDirective');
-// goog.require('oereb.searchDirective');
-// goog.require('oereb.searchResultFilter');
-// goog.require('oereb.concernedThemeDirective');
-// goog.require('oereb.notConcernedThemeDirective');
-// goog.require('oereb.themeWithoutDataDirective');
-// goog.require('oereb.historyDirective');

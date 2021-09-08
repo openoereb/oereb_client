@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 export const accordionSlice = createSlice({
     name: 'accordion',
@@ -16,6 +16,6 @@ export const accordionSlice = createSlice({
     }
 });
 
-export const { setActiveCategory, setActiveTopic } = accordionSlice.actions;
+export const {setActiveCategory, setActiveTopic} = accordionSlice.actions;
 
 export default accordionSlice.reducer;

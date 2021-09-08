@@ -1,4 +1,4 @@
-export function searchTerm(config, value) {
+export const searchTerm = function(config, value) {
     const url = new URL(config.url);
     url.searchParams.append('query', config.prefix ? config.prefix + ' ' + value : value);
     url.searchParams.append('limit', config.limit);
@@ -7,27 +7,25 @@ export function searchTerm(config, value) {
     return {
         promise: new Promise((resolve, reject) => {
             fetch(url)
-            .then(response => response.json())
+            .then((response) => response.json())
             .then((data) => {
                 resolve({
                     config: config,
-                    data: data.features.map((feature) => {
-                        return feature.properties.label;
-                    })
+                    data: data.features.map((feature) => feature.properties.label)
                 })
             })
             .catch((error) => {
                 reject(error);
             });
             cancel = function() {
-                reject('Request canceled');
+                reject(new Error('Request canceled'));
             }
         }),
         cancel: cancel
     };
-}
+};
 
-export function sanitzeSearchResult(originalResult, config) {
+export const sanitzeSearchResult = function(originalResult, config) {
     let result = originalResult;
     if (config.filters instanceof Array) {
         config.filters.forEach((filter) => {
@@ -37,4 +35,4 @@ export function sanitzeSearchResult(originalResult, config) {
         });
     }
     return result;
-}
+};

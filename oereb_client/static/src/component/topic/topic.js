@@ -1,12 +1,12 @@
-import { Collapse } from 'bootstrap';
+import {Collapse} from 'bootstrap';
+import PropTypes from 'prop-types';
+import React, {useEffect, useRef, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
-import React, { useRef, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { setActiveTopic } from '../../reducer/accordion';
+import {setActiveTopic} from '../../reducer/accordion';
 import OerebLegend from '../legend/legend';
 
-function OerebTopic(props) {
+const OerebTopic = function(props) {
     const topic = props.topic;
     const restrictions = props.restrictions;
     const collapseEl = useRef(null);
@@ -14,14 +14,17 @@ function OerebTopic(props) {
     const activeTopic = useSelector((state) => state.accordion).topic;
     const dispatch = useDispatch();
 
-    console.log(restrictions);
-
     useEffect(() => {
         const collapse = new Collapse(collapseEl.current, {
             toggle: false
         });
         if (activeTopic === collapseEl.current) {
-            active ? collapse.show() : collapse.hide();
+            if (active) {
+                collapse.show();
+            }
+            else {
+                collapse.hide();
+            }
         }
         else {
             collapse.hide();
@@ -32,9 +35,9 @@ function OerebTopic(props) {
         if (active && activeTopic === collapseEl) {
             return 'accordion-button';
         }
-        else { 
+
             return 'accordion-button collapsed';
-        }
+
     })();
 
     const toggle = function() {
@@ -48,19 +51,24 @@ function OerebTopic(props) {
     }
 
     return (
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class={buttonClass} type="button" onClick={toggle}>
+        <div className="accordion-item">
+            <h2 className="accordion-header">
+                <button className={buttonClass} type="button" onClick={toggle}>
                     {topic.Text.Text}
                 </button>
             </h2>
-            <div class="accordion-collapse collapse" ref={collapseEl}>
-                <div class="accordion-body">
-                    <OerebLegend />
+            <div className="accordion-collapse collapse" ref={collapseEl}>
+                <div className="accordion-body">
+                    <OerebLegend restrictions={restrictions} />
                 </div>
             </div>
         </div>
     );
-}
+};
+
+OerebTopic.propTypes = {
+    topic: PropTypes.object.isRequired,
+    restrictions: PropTypes.array.isRequired
+};
 
 export default OerebTopic;

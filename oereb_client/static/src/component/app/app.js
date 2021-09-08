@@ -1,13 +1,13 @@
-import OerebMap from '../map/map';
-
+import PropTypes from 'prop-types';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 
-import { update } from '../../reducer/config';
-import OerebMenu from '../menu/menu';
+import {update} from '../../reducer/config';
 import OerebExtract from '../extract/extract';
+import OerebMap from '../map/map';
+import OerebMenu from '../menu/menu';
 
-function App(props) {
+const App = function(props) {
     const dispatch = useDispatch();
     dispatch(update(props.config));
 
@@ -18,6 +18,10 @@ function App(props) {
             <OerebMenu />
         </div>
     );
-}
+};
+
+App.propTypes = {
+    config: PropTypes.object.isRequired
+};
 
 export default App;

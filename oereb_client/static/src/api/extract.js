@@ -1,21 +1,23 @@
-export function queryExtractById(applicationUrl, egrid) {
+export const queryExtractById = function(applicationUrl, egrid) {
     const url = new URL(applicationUrl + 'extract/reduced/json/geometry/' + egrid);
     url.searchParams.append('_dc', new Date().getTime());
-    return fetch(url).then(response => response.json());
-}
+    return fetch(url).then((response) => response.json());
+};
 
-export function sanitizeTopicCode(code) {
+export const sanitizeTopicCode = function(code) {
     return code.replace('.', '').replace('-', '').replace('_', '');
-}
+};
 
-export function groupRestrictionsByTopic(retstrictions) {
+export const groupRestrictionsByTopic = function(restrictions) {
     const restrictionsByTopic = {};
-    retstrictions.forEach((restriction) => {
+    restrictions.forEach((restriction) => {
         const code = sanitizeTopicCode(restriction.Theme.Code);
-        if (!restrictionsByTopic.hasOwnProperty(code)) {
-            restrictionsByTopic[code] = [];
+        if (Reflect.apply(Object.prototype.hasOwnProperty, restrictionsByTopic, [code])) {
+            restrictionsByTopic[code].push(restriction);
         }
-        restrictionsByTopic[code].push(restriction);
+        else {
+            restrictionsByTopic[code] = [restriction];
+        }
     });
     return restrictionsByTopic;
-}
+};

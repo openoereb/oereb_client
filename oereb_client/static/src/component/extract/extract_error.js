@@ -1,17 +1,15 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
-import { hideExtract, loadExtract, showExtract, showError } from '../../reducer/extract';
-import { queryExtractById } from '../../api/extract';
+import {queryExtractById} from '../../api/extract';
+import {hideExtract, loadExtract, showError, showExtract} from '../../reducer/extract';
 
-function OerebExtractError(props) {
+const OerebExtractError = function() {
+    const dispatch = useDispatch();
     const config = useSelector((state) => state.config).config;
     const extract = useSelector((state) => state.extract);
-    const dispatch = useDispatch();
 
-    const office1 = config.support.office1;
-    
-    function getOptionalAttribut(value) {
+    const getOptionalAttribut = function(value) {
         if (value) {
             return (
                 <span>
@@ -20,49 +18,47 @@ function OerebExtractError(props) {
             );
         }
         return null;
-    }
+    };
 
-    function getPhone() {
+    const getPhone = function() {
         if (config.support.phone) {
             return (
                 <span>
                     <br />
-                    <i class="bi bi-telephone-fill" title="Telefon"></i> {config.support.phone}
+                    <i className="bi bi-telephone-fill" title="Telefon"></i> {config.support.phone}
                 </span>
             );
         }
         return null;
-    }
+    };
 
-    function getMail() {
+    const getMail = function() {
         if (config.support.email) {
             return (
                 <span>
                     <br />
-                    <i class="bi bi-envelope-fill" title="E-Mail"></i> <a ng-href="mailto:{config.support.email}">
+                    <i className="bi bi-envelope-fill" title="E-Mail"></i> <a ng-href="mailto:{config.support.email}">
                         {config.support.email}
                     </a>
                 </span>
             );
         }
         return null;
-    }
+    };
 
+    const office1 = config.support.office1;
     const office2 = getOptionalAttribut(config.support.office2);
     const street = getOptionalAttribut(config.support.street);
     const city = getOptionalAttribut(config.support.city);
     const phone = getPhone();
     const email = getMail();
+    const applicationUrl = config.application_url;
 
     const closeExtract = function() {
         dispatch(hideExtract());
     };
 
-    const applicationUrl = config.application_url;
-
-    console.log(extract);
-
-    function retryExtract() {
+    const retryExtract = function() {
         dispatch(loadExtract({
             egrid: extract.egrid
         }));
@@ -72,29 +68,29 @@ function OerebExtractError(props) {
                 extract: data
             }));
         })
-        .catch((error) => {
+        .catch(() => {
             dispatch(showError());
         });
     }
 
     return (
-        <div class="oereb-client-extract error container-fluid">
-            <p class="text-end">
+        <div className="oereb-client-extract error container-fluid">
+            <p className="text-end">
                 <button onClick={closeExtract}
-                        class="btn btn-outline-secondary"
+                        className="btn btn-outline-secondary"
                         type="button">
-                    <i class="bi bi-x-lg"></i>
+                    <i className="bi bi-x-lg"></i>
                 </button>
             </p>
             <h3>
-                <i class="bi bi-exclamation-circle-fill text-secondary"></i> Auszug fehlgeschlagen
+                <i className="bi bi-exclamation-circle-fill text-secondary"></i> Auszug fehlgeschlagen
             </h3>
             <p>
                 Bei der Generierung des Auszugs ist ein Fehler aufgetreten.
                 Bitte versuchen Sie, den Auszug erneut anzufordern.
             </p>
-            <p class="text-center">
-                <button onClick={retryExtract} class="btn btn-secondary">Erneut versuchen</button>
+            <p className="text-center">
+                <button onClick={retryExtract} className="btn btn-secondary">Erneut versuchen</button>
             </p>
             <p>
                 Sollte der Fehler wiederholt auftreten,
@@ -112,6 +108,6 @@ function OerebExtractError(props) {
             </p>
         </div>
     )
-}
+};
 
 export default OerebExtractError;

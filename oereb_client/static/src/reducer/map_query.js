@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 export const mapQuerySlice = createSlice({
     name: 'mapQuery',
@@ -24,13 +24,13 @@ export const mapQuerySlice = createSlice({
             state.visible = true;
             state.results = action.payload.results;
         },
-        hide: (state, action) => {
+        hide: (state) => {
             state.loading = false;
             state.visible = false;
         }
     }
 });
 
-export const { loadAt, show, hide } = mapQuerySlice.actions;
+export const {loadAt, show, hide} = mapQuerySlice.actions;
 
 export default mapQuerySlice.reducer;

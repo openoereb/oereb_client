@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 export const extractSlice = createSlice({
     name: 'extract',
@@ -27,14 +27,14 @@ export const extractSlice = createSlice({
             state.data = action.payload.extract;
             console.log('Extract loaded', state.data);
         },
-        showError: (state, action) => {
+        showError: (state) => {
             state.loading = false;
             state.visible = false;
             state.error = true;
             state.data = {};
             console.log('Extract failed');
         },
-        hideExtract: (state, action) => {
+        hideExtract: (state) => {
             state.loading = false;
             state.visible = false;
             state.error = false;
@@ -45,6 +45,6 @@ export const extractSlice = createSlice({
     }
 });
 
-export const { loadExtract, showExtract, showError, hideExtract } = extractSlice.actions;
+export const {loadExtract, showExtract, showError, hideExtract} = extractSlice.actions;
 
 export default extractSlice.reducer;

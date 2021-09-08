@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 export const configSlice = createSlice({
     name: 'config',
@@ -12,6 +12,6 @@ export const configSlice = createSlice({
     }
 });
 
-export const { update } = configSlice.actions;
+export const {update} = configSlice.actions;
 
 export default configSlice.reducer;

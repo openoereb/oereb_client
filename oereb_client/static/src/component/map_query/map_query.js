@@ -1,21 +1,23 @@
 import './map_query.scss';
 
 import Overlay from 'ol/Overlay';
+import PropTypes from 'prop-types';
+import React, {useRef} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
-import React, { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {queryExtractById} from '../../api/extract';
+import {loadExtract, showError, showExtract} from '../../reducer/extract';
+import {hide} from '../../reducer/map_query';
 
-import { hide } from '../../reducer/map_query';
-import { loadExtract, showExtract, showError } from '../../reducer/extract';
-import { queryExtractById } from '../../api/extract';
-
-function OerebMapQuery(props) {
-    const config = useSelector((state) => state.config).config;
-    const applicationUrl = config.application_url;
-    const mapQuery = useSelector((state) => state.mapQuery);
+const OerebMapQuery = function(props) {
     const dispatch = useDispatch();
+    const config = useSelector((state) => state.config).config;
+    const mapQuery = useSelector((state) => state.mapQuery);
     const mapQueryElement = useRef(null);
+
+    const applicationUrl = config.application_url;
     const map = props.map;
+
     const overlay = new Overlay({
         element: mapQueryElement.current,
         autoPan: true,
@@ -24,23 +26,11 @@ function OerebMapQuery(props) {
     map.addOverlay(overlay);
     overlay.setPosition([mapQuery.posX, mapQuery.posY]);
 
-    const listResults = mapQuery.results.map((result) => {
-        const number = result.number;
-        const egrid = result.egrid;
-        return (
-            <button onClick={queryExtract.bind(this, egrid)}
-                    type="button"
-                    class="list-group-item list-group-item-action">
-                <small>Auszug für Grundstück {number}</small>
-            </button>
-        );
-    });
-
-    function close() {
+    const close = function() {
         dispatch(hide());
-    }
+    };
 
-    function queryExtract(egrid) {
+    const queryExtract = function(egrid) {
         dispatch(hide());
         dispatch(loadExtract({
             egrid: egrid
@@ -51,45 +41,62 @@ function OerebMapQuery(props) {
                 extract: extract
             }));
         })
-        .catch((error) => {
+        .catch(() => {
             dispatch(showError());
         });
-    }
+    };
+
+    const listResults = mapQuery.results.map((result, key) => {
+        const number = result.number;
+        const egrid = result.egrid;
+        return (
+            <button key={key}
+                    onClick={queryExtract.bind(this, egrid)}
+                    type="button"
+                    className="list-group-item list-group-item-action">
+                <small>Auszug für Grundstück {number}</small>
+            </button>
+        );
+    });
 
     if (mapQuery.loading) {
         return (
-            <div class="oereb-client-overlay" ref={mapQueryElement}>
-                <div class="loader">
-                    <div class="spinner-grow"></div>
+            <div className="oereb-client-overlay" ref={mapQueryElement}>
+                <div className="loader">
+                    <div className="spinner-grow"></div>
                 </div>
             </div>
         );
     }
     else if (mapQuery.visible) {
         return (
-            <div class="oereb-client-overlay" ref={mapQueryElement}>
-                <div class="results">
-                    <div class="background-icon"></div>
-                    <div class="content list-group">
-                        <button onClick={close} type="button" class="list-group-item list-group-item-action text-end">
-                            <strong class="bi bi-x"></strong>
+            <div className="oereb-client-overlay" ref={mapQueryElement}>
+                <div className="results">
+                    <div className="background-icon"></div>
+                    <div className="content list-group">
+                        <button onClick={close} type="button" className="list-group-item list-group-item-action text-end">
+                            <strong className="bi bi-x"></strong>
                         </button>
                         {listResults}
                     </div>
-                    <div class="icon">
-                        <div class="icon-outer">
-                            <div class="icon-inner"></div>
+                    <div className="icon">
+                        <div className="icon-outer">
+                            <div className="icon-inner"></div>
                         </div>
                     </div>
                 </div>
             </div>
         );
     }
-    else {
+
         return (
-            <div class="oereb-client-overlay" ref={mapQueryElement}></div>
+            <div className="oereb-client-overlay" ref={mapQueryElement}></div>
         );
-    }
-}
+
+};
+
+OerebMapQuery.propTypes = {
+    map: PropTypes.object.isRequired
+};
 
 export default OerebMapQuery;

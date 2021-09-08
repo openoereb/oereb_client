@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { setActiveCategory, setActiveTopic } from '../../reducer/accordion';
+import {useDispatch} from 'react-redux';
 
-import { hideExtract } from '../../reducer/extract';
+import {setActiveCategory, setActiveTopic} from '../../reducer/accordion';
+import {hideExtract} from '../../reducer/extract';
 import OerebCategory from '../category/category';
 import OerebRealEstate from '../real_estate/real_estate';
 
-function OerebExtractData(props) {
+const OerebExtractData = function(props) {
     const dispatch = useDispatch();
 
     const closeExtract = function() {
@@ -18,35 +19,39 @@ function OerebExtractData(props) {
     const extract = props.data;
 
     return (
-        <div class="oereb-client-extract data container-fluid d-flex flex-column justify-content-start align-items-stretch">
+        <div className="oereb-client-extract data container-fluid d-flex flex-column justify-content-start align-items-stretch">
             <div>
-                <div class="float-end">
+                <div className="float-end">
                     <button onClick={closeExtract}
-                            class="btn btn-outline-secondary"
+                            className="btn btn-outline-secondary"
                             type="button">
-                        <i class="bi bi-x-lg"></i>
+                        <i className="bi bi-x-lg"></i>
                     </button>
                 </div>
-                <div class="btn-group float-start" role="group">
-                    <button type="button" class="btn btn-outline-secondary">
-                        <i class="bi bi-link-45deg"></i>
+                <div className="btn-group float-start" role="group">
+                    <button type="button" className="btn btn-outline-secondary">
+                        <i className="bi bi-link-45deg"></i>
                     </button>
-                    <button type="button" class="btn btn-outline-secondary">
-                        <i class="bi bi-map"></i>
+                    <button type="button" className="btn btn-outline-secondary">
+                        <i className="bi bi-map"></i>
                     </button>
-                    <button type="button" class="btn btn-outline-secondary">
-                        <i class="bi bi-file-earmark-pdf"></i>
+                    <button type="button" className="btn btn-outline-secondary">
+                        <i className="bi bi-file-earmark-pdf"></i>
                     </button>
                 </div>
             </div>
             <OerebRealEstate data={extract.RealEstate} />
-            <div class="accordion accordion-flush flex-grow-1 mt-1">
+            <div className="accordion accordion-flush flex-grow-1 mt-1">
                 <OerebCategory title="Betroffene Themen" data={extract.ConcernedTheme} restriction={true} />
                 <OerebCategory title="Nicht betroffene Themen" data={extract.NotConcernedTheme} restriction={false} />
                 <OerebCategory title="Nicht verfügbare Themen" data={extract.ThemeWithoutData} restriction={false} />
             </div>
         </div>
     )
-}
+};
+
+OerebExtractData.propTypes = {
+    data: PropTypes.object.isRequired
+};
 
 export default OerebExtractData;

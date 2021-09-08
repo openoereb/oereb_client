@@ -1,13 +1,11 @@
 import './menu.scss';
 
-import { Dropdown } from 'bootstrap';
+import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
 
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import {sanitzeSearchResult, searchTerm} from '../../api/search';
 
-import { sanitzeSearchResult, searchTerm } from '../../api/search';
-
-function OerebMenu(props) {
+const OerebMenu = function() {
     const config = useSelector((state) => state.config).config;
     const oerebLogoUrl = config.logo_oereb;
     const appLogoUrl = config.logo_canton;
@@ -63,7 +61,7 @@ function OerebMenu(props) {
         }
     ];
 
-    function handleSearch(evt) {
+    const handleSearch = function(evt) {
         const searchValue = evt.target.value;
         setSearch(searchValue);
         pendingRequests.forEach((request) => {
@@ -109,117 +107,116 @@ function OerebMenu(props) {
                 allResults = allResults.concat(results);
                 setSearchResults(allResults);
                 setLoading(false);
-            }).catch((error) => {
+            }).catch(() => {
                 setLoading(false);
             });
-            
-        }
-    }
 
-    function resetSearch(evt) {
+        }
+    };
+
+    const resetSearch = function() {
         setSearch('');
         setSearchResults([]);
-    }
+    };
 
     const searchResultList = searchResults.map((resultSet) => {
         if (resultSet.data.length > 0) {
-            const results = resultSet.data.map((result) => {
+            const results = resultSet.data.map((result, key) => {
                 const sanitizedResult = sanitzeSearchResult(
                     result,
                     resultSet.config
                 );
                 return (
-                    <button class="list-group-item search-result text-start">
+                    <button key={key} className="list-group-item search-result text-start">
                         {sanitizedResult}
                     </button>
                 );
             });
-            const title = (
-                <div class="list-group result-list">
-                    <div class="list-group-item">
+            const title =
+                <div className="list-group result-list">
+                    <div className="list-group-item">
                         <strong>{resultSet.config.title}</strong>
-                        <span class="badge bg-secondary float-end">{resultSet.data.length}</span>
+                        <span className="badge bg-secondary float-end">{resultSet.data.length}</span>
                     </div>
                     {results}
-                </div>
-            );
+                </div>;
             return title;
         }
         return null;
     });
 
-    function getSearchResetButton() {
+    const getSearchResetButton = function() {
         if (search.length === 0) {
             return (
-                <button class="btn btn-outline-secondary"
+                <button className="btn btn-outline-secondary"
                         type="button"
                         disabled>
-                    <i class="bi bi-trash"></i>
+                    <i className="bi bi-trash"></i>
                 </button>
             );
         }
         else if (loading) {
             return (
-                <button class="btn btn-outline-secondary"
+                <button className="btn btn-outline-secondary"
                         type="button"
                         disabled>
-                    <span class="spinner-grow spinner-grow-sm" role="status"></span>
+                    <span className="spinner-grow spinner-grow-sm" role="status"></span>
                 </button>
             );
         }
-        else {
+
             return (
                 <button onClick={resetSearch}
-                        class="btn btn-outline-secondary"
+                        className="btn btn-outline-secondary"
                         type="button">
-                    <i class="bi bi-trash"></i>
+                    <i className="bi bi-trash"></i>
                 </button>
             );
-        }
-    }
+
+    };
 
     const searchResetButton = getSearchResetButton();
 
     return (
-        <div class="oereb-client-menu">
-            <img class="logo-oereb" src={oerebLogoUrl} />
-            <img class="logo-app" src={appLogoUrl} />
-            <div class="clearfix"></div>
-            <div class="container-fluid">
-                <div class="input-group">
-                    <button class="btn btn-outline-secondary dropdown-toggle"
+        <div className="oereb-client-menu">
+            <img className="logo-oereb" src={oerebLogoUrl} />
+            <img className="logo-app" src={appLogoUrl} />
+            <div className="clearfix"></div>
+            <div className="container-fluid">
+                <div className="input-group">
+                    <button className="btn btn-outline-secondary dropdown-toggle"
                             type="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false">
-                        <i class="bi bi-gear-fill"></i>
+                        <i className="bi bi-gear-fill"></i>
                     </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <ul className="dropdown-menu">
+                        <li><a className="dropdown-item" href="#">Action</a></li>
+                        <li><a className="dropdown-item" href="#">Another action</a></li>
                     </ul>
-                    <button class="btn btn-outline-secondary dropdown-toggle"
+                    <button className="btn btn-outline-secondary dropdown-toggle"
                             type="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false">
-                        <i class="bi bi-clock-history"></i>
+                        <i className="bi bi-clock-history"></i>
                     </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <ul className="dropdown-menu">
+                        <li><a className="dropdown-item" href="#">Action</a></li>
+                        <li><a className="dropdown-item" href="#">Another action</a></li>
                     </ul>
                     <input type="text"
-                            class="form-control"
+                            className="form-control"
                             value={search}
                             onChange={handleSearch}
                             placeholder="Suche" />
                     {searchResetButton}
                 </div>
             </div>
-            <div class="container-fluid">
+            <div className="container-fluid">
                 {searchResultList}
             </div>
         </div>
     );
-}
+};
 
 export default OerebMenu;

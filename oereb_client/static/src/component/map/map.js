@@ -1,22 +1,64 @@
 import './map.scss';
 
-import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { loadAt, show, hide } from '../../reducer/map_query';
-
-import Map from 'ol/Map';
-import View from 'ol/View';
 import {defaults} from 'ol/control';
-import TileLayer from 'ol/layer/Tile';
-import TileWMS from 'ol/source/TileWMS';
-import WMTS, { optionsFromCapabilities } from 'ol/source/WMTS';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
+import TileLayer from 'ol/layer/Tile';
+import Map from 'ol/Map';
+import TileWMS from 'ol/source/TileWMS';
+import WMTS, {optionsFromCapabilities} from 'ol/source/WMTS';
+import View from 'ol/View';
+import React, {useEffect, useRef} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
+import {queryEgridByCoord} from '../../api/egrid';
+import {queryExtractById} from '../../api/extract';
+import {loadExtract, showError, showExtract} from '../../reducer/extract';
+import {hide, loadAt, show} from '../../reducer/map_query';
 import OerebMapQuery from '../map_query/map_query';
-import { queryEgridByCoord } from '../../api/egrid';
-import { queryExtractById } from '../../api/extract';
 
-function OerebMap(props) {
+const getBaseLayerSourceWms = function(config) {
+    return Promise.resolve(new TileWMS({
+        url: config['url'],
+        params: config['params'],
+        projection: 'EPSG:2056'
+    }));
+};
+
+const getBaseLayerSourceWmts = function(config) {
+    const parser = new WMTSCapabilities();
+    return new Promise(function(resolve, reject) {
+        fetch(config['url'])
+        .then((response) => response.text())
+        .then((xml) => {
+            const wmtsCaps = parser.read(xml);
+            const wmtsOptions = {};
+            Object.entries(config).forEach(([key, value]) => {
+                if (key !== 'url') {
+                    wmtsOptions[key] = value;
+                }
+            });
+            const wmtsConfig = optionsFromCapabilities(wmtsCaps, wmtsOptions);
+            resolve(new WMTS(wmtsConfig));
+        })
+        .catch((error) => {
+            reject(error);
+        });
+    });
+};
+
+const getBaseLayerSource = function(config) {
+    if (config['type'].toLowerCase() === 'wms') {
+        return getBaseLayerSourceWms(config);
+    }
+    else if (config['type'].toLowerCase() === 'wmts') {
+        return getBaseLayerSourceWmts(config);
+    }
+
+        return Promise.reject(new Error('Invalid base layer type'));
+
+};
+
+const OerebMap = function() {
     const mapElement = useRef(null);
     const config = useSelector((state) => state.config).config;
     const dispatch = useDispatch();
@@ -87,7 +129,7 @@ function OerebMap(props) {
                         extract: extract
                     }));
                 })
-                .catch((error) => {
+                .catch(() => {
                     dispatch(showError());
                 });
             }
@@ -95,7 +137,7 @@ function OerebMap(props) {
                 dispatch(hide());
             }
         })
-        .catch((error) => {
+        .catch(() => {
             dispatch(hide());
         });
     });
@@ -103,52 +145,10 @@ function OerebMap(props) {
     return (
         <div>
             <OerebMapQuery map={map} />
-            <div ref={mapElement} class="oereb-client-map"></div>
+            <div ref={mapElement} className="oereb-client-map"></div>
         </div>
     );
 
-}
-
-function getBaseLayerSource(config) {
-    if (config['type'].toLowerCase() === 'wms') {
-        return getBaseLayerSourceWms(config);
-    }
-    else if (config['type'].toLowerCase() === 'wmts') {
-        return getBaseLayerSourceWmts(config);
-    }
-    else {
-        return Promise.reject('Invalid base layer type');
-    }
-}
-
-function getBaseLayerSourceWms(config) {
-    return Promise.resolve(new TileWMS({
-        url: config['url'],
-        params: config['params'],
-        projection: 'EPSG:2056'
-    }));
-}
-
-function getBaseLayerSourceWmts(config) {
-    const parser = new WMTSCapabilities();
-    return new Promise(function(resolve, reject) {
-        fetch(config['url'])
-        .then(response => response.text())
-        .then((xml) => {
-            const wmtsCaps = parser.read(xml);
-            let wmtsOptions = {};
-            Object.entries(config).forEach(([key, value]) => {
-                if (key !== 'url') {
-                    wmtsOptions[key] = value;
-                }
-            });
-            const wmtsConfig = optionsFromCapabilities(wmtsCaps, wmtsOptions);
-            resolve(new WMTS(wmtsConfig));
-        })
-        .catch((error) => {
-            reject(error);
-        });
-    });
-}
+};
 
 export default OerebMap;
