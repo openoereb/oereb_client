@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {setActiveTopic} from '../../reducer/accordion';
+import {setActiveTopic, setViewServices} from '../../reducer/accordion';
+import {addIfNotContains} from '../../util/array';
 import OerebLegend from '../legend/legend';
 
 const OerebTopic = function(props) {
@@ -13,6 +14,12 @@ const OerebTopic = function(props) {
     const [active, setActive] = useState(false);
     const activeTopic = useSelector((state) => state.accordion).topic;
     const dispatch = useDispatch();
+
+    const viewServices = [];
+    restrictions.forEach((restriction) => {
+        const map = restriction['Map'];
+        addIfNotContains(map, viewServices);
+    });
 
     useEffect(() => {
         const collapse = new Collapse(collapseEl.current, {
@@ -43,11 +50,14 @@ const OerebTopic = function(props) {
     const toggle = function() {
         if (activeTopic === collapseEl.current) {
             setActive(!active);
+            dispatch(setActiveTopic(null));
+            dispatch(setViewServices([]));
         }
         else {
             setActive(true);
+            dispatch(setActiveTopic(collapseEl.current));
+            dispatch(setViewServices(viewServices));
         }
-        dispatch(setActiveTopic(collapseEl.current));
     }
 
     return (

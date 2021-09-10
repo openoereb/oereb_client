@@ -1,7 +1,9 @@
 import './map.scss';
 
+import {Collection} from 'ol';
 import {defaults} from 'ol/control';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
+import LayerGroup from 'ol/layer/Group';
 import TileLayer from 'ol/layer/Tile';
 import Map from 'ol/Map';
 import TileWMS from 'ol/source/TileWMS';
@@ -15,6 +17,7 @@ import {queryExtractById} from '../../api/extract';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {hide, loadAt, show} from '../../reducer/map_query';
 import OerebMapQuery from '../map_query/map_query';
+import OerebTopicLayer from '../topic_layers/topic_layers';
 
 const getBaseLayerSourceWms = function(config) {
     return Promise.resolve(new TileWMS({
@@ -81,6 +84,12 @@ const OerebMap = function() {
         })
     });
 
+    // Create topic source
+    const topicLayers = new LayerGroup({
+        layers: new Collection([]),
+        visible: false
+    });
+
     // Add base layer
     getBaseLayerSource(config['base_layer']).then(function(source) {
         const baseLayer = new TileLayer({
@@ -89,6 +98,7 @@ const OerebMap = function() {
             source: source
         });
         map.addLayer(baseLayer);
+        map.addLayer(topicLayers);
     });
 
     useEffect(() => {
@@ -145,6 +155,7 @@ const OerebMap = function() {
     return (
         <div>
             <OerebMapQuery map={map} />
+            <OerebTopicLayer topicLayers={topicLayers} />
             <div ref={mapElement} className="oereb-client-map"></div>
         </div>
     );

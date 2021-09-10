@@ -4,7 +4,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {groupRestrictionsByTopic} from '../../api/extract';
-import {setActiveCategory, setActiveTopic} from '../../reducer/accordion';
+import {setActiveCategory, setActiveTopic, setViewServices} from '../../reducer/accordion';
 import OerebTopicsWithRestriction from '../topic_list/topics_with_restrictions';
 import OerebTopicsWithoutRestriction from '../topic_list/topics_without_restriction';
 
@@ -54,6 +54,7 @@ const OerebCategory = function(props) {
         }
         dispatch(setActiveCategory(collapseEl.current));
         dispatch(setActiveTopic(null));
+        dispatch(setViewServices([]));
     }
 
     const topicList = (() => {
