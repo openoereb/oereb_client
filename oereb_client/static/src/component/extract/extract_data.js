@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {useDispatch} from 'react-redux';
 
-import {setActiveCategory, setActiveTopic} from '../../reducer/accordion';
+import {setActiveCategory, setActiveTopic, setViewServices} from '../../reducer/accordion';
 import {hideExtract} from '../../reducer/extract';
 import OerebCategory from '../category/category';
 import OerebRealEstate from '../real_estate/real_estate';
@@ -11,6 +11,7 @@ const OerebExtractData = function(props) {
     const dispatch = useDispatch();
 
     const closeExtract = function() {
+        dispatch(setViewServices([]));
         dispatch(setActiveTopic(null));
         dispatch(setActiveCategory(null));
         dispatch(hideExtract());
