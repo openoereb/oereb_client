@@ -5,9 +5,13 @@ import {defaults} from 'ol/control';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
 import LayerGroup from 'ol/layer/Group';
 import TileLayer from 'ol/layer/Tile';
+import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import TileWMS from 'ol/source/TileWMS';
+import VectorSource from 'ol/source/Vector';
 import WMTS, {optionsFromCapabilities} from 'ol/source/WMTS';
+import Stroke from 'ol/style/Stroke';
+import Style from 'ol/style/Style';
 import View from 'ol/View';
 import React, {useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -17,6 +21,7 @@ import {queryExtractById} from '../../api/extract';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {hide, loadAt, show} from '../../reducer/map_query';
 import OerebMapQuery from '../map_query/map_query';
+import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';
 import OerebTopicLayer from '../topic_layers/topic_layers';
 
 const getBaseLayerSourceWms = function(config) {
@@ -84,10 +89,24 @@ const OerebMap = function() {
         })
     });
 
-    // Create topic source
+    // Create group for topic layers
     const topicLayers = new LayerGroup({
         layers: new Collection([]),
         visible: false
+    });
+
+    // Create real estate layer
+    const realEstateLayer = new VectorLayer({
+        source: new VectorSource({}),
+        style: new Style({
+            fill: undefined,
+            stroke: new Stroke({
+                color: [255, 0, 0, 0.75],
+                width: 7,
+                lineCap: 'square',
+                lineJoin: 'miter'
+            })
+        })
     });
 
     // Add base layer
@@ -99,6 +118,7 @@ const OerebMap = function() {
         });
         map.addLayer(baseLayer);
         map.addLayer(topicLayers);
+        map.addLayer(realEstateLayer);
     });
 
     useEffect(() => {
@@ -155,6 +175,7 @@ const OerebMap = function() {
     return (
         <div>
             <OerebMapQuery map={map} />
+            <OerebRealEstateLayer realEstateLayer={realEstateLayer} />
             <OerebTopicLayer topicLayers={topicLayers} />
             <div ref={mapElement} className="oereb-client-map"></div>
         </div>

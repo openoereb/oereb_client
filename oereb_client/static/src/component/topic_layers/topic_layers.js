@@ -9,8 +9,12 @@ import {getViewServiceDefinition} from '../../util/wms';
 const OerebTopicLayer = function(props) {
     const topicLayers = props.topicLayers;
     const viewServices = useSelector((state) => state.accordion).viewServices;
+    const extractVisible = useSelector((state) => state.extract).visible;
 
-    if (isArray(viewServices) && viewServices.length > 0) {
+    topicLayers.setVisible(false);
+    topicLayers.getLayers().clear();
+
+    if (extractVisible && isArray(viewServices) && viewServices.length > 0) {
         const layers = viewServices.map((viewService) => {
             const definition = getViewServiceDefinition(viewService);
             return new TileLayer({
@@ -27,10 +31,6 @@ const OerebTopicLayer = function(props) {
         });
         topicLayers.getLayers().extend(layers);
         topicLayers.setVisible(true);
-    }
-    else {
-        topicLayers.setVisible(false);
-        topicLayers.getLayers().clear();
     }
 
     return null;

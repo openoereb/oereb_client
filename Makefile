@@ -77,6 +77,10 @@ test-py: .venv/.requirements.timestamp
 lint-js: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)
 	./node_modules/.bin/eslint $(SRC_JS) $(TEST_JS)
 
+.PHONY: lint-js-fix
+lint-js-fix: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)
+	./node_modules/.bin/eslint --fix $(SRC_JS) $(TEST_JS)
+
 .PHONY: test-js
 test-js: node_modules/.timestamp karma.conf.js $(SRC_JS) $(TEST_JS)
 	./node_modules/.bin/karma start karma.conf.js
