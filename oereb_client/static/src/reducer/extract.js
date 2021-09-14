@@ -18,6 +18,9 @@ export const extractSlice = createSlice({
                 state.error = false;
                 state.egrid = action.payload.egrid;
                 state.data = {};
+                const query = new URLSearchParams(window.location.search);
+                query.set('egrid', state.egrid);
+                window.history.pushState(null, null, '?' + query.toString());
             }
         },
         showExtract: (state, action) => {
@@ -32,6 +35,9 @@ export const extractSlice = createSlice({
             state.visible = false;
             state.error = true;
             state.data = {};
+            const query = new URLSearchParams(window.location.search);
+            query.delete('egrid');
+            window.history.pushState(null, null, '?' + query.toString());
             console.log('Extract failed');
         },
         hideExtract: (state) => {
@@ -40,6 +46,9 @@ export const extractSlice = createSlice({
             state.error = false;
             state.egrid = null;
             state.data = {};
+            const query = new URLSearchParams(window.location.search);
+            query.delete('egrid');
+            window.history.pushState(null, null, '?' + query.toString());
             console.log('Extract closed');
         }
     }
