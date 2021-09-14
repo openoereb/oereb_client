@@ -14,6 +14,7 @@ const OerebTopic = function(props) {
     const topic = props.topic;
     const restrictions = props.restrictions;
     const collapseEl = useRef(null);
+    const collapseButton = useRef(null);
     const [active, setActive] = useState(false);
     const activeTopic = useSelector((state) => state.accordion).topic;
     const dispatch = useDispatch();
@@ -31,24 +32,18 @@ const OerebTopic = function(props) {
         if (activeTopic === collapseEl.current) {
             if (active) {
                 collapse.show();
+                collapseButton.current.classList.remove('collapsed');
             }
             else {
                 collapse.hide();
+                collapseButton.current.classList.add('collapsed');
             }
         }
         else {
             collapse.hide();
+            collapseButton.current.classList.add('collapsed');
         }
     });
-
-    const buttonClass = (() => {
-        if (active && activeTopic === collapseEl) {
-            return 'accordion-button';
-        }
-
-            return 'accordion-button collapsed';
-
-    })();
 
     const toggle = function() {
         if (activeTopic === collapseEl.current) {
@@ -66,7 +61,10 @@ const OerebTopic = function(props) {
     return (
         <div className="accordion-item">
             <h2 className="accordion-header">
-                <button className={buttonClass} type="button" onClick={toggle}>
+                <button className="accordion-button collapsed"
+                        type="button"
+                        onClick={toggle}
+                        ref={collapseButton}>
                     {topic.Text.Text}
                 </button>
             </h2>

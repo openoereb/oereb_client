@@ -13,6 +13,7 @@ const OerebCategory = function(props) {
     const topics = props.data;
     const restriction = props.restriction;
     const collapseEl = useRef(null);
+    const collapseButton = useRef(null);
     const [active, setActive] = useState(false);
     const activeCategory = useSelector((state) => state.accordion).category;
     const extract = useSelector((state) => state.extract).data.GetExtractByIdResponse.extract;
@@ -26,24 +27,18 @@ const OerebCategory = function(props) {
         if (activeCategory === collapseEl.current) {
             if (active) {
                 collapse.show();
+                collapseButton.current.classList.remove('collapsed');
             }
             else {
                 collapse.hide();
+                collapseButton.current.classList.add('collapsed');
             }
         }
         else {
             collapse.hide();
+            collapseButton.current.classList.add('collapsed');
         }
     });
-
-    const buttonClass = (() => {
-        if (active && activeCategory === collapseEl) {
-            return 'accordion-button ps-1';
-        }
-
-            return 'accordion-button collapsed ps-1';
-
-    })();
 
     const toggle = function() {
         if (activeCategory === collapseEl.current) {
@@ -63,17 +58,18 @@ const OerebCategory = function(props) {
                 <OerebTopicsWithRestriction data={topics} restrictions={restrictions} />
             );
         }
-
-            return (
-                <OerebTopicsWithoutRestriction data={topics} />
-            );
-
+        return (
+            <OerebTopicsWithoutRestriction data={topics} />
+        );
     })();
 
     return (
         <div className="accordion-item mt-3">
             <h2 className="accordion-header">
-                <button className={buttonClass} type="button" onClick={toggle}>
+                <button className="accordion-button collapsed ps-1"
+                        type="button"
+                        onClick={toggle}
+                        ref={collapseButton}>
                     <div className="container-fluid">
                         <strong>{title}</strong>
                         <span className="badge rounded-pill bg-secondary float-end">{topics.length}</span>
