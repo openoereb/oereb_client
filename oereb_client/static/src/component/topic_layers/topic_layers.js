@@ -1,9 +1,9 @@
+import {isArray} from 'lodash';
 import TileLayer from 'ol/layer/Tile';
 import TileWMS from 'ol/source/TileWMS';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 
-import {isArray} from '../../util/type';
 import {getViewServiceDefinition} from '../../util/wms';
 
 const OerebTopicLayer = function(props) {

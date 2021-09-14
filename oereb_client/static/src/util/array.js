@@ -1,6 +1,4 @@
-import {isEqual} from "lodash";
-
-import {isArray} from "./type";
+import {isArray, isEqual} from "lodash";
 
 export const addIfNotContains = function(item, target) {
     if (isArray(target)) {

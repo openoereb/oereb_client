@@ -1,11 +1,11 @@
 import './complete_legend.scss';
 
 import {Collapse} from 'bootstrap';
+import {isString} from 'lodash';
 import PropTypes from 'prop-types';
 import React, {useEffect, useRef, useState} from 'react';
 
 import {addIfNotContains} from '../../util/array';
-import {isString} from '../../util/type';
 
 const OerebCompleteLegend = function(props) {
     const collapseEl = useRef(null);
@@ -27,7 +27,7 @@ const OerebCompleteLegend = function(props) {
     });
 
     const graphics = graphicUrls.map((url, key) =>
-        <img key={key} className="oereb-complete-legend" src={url} />
+        <img key={key} src={url} />
     );
 
     const toggle = function() {
@@ -62,8 +62,8 @@ const OerebCompleteLegend = function(props) {
     };
 
     return (
-        <div>
-            <small onClick={toggle}>{buttonText()}</small>
+        <div className="oereb-complete-legend mb-2">
+            <span onClick={toggle}>{buttonText()}</span>
             <div className="collapse" ref={collapseEl}>
                 {graphics}
             </div>

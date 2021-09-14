@@ -103,7 +103,7 @@ const OerebLegend = function(props) {
     });
 
     return (
-        <table className="table table-sm oereb-client-legend">
+        <table className="table table-sm mb-2 oereb-client-legend">
             <thead>
                 <tr>
                     <th>Typ</th>

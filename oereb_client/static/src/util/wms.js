@@ -1,6 +1,5 @@
+import {isArray, isObject, isString} from 'lodash';
 import proj4 from 'proj4';
-
-import {isArray, isObject, isString} from './type';
 
 export const getViewServiceDefinition = function(mapObject) {
     const parts = mapObject['ReferenceWMS'].split('?');
