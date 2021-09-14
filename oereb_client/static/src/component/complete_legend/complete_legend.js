@@ -72,7 +72,7 @@ const OerebCompleteLegend = function(props) {
 };
 
 OerebCompleteLegend.propTypes = {
-    restrictions: PropTypes.object.isRequired
+    restrictions: PropTypes.array.isRequired
 };
 
 export default OerebCompleteLegend;
