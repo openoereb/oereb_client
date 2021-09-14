@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {setActiveTopic, setViewServices} from '../../reducer/accordion';
 import {addIfNotContains} from '../../util/array';
+import OerebCompleteLegend from '../complete_legend/complete_legend';
 import OerebLegend from '../legend/legend';
 
 const OerebTopic = function(props) {
@@ -70,6 +71,7 @@ const OerebTopic = function(props) {
             <div className="accordion-collapse collapse" ref={collapseEl}>
                 <div className="accordion-body">
                     <OerebLegend restrictions={restrictions} />
+                    <OerebCompleteLegend restrictions={restrictions} />
                 </div>
             </div>
         </div>
