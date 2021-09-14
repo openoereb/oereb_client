@@ -1,12 +1,17 @@
 import './menu.scss';
 
 import React, {useState} from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import {sanitzeSearchResult, searchTerm} from '../../api/search';
+import {showAvailability} from '../../reducer/availability';
+import {enableSymbolZoom} from '../../reducer/symbol_zoom';
 
 const OerebMenu = function() {
     const config = useSelector((state) => state.config).config;
+    const showAvailabilityLayer = useSelector((state) => state.availability).visible;
+    const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
+    const dispatch = useDispatch();
     const oerebLogoUrl = config.logo_oereb;
     const appLogoUrl = config.logo_canton;
 
@@ -177,6 +182,36 @@ const OerebMenu = function() {
 
     const searchResetButton = getSearchResetButton();
 
+    const showAvailabilityText = (() => {
+        if (showAvailabilityLayer) {
+            return (
+                <span><i className="bi bi-check-square"></i> verfügbare Gemeinden anzeigen</span>
+            );
+        }
+        return (
+            <span><i className="bi bi-square"></i> verfügbare Gemeinden anzeigen</span>
+        );
+    })();
+
+    const toggleAvailabilityLayer = function() {
+        dispatch(showAvailability(!showAvailabilityLayer));
+    }
+
+    const symbolZoomText = (() => {
+        if (symbolZoomEnabled) {
+            return (
+                <span><i className="bi bi-check-square"></i> Legendensymbole vergrössern</span>
+            );
+        }
+        return (
+            <span><i className="bi bi-square"></i> Legendensymbole vergrössern</span>
+        );
+    })();
+
+    const toggleSymbolZoom = function() {
+        dispatch(enableSymbolZoom(!symbolZoomEnabled));
+    }
+
     return (
         <div className="oereb-client-menu">
             <img className="logo-oereb" src={oerebLogoUrl} />
@@ -191,8 +226,16 @@ const OerebMenu = function() {
                         <i className="bi bi-gear-fill"></i>
                     </button>
                     <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="#">Action</a></li>
-                        <li><a className="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <button className="dropdown-item" onClick={toggleAvailabilityLayer}>
+                                {showAvailabilityText}
+                            </button>
+                        </li>
+                        <li>
+                            <button className="dropdown-item" onClick={toggleSymbolZoom}>
+                                {symbolZoomText}
+                            </button>
+                        </li>
                     </ul>
                     <button className="btn btn-outline-secondary dropdown-toggle"
                             type="button"

@@ -20,6 +20,7 @@ import {queryEgridByCoord} from '../../api/egrid';
 import {queryExtractById} from '../../api/extract';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {hide, loadAt, show} from '../../reducer/map_query';
+import OerebAvailabilityLayer from '../availability_layer/availability_layer';
 import OerebMapQuery from '../map_query/map_query';
 import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';
 import OerebTopicLayer from '../topic_layers/topic_layers';
@@ -89,6 +90,17 @@ const OerebMap = function() {
         })
     });
 
+    // Create availability layer
+    const availabilityLayer = new TileLayer({
+        preload: Infinity,
+        source: new TileWMS({
+            url: config.availability.url,
+            params: config.availability.params
+        })
+    });
+
+    console.log(availabilityLayer);
+
     // Create group for topic layers
     const topicLayers = new LayerGroup({
         layers: new Collection([]),
@@ -117,6 +129,7 @@ const OerebMap = function() {
             source: source
         });
         map.addLayer(baseLayer);
+        map.addLayer(availabilityLayer);
         map.addLayer(topicLayers);
         map.addLayer(realEstateLayer);
     });
@@ -177,6 +190,7 @@ const OerebMap = function() {
             <OerebMapQuery map={map} />
             <OerebRealEstateLayer realEstateLayer={realEstateLayer} />
             <OerebTopicLayer topicLayers={topicLayers} />
+            <OerebAvailabilityLayer availabilityLayer={availabilityLayer} />
             <div ref={mapElement} className="oereb-client-map"></div>
         </div>
     );

@@ -1,7 +1,8 @@
 import './legend.scss';
 
+import {Popover} from 'bootstrap';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useSelector} from 'react-redux';
 
 import {getLocalizedText} from '../../util/language';
@@ -75,9 +76,10 @@ const getPart = function(entry) {
 
 const OerebLegend = function(props) {
     const language = useSelector((state) => state.language).current;
+    const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
     const restrictions = props.restrictions;
+    const tableBody = useRef(null);
 
-    console.log(restrictions);
 
     const legendEntries = getLegendEntries(restrictions).map((entry, key) => {
         console.log(entry);
@@ -89,17 +91,30 @@ const OerebLegend = function(props) {
             <tr key={key}>
                 <td>{information}</td>
                 <td>
-                    <img className="oereb-client-symbol"
-                         src={symbolRef}
-                         data-toggle="popover"
-                         data-trigger="hover"
-                         data-content="<img src=&quot;{symbolRef}&quot;>">
-                    </img>
+                    <img className="oereb-client-symbol" src={symbolRef} />
                 </td>
                 <td className="text-end">{part}</td>
                 <td className="text-end">{percent}</td>
             </tr>
         );
+    });
+
+    useEffect(() => {
+        const symbols = tableBody.current.querySelectorAll('.oereb-client-symbol');
+        symbols.forEach((symbol) => {
+            const url = symbol.getAttribute('src');
+            const popover = new Popover(symbol, {
+                content: '<img src="' + url + '" />',
+                html: true,
+                trigger: 'hover'
+            });
+            if (symbolZoomEnabled) {
+                popover.enable();
+            }
+            else {
+                popover.disable();
+            }
+        });
     });
 
     return (
@@ -112,7 +127,7 @@ const OerebLegend = function(props) {
                     <th className="text-end">Anteil in %</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody ref={tableBody}>
                 {legendEntries}
             </tbody>
         </table>

@@ -32,7 +32,7 @@ oereb_client:
 
   # Availability layer
   availability:
-    url: https://geowms.bl.ch
+    url: https://geoview.bl.ch/main/oereb/mapservproxy
     params:
       LAYERS: oereb_published_municipalities
       FORMAT: image/png

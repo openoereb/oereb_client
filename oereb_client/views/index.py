@@ -116,6 +116,7 @@ class Index(object):
             ),
             'view': self.config_.get('view', {}),
             'base_layer': self.config_.get('base_layer', {}),
+            'availability': self.config_.get('availability', {}),
             'logo_canton': self.get_application_config_().get('logo_canton'),
             'logo_oereb': self.get_application_config_().get('logo_oereb'),
             'search': self.config_.get('search', {}),

@@ -6,6 +6,8 @@
 $enable-rounded: false;
 $accordion-button-active-bg: #fff;
 $accordion-button-active-color: #000;
+$popover-body-padding-y: 1px;
+$popover-body-padding-x: 1px;
 
 @import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-icons/font/bootstrap-icons.css";
