@@ -8,6 +8,7 @@ import {addIfNotContains} from '../../util/array';
 import OerebCompleteLegend from '../complete_legend/complete_legend';
 import OerebDocuments from '../documents/documents';
 import OerebLegend from '../legend/legend';
+import OerebResponsibleOffice from '../responsible_office/responsible_office';
 
 const OerebTopic = function(props) {
     const topic = props.topic;
@@ -74,6 +75,7 @@ const OerebTopic = function(props) {
                     <OerebLegend restrictions={restrictions} />
                     <OerebCompleteLegend restrictions={restrictions} />
                     <OerebDocuments restrictions={restrictions} />
+                    <OerebResponsibleOffice restrictions={restrictions} />
                 </div>
             </div>
         </div>

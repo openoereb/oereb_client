@@ -50,16 +50,16 @@ const formatTitle = function(doc, language) {
 };
 
 const formatDocument = function(doc, language) {
-    const articleNumbers = doc['ArticleNumber'].map((number) => 
-        <span>
-            &nbsp;<span class="badge bg-primary">{number}</span>
+    const articleNumbers = doc['ArticleNumber'].map((number, key) =>
+        <span key={key}>
+            &nbsp;<span className="badge bg-primary">{number}</span>
         </span>
     );
-    const urls = doc['TextAtWeb'].map((url) => {
+    const urls = doc['TextAtWeb'].map((url, key) => {
         const localizedUrl = getLocalizedText(url, language);
         return (
-            <li>
-                <a href={localizedUrl} target="_blank">
+            <li key={key}>
+                <a href={localizedUrl} target="_blank" rel="noreferrer">
                     {localizedUrl}
                 </a>
             </li>
@@ -69,7 +69,7 @@ const formatDocument = function(doc, language) {
         <dd className="ms-2">
             <span>{formatTitle(doc, language)}</span>
             {articleNumbers}
-            <ul class="ps-2 mb-2">
+            <ul className="ps-2 mb-2">
                 {urls}
             </ul>
         </dd>
@@ -112,7 +112,7 @@ const OerebDocuments = function(props) {
     const hints = documents['Hint'].map((doc) => formatDocument(doc, language));
 
     return (
-        <dl className="oereb-documents border-top pt-2">
+        <dl className="oereb-documents border-top pt-2 mb-2">
             {getLegalProvisionsTitle()}
             {legalProvisions}
             {getLawsTitle()}
