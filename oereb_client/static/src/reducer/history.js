@@ -4,7 +4,7 @@ import {isEqual} from "lodash";
 export const historySlice = createSlice({
     name: 'history',
     initialState: {
-        key: '',
+        key: 'OerebHistory',
         elements: []
     },
     reducers: {
