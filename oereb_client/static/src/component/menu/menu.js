@@ -72,6 +72,11 @@ const OerebMenu = function() {
         }
     ];
 
+    const resetSearch = function() {
+        setSearch('');
+        setSearchResults([]);
+    };
+
     const handleSearch = function(evt) {
         const searchValue = evt.target.value;
         setSearch(searchValue);
@@ -123,11 +128,9 @@ const OerebMenu = function() {
             });
 
         }
-    };
-
-    const resetSearch = function() {
-        setSearch('');
-        setSearchResults([]);
+        else {
+            resetSearch();
+        }
     };
 
     const searchResultList = searchResults.map((resultSet) => {
