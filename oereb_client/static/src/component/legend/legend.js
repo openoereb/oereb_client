@@ -82,7 +82,6 @@ const OerebLegend = function(props) {
 
 
     const legendEntries = getLegendEntries(restrictions).map((entry, key) => {
-        console.log(entry);
         const information = getLocalizedText(entry['Information'], language);
         const symbolRef = entry['SymbolRef'];
         const part = getPart(entry);

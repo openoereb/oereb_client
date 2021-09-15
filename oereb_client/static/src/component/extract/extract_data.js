@@ -1,3 +1,4 @@
+import {Modal} from 'bootstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {useDispatch} from 'react-redux';
@@ -19,6 +20,23 @@ const OerebExtractData = function(props) {
 
     const extract = props.data;
 
+    const permalinkElement = document.getElementById('permalinkModal');
+    const permalinkInput = permalinkElement.querySelector('input');
+    const permalink = Modal.getOrCreateInstance(permalinkElement);
+
+    if (permalinkElement.getAttribute('data-bs-modal-shown-listener') !== 'true') {
+        permalinkElement.addEventListener('shown.bs.modal', () => {
+            permalinkInput.focus();
+            permalinkInput.select();
+        });
+        permalinkElement.setAttribute('data-bs-modal-shown-listener', 'true');
+    }
+
+    const showPermalink = function() {
+        permalinkInput.value = window.location;
+        permalink.show();
+    };
+
     return (
         <div className="oereb-client-extract data container-fluid d-flex flex-column justify-content-start align-items-stretch">
             <div>
@@ -30,7 +48,7 @@ const OerebExtractData = function(props) {
                     </button>
                 </div>
                 <div className="btn-group float-start" role="group">
-                    <button type="button" className="btn btn-outline-secondary">
+                    <button type="button" className="btn btn-outline-secondary" onClick={showPermalink}>
                         <i className="bi bi-link-45deg"></i>
                     </button>
                     <button type="button" className="btn btn-outline-secondary">
