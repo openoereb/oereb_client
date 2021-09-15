@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-import json
-
 from pyramid.exceptions import ConfigurationError
 from oereb_client import __version__
 
@@ -28,63 +26,6 @@ class Index(object):
         debug = self.request_.params.get('debug') == 'true'
         return local and debug
 
-    def get_application_config_(self):
-        application_config = self.config_.get('application')
-        if not isinstance(application_config, dict):
-            raise ConfigurationError('Missing application configuration')
-        if application_config.get('title') is None:
-            raise ConfigurationError('Missing application title')
-        if application_config.get('logo_canton') is None:
-            raise ConfigurationError('Missing cantonal logo')
-        if application_config.get('logo_oereb') is None:
-            raise ConfigurationError('Missing oereb logo')
-        return application_config
-
-    def get_base_layer_config_(self):
-        """Returns the JSON-encoded configuration for the base layer.
-
-        Returns:
-            str: The JSON-encoded base layer configuration.
-
-        """
-        base_layer_config = self.config_.get('base_layer', {})
-        if not base_layer_config:
-            raise ConfigurationError('Missing base layer configuration')
-        return json.dumps(base_layer_config)
-
-    def get_availability_config_(self):
-        """Returns the JSON-encoded configuration for the availability layer.
-
-        Returns:
-            str: The JSON-encoded availability layer configuration.
-
-        """
-        availability_layer_config = self.config_.get('availability', {})
-        if not availability_layer_config:
-            raise ConfigurationError('Missing availability layer configuration')
-        return json.dumps(availability_layer_config)
-
-    def get_view_config_(self):
-        """Returns the JSON-encoded view configuration.
-
-        Returns:
-            str: The JSON-encoded view configuration.
-
-        """
-        initial_extent_config = self.config_.get('view', {})
-        if not initial_extent_config:
-            raise ConfigurationError('Missing view configuration')
-        return json.dumps(initial_extent_config)
-
-    def get_external_viewer_config_(self):
-        """Returns the JSON-encoded configuration for the external viewer linking.
-
-        Returns:
-            str: The JSON-encoded viewer linking configuration.
-
-        """
-        return json.dumps(self.config_.get('external_viewer', {}))
-
     def get_google_analytics_(self):
         """Returns the configuration for Google Analytics.
 
@@ -110,18 +51,19 @@ class Index(object):
             str: The JSON-encoded configuration.
 
         """
-        return json.dumps({
+        return {
             'application_url': self.request_.route_url(
                 '{0}/index'.format(self.request_.route_prefix)
             ),
+            'application': self.config_.get('application', {}),
+            'version': __version__,
             'view': self.config_.get('view', {}),
             'base_layer': self.config_.get('base_layer', {}),
             'availability': self.config_.get('availability', {}),
-            'logo_canton': self.get_application_config_().get('logo_canton'),
-            'logo_oereb': self.get_application_config_().get('logo_oereb'),
             'search': self.config_.get('search', {}),
-            'support': self.config_.get('support', {})
-        })
+            'support': self.config_.get('support', {}),
+            'external_viewer': self.config_.get('external_viewer', {})
+        }
 
     def render(self):
         """Returns the dictionary with rendering parameters.
@@ -131,15 +73,7 @@ class Index(object):
 
         """
         return {
-            'version': __version__,
-            'title': self.get_application_config_().get('title'),
-            'icon': self.get_application_config_().get('icon'),
-            'local_storage_prefix': self.get_application_config_().get('local_storage_prefix'),
             'debug': self.is_debug_(),
-            'view_config': self.get_view_config_(),
-            'base_layer_config': self.get_base_layer_config_(),
-            'availability_config': self.get_availability_config_(),
-            'external_viewer_config': self.get_external_viewer_config_(),
             'google_analytics': self.get_google_analytics_(),
             'custom_css_url': self.get_custom_css_url_(),
             'config': self.get_config()

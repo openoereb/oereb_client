@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {queryExtractById} from '../../api/extract';
 import {setViewServices} from '../../reducer/accordion';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
+import {updateHistory} from '../../reducer/history';
 import {hide} from '../../reducer/map_query';
 
 const OerebMapQuery = function(props) {
@@ -34,14 +35,11 @@ const OerebMapQuery = function(props) {
     const queryExtract = function(egrid) {
         dispatch(hide());
         dispatch(setViewServices([]));
-        dispatch(loadExtract({
-            egrid: egrid
-        }));
+        dispatch(loadExtract(egrid));
         queryExtractById(applicationUrl, egrid)
         .then((extract) => {
-            dispatch(showExtract({
-                extract: extract
-            }));
+            dispatch(showExtract(extract));
+            dispatch(updateHistory(extract));
         })
         .catch(() => {
             dispatch(showError());

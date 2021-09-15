@@ -16,7 +16,7 @@ export const extractSlice = createSlice({
                 state.loading = true;
                 state.visible = false;
                 state.error = false;
-                state.egrid = action.payload.egrid;
+                state.egrid = action.payload;
                 state.data = {};
                 const query = new URLSearchParams(window.location.search);
                 query.set('egrid', state.egrid);
@@ -27,7 +27,7 @@ export const extractSlice = createSlice({
             state.loading = false;
             state.visible = true;
             state.error = false;
-            state.data = action.payload.extract;
+            state.data = action.payload;
             console.log('Extract loaded', state.data);
         },
         showError: (state) => {

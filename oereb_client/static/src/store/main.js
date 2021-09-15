@@ -4,6 +4,7 @@ import accordionReducer from '../reducer/accordion';
 import availabilityReducer from '../reducer/availability';
 import configReducer from '../reducer/config';
 import extractReducer from '../reducer/extract';
+import historyReducer from '../reducer/history';
 import languageReducer from '../reducer/language';
 import mapQueryReducer from '../reducer/map_query';
 import symbolZoomReducer from '../reducer/symbol_zoom';
@@ -16,7 +17,8 @@ const MainStore = configureStore({
         accordion: accordionReducer,
         language: languageReducer,
         availability: availabilityReducer,
-        symbolZoom: symbolZoomReducer
+        symbolZoom: symbolZoomReducer,
+        history: historyReducer
     }
 });
 

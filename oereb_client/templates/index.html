@@ -1,10 +1,13 @@
+<%
+    import json
+%>
 <!DOCTYPE html>
-<!-- OEREB Client, version ${version} -->
+<!-- OEREB Client, version ${config['version']} -->
 <html lang="de" ng-app="oereb" ng-controller="MainController as ctrl">
     <head>
-        <title>${title}</title>
-        % if icon is not None:
-            <link rel="shortcut icon" type="image/png" href="${icon}"/>
+        <title>${config['application']['title']}</title>
+        % if config['application']['icon'] is not None:
+            <link rel="shortcut icon" type="image/png" href="${config['application']['icon']}"/>
         % endif
         <meta charset="utf-8">
         <meta http-equiv="X-UA-COMPATIBLE" content="IE=9,IE=10,IE=edge,chrome=1" />
@@ -20,151 +23,11 @@
     <body>
 
         <div id="config">
-            ${config | n}
+            ${json.dumps(config) | n}
         </div>
         <div id="app"></div>
 
-        <!-- <div id="map"></div>
-        <oereb-map-query id="map-query"></oereb-map-query>
-        <oereb-information-panel
-                id="information"
-                ng-class="{'active': ctrl.informationActive, 'extract': ctrl.extractActive, 'loading': ctrl.loading}"
-                information-active="ctrl.informationActive">
-        </oereb-information-panel>
-
-        <div id="extract"
-             class="container-fluid"
-             ng-class="{'active': ctrl.extractActive, 'information': ctrl.informationActive, 'loading': ctrl.loading}">
-            <div>
-                <button id="extract-close" type="button" class="btn btn-default pull-right"
-                        ng-click="ctrl.closeExtract()">
-                    <span class="fa fa-fw fa-close"></span>
-                </button>
-                <oereb-extract-menu class="pull-left" perma-link="ctrl.permaLink"></oereb-extract-menu>
-            </div>
-            <div class="row container-fluid extract-wrapper">
-                <div class="fade-top"></div>
-                <oereb-real-estate></oereb-real-estate>
-                <oereb-concerned-theme toggled-group="ctrl.toggledGroup"></oereb-concerned-theme>
-                <oereb-not-concerned-theme toggled-group="ctrl.toggledGroup"></oereb-not-concerned-theme>
-                <oereb-theme-without-data toggled-group="ctrl.toggledGroup"></oereb-theme-without-data>
-                <div class="panel panel-default">
-                    <div class="panel-heading information-panel" role="button" ng-click="ctrl.toggleInformation()">
-                        <h4 class="panel-title">
-                            <span class="badge pull-right">
-                                <span class="fa fa-fw" ng-class="{'fa-chevron-right': !ctrl.informationActive, 'fa-chevron-left': ctrl.informationActive}"></span>
-                            </span>
-                            Allgemeine und rechtliche Informationen
-                        </h4>
-                    </div>
-                </div>
-                <div class="fade-bottom"></div>
-            </div>
-            <div class="container-fluid text-center collapse-extract hidden-lg"
-                 ng-hide="ctrl.extractCollapsed">
-                <button class="btn btn-default" ng-click="ctrl.collapseExtract()">
-                    <span class="fa fa-fw fa-chevron-up"></span>
-                </button>
-            </div>
-        </div>
-
-        <div id="error" ng-class="{'active': ctrl.errorActive, 'loading': ctrl.loading}">
-            <div class="container-fluid">
-                <button id="error-close" type="button" class="btn btn-default pull-right"
-                        ng-click="ctrl.closeExtract()">
-                    <span class="fa fa-fw fa-close"></span>
-                </button>
-            </div>
-            <div class="container-fluid error-wrapper">
-                <h3>
-                    <i class="fa fa-exclamation-circle text-danger" aria-hidden="true"></i>
-                    Auszug fehlgeschlagen
-                </h3>
-                <p>
-                    Bei der Generierung des Auszugs ist ein Fehler aufgetreten.
-                    Bitte versuchen Sie, den Auszug erneut anzufordern.
-                </p>
-                <p>
-                    <button class="btn btn-primary" ng-click="ctrl.retryCallback()">Erneut versuchen</button>
-                </p>
-                <p>
-                    Sollte der Fehler wiederholt auftreten,
-                    kontaktieren Sie bitte die katasterverantwortliche Stelle:
-                    <address>
-                        <strong ng-bind="ctrl.support.office1"></strong><br />
-                        <span ng-if="ctrl.support.office2">
-                            {{ctrl.support.office2}}<br />
-                        </span>
-                        <span ng-if="ctrl.support.street">
-                            {{ctrl.support.street}}<br />
-                        </span>
-                        <span ng-if="ctrl.support.city">
-                            {{ctrl.support.city}}<br />
-                        </span>
-                        <span ng-if="ctrl.support.phone">
-                            <i class="fa fa-phone fa-fw" title="Telefon"></i>
-                            {{ctrl.support.phone}}<br />
-                        </span>
-                        <span ng-if="ctrl.support.email">
-                            <i class="fa fa-envelope fa-fw" title="E-Mail"></i>
-                            <a ng-href="mailto:{{ctrl.support.email}}">{{ctrl.support.email}}</a><br />
-                        </span>
-                    </address>
-                </p>
-            </div>
-        </div>
-
-        <div id="loading-indicator"
-             class="container-fluid text-center"
-             ng-class="{'loading': ctrl.loading}">
-            <h4><i class="fa fa-spinner fa-pulse"></i> Auszug wird generiert...</h4>
-        </div>
-
-        <oereb-search id="search"></oereb-search>
-
-        <div id="expand-extract" class="hidden-lg"
-             ng-class="{'expanded': !ctrl.extractCollapsed}">
-            <button class="btn btn-default" ng-click="ctrl.expandExtract()" ng-show="ctrl.extractCollapsed">
-                <span class="fa fa-fw fa-chevron-down"></span>
-            </button>
-        </div>
-
-        <div id="modal-permalink" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel">Permalink</h4>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" class="form-control" ng-model="ctrl.permaLink">
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
     <script src="${request.static_url('oereb_client:static/build/app.js')}"></script>
-
-    <script>
-        "use strict";
-
-        (function() {
-
-            // var module = angular.module('oereb');
-            // module.constant('oerebApplicationUrl', '${request.route_url('{0}/index'.format(request.route_prefix))}');
-            // module.constant('oerebBaseLayerConfig', '${base_layer_config | n}');
-            // module.constant('oerebViewConfig', '${view_config | n}');
-            // module.constant('oerebAvailabilityConfig', '${availability_config | n}');
-            // module.constant('oerebExternalViewerConfig', '${external_viewer_config | n}');
-            // module.constant('wfsFilterServiceUrl', '${request.route_url('{0}/wfs_filter'.format(request.route_prefix))}');
-            // module.constant('oerebDefaultLanguage', 'de');
-            // module.constant('oerebLocalStoragePrefix', '${local_storage_prefix}')
-
-        })();
-
-    </script>
 
     % if google_analytics:
         <script type="text/javascript">

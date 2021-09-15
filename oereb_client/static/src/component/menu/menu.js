@@ -3,17 +3,23 @@ import './menu.scss';
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
+import {queryExtractById} from '../../api/extract';
 import {sanitzeSearchResult, searchTerm} from '../../api/search';
+import {setViewServices} from '../../reducer/accordion';
 import {showAvailability} from '../../reducer/availability';
+import {loadExtract, showError, showExtract} from '../../reducer/extract';
+import {updateHistory} from '../../reducer/history';
 import {enableSymbolZoom} from '../../reducer/symbol_zoom';
 
 const OerebMenu = function() {
     const config = useSelector((state) => state.config).config;
     const showAvailabilityLayer = useSelector((state) => state.availability).visible;
     const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
+    const history = useSelector((state) => state.history).elements;
     const dispatch = useDispatch();
-    const oerebLogoUrl = config.logo_oereb;
-    const appLogoUrl = config.logo_canton;
+    const oerebLogoUrl = config.application.logo_oereb;
+    const appLogoUrl = config.application.logo_canton;
+    const applicationUrl = config.application_url;
 
     const [search, setSearch] = useState('');
     const [pendingRequests, setPendingRequests] = useState([]);
@@ -212,6 +218,33 @@ const OerebMenu = function() {
         dispatch(enableSymbolZoom(!symbolZoomEnabled));
     }
 
+    const queryExtract = function(egrid) {
+        dispatch(setViewServices([]));
+        dispatch(loadExtract(egrid));
+        queryExtractById(applicationUrl, egrid)
+        .then((extract) => {
+            dispatch(showExtract(extract));
+            dispatch(updateHistory(extract));
+        })
+        .catch(() => {
+            dispatch(showError());
+        });
+    };
+
+    const historyElements = history.map((element, key) =>
+        <li key={key}>
+            <button className="dropdown-item"
+                    onClick={queryExtract.bind(this, element['EGRID'])}>
+                {element['Municipality']} {element['Number']} ({element['EGRID']})
+            </button>
+        </li>
+    );
+
+    let historyButtonClass = 'btn btn-outline-secondary dropdown-toggle';
+    if (history.length < 1) {
+        historyButtonClass += ' disabled';
+    }
+
     return (
         <div className="oereb-client-menu">
             <img className="logo-oereb" src={oerebLogoUrl} />
@@ -237,15 +270,14 @@ const OerebMenu = function() {
                             </button>
                         </li>
                     </ul>
-                    <button className="btn btn-outline-secondary dropdown-toggle"
+                    <button className={historyButtonClass}
                             type="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false">
                         <i className="bi bi-clock-history"></i>
                     </button>
                     <ul className="dropdown-menu">
-                        <li><a className="dropdown-item" href="#">Action</a></li>
-                        <li><a className="dropdown-item" href="#">Another action</a></li>
+                        {historyElements}
                     </ul>
                     <input type="text"
                             className="form-control"

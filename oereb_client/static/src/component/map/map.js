@@ -19,6 +19,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {queryEgridByCoord} from '../../api/egrid';
 import {queryExtractById} from '../../api/extract';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
+import {updateHistory} from '../../reducer/history';
 import {hide, loadAt, show} from '../../reducer/map_query';
 import OerebAvailabilityLayer from '../availability_layer/availability_layer';
 import OerebMapQuery from '../map_query/map_query';
@@ -163,14 +164,11 @@ const OerebMap = function() {
             else if (results.length === 1) {
                 const egrid = results[0].egrid;
                 dispatch(hide());
-                dispatch(loadExtract({
-                    egrid: egrid
-                }));
+                dispatch(loadExtract(egrid));
                 queryExtractById(applicationUrl, egrid)
                 .then((extract) => {
-                    dispatch(showExtract({
-                        extract: extract
-                    }));
+                    dispatch(showExtract(extract));
+                    dispatch(updateHistory(extract));
                 })
                 .catch(() => {
                     dispatch(showError());

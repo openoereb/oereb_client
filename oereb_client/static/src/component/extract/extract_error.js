@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {queryExtractById} from '../../api/extract';
 import {hideExtract, loadExtract, showError, showExtract} from '../../reducer/extract';
+import {updateHistory} from '../../reducer/history';
 
 const OerebExtractError = function() {
     const dispatch = useDispatch();
@@ -59,14 +60,11 @@ const OerebExtractError = function() {
     };
 
     const retryExtract = function() {
-        dispatch(loadExtract({
-            egrid: extract.egrid
-        }));
+        dispatch(loadExtract(extract.egrid));
         queryExtractById(applicationUrl, extract.egrid)
         .then((data) => {
-            dispatch(showExtract({
-                extract: data
-            }));
+            dispatch(showExtract(data));
+            dispatch(updateHistory(data));
         })
         .catch(() => {
             dispatch(showError());
