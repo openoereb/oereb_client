@@ -1,6 +1,6 @@
 import './extract.scss';
 
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useSelector} from 'react-redux';
 
 import OerebExtractData from './extract_data';
@@ -9,31 +9,45 @@ import OerebExtractLoading from './extract_loading';
 
 const OerebExtract = function() {
     const extract = useSelector((state) => state.extract);
+    const wrapper = useRef(null);
 
-    const getContent = function(cfg) {
-        if (cfg.loading) {
+    const content = (() => {
+        if (extract.loading) {
             return (
                 <OerebExtractLoading />
             );
         }
-        else if (cfg.error) {
+        else if (extract.error) {
             return (
                 <OerebExtractError />
             );
         }
-        else if (cfg.visible) {
+        else if (extract.visible) {
             return (
                 <OerebExtractData data={extract.data.GetExtractByIdResponse.extract} />
             );
         }
+        return null;
+    })();
 
-            return (
-                <div className="oereb-client-extract hidden"></div>
-            );
+    useEffect(() => {
+        wrapper.current.classList.remove('hidden', 'loading', 'shown');
+        if (extract.loading) {
+            wrapper.current.classList.add('loading');
+        }
+        else if (extract.visible || extract.error) {
+            wrapper.current.classList.add('shown');
+        }
+        else {
+            wrapper.current.classList.add('hidden');
+        }
+    });
 
-    }
-
-    return getContent(extract);
+    return (
+        <div ref={wrapper} className="oereb-client-extract-wrapper">
+            {content}
+        </div>
+    );
 };
 
 export default OerebExtract;
