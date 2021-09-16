@@ -35,7 +35,10 @@ const OerebMapQuery = function(props) {
     const queryExtract = function(egrid) {
         dispatch(hide());
         dispatch(setViewServices([]));
-        dispatch(loadExtract(egrid));
+        dispatch(loadExtract({
+            egrid: egrid,
+            zoom: false
+        }));
         queryExtractById(applicationUrl, egrid)
         .then((extract) => {
             dispatch(showExtract(extract));

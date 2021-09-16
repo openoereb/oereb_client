@@ -48,7 +48,7 @@ const OerebExtractData = function(props) {
                     </button>
                 </div>
                 <div className="btn-group float-start" role="group">
-                    <button type="button" className="btn btn-outline-secondary" onClick={showPermalink}>
+                    <button type="button" className="btn btn-outline-secondary" onClick={showPermalink} title="Permalink">
                         <i className="bi bi-link-45deg"></i>
                     </button>
                     <button type="button" className="btn btn-outline-secondary">
@@ -56,6 +56,9 @@ const OerebExtractData = function(props) {
                     </button>
                     <button type="button" className="btn btn-outline-secondary">
                         <i className="bi bi-file-earmark-pdf"></i>
+                    </button>
+                    <button type="button" className="btn btn-outline-secondary">
+                        <i className="bi bi-info-square"></i>
                     </button>
                 </div>
             </div>

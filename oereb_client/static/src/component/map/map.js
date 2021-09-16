@@ -164,7 +164,10 @@ const OerebMap = function() {
             else if (results.length === 1) {
                 const egrid = results[0].egrid;
                 dispatch(hide());
-                dispatch(loadExtract(egrid));
+                dispatch(loadExtract({
+                    egrid: egrid,
+                    zoom: false
+                }));
                 queryExtractById(applicationUrl, egrid)
                 .then((extract) => {
                     dispatch(showExtract(extract));
@@ -186,7 +189,7 @@ const OerebMap = function() {
     return (
         <div>
             <OerebMapQuery map={map} />
-            <OerebRealEstateLayer realEstateLayer={realEstateLayer} />
+            <OerebRealEstateLayer map={map} realEstateLayer={realEstateLayer} />
             <OerebTopicLayer topicLayers={topicLayers} />
             <OerebAvailabilityLayer availabilityLayer={availabilityLayer} />
             <div ref={mapElement} className="oereb-client-map"></div>

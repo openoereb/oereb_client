@@ -31,7 +31,10 @@ const App = function(props) {
 
     if (query.has('egrid')) {
         const egrid = query.get('egrid');
-        dispatch(loadExtract(egrid));
+        dispatch(loadExtract({
+            egrid: egrid,
+            zoom: true
+        }));
         queryExtractById(config.application_url, egrid)
         .then((extract) => {
             dispatch(showExtract(extract));

@@ -60,7 +60,10 @@ const OerebExtractError = function() {
     };
 
     const retryExtract = function() {
-        dispatch(loadExtract(extract.egrid));
+        dispatch(loadExtract({
+            egrid: extract.egrid,
+            zoom: true
+        }));
         queryExtractById(applicationUrl, extract.egrid)
         .then((data) => {
             dispatch(showExtract(data));

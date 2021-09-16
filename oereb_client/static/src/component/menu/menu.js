@@ -164,6 +164,7 @@ const OerebMenu = function() {
             return (
                 <button className="btn btn-outline-secondary"
                         type="button"
+                        title="Suche zurücksetzen"
                         disabled>
                     <i className="bi bi-trash"></i>
                 </button>
@@ -178,15 +179,14 @@ const OerebMenu = function() {
                 </button>
             );
         }
-
-            return (
-                <button onClick={resetSearch}
-                        className="btn btn-outline-secondary"
-                        type="button">
-                    <i className="bi bi-trash"></i>
-                </button>
-            );
-
+        return (
+            <button onClick={resetSearch}
+                    className="btn btn-outline-secondary"
+                    title="Suche zurücksetzen"
+                    type="button">
+                <i className="bi bi-trash"></i>
+            </button>
+        );
     };
 
     const searchResetButton = getSearchResetButton();
@@ -223,7 +223,10 @@ const OerebMenu = function() {
 
     const queryExtract = function(egrid) {
         dispatch(setViewServices([]));
-        dispatch(loadExtract(egrid));
+        dispatch(loadExtract({
+            egrid: egrid,
+            zoom: true
+        }));
         queryExtractById(applicationUrl, egrid)
         .then((extract) => {
             dispatch(showExtract(extract));
@@ -258,7 +261,8 @@ const OerebMenu = function() {
                     <button className="btn btn-outline-secondary dropdown-toggle"
                             type="button"
                             data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                            aria-expanded="false"
+                            title="Einstellungen">
                         <i className="bi bi-gear-fill"></i>
                     </button>
                     <ul className="dropdown-menu">
@@ -276,7 +280,8 @@ const OerebMenu = function() {
                     <button className={historyButtonClass}
                             type="button"
                             data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                            aria-expanded="false"
+                            title="Verlauf">
                         <i className="bi bi-clock-history"></i>
                     </button>
                     <ul className="dropdown-menu">

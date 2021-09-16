@@ -4,6 +4,7 @@ export const extractSlice = createSlice({
     name: 'extract',
     initialState: {
         loading: false,
+        zoom: false,
         visible: false,
         error: false,
         egrid: null,
@@ -16,7 +17,8 @@ export const extractSlice = createSlice({
                 state.loading = true;
                 state.visible = false;
                 state.error = false;
-                state.egrid = action.payload;
+                state.egrid = action.payload.egrid;
+                state.zoom = action.payload.zoom;
                 state.data = {};
                 const query = new URLSearchParams(window.location.search);
                 query.set('egrid', state.egrid);
@@ -32,6 +34,7 @@ export const extractSlice = createSlice({
         },
         showError: (state) => {
             state.loading = false;
+            state.zoom = false;
             state.visible = false;
             state.error = true;
             state.data = {};
@@ -42,6 +45,7 @@ export const extractSlice = createSlice({
         },
         hideExtract: (state) => {
             state.loading = false;
+            state.zoom = false;
             state.visible = false;
             state.error = false;
             state.egrid = null;
