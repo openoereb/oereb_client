@@ -10,6 +10,7 @@ import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {initHistory, setHistoryPrefix, updateHistory} from '../../reducer/history';
 import {initSymbolZoom, setSymbolZoomPrefix} from '../../reducer/symbol_zoom';
 import OerebExtract from '../extract/extract';
+import OerebInformationPanel from '../information_panel/information_panel';
 import OerebMap from '../map/map';
 import OerebMenu from '../menu/menu';
 
@@ -48,6 +49,7 @@ const App = function(props) {
     return (
         <div>
             <OerebMap />
+            <OerebInformationPanel />
             <OerebExtract />
             <OerebMenu />
         </div>

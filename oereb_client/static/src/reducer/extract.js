@@ -8,6 +8,8 @@ export const extractSlice = createSlice({
         visible: false,
         error: false,
         egrid: null,
+        information: false,
+        tab: 0,
         data: {}
     },
     reducers: {
@@ -17,6 +19,8 @@ export const extractSlice = createSlice({
                 state.loading = true;
                 state.visible = false;
                 state.error = false;
+                state.information = false;
+                state.tab = 0;
                 state.egrid = action.payload.egrid;
                 state.zoom = action.payload.zoom;
                 state.data = {};
@@ -29,6 +33,8 @@ export const extractSlice = createSlice({
             state.loading = false;
             state.visible = true;
             state.error = false;
+            state.information = false;
+            state.tab = 0;
             state.data = action.payload;
             console.log('Extract loaded', state.data);
         },
@@ -37,6 +43,8 @@ export const extractSlice = createSlice({
             state.zoom = false;
             state.visible = false;
             state.error = true;
+            state.information = false;
+            state.tab = 0;
             state.data = {};
             const query = new URLSearchParams(window.location.search);
             query.delete('egrid');
@@ -49,15 +57,33 @@ export const extractSlice = createSlice({
             state.visible = false;
             state.error = false;
             state.egrid = null;
+            state.information = false;
+            state.tab = 0;
             state.data = {};
             const query = new URLSearchParams(window.location.search);
             query.delete('egrid');
             window.history.pushState(null, null, '?' + query.toString());
             console.log('Extract closed');
+        },
+        toggleInformationPanel: (state) => {
+            state.information = !state.information;
+            if (state.information) {
+                state.tab = 0;
+            }
+        },
+        setInformationPanelTab: (state, action) => {
+            state.tab = action.payload;
         }
     }
 });
 
-export const {loadExtract, showExtract, showError, hideExtract} = extractSlice.actions;
+export const {
+    loadExtract,
+    showExtract,
+    showError,
+    hideExtract,
+    toggleInformationPanel,
+    setInformationPanelTab
+} = extractSlice.actions;
 
 export default extractSlice.reducer;

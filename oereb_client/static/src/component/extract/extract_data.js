@@ -3,7 +3,7 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 
 import {setActiveCategory, setActiveTopic, setViewServices} from '../../reducer/accordion';
-import {hideExtract} from '../../reducer/extract';
+import {hideExtract, toggleInformationPanel} from '../../reducer/extract';
 import OerebCategory from '../category/category';
 import OerebExternalViewer from '../external_viewer/external_viewer';
 import OerebPermalink from '../permalink/permalink';
@@ -22,6 +22,10 @@ const OerebExtractData = function(props) {
 
     const extract = props.data;
 
+    const toggleInfo = function() {
+        dispatch(toggleInformationPanel());
+    };
+
     return (
         <div className="oereb-client-extract data container-fluid d-flex flex-column justify-content-start align-items-stretch">
             <div>
@@ -36,7 +40,10 @@ const OerebExtractData = function(props) {
                     <OerebPermalink />
                     <OerebExternalViewer />
                     <OerebStaticExtract />
-                    <button type="button" className="btn btn-outline-secondary">
+                    <button type="button"
+                            className="btn btn-outline-secondary"
+                            title="Allgemeine und rechtliche Informationen"
+                            onClick={toggleInfo}>
                         <i className="bi bi-info-square"></i>
                     </button>
                 </div>
