@@ -1,30 +1,33 @@
 import "./information_panel.scss";
 
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {setInformationPanelTab, toggleInformationPanel} from "../../reducer/extract";
-import OerebExclusionOfLiability from "./exclusion_of_liability";
 import OerebGeneralInformation from "./general_information";
-import OerebGlossary from "./glossary";
+import OerebMultilingualCatalog from "./multilingual_catalog";
 
 const OerebInformationPanel = function() {
     const dispatch = useDispatch();
     const extract = useSelector((state) => state.extract);
     const panel = useRef(null);
+    const [search, setSearch] = useState(null);
 
     const tabs = [
         {
             title: 'Allgemein',
-            content: <OerebGeneralInformation />
+            content: <OerebGeneralInformation />,
+            search: false
         },
         {
             title: 'Haftungsausschluss',
-            content: <OerebExclusionOfLiability />
+            content: <OerebMultilingualCatalog catalog="ExclusionOfLiability" search={search} />,
+            search: true
         },
         {
             title: 'Glossar',
-            content: <OerebGlossary />
+            content: <OerebMultilingualCatalog catalog="Glossary" search={search} />,
+            search: true
         }
     ];
 
@@ -55,6 +58,20 @@ const OerebInformationPanel = function() {
         );
     });
 
+    const handleSearch = function(evt) {
+        setSearch(evt.target.value);
+    }
+
+    let searchInput = null;
+    if (tabs[extract.tab].search) {
+        searchInput =
+            <div className="ms-4">
+                <input className="form-control"
+                       placeholder="Begriff suchen..."
+                       onChange={handleSearch} />
+            </div>;
+    }
+
     useEffect(() => {
         panel.current.classList.remove('disabled', 'hidden', 'shown');
         if (extract.visible) {
@@ -71,16 +88,19 @@ const OerebInformationPanel = function() {
     });
 
     return (
-        <div ref={panel} className="oereb-client-information-panel container-fluid">
+        <div ref={panel} className="oereb-client-information-panel container-fluid d-flex flex-column">
             <ul className="nav nav-tabs mb-4">
                 {tabElements}
+                {searchInput}
                 <li className="nav-item ms-auto">
                     <button className="nav-link text-body" onClick={togglePanel}>
                         <i className="bi bi-x-lg"></i>
                     </button>
                 </li>
             </ul>
-            {content}
+            <div className="flex-grow-1 content-wrapper">
+                {content}
+            </div>
         </div>
     );
 };

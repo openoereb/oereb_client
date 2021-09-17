@@ -30,6 +30,10 @@ div.oereb-client-information-panel {
             }
         }
     }
+
+    div.content-wrapper {
+        overflow-y: auto;
+    }
 }
 
 div.oereb-client-information-panel.disabled {
