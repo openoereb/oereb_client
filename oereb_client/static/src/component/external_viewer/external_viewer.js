@@ -1,4 +1,4 @@
-import {isArray} from "lodash";
+import {isArray, isObject, isString} from "lodash";
 import React from "react";
 import {useSelector} from "react-redux";
 
@@ -7,6 +7,15 @@ import {format} from "../../util/string";
 const OerebExternalViewer = function() {
     const config = useSelector((state) => state.config).config;
     const extract = useSelector((state) => state.extract);
+
+    const validConfig =
+        isObject(config['external_viewer']) &&
+        isString(config['external_viewer']['tooltip']) &&
+        isString(config['external_viewer']['url']);
+
+    if (!validConfig) {
+        return null;
+    }
 
     const title = config['external_viewer']['tooltip'];
 

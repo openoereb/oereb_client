@@ -36,6 +36,7 @@ class Sample(object):
         return HTTPServerError('An error occurred.')
 
     def get_sample_pdf(self):
+        time.sleep(2)
         with open(pkg_resources.resource_filename('samples', 'static/sample.pdf'), 'rb') as f:
             content = f.read()
         response = self._request.response
