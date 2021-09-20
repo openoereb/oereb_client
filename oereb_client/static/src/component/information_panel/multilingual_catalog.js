@@ -24,7 +24,7 @@ const OerebMultilingualCatalog = function(props) {
     const highlight = function(item, highlight) {
         const parts = item.split(new RegExp(`(${highlight})`, 'gi')).map((part, key) => {
             if (part.toLocaleLowerCase() === highlight.toLocaleLowerCase()) {
-                return <mark key={key}>{part}</mark>;
+                return <mark className="ps-0 pe-0" key={key}>{part}</mark>;
             }
             return <span key={key}>{part}</span>;
         });
