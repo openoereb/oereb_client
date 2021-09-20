@@ -31,13 +31,20 @@ div.oereb-client-information-panel {
         }
     }
 
+    ul.nav-pills {
+        button.nav-link:hover,
+        button.nav-link.active {
+            background-color: #ff0000;
+        }
+    }
+
     div.content-wrapper {
         overflow-y: auto;
     }
 }
 
 div.oereb-client-information-panel.disabled {
-    display: none;
+    display: none !important;
     margin-left: -100%;
     box-shadow: none;
 }
@@ -52,4 +59,11 @@ div.oereb-client-information-panel.shown {
     display: block;
     margin-left: 0;
     box-shadow: $default-shadow;
+}
+
+@include media-breakpoint-down(xl) {
+    div.oereb-client-information-panel {
+        z-index: 1000;
+        padding-left: 2 * $default-padding;
+    }
 }

@@ -252,10 +252,15 @@ const OerebMenu = function() {
     }
 
     return (
-        <div className="oereb-client-menu">
-            <img className="logo-oereb" src={oerebLogoUrl} />
-            <img className="logo-app" src={appLogoUrl} />
-            <div className="clearfix"></div>
+        <div className="oereb-client-menu d-flex flex-column pb-3">
+            <div className="flex-grow-1 row justify-content-evenly">
+                <div className="col">
+                    <img className="img-fluid p-2" src={oerebLogoUrl} />
+                </div>
+                <div className="col text-end">
+                    <img className="img-fluid p-2" src={appLogoUrl} />
+                </div>
+            </div>
             <div className="container-fluid">
                 <div className="input-group">
                     <button className="btn btn-outline-secondary dropdown-toggle"

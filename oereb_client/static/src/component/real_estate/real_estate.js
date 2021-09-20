@@ -11,11 +11,13 @@ const OerebRealEstate = function(props) {
     return (
         <div className="container-fluid mt-3">
             <h5 >Grundtück {number} in {municipality}</h5>
-            <div className="row">
-                <div className="col-sm-3"><strong>E-GRID:</strong></div>
-                <div className="col-sm-9">{egrid}</div>
-                <div className="col-sm-3"><strong>Fläche:</strong></div>
-                <div className="col-sm-9">{area} m²</div>
+            <div className="row row-cols-2">
+                <div className="col-3"><strong>E-GRID:</strong></div>
+                <div className="col-9">{egrid}</div>
+            </div>
+            <div className="row row-cols-2">
+                <div className="col-3"><strong>Fläche:</strong></div>
+                <div className="col-9">{area} m²</div>
             </div>
         </div>
     );

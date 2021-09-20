@@ -64,13 +64,55 @@ const OerebInformationPanel = function() {
 
     let searchInput = null;
     if (tabs[extract.tab].search) {
-        searchInput =
-            <div className="ms-4">
-                <input className="form-control"
-                       placeholder="Begriff suchen..."
-                       onChange={handleSearch} />
-            </div>;
+        if (document.body.offsetWidth < 1200) {
+            searchInput =
+                <div className="mt-2">
+                    <input className="form-control"
+                        placeholder="Begriff suchen..."
+                        onChange={handleSearch} />
+                </div>;
+        }
+        else {
+            searchInput =
+                <div className="ms-4">
+                    <input className="form-control"
+                        placeholder="Begriff suchen..."
+                        onChange={handleSearch} />
+                </div>;
+        }
     }
+
+    const nav = (() => {
+        if (document.body.offsetWidth < 1200) {
+            return (
+                <div className="mb-4">
+                    <div className="d-flex">
+                        <ul className="nav nav-pills nav-justified flex-column">
+                            {tabElements}
+                        </ul>
+                        <div className="flex-grow-1 text-end ms-4">
+                            <button className="btn btn-outline-secondary text-body"
+                                    onClick={togglePanel}>
+                                <i className="bi bi-x-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    {searchInput}
+                </div>
+            );
+        }
+        return (
+            <ul className="nav nav-tabs mb-4">
+                {tabElements}
+                {searchInput}
+                <li className="nav-item ms-auto">
+                    <button className="nav-link text-body" onClick={togglePanel}>
+                        <i className="bi bi-x-lg"></i>
+                    </button>
+                </li>
+            </ul>
+        );
+    })();
 
     useEffect(() => {
         panel.current.classList.remove('disabled', 'hidden', 'shown');
@@ -89,15 +131,7 @@ const OerebInformationPanel = function() {
 
     return (
         <div ref={panel} className="oereb-client-information-panel container-fluid d-flex flex-column">
-            <ul className="nav nav-tabs mb-4">
-                {tabElements}
-                {searchInput}
-                <li className="nav-item ms-auto">
-                    <button className="nav-link text-body" onClick={togglePanel}>
-                        <i className="bi bi-x-lg"></i>
-                    </button>
-                </li>
-            </ul>
+            {nav}
             <div className="flex-grow-1 content-wrapper">
                 {content}
             </div>

@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import {setActiveCategory, setActiveTopic, setViewServices} from '../../reducer/accordion';
-import {hideExtract, toggleInformationPanel} from '../../reducer/extract';
+import {hideExtract, toggleCollapsed, toggleInformationPanel} from '../../reducer/extract';
 import OerebCategory from '../category/category';
 import OerebExternalViewer from '../external_viewer/external_viewer';
 import OerebPermalink from '../permalink/permalink';
 import OerebRealEstate from '../real_estate/real_estate';
 import OerebStaticExtract from '../static_extract/static_extract';
 
-const OerebExtractData = function(props) {
+const OerebExtractData = function() {
+    const extract = useSelector((state) => state.extract);
     const dispatch = useDispatch();
 
     const closeExtract = function() {
@@ -20,16 +20,39 @@ const OerebExtractData = function(props) {
         dispatch(hideExtract());
     };
 
-    const extract = props.data;
+    const extractData = extract.data['GetExtractByIdResponse']['extract'];
+    const collapsed = extract.collapsed;
 
     const toggleInfo = function() {
         dispatch(toggleInformationPanel());
     };
 
+    const collapseExtract = function() {
+        dispatch(toggleCollapsed());
+    };
+
+    const collapseButton = (() => {
+        let title = 'Auszug ausblenden';
+        let iconClass = 'bi bi-chevron-up';
+        if (collapsed) {
+            title = 'Auszug einblenden';
+            iconClass = 'bi bi-chevron-down';
+        }
+        return (
+            <button type="button"
+                    className="btn btn-outline-secondary collapse-extract"
+                    title={title}
+                    onClick={collapseExtract}>
+                <i className={iconClass}></i>
+            </button>
+        );
+    })();
+
     return (
         <div className="oereb-client-extract data container-fluid d-flex flex-column justify-content-start align-items-stretch">
             <div>
-                <div className="float-end">
+                <div className="btn-group float-end" role="group">
+                    {collapseButton}
                     <button onClick={closeExtract}
                             className="btn btn-outline-secondary"
                             type="button">
@@ -48,18 +71,14 @@ const OerebExtractData = function(props) {
                     </button>
                 </div>
             </div>
-            <OerebRealEstate data={extract.RealEstate} />
-            <div className="accordion accordion-flush flex-grow-1 mt-1">
-                <OerebCategory title="Betroffene Themen" data={extract.ConcernedTheme} restriction={true} />
-                <OerebCategory title="Nicht betroffene Themen" data={extract.NotConcernedTheme} restriction={false} />
-                <OerebCategory title="Nicht verfügbare Themen" data={extract.ThemeWithoutData} restriction={false} />
+            <OerebRealEstate data={extractData.RealEstate} />
+            <div className="accordion accordion-flush flex-grow-1 mt-1 mb-2">
+                <OerebCategory title="Betroffene Themen" data={extractData.ConcernedTheme} restriction={true} />
+                <OerebCategory title="Nicht betroffene Themen" data={extractData.NotConcernedTheme} restriction={false} />
+                <OerebCategory title="Nicht verfügbare Themen" data={extractData.ThemeWithoutData} restriction={false} />
             </div>
         </div>
     )
-};
-
-OerebExtractData.propTypes = {
-    data: PropTypes.object.isRequired
 };
 
 export default OerebExtractData;

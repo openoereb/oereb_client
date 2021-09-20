@@ -24,6 +24,10 @@ const OerebGeneralInformation = function() {
     const authorityStreet = authority['Street'] + ' ' + authority['Number'];
     const authorityCity = authority['PostalCode'] + ' ' + authority['City'];
     const authorityUrl = authority['OfficeAtWeb'];
+    let authorityFlexClass = 'd-flex g-0';
+    if (document.body.offsetWidth < 1200) {
+        authorityFlexClass += ' flex-column';
+    }
 
     const baseData = getLocalizedText(
         extract.data['GetExtractByIdResponse']['extract']['BaseData'],
@@ -37,11 +41,15 @@ const OerebGeneralInformation = function() {
 
     const federalLogo = extract.data['GetExtractByIdResponse']['extract']['FederalLogoRef'];
     const municipalityLogo = extract.data['GetExtractByIdResponse']['extract']['MunicipalityLogoRef'];
+    let logosFlexClass = 'card-text d-flex align-items-center';
+    if (document.body.offsetWidth < 1200) {
+        logosFlexClass += ' flex-column';
+    }
 
     return (
         <div className="container-fluid">
             <div className="card">
-                <div className="d-flex g-0">
+                <div className={authorityFlexClass}>
                     <div>
                         <div className="card-body">
                             <h5 className="card-title">Katasterverantwortliche Stelle</h5>
@@ -85,7 +93,7 @@ const OerebGeneralInformation = function() {
                     <div>
                         <div className="card-body">
                             <h5 className="card-title">Weiterhin an diesem Auszug beteilig sind</h5>
-                            <div className="card-text d-flex align-items-center">
+                            <div className={logosFlexClass}>
                                 <img src={federalLogo} className="img-fluid" />
                                 <img src={municipalityLogo} className="img-fluid" />
                             </div>

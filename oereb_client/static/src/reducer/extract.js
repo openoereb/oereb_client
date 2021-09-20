@@ -6,6 +6,7 @@ export const extractSlice = createSlice({
         loading: false,
         zoom: false,
         visible: false,
+        collapsed: false,
         error: false,
         egrid: null,
         information: false,
@@ -18,6 +19,7 @@ export const extractSlice = createSlice({
             if (!state.loading) {
                 state.loading = true;
                 state.visible = false;
+                state.collapsed = false;
                 state.error = false;
                 state.information = false;
                 state.tab = 0;
@@ -32,6 +34,7 @@ export const extractSlice = createSlice({
         showExtract: (state, action) => {
             state.loading = false;
             state.visible = true;
+            state.collapsed = false;
             state.error = false;
             state.information = false;
             state.tab = 0;
@@ -42,6 +45,7 @@ export const extractSlice = createSlice({
             state.loading = false;
             state.zoom = false;
             state.visible = false;
+            state.collapsed = false;
             state.error = true;
             state.information = false;
             state.tab = 0;
@@ -55,6 +59,7 @@ export const extractSlice = createSlice({
             state.loading = false;
             state.zoom = false;
             state.visible = false;
+            state.collapsed = false;
             state.error = false;
             state.egrid = null;
             state.information = false;
@@ -64,6 +69,9 @@ export const extractSlice = createSlice({
             query.delete('egrid');
             window.history.pushState(null, null, '?' + query.toString());
             console.log('Extract closed');
+        },
+        toggleCollapsed: (state) => {
+            state.collapsed = !state.collapsed;
         },
         toggleInformationPanel: (state) => {
             state.information = !state.information;
@@ -82,6 +90,7 @@ export const {
     showExtract,
     showError,
     hideExtract,
+    toggleCollapsed,
     toggleInformationPanel,
     setInformationPanelTab
 } = extractSlice.actions;

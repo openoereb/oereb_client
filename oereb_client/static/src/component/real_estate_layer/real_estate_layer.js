@@ -18,7 +18,7 @@ const OerebRealEstateLayer = function(props) {
         if (zoom) {
             let padding = [10, 10, 10, 500];
             if (document.body.offsetWidth < 1200) {
-                padding = [130, 10, 10, 10];
+                padding = [190, 10, 10, 10];
             }
             map.getView().fit(geometry, {
                 padding: padding

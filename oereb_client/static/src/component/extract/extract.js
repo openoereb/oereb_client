@@ -24,15 +24,18 @@ const OerebExtract = function() {
         }
         else if (extract.visible) {
             return (
-                <OerebExtractData data={extract.data.GetExtractByIdResponse.extract} />
+                <OerebExtractData />
             );
         }
         return null;
     })();
 
     useEffect(() => {
-        wrapper.current.classList.remove('hidden', 'loading', 'shown');
-        if (extract.loading) {
+        wrapper.current.classList.remove('hidden', 'loading', 'shown', 'collapsed');
+        if (extract.collapsed) {
+            wrapper.current.classList.add('collapsed');
+        }
+        else if (extract.loading) {
             wrapper.current.classList.add('loading');
         }
         else if (extract.visible || extract.error) {

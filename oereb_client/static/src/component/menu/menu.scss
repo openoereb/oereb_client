@@ -4,29 +4,12 @@ div.oereb-client-menu {
     position: fixed;
     top: 0;
     left: 0;
-    width: $menu-with;
-    max-width: 100%;
+    width: 100%;
     height: $header-height;
     background-color: $menu-background-color;
 
-    img.logo-oereb,
-    img.logo-app {
-        position: relative;
-        border: none;
-        width: 45%;
-        max-width: 300px;
-        padding-top: $logo-padding;
-        padding-bottom: $logo-padding;
-    }
-
-    img.logo-oereb {
-        float: left;
-        padding-left: $logo-padding;
-    }
-
-    img.logo-app {
-        float: right;
-        padding-right: $logo-padding;
+    img {
+        max-height: 76px;
     }
 
     div.result-list {
@@ -41,5 +24,11 @@ div.oereb-client-menu {
         div.list-group-item {
             border-top-width: 0px;
         }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    div.oereb-client-menu {
+        width: $menu-with;
     }
 }
