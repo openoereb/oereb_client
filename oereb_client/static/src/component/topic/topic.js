@@ -1,4 +1,5 @@
 import {Collapse} from 'bootstrap';
+import LayerGroup from 'ol/layer/Group';
 import PropTypes from 'prop-types';
 import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -16,7 +17,9 @@ const OerebTopic = function(props) {
     const collapseEl = useRef(null);
     const collapseButton = useRef(null);
     const [active, setActive] = useState(false);
+    const [opacity, setOpacity] = useState(100);
     const activeTopic = useSelector((state) => state.accordion).topic;
+    const topicLayers = useSelector((state) => state.map).topicLayers;
     const dispatch = useDispatch();
 
     const viewServices = [];
@@ -45,6 +48,12 @@ const OerebTopic = function(props) {
         }
     });
 
+    useEffect(() => {
+        if (topicLayers instanceof LayerGroup) {
+            topicLayers.setOpacity(opacity / 100);
+        }
+    });
+
     const toggle = function() {
         if (activeTopic === collapseEl.current) {
             setActive(!active);
@@ -58,6 +67,10 @@ const OerebTopic = function(props) {
         }
     }
 
+    const handleOpacity = function(evt) {
+        setOpacity(evt.target.value);
+    };
+
     return (
         <div className="accordion-item">
             <h2 className="accordion-header">
@@ -70,6 +83,22 @@ const OerebTopic = function(props) {
             </h2>
             <div className="accordion-collapse collapse" ref={collapseEl}>
                 <div className="accordion-body">
+                    <div className="row align-items-center mb-2">
+                        <div className="col-3">
+                            <small>Deckkraft:</small>
+                        </div>
+                        <div className="col-2 pe-2 text-end">
+                            <small>{opacity}%</small>
+                        </div>
+                        <div className="col-7">
+                            <input type="range"
+                                className="form-range align-middle"
+                                min="0"
+                                max="100"
+                                value={opacity}
+                                onChange={handleOpacity} />
+                        </div>
+                    </div>
                     <OerebLegend restrictions={restrictions} />
                     <OerebCompleteLegend restrictions={restrictions} />
                     <OerebDocuments restrictions={restrictions} />

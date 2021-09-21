@@ -6,12 +6,14 @@ import configReducer from '../reducer/config';
 import extractReducer from '../reducer/extract';
 import historyReducer from '../reducer/history';
 import languageReducer from '../reducer/language';
+import mapReducer from '../reducer/map';
 import mapQueryReducer from '../reducer/map_query';
 import symbolZoomReducer from '../reducer/symbol_zoom';
 
 const MainStore = configureStore({
     reducer: {
         config: configReducer,
+        map: mapReducer,
         mapQuery: mapQueryReducer,
         extract: extractReducer,
         accordion: accordionReducer,

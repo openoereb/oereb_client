@@ -20,6 +20,7 @@ import {queryEgridByCoord} from '../../api/egrid';
 import {queryExtractById} from '../../api/extract';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
+import {setMap} from '../../reducer/map';
 import {hide, loadAt, show} from '../../reducer/map_query';
 import OerebAvailabilityLayer from '../availability_layer/availability_layer';
 import OerebMapQuery from '../map_query/map_query';
@@ -100,8 +101,6 @@ const OerebMap = function() {
         })
     });
 
-    console.log(availabilityLayer);
-
     // Create group for topic layers
     const topicLayers = new LayerGroup({
         layers: new Collection([]),
@@ -133,6 +132,10 @@ const OerebMap = function() {
         map.addLayer(availabilityLayer);
         map.addLayer(topicLayers);
         map.addLayer(realEstateLayer);
+        dispatch(setMap({
+            map: map,
+            topicLayers: topicLayers
+        }));
     });
 
     useEffect(() => {
