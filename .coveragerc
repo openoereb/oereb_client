@@ -3,3 +3,4 @@ omit =
     test/*
     samples/*
     */routes.py
+data_file = .coverage/.coverage

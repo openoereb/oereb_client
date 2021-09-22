@@ -46,6 +46,7 @@ jobs:
           make git-attributes
           make lint-js
           make test-js
+          ./node_modules/.bin/codecov
       - name: Send coverage
         run: |
           bash <(curl -s https://codecov.io/bash)
