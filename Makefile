@@ -13,7 +13,7 @@ SRC_JS = $(shell find $(PKG)/static/src -name '*.js')
 SRC_SCSS = $(shell find $(PKG)/static/src -name '*.scss')
 
 # JavaScript test specifications
-TEST_JS = $(shell find $(PKG)/static/src -name '*.spec.js')
+TEST_JS = $(shell find test/js -name '*.test.js')
 
 
 # *******************
@@ -83,7 +83,7 @@ lint-js-fix: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)
 
 .PHONY: test-js
 test-js: $(SRC_JS) $(TEST_JS)
-	@echo "TODO"
+	./node_modules/.bin/jest --coverage
 
 .PHONY: check-js
 check-js: git-attributes lint-js test-js
