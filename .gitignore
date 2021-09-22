@@ -7,7 +7,8 @@
 /.venv/
 /dist/
 /build/
-/.coverage/
+/.coverage
+/.jest-coverage/
 /.coverage.*
 /oereb_client/static/lib/
 /oereb_client/static/css/
