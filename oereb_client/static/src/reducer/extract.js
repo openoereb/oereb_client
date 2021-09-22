@@ -15,7 +15,6 @@ export const extractSlice = createSlice({
     },
     reducers: {
         loadExtract: (state, action) => {
-            console.log('Extract loading');
             if (!state.loading) {
                 state.loading = true;
                 state.visible = false;
@@ -39,7 +38,6 @@ export const extractSlice = createSlice({
             state.information = false;
             state.tab = 0;
             state.data = action.payload;
-            console.log('Extract loaded', state.data);
         },
         showError: (state) => {
             state.loading = false;
@@ -53,7 +51,6 @@ export const extractSlice = createSlice({
             const query = new URLSearchParams(window.location.search);
             query.delete('egrid');
             window.history.pushState(null, null, '?' + query.toString());
-            console.log('Extract failed');
         },
         hideExtract: (state) => {
             state.loading = false;
@@ -68,7 +65,6 @@ export const extractSlice = createSlice({
             const query = new URLSearchParams(window.location.search);
             query.delete('egrid');
             window.history.pushState(null, null, '?' + query.toString());
-            console.log('Extract closed');
         },
         toggleCollapsed: (state) => {
             state.collapsed = !state.collapsed;
