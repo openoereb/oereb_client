@@ -3,7 +3,7 @@ from oereb_client.views.wfs_query import WfsQuery
 from oereb_client.views.index import Index
 
 
-def includeme(config):  # pragma: no cover
+def includeme(config):
     """Route and view definitions used by this application.
 
     Args:

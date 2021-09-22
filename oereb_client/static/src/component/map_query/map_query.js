@@ -77,7 +77,9 @@ const OerebMapQuery = function(props) {
                 <div className="results">
                     <div className="background-icon"></div>
                     <div className="content list-group">
-                        <button onClick={close} type="button" className="list-group-item list-group-item-action text-end">
+                        <button onClick={close}
+                                type="button"
+                                className="list-group-item list-group-item-action text-end">
                             <strong className="bi bi-x"></strong>
                         </button>
                         {listResults}

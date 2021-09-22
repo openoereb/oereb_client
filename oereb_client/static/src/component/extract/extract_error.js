@@ -38,7 +38,8 @@ const OerebExtractError = function() {
             return (
                 <span>
                     <br />
-                    <i className="bi bi-envelope-fill" title="E-Mail"></i> <a ng-href="mailto:{config.support.email}">
+                    <i className="bi bi-envelope-fill" title="E-Mail"></i>&nbsp;
+                    <a ng-href="mailto:{config.support.email}">
                         {config.support.email}
                     </a>
                 </span>

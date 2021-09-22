@@ -13,7 +13,45 @@ class Index(object):
         """
         self.request_ = request
         self.config_ = request.registry.settings.get('oereb_client', {})
-        assert isinstance(self.config_, dict)
+        self.validate_()
+
+    def validate_(self):
+        if not isinstance(self.config_, dict):
+            raise ConfigurationError('Configuration needs to be a dictionary, got {0} instead'.format(
+                type(self.config_)
+            ))
+
+        if not isinstance(self.config_.get('application'), dict):
+            raise ConfigurationError('Missing "application" configuration')
+        if 'title' not in self.config_.get('application'):
+            raise ConfigurationError('Missing application title')
+        if 'logo_canton' not in self.config_.get('application'):
+            raise ConfigurationError('Missing cantonal logo')
+        if 'logo_oereb' not in self.config_.get('application'):
+            raise ConfigurationError('Missing OEREB logo')
+
+        if not isinstance(self.config_.get('view'), dict):
+            raise ConfigurationError('Missing "view" configuration')
+        if 'map_x' not in self.config_.get('view'):
+            raise ConfigurationError('Missing map_x in view configuration')
+        if 'map_y' not in self.config_.get('view'):
+            raise ConfigurationError('Missing map_y in view configuration')
+        if 'map_zoom' not in self.config_.get('view'):
+            raise ConfigurationError('Missing map_zoom in view configuration')
+        if 'resolutions' not in self.config_.get('view'):
+            raise ConfigurationError('Missing resolutions in view configuration')
+
+        if not isinstance(self.config_.get('base_layer'), dict):
+            raise ConfigurationError('Missing "base_layer" configuration')
+
+        if not isinstance(self.config_.get('availability'), dict):
+            raise ConfigurationError('Missing "availability" configuration')
+
+        if not isinstance(self.config_.get('search'), dict):
+            raise ConfigurationError('Missing "search" configuration')
+
+        if not isinstance(self.config_.get('support'), dict):
+            raise ConfigurationError('Missing "support" configuration')
 
     def is_debug_(self):
         """Returns true if requested in debug mode.

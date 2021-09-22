@@ -6,7 +6,8 @@ export const addDocumentIfNotContained = function(document, target) {
     const targetArray = target[document['DocumentType']];
     if (isObject(target) && isArray(targetArray)) {
         for (var i = 0; i < targetArray.length; i++) {
-            // Check if document already exists (only use 'Title', 'OfficialNumber' and 'TextAtWeb' for comparison)
+            // Check if document already exists
+            // (only use 'Title', 'OfficialNumber' and 'TextAtWeb' for comparison)
             if (
                 isEqual(targetArray[i]['Title'], document['Title']) &&
                 isEqual(targetArray[i]['OfficialNumber'], document['OfficialNumber'])

@@ -2,3 +2,4 @@
 omit =
     test/*
     samples/*
+    */routes.py

@@ -48,8 +48,17 @@ const OerebExtractData = function() {
         );
     })();
 
+    const dataClasses = [
+        'oereb-client-extract',
+        'data container-fluid',
+        'd-flex',
+        'flex-column',
+        'justify-content-start',
+        'align-items-stretch'
+    ];
+
     return (
-        <div className="oereb-client-extract data container-fluid d-flex flex-column justify-content-start align-items-stretch">
+        <div className={dataClasses.join(' ')}>
             <div>
                 <div className="btn-group float-end" role="group">
                     {collapseButton}
@@ -73,9 +82,15 @@ const OerebExtractData = function() {
             </div>
             <OerebRealEstate data={extractData.RealEstate} />
             <div className="accordion accordion-flush flex-grow-1 mt-1 mb-2">
-                <OerebCategory title="Betroffene Themen" data={extractData.ConcernedTheme} restriction={true} />
-                <OerebCategory title="Nicht betroffene Themen" data={extractData.NotConcernedTheme} restriction={false} />
-                <OerebCategory title="Nicht verfügbare Themen" data={extractData.ThemeWithoutData} restriction={false} />
+                <OerebCategory title="Betroffene Themen"
+                               data={extractData.ConcernedTheme}
+                               restriction={true} />
+                <OerebCategory title="Nicht betroffene Themen"
+                               data={extractData.NotConcernedTheme}
+                               restriction={false} />
+                <OerebCategory title="Nicht verfügbare Themen"
+                               data={extractData.ThemeWithoutData}
+                               restriction={false} />
             </div>
         </div>
     )
