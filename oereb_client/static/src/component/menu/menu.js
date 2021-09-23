@@ -1,6 +1,8 @@
 import './menu.scss';
 
+import PropTypes from 'prop-types';
 import React, {useState} from 'react';
+import {withNamespaces} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {queryExtractById} from '../../api/extract';
@@ -11,7 +13,7 @@ import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {enableSymbolZoom} from '../../reducer/symbol_zoom';
 
-const OerebMenu = function () {
+const OerebMenu = function ({t}) {
   const config = useSelector((state) => state.config).config;
   const showAvailabilityLayer = useSelector((state) => state.availability).visible;
   const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
@@ -99,7 +101,7 @@ const OerebMenu = function () {
         if (reLV03.test(searchValue)) {
           allResults = allResults.concat([{
             config: {
-              title: 'LV03-Koordinaten'
+              title: t('menu.search.title.coordinates.lv03')
             },
             data: [searchValue]
           }]);
@@ -107,7 +109,7 @@ const OerebMenu = function () {
         if (reLV95.test(searchValue)) {
           allResults = allResults.concat([{
             config: {
-              title: 'LV95-Koordinaten'
+              title: t('menu.search.title.coordinates.lv95')
             },
             data: [searchValue]
           }]);
@@ -115,7 +117,7 @@ const OerebMenu = function () {
         if (reGNSS.test(searchValue)) {
           allResults = allResults.concat([{
             config: {
-              title: 'Geografische Koordinaten (WGS84)'
+              title: t('menu.search.title.coordinates.wgs84')
             },
             data: [searchValue]
           }]);
@@ -164,7 +166,7 @@ const OerebMenu = function () {
       return (
         <button className="btn btn-outline-secondary"
           type="button"
-          title="Suche zurücksetzen"
+          title={t('menu.search.reset')}
           disabled>
           <i className="bi bi-trash"></i>
         </button>
@@ -182,7 +184,7 @@ const OerebMenu = function () {
     return (
       <button onClick={resetSearch}
         className="btn btn-outline-secondary"
-        title="Suche zurücksetzen"
+        title={t('menu.search.reset')}
         type="button">
         <i className="bi bi-trash"></i>
       </button>
@@ -194,11 +196,11 @@ const OerebMenu = function () {
   const showAvailabilityText = (() => {
     if (showAvailabilityLayer) {
       return (
-        <span><i className="bi bi-check-square"></i> verfügbare Gemeinden anzeigen</span>
+        <span><i className="bi bi-check-square"></i> {t('menu.settings.availability')}</span>
       );
     }
     return (
-      <span><i className="bi bi-square"></i> verfügbare Gemeinden anzeigen</span>
+      <span><i className="bi bi-square"></i> {t('menu.settings.availability')}</span>
     );
   })();
 
@@ -209,11 +211,11 @@ const OerebMenu = function () {
   const symbolZoomText = (() => {
     if (symbolZoomEnabled) {
       return (
-        <span><i className="bi bi-check-square"></i> Legendensymbole vergrössern</span>
+        <span><i className="bi bi-check-square"></i> {t('menu.settings.symbol_zoom')}</span>
       );
     }
     return (
-      <span><i className="bi bi-square"></i> Legendensymbole vergrössern</span>
+      <span><i className="bi bi-square"></i> {t('menu.settings.symbol_zoom')}</span>
     );
   })();
 
@@ -267,7 +269,7 @@ const OerebMenu = function () {
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            title="Einstellungen">
+            title={t('menu.settings.title')}>
             <i className="bi bi-gear-fill"></i>
           </button>
           <ul className="dropdown-menu">
@@ -286,7 +288,7 @@ const OerebMenu = function () {
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            title="Verlauf">
+            title={t('menu.history.title')}>
             <i className="bi bi-clock-history"></i>
           </button>
           <ul className="dropdown-menu">
@@ -296,7 +298,7 @@ const OerebMenu = function () {
             className="form-control"
             value={search}
             onChange={handleSearch}
-            placeholder="Suche" />
+            placeholder={t('menu.search.placeholder')} />
           {searchResetButton}
         </div>
       </div>
@@ -307,4 +309,8 @@ const OerebMenu = function () {
   );
 };
 
-export default OerebMenu;
+OerebMenu.propTypes = {
+  t: PropTypes.func.isRequired
+};
+
+export default withNamespaces()(OerebMenu);

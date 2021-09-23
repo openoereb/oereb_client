@@ -13,7 +13,6 @@ def includeme(config):
 
     # Static views
     config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
-    config.add_static_view('node_modules', 'oereb_client:../node_modules', cache_max_age=3600)
 
     # index.html
     config.add_route('{0}/index'.format(config.route_prefix), '/')

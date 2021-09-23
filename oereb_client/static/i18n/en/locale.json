@@ -1,0 +1,23 @@
+{
+  "menu": {
+    "history": {
+      "title": "History"
+    },
+    "search": {
+      "placeholder": "Search...",
+      "reset": "Reset search",
+      "title": {
+        "coordinates": {
+          "lv03": "LV03 Coordinates",
+          "lv95": "LV95 Coordinates",
+          "wgs84": "Geographic coordinates (WGS84)"
+        }
+      }
+    },
+    "settings": {
+      "availability": "Show available municiplities",
+      "symbol_zoom": "Zoom on legend symbols",
+      "title": "Settings"
+    }
+  }
+}

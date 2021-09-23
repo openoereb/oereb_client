@@ -105,6 +105,10 @@ build: install oereb_client/static/build/.timestamp
 serve: build app.ini
 	uwsgi --plugin python3 --http-socket 0.0.0.0:8080 --ini-paste-logged /app/app.ini
 
+.PHONY: scan-locales
+scan-locales: node_modules/.timestamp i18next-scanner.config.js
+	./node_modules/.bin/i18next-scanner --config i18next-scanner.config.js
+
 .PHONY: updates-py
 updates-py: .venv/.requirements.timestamp
 	.venv/bin/pip list --outdated --format=columns
