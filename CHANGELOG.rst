@@ -1,18 +1,24 @@
 Changelog
 ---------
 
-1.3.9 (current dev)
+2.0.0 (current dev)
 *******************
 
-https://github.com/openoereb/oereb_client/milestone/4
+https://github.com/openoereb/oereb_client/milestone/2
 
+- Application re-design
+- Update Bootstrap and Openlayers
+- Use React-redux instead of AngularJS
+- Use Jest instead of Karma
+- Use Webpack instead of Closure Compiler
 - Fix duplicate workflow runs
 - Dependency updates
+- Drop support for Python 2.7 and 3.5
 
 1.3.8
 *****
 
-https://github.com/openoereb/oereb_client/milestone/2
+https://github.com/openoereb/oereb_client/milestone/3
 
 - Fix missing artifacts for deployment
 - Dependency updates
