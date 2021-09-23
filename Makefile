@@ -59,6 +59,7 @@ clean:
 	rm -rf $(PKG).egg-info
 	rm -rf .cache
 	rm -f .coverage
+	rm -rf .jest-coverage
 	rm -f npm-debug.log
 
 .PHONY: git-attributes

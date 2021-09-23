@@ -34,15 +34,16 @@ $symbol-height: 1em;
 // Animations
 $animation-duration: 0.5s;
 
-html, body {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #config {
-    position: fixed;
-    visibility: hidden;
+  position: fixed;
+  visibility: hidden;
 }

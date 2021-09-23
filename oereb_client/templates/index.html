@@ -4,63 +4,64 @@
 <!DOCTYPE html>
 <!-- OEREB Client, version ${config['version']} -->
 <html lang="de" ng-app="oereb" ng-controller="MainController as ctrl">
-    <head>
-        <title>${config['application']['title']}</title>
-        % if config['application']['icon'] is not None:
-            <link rel="shortcut icon" type="image/png" href="${config['application']['icon']}"/>
-        % endif
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-COMPATIBLE" content="IE=9,IE=10,IE=edge,chrome=1" />
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-        % if debug:
-        <link rel="stylesheet" href="${request.static_url('oereb_client:../node_modules/openlayers/dist/ol-debug.css')}" type="text/css">
-        % endif
-        <link rel="stylesheet" href="${request.static_url('oereb_client:static/build/app.css')}" type="text/css">
-        % if custom_css_url:
-        <link rel="stylesheet" href="${custom_css_url}" type="text/css">
-        % endif
-    </head>
-    <body>
+  <head>
+    <title>${config['application']['title']}</title>
+    % if config['application']['icon'] is not None:
+        <link rel="shortcut icon" type="image/png" href="${config['application']['icon']}"/>
+    % endif
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=9,IE=10,IE=edge,chrome=1" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    % if debug:
+    <link rel="stylesheet" href="${request.static_url('oereb_client:../node_modules/openlayers/dist/ol-debug.css')}" type="text/css">
+    % endif
+    <link rel="stylesheet" href="${request.static_url('oereb_client:static/build/app.css')}" type="text/css">
+    % if custom_css_url:
+    <link rel="stylesheet" href="${custom_css_url}" type="text/css">
+    % endif
+  </head>
+  <body>
 
-        <div id="config">
-            ${json.dumps(config) | n}
+    <div id="config">
+      ${json.dumps(config) | n}
+    </div>
+    <div id="app"></div>
+
+    <div class="modal fade" id="permalinkModal" tabIndex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Permalink</h5>
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input class="form-control" />
+          </div>
         </div>
-        <div id="app"></div>
-        <div class="modal fade" id="permalinkModal" tabIndex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Permalink</h5>
-                        <button type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <input class="form-control" />
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
+    </div>
 
     <script src="${request.static_url('oereb_client:static/build/app.js')}"></script>
 
     % if google_analytics:
-        <script type="text/javascript">
+    <script type="text/javascript">
 
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', '${google_analytics}']);
-            _gaq.push(['_trackPageview']);
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '${google_analytics}']);
+      _gaq.push(['_trackPageview']);
 
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') +
-                        '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') +
+                  '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
 
-        </script>
+    </script>
     % endif
 
-    </body>
+  </body>
 </html>

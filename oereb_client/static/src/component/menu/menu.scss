@@ -1,34 +1,34 @@
 @import "../../oereb_client.scss";
 
 div.oereb-client-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: $header-height;
-    background-color: $menu-background-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+  background-color: $menu-background-color;
 
-    img {
-        max-height: 76px;
+  img {
+    max-height: 76px;
+  }
+
+  div.result-list {
+    box-shadow: $default-shadow;
+
+    button.search-result {
+      padding-left: 2em;
     }
+  }
 
-    div.result-list {
-        box-shadow: $default-shadow;
-
-        button.search-result {
-            padding-left: 2em;
-        }
+  div.result-list ~ div.result-list {
+    div.list-group-item {
+      border-top-width: 0px;
     }
-
-    div.result-list ~ div.result-list {
-        div.list-group-item {
-            border-top-width: 0px;
-        }
-    }
+  }
 }
 
 @include media-breakpoint-up(xl) {
-    div.oereb-client-menu {
-        width: $menu-with;
-    }
+  div.oereb-client-menu {
+    width: $menu-with;
+  }
 }

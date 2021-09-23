@@ -1,69 +1,69 @@
 @import "../../oereb_client.scss";
 
 div.oereb-client-information-panel {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: $menu-background-color;
-    top: 0;
-    left: 0;
-    padding-left: $menu-with + 2 * $default-padding;
-    padding-right: 2 * $default-padding;
-    padding-top: 2 * $default-padding;
-    padding-bottom: 2 * $default-padding;
-    transition: margin-left $animation-duration linear;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $menu-background-color;
+  top: 0;
+  left: 0;
+  padding-left: $menu-with + 2 * $default-padding;
+  padding-right: 2 * $default-padding;
+  padding-top: 2 * $default-padding;
+  padding-bottom: 2 * $default-padding;
+  transition: margin-left $animation-duration linear;
 
-    ul.nav-tabs {
-        border-color: #ff0000;
+  ul.nav-tabs {
+    border-color: #ff0000;
 
-        li.nav-item {
-            button.nav-link {
-                border-top: none;
-                border-left: none;
-                border-right: none;
-                border-bottom: 3px solid transparent;
-            }
+    li.nav-item {
+      button.nav-link {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 3px solid transparent;
+      }
 
-            button.nav-link:hover,
-            button.nav-link.active {
-                border-bottom-color: #ff0000;
-            }
-        }
+      button.nav-link:hover,
+      button.nav-link.active {
+        border-bottom-color: #ff0000;
+      }
     }
+  }
 
-    ul.nav-pills {
-        button.nav-link:hover,
-        button.nav-link.active {
-            background-color: #ff0000;
-        }
+  ul.nav-pills {
+    button.nav-link:hover,
+    button.nav-link.active {
+      background-color: #ff0000;
     }
+  }
 
-    div.content-wrapper {
-        overflow-y: auto;
-    }
+  div.content-wrapper {
+    overflow-y: auto;
+  }
 }
 
 div.oereb-client-information-panel.disabled {
-    display: none !important;
-    margin-left: -100%;
-    box-shadow: none;
+  display: none !important;
+  margin-left: -100%;
+  box-shadow: none;
 }
 
 div.oereb-client-information-panel.hidden {
-    display: block;
-    margin-left: -100%;
-    box-shadow: none;
+  display: block;
+  margin-left: -100%;
+  box-shadow: none;
 }
 
 div.oereb-client-information-panel.shown {
-    display: block;
-    margin-left: 0;
-    box-shadow: $default-shadow;
+  display: block;
+  margin-left: 0;
+  box-shadow: $default-shadow;
 }
 
 @include media-breakpoint-down(xl) {
-    div.oereb-client-information-panel {
-        z-index: 1000;
-        padding-left: 2 * $default-padding;
-    }
+  div.oereb-client-information-panel {
+    z-index: 1000;
+    padding-left: 2 * $default-padding;
+  }
 }
