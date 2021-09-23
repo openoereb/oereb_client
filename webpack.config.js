@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './oereb_client/static/src/oereb_client.js',
+  mode: 'production',
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'oereb_client', 'static', 'build'),
