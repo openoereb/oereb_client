@@ -6,7 +6,7 @@ import sys
 from setuptools import setup, find_packages
 from datetime import datetime
 
-VERSION = '1.3.8'
+VERSION = '2.0.0'
 
 test_mode = False
 timestamp = datetime.now().strftime('%Y%m%d%H%M')
@@ -35,8 +35,10 @@ setup(
     classifiers=[
         "License :: OSI Approved :: BSD License",
         "Development Status :: 4 - Beta" if test_mode else "Development Status :: 5 - Production/Stable",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Framework :: Pyramid",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
@@ -44,7 +46,7 @@ setup(
     author='Karsten Deininger',
     author_email='karsten.deininger@bl.ch',
     url='https://gitlab.com/gf-bl/oereb_client',
-    keywords='web pyramid pylons oereb client angular openlayers',
+    keywords='web pyramid oereb client react openlayers',
     packages=find_packages(exclude=['samples', 'test*']),
     include_package_data=True,
     zip_safe=False,
