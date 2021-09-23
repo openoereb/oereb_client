@@ -1,0 +1,49 @@
+/**
+ * Main style definitions
+ */
+
+// Bootstrap options
+$enable-rounded: false;
+$accordion-button-active-bg: #fff;
+$accordion-button-active-color: #000;
+$popover-body-padding-y: 1px;
+$popover-body-padding-x: 1px;
+$primary: #205c90;
+
+@import "bootstrap/scss/bootstrap.scss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// Padding
+$default-padding: 10px;
+$logo-padding: $default-padding;
+
+// Shadow
+$default-shadow: 3px 3px 5px #777;
+
+// Left menu bar
+$menu-with: 500px;
+$menu-background-color: #fff;
+$menu-shadow: $default-shadow;
+$header-height: 130px;
+
+// Legend
+$symbol-border-color: #000;
+$symbol-width: 2em;
+$symbol-height: 1em;
+
+// Animations
+$animation-duration: 0.5s;
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#config {
+  position: fixed;
+  visibility: hidden;
+}

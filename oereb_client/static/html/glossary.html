@@ -1,8 +1,0 @@
-<div class="container-fluid glossary">
-    <div ng-repeat="item in data | searchInformation:search | sortGlossary">
-        <h4><strong ng-bind-html="item['Title'] | multilingualText | mark:search"></strong></h4>
-        <blockquote>
-            <p ng-bind-html="item['Content'] | multilingualText | mark:search"></p>
-        </blockquote>
-    </div>
-</div>

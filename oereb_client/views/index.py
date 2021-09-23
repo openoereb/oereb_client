@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-import json
-
 from pyramid.exceptions import ConfigurationError
 from oereb_client import __version__
 
@@ -15,10 +13,49 @@ class Index(object):
         """
         self.request_ = request
         self.config_ = request.registry.settings.get('oereb_client', {})
-        assert isinstance(self.config_, dict)
+        self.validate_()
+
+    def validate_(self):
+        if not isinstance(self.config_, dict):
+            raise ConfigurationError('Configuration needs to be a dictionary, got {0} instead'.format(
+                type(self.config_)
+            ))
+
+        if not isinstance(self.config_.get('application'), dict):
+            raise ConfigurationError('Missing "application" configuration')
+        if 'title' not in self.config_.get('application'):
+            raise ConfigurationError('Missing application title')
+        if 'logo_canton' not in self.config_.get('application'):
+            raise ConfigurationError('Missing cantonal logo')
+        if 'logo_oereb' not in self.config_.get('application'):
+            raise ConfigurationError('Missing OEREB logo')
+
+        if not isinstance(self.config_.get('view'), dict):
+            raise ConfigurationError('Missing "view" configuration')
+        if 'map_x' not in self.config_.get('view'):
+            raise ConfigurationError('Missing map_x in view configuration')
+        if 'map_y' not in self.config_.get('view'):
+            raise ConfigurationError('Missing map_y in view configuration')
+        if 'map_zoom' not in self.config_.get('view'):
+            raise ConfigurationError('Missing map_zoom in view configuration')
+        if 'resolutions' not in self.config_.get('view'):
+            raise ConfigurationError('Missing resolutions in view configuration')
+
+        if not isinstance(self.config_.get('base_layer'), dict):
+            raise ConfigurationError('Missing "base_layer" configuration')
+
+        if not isinstance(self.config_.get('availability'), dict):
+            raise ConfigurationError('Missing "availability" configuration')
+
+        if not isinstance(self.config_.get('search'), dict):
+            raise ConfigurationError('Missing "search" configuration')
+
+        if not isinstance(self.config_.get('support'), dict):
+            raise ConfigurationError('Missing "support" configuration')
 
     def is_debug_(self):
-        """Returns true if requested in debug mode.
+        """
+        Returns true if requested in debug mode.
 
         Returns:
             bool: True if requested in debug mode.
@@ -28,83 +65,9 @@ class Index(object):
         debug = self.request_.params.get('debug') == 'true'
         return local and debug
 
-    def get_application_config_(self):
-        application_config = self.config_.get('application')
-        if not isinstance(application_config, dict):
-            raise ConfigurationError('Missing application configuration')
-        if application_config.get('title') is None:
-            raise ConfigurationError('Missing application title')
-        if application_config.get('logo_canton') is None:
-            raise ConfigurationError('Missing cantonal logo')
-        if application_config.get('logo_oereb') is None:
-            raise ConfigurationError('Missing oereb logo')
-        return application_config
-
-    def get_base_layer_config_(self):
-        """Returns the JSON-encoded configuration for the base layer.
-
-        Returns:
-            str: The JSON-encoded base layer configuration.
-
-        """
-        base_layer_config = self.config_.get('base_layer', {})
-        if not base_layer_config:
-            raise ConfigurationError('Missing base layer configuration')
-        return json.dumps(base_layer_config)
-
-    def get_availability_config_(self):
-        """Returns the JSON-encoded configuration for the availability layer.
-
-        Returns:
-            str: The JSON-encoded availability layer configuration.
-
-        """
-        availability_layer_config = self.config_.get('availability', {})
-        if not availability_layer_config:
-            raise ConfigurationError('Missing availability layer configuration')
-        return json.dumps(availability_layer_config)
-
-    def get_view_config_(self):
-        """Returns the JSON-encoded view configuration.
-
-        Returns:
-            str: The JSON-encoded view configuration.
-
-        """
-        initial_extent_config = self.config_.get('view', {})
-        if not initial_extent_config:
-            raise ConfigurationError('Missing view configuration')
-        return json.dumps(initial_extent_config)
-
-    def get_search_config_(self):
-        """Returns the JSON-encoded configuration for the search.
-
-        Returns:
-            str: The JSON-encoded search API configuration.
-
-        """
-        return json.dumps(self.config_.get('search', {}))
-
-    def get_external_viewer_config_(self):
-        """Returns the JSON-encoded configuration for the external viewer linking.
-
-        Returns:
-            str: The JSON-encoded viewer linking configuration.
-
-        """
-        return json.dumps(self.config_.get('external_viewer', {}))
-
-    def get_support_config_(self):
-        """Returns the JSON-encoded configuration for the support.
-
-        Returns:
-            str: The JSON-encoded support configuration.
-
-        """
-        return json.dumps(self.config_.get('support', {}))
-
     def get_google_analytics_(self):
-        """Returns the configuration for Google Analytics.
+        """
+        Returns the configuration for Google Analytics.
 
         Returns:
             str or None: The Google Analytics configuration.
@@ -113,7 +76,8 @@ class Index(object):
         return self.config_.get('google_analytics', None)
 
     def get_custom_css_url_(self):
-        """Returns the URL of the custom CSS file.
+        """
+        Returns the URL of the custom CSS file.
 
         Returns:
             str or None: The URL of the custom CSS file.
@@ -121,27 +85,39 @@ class Index(object):
         """
         return self.config_.get('custom_css_url', None)
 
+    def get_config(self):
+        """
+        Returns the JSON-encoded configuration.
+
+        Returns:
+            str: The JSON-encoded configuration.
+
+        """
+        return {
+            'application_url': self.request_.route_url(
+                '{0}/index'.format(self.request_.route_prefix)
+            ),
+            'application': self.config_.get('application', {}),
+            'version': __version__,
+            'view': self.config_.get('view', {}),
+            'base_layer': self.config_.get('base_layer', {}),
+            'availability': self.config_.get('availability', {}),
+            'search': self.config_.get('search', {}),
+            'support': self.config_.get('support', {}),
+            'external_viewer': self.config_.get('external_viewer', {})
+        }
+
     def render(self):
-        """Returns the dictionary with rendering parameters.
+        """
+        Returns the dictionary with rendering parameters.
 
         Returns:
             dict: Dictionary with rendering parameters.
 
         """
         return {
-            'version': __version__,
-            'title': self.get_application_config_().get('title'),
-            'icon': self.get_application_config_().get('icon'),
-            'logo_canton': self.get_application_config_().get('logo_canton'),
-            'logo_oereb': self.get_application_config_().get('logo_oereb'),
-            'local_storage_prefix': self.get_application_config_().get('local_storage_prefix'),
             'debug': self.is_debug_(),
-            'view_config': self.get_view_config_(),
-            'base_layer_config': self.get_base_layer_config_(),
-            'availability_config': self.get_availability_config_(),
-            'search_api_config': self.get_search_config_(),
-            'external_viewer_config': self.get_external_viewer_config_(),
-            'support': self.get_support_config_(),
             'google_analytics': self.get_google_analytics_(),
-            'custom_css_url': self.get_custom_css_url_()
+            'custom_css_url': self.get_custom_css_url_(),
+            'config': self.get_config()
         }

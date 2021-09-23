@@ -1,0 +1,69 @@
+@import "../../oereb_client.scss";
+
+div.oereb-client-information-panel {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $menu-background-color;
+  top: 0;
+  left: 0;
+  padding-left: $menu-with + 2 * $default-padding;
+  padding-right: 2 * $default-padding;
+  padding-top: 2 * $default-padding;
+  padding-bottom: 2 * $default-padding;
+  transition: margin-left $animation-duration linear;
+
+  ul.nav-tabs {
+    border-color: #f00;
+
+    li.nav-item {
+      button.nav-link.active,
+      button.nav-link:hover {
+        border-bottom-color: #f00;
+      }
+
+      button.nav-link {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 3px solid transparent;
+      }
+    }
+  }
+
+  ul.nav-pills {
+    button.nav-link.active,
+    button.nav-link:hover {
+      background-color: #f00;
+    }
+  }
+
+  div.content-wrapper {
+    overflow-y: auto;
+  }
+}
+
+div.oereb-client-information-panel.disabled {
+  display: none !important;
+  margin-left: -100%;
+  box-shadow: none;
+}
+
+div.oereb-client-information-panel.hidden {
+  display: block;
+  margin-left: -100%;
+  box-shadow: none;
+}
+
+div.oereb-client-information-panel.shown {
+  display: block;
+  margin-left: 0;
+  box-shadow: $default-shadow;
+}
+
+@include media-breakpoint-down(xl) {
+  div.oereb-client-information-panel {
+    z-index: 1000;
+    padding-left: 2 * $default-padding;
+  }
+}

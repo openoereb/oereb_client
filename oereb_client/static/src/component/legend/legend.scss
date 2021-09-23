@@ -1,0 +1,16 @@
+@import "../../oereb_client.scss";
+
+table.oereb-client-legend {
+  font-size: 0.75em;
+
+  th {
+    font-style: oblique;
+    font-weight: normal;
+  }
+
+  img.oereb-client-symbol {
+    border: 1px solid $symbol-border-color;
+    width: $symbol-width;
+    height: $symbol-height;
+  }
+}

@@ -1,21 +1,19 @@
 env:
   browser: true
   es6: true
-  jasmine: true
+  jest/globals: true
 extends:
   - 'eslint:recommended'
+  - 'plugin:react/recommended'
 globals:
-  goog: false
-  angular: false
   module: false
-  inject: false
-  ol: false
-  $: false
-  jQuery: false
   proj4: false
-  oereb: false
+  require: false
+  __dirname: false
 parserOptions:
   sourceType: module
+  ecmaFeatures:
+    jsx: true
 rules:
   accessor-pairs: error
   array-bracket-newline: 'off'
@@ -75,7 +73,9 @@ rules:
   id-blacklist: error
   id-length: 'off'
   id-match: error
-  indent: 'off'
+  indent:
+    - error
+    - 2
   indent-legacy: 'off'
   init-declarations: 'off'
   jsx-quotes: error
@@ -88,7 +88,9 @@ rules:
   lines-around-comment: error
   lines-around-directive: error
   max-depth: error
-  max-len: 'off'
+  max-len:
+    - error
+    - code: 110
   max-lines: 'off'
   max-nested-callbacks: error
   max-params: 'off'
@@ -231,7 +233,8 @@ rules:
   semi-style:
     - error
     - last
-  sort-imports: error
+  simple-import-sort/imports: error
+  sort-imports: 'off'
   sort-keys: 'off'
   sort-vars: error
   space-before-blocks: error
@@ -258,3 +261,11 @@ rules:
   yoda:
     - error
     - never
+  jest/no-disabled-tests: warn
+  jest/no-focused-tests: error
+  jest/no-identical-title: error
+  jest/prefer-to-have-length: warn
+  jest/valid-expect: error
+plugins:
+  - simple-import-sort
+  - jest

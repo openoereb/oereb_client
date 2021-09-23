@@ -1,12 +1,20 @@
 # -*- coding: utf-8 -*-
-import json
-
 import pytest
+from copy import deepcopy
 from pyramid.config import ConfigurationError
 from pyramid.testing import testConfig
 
 from oereb_client import __version__
 from oereb_client.views.index import Index
+
+
+def remove_key(d, key, sub_key=None):
+    c = deepcopy(d)
+    if sub_key:
+        c.get('oereb_client').get(key).pop(sub_key)
+    else:
+        c.get('oereb_client').pop(key)
+    return c
 
 
 settings = {
@@ -71,73 +79,35 @@ def test_is_not_debug(mock_request):
         assert not index.is_debug_()
 
 
-def test_get_base_layer_config(mock_request):
-    with testConfig(settings=settings):
-        index = Index(mock_request)
-        assert index.get_base_layer_config_() == json.dumps({
-            'type': 'wmts',
-            'url': 'http://example.com/WMTSCapabilities.xml'
-        })
-
-
-def test_get_availability_config(mock_request):
-    with testConfig(settings=settings):
-        index = Index(mock_request)
-        assert index.get_availability_config_() == json.dumps({
-            'url': 'http://geowms.bl.ch',
-            'layer': 'oereb_availability'
-        })
-
-
-def test_get_view_config(mock_request):
-    with testConfig(settings=settings):
-        index = Index(mock_request)
-        assert index.get_view_config_() == json.dumps({
-            'map_x': 2615000,
-            'map_y': 1255000,
-            'map_zoom': 6,
-            'resolutions': [1, 2]
-        })
-
-
 def test_render(mock_request):
-    with testConfig(settings=settings):
+    with testConfig(settings=settings) as config:
+        config.route_prefix = None
+        config.add_route('{0}/index'.format(config.route_prefix), '/')
         index = Index(mock_request)
         assert index.render() == {
-            'version': __version__,
-            'title': 'Test',
-            'icon': 'http://example.com/favicon.png',
-            'logo_canton': 'http://example.com/logo_canton.png',
-            'logo_oereb': 'http://example.com/logo_oereb.png',
-            'local_storage_prefix': 'bl',
             'debug': index.is_debug_(),
-            'view_config': index.get_view_config_(),
-            'base_layer_config': index.get_base_layer_config_(),
-            'availability_config': index.get_availability_config_(),
-            'search_api_config': index.get_search_config_(),
-            'external_viewer_config': index.get_external_viewer_config_(),
-            'support': index.get_support_config_(),
             'google_analytics': index.get_google_analytics_(),
-            'custom_css_url': index.get_custom_css_url_()
+            'custom_css_url': index.get_custom_css_url_(),
+            'config': index.get_config()
         }
 
 
-def test_get_search_config(mock_request):
-    with testConfig(settings=settings):
+def test_get_config(mock_request):
+    with testConfig(settings=settings) as config:
+        config.route_prefix = None
+        config.add_route('{0}/index'.format(config.route_prefix), '/')
         index = Index(mock_request)
-        assert index.get_search_config_() == json.dumps(settings.get('oereb_client').get('search'))
-
-
-def test_get_support_config(mock_request):
-    with testConfig(settings=settings):
-        index = Index(mock_request)
-        assert index.get_support_config_() == json.dumps(settings.get('oereb_client').get('support'))
-
-
-def test_get_application_config(mock_request):
-    with testConfig(settings=settings):
-        index = Index(mock_request)
-        assert index.get_application_config_() == settings.get('oereb_client').get('application')
+        assert index.get_config() == {
+            'application_url': 'http://example.com/',
+            'application': settings.get('oereb_client').get('application'),
+            'version': __version__,
+            'view': settings.get('oereb_client').get('view'),
+            'base_layer': settings.get('oereb_client').get('base_layer'),
+            'availability': settings.get('oereb_client').get('availability'),
+            'search': settings.get('oereb_client').get('search'),
+            'support': settings.get('oereb_client').get('support'),
+            'external_viewer': settings.get('oereb_client').get('external_viewer')
+        }
 
 
 def test_get_google_analytics(mock_request):
@@ -154,20 +124,21 @@ def test_get_custom_css_url(mock_request):
 
 @pytest.mark.parametrize('cfg', [
     None,
-    {
-        'title': None,
-        'logo': 'logo.png'
-    },
-    {
-        'title': 'Test',
-        'logo': None
-    }
+    remove_key(settings, 'application'),
+    remove_key(settings, 'application', 'title'),
+    remove_key(settings, 'application', 'logo_canton'),
+    remove_key(settings, 'application', 'logo_oereb'),
+    remove_key(settings, 'view'),
+    remove_key(settings, 'view', 'map_x'),
+    remove_key(settings, 'view', 'map_y'),
+    remove_key(settings, 'view', 'map_zoom'),
+    remove_key(settings, 'view', 'resolutions'),
+    remove_key(settings, 'base_layer'),
+    remove_key(settings, 'availability'),
+    remove_key(settings, 'search'),
+    remove_key(settings, 'support')
 ])
 def test_get_application_config_fail(cfg, mock_request):
-    test_settings = dict(settings).update({
-        'application': cfg
-    })
-    with testConfig(settings=test_settings):
-        index = Index(mock_request)
+    with testConfig(settings=cfg):
         with pytest.raises(ConfigurationError):
-            index.get_application_config_()
+            Index(mock_request)

@@ -4,6 +4,9 @@ from pyramid.testing import DummyRequest
 
 
 class MockRequest(DummyRequest):
+
+    route_prefix = None
+
     def __init__(self, **kwargs):
         super(MockRequest, self).__init__(**kwargs)
         self.scheme_ = 'http'

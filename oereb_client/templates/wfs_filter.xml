@@ -2,18 +2,18 @@
 <wfs:GetFeature xmlns:wfs="http://www.opengis.net/wfs" service="WFS" version="1.1.0" maxFeatures="${limit}"
                 xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <wfs:Query typeName="feature:${layer_name}" xmlns:feature="http://mapserver.gis.umn.edu/mapserver">
-        <ogc:Filter xmlns:ogc="http://www.opengis.net/ogc">
-            <ogc:And>
-                <ogc:PropertyIsEqualTo>
-                    <ogc:PropertyName>ms:nummer</ogc:PropertyName>
-                    <ogc:Literal>${parcel_number}</ogc:Literal>
-                </ogc:PropertyIsEqualTo>
-                <ogc:PropertyIsLike wildCard="*" singleChar="#" escapeChar="!">
-                    <ogc:PropertyName>ms:gemeinde</ogc:PropertyName>
-                    <ogc:Literal>${municipality_name}*</ogc:Literal>
-                </ogc:PropertyIsLike>
-            </ogc:And>
-        </ogc:Filter>
-    </wfs:Query>
+  <wfs:Query typeName="feature:${layer_name}" xmlns:feature="http://mapserver.gis.umn.edu/mapserver">
+    <ogc:Filter xmlns:ogc="http://www.opengis.net/ogc">
+      <ogc:And>
+        <ogc:PropertyIsEqualTo>
+          <ogc:PropertyName>ms:nummer</ogc:PropertyName>
+          <ogc:Literal>${parcel_number}</ogc:Literal>
+        </ogc:PropertyIsEqualTo>
+        <ogc:PropertyIsLike wildCard="*" singleChar="#" escapeChar="!">
+          <ogc:PropertyName>ms:gemeinde</ogc:PropertyName>
+          <ogc:Literal>${municipality_name}*</ogc:Literal>
+        </ogc:PropertyIsLike>
+      </ogc:And>
+    </ogc:Filter>
+  </wfs:Query>
 </wfs:GetFeature>

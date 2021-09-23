@@ -1,4 +1,6 @@
 [run]
+source = oereb_client
 omit =
     test/*
     samples/*
+    */routes.py

@@ -1,0 +1,62 @@
+@import "../../oereb_client.scss";
+
+div.oereb-client-extract-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $menu-background-color;
+  box-shadow: $default-shadow;
+  overflow: hidden;
+  transition: height $animation-duration linear;
+
+  div.oereb-client-extract {
+    width: 100%;
+    height: 100%;
+    padding-top: $header-height;
+    overflow: hidden;
+  }
+
+  div.oereb-client-extract.data {
+    .category:not(.show) {
+      border: 0;
+    }
+
+    & > div.accordion {
+      overflow-y: scroll;
+
+      button.accordion-button:focus,
+      button.accordion-button:not(.collapsed) {
+        box-shadow: none;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      button.collapse-extract {
+        display: none !important;
+      }
+    }
+  }
+}
+
+div.oereb-client-extract-wrapper.hidden {
+  height: $header-height;
+}
+
+div.oereb-client-extract-wrapper.loading {
+  height: $header-height + 100px;
+}
+
+div.oereb-client-extract-wrapper.shown {
+  height: 100%;
+}
+
+div.oereb-client-extract-wrapper.collapsed {
+  height: $header-height + 50px;
+}
+
+@include media-breakpoint-up(xl) {
+  div.oereb-client-extract-wrapper {
+    width: $menu-with;
+  }
+}

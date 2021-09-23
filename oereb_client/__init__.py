@@ -15,7 +15,7 @@ def main(global_config, **settings):  # pragma: no cover
     Push additional configuration in this section means it will not be used by the production
     environment at all!
     """
-    with open('oereb_client.yml') as f:
+    with open(settings.get('config')) as f:
         yml = yaml.safe_load(f.read())
     settings.update(yml)
     config = Configurator(settings=settings)

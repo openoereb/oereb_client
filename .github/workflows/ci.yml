@@ -30,7 +30,7 @@ jobs:
           make test-py
       - name: Send coverage
         run: |
-          bash <(curl -s https://codecov.io/bash)
+          .venv/bin/codecov
 
   test-js:
     name: Test JavaScript
@@ -48,7 +48,7 @@ jobs:
           make test-js
       - name: Send coverage
         run: |
-          bash <(curl -s https://codecov.io/bash)
+          ./node_modules/.bin/codecov
 
   build:
     name: Build Application
