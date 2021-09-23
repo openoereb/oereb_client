@@ -10,11 +10,10 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - 2.7
-          - 3.5
           - 3.6
           - 3.7
           - 3.8
+          - 3.9
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
@@ -52,14 +51,12 @@ jobs:
 
   build:
     name: Build Application
+    needs:
+      - test-py
+      - test-js
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Java
-        uses: actions/setup-java@v1
-        with:
-          java-version: '11'
-          java-package: jre
       - name: Set up Python
         uses: actions/setup-python@v1
       - name: Set up Node.js
@@ -93,8 +90,6 @@ jobs:
       - name: Build packages
         run: |
           ls -ls oereb_client/static/build
-          ls -ls oereb_client/static/css
-          ls -ls oereb_client/static/fonts
           pip install wheel -r requirements.txt
           python setup.py --test clean check sdist bdist_wheel
       - name: Upload to PyPI Test
@@ -121,8 +116,6 @@ jobs:
       - name: Build packages
         run: |
           ls -ls oereb_client/static/build
-          ls -ls oereb_client/static/css
-          ls -ls oereb_client/static/fonts
           pip install wheel -r requirements.txt
           python setup.py clean check sdist bdist_wheel
       - name: Upload to PyPI
