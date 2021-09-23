@@ -1,0 +1,23 @@
+{
+  "menu": {
+    "history": {
+      "title": "Verlauf"
+    },
+    "search": {
+      "placeholder": "Suche...",
+      "reset": "Suche zurücksetzen",
+      "title": {
+        "coordinates": {
+          "lv03": "LV03-Koordinaten",
+          "lv95": "LV95-Koordinaten",
+          "wgs84": "Geografische Koordinaten (WGS84)"
+        }
+      }
+    },
+    "settings": {
+      "availability": "verfügbare Gemeinden anzeigen",
+      "symbol_zoom": "Legendensymbole vergrössern",
+      "title": "Einstellungen"
+    }
+  }
+}

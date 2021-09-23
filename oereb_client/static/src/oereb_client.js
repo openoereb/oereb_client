@@ -1,4 +1,5 @@
 import './oereb_client.scss';
+import './i18n';
 
 import {register} from 'ol/proj/proj4';
 import proj4 from 'proj4';

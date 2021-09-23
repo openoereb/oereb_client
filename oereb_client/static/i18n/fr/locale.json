@@ -1,0 +1,23 @@
+{
+  "menu": {
+    "history": {
+      "title": "__STRING_NOT_TRANSLATED__"
+    },
+    "search": {
+      "placeholder": "__STRING_NOT_TRANSLATED__",
+      "reset": "__STRING_NOT_TRANSLATED__",
+      "title": {
+        "coordinates": {
+          "lv03": "__STRING_NOT_TRANSLATED__",
+          "lv95": "__STRING_NOT_TRANSLATED__",
+          "wgs84": "__STRING_NOT_TRANSLATED__"
+        }
+      }
+    },
+    "settings": {
+      "availability": "__STRING_NOT_TRANSLATED__",
+      "symbol_zoom": "__STRING_NOT_TRANSLATED__",
+      "title": "__STRING_NOT_TRANSLATED__"
+    }
+  }
+}
