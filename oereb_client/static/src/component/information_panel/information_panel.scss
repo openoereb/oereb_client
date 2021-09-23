@@ -14,27 +14,27 @@ div.oereb-client-information-panel {
   transition: margin-left $animation-duration linear;
 
   ul.nav-tabs {
-    border-color: #ff0000;
+    border-color: #f00;
 
     li.nav-item {
+      button.nav-link.active,
+      button.nav-link:hover {
+        border-bottom-color: #f00;
+      }
+
       button.nav-link {
         border-top: none;
         border-left: none;
         border-right: none;
         border-bottom: 3px solid transparent;
       }
-
-      button.nav-link:hover,
-      button.nav-link.active {
-        border-bottom-color: #ff0000;
-      }
     }
   }
 
   ul.nav-pills {
-    button.nav-link:hover,
-    button.nav-link.active {
-      background-color: #ff0000;
+    button.nav-link.active,
+    button.nav-link:hover {
+      background-color: #f00;
     }
   }
 

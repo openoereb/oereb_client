@@ -2,10 +2,10 @@
 
 $map-query-shadow: $default-shadow;
 $map-query-loader-size: 34px;
-$map-query-loader-bg: #ffffff;
+$map-query-loader-bg: #fff;
 $map-query-content-bg: $map-query-loader-bg;
 $map-query-content-width: 250px;
-$map-query-icon-color: #ff0000;
+$map-query-icon-color: #f00;
 $map-query-icon-line-width: 4px;
 
 .oereb-client-overlay {
@@ -26,7 +26,6 @@ $map-query-icon-line-width: 4px;
   }
 
   div.results {
-
     div.background-icon {
       position: absolute;
       z-index: 1;
@@ -82,6 +81,6 @@ $map-query-icon-line-width: 4px;
           left: $map-query-icon-line-width;
         }
       }
-    }    
+    }
   }
 }

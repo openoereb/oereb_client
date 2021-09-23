@@ -5,7 +5,8 @@ from oereb_client import __version__
 
 class Index(object):
     def __init__(self, request):
-        """Entry point for index rendering.
+        """
+        Entry point for index rendering.
 
         Args:
             request (pyramid.request.Request): The request instance.
@@ -54,7 +55,8 @@ class Index(object):
             raise ConfigurationError('Missing "support" configuration')
 
     def is_debug_(self):
-        """Returns true if requested in debug mode.
+        """
+        Returns true if requested in debug mode.
 
         Returns:
             bool: True if requested in debug mode.
@@ -65,7 +67,8 @@ class Index(object):
         return local and debug
 
     def get_google_analytics_(self):
-        """Returns the configuration for Google Analytics.
+        """
+        Returns the configuration for Google Analytics.
 
         Returns:
             str or None: The Google Analytics configuration.
@@ -74,7 +77,8 @@ class Index(object):
         return self.config_.get('google_analytics', None)
 
     def get_custom_css_url_(self):
-        """Returns the URL of the custom CSS file.
+        """
+        Returns the URL of the custom CSS file.
 
         Returns:
             str or None: The URL of the custom CSS file.
@@ -83,7 +87,8 @@ class Index(object):
         return self.config_.get('custom_css_url', None)
 
     def get_config(self):
-        """Returns the JSON-encoded configuration.
+        """
+        Returns the JSON-encoded configuration.
 
         Returns:
             str: The JSON-encoded configuration.
@@ -104,7 +109,8 @@ class Index(object):
         }
 
     def render(self):
-        """Returns the dictionary with rendering parameters.
+        """
+        Returns the dictionary with rendering parameters.
 
         Returns:
             dict: Dictionary with rendering parameters.
