@@ -9,7 +9,9 @@ RUN apk --update add \
         build-base \
         nodejs \
         npm \
-        uwsgi-python3
+        uwsgi-python3 \
+        python3-dev \
+        libffi-dev
 
 ENV PATH="/app/.local/bin:${PATH}"
 
