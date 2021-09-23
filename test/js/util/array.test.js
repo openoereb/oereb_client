@@ -8,9 +8,9 @@ describe('Function addIfNotContains', () => {
     const item = {
       foo: 'bar'
     };
-    expect(array.length).toBe(0);
+    expect(array).toHaveLength(0);
     addIfNotContains(item, array);
-    expect(array.length).toBe(1);
+    expect(array).toHaveLength(1);
   });
 
   it('should ignore existing items', () => {
@@ -18,10 +18,10 @@ describe('Function addIfNotContains', () => {
     const item = {
       foo: 'bar'
     };
-    expect(array.length).toBe(0);
+    expect(array).toHaveLength(0);
     addIfNotContains(item, array);
-    expect(array.length).toBe(1);
+    expect(array).toHaveLength(1);
     addIfNotContains(item, array);
-    expect(array.length).toBe(1);
+    expect(array).toHaveLength(1);
   });
 });

@@ -9,6 +9,7 @@ globals:
   module: false
   proj4: false
   require: false
+  __dirname: false
 parserOptions:
   sourceType: module
   ecmaFeatures:
