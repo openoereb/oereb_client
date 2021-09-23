@@ -118,4 +118,4 @@ updates: updates-py updates-js
 
 .PHONY: doc
 doc: node_modules/.timestamp
-	./node_modules/.bin/gulp --PACKAGE_VERSION=$(PKG_VERSION) dgeni
+	@echo "TODO"
