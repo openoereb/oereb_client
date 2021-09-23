@@ -1,20 +1,14 @@
 env:
   browser: true
   es6: true
-  jasmine: true
+  jest/globals: true
 extends:
   - 'eslint:recommended'
   - 'plugin:react/recommended'
 globals:
-  goog: false
-  angular: false
   module: false
-  inject: false
-  ol: false
-  $: false
-  jQuery: false
   proj4: false
-  oereb: false
+  require: false
 parserOptions:
   sourceType: module
   ecmaFeatures:
@@ -266,5 +260,11 @@ rules:
   yoda:
     - error
     - never
+  jest/no-disabled-tests: warn
+  jest/no-focused-tests: error
+  jest/no-identical-title: error
+  jest/prefer-to-have-length: warn
+  jest/valid-expect: error
 plugins:
   - simple-import-sort
+  - jest

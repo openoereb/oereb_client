@@ -5,8 +5,7 @@ from oereb_client import __version__
 
 class Index(object):
     def __init__(self, request):
-        """
-        Entry point for index rendering.
+        """Entry point for index rendering.
 
         Args:
             request (pyramid.request.Request): The request instance.
