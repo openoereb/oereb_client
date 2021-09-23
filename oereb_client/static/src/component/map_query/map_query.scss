@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../../oereb_client.scss";
 
 $map-query-shadow: $default-shadow;
@@ -39,14 +41,14 @@ $map-query-icon-line-width: 4px;
     div.content {
       position: absolute;
       z-index: 2;
-      margin-top: $map-query-loader-size/2;
-      margin-left: $map-query-loader-size/2;
+      margin-top: math.div($map-query-loader-size, 2);
+      margin-left: math.div($map-query-loader-size, 2);
       background-color: $map-query-loader-bg;
       box-shadow: $map-query-shadow;
       width: $map-query-content-width;
 
       button.list-group-item {
-        padding-left: $map-query-loader-size/2 + 15px;
+        padding-left: math.div($map-query-loader-size, 2) + 15px;
         padding-right: 10px;
         padding-top: 3px;
         padding-bottom: 3px;
@@ -68,15 +70,15 @@ $map-query-icon-line-width: 4px;
         border-style: solid;
         border-width: $map-query-icon-line-width;
         border-color: $map-query-icon-color;
-        border-radius: $map-query-loader-size/2;
+        border-radius: math.div($map-query-loader-size, 2);
         background-color: $map-query-loader-bg;
 
         div.icon-inner {
           position: relative;
           background-color: $map-query-icon-color;
-          border-radius: ($map-query-loader-size - 4*$map-query-icon-line-width) / 2;
-          width: $map-query-loader-size - 4*$map-query-icon-line-width;
-          height: $map-query-loader-size - 4*$map-query-icon-line-width;
+          border-radius: math.div($map-query-loader-size - 4 * $map-query-icon-line-width, 2);
+          width: $map-query-loader-size - 4 * $map-query-icon-line-width;
+          height: $map-query-loader-size - 4 * $map-query-icon-line-width;
           top: $map-query-icon-line-width;
           left: $map-query-icon-line-width;
         }
