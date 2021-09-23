@@ -1,6 +1,4 @@
 include *.rst
-recursive-include oereb_client/static/build *.min.js *.min.css
-recursive-include oereb_client/static/fonts *.otf *.eot *.svg *.ttf *.woff *.woff2
-recursive-include oereb_client/static/images *.png
-recursive-include oereb_client/static/lib *.js
+recursive-include oereb_client/static/build *.js *.min.js *.css *.min.css
+recursive-include oereb_client/static/build/fonts *.otf *.eot *.svg *.ttf *.woff *.woff2
 recursive-include oereb_client/templates *.html *.xml
