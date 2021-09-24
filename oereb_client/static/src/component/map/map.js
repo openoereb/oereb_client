@@ -72,6 +72,8 @@ const getBaseLayerSource = function (config) {
 const OerebMap = function () {
   const mapElement = useRef(null);
   const config = useSelector((state) => state.config).config;
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
   const dispatch = useDispatch();
   const query = new URLSearchParams(window.location.search);
   const applicationUrl = config.application_url;
@@ -171,7 +173,7 @@ const OerebMap = function () {
             egrid: egrid,
             zoom: false
           }));
-          queryExtractById(applicationUrl, egrid)
+          queryExtractById(applicationUrl, egrid, currentLanguage)
             .then((extract) => {
               dispatch(showExtract(extract));
               dispatch(updateHistory(extract));

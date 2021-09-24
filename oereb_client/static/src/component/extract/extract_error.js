@@ -9,6 +9,8 @@ const OerebExtractError = function () {
   const dispatch = useDispatch();
   const config = useSelector((state) => state.config).config;
   const extract = useSelector((state) => state.extract);
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
 
   const getOptionalAttribut = function (value) {
     if (value) {
@@ -65,7 +67,7 @@ const OerebExtractError = function () {
       egrid: extract.egrid,
       zoom: true
     }));
-    queryExtractById(applicationUrl, extract.egrid)
+    queryExtractById(applicationUrl, extract.egrid, currentLanguage)
       .then((data) => {
         dispatch(showExtract(data));
         dispatch(updateHistory(data));

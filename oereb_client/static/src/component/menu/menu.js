@@ -24,7 +24,10 @@ const OerebMenu = function ({t}) {
   const oerebLogoUrl = config.application.logo_oereb;
   const appLogoUrl = config.application.logo_canton;
   const applicationUrl = config.application_url;
-  const availableLanguages = config.application.languages;
+
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
+  const availableLanguages = language.available;
 
   const [search, setSearch] = useState('');
   const [pendingRequests, setPendingRequests] = useState([]);
@@ -237,7 +240,7 @@ const OerebMenu = function ({t}) {
       egrid: egrid,
       zoom: true
     }));
-    queryExtractById(applicationUrl, egrid)
+    queryExtractById(applicationUrl, egrid, currentLanguage)
       .then((extract) => {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));

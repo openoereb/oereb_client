@@ -16,6 +16,8 @@ const OerebMapQuery = function (props) {
   const config = useSelector((state) => state.config).config;
   const mapQuery = useSelector((state) => state.mapQuery);
   const mapQueryElement = useRef(null);
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
 
   const applicationUrl = config.application_url;
   const map = props.map;
@@ -39,7 +41,7 @@ const OerebMapQuery = function (props) {
       egrid: egrid,
       zoom: false
     }));
-    queryExtractById(applicationUrl, egrid)
+    queryExtractById(applicationUrl, egrid, currentLanguage)
       .then((extract) => {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));
