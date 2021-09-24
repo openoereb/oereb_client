@@ -1,9 +1,8 @@
 import './menu.scss';
 
 import {isArray} from 'lodash';
-import PropTypes from 'prop-types';
 import React, {useState} from 'react';
-import {withNamespaces} from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {queryExtractById} from '../../api/extract';
@@ -15,7 +14,8 @@ import {updateHistory} from '../../reducer/history';
 import {enableSymbolZoom} from '../../reducer/symbol_zoom';
 import OerebLanguage from '../language/language';
 
-const OerebMenu = function ({t}) {
+const OerebMenu = function () {
+  const {t} = useTranslation();
   const config = useSelector((state) => state.config).config;
   const showAvailabilityLayer = useSelector((state) => state.availability).visible;
   const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
@@ -321,8 +321,4 @@ const OerebMenu = function ({t}) {
   );
 };
 
-OerebMenu.propTypes = {
-  t: PropTypes.func.isRequired
-};
-
-export default withNamespaces()(OerebMenu);
+export default OerebMenu;
