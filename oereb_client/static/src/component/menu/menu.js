@@ -1,5 +1,6 @@
 import './menu.scss';
 
+import {isArray} from 'lodash';
 import PropTypes from 'prop-types';
 import React, {useState} from 'react';
 import {withNamespaces} from 'react-i18next';
@@ -12,6 +13,7 @@ import {showAvailability} from '../../reducer/availability';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {enableSymbolZoom} from '../../reducer/symbol_zoom';
+import OerebLanguage from '../language/language';
 
 const OerebMenu = function ({t}) {
   const config = useSelector((state) => state.config).config;
@@ -22,11 +24,17 @@ const OerebMenu = function ({t}) {
   const oerebLogoUrl = config.application.logo_oereb;
   const appLogoUrl = config.application.logo_canton;
   const applicationUrl = config.application_url;
+  const availableLanguages = config.application.languages;
 
   const [search, setSearch] = useState('');
   const [pendingRequests, setPendingRequests] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  let languageSelector = null;
+  if (isArray(availableLanguages) && availableLanguages.length > 1) {
+    languageSelector = <OerebLanguage />;
+  }
 
   const reLV03 = new RegExp('^(\\d{6}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{6}(\\.\\d+)?)');
   const reLV95 = new RegExp('^(\\d{7}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{7}(\\.\\d+)?)');
@@ -265,6 +273,7 @@ const OerebMenu = function ({t}) {
       </div>
       <div className="container-fluid">
         <div className="input-group">
+          {languageSelector}
           <button className="btn btn-outline-secondary dropdown-toggle"
             type="button"
             data-bs-toggle="dropdown"

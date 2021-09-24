@@ -3,6 +3,9 @@
     "history": {
       "title": "Verlauf"
     },
+    "language": {
+      "title": "Sprache auswählen"
+    },
     "search": {
       "placeholder": "Suche...",
       "reset": "Suche zurücksetzen",

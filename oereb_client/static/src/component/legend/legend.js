@@ -75,14 +75,16 @@ const getPart = function (entry) {
 };
 
 const OerebLegend = function (props) {
-  const language = useSelector((state) => state.language).current;
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
+  const defaultLanguage = language.default;
   const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
   const restrictions = props.restrictions;
   const tableBody = useRef(null);
 
 
   const legendEntries = getLegendEntries(restrictions).map((entry, key) => {
-    const information = getLocalizedText(entry['Information'], language);
+    const information = getLocalizedText(entry['Information'], currentLanguage, defaultLanguage);
     const symbolRef = entry['SymbolRef'];
     const part = getPart(entry);
     const percent = getPercent(entry);

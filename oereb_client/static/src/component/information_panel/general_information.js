@@ -6,7 +6,9 @@ import {getLocalizedText} from "../../util/language";
 
 const OerebGeneralInformation = function () {
   const extract = useSelector((state) => state.extract);
-  const language = useSelector((state) => state.language).current;
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
+  const defaultLanguage = language.default;
 
   const validExtract =
     extract.visible &&
@@ -20,7 +22,7 @@ const OerebGeneralInformation = function () {
 
   const authority = extract.data['GetExtractByIdResponse']['extract']['PLRCadastreAuthority'];
   const authorityLogo = extract.data['GetExtractByIdResponse']['extract']['CantonalLogoRef'];
-  const authorityName = getLocalizedText(authority['Name'], language);
+  const authorityName = getLocalizedText(authority['Name'], currentLanguage, defaultLanguage);
   const authorityStreet = authority['Street'] + ' ' + authority['Number'];
   const authorityCity = authority['PostalCode'] + ' ' + authority['City'];
   const authorityUrl = authority['OfficeAtWeb'];
@@ -31,12 +33,14 @@ const OerebGeneralInformation = function () {
 
   const baseData = getLocalizedText(
     extract.data['GetExtractByIdResponse']['extract']['BaseData'],
-    language
+    currentLanguage,
+    defaultLanguage
   );
 
   const generalInformation = getLocalizedText(
     extract.data['GetExtractByIdResponse']['extract']['GeneralInformation'],
-    language
+    currentLanguage,
+    defaultLanguage
   );
 
   const federalLogo = extract.data['GetExtractByIdResponse']['extract']['FederalLogoRef'];

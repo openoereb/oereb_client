@@ -12,6 +12,11 @@ oereb_client:
     logo_canton: http://localhost:8080/samples/static/logo_bl.png
     logo_oereb: http://localhost:8080/samples/static/logo_oereb.png
     local_storage_prefix: bl
+    languages:
+      - en
+      - de
+      - fr
+    default_language: en
 
   # View configuration
   view:

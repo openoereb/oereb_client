@@ -38,10 +38,10 @@ const getDocuments = function (restrictions) {
   return documents;
 };
 
-const formatTitle = function (doc, language) {
-  let title = getLocalizedText(doc['Title'], language);
+const formatTitle = function (doc, language, defaultLanguage) {
+  let title = getLocalizedText(doc['Title'], language, defaultLanguage);
   if (isArray(doc['Abbreviation']) && doc['Abbreviation'].length > 0) {
-    title += ' (' + getLocalizedText(doc['Abbreviation'], language) + ')';
+    title += ' (' + getLocalizedText(doc['Abbreviation'], language, defaultLanguage) + ')';
   }
   if (isString(doc['OfficialNumber'])) {
     title += ', ' + doc['OfficialNumber'];
@@ -49,14 +49,14 @@ const formatTitle = function (doc, language) {
   return title;
 };
 
-const formatDocument = function (doc, language) {
+const formatDocument = function (doc, language, defaultLanguage) {
   const articleNumbers = doc['ArticleNumber'].map((number, key) =>
     <span key={key}>
       &nbsp;<span className="badge bg-primary">{number}</span>
     </span>
   );
   const urls = doc['TextAtWeb'].map((url, key) => {
-    const localizedUrl = getLocalizedText(url, language);
+    const localizedUrl = getLocalizedText(url, language, defaultLanguage);
     return (
       <li key={key}>
         <a href={localizedUrl} target="_blank" rel="noreferrer">
@@ -67,7 +67,7 @@ const formatDocument = function (doc, language) {
   });
   return (
     <dd className="ms-2">
-      <span>{formatTitle(doc, language)}</span>
+      <span>{formatTitle(doc, language, defaultLanguage)}</span>
       {articleNumbers}
       <ul className="ps-2 mb-2">
         {urls}
@@ -78,7 +78,9 @@ const formatDocument = function (doc, language) {
 
 const OerebDocuments = function (props) {
   const restrictions = props.restrictions;
-  const language = useSelector((state) => state.language).current;
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
+  const defaultLanguage = language.default;
   const documents = getDocuments(restrictions);
 
   const getLegalProvisionsTitle = function () {
@@ -89,7 +91,8 @@ const OerebDocuments = function (props) {
     }
     return null;
   };
-  const legalProvisions = documents['LegalProvision'].map((doc) => formatDocument(doc, language));
+  const legalProvisions = documents['LegalProvision']
+    .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
 
   const getLawsTitle = function () {
     if (documents['Law'].length > 0) {
@@ -99,7 +102,8 @@ const OerebDocuments = function (props) {
     }
     return null;
   };
-  const laws = documents['Law'].map((doc) => formatDocument(doc, language));
+  const laws = documents['Law']
+    .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
 
   const getHintsTitle = function () {
     if (documents['Hint'].length > 0) {
@@ -109,7 +113,8 @@ const OerebDocuments = function (props) {
     }
     return null;
   };
-  const hints = documents['Hint'].map((doc) => formatDocument(doc, language));
+  const hints = documents['Hint']
+    .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
 
   return (
     <dl className="oereb-documents border-top pt-2 mb-2">
