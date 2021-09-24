@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import React from "react";
-import {withNamespaces} from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from "react-redux";
 
 import {queryExtractById} from '../../api/extract';
@@ -8,7 +7,8 @@ import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {setLanguage} from "../../reducer/language";
 
-const OerebLanguage = function({t}) {
+const OerebLanguage = function() {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
   const config = useSelector((state) => state.config).config;
   const applicationUrl = config.application_url;
@@ -61,8 +61,4 @@ const OerebLanguage = function({t}) {
   );
 };
 
-OerebLanguage.propTypes = {
-  t: PropTypes.func.isRequired
-};
-
-export default withNamespaces()(OerebLanguage);
+export default OerebLanguage;
