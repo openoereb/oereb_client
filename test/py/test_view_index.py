@@ -20,11 +20,22 @@ def remove_key(d, key, sub_key=None):
 settings = {
     'oereb_client': {
         'application': {
-            'title': 'Test',
+            'title': [
+                {
+                    'Language': 'en',
+                    'Text': 'Test1'
+                },
+                {
+                    'Language': 'de',
+                    'Text': 'Test2'
+                }
+            ],
             'icon': 'http://example.com/favicon.png',
             'logo_canton': 'http://example.com/logo_canton.png',
             'logo_oereb': 'http://example.com/logo_oereb.png',
-            'local_storage_prefix': 'bl'
+            'local_storage_prefix': 'bl',
+            'languages': ['en', 'de'],
+            'default_language': 'en'
         },
         'view': {
             'map_x': 2615000,
@@ -88,7 +99,8 @@ def test_render(mock_request):
             'debug': index.is_debug_(),
             'google_analytics': index.get_google_analytics_(),
             'custom_css_url': index.get_custom_css_url_(),
-            'config': index.get_config()
+            'config': index.get_config(),
+            'title': index.get_title()
         }
 
 
@@ -142,3 +154,18 @@ def test_get_application_config_fail(cfg, mock_request):
     with testConfig(settings=cfg):
         with pytest.raises(ConfigurationError):
             Index(mock_request)
+
+
+def test_get_title_default_language(mock_request):
+    with testConfig(settings=settings):
+        index = Index(mock_request)
+        assert index.get_title() == 'Test1'
+
+
+def test_get_title_specified_language(mock_request):
+    with testConfig(settings=settings):
+        mock_request.params.update({
+            'lang': 'de'
+        })
+        index = Index(mock_request)
+        assert index.get_title() == 'Test2'

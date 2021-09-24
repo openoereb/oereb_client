@@ -1,11 +1,13 @@
 import {saveAs} from "file-saver";
 import {isString} from "lodash";
 import React, {useRef} from "react";
+import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
 
 import {queryStaticExtractById} from "../../api/extract";
 
 const OerebStaticExtract = function () {
+  const {t} = useTranslation();
   const config = useSelector((state) => state.config).config;
   const extract = useSelector((state) => state.extract);
   const icon = useRef(null);
@@ -32,7 +34,7 @@ const OerebStaticExtract = function () {
   return (
     <button type="button"
       className="btn btn-outline-secondary"
-      title="Auszug als PDF anfordern"
+      title={t('extract.static_extract.title')}
       onClick={requestStaticExtract}>
       <i ref={icon} className="bi bi-file-earmark-pdf"></i>
     </button>

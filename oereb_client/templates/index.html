@@ -5,7 +5,7 @@
 <!-- OEREB Client, version ${config['version']} -->
 <html lang="de" ng-app="oereb" ng-controller="MainController as ctrl">
   <head>
-    <title>${config['application']['title']}</title>
+    <title>${title}</title>
     % if config['application']['icon'] is not None:
         <link rel="shortcut icon" type="image/png" href="${config['application']['icon']}"/>
     % endif

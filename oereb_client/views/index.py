@@ -107,6 +107,19 @@ class Index(object):
             'external_viewer': self.config_.get('external_viewer', {})
         }
 
+    def get_title(self):
+        title = None
+        if 'lang' in self.request_.params:
+            for item in self.config_['application']['title']:
+                if item['Language'] == self.request_.params.get('lang'):
+                    title = item['Text']
+                    break
+                elif item['Language'] == self.config_['application']['default_language']:
+                    title = item['Text']
+        if title is None:
+            title = self.config_['application']['title'][0]['Text']
+        return title
+
     def render(self):
         """
         Returns the dictionary with rendering parameters.
@@ -119,5 +132,6 @@ class Index(object):
             'debug': self.is_debug_(),
             'google_analytics': self.get_google_analytics_(),
             'custom_css_url': self.get_custom_css_url_(),
-            'config': self.get_config()
+            'config': self.get_config(),
+            'title': self.get_title()
         }

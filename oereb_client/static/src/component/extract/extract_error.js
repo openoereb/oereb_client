@@ -1,16 +1,20 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {queryExtractById} from '../../api/extract';
 import {hideExtract, loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
+import {getLocalizedText} from '../../util/language';
 
 const OerebExtractError = function () {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
   const config = useSelector((state) => state.config).config;
   const extract = useSelector((state) => state.extract);
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
+  const defaultLanguage = language.default;
 
   const getOptionalAttribut = function (value) {
     if (value) {
@@ -28,7 +32,8 @@ const OerebExtractError = function () {
       return (
         <span>
           <br />
-          <i className="bi bi-telephone-fill" title="Telefon"></i> {config.support.phone}
+          <i className="bi bi-telephone-fill" title={t('extract.error.support.phone.title')}></i>&nbsp;
+          {config.support.phone}
         </span>
       );
     }
@@ -40,7 +45,7 @@ const OerebExtractError = function () {
       return (
         <span>
           <br />
-          <i className="bi bi-envelope-fill" title="E-Mail"></i>&nbsp;
+          <i className="bi bi-envelope-fill" title={t('extract.error.support.email.title')}></i>&nbsp;
           <a ng-href="mailto:{config.support.email}">
             {config.support.email}
           </a>
@@ -50,8 +55,10 @@ const OerebExtractError = function () {
     return null;
   };
 
-  const office1 = config.support.office1;
-  const office2 = getOptionalAttribut(config.support.office2);
+  const office1 = getLocalizedText(config.support.office1, currentLanguage, defaultLanguage);
+  const office2 = getOptionalAttribut(getLocalizedText(
+    config.support.office2, currentLanguage, defaultLanguage
+  ));
   const street = getOptionalAttribut(config.support.street);
   const city = getOptionalAttribut(config.support.city);
   const phone = getPhone();
@@ -87,18 +94,19 @@ const OerebExtractError = function () {
         </button>
       </p>
       <h3>
-        <i className="bi bi-exclamation-circle-fill text-secondary"></i> Auszug fehlgeschlagen
+        <i className="bi bi-exclamation-circle-fill text-secondary"></i>&nbsp;
+        {t('extract.error.title')}
       </h3>
       <p>
-        Bei der Generierung des Auszugs ist ein Fehler aufgetreten.
-        Bitte versuchen Sie, den Auszug erneut anzufordern.
+        {t('extract.error.message')}
       </p>
       <p className="text-center">
-        <button onClick={retryExtract} className="btn btn-secondary">Erneut versuchen</button>
+        <button onClick={retryExtract} className="btn btn-secondary">
+          {t('extract.error.button.text')}
+        </button>
       </p>
       <p>
-        Sollte der Fehler wiederholt auftreten,
-        kontaktieren Sie bitte die katasterverantwortliche Stelle:
+        {t('extract.error.support.message')}
       </p>
       <p>
         <address>

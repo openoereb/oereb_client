@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {setActiveCategory, setActiveTopic, setViewServices} from '../../reducer/accordion';
@@ -10,6 +11,7 @@ import OerebRealEstate from '../real_estate/real_estate';
 import OerebStaticExtract from '../static_extract/static_extract';
 
 const OerebExtractData = function () {
+  const {t} = useTranslation();
   const extract = useSelector((state) => state.extract);
   const dispatch = useDispatch();
 
@@ -32,10 +34,10 @@ const OerebExtractData = function () {
   };
 
   const collapseButton = (() => {
-    let title = 'Auszug ausblenden';
+    let title = t('extract.hide');
     let iconClass = 'bi bi-chevron-up';
     if (collapsed) {
-      title = 'Auszug einblenden';
+      title = t('extract.show');
       iconClass = 'bi bi-chevron-down';
     }
     return (
@@ -74,7 +76,7 @@ const OerebExtractData = function () {
           <OerebStaticExtract />
           <button type="button"
             className="btn btn-outline-secondary"
-            title="Allgemeine und rechtliche Informationen"
+            title={t('extract.information_panel.button.title')}
             onClick={toggleInfo}>
             <i className="bi bi-info-square"></i>
           </button>
@@ -82,13 +84,13 @@ const OerebExtractData = function () {
       </div>
       <OerebRealEstate data={extractData.RealEstate} />
       <div className="accordion accordion-flush flex-grow-1 mt-1 mb-2">
-        <OerebCategory title="Betroffene Themen"
+        <OerebCategory title={t('extract.category.concerned_theme')}
           data={extractData.ConcernedTheme}
           restriction={true} />
-        <OerebCategory title="Nicht betroffene Themen"
+        <OerebCategory title={t('extract.category.not_concerned_theme')}
           data={extractData.NotConcernedTheme}
           restriction={false} />
-        <OerebCategory title="Nicht verfügbare Themen"
+        <OerebCategory title={t('extract.category.theme_without_data')}
           data={extractData.ThemeWithoutData}
           restriction={false} />
       </div>

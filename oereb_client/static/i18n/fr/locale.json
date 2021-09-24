@@ -1,4 +1,88 @@
 {
+  "extract": {
+    "category": {
+      "concerned_theme": "__STRING_NOT_TRANSLATED__",
+      "not_concerned_theme": "__STRING_NOT_TRANSLATED__",
+      "theme_without_data": "__STRING_NOT_TRANSLATED__"
+    },
+    "error": {
+      "button": {
+        "text": "__STRING_NOT_TRANSLATED__"
+      },
+      "message": "__STRING_NOT_TRANSLATED__",
+      "support": {
+        "email": {
+          "title": "__STRING_NOT_TRANSLATED__"
+        },
+        "message": "__STRING_NOT_TRANSLATED__",
+        "phone": {
+          "title": "__STRING_NOT_TRANSLATED__"
+        }
+      },
+      "title": "__STRING_NOT_TRANSLATED__"
+    },
+    "hide": "__STRING_NOT_TRANSLATED__",
+    "information_panel": {
+      "button": {
+        "title": "__STRING_NOT_TRANSLATED__"
+      },
+      "exclusion_of_liability": {
+        "title": "__STRING_NOT_TRANSLATED__"
+      },
+      "general_information": {
+        "authority": "__STRING_NOT_TRANSLATED__",
+        "base_data": "__STRING_NOT_TRANSLATED__",
+        "further_participants": "__STRING_NOT_TRANSLATED__",
+        "general_information": "__STRING_NOT_TRANSLATED__",
+        "title": "__STRING_NOT_TRANSLATED__"
+      },
+      "glossary": {
+        "title": "__STRING_NOT_TRANSLATED__"
+      },
+      "search": {
+        "placeholder": "__STRING_NOT_TRANSLATED__"
+      }
+    },
+    "loading": {
+      "message": "__STRING_NOT_TRANSLATED__"
+    },
+    "permalink": {
+      "title": "__STRING_NOT_TRANSLATED__"
+    },
+    "real_estate": {
+      "area": "__STRING_NOT_TRANSLATED__",
+      "at": "__STRING_NOT_TRANSLATED__",
+      "egrid": "__STRING_NOT_TRANSLATED__",
+      "real_estate": "__STRING_NOT_TRANSLATED__"
+    },
+    "show": "__STRING_NOT_TRANSLATED__",
+    "static_extract": {
+      "title": "__STRING_NOT_TRANSLATED__"
+    },
+    "topic": {
+      "complete_legend": {
+        "hide": "__STRING_NOT_TRANSLATED__",
+        "show": "__STRING_NOT_TRANSLATED__"
+      },
+      "document": {
+        "hints": "__STRING_NOT_TRANSLATED__",
+        "laws": "__STRING_NOT_TRANSLATED__",
+        "legal_provisions": "__STRING_NOT_TRANSLATED__"
+      },
+      "legend": {
+        "part": "__STRING_NOT_TRANSLATED__",
+        "part_in_percent": "__STRING_NOT_TRANSLATED__",
+        "type": "__STRING_NOT_TRANSLATED__"
+      },
+      "opacity": "__STRING_NOT_TRANSLATED__",
+      "responsible_office": "__STRING_NOT_TRANSLATED__"
+    }
+  },
+  "map_query": {
+    "result": {
+      "text": "__STRING_NOT_TRANSLATED__"
+    }
+  },
   "menu": {
     "history": {
       "title": "__STRING_NOT_TRANSLATED__"

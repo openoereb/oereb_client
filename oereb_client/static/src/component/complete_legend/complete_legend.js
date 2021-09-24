@@ -4,10 +4,12 @@ import {Collapse} from 'bootstrap';
 import {isString} from 'lodash';
 import PropTypes from 'prop-types';
 import React, {useEffect, useRef, useState} from 'react';
+import {useTranslation} from 'react-i18next';
 
 import {addIfNotContains} from '../../util/array';
 
-const OerebCompleteLegend = function (props) {
+const OerebCompleteLegend = function(props) {
+  const {t} = useTranslation();
   const collapseEl = useRef(null);
   const [visible, setVisible] = useState(false);
   const restrictions = props.restrictions;
@@ -50,13 +52,13 @@ const OerebCompleteLegend = function (props) {
     if (visible) {
       return (
         <span>
-          <i className="bi bi-chevron-up"></i> vollständige Legende verbergen
+          <i className="bi bi-chevron-up"></i> {t('extract.topic.complete_legend.hide')}
         </span>
       );
     }
     return (
       <span>
-        <i className="bi bi-chevron-down"></i> vollständige Legende anzeigen
+        <i className="bi bi-chevron-down"></i> {t('extract.topic.complete_legend.show')}
       </span>
     );
   };
