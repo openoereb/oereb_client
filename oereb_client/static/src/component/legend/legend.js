@@ -3,6 +3,7 @@ import './legend.scss';
 import {Popover} from 'bootstrap';
 import PropTypes from 'prop-types';
 import React, {useEffect, useRef} from 'react';
+import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 
 import {getLocalizedText} from '../../util/language';
@@ -75,6 +76,7 @@ const getPart = function (entry) {
 };
 
 const OerebLegend = function (props) {
+  const {t} = useTranslation();
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
   const defaultLanguage = language.default;
@@ -122,10 +124,10 @@ const OerebLegend = function (props) {
     <table className="table table-sm mb-2 oereb-client-legend">
       <thead>
         <tr>
-          <th>Typ</th>
+          <th>{t('extract.topic.legend.type')}</th>
           <th></th>
-          <th className="text-end">Anteil</th>
-          <th className="text-end">Anteil in %</th>
+          <th className="text-end">{t('extract.topic.legend.part')}</th>
+          <th className="text-end">{t('extract.topic.legend.part_in_percent')}</th>
         </tr>
       </thead>
       <tbody ref={tableBody}>

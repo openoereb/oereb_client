@@ -3,12 +3,14 @@ import './responsible_office.scss';
 import {isArray} from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 
 import {addIfNotContains} from '../../util/array';
 import {getLocalizedText} from '../../util/language';
 
 const OerebResponsibleOffice = function (props) {
+  const {t} = useTranslation();
   const restrictions = props.restrictions;
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
@@ -37,7 +39,7 @@ const OerebResponsibleOffice = function (props) {
 
   return (
     <dl className="oereb-responsible-office border-top pt-2 mb-2">
-      <dt>Zuständige Stelle</dt>
+      <dt>{t('extract.topic.responsible_office')}</dt>
       {officeElements}
     </dl>
   );

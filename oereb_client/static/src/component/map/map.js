@@ -64,9 +64,7 @@ const getBaseLayerSource = function (config) {
   else if (config['type'].toLowerCase() === 'wmts') {
     return getBaseLayerSourceWmts(config);
   }
-
   return Promise.reject(new Error('Invalid base layer type'));
-
 };
 
 const OerebMap = function () {

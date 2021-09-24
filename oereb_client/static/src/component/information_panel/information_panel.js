@@ -1,6 +1,7 @@
 import "./information_panel.scss";
 
 import React, {useEffect, useRef, useState} from "react";
+import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 
 import {setInformationPanelTab, toggleInformationPanel} from "../../reducer/extract";
@@ -8,6 +9,7 @@ import OerebGeneralInformation from "./general_information";
 import OerebMultilingualCatalog from "./multilingual_catalog";
 
 const OerebInformationPanel = function () {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
   const extract = useSelector((state) => state.extract);
   const panel = useRef(null);
@@ -15,17 +17,17 @@ const OerebInformationPanel = function () {
 
   const tabs = [
     {
-      title: 'Allgemein',
+      title: t('extract.information_panel.general_information.title'),
       content: <OerebGeneralInformation />,
       search: false
     },
     {
-      title: 'Haftungsausschluss',
+      title: t('extract.information_panel.exclusion_of_liability.title'),
       content: <OerebMultilingualCatalog catalog="ExclusionOfLiability" search={search} />,
       search: true
     },
     {
-      title: 'Glossar',
+      title: t('extract.information_panel.glossary.title'),
       content: <OerebMultilingualCatalog catalog="Glossary" search={search} />,
       search: true
     }
@@ -68,7 +70,7 @@ const OerebInformationPanel = function () {
       searchInput =
         <div className="mt-2">
           <input className="form-control"
-            placeholder="Begriff suchen..."
+            placeholder={t('extract.information_panel.search.placeholder')}
             onChange={handleSearch} />
         </div>;
     }
@@ -76,7 +78,7 @@ const OerebInformationPanel = function () {
       searchInput =
         <div className="ms-4">
           <input className="form-control"
-            placeholder="Begriff suchen..."
+            placeholder={t('extract.information_panel.search.placeholder')}
             onChange={handleSearch} />
         </div>;
     }

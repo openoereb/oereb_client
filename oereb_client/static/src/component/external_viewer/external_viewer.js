@@ -2,11 +2,15 @@ import {isArray, isObject, isString} from "lodash";
 import React from "react";
 import {useSelector} from "react-redux";
 
+import {getLocalizedText} from "../../util/language";
 import {format} from "../../util/string";
 
 const OerebExternalViewer = function () {
   const config = useSelector((state) => state.config).config;
   const extract = useSelector((state) => state.extract);
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
+  const defaultLanguage = language.default;
 
   const validConfig =
     isObject(config['external_viewer']) &&
@@ -17,7 +21,11 @@ const OerebExternalViewer = function () {
     return null;
   }
 
-  const title = config['external_viewer']['tooltip'];
+  const title = getLocalizedText(
+    config['external_viewer']['tooltip'],
+    currentLanguage,
+    defaultLanguage
+  );
 
   const openExternalViewer = function () {
     if (extract.visible) {
@@ -27,6 +35,7 @@ const OerebExternalViewer = function () {
         'map_x': urlParams.get('map_x'),
         'map_y': urlParams.get('map_y'),
         'map_zoom': urlParams.get('map_zoom'),
+        'lang': urlParams.get('lang'),
         'canton': realEstate['Canton'],
         'egrid': realEstate['EGRID'],
         'fosnr': realEstate['FosNr'],

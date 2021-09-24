@@ -3,6 +3,7 @@ import './map_query.scss';
 import Overlay from 'ol/Overlay';
 import PropTypes from 'prop-types';
 import React, {useRef} from 'react';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {queryExtractById} from '../../api/extract';
@@ -12,6 +13,7 @@ import {updateHistory} from '../../reducer/history';
 import {hide} from '../../reducer/map_query';
 
 const OerebMapQuery = function (props) {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
   const config = useSelector((state) => state.config).config;
   const mapQuery = useSelector((state) => state.mapQuery);
@@ -28,6 +30,7 @@ const OerebMapQuery = function (props) {
     offset: [-17, -17]
   });
   map.addOverlay(overlay);
+  
   overlay.setPosition([mapQuery.posX, mapQuery.posY]);
 
   const close = function () {
@@ -59,7 +62,7 @@ const OerebMapQuery = function (props) {
         onClick={queryExtract.bind(this, egrid)}
         type="button"
         className="list-group-item list-group-item-action">
-        <small>Auszug für Grundstück {number}</small>
+        <small>{t('map_query.result.text')} {number}</small>
       </button>
     );
   });

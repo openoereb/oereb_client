@@ -1,4 +1,88 @@
 {
+  "extract": {
+    "category": {
+      "concerned_theme": "Betroffene Themen",
+      "not_concerned_theme": "Nicht betroffene Themen",
+      "theme_without_data": "Nicht verfügbare Themen"
+    },
+    "error": {
+      "button": {
+        "text": "Erneut versuchen"
+      },
+      "message": "Bei der Generierung des Auszugs ist ein Fehler aufgetreten. Bitte versuchen Sie, den Auszug erneut anzufordern.",
+      "support": {
+        "email": {
+          "title": "E-Mail"
+        },
+        "message": "Sollte der Fehler wiederholt auftreten, kontaktieren Sie bitte die katasterverantwortliche Stelle:",
+        "phone": {
+          "title": "Telefon"
+        }
+      },
+      "title": "Auszug fehlgeschlagen"
+    },
+    "hide": "Auszug ausblenden",
+    "information_panel": {
+      "button": {
+        "title": "Allgemeine und rechtliche Informationen"
+      },
+      "exclusion_of_liability": {
+        "title": "Haftungsausschluss"
+      },
+      "general_information": {
+        "authority": "Katasterverantwortliche Stelle",
+        "base_data": "Grundlagedaten",
+        "further_participants": "Weiterhin an diesem Auszug beteilig sind",
+        "general_information": "Allgemeine Informationen",
+        "title": "Allgemein"
+      },
+      "glossary": {
+        "title": "Glossar"
+      },
+      "search": {
+        "placeholder": "Begriff suchen..."
+      }
+    },
+    "loading": {
+      "message": "Auszug wird generiert..."
+    },
+    "permalink": {
+      "title": "Permalink"
+    },
+    "real_estate": {
+      "area": "Fläche",
+      "at": "in",
+      "egrid": "E-GRID",
+      "real_estate": "Grundstück"
+    },
+    "show": "Auszug einblenden",
+    "static_extract": {
+      "title": "Auszug als PDF anfordern"
+    },
+    "topic": {
+      "complete_legend": {
+        "hide": "vollständige Legende verbergen",
+        "show": "vollständige Legende anzeigen"
+      },
+      "document": {
+        "hints": "Weitere Informationen und Hinweise",
+        "laws": "Gesetzliche Grundlagen",
+        "legal_provisions": "Rechtsvorschriften"
+      },
+      "legend": {
+        "part": "Anteil",
+        "part_in_percent": "Anteil in %",
+        "type": "Typ"
+      },
+      "opacity": "Deckkraft",
+      "responsible_office": "Zuständige Stelle"
+    }
+  },
+  "map_query": {
+    "result": {
+      "text": "Auszug für Grundstück"
+    }
+  },
   "menu": {
     "history": {
       "title": "Verlauf"

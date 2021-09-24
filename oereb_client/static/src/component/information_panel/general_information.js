@@ -1,10 +1,12 @@
 import {isObject} from "lodash";
 import React from "react";
+import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
 
 import {getLocalizedText} from "../../util/language";
 
 const OerebGeneralInformation = function () {
+  const {t} = useTranslation();
   const extract = useSelector((state) => state.extract);
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
@@ -56,7 +58,9 @@ const OerebGeneralInformation = function () {
         <div className={authorityFlexClass}>
           <div>
             <div className="card-body">
-              <h5 className="card-title">Katasterverantwortliche Stelle</h5>
+              <h5 className="card-title">
+                {t('extract.information_panel.general_information.authority')}
+              </h5>
               <p className="card-text fw-bold m-0">{authorityName}</p>
               <p className="card-text m-0">{authorityStreet}</p>
               <p className="card-text m-0">{authorityCity}</p>
@@ -76,7 +80,9 @@ const OerebGeneralInformation = function () {
         <div className="d-flex g-0">
           <div>
             <div className="card-body">
-              <h5 className="card-title">Grundlagedaten</h5>
+              <h5 className="card-title">
+                {t('extract.information_panel.general_information.base_data')}
+              </h5>
               <p className="card-text m-0">{baseData}</p>
             </div>
           </div>
@@ -86,7 +92,9 @@ const OerebGeneralInformation = function () {
         <div className="d-flex g-0">
           <div>
             <div className="card-body">
-              <h5 className="card-title">Allgemeine Informationen</h5>
+              <h5 className="card-title">
+                {t('extract.information_panel.general_information.general_information')}
+              </h5>
               <p className="card-text m-0">{generalInformation}</p>
             </div>
           </div>
@@ -96,7 +104,9 @@ const OerebGeneralInformation = function () {
         <div className="d-flex g-0">
           <div>
             <div className="card-body">
-              <h5 className="card-title">Weiterhin an diesem Auszug beteilig sind</h5>
+              <h5 className="card-title">
+                {t('extract.information_panel.general_information.further_participants')}
+              </h5>
               <div className={logosFlexClass}>
                 <img src={federalLogo} className="img-fluid" />
                 <img src={municipalityLogo} className="img-fluid" />

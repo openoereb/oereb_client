@@ -1,6 +1,6 @@
 import {isString} from 'lodash';
 import PropTypes from 'prop-types';
-import React, {Suspense} from 'react';
+import React from 'react';
 import {useDispatch} from 'react-redux';
 
 import {queryExtractById} from '../../api/extract';
@@ -55,11 +55,9 @@ const App = function (props) {
   return (
     <div>
       <OerebMap />
-      <Suspense fallback="loading">
-        <OerebInformationPanel />
-        <OerebExtract />
-        <OerebMenu />
-      </Suspense>
+      <OerebInformationPanel />
+      <OerebExtract />
+      <OerebMenu />
     </div>
   );
 };

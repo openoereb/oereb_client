@@ -3,6 +3,7 @@ import './documents.scss';
 import {isArray, isString} from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 
 import {addDocumentIfNotContained, addDocumentsIfNotContained} from '../../util/documents';
@@ -77,6 +78,7 @@ const formatDocument = function (doc, language, defaultLanguage) {
 }
 
 const OerebDocuments = function (props) {
+  const {t} = useTranslation();
   const restrictions = props.restrictions;
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
@@ -86,7 +88,7 @@ const OerebDocuments = function (props) {
   const getLegalProvisionsTitle = function () {
     if (documents['LegalProvision'].length > 0) {
       return (
-        <dt>Rechtsvorschriften</dt>
+        <dt>{t('extract.topic.document.legal_provisions')}</dt>
       );
     }
     return null;
@@ -97,7 +99,7 @@ const OerebDocuments = function (props) {
   const getLawsTitle = function () {
     if (documents['Law'].length > 0) {
       return (
-        <dt>Gesetzliche Grundlagen</dt>
+        <dt>{t('extract.topic.document.laws')}</dt>
       );
     }
     return null;
@@ -108,7 +110,7 @@ const OerebDocuments = function (props) {
   const getHintsTitle = function () {
     if (documents['Hint'].length > 0) {
       return (
-        <dt>Weitere Informationen und Hinweise</dt>
+        <dt>{t('extract.topic.document.hints')}</dt>
       );
     }
     return null;

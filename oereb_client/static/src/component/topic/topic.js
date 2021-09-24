@@ -2,6 +2,7 @@ import {Collapse} from 'bootstrap';
 import LayerGroup from 'ol/layer/Group';
 import PropTypes from 'prop-types';
 import React, {useEffect, useRef, useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {setActiveTopic, setViewServices} from '../../reducer/accordion';
@@ -12,6 +13,7 @@ import OerebLegend from '../legend/legend';
 import OerebResponsibleOffice from '../responsible_office/responsible_office';
 
 const OerebTopic = function (props) {
+  const {t} = useTranslation();
   const topic = props.topic;
   const restrictions = props.restrictions;
   const collapseEl = useRef(null);
@@ -85,7 +87,7 @@ const OerebTopic = function (props) {
         <div className="accordion-body">
           <div className="row align-items-center mb-2">
             <div className="col-3">
-              <small>Deckkraft:</small>
+              <small>{t('extract.topic.opacity')}:</small>
             </div>
             <div className="col-2 pe-2 text-end">
               <small>{opacity}%</small>

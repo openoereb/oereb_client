@@ -14,5 +14,5 @@ export const getLocalizedText = function (multilingualText, language, defaultLan
     }
     return multilingualText[0]['Text'];
   }
-  return '';
+  return null;
 };
