@@ -1,3 +1,5 @@
+/* eslint-disable no-sync */
+
 const fs = require('fs');
 const chalk = require('chalk');
 
@@ -50,7 +52,7 @@ module.exports = {
     },
     plural: false
   },
-  transform: function transform(file, enc, done) {
+  transform: function(file, enc, done) {
     const parser = this.parser;
     const content = fs.readFileSync(file.path, enc);
     let count = 0;
