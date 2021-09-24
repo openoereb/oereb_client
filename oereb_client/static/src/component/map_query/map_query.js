@@ -30,7 +30,7 @@ const OerebMapQuery = function (props) {
     offset: [-17, -17]
   });
   map.addOverlay(overlay);
-  
+
   overlay.setPosition([mapQuery.posX, mapQuery.posY]);
 
   const close = function () {
