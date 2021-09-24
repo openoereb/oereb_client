@@ -25,7 +25,7 @@ module.exports = {
       },
       acorn: {
         ecmaVersion: 10, // defaults to 10
-        sourceType: 'module', // defaults to 'module'
+        sourceType: 'module' // defaults to 'module'
         // Check out https://github.com/acornjs/acorn/tree/master/acorn#interface for additional options
       }
     },
@@ -50,13 +50,12 @@ module.exports = {
     },
     plural: false
   },
-  transform: function customTransform(file, enc, done) {
-    "use strict";
+  transform: function transform(file, enc, done) {
     const parser = this.parser;
     const content = fs.readFileSync(file.path, enc);
     let count = 0;
 
-    parser.parseFuncFromString(content, { list: ['i18next._', 'i18next.__'] }, (key, options) => {
+    parser.parseFuncFromString(content, {list: ['i18next._', 'i18next.__']}, (key, options) => {
       parser.set(key, Object.assign({}, options, {
         nsSeparator: false,
         keySeparator: false
@@ -65,7 +64,10 @@ module.exports = {
     });
 
     if (count > 0) {
-      console.log(`i18next-scanner: count=${chalk.cyan(count)}, file=${chalk.yellow(JSON.stringify(file.relative))}`);
+      console.log(
+        `i18next-scanner: count=${chalk.cyan(count)}, 
+        file=${chalk.yellow(JSON.stringify(file.relative))}`
+      );
     }
 
     done();
