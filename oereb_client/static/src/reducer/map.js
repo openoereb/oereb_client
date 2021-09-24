@@ -7,13 +7,13 @@ export const mapSlice = createSlice({
     topicLayers: null
   },
   reducers: {
-    setMap: (state, action) => {
+    initMap: (state, action) => {
       state.map = action.payload.map;
       state.topicLayers = action.payload.topicLayers;
     }
   }
 });
 
-export const {setMap} = mapSlice.actions;
+export const {initMap} = mapSlice.actions;
 
 export default mapSlice.reducer;

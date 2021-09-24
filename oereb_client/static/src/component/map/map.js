@@ -13,14 +13,14 @@ import WMTS, {optionsFromCapabilities} from 'ol/source/WMTS';
 import Stroke from 'ol/style/Stroke';
 import Style from 'ol/style/Style';
 import View from 'ol/View';
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {queryEgridByCoord} from '../../api/egrid';
 import {queryExtractById} from '../../api/extract';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
-import {setMap} from '../../reducer/map';
+import {initMap} from '../../reducer/map';
 import {hide, loadAt, show} from '../../reducer/map_query';
 import OerebAvailabilityLayer from '../availability_layer/availability_layer';
 import OerebMapQuery from '../map_query/map_query';
@@ -80,35 +80,26 @@ const OerebMap = function () {
   const mapX = parseFloat(query.get('map_x')) || config.view.map_x;
   const mapY = parseFloat(query.get('map_y')) || config.view.map_y;
   const mapZoom = parseFloat(query.get('map_zoom')) || config.view.map_zoom;
-  const map = new Map({
-    controls: defaults({
-      attribution: false
-    }),
-    view: new View({
-      center: [mapX, mapY],
-      zoom: mapZoom,
-      resolutions: config.view.resolutions,
-      projection: 'EPSG:2056'
-    })
-  });
+
+  const [map, setMap] = useState(null);
 
   // Create availability layer
-  const availabilityLayer = new TileLayer({
+  const [availabilityLayer] = useState(new TileLayer({
     preload: Infinity,
     source: new TileWMS({
       url: config.availability.url,
       params: config.availability.params
     })
-  });
+  }));
 
   // Create group for topic layers
-  const topicLayers = new LayerGroup({
+  const [topicLayers] = useState(new LayerGroup({
     layers: new Collection([]),
     visible: false
-  });
+  }));
 
   // Create real estate layer
-  const realEstateLayer = new VectorLayer({
+  const [realEstateLayer] = useState(new VectorLayer({
     source: new VectorSource({}),
     style: new Style({
       fill: undefined,
@@ -119,74 +110,91 @@ const OerebMap = function () {
         lineJoin: 'miter'
       })
     })
-  });
+  }));
 
-  // Add base layer
-  getBaseLayerSource(config['base_layer']).then(function (source) {
-    const baseLayer = new TileLayer({
-      preload: Infinity,
-      visible: true,
-      source: source
+  if (map === null) {
+
+    const newMap = new Map({
+      controls: defaults({
+        attribution: false
+      }),
+      view: new View({
+        center: [mapX, mapY],
+        zoom: mapZoom,
+        resolutions: config.view.resolutions,
+        projection: 'EPSG:2056'
+      })
     });
-    map.addLayer(baseLayer);
-    map.addLayer(availabilityLayer);
-    map.addLayer(topicLayers);
-    map.addLayer(realEstateLayer);
-    dispatch(setMap({
-      map: map,
-      topicLayers: topicLayers
-    }));
-  });
+
+    // Add base layer
+    getBaseLayerSource(config['base_layer']).then(function (source) {
+      const baseLayer = new TileLayer({
+        preload: Infinity,
+        visible: true,
+        source: source
+      });
+      newMap.addLayer(baseLayer);
+      newMap.addLayer(availabilityLayer);
+      newMap.addLayer(topicLayers);
+      newMap.addLayer(realEstateLayer);
+      dispatch(initMap({
+        map: newMap,
+        topicLayers: topicLayers
+      }));
+    });
+
+    newMap.on('moveend', function () {
+      const query = new URLSearchParams(window.location.search);
+      query.set('map_x', newMap.getView().getCenter()[0].toFixed(3));
+      query.set('map_y', newMap.getView().getCenter()[1].toFixed(3));
+      query.set('map_zoom', newMap.getView().getZoom().toFixed(0));
+      window.history.pushState(null, null, '?' + query.toString());
+    });
+
+    newMap.on('singleclick', function (evt) {
+      const coord = newMap.getEventCoordinate(evt.originalEvent);
+      dispatch(loadAt({
+        posX: coord[0],
+        posY: coord[1]
+      }));
+      queryEgridByCoord(applicationUrl, coord)
+        .then((egrids) => {
+          const results = egrids.GetEGRIDResponse;
+          if (results.length > 1) {
+            dispatch(show({
+              results: results
+            }));
+          }
+          else if (results.length === 1) {
+            const egrid = results[0].egrid;
+            dispatch(hide());
+            dispatch(loadExtract({
+              egrid: egrid,
+              zoom: false
+            }));
+            queryExtractById(applicationUrl, egrid, currentLanguage)
+              .then((extract) => {
+                dispatch(showExtract(extract));
+                dispatch(updateHistory(extract));
+              })
+              .catch(() => {
+                dispatch(showError());
+              });
+          }
+          else {
+            dispatch(hide());
+          }
+        })
+        .catch(() => {
+          dispatch(hide());
+        });
+    });
+
+    setMap(newMap);
+  }
 
   useEffect(() => {
     map.setTarget(mapElement.current);
-  });
-
-  map.on('moveend', function () {
-    const query = new URLSearchParams(window.location.search);
-    query.set('map_x', map.getView().getCenter()[0].toFixed(3));
-    query.set('map_y', map.getView().getCenter()[1].toFixed(3));
-    query.set('map_zoom', map.getView().getZoom().toFixed(0));
-    window.history.pushState(null, null, '?' + query.toString());
-  });
-
-  map.on('singleclick', function (evt) {
-    const coord = map.getEventCoordinate(evt.originalEvent);
-    dispatch(loadAt({
-      posX: coord[0],
-      posY: coord[1]
-    }));
-    queryEgridByCoord(applicationUrl, coord)
-      .then((egrids) => {
-        const results = egrids.GetEGRIDResponse;
-        if (results.length > 1) {
-          dispatch(show({
-            results: results
-          }));
-        }
-        else if (results.length === 1) {
-          const egrid = results[0].egrid;
-          dispatch(hide());
-          dispatch(loadExtract({
-            egrid: egrid,
-            zoom: false
-          }));
-          queryExtractById(applicationUrl, egrid, currentLanguage)
-            .then((extract) => {
-              dispatch(showExtract(extract));
-              dispatch(updateHistory(extract));
-            })
-            .catch(() => {
-              dispatch(showError());
-            });
-        }
-        else {
-          dispatch(hide());
-        }
-      })
-      .catch(() => {
-        dispatch(hide());
-      });
   });
 
   return (
