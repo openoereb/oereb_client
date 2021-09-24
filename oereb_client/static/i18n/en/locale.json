@@ -3,6 +3,9 @@
     "history": {
       "title": "History"
     },
+    "language": {
+      "title": "Select language"
+    },
     "search": {
       "placeholder": "Search...",
       "reset": "Reset search",

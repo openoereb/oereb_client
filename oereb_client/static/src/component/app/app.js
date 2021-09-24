@@ -8,6 +8,7 @@ import {initAvailability, setAvailabilityPrefix} from '../../reducer/availabilit
 import {update} from '../../reducer/config';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {initHistory, setHistoryPrefix, updateHistory} from '../../reducer/history';
+import {initLanguages} from '../../reducer/language';
 import {initSymbolZoom, setSymbolZoomPrefix} from '../../reducer/symbol_zoom';
 import OerebExtract from '../extract/extract';
 import OerebInformationPanel from '../information_panel/information_panel';
@@ -18,6 +19,11 @@ const App = function (props) {
   const dispatch = useDispatch();
   const config = props.config;
   const query = new URLSearchParams(window.location.search);
+
+  dispatch(initLanguages({
+    available: config['application']['languages'],
+    default: config['application']['default_language']
+  }));
 
   dispatch(update(config));
   if (isString(config.application.local_storage_prefix)) {

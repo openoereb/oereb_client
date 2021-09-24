@@ -10,7 +10,9 @@ import {getLocalizedText} from '../../util/language';
 
 const OerebResponsibleOffice = function (props) {
   const restrictions = props.restrictions;
-  const language = useSelector((state) => state.language).current;
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
+  const defaultLanguage = language.default;
   const offices = [];
 
   restrictions.forEach((restriction) => {
@@ -23,7 +25,7 @@ const OerebResponsibleOffice = function (props) {
   });
 
   const officeElements = offices.map((office, key) => {
-    const localizedName = getLocalizedText(office['Name'], language);
+    const localizedName = getLocalizedText(office['Name'], currentLanguage, defaultLanguage);
     return (
       <dd key={key} className="ms-2">
         <a href={office['OfficeAtWeb']} target="_blank" rel="noreferrer">

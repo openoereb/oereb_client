@@ -9,7 +9,9 @@ const OerebMultilingualCatalog = function (props) {
   const catalogName = props.catalog;
   const search = props.search;
   const extract = useSelector((state) => state.extract);
-  const language = useSelector((state) => state.language).current;
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
+  const defaultLanguage = language.default;
 
   const validExtract =
     extract.visible &&
@@ -36,8 +38,8 @@ const OerebMultilingualCatalog = function (props) {
   const catalog = extract.data['GetExtractByIdResponse']['extract'][catalogName];
 
   const localizedCatalog = catalog.map((item) => ({
-    title: getLocalizedText(item['Title'], language),
-    content: getLocalizedText(item['Content'], language)
+    title: getLocalizedText(item['Title'], currentLanguage, defaultLanguage),
+    content: getLocalizedText(item['Content'], currentLanguage, defaultLanguage)
   }))
     .filter((item) => {
       if (isString(search) && search.length > 0) {
