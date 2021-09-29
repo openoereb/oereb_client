@@ -106,7 +106,7 @@ const OerebMenu = function () {
     }
     if (searchValue.length > 0) {
       setLoading(true);
-      const request = searchTerm(applicationUrl, searchValue);
+      const request = searchTerm(applicationUrl, searchValue, currentLanguage);
       const searchPromise = request.promise;
       setPendingRequest(request);
       searchPromise.then((results) => {
