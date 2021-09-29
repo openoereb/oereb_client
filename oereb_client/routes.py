@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from oereb_client.views.wfs_query import WfsQuery
 from oereb_client.views.index import Index
+from oereb_client.views.search import Search
 
 
 def includeme(config):
@@ -22,12 +22,12 @@ def includeme(config):
                     renderer='oereb_client:templates/index.html',
                     request_method='GET')
 
-    # wfs_query.xml
-    config.add_route('{0}/wfs_filter'.format(config.route_prefix), '/wfs_filter.xml')
-    config.add_view(WfsQuery,
-                    attr='provide_wfs_filter',
-                    route_name='{0}/wfs_filter'.format(config.route_prefix),
-                    renderer='oereb_client:templates/wfs_filter.xml',
+    # search
+    config.add_route('{0}/search'.format(config.route_prefix), '/search')
+    config.add_view(Search,
+                    attr='render',
+                    route_name='{0}/search'.format(config.route_prefix),
+                    renderer='json',
                     request_method='GET')
 
     config.commit()

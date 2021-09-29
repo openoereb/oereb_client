@@ -22,6 +22,7 @@ with codecs.open(os.path.join(here, 'CHANGELOG.rst'), encoding='utf-8') as f:
     CHANGES = f.read()
 
 requires = [
+    'grequests',
     'pyramid',
     'pyramid_mako',
     'waitress'

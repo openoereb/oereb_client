@@ -17,6 +17,7 @@ def remove_key(d, key, sub_key=None):
     return c
 
 
+search_url = 'https://geoview.bl.ch/main/wsgi/bl_fulltextsearch?query={prefix}+{term}&limit={limit}'
 settings = {
     'oereb_client': {
         'application': {
@@ -51,16 +52,22 @@ settings = {
             'url': 'http://geowms.bl.ch',
             'layer': 'oereb_availability'
         },
-        'search': {
-            'api': {
-                'url': 'http://geoview.bl.ch/main/wsgi/bl_fulltextsearch?',
-                'limit': 5
-            },
-            'wfs': {
-                'url': 'http://geowms.bl.ch?',
-                'limit': 5
+        'search': [
+            {
+                'title': [
+                    {
+                        'Language': 'en',
+                        'Text': 'E-GRID'
+                    }
+                ],
+                'url': search_url,
+                'params': {
+                    'limit': 5,
+                    'prefix': 'egr'
+                },
+                'hook_method': 'samples.search.hook_egrid'
             }
-        },
+        ],
         'external_viewer': {
             'url': 'http://geoview.bl.ch?',
             'params': [

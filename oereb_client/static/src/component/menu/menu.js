@@ -6,7 +6,7 @@ import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {queryExtractById} from '../../api/extract';
-import {sanitzeSearchResult, searchTerm} from '../../api/search';
+import {searchTerm} from '../../api/search';
 import {setViewServices} from '../../reducer/accordion';
 import {showAvailability} from '../../reducer/availability';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
@@ -30,7 +30,7 @@ const OerebMenu = function () {
   const availableLanguages = language.available;
 
   const [search, setSearch] = useState('');
-  const [pendingRequests, setPendingRequests] = useState([]);
+  const [pendingRequest, setPendingRequest] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -43,48 +43,6 @@ const OerebMenu = function () {
   const reLV95 = new RegExp('^(\\d{7}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{7}(\\.\\d+)?)');
   const reGNSS = new RegExp('^(\\d{1}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{2}(\\.\\d+)?)');
 
-  const searchConfig = [
-    {
-      url: config.search.api.url,
-      limit: config.search.api.limit,
-      prefix: 'egr',
-      title: 'EGRID',
-      wfs: false,
-      filters: [
-        {
-          regex: / \((.*?)\)/g,
-          value: ''
-        }
-      ]
-    },
-    {
-      url: config.search.api.url,
-      limit: config.search.api.limit,
-      prefix: 'adr',
-      title: 'Adressen',
-      wfs: false,
-      filters: [
-        {
-          regex: / \((.*?)\)/g,
-          value: ''
-        }
-      ]
-    },
-    {
-      url: config.search.api.url,
-      limit: config.search.api.limit,
-      prefix: 'gs',
-      title: 'Grundstücke',
-      wfs: true,
-      filters: [
-        {
-          regex: / \((.*?)\)/g,
-          value: ''
-        }
-      ]
-    }
-  ];
-
   const resetSearch = function () {
     setSearch('');
     setSearchResults([]);
@@ -93,44 +51,38 @@ const OerebMenu = function () {
   const handleSearch = function (evt) {
     const searchValue = evt.target.value;
     setSearch(searchValue);
-    pendingRequests.forEach((request) => {
-      request.cancel();
-    });
+    if (pendingRequest !== null) {
+      pendingRequest.cancel();
+    }
     if (searchValue.length > 0) {
-      const promises = [];
-      const requests = [];
       setLoading(true);
-      searchConfig.forEach((cfg) => {
-        const request = searchTerm(cfg, searchValue);
-        promises.push(request.promise);
-        requests.push(request);
-      });
-      const searchPromise = Promise.all(promises);
-      setPendingRequests(requests);
+      const request = searchTerm(applicationUrl, searchValue);
+      const searchPromise = request.promise;
+      setPendingRequest(request);
       searchPromise.then((results) => {
         let allResults = [];
         if (reLV03.test(searchValue)) {
           allResults = allResults.concat([{
-            config: {
-              title: t('menu.search.title.coordinates.lv03')
-            },
-            data: [searchValue]
+            title: t('menu.search.title.coordinates.lv03'),
+            results: [{
+              label: searchValue
+            }]
           }]);
         }
         if (reLV95.test(searchValue)) {
           allResults = allResults.concat([{
-            config: {
-              title: t('menu.search.title.coordinates.lv95')
-            },
-            data: [searchValue]
+            title: t('menu.search.title.coordinates.lv95'),
+            results: [{
+              label: searchValue
+            }]
           }]);
         }
         if (reGNSS.test(searchValue)) {
           allResults = allResults.concat([{
-            config: {
-              title: t('menu.search.title.coordinates.wgs84')
-            },
-            data: [searchValue]
+            title: t('menu.search.title.coordinates.wgs84'),
+            results: [{
+              label: searchValue
+            }]
           }]);
         }
         allResults = allResults.concat(results);
@@ -147,23 +99,19 @@ const OerebMenu = function () {
   };
 
   const searchResultList = searchResults.map((resultSet) => {
-    if (resultSet.data.length > 0) {
-      const results = resultSet.data.map((result, key) => {
-        const sanitizedResult = sanitzeSearchResult(
-          result,
-          resultSet.config
-        );
+    if (resultSet.results.length > 0) {
+      const results = resultSet.results.map((result, key) => {
         return (
           <button key={key} className="list-group-item search-result text-start">
-            {sanitizedResult}
+            {result.label}
           </button>
         );
       });
       const title =
         <div className="list-group result-list">
           <div className="list-group-item">
-            <strong>{resultSet.config.title}</strong>
-            <span className="badge bg-secondary float-end">{resultSet.data.length}</span>
+            <strong>{resultSet.title}</strong>
+            <span className="badge bg-secondary float-end">{resultSet.results.length}</span>
           </div>
           {results}
         </div>;

@@ -47,7 +47,7 @@ class Index(object):
         if not isinstance(self.config_.get('availability'), dict):
             raise ConfigurationError('Missing "availability" configuration')
 
-        if not isinstance(self.config_.get('search'), dict):
+        if not isinstance(self.config_.get('search'), list):
             raise ConfigurationError('Missing "search" configuration')
 
         if not isinstance(self.config_.get('support'), dict):
