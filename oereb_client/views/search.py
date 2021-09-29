@@ -3,6 +3,8 @@ import grequests
 
 from pyramid.path import DottedNameResolver
 
+from oereb_client.views import get_localized_text
+
 
 class Search(object):
     def __init__(self, request):
@@ -37,16 +39,23 @@ class Search(object):
             list of dict: The search results.
 
         """
-        results = []
+        result_sets = []
         for i, req in enumerate(self.send_requests_()):
             if 'hook_method' in self.config_['search'][i]:
                 method = DottedNameResolver().resolve(self.config_['search'][i]['hook_method'])
-                result = method(self.config_['search'][i], req.json(), self.lang_, self.default_lang_)
+                results = method(self.config_['search'][i], req.json(), self.lang_, self.default_lang_)
             else:
-                result = req.json()
-            if result is not None:
-                results.append(result)
-        return results
+                results = req.json()
+            if results is not None:
+                result_sets.append({
+                    'title': get_localized_text(
+                        self.config_['search'][i]['title'],
+                        self.lang_,
+                        self.default_lang_
+                    ),
+                    'results': results
+                })
+        return result_sets
 
     @staticmethod
     def exception_handler_(request, exception):

@@ -99,15 +99,12 @@ def test_send_requests(mock_request):
 
 @httpretty.activate
 def test_render(mock_request):
-    response_text = {
-        'title': 'E-GRID',
-        'results': [
-            {
-                'label': 'Test',
-                'egrid': 'CH1234567890'
-            }
-        ]
-    }
+    response_text = [
+        {
+            'label': 'Test',
+            'egrid': 'CH1234567890'
+        }
+    ]
     httpretty.register_uri(
         httpretty.GET,
         'https://example.com/search?query=egr+foo&limit=5',
@@ -116,4 +113,9 @@ def test_render(mock_request):
     with testConfig(settings=settings):
         mock_request.params.update({'term': 'foo'})
         search = Search(mock_request)
-        assert search.render() == [response_text]
+        assert search.render() == [
+            {
+                'title': 'E-GRID',
+                'results': response_text
+            }
+        ]
