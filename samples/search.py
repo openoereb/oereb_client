@@ -5,8 +5,6 @@ import pkg_resources
 from defusedxml.ElementTree import fromstring
 from mako.template import Template
 
-from oereb_client.views import get_localized_text
-
 
 def hook_egrid(config, response, lang, default_lang):
     if len(response.get('features')) < 1:
@@ -21,10 +19,7 @@ def hook_egrid(config, response, lang, default_lang):
             'egrid': egrid
         })
 
-    return {
-        'title': get_localized_text(config.get('title'), lang, default_lang),
-        'results': results
-    }
+    return results
 
 
 def hook_address(config, response, lang, default_lang):
@@ -39,10 +34,7 @@ def hook_address(config, response, lang, default_lang):
             'coordinates': result.get('geometry').get('coordinates')
         })
 
-    return {
-        'title': get_localized_text(config.get('title'), lang, default_lang),
-        'results': results
-    }
+    return results
 
 
 def hook_real_estate(config, response, lang, default_lang):
@@ -77,12 +69,10 @@ def hook_real_estate(config, response, lang, default_lang):
                             res['municipality'] = prop.text
                         elif prop.tag == '{http://mapserver.gis.umn.edu/mapserver}nummer':
                             res['number'] = prop.text
-        results.append({
-            'label': res['municipality'] + ' ' + res['number'],
-            'egrid': res['egrid']
-        })
+        if 'egrid' in res and 'municipality' in res and 'number' in res:
+            results.append({
+                'label': res['municipality'] + ' ' + res['number'],
+                'egrid': res['egrid']
+            })
 
-    return {
-        'title': get_localized_text(config.get('title'), lang, default_lang),
-        'results': results
-    }
+    return results
