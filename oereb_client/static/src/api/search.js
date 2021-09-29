@@ -1,6 +1,7 @@
-export const searchTerm = function (applicationUrl, value) {
+export const searchTerm = function (applicationUrl, term, language) {
   const url = new URL(applicationUrl + 'search');
-  url.searchParams.append('term', value);
+  url.searchParams.append('term', term);
+  url.searchParams.append('lang', language);
   let cancel;
   const result = {
     promise: new Promise((resolve, reject) => {

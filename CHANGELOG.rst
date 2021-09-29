@@ -6,14 +6,15 @@ Changelog
 
 https://github.com/openoereb/oereb_client/milestone/2
 
+- Drop support for Python 2.7 and 3.5
 - Application re-design
+- Configurable search
 - Update Bootstrap and Openlayers
 - Use React-redux instead of AngularJS
 - Use Jest instead of Karma
 - Use Webpack instead of Closure Compiler
 - Fix duplicate workflow runs
 - Dependency updates
-- Drop support for Python 2.7 and 3.5
 
 1.3.8
 *****
