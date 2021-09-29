@@ -1,17 +1,20 @@
 import './menu.scss';
 
-import {isArray} from 'lodash';
+import {isArray, isString} from 'lodash';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
+import {queryEgridByCoord} from '../../api/egrid';
 import {queryExtractById} from '../../api/extract';
 import {searchTerm} from '../../api/search';
 import {setViewServices} from '../../reducer/accordion';
 import {showAvailability} from '../../reducer/availability';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
+import {hide, loadAt, show} from '../../reducer/map_query';
 import {enableSymbolZoom} from '../../reducer/symbol_zoom';
+import {getCoordinates, isGNSS, isLV03, isLV95} from '../../util/coordinate';
 import OerebLanguage from '../language/language';
 
 const OerebMenu = function () {
@@ -39,13 +42,60 @@ const OerebMenu = function () {
     languageSelector = <OerebLanguage />;
   }
 
-  const reLV03 = new RegExp('^(\\d{6}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{6}(\\.\\d+)?)');
-  const reLV95 = new RegExp('^(\\d{7}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{7}(\\.\\d+)?)');
-  const reGNSS = new RegExp('^(\\d{1}(\\.\\d+)?)(\\s|,\\s?|;\\s?)(\\d{2}(\\.\\d+)?)');
+  const queryExtract = function (egrid) {
+    dispatch(setViewServices([]));
+    dispatch(loadExtract({
+      egrid: egrid,
+      zoom: true
+    }));
+    queryExtractById(applicationUrl, egrid, currentLanguage)
+      .then((extract) => {
+        dispatch(showExtract(extract));
+        dispatch(updateHistory(extract));
+      })
+      .catch(() => {
+        dispatch(showError());
+      });
+  };
+
+  const queryEgrid = function(coord) {
+    dispatch(loadAt({
+      posX: coord[0],
+      posY: coord[1]
+    }));
+    queryEgridByCoord(applicationUrl, coord)
+      .then((egrids) => {
+        const results = egrids.GetEGRIDResponse;
+        if (results.length > 1) {
+          dispatch(show({
+            results: results
+          }));
+        }
+        else if (results.length === 1) {
+          queryExtract(results[0].egrid);
+        }
+        else {
+          dispatch(hide());
+        }
+      })
+      .catch(() => {
+        dispatch(hide());
+      });
+  };
 
   const resetSearch = function () {
     setSearch('');
     setSearchResults([]);
+  };
+
+  const querySearchResult = function(result) {
+    resetSearch();
+    if (isString(result.egrid)) {
+      queryExtract(result.egrid);
+    }
+    else if (isArray(result.coordinates)) {
+      queryEgrid(result.coordinates);
+    }
   };
 
   const handleSearch = function (evt) {
@@ -61,27 +111,30 @@ const OerebMenu = function () {
       setPendingRequest(request);
       searchPromise.then((results) => {
         let allResults = [];
-        if (reLV03.test(searchValue)) {
+        if (isLV03(searchValue)) {
           allResults = allResults.concat([{
             title: t('menu.search.title.coordinates.lv03'),
             results: [{
-              label: searchValue
+              label: searchValue,
+              coordinates: getCoordinates(searchValue)
             }]
           }]);
         }
-        if (reLV95.test(searchValue)) {
+        if (isLV95(searchValue)) {
           allResults = allResults.concat([{
             title: t('menu.search.title.coordinates.lv95'),
             results: [{
-              label: searchValue
+              label: searchValue,
+              coordinates: getCoordinates(searchValue)
             }]
           }]);
         }
-        if (reGNSS.test(searchValue)) {
+        if (isGNSS(searchValue)) {
           allResults = allResults.concat([{
             title: t('menu.search.title.coordinates.wgs84'),
             results: [{
-              label: searchValue
+              label: searchValue,
+              coordinates: getCoordinates(searchValue)
             }]
           }]);
         }
@@ -100,13 +153,13 @@ const OerebMenu = function () {
 
   const searchResultList = searchResults.map((resultSet) => {
     if (resultSet.results.length > 0) {
-      const results = resultSet.results.map((result, key) => {
-        return (
-          <button key={key} className="list-group-item search-result text-start">
-            {result.label}
-          </button>
-        );
-      });
+      const results = resultSet.results.map((result, key) =>
+        <button key={key}
+          className="list-group-item list-group-item-action search-result text-start"
+          onClick={querySearchResult.bind(this, result)}>
+          {result.label}
+        </button>
+      );
       const title =
         <div className="list-group result-list">
           <div className="list-group-item">
@@ -181,22 +234,6 @@ const OerebMenu = function () {
   const toggleSymbolZoom = function () {
     dispatch(enableSymbolZoom(!symbolZoomEnabled));
   }
-
-  const queryExtract = function (egrid) {
-    dispatch(setViewServices([]));
-    dispatch(loadExtract({
-      egrid: egrid,
-      zoom: true
-    }));
-    queryExtractById(applicationUrl, egrid, currentLanguage)
-      .then((extract) => {
-        dispatch(showExtract(extract));
-        dispatch(updateHistory(extract));
-      })
-      .catch(() => {
-        dispatch(showError());
-      });
-  };
 
   const historyElements = history.map((element, key) =>
     <li key={key}>
