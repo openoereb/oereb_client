@@ -75,12 +75,6 @@ const OerebMap = function () {
   const dispatch = useDispatch();
   const query = new URLSearchParams(window.location.search);
   const applicationUrl = config.application_url;
-
-  // Add view
-  const mapX = parseFloat(query.get('map_x')) || config.view.map_x;
-  const mapY = parseFloat(query.get('map_y')) || config.view.map_y;
-  const mapZoom = parseFloat(query.get('map_zoom')) || config.view.map_zoom;
-
   const [map, setMap] = useState(null);
 
   // Create availability layer
@@ -113,6 +107,11 @@ const OerebMap = function () {
   }));
 
   if (map === null) {
+
+    // Add view
+    const mapX = parseFloat(query.get('map_x')) || config.view.map_x;
+    const mapY = parseFloat(query.get('map_y')) || config.view.map_y;
+    const mapZoom = parseFloat(query.get('map_zoom')) || config.view.map_zoom;
 
     const newMap = new Map({
       controls: defaults({

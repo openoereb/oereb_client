@@ -2,7 +2,7 @@ import './map_query.scss';
 
 import Overlay from 'ol/Overlay';
 import PropTypes from 'prop-types';
-import React, {useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -20,18 +20,23 @@ const OerebMapQuery = function (props) {
   const mapQueryElement = useRef(null);
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
+  const [overlay, setOverlay] = useState(null);
 
   const applicationUrl = config.application_url;
   const map = props.map;
 
-  const overlay = new Overlay({
-    element: mapQueryElement.current,
-    autoPan: true,
-    offset: [-17, -17]
-  });
-  map.addOverlay(overlay);
+  if (overlay === null) {
+    const newOverlay = new Overlay({
+      autoPan: true,
+      offset: [-17, -17]
+    });
+    map.addOverlay(newOverlay);
+    setOverlay(newOverlay);
+  }
 
-  overlay.setPosition([mapQuery.posX, mapQuery.posY]);
+  useEffect(() => {
+    overlay.setElement(mapQueryElement.current);
+  });
 
   const close = function () {
     dispatch(hide());
@@ -68,6 +73,7 @@ const OerebMapQuery = function (props) {
   });
 
   if (mapQuery.loading) {
+    overlay.setPosition([mapQuery.posX, mapQuery.posY]);
     return (
       <div className="oereb-client-overlay" ref={mapQueryElement}>
         <div className="loader">
@@ -77,6 +83,7 @@ const OerebMapQuery = function (props) {
     );
   }
   else if (mapQuery.visible) {
+    overlay.setPosition([mapQuery.posX, mapQuery.posY]);
     return (
       <div className="oereb-client-overlay" ref={mapQueryElement}>
         <div className="results">

@@ -23,7 +23,7 @@ const OerebLanguage = function() {
       if (extract.visible) {
         dispatch(loadExtract({
           egrid: extract.egrid,
-          zoom: true
+          zoom: false
         }));
         queryExtractById(applicationUrl, extract.egrid, lang)
           .then((data) => {
