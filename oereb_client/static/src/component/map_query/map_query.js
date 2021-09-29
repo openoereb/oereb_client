@@ -27,7 +27,10 @@ const OerebMapQuery = function (props) {
 
   if (overlay === null) {
     const newOverlay = new Overlay({
-      autoPan: true,
+      autoPan: {
+        animation: true,
+        margin: Math.min(document.body.offsetWidth, document.body.offsetHeight) / 2
+      },
       offset: [-17, -17]
     });
     map.addOverlay(newOverlay);
