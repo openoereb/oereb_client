@@ -25,7 +25,7 @@ TEST_JS = $(shell find test/js -name '*.test.js')
 	.venv/bin/pip install --upgrade pip
 	touch $@
 
-.venv/.requirements.timestamp: .venv/.timestamp requirements.txt
+.venv/.requirements.timestamp: .venv/.timestamp requirements.txt setup.py
 	.venv/bin/pip install wheel
 	.venv/bin/pip install -r requirements.txt
 	touch $@

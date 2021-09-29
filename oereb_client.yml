@@ -46,14 +46,38 @@ oereb_client:
       LAYERS: oereb_published_municipalities
       FORMAT: image/png
 
-  # Search field configuration
+  # Search configuration
   search:
-    api:
-      url: https://geoview.bl.ch/main/wsgi/bl_fulltextsearch
-      limit: 5
-    wfs:
-      url: https://geowms.bl.ch
-      limit: 5
+    - title:
+        - Language: en
+          Text: E-GRID
+        - Language: de
+          Text: E-GRID
+      url: https://geoview.bl.ch/main/wsgi/bl_fulltextsearch?query={prefix}+{term}&limit={limit}
+      params:
+        limit: 5
+        prefix: egr
+      hook_method: samples.search.hook_egrid
+    - title:
+        - Language: en
+          Text: Address
+        - Language: de
+          Text: Adresse
+      url: https://geoview.bl.ch/main/wsgi/bl_fulltextsearch?query={prefix}+{term}&limit={limit}
+      params:
+        limit: 5
+        prefix: adr
+      hook_method: samples.search.hook_address
+    - title:
+        - Language: en
+          Text: Real estate
+        - Language: de
+          Text: Grundstück
+      url: https://geoview.bl.ch/main/wsgi/bl_fulltextsearch?query={prefix}+{term}&limit={limit}
+      params:
+        limit: 5
+        prefix: gs
+      hook_method: samples.search.hook_real_estate
 
   # Link to external viewer/portal
   external_viewer:
