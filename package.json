@@ -54,7 +54,7 @@
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.0.0",
-    "webpack": "^5.38.1",
+    "webpack": "^5.55.1",
     "webpack-cli": "^4.7.2"
   },
   "jest": {
