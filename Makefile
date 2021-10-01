@@ -131,4 +131,8 @@ updates: updates-py updates-js
 
 .PHONY: doc
 doc: node_modules/.timestamp
-	@echo "TODO"
+	npm run build-storybook -- -o ./docs/build
+
+.PHONY: serve-doc
+serve-doc: node_modules/.timestamp
+	npx http-server ./docs/build
