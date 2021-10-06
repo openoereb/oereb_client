@@ -35,7 +35,7 @@ TEST_JS = $(shell find test/js -name '*.test.js')
 	touch $@
 
 node_modules/.timestamp: package.json
-	npm install
+	npm install --legacy-peer-deps
 	touch $@
 
 
@@ -66,6 +66,7 @@ clean:
 	rm -f .coverage
 	rm -rf .jest-coverage
 	rm -f npm-debug.log
+	rm -rf docs/build
 
 .PHONY: git-attributes
 git-attributes:
