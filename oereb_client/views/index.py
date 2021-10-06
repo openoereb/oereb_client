@@ -27,8 +27,10 @@ class Index(object):
             raise ConfigurationError('Missing application title')
         if 'logo_canton' not in self.config_.get('application'):
             raise ConfigurationError('Missing cantonal logo')
-        if 'logo_oereb' not in self.config_.get('application'):
-            raise ConfigurationError('Missing OEREB logo')
+        if 'languages' not in self.config_.get('application'):
+            raise ConfigurationError('Missing available languages')
+        if 'default_language' not in self.config_.get('application'):
+            raise ConfigurationError('Missing default language')
 
         if not isinstance(self.config_.get('view'), dict):
             raise ConfigurationError('Missing "view" configuration')
@@ -85,6 +87,49 @@ class Index(object):
         """
         return self.config_.get('custom_css_url', None)
 
+    def get_application_config_(self):
+        """
+        Reads the application configuration and applies default values.
+
+        Returns:
+            dict: The application configuration.
+
+        """
+        cfg = self.config_.get('application', {})
+
+        if 'icon' not in cfg:
+            cfg.update({
+                'icon': self.request_.static_url('oereb_client:static/images/favicon.png')
+            })
+
+        if 'logo_oereb' not in cfg:
+            cfg.update({
+                'logo_oereb': [
+                    {
+                        'Language': 'en',
+                        'URL': self.request_.static_url('oereb_client:static/images/logo_oereb_de.jpg')
+                    },
+                    {
+                        'Language': 'de',
+                        'URL': self.request_.static_url('oereb_client:static/images/logo_oereb_de.jpg')
+                    },
+                    {
+                        'Language': 'fr',
+                        'URL': self.request_.static_url('oereb_client:static/images/logo_oereb_fr.jpg')
+                    },
+                    {
+                        'Language': 'it',
+                        'URL': self.request_.static_url('oereb_client:static/images/logo_oereb_it.jpg')
+                    },
+                    {
+                        'Language': 'rm',
+                        'URL': self.request_.static_url('oereb_client:static/images/logo_oereb_rm.jpg')
+                    }
+                ]
+            })
+
+        return cfg
+
     def get_config(self):
         """
         Returns the JSON-encoded configuration.
@@ -97,7 +142,7 @@ class Index(object):
             'application_url': self.request_.route_url(
                 '{0}/index'.format(self.request_.route_prefix)
             ),
-            'application': self.config_.get('application', {}),
+            'application': self.get_application_config_(),
             'version': __version__,
             'view': self.config_.get('view', {}),
             'base_layer': self.config_.get('base_layer', {}),

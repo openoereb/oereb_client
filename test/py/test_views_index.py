@@ -31,9 +31,7 @@ settings = {
                     'Text': 'Test2'
                 }
             ],
-            'icon': 'http://example.com/favicon.png',
             'logo_canton': 'http://example.com/logo_canton.png',
-            'logo_oereb': 'http://example.com/logo_oereb.png',
             'local_storage_prefix': 'bl',
             'languages': ['en', 'de'],
             'default_language': 'en'
@@ -101,6 +99,7 @@ def test_render(mock_request):
     with testConfig(settings=settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
+        config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
         assert index.render() == {
             'debug': index.is_debug_(),
@@ -115,6 +114,7 @@ def test_get_config(mock_request):
     with testConfig(settings=settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
+        config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
         assert index.get_config() == {
             'application_url': 'http://example.com/',
@@ -146,7 +146,8 @@ def test_get_custom_css_url(mock_request):
     remove_key(settings, 'application'),
     remove_key(settings, 'application', 'title'),
     remove_key(settings, 'application', 'logo_canton'),
-    remove_key(settings, 'application', 'logo_oereb'),
+    remove_key(settings, 'application', 'languages'),
+    remove_key(settings, 'application', 'default_language'),
     remove_key(settings, 'view'),
     remove_key(settings, 'view', 'map_x'),
     remove_key(settings, 'view', 'map_y'),
@@ -157,7 +158,7 @@ def test_get_custom_css_url(mock_request):
     remove_key(settings, 'search'),
     remove_key(settings, 'support')
 ])
-def test_get_application_config_fail(cfg, mock_request):
+def test_validate_fail(cfg, mock_request):
     with testConfig(settings=cfg):
         with pytest.raises(ConfigurationError):
             Index(mock_request)
@@ -176,3 +177,16 @@ def test_get_title_specified_language(mock_request):
         })
         index = Index(mock_request)
         assert index.get_title() == 'Test2'
+
+
+def test_get_application_config_default(mock_request):
+    with testConfig(settings=settings) as config:
+        config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
+        index = Index(mock_request)
+        cfg = index.get_application_config_()
+        assert cfg.get('icon') == 'http://example.com/static/images/favicon.png'
+        assert isinstance(cfg.get('logo_oereb'), list)
+        assert len(cfg.get('logo_oereb')) == 5
+        for logo in cfg.get('logo_oereb'):
+            assert 'Language' in logo
+            assert 'URL' in logo
