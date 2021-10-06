@@ -2,19 +2,29 @@ oereb_client:
 
   # Application configuration
   # Mandatory:
-  #   "title" - The application title
-  #   "logo"  - URL to logo image
+  #   "title" - The multilingual application title
+  #   "logo_canton" - Multilingual URL of the cantonal logo
+  #   "languages" - List of the available languages
+  #   "default_language" - The language used as default
   # Optional:
-  #   "icon"  - URL to image used as favicon
+  #   "icon" - URL to image used as favicon
+  #   "logo_oereb" - Multilingual URL of the oereb logo
+  #   "local_storage_prefix" - Prefix used for the local browser storage
   application:
     title:
       - Language: en
         Text: PLR Cadastre, Canton of Basel-Landschaft
       - Language: de
         Text: ÖREB-Kataster, Kanton Basel-Landschaft
-    icon: http://localhost:8080/static/images/favicon.png
-    logo_canton: http://localhost:8080/samples/static/logo_bl.png
-    logo_oereb: http://localhost:8080/samples/static/logo_oereb.png
+      - Language: fr
+        Text: Cadastre RDPPF, Canton de Bâle-Campagne
+    logo_canton:
+      - Language: en
+        URL: http://localhost:8080/samples/static/logo_bl.png
+      - Language: de
+        URL: http://localhost:8080/samples/static/logo_bl.png
+      - Language: fr
+        URL: http://localhost:8080/samples/static/logo_bl.png
     local_storage_prefix: bl
     languages:
       - en

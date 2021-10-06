@@ -15,6 +15,7 @@ import {updateHistory} from '../../reducer/history';
 import {hide, loadAt, show} from '../../reducer/map_query';
 import {enableSymbolZoom} from '../../reducer/symbol_zoom';
 import {getCoordinates, isGNSS, isLV03, isLV95} from '../../util/coordinate';
+import {getLocalizedUrl} from '../../util/language';
 import OerebLanguage from '../language/language';
 
 const OerebMenu = function () {
@@ -24,18 +25,20 @@ const OerebMenu = function () {
   const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
   const history = useSelector((state) => state.history).elements;
   const dispatch = useDispatch();
-  const oerebLogoUrl = config.application.logo_oereb;
-  const appLogoUrl = config.application.logo_canton;
   const applicationUrl = config.application_url;
 
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
+  const defaultLanguage = language.default;
   const availableLanguages = language.available;
 
   const [search, setSearch] = useState('');
   const [pendingRequest, setPendingRequest] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const oerebLogoUrl = getLocalizedUrl(config.application.logo_oereb, currentLanguage, defaultLanguage);
+  const cantonLogoUrl = getLocalizedUrl(config.application.logo_canton, currentLanguage, defaultLanguage);
 
   let languageSelector = null;
   if (isArray(availableLanguages) && availableLanguages.length > 1) {
@@ -256,7 +259,7 @@ const OerebMenu = function () {
           <img className="img-fluid p-2" src={oerebLogoUrl} />
         </div>
         <div className="col text-end">
-          <img className="img-fluid p-2" src={appLogoUrl} />
+          <img className="img-fluid p-2" src={cantonLogoUrl} />
         </div>
       </div>
       <div className="container-fluid">
