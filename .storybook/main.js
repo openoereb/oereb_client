@@ -1,7 +1,7 @@
 module.exports = {
   "stories": [
     "../docs/src/**/*.stories.mdx",
-    "../oereb_client/**/*.stories.@(js|jsx|ts|tsx)"
+    "../oereb_client/**/*.stories.@(js|jsx|ts|tsx|mdx)"
   ],
   "core": {
     "builder": "webpack5"

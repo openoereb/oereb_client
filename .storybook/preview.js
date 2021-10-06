@@ -6,4 +6,17 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: [
+        'OeREB Client',
+        'User Guide',
+        [
+          'Installation',
+          'Configuration'
+        ],
+        'API Reference'
+      ]
+    }
+  }
 }
