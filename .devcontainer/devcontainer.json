@@ -19,7 +19,14 @@
 	"workspaceFolder": "/app",
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": {},
+	"settings": {
+		"files.watcherExclude": {
+			"**/.git/objects/**": true,
+			"**/.git/subtree-cache/**": true,
+            "**/.venv/*/**": true,
+			"**/node_modules/*/**": true
+		}		
+	},
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
