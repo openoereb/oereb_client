@@ -72,6 +72,35 @@ jobs:
           name: static
           path: oereb_client/static
 
+  create-docker-image-dev:
+    name: Build Docker Image
+    needs:
+      - build
+    # if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v1
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=schedule,pattern=dev
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v1
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
   deploy-dev:
     name: Deploy to PyPI Test
     needs:
