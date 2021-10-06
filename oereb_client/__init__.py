@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
+import os
+import logging
 import yaml
 from pyramid.config import Configurator
 from pyramid_mako import add_mako_renderer
 
 
 __version__ = '2.0.0'
+
+
+log = logging.getLogger('oereb_client')
 
 
 def main(global_config, **settings):  # pragma: no cover
@@ -17,10 +22,15 @@ def main(global_config, **settings):  # pragma: no cover
     """
     with open(settings.get('config')) as f:
         yml = yaml.safe_load(f.read())
-    settings.update(yml)
+        settings.update(yml)
+
     config = Configurator(settings=settings)
     config.include('oereb_client')
-    config.include('samples')
+
+    if os.environ.get('DEVELOPMENT') == 'true':
+        config.include('samples')
+        log.info('RUNNING IN DEVELOPMENT MODE!')
+
     config.scan()
     return config.make_wsgi_app()
 
