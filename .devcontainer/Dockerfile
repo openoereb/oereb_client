@@ -13,7 +13,8 @@ RUN apk --update add \
         python3-dev \
         libffi-dev
 
-ENV PATH="/app/.local/bin:${PATH}"
+ENV PATH="/app/.local/bin:${PATH}" \
+    DEVELOPMENT=true
 
 EXPOSE 8080
 
