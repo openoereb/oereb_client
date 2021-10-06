@@ -58,6 +58,7 @@ clean:
 	rm -rf dist
 	rm -rf $(PKG).egg-info
 	rm -rf .cache
+	rm -rf .pytest_cache
 	rm -f .coverage
 	rm -rf .jest-coverage
 	rm -f npm-debug.log
