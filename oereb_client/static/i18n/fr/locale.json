@@ -1,110 +1,110 @@
 {
   "extract": {
     "category": {
-      "concerned_theme": "__STRING_NOT_TRANSLATED__",
-      "not_concerned_theme": "__STRING_NOT_TRANSLATED__",
-      "theme_without_data": "__STRING_NOT_TRANSLATED__"
+      "concerned_theme": "Thèmes RDPPF qui touchent l'immeuble",
+      "not_concerned_theme": "Thèmes RDPPF qui ne touchent pas l'immeuble",
+      "theme_without_data": "Thèmes RDPPF pour lesquelles aucune donnée n'est disponible"
     },
     "error": {
       "button": {
-        "text": "__STRING_NOT_TRANSLATED__"
+        "text": "Ressayer"
       },
-      "message": "__STRING_NOT_TRANSLATED__",
+      "message": "La génération de l'extrait a échouée. Veuillez ressayer s'il vous plaît.",
       "support": {
         "email": {
-          "title": "__STRING_NOT_TRANSLATED__"
+          "title": "Courriel"
         },
-        "message": "__STRING_NOT_TRANSLATED__",
+        "message": "En cas d'erreur répétée, merci de contacter le service responsable du cadastre RDPPF",
         "phone": {
-          "title": "__STRING_NOT_TRANSLATED__"
+          "title": "Téléphone"
         }
       },
-      "title": "__STRING_NOT_TRANSLATED__"
+      "title": "Echec de la génération de l'extrait"
     },
-    "hide": "__STRING_NOT_TRANSLATED__",
+    "hide": "Cacher l'extrait",
     "information_panel": {
       "button": {
-        "title": "__STRING_NOT_TRANSLATED__"
+        "title": "Informations générales"
       },
       "exclusion_of_liability": {
-        "title": "__STRING_NOT_TRANSLATED__"
+        "title": "Exclusion de responsabilité"
       },
       "general_information": {
-        "authority": "__STRING_NOT_TRANSLATED__",
-        "base_data": "__STRING_NOT_TRANSLATED__",
-        "further_participants": "__STRING_NOT_TRANSLATED__",
-        "general_information": "__STRING_NOT_TRANSLATED__",
-        "title": "__STRING_NOT_TRANSLATED__"
+        "authority": "Organisme responsable du cadastre",
+        "base_data": "Etat de la mensuration officielle",
+        "further_participants": "Participent également à l'extrait",
+        "general_information": "Informations générales",
+        "title": "Généralités"
       },
       "glossary": {
-        "title": "__STRING_NOT_TRANSLATED__"
+        "title": "Termes et abréviations"
       },
       "search": {
-        "placeholder": "__STRING_NOT_TRANSLATED__"
+        "placeholder": "Rechercher..."
       }
     },
     "loading": {
-      "message": "__STRING_NOT_TRANSLATED__"
+      "message": "Génération de l'extrait en cours..."
     },
     "permalink": {
-      "title": "__STRING_NOT_TRANSLATED__"
+      "title": "Partager"
     },
     "real_estate": {
-      "area": "__STRING_NOT_TRANSLATED__",
-      "at": "__STRING_NOT_TRANSLATED__",
-      "egrid": "__STRING_NOT_TRANSLATED__",
-      "real_estate": "__STRING_NOT_TRANSLATED__"
+      "area": "Surface",
+      "at": "à",
+      "egrid": "E-GRID",
+      "real_estate": "Bien-fonds"
     },
-    "show": "__STRING_NOT_TRANSLATED__",
+    "show": "Afficher l'extrait",
     "static_extract": {
-      "title": "__STRING_NOT_TRANSLATED__"
+      "title": "Générer l'extrait PDF"
     },
     "topic": {
       "complete_legend": {
-        "hide": "__STRING_NOT_TRANSLATED__",
-        "show": "__STRING_NOT_TRANSLATED__"
+        "hide": "Cacher la légende",
+        "show": "Afficher la légende"
       },
       "document": {
-        "hints": "__STRING_NOT_TRANSLATED__",
-        "laws": "__STRING_NOT_TRANSLATED__",
-        "legal_provisions": "__STRING_NOT_TRANSLATED__"
+        "hints": "Informations et renvois supplémentaires",
+        "laws": "Bases légales",
+        "legal_provisions": "Dispositions juridiques"
       },
       "legend": {
-        "part": "__STRING_NOT_TRANSLATED__",
-        "part_in_percent": "__STRING_NOT_TRANSLATED__",
-        "type": "__STRING_NOT_TRANSLATED__"
+        "part": "Part",
+        "part_in_percent": "Part en %",
+        "type": "Type"
       },
-      "opacity": "__STRING_NOT_TRANSLATED__",
-      "responsible_office": "__STRING_NOT_TRANSLATED__"
+      "opacity": "Opacité",
+      "responsible_office": "Service compétent"
     }
   },
   "map_query": {
     "result": {
-      "text": "__STRING_NOT_TRANSLATED__"
+      "text": "Extrait pour le bien-fonds"
     }
   },
   "menu": {
     "history": {
-      "title": "__STRING_NOT_TRANSLATED__"
+      "title": "Historique"
     },
     "language": {
-      "title": "__STRING_NOT_TRANSLATED__"
+      "title": "Changer de langue"
     },
     "search": {
-      "placeholder": "__STRING_NOT_TRANSLATED__",
-      "reset": "__STRING_NOT_TRANSLATED__",
+      "placeholder": "Recherche...",
+      "reset": "Annuler la recherche",
       "title": {
         "coordinates": {
-          "lv03": "__STRING_NOT_TRANSLATED__",
-          "lv95": "__STRING_NOT_TRANSLATED__",
-          "wgs84": "__STRING_NOT_TRANSLATED__"
+          "lv03": "Coordonnées MN03",
+          "lv95": "Cordonnées MN95",
+          "wgs84": "Coordonnées WGS84"
         }
       }
     },
     "settings": {
-      "availability": "__STRING_NOT_TRANSLATED__",
-      "symbol_zoom": "__STRING_NOT_TRANSLATED__",
-      "title": "__STRING_NOT_TRANSLATED__"
+      "availability": "Afficher les communes disponibles",
+      "symbol_zoom": "Agrandir la légende",
+      "title": "Configuration"
     }
   }
 }
