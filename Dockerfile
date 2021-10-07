@@ -22,7 +22,7 @@ RUN python3 -m venv .venv && \
     .venv/bin/pip install wheel && \
     .venv/bin/pip install pyyaml && \
     .venv/bin/pip install -e . && \
-    npm install && \
+    npm install --legacy-peer-deps && \
     ./node_modules/.bin/webpack
 
 USER 1001
