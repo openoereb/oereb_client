@@ -15,6 +15,7 @@ https://github.com/openoereb/oereb_client/milestone/2
 - Use Webpack instead of Closure Compiler
 - Fix duplicate workflow runs
 - Dependency updates
+- Provide Docker Image to run the application
 
 1.3.8
 *****
