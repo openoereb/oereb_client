@@ -25,6 +25,8 @@ RUN python3 -m venv .venv && \
     npm install && \
     ./node_modules/.bin/webpack
 
+USER 1001
+
 FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.14
 
 USER 0
