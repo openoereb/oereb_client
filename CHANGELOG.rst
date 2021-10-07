@@ -9,6 +9,7 @@ https://github.com/openoereb/oereb_client/milestone/2
 - Drop support for Python 2.7 and 3.5
 - Application re-design
 - Configurable search
+- Add support for multiple languages
 - Update Bootstrap and Openlayers
 - Use React-redux instead of AngularJS
 - Use Jest instead of Karma
