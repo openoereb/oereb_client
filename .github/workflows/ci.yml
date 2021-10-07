@@ -80,7 +80,7 @@ jobs:
     name: Build Docker Image
     needs:
       - build
-    # if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
