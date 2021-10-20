@@ -25,20 +25,21 @@
 			"**/.git/subtree-cache/**": true,
             "**/.venv/*/**": true,
 			"**/node_modules/*/**": true
-		}		
+		}
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
+		"lokalise.i18n-ally",
 		"ms-azuretools.vscode-docker",
 		"ms-vscode.makefile-tools",
 		"ms-python.vscode-pylance",
 		"ms-python.python",
-		"sibiraj-s.vscode-scss-formatter",
-		"redhat.vscode-xml",
-		"lokalise.i18n-ally",
 		"redhat.vscode-commons",
-		"redhat.vscode-yaml"
+		"redhat.vscode-xml",
+		"redhat.vscode-yaml",
+		"sibiraj-s.vscode-scss-formatter",
+		"silvenon.mdx"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

@@ -49,6 +49,14 @@ oereb_client/static/build/.timestamp: node_modules/.timestamp webpack.config.js 
 	touch $@
 
 
+# *******************
+# Build documentation
+# *******************
+
+.storybook/oereb_client.json: oereb_client.yml
+	yq eval -j oereb_client.yml > $@
+
+
 # **************
 # Common targets
 # **************
@@ -131,7 +139,7 @@ updates-js: package.json
 updates: updates-py updates-js
 
 .PHONY: doc
-doc: node_modules/.timestamp
+doc: node_modules/.timestamp .storybook/oereb_client.json
 	npm run build-storybook -- -o ./docs/build
 
 .PHONY: serve-doc

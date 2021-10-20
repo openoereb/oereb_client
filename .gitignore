@@ -15,4 +15,5 @@
 /oereb_client/static/fonts/
 /oereb_client/static/build/
 /docs/build/
+/.storybook/oereb_client.json
 __pycache__

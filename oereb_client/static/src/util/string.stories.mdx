@@ -1,0 +1,24 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="API Reference/Util/String" />
+
+# format
+
+Accepts a template string and an object containg the values to be replaced.
+Each key (e.g. {myKey}) in the template string will be replaced with the
+correponding value in the object, if available.
+
+```js
+format(input, values);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| input | <code>String</code> | The template string. |
+| values | <code>Object</code> | The object containing the values for replacement. |
+
+### Returns
+
+<code>String</code> The formatted string.

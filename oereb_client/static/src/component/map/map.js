@@ -16,12 +16,12 @@ import View from 'ol/View';
 import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {queryEgridByCoord} from '../../api/egrid';
-import {queryExtractById} from '../../api/extract';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {initMap} from '../../reducer/map';
 import {hide, loadAt, show} from '../../reducer/map_query';
+import {queryEgridByCoord} from '../../request/egrid';
+import {queryExtractById} from '../../request/extract';
 import OerebAvailabilityLayer from '../availability_layer/availability_layer';
 import OerebMapQuery from '../map_query/map_query';
 import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';

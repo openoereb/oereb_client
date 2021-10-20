@@ -4,7 +4,7 @@ import React, {useRef} from "react";
 import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
 
-import {queryStaticExtractById} from "../../api/extract";
+import {queryStaticExtractById} from "../../request/extract";
 
 const OerebStaticExtract = function () {
   const {t} = useTranslation();

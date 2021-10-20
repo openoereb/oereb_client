@@ -11,6 +11,7 @@ RUN apk --update add \
         nodejs \
         npm \
         uwsgi-python3 \
+        yq \
         python3-dev \
         libffi-dev
 

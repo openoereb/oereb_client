@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {useDispatch} from 'react-redux';
 
-import {queryExtractById} from '../../api/extract';
 import {initAvailability, setAvailabilityPrefix} from '../../reducer/availability';
 import {update} from '../../reducer/config';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {initHistory, setHistoryPrefix, updateHistory} from '../../reducer/history';
 import {initLanguages} from '../../reducer/language';
 import {initSymbolZoom, setSymbolZoomPrefix} from '../../reducer/symbol_zoom';
+import {queryExtractById} from '../../request/extract';
 import OerebExtract from '../extract/extract';
 import OerebInformationPanel from '../information_panel/information_panel';
 import OerebMap from '../map/map';

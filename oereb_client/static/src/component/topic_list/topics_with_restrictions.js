@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, {useRef} from 'react';
 import {useSelector} from 'react-redux';
 
-import {sanitizeTopicCode} from '../../api/extract';
+import {sanitizeTopicCode} from '../../request/extract';
 import {getLocalizedText} from '../../util/language';
 import OerebTopic from '../topic/topic';
 

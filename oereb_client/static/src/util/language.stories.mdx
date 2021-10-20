@@ -1,0 +1,50 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="API Reference/Util/Language" />
+
+# getLocalizedText
+
+Accepts a multilingual array containing localized texts for certain languages,
+the requested language and the default language. The localized text of the
+requested language is returned as result. If the requested language is not
+available in the array, the default language is used as fallback.
+
+```js
+getLocalizedText(multilingualText, language, defaultLanguage);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| multilingualText | <code>Array</code> | The array containing the localized texts. |
+| language | <code>String</code> | The requested language. |
+| defaultLanguage | <code>String</code> | The default language used as fallback. |
+
+### Returns
+
+<code>String</code> The localized text.
+
+
+# getLocalizedUrl
+
+Accepts a multilingual array containing localized URLs for certain languages,
+the requested language and the default language. The localized URL of the
+requested language is returned as result. If the requested language is not
+available in the array, the default language is used as fallback.
+
+```js
+getLocalizedUrl(multilingualUrl, language, defaultLanguage);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| multilingualUrl | <code>Array</code> | The array containing the localized URLs. |
+| language | <code>String</code> | The requested language. |
+| defaultLanguage | <code>String</code> | The default language used as fallback. |
+
+### Returns
+
+<code>String</code> The localized URL.

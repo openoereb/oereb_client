@@ -6,11 +6,11 @@ import React, {useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {queryExtractById} from '../../api/extract';
 import {setViewServices} from '../../reducer/accordion';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {hide} from '../../reducer/map_query';
+import {queryExtractById} from '../../request/extract';
 
 const OerebMapQuery = function (props) {
   const {t} = useTranslation();
