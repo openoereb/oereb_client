@@ -2,10 +2,10 @@ import React from "react";
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from "react-redux";
 
-import {queryExtractById} from '../../api/extract';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {setLanguage} from "../../reducer/language";
+import {queryExtractById} from '../../request/extract';
 
 const OerebLanguage = function() {
   const {t} = useTranslation();

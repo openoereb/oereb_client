@@ -3,26 +3,8 @@ import React from "react";
 import OerebPermalink from "./permalink";
 
 export default {
-  title: 'API Reference/Components/Permalink',
+  title: 'API Reference/Component/Permalink',
   component: OerebPermalink
 };
 
-export const Default = () => <div>
-  <div class="modal fade" id="permalinkModal" tabIndex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Permalink</h5>
-          <button type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <input class="form-control" />
-        </div>
-      </div>
-    </div>
-  </div>
-  <OerebPermalink />
-</div>;
+export const Permalink = () => <OerebPermalink />;

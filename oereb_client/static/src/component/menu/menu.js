@@ -5,15 +5,15 @@ import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {queryEgridByCoord} from '../../api/egrid';
-import {queryExtractById} from '../../api/extract';
-import {searchTerm} from '../../api/search';
 import {setViewServices} from '../../reducer/accordion';
 import {showAvailability} from '../../reducer/availability';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {hide, loadAt, show} from '../../reducer/map_query';
 import {enableSymbolZoom} from '../../reducer/symbol_zoom';
+import {queryEgridByCoord} from '../../request/egrid';
+import {queryExtractById} from '../../request/extract';
+import {searchTerm} from '../../request/search';
 import {getCoordinates, isGNSS, isLV03, isLV95} from '../../util/coordinate';
 import {getLocalizedUrl} from '../../util/language';
 import OerebLanguage from '../language/language';

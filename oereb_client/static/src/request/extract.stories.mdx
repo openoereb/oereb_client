@@ -1,0 +1,82 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="API Reference/Request/Extract" />
+
+# queryExtractById
+
+Queries the extract for the specified E-GRID and language.
+
+```js
+queryExtractById(applicationUrl, egrid, language);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| applicationUrl | <code>String</code> | The application URL. |
+| egrid | <code>String</code> | The E-GRID to query the extract for. |
+| language | <code>String</code> | The requested language. |
+
+### Returns
+
+<code>Promise</code> A promise receiving the extract data.
+
+
+# queryStaticExtractById
+
+Queries the static extract (PDF) for the specified E-GRID and language.
+
+```js
+queryStaticExtractById(applicationUrl, egrid, language);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| applicationUrl | <code>String</code> | The application URL. |
+| egrid | <code>String</code> | The E-GRID to query the static extract for. |
+| language | <code>String</code> | The requested language. |
+
+### Returns
+
+<code>Promise</code> A promise receiving the static extract document.
+
+
+# sanitizeTopicCode
+
+A helper function to remove special characters from the topic code.
+
+```js
+sanitizeTopicCode(code);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| code | <code>String</code> | The topic code. |
+
+### Returns
+
+<code>String</code> The sanitized topic code.
+
+
+# groupRestrictionsByTopic
+
+A helper function grouping the available restrictions by topic code for easier access.
+
+```js
+groupRestrictionsByTopic(restrictions);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| restrictions | <code>Array</code> | The list of restrictions. |
+
+### Returns
+
+<code>Object</code> The grouped restrictions.

@@ -1,0 +1,23 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="API Reference/Request/Search" />
+
+# searchTerm
+
+Queries the search service with the specified value and language.
+
+```js
+searchTerm(applicationUrl, term, language);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| applicationUrl | <code>String</code> | The application URL. |
+| term | <code>String</code> | The search value. |
+| language | <code>String</code> | The language used for the search request. |
+
+### Returns
+
+<code>Object</code> An object containing a promise receiving the search results and a method to cancel the current request.

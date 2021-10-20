@@ -1,0 +1,99 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="API Reference/Util/Coordinate" />
+
+
+# parseCoordinateMatch
+
+Parses the coordinate returned by a matched regular expression.
+
+```js
+parseCoordinateMatch(match);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| match | <code>Array</code> | The matched values returned by the regular expression. |
+
+### Returns
+
+<code>Array</code> Pair of coordinate values ([x, y]).
+
+
+# isLV03
+
+Checks, whether the value is a LV03 coordinate or not.
+
+```js
+isLV03(value);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>String</code> | The value to be checked. |
+
+### Returns
+
+<code>Boolean</code> True, if the value is a LV03 coordinate, false otherwise.
+
+
+# isLV95
+
+Checks, whether the value is a LV95 coordinate or not.
+
+```js
+isLV95(value);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>String</code> | The value to be checked. |
+
+### Returns
+
+<code>Boolean</code> True, if the value is a LV95 coordinate, false otherwise.
+
+
+# isGNSS
+
+Checks, whether the value is a GNSS coordinate or not.
+
+```js
+isGNSS(value);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>String</code> | The value to be checked. |
+
+### Returns
+
+<code>Boolean</code> True, if the value is a GNSS coordinate, false otherwise.
+
+
+# getCoordinates
+
+Parses the specified value and returns an array containing the coordinate values.
+If the value container LV03 or GNSS coordinates, the result will be transformed to LV95.
+
+```js
+getCoordinates(value);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| value | <code>String</code> | The value to be parsed. |
+
+### Returns
+
+<code>Array|null</code> The parsed pair of coordinate values (LV95) or null.

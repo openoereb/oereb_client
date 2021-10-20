@@ -1,0 +1,22 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="API Reference/Request/E-GRID" />
+
+# queryEgridByCoord
+
+Queries an E-GRID using the given coordinates and returns a promise for receiving the results.
+
+```js
+queryEgridByCoord(applicationUrl, coord);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| applicationUrl | <code>String</code> | The application URL. |
+| coord | <code>Array</code> | The coordinates to query for. |
+
+### Returns
+
+<code>Promise</code> A promise receiving the query results.

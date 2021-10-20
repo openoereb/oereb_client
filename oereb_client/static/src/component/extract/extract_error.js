@@ -2,9 +2,9 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {queryExtractById} from '../../api/extract';
 import {hideExtract, loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
+import {queryExtractById} from '../../request/extract';
 import {getLocalizedText} from '../../util/language';
 
 const OerebExtractError = function () {

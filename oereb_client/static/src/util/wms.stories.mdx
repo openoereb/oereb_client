@@ -1,0 +1,22 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="API Reference/Util/WMS" />
+
+# getViewServiceDefinition
+
+Uses the map object from the extract and creates a configuration for the
+corresponding ol.source.TileWMS instance.
+
+```js
+getViewServiceDefinition(mapObject);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| mapObject | <code>Object</code> | The object containing the map configuration from the extract. |
+
+### Returns
+
+<code>Object</code> The configuration object used for the ol.source.TileWMS instance.

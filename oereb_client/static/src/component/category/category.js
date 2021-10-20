@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {groupRestrictionsByTopic} from '../../api/extract';
 import {setActiveCategory, setActiveTopic, setViewServices} from '../../reducer/accordion';
+import {groupRestrictionsByTopic} from '../../request/extract';
 import OerebTopicsWithRestriction from '../topic_list/topics_with_restrictions';
 import OerebTopicsWithoutRestriction from '../topic_list/topics_without_restriction';
 
+/**
+ * The container for each category. It uses a bootstrap accordion to show or hide the
+ * category's data. Only one category can be shown at once.
+ */
 const OerebCategory = function (props) {
   const title = props.title;
   const topics = props.data;
@@ -84,8 +88,11 @@ const OerebCategory = function (props) {
 };
 
 OerebCategory.propTypes = {
+  /** The category title. */
   title: PropTypes.string.isRequired,
+  /** The topics contained in this category. */
   data: PropTypes.array.isRequired,
+  /** Use `true` to show the restrictions data. */
   restriction: PropTypes.bool.isRequired
 };
 

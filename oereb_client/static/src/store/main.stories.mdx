@@ -1,0 +1,25 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="API Reference/Store/Main" />
+
+# Main Store
+
+This application uses [React Redux](https://react-redux.js.org/) to store, manipulate and share
+states and data across the whole application. It provides one main store containing a bunch of
+slices for different parts and components.
+
+```js
+const MainStore = configureStore({
+  reducer: {
+    config: configReducer,              // Contains the configuration, to be available application-wide
+    map: mapReducer,                    // Provides the map instance and some layers
+    mapQuery: mapQueryReducer,          // Controls the state and position of the map query component
+    extract: extractReducer,            // Provides the extract status and data
+    accordion: accordionReducer,        // Controls the visibility of the different categories and topics
+    language: languageReducer,          // Controls the language settings
+    availability: availabilityReducer,  // Controls the visibility of the availabiliity layer
+    symbolZoom: symbolZoomReducer,      // Controls the zoom for legend symbols (enabled/disabled)
+    history: historyReducer             // Controls the extract history (5 latest real estates)
+  }
+});
+```
