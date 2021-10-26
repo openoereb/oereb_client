@@ -1,6 +1,5 @@
 import './responsible_office.scss';
 
-import {isArray} from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
@@ -19,18 +18,14 @@ const OerebResponsibleOffice = function (props) {
 
   restrictions.forEach((restriction) => {
     addIfNotContains(restriction['ResponsibleOffice'], offices);
-    if (isArray(restriction['Geometry'])) {
-      restriction['Geometry'].forEach((geometry) => {
-        addIfNotContains(geometry['ResponsibleOffice'], offices);
-      });
-    }
   });
 
   const officeElements = offices.map((office, key) => {
     const localizedName = getLocalizedText(office['Name'], currentLanguage, defaultLanguage);
+    const localizedUrl = getLocalizedText(office['OfficeAtWeb'], currentLanguage, defaultLanguage);
     return (
       <dd key={key} className="ms-2">
-        <a href={office['OfficeAtWeb']} target="_blank" rel="noreferrer">
+        <a href={localizedUrl} target="_blank" rel="noreferrer">
           {localizedName}
         </a>
       </dd>

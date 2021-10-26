@@ -23,7 +23,7 @@ const OerebInformationPanel = function () {
     },
     {
       title: t('extract.information_panel.exclusion_of_liability.title'),
-      content: <OerebMultilingualCatalog catalog="ExclusionOfLiability" search={search} />,
+      content: <OerebMultilingualCatalog catalog="Disclaimer" search={search} />,
       search: true
     },
     {

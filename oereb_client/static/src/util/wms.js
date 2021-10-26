@@ -1,8 +1,14 @@
 import {isArray, isObject, isString} from 'lodash';
 import proj4 from 'proj4';
 
-export const getViewServiceDefinition = function (mapObject) {
-  const parts = mapObject['ReferenceWMS'].split('?');
+import {getLocalizedText} from './language';
+
+export const getViewServiceDefinition = function (mapObject, currentLanguage, defaultLanguage) {
+  const parts = getLocalizedText(
+    mapObject['ReferenceWMS'],
+    currentLanguage,
+    defaultLanguage
+  ).split('?');
   const url = parts[0];
   const definition = {
     'url': url,

@@ -27,17 +27,14 @@ const OerebGeneralInformation = function () {
   const authorityName = getLocalizedText(authority['Name'], currentLanguage, defaultLanguage);
   const authorityStreet = authority['Street'] + ' ' + authority['Number'];
   const authorityCity = authority['PostalCode'] + ' ' + authority['City'];
-  const authorityUrl = authority['OfficeAtWeb'];
+  const authorityUrl = getLocalizedText(authority['OfficeAtWeb'], currentLanguage, defaultLanguage);
   let authorityFlexClass = 'd-flex g-0';
   if (document.body.offsetWidth < 1200) {
     authorityFlexClass += ' flex-column';
   }
 
-  const baseData = getLocalizedText(
-    extract.data['GetExtractByIdResponse']['extract']['BaseData'],
-    currentLanguage,
-    defaultLanguage
-  );
+  const updateDateCS = new Date(extract.data['GetExtractByIdResponse']['extract']['UpdateDateCS'])
+    .toLocaleDateString('de-CH');
 
   const generalInformation = getLocalizedText(
     extract.data['GetExtractByIdResponse']['extract']['GeneralInformation'],
@@ -83,7 +80,9 @@ const OerebGeneralInformation = function () {
               <h5 className="card-title">
                 {t('extract.information_panel.general_information.base_data')}
               </h5>
-              <p className="card-text m-0">{baseData}</p>
+              <p className="card-text m-0">
+                {t('extract.information_panel.general_information.update_date_cs')}: {updateDateCS}
+              </p>
             </div>
           </div>
         </div>

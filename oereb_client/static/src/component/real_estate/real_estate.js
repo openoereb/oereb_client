@@ -6,7 +6,7 @@ const OerebRealEstate = function (props) {
   const {t} = useTranslation();
   const realEstate = props.data;
   const number = realEstate.Number;
-  const municipality = realEstate.Municipality;
+  const municipality = realEstate.MunicipalityName;
   const egrid = realEstate.EGRID;
   const area = realEstate.LandRegistryArea;
 

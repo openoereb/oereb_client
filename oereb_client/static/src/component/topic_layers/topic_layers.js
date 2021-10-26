@@ -10,13 +10,16 @@ const OerebTopicLayer = function (props) {
   const topicLayers = props.topicLayers;
   const viewServices = useSelector((state) => state.accordion).viewServices;
   const extractVisible = useSelector((state) => state.extract).visible;
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
+  const defaultLanguage = language.default;
 
   topicLayers.setVisible(false);
   topicLayers.getLayers().clear();
 
   if (extractVisible && isArray(viewServices) && viewServices.length > 0) {
     const layers = viewServices.map((viewService) => {
-      const definition = getViewServiceDefinition(viewService);
+      const definition = getViewServiceDefinition(viewService, currentLanguage, defaultLanguage);
       return new TileLayer({
         preload: Infinity,
         visible: true,
