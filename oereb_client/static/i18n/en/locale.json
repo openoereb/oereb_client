@@ -27,14 +27,15 @@
         "title": "General and legal information"
       },
       "exclusion_of_liability": {
-        "title": "Exclusion of liability"
+        "title": "Disclaimer"
       },
       "general_information": {
         "authority": "PLR cadastre authority",
         "base_data": "Base data",
         "further_participants": "Further parties involved",
         "general_information": "General information",
-        "title": "General"
+        "title": "General",
+        "update_date_cs": "Last update of cadastral surveying"
       },
       "glossary": {
         "title": "Glossary"
