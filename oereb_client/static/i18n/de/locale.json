@@ -34,7 +34,8 @@
         "base_data": "Grundlagedaten",
         "further_participants": "Weiterhin an diesem Auszug beteilig sind",
         "general_information": "Allgemeine Informationen",
-        "title": "Allgemein"
+        "title": "Allgemein",
+        "update_date_cs": "Stand der amtlichen Vermessung"
       },
       "glossary": {
         "title": "Glossar"
