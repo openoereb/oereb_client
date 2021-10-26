@@ -36,7 +36,9 @@
 		"ms-python.python",
 		"sibiraj-s.vscode-scss-formatter",
 		"redhat.vscode-xml",
-		"lokalise.i18n-ally"
+		"lokalise.i18n-ally",
+		"redhat.vscode-commons",
+		"redhat.vscode-yaml"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
