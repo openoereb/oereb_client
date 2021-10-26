@@ -6,7 +6,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 
-import {addDocumentIfNotContained, addDocumentsIfNotContained} from '../../util/documents';
+import {addDocumentIfNotContained} from '../../util/documents';
 import {getLocalizedText} from '../../util/language';
 
 const getDocuments = function (restrictions) {
@@ -18,22 +18,17 @@ const getDocuments = function (restrictions) {
   restrictions.forEach((restriction) => {
     // Iterate the legal provisions for each restriction
     const legalProvisions = restriction['LegalProvisions'];
-    legalProvisions.forEach((legalProvision) => {
+    legalProvisions.forEach((document) => {
       // Create legal provision object with necessary properties and check if it needs to be added
       addDocumentIfNotContained({
-        'DocumentType': legalProvision['DocumentType'],
-        'Title': legalProvision['Title'],
-        'Abbreviation': legalProvision['Abbreviation'],
-        'OfficialNumber': legalProvision['OfficialNumber'],
-        'ArticleNumber': legalProvision['ArticleNumber'] || [],
-        'Article': legalProvision['Article'] || [],
-        'TextAtWeb': [legalProvision['TextAtWeb']]
+        'Type': document['Type'],
+        'Title': document['Title'],
+        'Abbreviation': document['Abbreviation'],
+        'OfficialNumber': document['OfficialNumber'],
+        'ArticleNumber': document['ArticleNumber'] || [],
+        'Article': document['Article'] || [],
+        'TextAtWeb': [document['TextAtWeb']]
       }, documents);
-      // Add possible references to the documents
-      const references = legalProvision['Reference'];
-      if (isArray(references)) {
-        addDocumentsIfNotContained(references, documents);
-      }
     });
   });
   return documents;
@@ -94,6 +89,7 @@ const OerebDocuments = function (props) {
     return null;
   };
   const legalProvisions = documents['LegalProvision']
+    .sort((a, b) => a.Index - b.Index)
     .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
 
   const getLawsTitle = function () {
@@ -105,6 +101,7 @@ const OerebDocuments = function (props) {
     return null;
   };
   const laws = documents['Law']
+    .sort((a, b) => a.Index - b.Index)
     .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
 
   const getHintsTitle = function () {
@@ -116,6 +113,7 @@ const OerebDocuments = function (props) {
     return null;
   };
   const hints = documents['Hint']
+    .sort((a, b) => a.Index - b.Index)
     .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
 
   return (

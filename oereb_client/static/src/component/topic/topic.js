@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {setActiveTopic, setViewServices} from '../../reducer/accordion';
 import {addIfNotContains} from '../../util/array';
+import {getLocalizedText} from '../../util/language';
 import OerebCompleteLegend from '../complete_legend/complete_legend';
 import OerebDocuments from '../documents/documents';
 import OerebLegend from '../legend/legend';
@@ -22,6 +23,9 @@ const OerebTopic = function (props) {
   const [opacity, setOpacity] = useState(100);
   const activeTopic = useSelector((state) => state.accordion).topic;
   const topicLayers = useSelector((state) => state.map).topicLayers;
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
+  const defaultLanguage = language.default;
   const dispatch = useDispatch();
 
   const viewServices = [];
@@ -73,6 +77,8 @@ const OerebTopic = function (props) {
     setOpacity(evt.target.value);
   };
 
+  const title = getLocalizedText(topic.Text, currentLanguage, defaultLanguage);
+
   return (
     <div className="accordion-item">
       <h2 className="accordion-header">
@@ -80,7 +86,7 @@ const OerebTopic = function (props) {
           type="button"
           onClick={toggle}
           ref={collapseButton}>
-          {topic.Text.Text}
+          {title}
         </button>
       </h2>
       <div className="accordion-collapse collapse" ref={collapseEl}>

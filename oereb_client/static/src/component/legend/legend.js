@@ -33,7 +33,7 @@ const getLegendEntries = function (restrictions) {
     if (!existing) {
       var legendEntry = {
         'TypeCode': restrictions[i]['TypeCode'],
-        'Information': restrictions[i]['Information'],
+        'LegendText': restrictions[i]['LegendText'],
         'SymbolRef': restrictions[i]['SymbolRef'],
         'SubTheme': restrictions[i]['SubTheme']
       };
@@ -86,7 +86,7 @@ const OerebLegend = function (props) {
 
 
   const legendEntries = getLegendEntries(restrictions).map((entry, key) => {
-    const information = getLocalizedText(entry['Information'], currentLanguage, defaultLanguage);
+    const information = getLocalizedText(entry['LegendText'], currentLanguage, defaultLanguage);
     const symbolRef = entry['SymbolRef'];
     const part = getPart(entry);
     const percent = getPercent(entry);
