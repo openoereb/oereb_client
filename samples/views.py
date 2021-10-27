@@ -29,7 +29,7 @@ class Sample(object):
 
     def get_extract_by_id(self):
         time.sleep(2)
-        if self._request.matchdict.get('egrid') == 'CH1234':
+        if self._request.params.get('EGRID') == 'CH1234':
             with open(pkg_resources.resource_filename('samples', 'extract.json')) as f:
                 content = json.loads(f.read())
             return HTTPOk(json_body=content)

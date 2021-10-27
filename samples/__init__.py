@@ -13,7 +13,7 @@ def includeme(config):
                     request_method='GET')
 
     config.add_route('{0}/getextractbyid'.format(config.route_prefix),
-                     '/extract/reduced/json/geometry/{egrid}')
+                     '/extract/json/')
     config.add_view(Sample,
                     attr='get_extract_by_id',
                     route_name='{0}/getextractbyid'.format(config.route_prefix),
@@ -21,7 +21,7 @@ def includeme(config):
                     request_method='GET')
 
     config.add_route('{0}/samplepdf'.format(config.route_prefix),
-                     '/extract/{flavour}/pdf/{egrid}')
+                     '/extract/pdf/')
     config.add_view(Sample,
                     attr='get_sample_pdf',
                     route_name='{0}/samplepdf'.format(config.route_prefix),
