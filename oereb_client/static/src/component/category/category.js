@@ -17,7 +17,6 @@ const OerebCategory = function (props) {
   const [active, setActive] = useState(false);
   const activeCategory = useSelector((state) => state.accordion).category;
   const extract = useSelector((state) => state.extract).data.GetExtractByIdResponse.extract;
-  const restrictions = groupRestrictionsByTopic(extract.RealEstate.RestrictionOnLandownership);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -54,6 +53,7 @@ const OerebCategory = function (props) {
 
   const topicList = (() => {
     if (restriction) {
+      const restrictions = groupRestrictionsByTopic(extract.RealEstate.RestrictionOnLandownership);
       return (
         <OerebTopicsWithRestriction data={topics} restrictions={restrictions} />
       );

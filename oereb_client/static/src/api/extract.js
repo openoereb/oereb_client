@@ -24,12 +24,15 @@ export const groupRestrictionsByTopic = function (restrictions) {
   const restrictionsByTopic = {};
   restrictions.forEach((restriction) => {
     const code = sanitizeTopicCode(restriction.Theme.Code);
-    if (Reflect.apply(Object.prototype.hasOwnProperty, restrictionsByTopic, [code])) {
-      restrictionsByTopic[code].push(restriction);
+    const lawstatus = restriction.Lawstatus.Code;
+    if (!Reflect.apply(Object.prototype.hasOwnProperty, restrictionsByTopic, [code])) {
+      restrictionsByTopic[code] = {
+        inForce: [],
+        changeWithPreEffect: [],
+        changeWithoutPreEffect: []
+      };
     }
-    else {
-      restrictionsByTopic[code] = [restriction];
-    }
+    restrictionsByTopic[code][lawstatus].push(restriction);
   });
   return restrictionsByTopic;
 };

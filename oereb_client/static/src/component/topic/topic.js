@@ -15,7 +15,6 @@ import OerebResponsibleOffice from '../responsible_office/responsible_office';
 
 const OerebTopic = function (props) {
   const {t} = useTranslation();
-  const topic = props.topic;
   const restrictions = props.restrictions;
   const collapseEl = useRef(null);
   const collapseButton = useRef(null);
@@ -77,7 +76,7 @@ const OerebTopic = function (props) {
     setOpacity(evt.target.value);
   };
 
-  const title = getLocalizedText(topic.Text, currentLanguage, defaultLanguage);
+  const lawstatus = getLocalizedText(restrictions[0].Lawstatus.Text, currentLanguage, defaultLanguage);
 
   return (
     <div className="accordion-item">
@@ -86,7 +85,9 @@ const OerebTopic = function (props) {
           type="button"
           onClick={toggle}
           ref={collapseButton}>
-          {title}
+          <div>
+            <small className="fst-italic">{lawstatus}</small>
+          </div>
         </button>
       </h2>
       <div className="accordion-collapse collapse" ref={collapseEl}>
@@ -118,7 +119,6 @@ const OerebTopic = function (props) {
 };
 
 OerebTopic.propTypes = {
-  topic: PropTypes.object.isRequired,
   restrictions: PropTypes.array.isRequired
 };
 
