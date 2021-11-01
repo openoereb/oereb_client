@@ -25,7 +25,7 @@
     "@babel/preset-react": "^7.14.5",
     "@popperjs/core": "^2.10.2",
     "@reduxjs/toolkit": "^1.6.0",
-    "babel-jest": "^27.2.4",
+    "babel-jest": "^27.3.1",
     "babel-loader": "^8.2.2",
     "bootstrap": "^5.0.1",
     "bootstrap-icons": "^1.5.0",
