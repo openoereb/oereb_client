@@ -1,6 +1,6 @@
 codecov==2.1.12
 defusedxml==0.7.1
-flake8==3.9.2
+flake8==4.0.1
 httpretty==1.1.4
 pluggy==1.0.0
 pycodestyle==2.7.0
