@@ -13,38 +13,41 @@ oereb_client:
   application:
     title:
       - Language: en
-        Text: PLR Cadastre, Canton of Basel-Landschaft
+        Text: PLR Cadastre, Canton of Neuchâtel
       - Language: de
-        Text: ÖREB-Kataster, Kanton Basel-Landschaft
+        Text: ÖREB-Kataster, Kanton Neuenburg
       - Language: fr
-        Text: Cadastre RDPPF, Canton de Bâle-Campagne
+        Text: Cadastre RDPPF, Canton de Neuchâtel
     logo_canton:
       - Language: en
-        URL: http://localhost:8080/samples/static/logo_bl.png
+        URL: http://localhost:8081/samples/static/logo_canton.png
       - Language: de
-        URL: http://localhost:8080/samples/static/logo_bl.png
+        URL: http://localhost:8081/samples/static/logo_canton.png
       - Language: fr
-        URL: http://localhost:8080/samples/static/logo_bl.png
-    local_storage_prefix: bl
+        URL: http://localhost:8081/samples/static/logo_canton.png
+    local_storage_prefix: ne
+    icon: http://localhost:8081/static/images/favicon.png
+    logo_oereb: http://localhost:8081/samples/static/logo_oereb_fr.png
+    local_storage_prefix: ne
     languages:
       - en
       - de
       - fr
-    default_language: en
+    default_language: fr
 
   # View configuration
   view:
-    map_x: 2615000
-    map_y: 1255000
+    map_x: 2550000
+    map_y: 1206000
     map_zoom: 2
-    resolutions: [250, 100, 50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05, 0.025, 0.01]
+    resolutions: [250, 100, 50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.125, 0.0625]
 
   # Base layer configuration
   base_layer:
     type: wmts
-    url: https://tile.geoview.bl.ch/1.0.0/WMTSCapabilities.xml
-    layer: grundkarte_sw
-    matrixSet: swissgrid
+    url: https://sitn.ne.ch/mapproxy95/service/?SERVICE=WMTS&REQUEST=GetCapabilities&VERSION=1.0.0
+    layer: plan_cadastral_c2c
+    matrixSet: EPSG2056
     projection: "EPSG:2056"
     style: default
     format: image/png
@@ -63,7 +66,9 @@ oereb_client:
           Text: E-GRID
         - Language: de
           Text: E-GRID
-      url: https://geoview.bl.ch/main/wsgi/bl_fulltextsearch?query={prefix}+{term}&limit={limit}
+        - Language: fr
+          Text: E-GRID
+      url: https://sitn.ne.ch/production/wsgi/search?query={prefix}+{term}&limit={limit}
       params:
         limit: 5
         prefix: egr
@@ -73,7 +78,9 @@ oereb_client:
           Text: Address
         - Language: de
           Text: Adresse
-      url: https://geoview.bl.ch/main/wsgi/bl_fulltextsearch?query={prefix}+{term}&limit={limit}
+        - Language: fr
+          Text: Adresse
+      url: https://sitn.ne.ch/production/wsgi/search?query={prefix}+{term}&limit={limit}
       params:
         limit: 5
         prefix: adr
@@ -83,29 +90,33 @@ oereb_client:
           Text: Real estate
         - Language: de
           Text: Grundstück
-      url: https://geoview.bl.ch/main/wsgi/bl_fulltextsearch?query={prefix}+{term}&limit={limit}
+        - Language: fr
+          Text: Bien-fonds
+      url: https://sitn.ne.ch/production/wsgi/search?query={prefix}+{term}&limit={limit}
       params:
         limit: 5
-        prefix: gs
+        prefix: bie
       hook_method: samples.search.hook_real_estate
 
   # Link to external viewer/portal
   external_viewer:
     tooltip:
       - Language: en
-        Text: Go to GeoView BL
+        Text: Go to Geoportal NE
       - Language: de
-        Text: zu GeoView BL wechseln
-    url: https://geoview.bl.ch
+        Text: zum Geoportal NE wechseln
+      - Language: fr
+        Text: Passer au Géoportail du SITN
+    url: https://sitn.ne.ch
     params:
-      - "wfs_layer=grundstueck"
-      - "wfs_egris_egrid={egrid}"
+      - "wfs_layer=parcelles"
+      - "wfs_egrid={egrid}"
       - "no_redirect="
-      - "tree_groups=Bau- und Strassenlinien,Kataster belasteter Standorte,Lärm,Nutzungsplan"
-      - "tree_group_layers_Bau- und Strassenlinien=statische_waldgrenzen,baulinien_kommunal_waldabstandslinien,baulinien_kommunal,baulinien_kantonal"
-      - "tree_group_layers_Kataster belasteter Standorte=kbs_kataster_standorte"
-      - "tree_group_layers_Lärm=laermempfindlichkeitsstufen"
-      - "tree_group_layers_Nutzungsplan=nutzungsplanung_kantonal_grundnutzung_group,nutzungsplanung_kommunal_grundnutzung_group,nutzungsplanung_kantonal_ueberlagernd_rechtsverbindlich_group,nutzungsplanung_kommunal_ueberlagernd_rechtsverbindlich_group,nutzungsplanung_kantonal_perimeter_tiefbau_umrandung,nutzungsplanung_kommunal_sondernutzungsplan_umrandung"
+#      - "tree_groups=Bau- und Strassenlinien,Kataster belasteter Standorte,Lärm,Nutzungsplan"
+#      - "tree_group_layers_Bau- und Strassenlinien=statische_waldgrenzen,baulinien_kommunal_waldabstandslinien,baulinien_kommunal,baulinien_kantonal"
+#      - "tree_group_layers_Kataster belasteter Standorte=kbs_kataster_standorte"
+#      - "tree_group_layers_Lärm=laermempfindlichkeitsstufen"
+#      - "tree_group_layers_Nutzungsplan=nutzungsplanung_kantonal_grundnutzung_group,nutzungsplanung_kommunal_grundnutzung_group,nutzungsplanung_kantonal_ueberlagernd_rechtsverbindlich_group,nutzungsplanung_kommunal_ueberlagernd_rechtsverbindlich_group,nutzungsplanung_kantonal_perimeter_tiefbau_umrandung,nutzungsplanung_kommunal_sondernutzungsplan_umrandung"
 
   # Support
   support:
@@ -113,16 +124,20 @@ oereb_client:
       - Language: en
         Text: Office for geoinformation
       - Language: de
-        Text: Amt für Geoinformation
+        Text: Geomatik und Grundbuchamt
+      - Language: fr
+        Text: Service de la géomatique et du registre foncier
     office2:
       - Language: en
         Text: GIS competence center
       - Language: de
         Text: GIS-Fachstelle
-    street: Mühlemattstrasse 36
-    city: 4410 Liestal
-    email: support.gis@bl.ch
-    phone: 061 552 56 73
+      - Language: fr
+        Text: Système d'information du territoire neuchâtelois
+    street: Rue de Tivoli 22, CP
+    city: 2002 Neuchâtel
+    email: sitn@ne.ch
+    phone: 032 889 67 50
 
   # Custom CSS file
   custom_css_url: samples/static/custom.css
