@@ -63,7 +63,7 @@ const OerebExtractError = function () {
   const city = getOptionalAttribut(config.support.city);
   const phone = getPhone();
   const email = getMail();
-  const applicationUrl = config.application_url;
+  const serviceUrl = config.service_url;
 
   const closeExtract = function () {
     dispatch(hideExtract());
@@ -74,7 +74,7 @@ const OerebExtractError = function () {
       egrid: extract.egrid,
       zoom: true
     }));
-    queryExtractById(applicationUrl, extract.egrid, currentLanguage)
+    queryExtractById(serviceUrl, extract.egrid, currentLanguage)
       .then((data) => {
         dispatch(showExtract(data));
         dispatch(updateHistory(data));

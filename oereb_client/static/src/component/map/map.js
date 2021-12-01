@@ -74,7 +74,7 @@ const OerebMap = function () {
   const currentLanguage = language.current;
   const dispatch = useDispatch();
   const query = new URLSearchParams(window.location.search);
-  const applicationUrl = config.application_url;
+  const serviceUrl = config.service_url;
   const [map, setMap] = useState(null);
 
   // Create availability layer
@@ -156,7 +156,7 @@ const OerebMap = function () {
         posX: coord[0],
         posY: coord[1]
       }));
-      queryEgridByCoord(applicationUrl, coord)
+      queryEgridByCoord(serviceUrl, coord)
         .then((egrids) => {
           const results = egrids.GetEGRIDResponse;
           if (results.length > 1) {
@@ -171,7 +171,7 @@ const OerebMap = function () {
               egrid: egrid,
               zoom: false
             }));
-            queryExtractById(applicationUrl, egrid, currentLanguage)
+            queryExtractById(serviceUrl, egrid, currentLanguage)
               .then((extract) => {
                 dispatch(showExtract(extract));
                 dispatch(updateHistory(extract));

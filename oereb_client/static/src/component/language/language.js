@@ -11,7 +11,7 @@ const OerebLanguage = function() {
   const {t} = useTranslation();
   const dispatch = useDispatch();
   const config = useSelector((state) => state.config).config;
-  const applicationUrl = config.application_url;
+  const serviceUrl = config.service_url;
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
   const availableLanguages = language.available;
@@ -25,7 +25,7 @@ const OerebLanguage = function() {
           egrid: extract.egrid,
           zoom: false
         }));
-        queryExtractById(applicationUrl, extract.egrid, lang)
+        queryExtractById(serviceUrl, extract.egrid, lang)
           .then((data) => {
             dispatch(showExtract(data));
             dispatch(updateHistory(data));
