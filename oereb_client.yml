@@ -56,7 +56,7 @@ oereb_client:
       LAYERS: oereb_published_municipalities
       FORMAT: image/png
 
-  # OeREB service URL (optional)
+  # OeREB web service base URL (optional)
   # service_url: https://my.oereb-web-service.ch/
 
   # Search configuration
