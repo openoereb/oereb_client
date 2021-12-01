@@ -51,7 +51,7 @@
     "react-i18next": "^11.12.0",
     "react-redux": "^7.2.4",
     "react-test-renderer": "^17.0.2",
-    "sass": "^1.35.2",
+    "sass": "^1.44.0",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.0.0",
     "webpack": "^5.55.1",
