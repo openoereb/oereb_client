@@ -130,6 +130,16 @@ class Index(object):
 
         return cfg
 
+    def get_service_url_(self):
+        service_url = self.config_.get('service_url', None)
+        if service_url is not None:
+            if service_url[-1] != '/':
+                service_url += '/'
+            return service_url
+        return self.request_.route_url(
+            '{0}/index'.format(self.request_.route_prefix)
+        )
+
     def get_config(self):
         """
         Returns the JSON-encoded configuration.
@@ -142,6 +152,7 @@ class Index(object):
             'application_url': self.request_.route_url(
                 '{0}/index'.format(self.request_.route_prefix)
             ),
+            'service_url': self.get_service_url_(),
             'application': self.get_application_config_(),
             'version': __version__,
             'view': self.config_.get('view', {}),

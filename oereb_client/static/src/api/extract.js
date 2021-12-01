@@ -1,5 +1,5 @@
-export const queryExtractById = function (applicationUrl, egrid, language) {
-  const url = new URL(applicationUrl + 'extract/json/');
+export const queryExtractById = function (serviceUrl, egrid, language) {
+  const url = new URL(serviceUrl + 'extract/json/');
   url.searchParams.append('EGRID', egrid);
   url.searchParams.append('GEOMETRY', true);
   url.searchParams.append('_dc', new Date().getTime());
@@ -9,8 +9,8 @@ export const queryExtractById = function (applicationUrl, egrid, language) {
   return fetch(url).then((response) => response.json());
 };
 
-export const queryStaticExtractById = function (applicationUrl, egrid, language) {
-  const url = new URL(applicationUrl + 'extract/pdf/');
+export const queryStaticExtractById = function (serviceUrl, egrid, language) {
+  const url = new URL(serviceUrl + 'extract/pdf/');
   url.searchParams.append('EGRID', egrid);
   url.searchParams.append('_dc', new Date().getTime());
   if (language) {
