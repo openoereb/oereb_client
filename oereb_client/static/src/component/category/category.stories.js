@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 
 import data from "../../../../../samples/extract.json";
 import {showExtract} from "../../reducer/extract";
@@ -15,8 +15,8 @@ export const ConcernedTheme = () => {
   dispatch(showExtract(data));
   return (
     <OerebCategory title="Concerned theme"
-                   data={data['GetExtractByIdResponse']['extract']['ConcernedTheme']}
-                   restriction={true} />
+      data={data['GetExtractByIdResponse']['extract']['ConcernedTheme']}
+      restriction={true} />
   );
 };
 ConcernedTheme.title = 'Concerned theme';
@@ -26,7 +26,7 @@ export const NotConcernedTheme = () => {
   dispatch(showExtract(data));
   return (
     <OerebCategory title="Not concerned theme"
-                   data={data['GetExtractByIdResponse']['extract']['NotConcernedTheme']} />
+      data={data['GetExtractByIdResponse']['extract']['NotConcernedTheme']} />
   );
 };
 NotConcernedTheme.title = 'Not concerned theme';
@@ -36,7 +36,7 @@ export const ThemeWithoutData = () => {
   dispatch(showExtract(data));
   return (
     <OerebCategory title="Theme without data"
-                   data={data['GetExtractByIdResponse']['extract']['ThemeWithoutData']} />
+      data={data['GetExtractByIdResponse']['extract']['ThemeWithoutData']} />
   );
 };
 ThemeWithoutData.title = 'Theme without data';

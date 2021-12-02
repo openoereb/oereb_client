@@ -88,10 +88,13 @@ const OerebCategory = function (props) {
 };
 
 OerebCategory.propTypes = {
+
   /** The category title. */
   title: PropTypes.string.isRequired,
+
   /** The topics contained in this category. */
   data: PropTypes.array.isRequired,
+
   /** Use `true` to show the restrictions data. */
   restriction: PropTypes.bool.isRequired
 };
