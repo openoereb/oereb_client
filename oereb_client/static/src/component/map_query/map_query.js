@@ -22,7 +22,7 @@ const OerebMapQuery = function (props) {
   const currentLanguage = language.current;
   const [overlay, setOverlay] = useState(null);
 
-  const applicationUrl = config.application_url;
+  const serviceUrl = config.service_url;
   const map = props.map;
 
   if (overlay === null) {
@@ -52,7 +52,7 @@ const OerebMapQuery = function (props) {
       egrid: egrid,
       zoom: false
     }));
-    queryExtractById(applicationUrl, egrid, currentLanguage)
+    queryExtractById(serviceUrl, egrid, currentLanguage)
       .then((extract) => {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));

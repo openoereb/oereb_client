@@ -118,6 +118,7 @@ def test_get_config(mock_request):
         index = Index(mock_request)
         assert index.get_config() == {
             'application_url': 'http://example.com/',
+            'service_url': 'http://example.com/',
             'application': settings.get('oereb_client').get('application'),
             'version': __version__,
             'view': settings.get('oereb_client').get('view'),
@@ -190,3 +191,17 @@ def test_get_application_config_default(mock_request):
         for logo in cfg.get('logo_oereb'):
             assert 'Language' in logo
             assert 'URL' in logo
+
+
+@pytest.mark.parametrize('service_url,result', [
+    (None, 'http://example.com/'),
+    ('http://my.oereb.service', 'http://my.oereb.service/'),
+    ('http://my.oereb.service/', 'http://my.oereb.service/')
+])
+def test_get_service_url(service_url, result, mock_request):
+    modified_settings = deepcopy(settings)
+    modified_settings['oereb_client']['service_url'] = service_url
+    with testConfig(settings=modified_settings) as config:
+        config.add_route('{0}/index'.format(config.route_prefix), '/')
+        index = Index(mock_request)
+        assert index.get_service_url_() == result

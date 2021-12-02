@@ -3,7 +3,7 @@ import json
 import time
 import pkg_resources
 
-from pyramid.httpexceptions import HTTPOk, HTTPServerError
+from pyramid.httpexceptions import HTTPBadRequest, HTTPOk, HTTPServerError
 
 
 class Sample(object):
@@ -11,21 +11,24 @@ class Sample(object):
         self._request = request
 
     def get_egrid(self):
-        time.sleep(2)
-        return {
-            'GetEGRIDResponse': [
-                {
-                    'egrid': 'CH0815',
-                    'number': '0815',
-                    'identDN': 'SAMPLE'
-                },
-                {
-                    'egrid': 'CH1234',
-                    'number': '1234',
-                    'identDN': 'SAMPLE'
-                }
-            ]
-        }
+        if 'EN' in self._request.params:
+            time.sleep(2)
+            return {
+                'GetEGRIDResponse': [
+                    {
+                        'egrid': 'CH0815',
+                        'number': '0815',
+                        'identDN': 'SAMPLE'
+                    },
+                    {
+                        'egrid': 'CH1234',
+                        'number': '1234',
+                        'identDN': 'SAMPLE'
+                    }
+                ]
+            }
+        else:
+            return HTTPBadRequest()
 
     def get_extract_by_id(self):
         time.sleep(2)

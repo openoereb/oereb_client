@@ -26,6 +26,7 @@ const OerebMenu = function () {
   const history = useSelector((state) => state.history).elements;
   const dispatch = useDispatch();
   const applicationUrl = config.application_url;
+  const serviceUrl = config.service_url;
 
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
@@ -51,7 +52,7 @@ const OerebMenu = function () {
       egrid: egrid,
       zoom: true
     }));
-    queryExtractById(applicationUrl, egrid, currentLanguage)
+    queryExtractById(serviceUrl, egrid, currentLanguage)
       .then((extract) => {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));
@@ -66,7 +67,7 @@ const OerebMenu = function () {
       posX: coord[0],
       posY: coord[1]
     }));
-    queryEgridByCoord(applicationUrl, coord)
+    queryEgridByCoord(serviceUrl, coord)
       .then((egrids) => {
         const results = egrids.GetEGRIDResponse;
         if (results.length > 1) {
