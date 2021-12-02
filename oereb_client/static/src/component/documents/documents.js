@@ -117,7 +117,7 @@ const OerebDocuments = function (props) {
     .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
 
   return (
-    <dl className="oereb-documents border-top pt-2 mb-2">
+    <dl className="oereb-documents mb-2">
       {getLegalProvisionsTitle()}
       {legalProvisions}
       {getLawsTitle()}
