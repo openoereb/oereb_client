@@ -8,7 +8,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {setActiveTopic, setViewServices} from '../../reducer/accordion';
 import {addIfNotContains} from '../../util/array';
 import {getLocalizedText} from '../../util/language';
-import OerebCompleteLegend from '../complete_legend/complete_legend';
 import OerebDocuments from '../documents/documents';
 import OerebLegend from '../legend/legend';
 import OerebResponsibleOffice from '../responsible_office/responsible_office';
@@ -109,7 +108,6 @@ const OerebTopic = function (props) {
             </div>
           </div>
           <OerebLegend restrictions={restrictions} />
-          <OerebCompleteLegend restrictions={restrictions} />
           <OerebDocuments restrictions={restrictions} />
           <OerebResponsibleOffice restrictions={restrictions} />
         </div>
