@@ -1,5 +1,5 @@
-export const searchTerm = function (serviceUrl, term, language) {
-  const url = new URL(serviceUrl + 'search');
+export const searchTerm = function (searchUrl, term, language) {
+  const url = new URL(searchUrl);
   url.searchParams.append('term', term);
   url.searchParams.append('lang', language);
   let cancel;

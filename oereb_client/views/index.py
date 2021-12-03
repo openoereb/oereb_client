@@ -49,7 +49,10 @@ class Index(object):
         if not isinstance(self.config_.get('availability'), dict):
             raise ConfigurationError('Missing "availability" configuration')
 
-        if not isinstance(self.config_.get('search'), list):
+        if not (
+            isinstance(self.config_.get('search'), list) or
+            isinstance(self.config_.get('search'), str)
+        ):
             raise ConfigurationError('Missing "search" configuration')
 
         if not isinstance(self.config_.get('support'), dict):
@@ -140,6 +143,14 @@ class Index(object):
             '{0}/index'.format(self.request_.route_prefix)
         )
 
+    def get_search_url_(self):
+        search = self.config_.get('search', None)
+        if isinstance(search, str):
+            return search
+        return self.request_.route_url(
+            '{0}/search'.format(self.request_.route_prefix)
+        )
+
     def get_config(self):
         """
         Returns the JSON-encoded configuration.
@@ -153,6 +164,7 @@ class Index(object):
                 '{0}/index'.format(self.request_.route_prefix)
             ),
             'service_url': self.get_service_url_(),
+            'search_url': self.get_search_url_(),
             'application': self.get_application_config_(),
             'version': __version__,
             'view': self.config_.get('view', {}),

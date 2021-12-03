@@ -25,7 +25,7 @@ const OerebMenu = function () {
   const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
   const history = useSelector((state) => state.history).elements;
   const dispatch = useDispatch();
-  const applicationUrl = config.application_url;
+  const searchUrl = config.search_url;
   const serviceUrl = config.service_url;
 
   const language = useSelector((state) => state.language);
@@ -110,7 +110,7 @@ const OerebMenu = function () {
     }
     if (searchValue.length > 0) {
       setLoading(true);
-      const request = searchTerm(applicationUrl, searchValue, currentLanguage);
+      const request = searchTerm(searchUrl, searchValue, currentLanguage);
       const searchPromise = request.promise;
       setPendingRequest(request);
       searchPromise.then((results) => {

@@ -99,6 +99,7 @@ def test_render(mock_request):
     with testConfig(settings=settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
+        config.add_route('{0}/search'.format(config.route_prefix), '/search')
         config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
         assert index.render() == {
@@ -114,11 +115,13 @@ def test_get_config(mock_request):
     with testConfig(settings=settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
+        config.add_route('{0}/search'.format(config.route_prefix), '/search')
         config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
         assert index.get_config() == {
             'application_url': 'http://example.com/',
             'service_url': 'http://example.com/',
+            'search_url': 'http://example.com/search',
             'application': settings.get('oereb_client').get('application'),
             'version': __version__,
             'view': settings.get('oereb_client').get('view'),
@@ -205,3 +208,16 @@ def test_get_service_url(service_url, result, mock_request):
         config.add_route('{0}/index'.format(config.route_prefix), '/')
         index = Index(mock_request)
         assert index.get_service_url_() == result
+
+
+@pytest.mark.parametrize('search,result', [
+    ([], 'http://example.com/search'),
+    ('http://my.oereb.search/', 'http://my.oereb.search/')
+])
+def test_get_search_url(search, result, mock_request):
+    modified_settings = deepcopy(settings)
+    modified_settings['oereb_client']['search'] = search
+    with testConfig(settings=modified_settings) as config:
+        config.add_route('{0}/search'.format(config.route_prefix), '/search')
+        index = Index(mock_request)
+        assert index.get_search_url_() == result

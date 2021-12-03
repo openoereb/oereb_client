@@ -60,6 +60,8 @@ oereb_client:
   # service_url: https://my.oereb-web-service.ch/
 
   # Search configuration
+  # Specify a list to use the internal search proxy or specify an URL to use an external endpoint.
+  # search: https://my.search-endpoint.ch/
   search:
     - title:
         - Language: en
