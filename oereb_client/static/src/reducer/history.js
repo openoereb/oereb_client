@@ -25,7 +25,7 @@ export const historySlice = createSlice({
       const realEstate = extract['GetExtractByIdResponse']['extract']['RealEstate'];
       const newElement = {
         EGRID: realEstate['EGRID'],
-        Municipality: realEstate['Municipality'],
+        Municipality: realEstate['MunicipalityName'],
         Number: realEstate['Number']
       };
       for (let i = 0; i < state.elements.length; i++) {
