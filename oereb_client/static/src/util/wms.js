@@ -43,10 +43,29 @@ export const getViewServiceDefinition = function (mapObject, currentLanguage, de
   }
   const params = parts[1].split('&');
   for (let i = 0; i < params.length; i++) {
+    const wmsParams = [
+      'SERVICE',
+      'VERSION',
+      'REQUEST',
+      'FORMAT',
+      'CRS',
+      'SRS',
+      'LAYERS',
+      'STYLES',
+      'BBOX',
+      'WIDTH',
+      'HEIGHT',
+      'TRANSPARENT'
+    ];
     const param = params[i].split('=');
-    const key = param[0].toUpperCase();
-    const value = decodeURIComponent(param[1]);
-    definition['params'][key] = value;
+    const key = param[0];
+    const value = param[1];
+    if (wmsParams.indexOf(key.toUpperCase()) > -1) {
+      definition['params'][key.toUpperCase()] = decodeURIComponent(value);
+    }
+    else {
+      definition['params'][key] = value;
+    }
   }
   return definition;
 };
