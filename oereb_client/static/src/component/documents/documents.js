@@ -72,6 +72,10 @@ const formatDocument = function (doc, language, defaultLanguage) {
   );
 }
 
+/**
+ * A component containing the legal documents of a certain topic. The documents are separeted in
+ * three categories: legal provisions, legal bases and hints.
+ */
 const OerebDocuments = function (props) {
   const {t} = useTranslation();
   const restrictions = props.restrictions;
@@ -129,7 +133,10 @@ const OerebDocuments = function (props) {
 };
 
 OerebDocuments.propTypes = {
+
+  /** The list of restrictions for which to collect the documents. */
   restrictions: PropTypes.array.isRequired
+
 };
 
 export default OerebDocuments;

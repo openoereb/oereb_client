@@ -76,6 +76,31 @@ jobs:
           name: static
           path: oereb_client/static
 
+  build-doc:
+    name: Build Documentation
+    needs:
+      - test-py
+      - test-js
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yq
+      - name: Run build
+        env:
+          CI: true
+        run: |
+          make doc
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: doc
+          path: docs/build
+
   create-docker-image-dev:
     name: Build Docker Image
     needs:

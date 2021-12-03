@@ -140,7 +140,9 @@ updates: updates-py updates-js
 
 .PHONY: doc
 doc: node_modules/.timestamp .storybook/oereb_client.json
+	rm -rf docs/build/
 	npm run build-storybook -- -o ./docs/build
+	cp -r oereb_client/static/i18n docs/build/static/i18n
 
 .PHONY: serve-doc
 serve-doc: node_modules/.timestamp
