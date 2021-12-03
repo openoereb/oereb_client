@@ -2,6 +2,10 @@
 # Variable definitions
 # ********************
 
+# Environment and python
+VENV_BIN ?= .venv/bin/
+PYTHON_VERSION ?= python3
+
 # Package name and version
 PKG = oereb_client
 PKG_VERSION = $(if ${VERSION},${VERSION},master)
@@ -21,13 +25,13 @@ TEST_JS = $(shell find test/js -name '*.test.js')
 # *******************
 
 .venv/.timestamp:
-	python3 -m venv .venv
-	.venv/bin/pip install --upgrade pip
+	$(PYTHON_VERSION) -m venv .venv
+	$(VENV_BIN)pip install --upgrade pip
 	touch $@
 
 .venv/.requirements.timestamp: .venv/.timestamp requirements.txt setup.py
-	.venv/bin/pip install wheel
-	.venv/bin/pip install -r requirements.txt
+	$(VENV_BIN)pip install wheel
+	$(VENV_BIN)pip install -r requirements.txt
 	touch $@
 
 node_modules/.timestamp: package.json
@@ -104,7 +108,11 @@ build: install oereb_client/static/build/.timestamp
 
 .PHONY: serve
 serve: build app.ini
-	uwsgi --plugin python3 --http-socket 0.0.0.0:8080 --ini-paste-logged /app/app.ini
+	uwsgi --plugin $(PYTHON_VERSION) --http-socket 0.0.0.0:8080 --ini-paste-logged /app/app.ini
+
+.PHONY: serve-devwin
+serve-devwin: build pserve.ini
+	DEVELOPMENT=true $(VENV_BIN)pserve pserve.ini --reload
 
 .PHONY: scan-locales
 scan-locales: node_modules/.timestamp i18next-scanner.config.js
@@ -112,7 +120,7 @@ scan-locales: node_modules/.timestamp i18next-scanner.config.js
 
 .PHONY: updates-py
 updates-py: .venv/.requirements.timestamp
-	.venv/bin/pip list --outdated --format=columns
+	$(VENV_BIN)pip list --outdated --format=columns
 
 .PHONY: updates-js
 updates-js: package.json
