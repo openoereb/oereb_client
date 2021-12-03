@@ -3,7 +3,8 @@
 # ********************
 
 # Environment and python
-VENV_BIN ?= .venv/Scripts/
+VENV_BIN ?= .venv/bin/
+PYTHON_VERSION ?= python3
 
 # Package name and version
 PKG = oereb_client
@@ -24,7 +25,7 @@ TEST_JS = $(shell find test/js -name '*.test.js')
 # *******************
 
 .venv/.timestamp:
-	python3 -m venv .venv
+	$(PYTHON_VERSION) -m venv .venv
 	$(VENV_BIN)pip install --upgrade pip
 	touch $@
 
@@ -107,7 +108,7 @@ build: install oereb_client/static/build/.timestamp
 
 .PHONY: serve
 serve: build app.ini
-	uwsgi --plugin python3 --http-socket 0.0.0.0:8080 --ini-paste-logged /app/app.ini
+	uwsgi --plugin $(PYTHON_VERSION) --http-socket 0.0.0.0:8080 --ini-paste-logged /app/app.ini
 
 .PHONY: serve-devwin
 serve-devwin: build pserve.ini
