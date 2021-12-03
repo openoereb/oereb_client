@@ -45,6 +45,10 @@
       </div>
     </div>
 
+    <script>
+      window.applicationUrl = "${config['application_url']}";
+    </script>
+
     <script src="${request.static_url('oereb_client:static/build/app.js')}"></script>
 
     % if google_analytics:

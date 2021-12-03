@@ -15,7 +15,7 @@ i18n
       escapeValue: false
     },
     backend: {
-      loadPath: '/static/i18n/{{lng}}/{{ns}}.json'
+      loadPath: window.applicationUrl + 'static/i18n/{{lng}}/{{ns}}.json'
     },
     react: {
       useSuspense: false
