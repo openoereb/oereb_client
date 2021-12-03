@@ -44,18 +44,9 @@ export const getViewServiceDefinition = function (mapObject, currentLanguage, de
   const params = parts[1].split('&');
   for (let i = 0; i < params.length; i++) {
     const param = params[i].split('=');
-    if (param[0].toUpperCase() === 'LAYERS') {
-      definition['params']['LAYERS'] = decodeURIComponent(param[1]);
-    }
-    else if (param[0].toUpperCase() === 'STYLES') {
-      definition['params']['STYLES'] = decodeURIComponent(param[1]);
-    }
-    else if (param[0].toUpperCase() === 'VERSION') {
-      definition['params']['VERSION'] = decodeURIComponent(param[1]);
-    }
-    else if (param[0].toUpperCase() === 'FORMAT') {
-      definition['params']['FORMAT'] = decodeURIComponent(param[1]);
-    }
+    const key = param[0].toUpperCase();
+    const value = decodeURIComponent(param[1]);
+    definition['params'][key] = value;
   }
   return definition;
 };
