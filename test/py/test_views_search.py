@@ -78,7 +78,7 @@ def test_create_request(mock_request):
         assert isinstance(req, AsyncRequest)
         assert req.method == 'GET'
         assert req.url == 'https://example.com/search?query=egr+abc&limit=5'
-        assert req.kwargs.get('timeout') == 1
+        assert req.kwargs.get('timeout') == 10
 
 
 @httpretty.activate
