@@ -8,6 +8,9 @@ Please use the following instructions to install the OeREB Client. The
 code samples are based on a Linux system but may be adapted for
 Windows environments.
 
+If you want to use the provided container image to run the application,
+please refer to the last section of this page.
+
 > **Note:** The usage of a virtual environment is recommended but not
 necessary. For the examples, a virtual environment under ".venv" is
 assumed.
@@ -24,6 +27,12 @@ To make use of the front-end application, you also need a back-end part.
 For that, you can include
 [pyramid_oereb](https://openoereb.github.io/pyramid_oereb/doc/) in the
 same Pyramid application, for example.
+
+In order to use the integrated search proxy, you have to add the following
+two lines in your application's root file. Usually, this should be the
+`__init__.py` containing the `main` function of your application. Insert
+`import gevent.monkey` as the first import and call `gevent.monkey.patch_all()`
+immediately after your imports.
 
 Having all set up, you can proceed with installation of the OeREB
 Client.
@@ -43,7 +52,7 @@ If you want to install a certain version of the package, you can
 specifiy it. For example:
 
 ```console
-.venv/bin/pip install oereb_client==1.0.0
+.venv/bin/pip install oereb_client==2.0.0
 ```
 
 > **NOTE:** Use the latest release as long as there is no need for a
@@ -55,6 +64,9 @@ Alternatively, you could add `oereb_client` to a file, like
 ```console
 .venv/bin/pip install -r requirements.txt
 ```
+
+> **NOTE:** The current development versions are available on TestPyPI
+(https://test.pypi.org/project/oereb-client/).
 
 ## Include the plugin
 
@@ -125,3 +137,16 @@ pyramid.includes =
 ```
 
 After including the plugin, you can proceed with the configuration part.
+
+## Use container image
+
+The container images can be found on GitHub in the
+[project's container registry](https://github.com/openoereb/oereb_client/pkgs/container/oereb_client).
+
+To configure the application, you have to mount your configuration file into the container using
+`/app/oereb_client.yml` as mount path.
+
+You can adjust the log level using the environment variable `LOG_LEVEL`.
+
+> **NOTE:** _pyramid_oereb_ has to be run in a separate container. You have to use the configuration
+parameter `service_url` to specify the root URL of your OeREB web service.

@@ -1,7 +1,7 @@
 import React from "react";
 
 import data from "../../../../../samples/extract.json";
-import { groupRestrictionsByTopic } from "../../request/extract";
+import {groupRestrictionsByTopic} from "../../request/extract";
 import OerebDocuments from "./documents";
 
 export default {
