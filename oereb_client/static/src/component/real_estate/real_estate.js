@@ -11,7 +11,7 @@ const OerebRealEstate = function (props) {
   const area = realEstate.LandRegistryArea;
 
   return (
-    <div className="container-fluid mt-3">
+    <div className="container-fluid mt-3 oereb-client-real-estate">
       <h5>
         {t('extract.real_estate.real_estate')} {number} {t('extract.real_estate.at')} {municipality}
       </h5>

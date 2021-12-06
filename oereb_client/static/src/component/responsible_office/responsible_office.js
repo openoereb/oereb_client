@@ -33,7 +33,7 @@ const OerebResponsibleOffice = function (props) {
   });
 
   return (
-    <dl className="oereb-responsible-office border-top pt-2 mb-2">
+    <dl className="oereb-client-responsible-office border-top pt-2 mb-2">
       <dt>{t('extract.topic.responsible_office')}</dt>
       {officeElements}
     </dl>

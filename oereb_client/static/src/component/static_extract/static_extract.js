@@ -33,7 +33,7 @@ const OerebStaticExtract = function () {
 
   return (
     <button type="button"
-      className="btn btn-outline-secondary"
+      className="btn btn-outline-secondary oereb-client-static-extract"
       title={t('extract.static_extract.title')}
       onClick={requestStaticExtract}>
       <i ref={icon} className="bi bi-file-earmark-pdf"></i>

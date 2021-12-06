@@ -53,7 +53,7 @@ const App = function (props) {
   }
 
   return (
-    <div>
+    <div className="oereb-client-app">
       <OerebMap />
       <OerebInformationPanel />
       <OerebExtract />

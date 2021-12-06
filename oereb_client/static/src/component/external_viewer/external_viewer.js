@@ -57,7 +57,7 @@ const OerebExternalViewer = function () {
 
   return (
     <button type="button"
-      className="btn btn-outline-secondary"
+      className="btn btn-outline-secondary oereb-client-external-viewer"
       title={title}
       onClick={openExternalViewer}>
       <i className="bi bi-map"></i>

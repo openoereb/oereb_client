@@ -83,7 +83,7 @@ const OerebExtractData = function () {
         </div>
       </div>
       <OerebRealEstate data={extractData.RealEstate} />
-      <div className="accordion accordion-flush flex-grow-1 mt-1 mb-2">
+      <div className="accordion accordion-flush flex-grow-1 mt-1 mb-2 oereb-client-extract-data">
         <OerebCategory title={t('extract.category.concerned_theme')}
           data={extractData.ConcernedTheme}
           restriction={true} />

@@ -64,7 +64,7 @@ const OerebCategory = function (props) {
   })();
 
   return (
-    <div className="accordion-item mt-3">
+    <div className="accordion-item mt-3 oereb-client-category">
       <h2 className="accordion-header">
         <button className="accordion-button collapsed ps-1"
           type="button"
