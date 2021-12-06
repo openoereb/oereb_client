@@ -69,7 +69,9 @@ const OerebGeneralInformation = function () {
             </div>
           </div>
           <div>
-            <img src={authorityLogo} className="img-fluid" />
+            <div className="card-body">
+              <img src={authorityLogo} className="img-fluid" />
+            </div>
           </div>
         </div>
       </div>

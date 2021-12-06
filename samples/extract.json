@@ -5227,7 +5227,7 @@
                 }
             ],
             "LogoPLRCadastreRef": "http://localhost:8080/samples/static/logo_oereb.png",
-            "FederalLogoRef": "http://localhost:8080/samples/static/logo_oereb.png",
+            "FederalLogoRef": "http://localhost:8080/samples/static/logo_confederation.png",
             "CantonalLogoRef": "http://localhost:8080/samples/static/logo_canton.png",
             "MunicipalityLogoRef": "http://localhost:8080/samples/static/diegten.png",
             "GeneralInformation": [
