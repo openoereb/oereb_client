@@ -1,7 +1,9 @@
-import { Provider } from 'react-redux';
-import { update } from '../oereb_client/static/src/reducer/config';
+import {Provider} from 'react-redux';
+import {update} from '../oereb_client/static/src/reducer/config';
+import {themes} from '@storybook/theming';
 import MainStore from '../oereb_client/static/src/store/main';
 import config from './oereb_client.json';
+import OerebTheme from './theme';
 
 export const decorators = [
   (Story) => {
@@ -42,5 +44,8 @@ export const parameters = {
         hidden: true,
     },
   },
-  viewMode: 'docs'
+  viewMode: 'docs',
+  docs: {
+    theme: OerebTheme
+  }
 }
