@@ -75,6 +75,7 @@ clean:
 	rm -rf .jest-coverage
 	rm -f npm-debug.log
 	rm -rf docs/build
+	rm -f .storybook/oereb_client.json
 
 .PHONY: git-attributes
 git-attributes:
