@@ -62,7 +62,7 @@ const formatDocument = function (doc, language, defaultLanguage) {
     );
   });
   return (
-    <dd className="ms-2">
+    <dd className="oereb-client-document ms-2">
       <span>{formatTitle(doc, language, defaultLanguage)}</span>
       {articleNumbers}
       <ul className="ps-2 mb-2">
@@ -117,7 +117,7 @@ const OerebDocuments = function (props) {
     .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
 
   return (
-    <dl className="oereb-documents mb-2">
+    <dl className="oereb-client-documents mb-2">
       {getLegalProvisionsTitle()}
       {legalProvisions}
       {getLawsTitle()}

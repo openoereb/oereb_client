@@ -87,7 +87,7 @@ const OerebInformationPanel = function () {
   const nav = (() => {
     if (document.body.offsetWidth < 1200) {
       return (
-        <div className="mb-4">
+        <div className="mb-4 oereb-client-information-panel-nav-mobile">
           <div className="d-flex">
             <ul className="nav nav-pills nav-justified flex-column">
               {tabElements}
@@ -104,7 +104,7 @@ const OerebInformationPanel = function () {
       );
     }
     return (
-      <ul className="nav nav-tabs mb-4">
+      <ul className="nav nav-tabs mb-4 oereb-client-information-panel-nav">
         {tabElements}
         {searchInput}
         <li className="nav-item ms-auto">

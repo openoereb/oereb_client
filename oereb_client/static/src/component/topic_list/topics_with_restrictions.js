@@ -42,7 +42,7 @@ const OerebTopicsWithRestriction = function (props) {
   });
 
   return (
-    <div className="accordion-body p-0">
+    <div className="accordion-body p-0 oereb-client-topic-list-with-restrictions">
       <div className="accordion accordion-flush" ref={accordionEl}>
         {topicList}
       </div>

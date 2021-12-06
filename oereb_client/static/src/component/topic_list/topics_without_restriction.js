@@ -16,7 +16,7 @@ const OerebTopicsWithoutRestriction = function (props) {
   });
 
   return (
-    <div className="accordion-body p-0">
+    <div className="accordion-body p-0 oereb-client-topic-list-without-restrictions">
       <ul className="list-group list-group-flush">
         {topicList}
       </ul>

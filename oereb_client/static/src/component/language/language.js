@@ -46,7 +46,7 @@ const OerebLanguage = function() {
   );
 
   return (
-    <div>
+    <div className="oereb-client-language-selector">
       <button className="btn btn-outline-secondary dropdown-toggle"
         type="button"
         data-bs-toggle="dropdown"

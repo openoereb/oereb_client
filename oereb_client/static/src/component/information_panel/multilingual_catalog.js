@@ -72,7 +72,7 @@ const OerebMultilingualCatalog = function (props) {
   });
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid oereb-client-catalog">
       <ul className="list-group list-group-flush">
         {catalogElements}
       </ul>

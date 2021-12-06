@@ -197,7 +197,7 @@ const OerebMap = function () {
   });
 
   return (
-    <div>
+    <div className="oereb-client-map-wrapper">
       <OerebMapQuery map={map} />
       <OerebRealEstateLayer map={map} realEstateLayer={realEstateLayer} />
       <OerebTopicLayer topicLayers={topicLayers} />

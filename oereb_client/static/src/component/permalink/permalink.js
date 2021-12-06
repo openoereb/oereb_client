@@ -25,7 +25,7 @@ const OerebPermalink = function () {
 
   return (
     <button type="button"
-      className="btn btn-outline-secondary"
+      className="btn btn-outline-secondary oereb-client-permalink"
       onClick={showPermalink}
       title={t('extract.permalink.title')}>
       <i className="bi bi-link-45deg"></i>

@@ -50,8 +50,8 @@ const OerebGeneralInformation = function () {
   }
 
   return (
-    <div className="container-fluid">
-      <div className="card">
+    <div className="container-fluid oereb-client-general-information">
+      <div className="card oereb-client-authority">
         <div className={authorityFlexClass}>
           <div>
             <div className="card-body">
@@ -70,12 +70,12 @@ const OerebGeneralInformation = function () {
           </div>
           <div>
             <div className="card-body">
-              <img src={authorityLogo} className="img-fluid" />
+              <img src={authorityLogo} className="img-fluid oereb-client-authority-logo" />
             </div>
           </div>
         </div>
       </div>
-      <div className="card mt-4">
+      <div className="card mt-4 oereb-client-base-data">
         <div className="d-flex g-0">
           <div>
             <div className="card-body">
@@ -89,7 +89,7 @@ const OerebGeneralInformation = function () {
           </div>
         </div>
       </div>
-      <div className="card mt-4">
+      <div className="card mt-4 oereb-client-general-information-card">
         <div className="d-flex g-0">
           <div>
             <div className="card-body">
@@ -101,7 +101,7 @@ const OerebGeneralInformation = function () {
           </div>
         </div>
       </div>
-      <div className="card mt-4">
+      <div className="card mt-4 oereb-client-involved-parties">
         <div className="d-flex g-0">
           <div>
             <div className="card-body">
@@ -109,8 +109,8 @@ const OerebGeneralInformation = function () {
                 {t('extract.information_panel.general_information.further_participants')}
               </h5>
               <div className={logosFlexClass}>
-                <img src={federalLogo} className="img-fluid" />
-                <img src={municipalityLogo} className="img-fluid" />
+                <img src={federalLogo} className="img-fluid oereb-client-federal-logo" />
+                <img src={municipalityLogo} className="img-fluid oereb-client-municipality-logo" />
               </div>
             </div>
           </div>
