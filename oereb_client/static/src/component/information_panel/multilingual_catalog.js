@@ -5,6 +5,10 @@ import {useSelector} from "react-redux";
 
 import {getLocalizedText} from "../../util/language";
 
+/**
+ * The multilingual catalog is used to show the extract's glossary and disclaimer.
+ * The value are sorted in alphabetical order and can be filtered by a search term.
+ */
 const OerebMultilingualCatalog = function (props) {
   const catalogName = props.catalog;
   const search = props.search;
@@ -81,8 +85,13 @@ const OerebMultilingualCatalog = function (props) {
 };
 
 OerebMultilingualCatalog.propTypes = {
+
+  /** The catalog data to be shown. */
   catalog: PropTypes.string.isRequired,
+
+  /** The current value to filter the catalog entries for. */
   search: PropTypes.string
+
 };
 
 export default OerebMultilingualCatalog;

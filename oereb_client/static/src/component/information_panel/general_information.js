@@ -5,6 +5,10 @@ import {useSelector} from "react-redux";
 
 import {getLocalizedText} from "../../util/language";
 
+/**
+ * This component shows the extract's general information, such as cadastral base data,
+ * the PLR-cadastre authority and involved parties.
+ */
 const OerebGeneralInformation = function () {
   const {t} = useTranslation();
   const extract = useSelector((state) => state.extract);
