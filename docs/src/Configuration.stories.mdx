@@ -4,8 +4,8 @@ import { Meta } from '@storybook/addon-docs';
 
 # Configuration
 
-Basically, you are free, how to configure the OeREB Client. All you need
-to do, is updating the settings dictionary of the Pyramid configuration.
+Basically, you are free how to configure the OeREB Client. All you need
+to do is updating the settings dictionary of the Pyramid configuration.
 This dictionary has to be extended with an `oereb_client` element that
 contains the parameters described below.
 
@@ -13,6 +13,9 @@ It's recommended to use a YAML file, as described in the next section,
 but you don't have to.
 
 ## Update the Pyramid configuration
+
+> **Note:** This section is not necessary, if the application is run using
+the provided container image.
 
 In this example, the configuration file for the OeREB Client is named
 `oereb_client.yml`. You can create this file in your application's root
@@ -36,56 +39,85 @@ parse its content. Open the `__init__.py` of your application and apply
 the follow changes:
 
 1. Add the required imports at the top of the file.
-    ```python
-    import codecs
-    import yaml
-    ```
+
+```python
+import codecs
+import yaml
+```
+
 2. Update your `main` method to read and parse the configuration file.
    The location of the configuration is available in the existing
    settings dictionary (from the INI file). To read the configuration,
    it's recommended to use the `codecs` library to avoid errors due to
    special characters. The file content gets parsed using the `yaml`
    library and directly applied onto the settings dictioinary.
-    ```python
-    def main(global_config, **settings):
-        """
-        This function returns a Pyramid WSGI application.
-        """
-        config = Configurator(settings=settings)
-        settings = config.get_settings()
-        with codecs.open(settings.get('oereb_client.cfg'), encoding='utf-8') as f:
-            settings.update(yaml.load(f.read()).get('vars'))
-        ...
-        config.scan()
-        return config.make_wsgi_app()
-    ```
+
+```python
+def main(global_config, **settings):
+    """
+    This function returns a Pyramid WSGI application.
+    """
+    config = Configurator(settings=settings)
+    settings = config.get_settings()
+    with codecs.open(settings.get('oereb_client.cfg'), encoding='utf-8') as f:
+        settings.update(yaml.load(f.read()).get('vars'))
+    ...
+    config.scan()
+    return config.make_wsgi_app()
+```
 
 Now everything is set up to configure the OeREB Client.
 
 ## Configure the OeREB Client
 
-Add your configuration in the created `oereb_client.yml`. The top-level
-element has to be called `oereb_client`. The following example shows
-such a configuration and explains the parameters.
+Add your configuration in the created `oereb_client.yml` or mount this file into
+your container. The top-level element has to be called `oereb_client`. The
+following example shows such a configuration and explains the parameters.
 
 ```yaml
 # OeREB Client
 oereb_client:
 
-  # Global application configuration.
-  # Possible parameters are:
-  #   title:                The application title
-  #   icon:                 URL of the icon (favicon) to be used
-  #   logo_canton:          URL of your cantonal logo
-  #   logo_oereb:           URL of the OeREB logo
-  #   local_storage_prefix: A prefix to be used for storing values in
-  #                         the browser's local storage. (optional)
+  # Global application configuration
+  # Mandatory:
+  #   - title                 The multilingual application title
+  #   - logo_canton           Multilingual URL of the cantonal logo
+  #   - languages             List of the available languages
+  #   - default_language      The language used as default
+  # Optional:
+  #   - icon                  URL to image used as favicon
+  #   - logo_oereb            Multilingual URL of the oereb logo
+  #   - local_storage_prefix  Prefix used for the local browser storage
+  # Logos and Titles have to be provided in each configured language.
   application:
-    title: My OeREB Client
-    icon: https://example.com/favicon.png
-    logo_canton: https://example.com/logo_canton.png
-    logo_oereb: https://example.com/logo_oereb.png
-    local_storage_prefix: oerebClient
+    title:
+      - Language: en
+        Text: PLR Cadastre
+      - Language: de
+        Text: ÖREB-Kataster
+      - Language: fr
+        Text: Cadastre RDPPF
+    logo_canton:
+      - Language: en
+        URL: https://example.com/my_cantonal_logo_en.png
+      - Language: de
+        URL: https://example.com/my_cantonal_logo_de.png
+      - Language: fr
+        URL: https://example.com/my_cantonal_logo_fr.png
+    languages:
+      - en
+      - de
+      - fr
+    default_language: en
+    icon: https://example.com/my_favicon.png
+    logo_oereb:
+      - Language: en
+        URL: https://example.com/my_oereb_logo_en.png
+      - Language: de
+        URL: https://example.com/my_oereb_logo_de.png
+      - Language: fr
+        URL: https://example.com/my_oereb_logo_fr.png
+    local_storage_prefix: myPrefix
 
   # The view configuration for Openlayers.
   # You can define the default initial extent via the map center (map_x
@@ -138,17 +170,46 @@ oereb_client:
       LAYERS: oereb_published_municipalities
       FORMAT: image/png
 
-  # The API used for the search field. The client currently works with
-  # the full text search API of GeoMapfish and its WFS. But you could
-  # replace it by any other service that returns the same format
-  # (GeoJSON).
+  # OeREB web service base URL (optional)
+  # This parameter is only needed, if you are running your OeREB web
+  # service in a separate application/container with a different base URL.
+  # Do not use this parameter, if you are including the OeREB Client as a
+  # plugin in an existing pyramid_oereb instance.
+  service_url: https://my.oereb-web-service.ch/
+
+  # Search configuration
+  # Specify a list to use the internal search proxy or an URL to use an external endpoint.
+  # search: https://my.search-endpoint.ch/
+  # Each entry needs a multilingual title. The defined parameters can be used in the URL.
+  # The parameter {term} is always available and contains the current search value.
   search:
-    api:
-      url: https://my.geomapfish.com/wsgi/bl_fulltextsearch
-      limit: 5
-    wfs:
-      url: https://my.geomapfish.com/wsgi/mapserv_proxy
-      limit: 5
+    - title:
+        - Language: en
+          Text: E-GRID
+        - Language: de
+          Text: E-GRID
+      url: https://example.com/search?query={prefix}+{term}&limit={limit}
+      params:
+        limit: 5
+        prefix: egr
+      hook_method: my.package.hook_egrid
+    - title:
+        - Language: en
+          Text: Address
+        - Language: de
+          Text: Adresse
+      url: https://example.com/search?query=adr+{term}&limit=5&foo=bar
+      hook_method: samples.search.hook_address
+    - title:
+        - Language: en
+          Text: Real estate
+        - Language: de
+          Text: Grundstück
+      url: https://example.com/search?query={prefix}+{term}&limit={limit}
+      params:
+        limit: 5
+        prefix: gs
+      hook_method: samples.search.hook_real_estate
 
   # Link to external viewer/portal
   # Use this parameter to configure the link to an external viewer or
@@ -160,6 +221,7 @@ oereb_client:
   # - map_x             Center of map (X value)
   # - map_y             Center of map (Y value)
   # - map_zoom          Map zoom level
+  # - lang              Currently selected language
   # - egrid             EGRID of current real estate
   # - canton            Canton of current extract
   # - fosnr             FOS number of current municipality
@@ -167,7 +229,11 @@ oereb_client:
   # - municipality      Current municipality name
   # - number            Number of current real estate
   external_viewer:
-    tooltip: Open in external viewer
+    tooltip:
+      - Language: en
+        Text: Go to external viewer
+      - Language: de
+        Text: zu externem Viewer wechseln
     url: https://my.webgis.com
     params:
       - "egrid={egrid}"
@@ -175,8 +241,16 @@ oereb_client:
 
   # Your support address. This will be shown if an error occurs.
   support:
-    office1: My Department
-    office2: My Office
+    office1:
+      - Language: en
+        Text: My Department
+      - Language: de
+        Text: Meine Direktion
+    office2:
+      - Language: en
+        Text: My Office
+      - Language: de
+        Text: Meine Dienststelle
     street: Street 1a
     city: 1234 City
     email: support@example.com
