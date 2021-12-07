@@ -144,6 +144,8 @@ doc: node_modules/.timestamp .storybook/oereb_client.json
 	rm -rf docs/build/
 	npm run build-storybook -- -o ./docs/build
 	cp -r oereb_client/static/i18n docs/build/static/i18n
+	mkdir -p docs/build/samples
+	cp -r samples/static docs/build/samples/static
 
 .PHONY: serve-doc
 serve-doc: node_modules/.timestamp
