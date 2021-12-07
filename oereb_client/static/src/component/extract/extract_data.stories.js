@@ -1,9 +1,9 @@
 import React from "react";
+import {useDispatch} from "react-redux";
 
-import OerebExtractData from './extract_data';
 import data from "../../../../../samples/extract.json";
 import {showExtract} from "../../reducer/extract";
-import {useDispatch} from "react-redux";
+import OerebExtractData from './extract_data';
 
 export default {
   title: 'API Reference/Component/Extract/Data',
