@@ -7,6 +7,9 @@ import {updateHistory} from '../../reducer/history';
 import {setLanguage} from "../../reducer/language";
 import {queryExtractById} from '../../request/extract';
 
+/**
+ * This component provides the language selector.
+ */
 const OerebLanguage = function() {
   const {t} = useTranslation();
   const dispatch = useDispatch();
