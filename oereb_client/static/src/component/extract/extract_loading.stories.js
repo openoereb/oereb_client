@@ -1,8 +1,8 @@
 import React from "react";
-
-import OerebExtractLoading from './extract_loading';
-import {loadExtract} from "../../reducer/extract";
 import {useDispatch} from "react-redux";
+
+import {loadExtract} from "../../reducer/extract";
+import OerebExtractLoading from './extract_loading';
 
 export default {
   title: 'API Reference/Component/Extract/Loading',

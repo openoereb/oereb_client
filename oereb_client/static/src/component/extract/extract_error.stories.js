@@ -1,8 +1,8 @@
 import React from "react";
-
-import OerebExtractError from './extract_error';
-import {showError} from "../../reducer/extract";
 import {useDispatch} from "react-redux";
+
+import {showError} from "../../reducer/extract";
+import OerebExtractError from './extract_error';
 
 export default {
   title: 'API Reference/Component/Extract/Error',
