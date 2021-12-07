@@ -75,6 +75,9 @@ const getPart = function (entry) {
   return null;
 };
 
+/**
+ * This component contains the legend for a certain topic.
+ */
 const OerebLegend = function (props) {
   const {t} = useTranslation();
   const language = useSelector((state) => state.language);
@@ -138,7 +141,10 @@ const OerebLegend = function (props) {
 };
 
 OerebLegend.propTypes = {
+
+  /** The restrictions to show the legend for. */
   restrictions: PropTypes.array.isRequired
+
 };
 
 export default OerebLegend;
