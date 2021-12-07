@@ -1,15 +1,5 @@
 oereb_client:
 
-  # Application configuration
-  # Mandatory:
-  #   "title" - The multilingual application title
-  #   "logo_canton" - Multilingual URL of the cantonal logo
-  #   "languages" - List of the available languages
-  #   "default_language" - The language used as default
-  # Optional:
-  #   "icon" - URL to image used as favicon
-  #   "logo_oereb" - Multilingual URL of the oereb logo
-  #   "local_storage_prefix" - Prefix used for the local browser storage
   application:
     title:
       - Language: en
@@ -32,14 +22,12 @@ oereb_client:
       - fr
     default_language: en
 
-  # View configuration
   view:
     map_x: 2615000
     map_y: 1255000
     map_zoom: 2
     resolutions: [250, 100, 50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05, 0.025, 0.01]
 
-  # Base layer configuration
   base_layer:
     type: wmts
     url: https://tile.geoview.bl.ch/1.0.0/WMTSCapabilities.xml
@@ -49,19 +37,12 @@ oereb_client:
     style: default
     format: image/png
 
-  # Availability layer
   availability:
     url: https://geoview.bl.ch/main/oereb/mapservproxy
     params:
       LAYERS: oereb_published_municipalities
       FORMAT: image/png
 
-  # OeREB web service base URL (optional)
-  # service_url: https://my.oereb-web-service.ch/
-
-  # Search configuration
-  # Specify a list to use the internal search proxy or specify an URL to use an external endpoint.
-  # search: https://my.search-endpoint.ch/
   search:
     - title:
         - Language: en
@@ -94,7 +75,6 @@ oereb_client:
         prefix: gs
       hook_method: samples.search.hook_real_estate
 
-  # Link to external viewer/portal
   external_viewer:
     tooltip:
       - Language: en
@@ -112,7 +92,6 @@ oereb_client:
       - "tree_group_layers_Lärm=laermempfindlichkeitsstufen"
       - "tree_group_layers_Nutzungsplan=nutzungsplanung_kantonal_grundnutzung_group,nutzungsplanung_kommunal_grundnutzung_group,nutzungsplanung_kantonal_ueberlagernd_rechtsverbindlich_group,nutzungsplanung_kommunal_ueberlagernd_rechtsverbindlich_group,nutzungsplanung_kantonal_perimeter_tiefbau_umrandung,nutzungsplanung_kommunal_sondernutzungsplan_umrandung"
 
-  # Support
   support:
     office1:
       - Language: en
@@ -129,8 +108,4 @@ oereb_client:
     email: support.gis@bl.ch
     phone: 061 552 56 73
 
-  # Custom CSS file
   custom_css_url: samples/static/custom.css
-
-  # Enable Google Analytics by specifying account key
-  # google_analytics: UA-12345678-9
