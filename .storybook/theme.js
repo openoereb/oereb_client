@@ -9,6 +9,5 @@ export default create({
   appContentBg: 'white',
   inputBorder: '#205c90',
   brandTitle: 'OeREB Client',
-  brandUrl: 'https://github.com/openoereb/oereb_client',
   brandImage: logo
 });

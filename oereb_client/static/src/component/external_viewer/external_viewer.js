@@ -5,6 +5,10 @@ import {useSelector} from "react-redux";
 import {getLocalizedText} from "../../util/language";
 import {format} from "../../util/string";
 
+/**
+ * A button which calls a parametrized URL to an external WebGIS opened in a new browser window or tab.
+ * The button is only shown, if the corresponding configuration ("external_viewer") is available.
+ */
 const OerebExternalViewer = function () {
   const config = useSelector((state) => state.config).config;
   const extract = useSelector((state) => state.extract);
@@ -14,7 +18,7 @@ const OerebExternalViewer = function () {
 
   const validConfig =
     isObject(config['external_viewer']) &&
-    isString(config['external_viewer']['tooltip']) &&
+    isArray(config['external_viewer']['tooltip']) &&
     isString(config['external_viewer']['url']);
 
   if (!validConfig) {
