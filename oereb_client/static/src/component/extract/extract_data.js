@@ -10,6 +10,10 @@ import OerebPermalink from '../permalink/permalink';
 import OerebRealEstate from '../real_estate/real_estate';
 import OerebStaticExtract from '../static_extract/static_extract';
 
+/**
+ * This component contains the loaded extract data, including the extract menu and the real
+ * estate information.
+ */
 const OerebExtractData = function () {
   const {t} = useTranslation();
   const extract = useSelector((state) => state.extract);

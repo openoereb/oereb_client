@@ -7,6 +7,9 @@ import {updateHistory} from '../../reducer/history';
 import {queryExtractById} from '../../request/extract';
 import {getLocalizedText} from '../../util/language';
 
+/**
+ * This component shows an error message if the extract request has failed.
+ */
 const OerebExtractError = function () {
   const {t} = useTranslation();
   const dispatch = useDispatch();

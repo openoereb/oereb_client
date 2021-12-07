@@ -1,6 +1,9 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
+/**
+ * This component shows the extract's loading indicator.
+ */
 const OerebExtractLoading = function () {
   const {t} = useTranslation();
   return (
