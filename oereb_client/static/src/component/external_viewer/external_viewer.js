@@ -44,7 +44,7 @@ const OerebExternalViewer = function () {
         'egrid': realEstate['EGRID'],
         'fosnr': realEstate['FosNr'],
         'identdn': realEstate['IdentDN'],
-        'municipality': realEstate['Municipality'],
+        'municipality': realEstate['MunicipalityName'],
         'number': realEstate['Number']
       };
       let url = config['external_viewer']['url'];
