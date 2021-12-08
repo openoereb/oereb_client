@@ -17,6 +17,7 @@ RUN apk --update add \
 
 ENV PATH="/app/.local/bin:${PATH}" \
     DEVELOPMENT=true \
+    LOG_LEVEL=debug \
     SHELL=/bin/zsh
 
 EXPOSE 8080

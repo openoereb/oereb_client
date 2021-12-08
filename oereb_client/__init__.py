@@ -15,11 +15,18 @@ log = logging.getLogger('oereb_client')
 def main(global_config, **settings):  # pragma: no cover
     """
     This function returns a Pyramid WSGI application. This is necessary for development of
-    your plugin. So you can run it local with the paster server and in a IDE like PyCharm. It
-    is intended to leave this section as is and do configuration in the includeme section only.
-    Push additional configuration in this section means it will not be used by the production
-    environment at all!
+    your plugin or if the application is run in a container. It is intended to leave this
+    section as is and do configuration in the includeme section only.
     """
+    if 'LOG_LEVEL' in os.environ:
+        log_level = '{0}'.format(os.environ.get('LOG_LEVEL')).lower()
+        if log_level in ['error', 'err']:
+            log.setLevel(logging.ERROR)
+        elif log_level in ['warning', 'warn']:
+            log.setLevel(logging.WARNING)
+        elif log_level in ['debug', 'dev', 'development']:
+            log.setLevel(logging.DEBUG)
+
     with open(settings.get('config')) as f:
         yml = yaml.safe_load(f.read())
         settings.update(yml)
