@@ -6,6 +6,9 @@ import {sanitizeTopicCode} from '../../request/extract';
 import {getLocalizedText} from '../../util/language';
 import OerebTopic from '../topic/topic';
 
+/**
+ * This component shows the list of topics which contain restrictions for the currently loaded extract.
+ */
 const OerebTopicsWithRestriction = function (props) {
   const topics = props.data;
   const restrictions = props.restrictions;
@@ -51,8 +54,13 @@ const OerebTopicsWithRestriction = function (props) {
 };
 
 OerebTopicsWithRestriction.propTypes = {
+
+  /** The list of topics. */
   data: PropTypes.array.isRequired,
+
+  /** The restrictions grouped by topic. */
   restrictions: PropTypes.object.isRequired
+
 };
 
 export default OerebTopicsWithRestriction;

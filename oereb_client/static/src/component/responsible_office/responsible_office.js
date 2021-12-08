@@ -8,6 +8,9 @@ import {useSelector} from 'react-redux';
 import {addIfNotContains} from '../../util/array';
 import {getLocalizedText} from '../../util/language';
 
+/**
+ * This component shows the topic's responsible offices.
+ */
 const OerebResponsibleOffice = function (props) {
   const {t} = useTranslation();
   const restrictions = props.restrictions;
@@ -41,7 +44,10 @@ const OerebResponsibleOffice = function (props) {
 };
 
 OerebResponsibleOffice.propTypes = {
+
+  /** The topic's restrictions to collect the responsible offices for. */
   restrictions: PropTypes.array.isRequired
+
 };
 
 export default OerebResponsibleOffice;

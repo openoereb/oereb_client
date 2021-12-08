@@ -12,6 +12,9 @@ import OerebDocuments from '../documents/documents';
 import OerebLegend from '../legend/legend';
 import OerebResponsibleOffice from '../responsible_office/responsible_office';
 
+/**
+ * This component shows a certain topic of the currently loaded extract.
+ */
 const OerebTopic = function (props) {
   const {t} = useTranslation();
   const restrictions = props.restrictions;
@@ -117,7 +120,10 @@ const OerebTopic = function (props) {
 };
 
 OerebTopic.propTypes = {
+
+  /** The restrictions of the topic to be shown. */
   restrictions: PropTypes.array.isRequired
+
 };
 
 export default OerebTopic;

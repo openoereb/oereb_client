@@ -4,6 +4,10 @@ import {useSelector} from 'react-redux';
 
 import {getLocalizedText} from '../../util/language';
 
+/**
+ * This component shows the list of topics which do not contain restrictions for the currently loaded
+ * extract.
+ */
 const OerebTopicsWithoutRestriction = function (props) {
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
@@ -25,7 +29,10 @@ const OerebTopicsWithoutRestriction = function (props) {
 };
 
 OerebTopicsWithoutRestriction.propTypes = {
+
+  /** The list of topics. */
   data: PropTypes.array.isRequired
+
 };
 
 export default OerebTopicsWithoutRestriction;

@@ -6,6 +6,9 @@ import {useSelector} from "react-redux";
 
 import {queryStaticExtractById} from "../../request/extract";
 
+/**
+ * A simple button to request the static extract for the currently loaded real estate.
+ */
 const OerebStaticExtract = function () {
   const {t} = useTranslation();
   const config = useSelector((state) => state.config).config;
