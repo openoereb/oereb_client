@@ -40,11 +40,15 @@ const OerebGeneralInformation = function () {
   const updateDateCS = new Date(extract.data['GetExtractByIdResponse']['extract']['UpdateDateCS'])
     .toLocaleDateString('de-CH');
 
-  const generalInformation = getLocalizedText(
-    extract.data['GetExtractByIdResponse']['extract']['GeneralInformation'],
-    currentLanguage,
-    defaultLanguage
-  );
+  const generalInformationItems = extract.data['GetExtractByIdResponse']['extract']['GeneralInformation'];
+  const generalInformation = generalInformationItems.map((item, key) => {
+    const text = getLocalizedText(
+      item,
+      currentLanguage,
+      defaultLanguage
+    );
+    return <p key={key} className="card-text m-0 mb-2">{text}</p>;
+  });
 
   const federalLogo = extract.data['GetExtractByIdResponse']['extract']['FederalLogoRef'];
   const municipalityLogo = extract.data['GetExtractByIdResponse']['extract']['MunicipalityLogoRef'];
@@ -96,11 +100,11 @@ const OerebGeneralInformation = function () {
       <div className="card mt-4 oereb-client-general-information-card">
         <div className="d-flex g-0">
           <div>
-            <div className="card-body">
+            <div className="card-body pb-1">
               <h5 className="card-title">
                 {t('extract.information_panel.general_information.general_information')}
               </h5>
-              <p className="card-text m-0">{generalInformation}</p>
+              {generalInformation}
             </div>
           </div>
         </div>

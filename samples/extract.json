@@ -5234,7 +5234,13 @@
                 [
                     {
                         "Language": "de",
-                        "Text": "Der Inhalt des \u00d6REB-Katasters wird als bekannt vorausgesetzt. Der Kanton ${canton} ist f\u00fcr die Genauigkeit und Verl\u00e4sslichkeit der gesetzgebenden Dokumente in elektronischer Form nicht haftbar. Der Auszug hat rein informativen Charakter und begr\u00fcndet insbesondere keine Rechte und Pflichten. Massgeblich sind diejenigen Dokumente, welche rechtskr\u00e4ftig verabschiedet oder ver\u00f6ffentlicht worden sind. Weitere Informationen zum \u00d6REB-Kataster finden Sie unter www.cadastre.ch"
+                        "Text": "Der Inhalt des \u00d6REB-Katasters wird als bekannt vorausgesetzt. Der Kanton Basel-Landschaft ist f\u00fcr die Genauigkeit und Verl\u00e4sslichkeit der gesetzgebenden Dokumente in elektronischer Form nicht haftbar. Der Auszug hat rein informativen Charakter und begr\u00fcndet insbesondere keine Rechte und Pflichten. Massgeblich sind diejenigen Dokumente, welche rechtskr\u00e4ftig verabschiedet oder ver\u00f6ffentlicht worden sind. Weitere Informationen zum \u00d6REB-Kataster finden Sie unter www.cadastre.ch."
+                    }
+                ],
+                [
+                    {
+                        "Language": "de",
+                        "Text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
                     }
                 ]
             ],
