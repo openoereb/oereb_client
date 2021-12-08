@@ -12,6 +12,9 @@ import {updateHistory} from '../../reducer/history';
 import {hide} from '../../reducer/map_query';
 import {queryExtractById} from '../../request/extract';
 
+/**
+ * A OpenLayers overlay component to select a real estate in the map.
+ */
 const OerebMapQuery = function (props) {
   const {t} = useTranslation();
   const dispatch = useDispatch();
@@ -116,7 +119,10 @@ const OerebMapQuery = function (props) {
 };
 
 OerebMapQuery.propTypes = {
+
+  /** The OpenLayers map instance. */
   map: PropTypes.object.isRequired
+
 };
 
 export default OerebMapQuery;
