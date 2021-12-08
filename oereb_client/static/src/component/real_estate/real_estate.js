@@ -2,6 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
+/**
+ * This component shows the real estate information.
+ */
 const OerebRealEstate = function (props) {
   const {t} = useTranslation();
   const realEstate = props.data;
@@ -28,7 +31,10 @@ const OerebRealEstate = function (props) {
 };
 
 OerebRealEstate.propTypes = {
+
+  /** The real estate data. */
   data: PropTypes.object.isRequired
+
 };
 
 export default OerebRealEstate;
