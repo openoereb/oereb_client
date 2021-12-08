@@ -24,7 +24,7 @@ class Search(object):
             term=term,
             lang=self.lang_,
             **config['params']
-        ), timeout=10)
+        ), timeout=10, verify=config.get('verify_certificate', True))
 
     def send_requests_(self):
         term = self.request_.params.get('term')

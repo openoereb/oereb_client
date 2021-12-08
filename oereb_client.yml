@@ -64,6 +64,7 @@ oereb_client:
         limit: 5
         prefix: adr
       hook_method: samples.search.hook_address
+      verify_certificate: False
     - title:
         - Language: en
           Text: Real estate
