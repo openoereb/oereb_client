@@ -1,7 +1,14 @@
 Changelog
 ---------
 
-2.0.0-beta.1
+2.0.0-beta.2
+************
+
+https://github.com/openoereb/oereb_client/milestone/4
+
+- Add configurable notice for test instances
+
+2.0.0-beta.2
 ************
 
 https://github.com/openoereb/oereb_client/milestone/2

@@ -6,7 +6,7 @@ from pyramid.config import Configurator
 from pyramid_mako import add_mako_renderer
 
 
-__version__ = '2.0.0-beta.1'
+__version__ = '2.0.0-beta.2'
 
 
 log = logging.getLogger('oereb_client')
