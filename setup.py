@@ -6,7 +6,7 @@ import sys
 from setuptools import setup, find_packages
 from datetime import datetime
 
-VERSION = '2.0.0-beta.1'
+VERSION = '2.0.0-beta.2'
 
 test_mode = False
 is_beta = False
@@ -39,7 +39,7 @@ else:
 
 setup(
     name='oereb_client',
-    version=VERSION + '.dev{0}'.format(timestamp) if test_mode else VERSION,
+    version=VERSION.split('-')[0] + '-dev{0}'.format(timestamp) if test_mode else VERSION,
     description='ÖREB Client',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
