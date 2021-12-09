@@ -43,6 +43,27 @@
       </div>
     </div>
 
+    % if config.get('test_instance_notice', None) is not None:
+    <div id="testNotice">
+      <div>
+        <div>
+          ${config.get('test_instance_notice')}
+        </div>
+      </div>
+    </div>
+    <script>
+      (function() {
+        let notice = document.getElementById('testNotice');
+        let bottom = Math.round(
+          Math.sqrt(Math.pow(notice.offsetWidth, 2)/2.0)/2.0 + notice.offsetHeight/2.0 - 100
+        );
+        notice.style.right = '-100px';
+        notice.style.bottom = bottom.toString() + 'px';
+        notice.style.visibility = 'visible';
+      })();
+    </script>
+    % endif
+
     <script>
       window.applicationUrl = "${config['application_url']}";
     </script>
