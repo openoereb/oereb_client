@@ -224,25 +224,16 @@ jobs:
   deploy-doc:
     name: Deploy docs to GitHub Pages
     needs:
-      - build
+      - build-doc
     if: ${{ startsWith(github.ref, 'refs/tags') }}
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
-      - name: Get tag
-        id: get_tag
-        run: |
-          echo ::set-output name=COMMIT_TAG::${GITHUB_REF#refs/tags/}
-      - name: Build docs
-        env:
-          CI_PAGES_URL: https://openoereb.github.io/oereb_client/
-        run: |
-          npm install natives
-          make doc VERSION=${{ steps.get_tag.outputs.COMMIT_TAG }}
-          touch docs/build/.nojekyll
-          ls -la docs/build
+      - name: Download doc artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: doc
+          path: docs/build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
