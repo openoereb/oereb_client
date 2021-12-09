@@ -201,7 +201,7 @@ oereb_client:
         - Language: de
           Text: Adresse
       url: https://example.com/search?query=adr+{term}&limit=5&foo=bar
-      hook_method: samples.search.hook_address
+      hook_method: my.package.hook_address
     - title:
         - Language: en
           Text: Real estate
@@ -211,7 +211,7 @@ oereb_client:
       params:
         limit: 5
         prefix: gs
-      hook_method: samples.search.hook_real_estate
+      hook_method: my.package.hook_real_estate
 
   # Link to external viewer/portal
   # Use this parameter to configure the link to an external viewer or
