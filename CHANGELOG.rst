@@ -1,8 +1,8 @@
 Changelog
 ---------
 
-2.0.0 (current dev)
-*******************
+2.0.0-beta.1
+************
 
 https://github.com/openoereb/oereb_client/milestone/2
 
@@ -17,6 +17,7 @@ https://github.com/openoereb/oereb_client/milestone/2
 - Fix duplicate workflow runs
 - Dependency updates
 - Provide Docker Image to run the application
+- Update documentation using Storybook
 
 1.3.8
 *****

@@ -6,14 +6,18 @@ import sys
 from setuptools import setup, find_packages
 from datetime import datetime
 
-VERSION = '2.0.0'
+VERSION = '2.0.0-beta.1'
 
 test_mode = False
+is_beta = False
 timestamp = datetime.now().strftime('%Y%m%d%H%M')
 
 if "--test" in sys.argv:
     test_mode = True
     sys.argv.remove("--test")
+
+if "beta" in VERSION:
+    is_beta = True
 
 here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
@@ -28,6 +32,11 @@ requires = [
     'waitress'
 ]
 
+if test_mode or is_beta:
+    development_status = "Development Status :: 4 - Beta"
+else:
+    development_status = "Development Status :: 5 - Production/Stable"
+
 setup(
     name='oereb_client',
     version=VERSION + '.dev{0}'.format(timestamp) if test_mode else VERSION,
@@ -35,7 +44,7 @@ setup(
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
         "License :: OSI Approved :: BSD License",
-        "Development Status :: 4 - Beta" if test_mode else "Development Status :: 5 - Production/Stable",
+        development_status,
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
