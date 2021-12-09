@@ -1,0 +1,7 @@
+/* Reduce maximum logo width for desktop layout */
+@media (min-width: 1200px) {
+    .oereb-client-federal-logo,
+    .oereb-client-municipality-logo {
+        max-width: 50%;
+    }
+}

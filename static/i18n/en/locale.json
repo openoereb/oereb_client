@@ -1,0 +1,111 @@
+{
+  "extract": {
+    "category": {
+      "concerned_theme": "Concerned themes",
+      "not_concerned_theme": "Not concerned themes",
+      "theme_without_data": "Unavailable themes"
+    },
+    "error": {
+      "button": {
+        "text": "Retry extract"
+      },
+      "message": "An error occured during generation of the extract. Please try again.",
+      "support": {
+        "email": {
+          "title": "eMail"
+        },
+        "message": "If the error occurs repeatedly, please contact the PLR cadastre authority:",
+        "phone": {
+          "title": "Phone"
+        }
+      },
+      "title": "Extract failed"
+    },
+    "hide": "Collapse extract",
+    "information_panel": {
+      "button": {
+        "title": "General and legal information"
+      },
+      "exclusion_of_liability": {
+        "title": "Disclaimer"
+      },
+      "general_information": {
+        "authority": "PLR cadastre authority",
+        "base_data": "Base data",
+        "further_participants": "Further parties involved",
+        "general_information": "General information",
+        "title": "General",
+        "update_date_cs": "Last update of cadastral surveying"
+      },
+      "glossary": {
+        "title": "Glossary"
+      },
+      "search": {
+        "placeholder": "Search term..."
+      }
+    },
+    "loading": {
+      "message": "Extract in progress..."
+    },
+    "permalink": {
+      "title": "Permalink"
+    },
+    "real_estate": {
+      "area": "Area",
+      "at": "at",
+      "egrid": "E-GRID",
+      "real_estate": "Real estate"
+    },
+    "show": "Expand extract",
+    "static_extract": {
+      "title": "Request extract as PDF"
+    },
+    "topic": {
+      "complete_legend": {
+        "hide": "Hide complete legend",
+        "show": "Show complete legend"
+      },
+      "document": {
+        "hints": "Further information and hints",
+        "laws": "Legal bases",
+        "legal_provisions": "Legal provisions"
+      },
+      "legend": {
+        "part": "Part",
+        "part_in_percent": "Part in %",
+        "type": "Type"
+      },
+      "opacity": "Opacity",
+      "responsible_office": "Responsible office"
+    }
+  },
+  "map_query": {
+    "result": {
+      "text": "Extract for real estate"
+    }
+  },
+  "menu": {
+    "history": {
+      "title": "History"
+    },
+    "language": {
+      "title": "Select language"
+    },
+    "search": {
+      "placeholder": "Search...",
+      "reset": "Reset search",
+      "title": {
+        "coordinates": {
+          "lv03": "LV03 Coordinates",
+          "lv95": "LV95 Coordinates",
+          "wgs84": "Geographic coordinates (WGS84)"
+        }
+      }
+    },
+    "settings": {
+      "availability": "Show available municiplities",
+      "symbol_zoom": "Zoom on legend symbols",
+      "title": "Settings"
+    }
+  }
+}

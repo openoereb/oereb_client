@@ -1,0 +1,111 @@
+{
+  "extract": {
+    "category": {
+      "concerned_theme": "Thèmes RDPPF qui touchent l'immeuble",
+      "not_concerned_theme": "Thèmes RDPPF qui ne touchent pas l'immeuble",
+      "theme_without_data": "Thèmes RDPPF pour lesquelles aucune donnée n'est disponible"
+    },
+    "error": {
+      "button": {
+        "text": "Ressayer"
+      },
+      "message": "La génération de l'extrait a échouée. Veuillez ressayer s'il vous plaît.",
+      "support": {
+        "email": {
+          "title": "Courriel"
+        },
+        "message": "En cas d'erreur répétée, merci de contacter le service responsable du cadastre RDPPF",
+        "phone": {
+          "title": "Téléphone"
+        }
+      },
+      "title": "Echec de la génération de l'extrait"
+    },
+    "hide": "Cacher l'extrait",
+    "information_panel": {
+      "button": {
+        "title": "Informations générales"
+      },
+      "exclusion_of_liability": {
+        "title": "Exclusion de responsabilité"
+      },
+      "general_information": {
+        "authority": "Organisme responsable du cadastre",
+        "base_data": "Etat de la mensuration officielle",
+        "further_participants": "Participent également à l'extrait",
+        "general_information": "Informations générales",
+        "title": "Généralités",
+        "update_date_cs": "Etat de la mensuration offcielle"
+      },
+      "glossary": {
+        "title": "Termes et abréviations"
+      },
+      "search": {
+        "placeholder": "Rechercher..."
+      }
+    },
+    "loading": {
+      "message": "Génération de l'extrait en cours..."
+    },
+    "permalink": {
+      "title": "Partager"
+    },
+    "real_estate": {
+      "area": "Surface",
+      "at": "à",
+      "egrid": "E-GRID",
+      "real_estate": "Bien-fonds"
+    },
+    "show": "Afficher l'extrait",
+    "static_extract": {
+      "title": "Générer l'extrait PDF"
+    },
+    "topic": {
+      "complete_legend": {
+        "hide": "Cacher la légende",
+        "show": "Afficher la légende"
+      },
+      "document": {
+        "hints": "Informations et renvois supplémentaires",
+        "laws": "Bases légales",
+        "legal_provisions": "Dispositions juridiques"
+      },
+      "legend": {
+        "part": "Part",
+        "part_in_percent": "Part en %",
+        "type": "Type"
+      },
+      "opacity": "Opacité",
+      "responsible_office": "Service compétent"
+    }
+  },
+  "map_query": {
+    "result": {
+      "text": "Extrait pour le bien-fonds"
+    }
+  },
+  "menu": {
+    "history": {
+      "title": "Historique"
+    },
+    "language": {
+      "title": "Changer de langue"
+    },
+    "search": {
+      "placeholder": "Recherche...",
+      "reset": "Annuler la recherche",
+      "title": {
+        "coordinates": {
+          "lv03": "Coordonnées MN03",
+          "lv95": "Cordonnées MN95",
+          "wgs84": "Coordonnées WGS84"
+        }
+      }
+    },
+    "settings": {
+      "availability": "Afficher les communes disponibles",
+      "symbol_zoom": "Agrandir la légende",
+      "title": "Configuration"
+    }
+  }
+}
