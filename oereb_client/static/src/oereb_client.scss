@@ -47,3 +47,29 @@ body {
   position: fixed;
   visibility: hidden;
 }
+
+#testNotice {
+  position: fixed;
+  visibility: hidden;
+  right: 0;
+  bottom: 0;
+  background-color: red;
+  padding: 3px;
+  transform: rotate(315deg);
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+  & > div {
+    background-color: white;
+    padding: 3px;
+    & > div {
+      background-color: red;
+      color: white;
+      padding: 3px;
+      font-weight: bold;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+}

@@ -119,6 +119,7 @@ def test_get_config(mock_request):
         config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
         assert index.get_config() == {
+            'test_instance_notice': None,
             'application_url': 'http://example.com/',
             'service_url': 'http://example.com/',
             'search_url': 'http://example.com/search',

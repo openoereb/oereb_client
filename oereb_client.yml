@@ -1,5 +1,7 @@
 oereb_client:
 
+  test_instance_notice: Development
+
   application:
     title:
       - Language: en

@@ -160,6 +160,7 @@ class Index(object):
 
         """
         return {
+            'test_instance_notice': self.config_.get('test_instance_notice', None),
             'application_url': self.request_.route_url(
                 '{0}/index'.format(self.request_.route_prefix)
             ),
