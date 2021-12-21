@@ -18,7 +18,7 @@ const OerebTopicsWithRestriction = function (props) {
   const defaultLanguage = language.default;
 
   const topicList = topics.map((topic, key) => {
-    const code = sanitizeTopicCode(topic.Code);
+    const code = sanitizeTopicCode(topic);
     const title = getLocalizedText(topic.Text, currentLanguage, defaultLanguage);
     let inForce = null;
     let changeWithPreEffect = null;
