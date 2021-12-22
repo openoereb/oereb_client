@@ -35,6 +35,8 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: .coverage
+          flags: backend
           verbose: true
 
   test-js:
@@ -55,6 +57,8 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: .jest-coverage/clover.xml
+          flags: frontend
           verbose: true
 
   build:
