@@ -18,6 +18,7 @@ jobs:
           - 3.7
           - 3.8
           - 3.9
+          - 3.10
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
@@ -34,9 +35,11 @@ jobs:
       - name: Send coverage
         uses: codecov/codecov-action@v2
         with:
+          name: Backend Python ${{ matrix.python-version }}
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: .coverage
+          files: .pytest-coverage.xml
           flags: backend
+          fail_ci_if_error: true
           verbose: true
 
   test-js:
@@ -56,9 +59,11 @@ jobs:
       - name: Send coverage
         uses: codecov/codecov-action@v2
         with:
+          name: Frontend
           token: ${{ secrets.CODECOV_TOKEN }}
           files: .jest-coverage/clover.xml
           flags: frontend
+          fail_ci_if_error: true
           verbose: true
 
   build:

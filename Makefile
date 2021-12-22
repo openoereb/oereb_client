@@ -87,7 +87,7 @@ lint-py: .venv/.requirements.timestamp setup.cfg
 
 .PHONY: test-py
 test-py: .venv/.requirements.timestamp
-	.venv/bin/py.test -vv --cov-config .coveragerc --cov oereb_client test/py
+	.venv/bin/py.test -vv --cov-config .coveragerc --cov-report xml:.pytest-coverage.xml --cov-report term:skip-covered --cov oereb_client test/py
 
 .PHONY: lint-js
 lint-js: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)

@@ -9,6 +9,7 @@
 /build/
 /.coverage
 /.jest-coverage/
+/.pytest-coverage.xml
 /.coverage.*
 /oereb_client/static/lib/
 /oereb_client/static/css/
