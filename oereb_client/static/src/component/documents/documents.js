@@ -1,6 +1,6 @@
 import './documents.scss';
 
-import {isArray, isString} from 'lodash';
+import {isArray} from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
@@ -39,8 +39,8 @@ const formatTitle = function (doc, language, defaultLanguage) {
   if (isArray(doc['Abbreviation']) && doc['Abbreviation'].length > 0) {
     title += ' (' + getLocalizedText(doc['Abbreviation'], language, defaultLanguage) + ')';
   }
-  if (isString(doc['OfficialNumber'])) {
-    title += ', ' + doc['OfficialNumber'];
+  if (isArray(doc['OfficialNumber']) && doc['OfficialNumber'].length > 0) {
+    title += ', ' + getLocalizedText(doc['OfficialNumber'], language, defaultLanguage);
   }
   return title;
 };
