@@ -32,8 +32,11 @@ jobs:
           make lint-py
           make test-py
       - name: Send coverage
-        run: |
-          .venv/bin/codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          verbose: true
 
   test-js:
     name: Test JavaScript
@@ -50,8 +53,11 @@ jobs:
           make lint-js
           make test-js
       - name: Send coverage
-        run: |
-          ./node_modules/.bin/codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          verbose: true
 
   build:
     name: Build Application
