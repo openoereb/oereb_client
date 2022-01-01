@@ -22,7 +22,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
-    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-react": "^7.16.7",
     "@popperjs/core": "^2.11.0",
     "@reduxjs/toolkit": "^1.6.0",
     "@storybook/addon-essentials": "^6.3.8",
