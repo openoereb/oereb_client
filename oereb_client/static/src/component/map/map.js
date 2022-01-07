@@ -4,9 +4,11 @@ import {Collection} from 'ol';
 import {defaults} from 'ol/control';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
 import LayerGroup from 'ol/layer/Group';
+import ImageLayer from 'ol/layer/Image';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
+import ImageWMS from 'ol/source/ImageWMS';
 import TileWMS from 'ol/source/TileWMS';
 import VectorSource from 'ol/source/Vector';
 import WMTS, {optionsFromCapabilities} from 'ol/source/WMTS';
@@ -76,11 +78,19 @@ const OerebMap = function () {
   const query = new URLSearchParams(window.location.search);
   const serviceUrl = config.service_url;
   const [map, setMap] = useState(null);
+  const tiled = config['use_tile_wms'];
+
+  let LayerClass = ImageLayer;
+  let SourceClass = ImageWMS;
+  if (tiled) {
+    LayerClass = TileLayer;
+    SourceClass = TileWMS;
+  }
 
   // Create availability layer
-  const [availabilityLayer] = useState(new TileLayer({
+  const [availabilityLayer] = useState(new LayerClass({
     preload: Infinity,
-    source: new TileWMS({
+    source: new SourceClass({
       url: config.availability.url,
       params: config.availability.params
     })
@@ -200,7 +210,7 @@ const OerebMap = function () {
     <div className="oereb-client-map-wrapper">
       <OerebMapQuery map={map} />
       <OerebRealEstateLayer map={map} realEstateLayer={realEstateLayer} />
-      <OerebTopicLayer topicLayers={topicLayers} />
+      <OerebTopicLayer topicLayers={topicLayers} tiled={tiled} />
       <OerebAvailabilityLayer availabilityLayer={availabilityLayer} />
       <div ref={mapElement} className="oereb-client-map"></div>
     </div>

@@ -120,6 +120,11 @@ build: install oereb_client/static/build/.timestamp
 serve: build app.ini
 	uwsgi --plugin $(PYTHON_VERSION) --http-socket 0.0.0.0:8080 --ini-paste-logged /app/app.ini
 
+.PHONY: serve-dev
+serve-dev: build app.ini node_modules/.timestamp .venv/.requirements.timestamp
+	./node_modules/.bin/webpack --watch &
+	.venv/bin/pserve app.ini --reload
+
 .PHONY: serve-devwin
 serve-devwin: build pserve.ini
 	DEVELOPMENT=true $(VENV_BIN)pserve pserve.ini --reload

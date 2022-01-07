@@ -56,5 +56,8 @@ module.exports = {
       filename: 'app.css'
     }),
     new webpack.SourceMapDevToolPlugin({})
-  ]
+  ],
+  watchOptions: {
+    ignored: '**/node_modules',
+  }
 };
