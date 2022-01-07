@@ -35,7 +35,7 @@ const OerebTopicsWithRestriction = function (props) {
     return (
       <div className="accordion-item" key={key}>
         <div className="accordion-item p-2 ps-3">
-          {title}
+          <strong>{title}</strong>
         </div>
         {inForce}
         {changeWithPreEffect}
