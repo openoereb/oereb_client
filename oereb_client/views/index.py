@@ -173,7 +173,8 @@ class Index(object):
             'availability': self.config_.get('availability', {}),
             'search': self.config_.get('search', {}),
             'support': self.config_.get('support', {}),
-            'external_viewer': self.config_.get('external_viewer', {})
+            'external_viewer': self.config_.get('external_viewer', {}),
+            'use_tile_wms': self.config_.get('use_tile_wms', False)
         }
 
     def get_title(self):

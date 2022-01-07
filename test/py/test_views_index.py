@@ -130,7 +130,34 @@ def test_get_config(mock_request):
             'availability': settings.get('oereb_client').get('availability'),
             'search': settings.get('oereb_client').get('search'),
             'support': settings.get('oereb_client').get('support'),
-            'external_viewer': settings.get('oereb_client').get('external_viewer')
+            'external_viewer': settings.get('oereb_client').get('external_viewer'),
+            'use_tile_wms': False
+        }
+
+
+def test_get_config_tiled(mock_request):
+    custom_settings = deepcopy(settings)
+    custom_settings['oereb_client']['use_tile_wms'] = True
+    with testConfig(settings=custom_settings) as config:
+        config.route_prefix = None
+        config.add_route('{0}/index'.format(config.route_prefix), '/')
+        config.add_route('{0}/search'.format(config.route_prefix), '/search')
+        config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
+        index = Index(mock_request)
+        assert index.get_config() == {
+            'test_instance_notice': None,
+            'application_url': 'http://example.com/',
+            'service_url': 'http://example.com/',
+            'search_url': 'http://example.com/search',
+            'application': settings.get('oereb_client').get('application'),
+            'version': __version__,
+            'view': settings.get('oereb_client').get('view'),
+            'base_layer': settings.get('oereb_client').get('base_layer'),
+            'availability': settings.get('oereb_client').get('availability'),
+            'search': settings.get('oereb_client').get('search'),
+            'support': settings.get('oereb_client').get('support'),
+            'external_viewer': settings.get('oereb_client').get('external_viewer'),
+            'use_tile_wms': True
         }
 
 
