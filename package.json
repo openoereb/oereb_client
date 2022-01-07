@@ -22,7 +22,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
-    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-react": "^7.16.7",
     "@popperjs/core": "^2.11.0",
     "@reduxjs/toolkit": "^1.6.0",
     "@storybook/addon-essentials": "^6.3.8",
@@ -43,7 +43,7 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "file-loader": "^6.2.0",
     "file-saver": "^2.0.5",
-    "i18next": "^21.5.4",
+    "i18next": "^21.6.5",
     "i18next-browser-languagedetector": "^6.1.2",
     "i18next-scanner": "^3.1.0",
     "i18next-xhr-backend": "^3.2.2",
