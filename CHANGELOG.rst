@@ -7,8 +7,12 @@ Changelog
 https://github.com/openoereb/oereb_client/milestone/4
 
 - Add configurable notice for test instances
+- Respect sub theme for grouping restrictions
+- Fix handling for official numbers
+- Use ImageWMS by default
+- Improved topic titles
 
-2.0.0-beta.2
+2.0.0-beta.1
 ************
 
 https://github.com/openoereb/oereb_client/milestone/2
