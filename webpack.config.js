@@ -58,6 +58,6 @@ module.exports = {
     new webpack.SourceMapDevToolPlugin({})
   ],
   watchOptions: {
-    ignored: '**/node_modules',
+    ignored: '**/node_modules'
   }
 };
