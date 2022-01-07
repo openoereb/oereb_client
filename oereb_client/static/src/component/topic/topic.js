@@ -83,7 +83,7 @@ const OerebTopic = function (props) {
   return (
     <div className="accordion-item oereb-client-topic">
       <h2 className="accordion-header">
-        <button className="accordion-button collapsed"
+        <button className="accordion-button pt-2 pb-2 collapsed"
           type="button"
           onClick={toggle}
           ref={collapseButton}>
