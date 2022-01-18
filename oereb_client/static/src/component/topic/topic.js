@@ -21,7 +21,7 @@ const OerebTopic = function (props) {
   const collapseEl = useRef(null);
   const collapseButton = useRef(null);
   const [active, setActive] = useState(false);
-  const [opacity, setOpacity] = useState(100);
+  const [opacity, setOpacity] = useState(1.0);
   const activeTopic = useSelector((state) => state.accordion).topic;
   const topicLayers = useSelector((state) => state.map).topicLayers;
   const language = useSelector((state) => state.language);
@@ -57,7 +57,7 @@ const OerebTopic = function (props) {
 
   useEffect(() => {
     if (topicLayers instanceof LayerGroup) {
-      topicLayers.setOpacity(opacity / 100);
+      topicLayers.setOpacity(opacity);
     }
   });
 
@@ -75,7 +75,7 @@ const OerebTopic = function (props) {
   }
 
   const handleOpacity = function (evt) {
-    setOpacity(evt.target.value);
+    setOpacity(evt.target.value/100);
   };
 
   const lawstatus = getLocalizedText(restrictions[0].Lawstatus.Text, currentLanguage, defaultLanguage);
@@ -99,14 +99,14 @@ const OerebTopic = function (props) {
               <small>{t('extract.topic.opacity')}:</small>
             </div>
             <div className="col-2 pe-2 text-end">
-              <small>{opacity}%</small>
+              <small>{Math.round(opacity*100)}%</small>
             </div>
             <div className="col-7">
               <input type="range"
                 className="form-range align-middle"
                 min="0"
                 max="100"
-                value={opacity}
+                value={Math.round(opacity*100)}
                 onChange={handleOpacity} />
             </div>
           </div>
