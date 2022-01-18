@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+2.0.0-beta.3
+************
+
+https://github.com/openoereb/oereb_client/milestone/5
+
+- Fix WFS request encoding in search samples
+
 2.0.0-beta.2
 ************
 
