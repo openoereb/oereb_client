@@ -7,6 +7,7 @@ Changelog
 https://github.com/openoereb/oereb_client/milestone/5
 
 - Fix WFS request encoding in search samples
+- Fix URL for static extract request
 
 2.0.0-beta.2
 ************

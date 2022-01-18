@@ -20,7 +20,7 @@ const OerebStaticExtract = function () {
       const identifier = extract.data['GetExtractByIdResponse']['extract']['ExtractIdentifier'];
       icon.current.classList.remove('bi', 'bi-file-earmark-pdf');
       icon.current.classList.add('spinner-grow', 'spinner-grow-sm');
-      queryStaticExtractById(config['application_url'], extract.egrid)
+      queryStaticExtractById(config.service_url, extract.egrid)
         .then((pdfFile) => {
           const fileName = identifier + '.pdf';
           icon.current.classList.remove('spinner-grow', 'spinner-grow-sm');

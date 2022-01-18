@@ -42,7 +42,7 @@ const App = function (props) {
       egrid: egrid,
       zoom: true
     }));
-    queryExtractById(config.application_url, egrid, query.get('lang'))
+    queryExtractById(config.service_url, egrid, query.get('lang'))
       .then((extract) => {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));
