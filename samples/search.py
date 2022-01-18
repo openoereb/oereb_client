@@ -50,9 +50,9 @@ def hook_real_estate(config, response, lang, default_lang):
         filter = wfs_filter.render(
             layer_name='grundstueck',
             parcel_number=elements.pop(),
-            municipality_name=' '.join(elements),
+            municipality_name=' '.join(elements).replace(' (BL)', ''),
             limit=1
-        )
+        ).encode('utf-8')
         requests.append(grequests.post('https://geowms.bl.ch', data=filter, headers=headers))
 
     results = []
