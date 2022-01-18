@@ -76,6 +76,7 @@ const OerebMenu = function () {
           }));
         }
         else if (results.length === 1) {
+          dispatch(hide());
           queryExtract(results[0].egrid);
         }
         else {
