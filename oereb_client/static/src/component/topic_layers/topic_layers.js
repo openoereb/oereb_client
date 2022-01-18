@@ -1,4 +1,4 @@
-import {isArray} from 'lodash';
+import {isArray, isNumber} from 'lodash';
 import ImageLayer from 'ol/layer/Image';
 import TileLayer from 'ol/layer/Tile';
 import ImageWMS from 'ol/source/ImageWMS';
@@ -29,11 +29,13 @@ const OerebTopicLayer = function (props) {
         LayerClass = TileLayer;
         SourceClass = TileWMS;
       }
+      const opacity = isNumber(definition['opacity']) ? definition['opacity'] : 1.0;
+      const zIndex = isNumber(definition['zIndex']) ? definition['zIndex'] : 1.0;
       return new LayerClass({
         preload: Infinity,
         visible: true,
-        opacity: definition['layerOpacity'],
-        zIndex: definition['layerIndex'],
+        opacity: opacity,
+        zIndex: zIndex,
         source: new SourceClass({
           url: definition['url'],
           params: definition['params'],
