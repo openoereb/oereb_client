@@ -14,7 +14,7 @@ import {enableSymbolZoom} from '../../reducer/symbol_zoom';
 import {queryEgridByCoord} from '../../request/egrid';
 import {queryExtractById} from '../../request/extract';
 import {searchTerm} from '../../request/search';
-import {getCoordinates, isGNSS, isLV03, isLV95} from '../../util/coordinate';
+import {getCoordinates, isGNSS, isLV95} from '../../util/coordinate';
 import {getLocalizedUrl} from '../../util/language';
 import OerebLanguage from '../language/language';
 
@@ -116,15 +116,6 @@ const OerebMenu = function () {
       setPendingRequest(request);
       searchPromise.then((results) => {
         let allResults = [];
-        if (isLV03(searchValue)) {
-          allResults = allResults.concat([{
-            title: t('menu.search.title.coordinates.lv03'),
-            results: [{
-              label: searchValue,
-              coordinates: getCoordinates(searchValue)
-            }]
-          }]);
-        }
         if (isLV95(searchValue)) {
           allResults = allResults.concat([{
             title: t('menu.search.title.coordinates.lv95'),

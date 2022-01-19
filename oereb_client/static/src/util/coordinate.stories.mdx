@@ -22,25 +22,6 @@ parseCoordinateMatch(match);
 <code>Array</code> Pair of coordinate values ([x, y]).
 
 
-# isLV03
-
-Checks, whether the value is a LV03 coordinate or not.
-
-```js
-isLV03(value);
-```
-
-### Parameters
-
-| Param | Type | Description |
-| --- | --- | --- |
-| value | <code>String</code> | The value to be checked. |
-
-### Returns
-
-<code>Boolean</code> True, if the value is a LV03 coordinate, false otherwise.
-
-
 # isLV95
 
 Checks, whether the value is a LV95 coordinate or not.
@@ -82,7 +63,7 @@ isGNSS(value);
 # getCoordinates
 
 Parses the specified value and returns an array containing the coordinate values.
-If the value container LV03 or GNSS coordinates, the result will be transformed to LV95.
+If the value contains GNSS coordinates, the result will be transformed to LV95.
 
 ```js
 getCoordinates(value);

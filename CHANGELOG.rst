@@ -11,6 +11,7 @@ https://github.com/openoereb/oereb_client/milestone/5
 - Fix loading indicator staying visible in map
 - Fix error on real estate without restriction
 - Respect specified layer opacity
+- Remove support for LV03 coordinates in search
 
 2.0.0-beta.2
 ************

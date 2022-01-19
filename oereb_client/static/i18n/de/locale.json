@@ -96,7 +96,6 @@
       "reset": "Suche zurücksetzen",
       "title": {
         "coordinates": {
-          "lv03": "LV03-Koordinaten",
           "lv95": "LV95-Koordinaten",
           "wgs84": "Geografische Koordinaten (WGS84)"
         }
