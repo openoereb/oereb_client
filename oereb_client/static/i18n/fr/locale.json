@@ -96,8 +96,7 @@
       "reset": "Annuler la recherche",
       "title": {
         "coordinates": {
-          "lv03": "Coordonnées MN03",
-          "lv95": "Cordonnées MN95",
+          "lv95": "Coordonnées MN95",
           "wgs84": "Coordonnées WGS84"
         }
       }
