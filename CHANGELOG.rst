@@ -6,6 +6,7 @@ Changelog
 
 https://github.com/openoereb/oereb_client/milestone/5
 
+- Concerned themes are expanded by default
 - Fix WFS request encoding in search samples
 - Fix URL for static extract request
 - Fix loading indicator staying visible in map
