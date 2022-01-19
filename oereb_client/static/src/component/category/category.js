@@ -24,6 +24,18 @@ const OerebCategory = function (props) {
   const extract = useSelector((state) => state.extract).data.GetExtractByIdResponse.extract;
   const dispatch = useDispatch();
 
+  const toggle = function () {
+    if (activeCategory === collapseEl.current) {
+      setActive(!active);
+    }
+    else {
+      setActive(true);
+    }
+    dispatch(setActiveCategory(collapseEl.current));
+    dispatch(setActiveTopic(null));
+    dispatch(setViewServices([]));
+  }
+
   useEffect(() => {
     const collapse = new Collapse(collapseEl.current, {
       toggle: false
@@ -42,19 +54,10 @@ const OerebCategory = function (props) {
       collapse.hide();
       collapseButton.current.classList.add('collapsed');
     }
+    if (activeCategory === null && props.initial) {
+      toggle();
+    }
   });
-
-  const toggle = function () {
-    if (activeCategory === collapseEl.current) {
-      setActive(!active);
-    }
-    else {
-      setActive(true);
-    }
-    dispatch(setActiveCategory(collapseEl.current));
-    dispatch(setActiveTopic(null));
-    dispatch(setViewServices([]));
-  }
 
   const topicList = (() => {
     if (restriction && isArray(extract.RealEstate.RestrictionOnLandownership)) {
@@ -97,7 +100,11 @@ OerebCategory.propTypes = {
   data: PropTypes.array.isRequired,
 
   /** Use `true` to show the restrictions data. */
-  restriction: PropTypes.bool.isRequired
+  restriction: PropTypes.bool.isRequired,
+
+  /** Initially show this category */
+  initial: PropTypes.bool
+
 };
 
 export default OerebCategory;

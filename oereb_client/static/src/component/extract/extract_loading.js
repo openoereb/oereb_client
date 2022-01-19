@@ -1,11 +1,20 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
+import {useDispatch} from 'react-redux';
+
+import {setActiveCategory, setActiveTopic, setViewServices} from '../../reducer/accordion';
 
 /**
  * This component shows the extract's loading indicator.
  */
 const OerebExtractLoading = function () {
   const {t} = useTranslation();
+  const dispatch = useDispatch();
+
+  dispatch(setViewServices([]));
+  dispatch(setActiveTopic(null));
+  dispatch(setActiveCategory(null));
+
   return (
     <div className="oereb-client-extract oereb-client-extract-loading container-fluid">
       <p className="text-center align-middle pt-5">
