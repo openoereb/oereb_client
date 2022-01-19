@@ -1,4 +1,5 @@
 import {Collapse} from 'bootstrap';
+import {isArray} from 'lodash';
 import PropTypes from 'prop-types';
 import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -56,7 +57,7 @@ const OerebCategory = function (props) {
   }
 
   const topicList = (() => {
-    if (restriction) {
+    if (restriction && isArray(extract.RealEstate.RestrictionOnLandownership)) {
       const restrictions = groupRestrictionsByTopic(extract.RealEstate.RestrictionOnLandownership);
       return (
         <OerebTopicsWithRestriction data={topics} restrictions={restrictions} />

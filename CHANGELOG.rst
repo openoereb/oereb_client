@@ -9,6 +9,7 @@ https://github.com/openoereb/oereb_client/milestone/5
 - Fix WFS request encoding in search samples
 - Fix URL for static extract request
 - Fix loading indicator staying visible in map
+- Fix error on real estate without restriction
 
 2.0.0-beta.2
 ************
