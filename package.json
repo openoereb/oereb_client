@@ -21,7 +21,7 @@
   "homepage": "https://gitlab.com/gf-bl/oereb_client#README",
   "devDependencies": {
     "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@popperjs/core": "^2.11.2",
     "@reduxjs/toolkit": "^1.6.0",
