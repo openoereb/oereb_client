@@ -5,6 +5,7 @@ env:
 extends:
   - 'eslint:recommended'
   - 'plugin:react/recommended'
+  - 'plugin:react/jsx-runtime'
 globals:
   module: false
   proj4: false
@@ -14,6 +15,7 @@ parserOptions:
   sourceType: module
   ecmaFeatures:
     jsx: true
+  ecmaVersion: 2017
 rules:
   accessor-pairs: error
   array-bracket-newline: 'off'
@@ -261,11 +263,16 @@ rules:
   yoda:
     - error
     - never
+  react/jsx-uses-react: error
   jest/no-disabled-tests: warn
   jest/no-focused-tests: error
   jest/no-identical-title: error
   jest/prefer-to-have-length: warn
   jest/valid-expect: error
 plugins:
+  - react
   - simple-import-sort
   - jest
+settings:
+  react:
+    version: detect

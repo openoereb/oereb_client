@@ -1,5 +1,3 @@
-import {describe} from "jest-circus";
-
 import {addIfNotContains} from "../../../oereb_client/static/src/util/array";
 
 describe('Function addIfNotContains', () => {
