@@ -17,31 +17,38 @@ const OerebTopicsWithRestriction = function (props) {
   const currentLanguage = language.current;
   const defaultLanguage = language.default;
 
-  const topicList = topics.map((topic, key) => {
-    const code = sanitizeTopicCode(topic);
-    const title = getLocalizedText(topic.Text, currentLanguage, defaultLanguage);
-    let inForce = null;
-    let changeWithPreEffect = null;
-    let changeWithoutPreEffect = null;
-    if (restrictions[code].inForce.length > 0) {
-      inForce = <OerebTopic restrictions={restrictions[code].inForce} />;
-    }
-    if (restrictions[code].changeWithPreEffect.length > 0) {
-      changeWithPreEffect = <OerebTopic restrictions={restrictions[code].changeWithPreEffect} />;
-    }
-    if (restrictions[code].changeWithoutPreEffect.length > 0) {
-      changeWithoutPreEffect = <OerebTopic restrictions={restrictions[code].changeWithoutPreEffect} />;
-    }
-    return (
-      <div className="accordion-item" key={key}>
-        <div className="accordion-item p-2 ps-3">
-          <strong>{title}</strong>
+  const topicList = topics.map((topic, key1) => {
+    const mainCode = sanitizeTopicCode(topic);
+    const subCodes = Object.keys(restrictions)
+      .filter((key) => key === mainCode || key.startsWith(mainCode + '_'));
+    const list = subCodes.map((code, key2) => {
+      const themeRestrictions = restrictions[code];
+      const title = getLocalizedText(themeRestrictions.text, currentLanguage, defaultLanguage);
+      let inForce = null;
+      let changeWithPreEffect = null;
+      let changeWithoutPreEffect = null;
+      if (themeRestrictions.inForce.length > 0) {
+        inForce = <OerebTopic restrictions={themeRestrictions.inForce} />;
+      }
+      if (themeRestrictions.changeWithPreEffect.length > 0) {
+        changeWithPreEffect = <OerebTopic restrictions={themeRestrictions.changeWithPreEffect} />;
+      }
+      if (themeRestrictions.changeWithoutPreEffect.length > 0) {
+        changeWithoutPreEffect = <OerebTopic restrictions={themeRestrictions.changeWithoutPreEffect} />;
+      }
+      return (
+        <div className="accordion-item" key={`${key1}_${key2}`}>
+          <div className="accordion-item p-2 ps-3">
+            <strong>{title}</strong>
+          </div>
+          {inForce}
+          {changeWithPreEffect}
+          {changeWithoutPreEffect}
         </div>
-        {inForce}
-        {changeWithPreEffect}
-        {changeWithoutPreEffect}
-      </div>
-    );
+      );
+    });
+
+    return list;
   });
 
   return (
