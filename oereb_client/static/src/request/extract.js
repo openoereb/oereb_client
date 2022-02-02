@@ -66,6 +66,7 @@ export const groupRestrictionsByTopic = function (restrictions) {
     const lawstatus = restriction.Lawstatus.Code;
     if (!Reflect.apply(Object.prototype.hasOwnProperty, restrictionsByTopic, [code])) {
       restrictionsByTopic[code] = {
+        text: restriction.Theme.Text,
         inForce: [],
         changeWithPreEffect: [],
         changeWithoutPreEffect: []

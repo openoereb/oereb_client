@@ -320,10 +320,11 @@
                         ],
                         "Theme": {
                             "Code": "ch.Nutzungsplanung",
+                            "SubCode": "ch.NutzungsplanungGrundnutzung",
                             "Text": [
                                 {
                                     "Language": "de",
-                                    "Text": "Nutzungsplanung (kantonal/kommunal)"
+                                    "Text": "Nutzungsplanung (kantonal/kommunal): Grundnutzung"
                                 }
                             ]
                         },
@@ -584,10 +585,11 @@
                         ],
                         "Theme": {
                             "Code": "ch.Nutzungsplanung",
+                            "SubCode": "ch.NutzungsplanungGrundnutzung",
                             "Text": [
                                 {
                                     "Language": "de",
-                                    "Text": "Nutzungsplanung (kantonal/kommunal)"
+                                    "Text": "Nutzungsplanung (kantonal/kommunal): Grundnutzung"
                                 }
                             ]
                         },
@@ -848,10 +850,11 @@
                         ],
                         "Theme": {
                             "Code": "ch.Nutzungsplanung",
+                            "SubCode": "ch.NutzungsplanungUeberlagerndeElemente",
                             "Text": [
                                 {
                                     "Language": "de",
-                                    "Text": "Nutzungsplanung (kantonal/kommunal)"
+                                    "Text": "Nutzungsplanung (kantonal/kommunal): Überlagernde Elemente"
                                 }
                             ]
                         },
@@ -906,16 +909,6 @@
                         },
                         "SymbolRef": "samples/static/symbol1.png",
                         "NrOfPoints": 2,
-                        "SubTheme": {
-                            "Code": "ch.Nutzungsplanung",
-                            "Text": [
-                                {
-                                    "Language": "de",
-                                    "Text": "Baulinien"
-                                }
-                            ],
-                            "Sub_Code": "ch.Baulinien"
-                        },
                         "TypeCode": "StaoTyp1",
                         "TypeCodelist": "https://models.geo.admin.ch/BAFU/KbS_Codetexte_V1_4.xml",
                         "Geometry": [
@@ -1135,10 +1128,11 @@
                         ],
                         "Theme": {
                             "Code": "ch.Nutzungsplanung",
+                            "SubCode": "ch.NutzungsplanungUeberlagerndeElemente",
                             "Text": [
                                 {
                                     "Language": "de",
-                                    "Text": "Nutzungsplanung (kantonal/kommunal)"
+                                    "Text": "Nutzungsplanung (kantonal/kommunal): Überlagernde Elemente"
                                 }
                             ]
                         },
@@ -1193,16 +1187,6 @@
                         },
                         "SymbolRef": "samples/static/symbol2.png",
                         "AreaShare": 7824,
-                        "SubTheme": {
-                            "Code": "ch.Nutzungsplanung",
-                            "Text": [
-                                {
-                                    "Language": "de",
-                                    "Text": "SubTheme"
-                                }
-                            ],
-                            "Sub_Code": "ch.SubTheme"
-                        },
                         "TypeCode": "StaoTyp2",
                         "TypeCodelist": "https://models.geo.admin.ch/BAFU/KbS_Codetexte_V1_4.xml",
                         "PartInPercent": 22.3,
@@ -1715,10 +1699,11 @@
                         ],
                         "Theme": {
                             "Code": "ch.Nutzungsplanung",
+                            "SubCode": "ch.NutzungsplanungUeberlagerndeElemente",
                             "Text": [
                                 {
                                     "Language": "de",
-                                    "Text": "Nutzungsplanung (kantonal/kommunal)"
+                                    "Text": "Nutzungsplanung (kantonal/kommunal): Überlagernde Elemente"
                                 }
                             ]
                         },
@@ -1773,16 +1758,6 @@
                         },
                         "SymbolRef": "samples/static/symbol2.png",
                         "AreaShare": 3608,
-                        "SubTheme": {
-                            "Code": "ch.Nutzungsplanung",
-                            "Text": [
-                                {
-                                    "Language": "de",
-                                    "Text": "SubTheme"
-                                }
-                            ],
-                            "Sub_Code": "ch.SubTheme"
-                        },
                         "TypeCode": "StaoTyp2",
                         "TypeCodelist": "https://models.geo.admin.ch/BAFU/KbS_Codetexte_V1_4.xml",
                         "PartInPercent": 10.3,
