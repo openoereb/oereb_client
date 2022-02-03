@@ -5,7 +5,7 @@ export const searchTerm = function (searchUrl, term, language) {
   let cancel;
   const result = {
     promise: new Promise((resolve, reject) => {
-      fetch(url)
+      fetch(url.toString())
         .then((response) => response.json())
         .then((data) => {
           resolve(data)
