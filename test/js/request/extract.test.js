@@ -32,7 +32,7 @@ describe('queryExtractById', () => {
 });
 
 describe('queryStaticExtractById', () => {
-  it('should query the extract for the specified id', async () => {
+  it('should query the static extract for the specified id', async () => {
     fetch.mockResponseOnce('foo');
     const result = await queryStaticExtractById(
       'http://example.com/',
@@ -63,7 +63,7 @@ describe('sanitizeTopicCode', () => {
 });
 
 describe('groupRestrictionsByTopic', () => {
-  it('should replace invalid characters', () => {
+  it('should group the restrictions by their topics', () => {
     const restrictions = [
       {
         Theme: {
