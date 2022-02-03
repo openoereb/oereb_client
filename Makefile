@@ -11,13 +11,14 @@ PKG = oereb_client
 PKG_VERSION = $(if ${VERSION},${VERSION},main)
 
 # JavaScript source files
-SRC_JS = $(shell find $(PKG)/static/src -name '*.js')
+SRC_JS += $(shell find $(PKG)/static/src -name '*.js')
 
 # Style source files
-SRC_SCSS = $(shell find $(PKG)/static/src -name '*.scss')
+SRC_SCSS += $(shell find $(PKG)/static/src -name '*.scss')
 
 # JavaScript test specifications
-TEST_JS = $(shell find test/js -name '*.test.js')
+TEST_JS += $(shell find test/js -name '*.js')
+TEST_JS += $(shell find test/js -name '*.test.js')
 
 
 # *******************
