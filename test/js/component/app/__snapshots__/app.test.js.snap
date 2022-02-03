@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app component should render app element 1`] = `
+<div
+  className="oereb-client-app"
+>
+  <div
+    className="oereb-client-map-wrapper"
+  >
+    <div
+      className="oereb-client-overlay"
+    />
+    <div
+      className="oereb-client-map"
+    />
+  </div>
+  <div
+    className="oereb-client-information-panel container-fluid d-flex flex-column"
+  >
+    <div
+      className="mb-4 oereb-client-information-panel-nav-mobile"
+    >
+      <div
+        className="d-flex"
+      >
+        <ul
+          className="nav nav-pills nav-justified flex-column"
+        >
+          <li
+            className="nav-item"
+          >
+            <button
+              className="nav-link active"
+              onClick={[Function]}
+            >
+              <span
+                className="text-body"
+              >
+                extract.information_panel.general_information.title
+              </span>
+            </button>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <button
+              className="nav-link"
+              onClick={[Function]}
+            >
+              <span
+                className="text-body"
+              >
+                extract.information_panel.exclusion_of_liability.title
+              </span>
+            </button>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <button
+              className="nav-link"
+              onClick={[Function]}
+            >
+              <span
+                className="text-body"
+              >
+                extract.information_panel.glossary.title
+              </span>
+            </button>
+          </li>
+        </ul>
+        <div
+          className="flex-grow-1 text-end ms-4"
+        >
+          <button
+            className="btn btn-outline-secondary text-body"
+            onClick={[Function]}
+          >
+            <i
+              className="bi bi-x-lg"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="flex-grow-1 content-wrapper"
+    />
+  </div>
+  <div
+    className="oereb-client-extract-wrapper"
+  />
+  <div
+    className="oereb-client-menu d-flex flex-column pb-3"
+  >
+    <div
+      className="flex-grow-1 row justify-content-evenly"
+    >
+      <div
+        className="col"
+      >
+        <img
+          className="img-fluid p-2"
+          src="http://localhost:8080/samples/static/logo_oereb_en.png"
+        />
+      </div>
+      <div
+        className="col text-end"
+      >
+        <img
+          className="img-fluid p-2"
+          src="http://localhost:8080/samples/static/logo_bl.png"
+        />
+      </div>
+    </div>
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="input-group"
+      >
+        <div
+          className="oereb-client-language-selector"
+        >
+          <button
+            aria-expanded="false"
+            className="btn btn-outline-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            title="menu.language.title"
+            type="button"
+          >
+            EN
+          </button>
+          <ul
+            className="dropdown-menu"
+          >
+            <li>
+              <button
+                className="dropdown-item"
+                onClick={[Function]}
+              >
+                EN
+              </button>
+            </li>
+            <li>
+              <button
+                className="dropdown-item"
+                onClick={[Function]}
+              >
+                DE
+              </button>
+            </li>
+            <li>
+              <button
+                className="dropdown-item"
+                onClick={[Function]}
+              >
+                FR
+              </button>
+            </li>
+          </ul>
+        </div>
+        <button
+          aria-expanded="false"
+          className="btn btn-outline-secondary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          title="menu.settings.title"
+          type="button"
+        >
+          <i
+            className="bi bi-gear-fill"
+          />
+        </button>
+        <ul
+          className="dropdown-menu"
+        >
+          <li>
+            <button
+              className="dropdown-item"
+              onClick={[Function]}
+            >
+              <span>
+                <i
+                  className="bi bi-check-square"
+                />
+                 
+                menu.settings.availability
+              </span>
+            </button>
+          </li>
+          <li>
+            <button
+              className="dropdown-item"
+              onClick={[Function]}
+            >
+              <span>
+                <i
+                  className="bi bi-check-square"
+                />
+                 
+                menu.settings.symbol_zoom
+              </span>
+            </button>
+          </li>
+        </ul>
+        <button
+          aria-expanded="false"
+          className="btn btn-outline-secondary dropdown-toggle disabled"
+          data-bs-toggle="dropdown"
+          title="menu.history.title"
+          type="button"
+        >
+          <i
+            className="bi bi-clock-history"
+          />
+        </button>
+        <ul
+          className="dropdown-menu"
+        />
+        <input
+          className="form-control"
+          onChange={[Function]}
+          placeholder="menu.search.placeholder"
+          type="text"
+          value=""
+        />
+        <button
+          className="btn btn-outline-secondary"
+          disabled={true}
+          title="menu.search.reset"
+          type="button"
+        >
+          <i
+            className="bi bi-trash"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      className="container-fluid"
+    />
+  </div>
+</div>
+`;
