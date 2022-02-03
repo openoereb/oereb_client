@@ -11,7 +11,7 @@ export const queryExtractById = function (serviceUrl, egrid, timeout, language) 
   return new Promise((resolve, reject) => {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout * 1000);
-    fetch(url, {signal: controller.signal})
+    fetch(url.toString(), {signal: controller.signal})
       .then((response) => {
         clearTimeout(timer);
         if (response.ok) {
@@ -38,7 +38,7 @@ export const queryStaticExtractById = function (serviceUrl, egrid, timeout, lang
   return new Promise((resolve, reject) => {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout * 1000);
-    fetch(url, {signal: controller.signal})
+    fetch(url.toString(), {signal: controller.signal})
       .then((response) => {
         clearTimeout(timer);
         if (response.ok) {
