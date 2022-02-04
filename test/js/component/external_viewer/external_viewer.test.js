@@ -40,6 +40,11 @@ describe('external viewer component', () => {
         <OerebExternalViewer />
       </Provider>
     );
+    window.open = jest.fn();
+  });
+
+  afterEach(() => {
+    window.open.mockClear();
   });
 
   it('should render button', () => {
@@ -57,20 +62,18 @@ describe('external viewer component', () => {
   });
 
   it('should call window.open', () => {
-    const mockOpen = jest.spyOn(window, 'open');
     component.find('button').simulate('click');
-    expect(mockOpen.mock.calls).toHaveLength(1);
-    expect(mockOpen.mock.calls[0][0]).toEqual('http://example.com?egrid=CH1234');
-    expect(mockOpen.mock.calls[0][1]).toEqual('_blank');
-    mockOpen.mockReset();
+    expect(window.open.mock.calls).toHaveLength(1);
+    expect(window.open.mock.calls[0][0]).toEqual('http://example.com?egrid=CH1234');
+    expect(window.open.mock.calls[0][1]).toEqual('_blank');
+    window.open.mockReset();
   });
 
   it('should not call window.open', () => {
     MainStore.dispatch(hideExtract());
-    const mockOpen = jest.spyOn(window, 'open');
     component.find('button').simulate('click');
-    expect(mockOpen.mock.calls).toHaveLength(0);
-    mockOpen.mockReset();
+    expect(window.open.mock.calls).toHaveLength(0);
+    window.open.mockReset();
   });
 
 });

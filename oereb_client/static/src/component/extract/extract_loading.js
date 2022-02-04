@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
 
@@ -11,9 +11,11 @@ const OerebExtractLoading = function () {
   const {t} = useTranslation();
   const dispatch = useDispatch();
 
-  dispatch(setViewServices([]));
-  dispatch(setActiveTopic(null));
-  dispatch(setActiveCategory(null));
+  useEffect(() => {
+    dispatch(setViewServices([]));
+    dispatch(setActiveTopic(null));
+    dispatch(setActiveCategory(null));
+  }, []);
 
   return (
     <div className="oereb-client-extract oereb-client-extract-loading container-fluid">
