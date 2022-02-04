@@ -1,6 +1,7 @@
 import reducer, {initMap} from '../../../oereb_client/static/src/reducer/map';
 
 describe('map reducer', () => {
+
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       map: null,
@@ -19,4 +20,5 @@ describe('map reducer', () => {
       topicLayers: 'bar'
     });
   });
+
 });

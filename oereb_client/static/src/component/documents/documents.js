@@ -46,7 +46,7 @@ const formatTitle = function (doc, language, defaultLanguage) {
   return title;
 };
 
-const formatDocument = function (doc, language, defaultLanguage) {
+const formatDocument = function (doc, docKey, language, defaultLanguage) {
   const articleNumbers = doc['ArticleNumber'].map((number, key) =>
     <span key={key}>
       &nbsp;<span className="badge bg-primary">{number}</span>
@@ -63,7 +63,7 @@ const formatDocument = function (doc, language, defaultLanguage) {
     );
   });
   return (
-    <dd className="oereb-client-document ms-2">
+    <dd key={docKey} className="oereb-client-document ms-2">
       <span>{formatTitle(doc, language, defaultLanguage)}</span>
       {articleNumbers}
       <ul className="ps-2 mb-2">
@@ -95,7 +95,7 @@ const OerebDocuments = function (props) {
   };
   const legalProvisions = documents['LegalProvision']
     .sort((a, b) => a.Index - b.Index)
-    .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
+    .map((doc, key) => formatDocument(doc, key, currentLanguage, defaultLanguage));
 
   const getLawsTitle = function () {
     if (documents['Law'].length > 0) {
@@ -107,7 +107,7 @@ const OerebDocuments = function (props) {
   };
   const laws = documents['Law']
     .sort((a, b) => a.Index - b.Index)
-    .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
+    .map((doc, key) => formatDocument(doc, key, currentLanguage, defaultLanguage));
 
   const getHintsTitle = function () {
     if (documents['Hint'].length > 0) {
@@ -119,7 +119,7 @@ const OerebDocuments = function (props) {
   };
   const hints = documents['Hint']
     .sort((a, b) => a.Index - b.Index)
-    .map((doc) => formatDocument(doc, currentLanguage, defaultLanguage));
+    .map((doc, key) => formatDocument(doc, key, currentLanguage, defaultLanguage));
 
   return (
     <dl className="oereb-client-documents mb-2">

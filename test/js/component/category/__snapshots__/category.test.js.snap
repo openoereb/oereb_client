@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`category component should render category with and without restrictions 1`] = `ReactWrapper {}`;
+
+exports[`category component should render category with and without restrictions 2`] = `ReactWrapper {}`;
+
+exports[`category component should render category with and without restrictions 3`] = `ReactWrapper {}`;
+
+exports[`category component should render category with and without restrictions 4`] = `ReactWrapper {}`;

@@ -5,6 +5,7 @@ beforeEach(() => {
 });
 
 describe('searchTerm', () => {
+
   it('should query search results', async () => {
     fetch.mockResponseOnce(JSON.stringify({foo: 'bar'}));
     const result = await searchTerm('http://example.com/', 'test', 'en').promise;
@@ -31,4 +32,5 @@ describe('searchTerm', () => {
     search.cancel();
     await expect(search.promise).rejects.toEqual(new Error('Request canceled'));
   });
+
 });

@@ -5,6 +5,7 @@ import reducer, {
 } from '../../../oereb_client/static/src/reducer/accordion';
 
 describe('accordion reducer', () => {
+
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       category: null,
@@ -42,4 +43,5 @@ describe('accordion reducer', () => {
       viewServices: [1, 2, 3]
     });
   });
+
 });

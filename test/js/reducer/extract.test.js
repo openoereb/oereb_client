@@ -8,6 +8,7 @@ import reducer, {
   toggleInformationPanel} from '../../../oereb_client/static/src/reducer/extract';
 
 describe('extract reducer', () => {
+
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       loading: false,
@@ -185,4 +186,5 @@ describe('extract reducer', () => {
       data: {}
     });
   });
+
 });
