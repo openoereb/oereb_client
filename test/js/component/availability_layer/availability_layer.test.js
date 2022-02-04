@@ -1,4 +1,5 @@
 import {mount} from "enzyme";
+import toJson from "enzyme-to-json";
 import VectorLayer from 'ol/layer/Vector';
 import React from "react";
 import {Provider} from "react-redux";
@@ -21,7 +22,7 @@ describe('availability layer component', () => {
   });
 
   it('should render availability layer element', () => {
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
   });
 
 });

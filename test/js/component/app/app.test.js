@@ -1,4 +1,5 @@
 import {mount} from "enzyme";
+import toJson from "enzyme-to-json";
 import {register} from 'ol/proj/proj4';
 import proj4 from 'proj4';
 import React from "react";
@@ -87,7 +88,7 @@ describe('app component', () => {
   });
 
   it('should render app element', () => {
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
   });
 
 });
