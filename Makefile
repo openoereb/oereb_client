@@ -100,7 +100,7 @@ lint-js-fix: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)
 
 .PHONY: test-js
 test-js: $(SRC_JS) $(TEST_JS)
-	./node_modules/.bin/jest --coverage
+	./node_modules/.bin/jest --coverage --verbose false
 
 .PHONY: check-js
 check-js: git-attributes lint-js test-js
@@ -156,3 +156,7 @@ doc: node_modules/.timestamp .storybook/oereb_client.json
 .PHONY: serve-doc
 serve-doc: node_modules/.timestamp
 	npx http-server ./docs/build
+
+.PHONY: jest-update-snapshots
+jest-update-snapshots: $(SRC_JS) $(TEST_JS)
+	./node_modules/.bin/jest -u --coverage --verbose false

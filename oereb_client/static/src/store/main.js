@@ -21,7 +21,10 @@ const MainStore = configureStore({
     availability: availabilityReducer,
     symbolZoom: symbolZoomReducer,
     history: historyReducer
-  }
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false
+  })
 });
 
 export default MainStore;
