@@ -31,23 +31,23 @@ describe('app component', () => {
       }],
       logo_canton: [{
         Language: 'en',
-        URL: 'http://localhost:8080/samples/static/logo_bl.png'
+        URL: 'http://example.com/logo_bl.png'
       }, {
         Language: 'de',
-        URL: 'http://localhost:8080/samples/static/logo_bl.png'
+        URL: 'http://example.com/logo_bl.png'
       }, {
         Language: 'fr',
-        URL: 'http://localhost:8080/samples/static/logo_bl.png'
+        URL: 'http://example.com/logo_bl.png'
       }],
       logo_oereb: [{
         Language: 'en',
-        URL: 'http://localhost:8080/samples/static/logo_oereb_en.png'
+        URL: 'http://example.com/logo_oereb_en.png'
       }, {
         Language: 'de',
-        URL: 'http://localhost:8080/samples/static/logo_oereb_de.png'
+        URL: 'http://example.com/logo_oereb_de.png'
       }, {
         Language: 'fr',
-        URL: 'http://localhost:8080/samples/static/logo_oereb_fr.png'
+        URL: 'http://example.com/logo_oereb_fr.png'
       }],
       local_storage_prefix: 'bl',
       languages: ['en', 'de', 'fr'],
@@ -60,22 +60,22 @@ describe('app component', () => {
       resolutions: [250, 100, 50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5, 0.25, 0.1, 0.05, 0.025, 0.01]
     },
     base_layer: {
-      type: 'wmts',
-      url: 'https://tile.geoview.bl.ch/1.0.0/WMTSCapabilities.xml',
-      layer: 'grundkarte_sw',
-      matrixSet: 'swissgrid',
-      projection: "EPSG:2056",
-      style: 'default',
-      format: 'image/png'
-    },
-    availability: {
-      url: 'https://geoview.bl.ch/main/oereb/mapservproxy',
+      type: 'wms',
+      url: 'http://example.com/wms',
       params: {
-        LAYERS: 'oereb_published_municipalities',
+        LAYERS: 'base_layer',
         FORMAT: 'image/png'
       }
     },
-    search: 'http://example.com/search'
+    availability: {
+      url: 'http://example.com/wms',
+      params: {
+        LAYERS: 'availability',
+        FORMAT: 'image/png'
+      }
+    },
+    search: 'http://example.com/search',
+    use_tile_wms: false
   };
 
   it('should render app element', () => {

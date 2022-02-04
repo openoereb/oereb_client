@@ -210,12 +210,23 @@ const OerebMap = function () {
     map.setTarget(mapElement.current);
   });
 
+  let mapQueryComponent = null;
+  let realEstateLayerComponent = null;
+  let topicLayerComponent = null;
+  let availabilityLayerComponent = null;
+  if (map instanceof Map) {
+    mapQueryComponent = <OerebMapQuery map={map} />;
+    realEstateLayerComponent = <OerebRealEstateLayer map={map} realEstateLayer={realEstateLayer} />;
+    topicLayerComponent = <OerebTopicLayer topicLayers={topicLayers} tiled={tiled} />;
+    availabilityLayerComponent = <OerebAvailabilityLayer availabilityLayer={availabilityLayer} />;
+  }
+
   return (
     <div className="oereb-client-map-wrapper">
-      <OerebMapQuery map={map} />
-      <OerebRealEstateLayer map={map} realEstateLayer={realEstateLayer} />
-      <OerebTopicLayer topicLayers={topicLayers} tiled={tiled} />
-      <OerebAvailabilityLayer availabilityLayer={availabilityLayer} />
+      {mapQueryComponent}
+      {realEstateLayerComponent}
+      {topicLayerComponent}
+      {availabilityLayerComponent}
       <div ref={mapElement} className="oereb-client-map"></div>
     </div>
   );

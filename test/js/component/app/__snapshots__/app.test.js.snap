@@ -101,7 +101,7 @@ exports[`app component should render app element 1`] = `
       >
         <img
           className="img-fluid p-2"
-          src="http://localhost:8080/samples/static/logo_oereb_en.png"
+          src="http://example.com/logo_oereb_en.png"
         />
       </div>
       <div
@@ -109,7 +109,7 @@ exports[`app component should render app element 1`] = `
       >
         <img
           className="img-fluid p-2"
-          src="http://localhost:8080/samples/static/logo_bl.png"
+          src="http://example.com/logo_bl.png"
         />
       </div>
     </div>
