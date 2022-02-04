@@ -11,6 +11,7 @@ beforeEach(() => {
 });
 
 describe('queryExtractById', () => {
+
   it('should query the extract for the specified id', async () => {
     fetch.mockResponseOnce(JSON.stringify({foo: 'bar'}));
     const result = await queryExtractById(
@@ -29,9 +30,11 @@ describe('queryExtractById', () => {
     expect(url.searchParams.get('LANG')).toEqual('de');
     expect(url.searchParams.get('_dc')).toEqual('1640995200000');
   });
+
 });
 
 describe('queryStaticExtractById', () => {
+
   it('should query the static extract for the specified id', async () => {
     fetch.mockResponseOnce('foo');
     const result = await queryStaticExtractById(
@@ -49,9 +52,11 @@ describe('queryStaticExtractById', () => {
     expect(url.searchParams.get('LANG')).toEqual('de');
     expect(url.searchParams.get('_dc')).toEqual('1640995200000');
   });
+
 });
 
 describe('sanitizeTopicCode', () => {
+
   it('should replace invalid characters', () => {
     const theme = {
       Code: 'ch.My-Example_Topic',
@@ -60,9 +65,11 @@ describe('sanitizeTopicCode', () => {
     const result = sanitizeTopicCode(theme);
     expect(result).toEqual('chMyExampleTopic_withIncludedSubTopic');
   });
+
 });
 
 describe('groupRestrictionsByTopic', () => {
+
   it('should group the restrictions by their topics', () => {
     const restrictions = [
       {
@@ -129,4 +136,5 @@ describe('groupRestrictionsByTopic', () => {
     expect(result['chTopic2']['changeWithPreEffect']).toHaveLength(1);
     expect(result['chTopic2']['changeWithoutPreEffect']).toHaveLength(1);
   });
+
 });

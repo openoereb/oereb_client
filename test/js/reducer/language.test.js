@@ -4,6 +4,7 @@ import reducer, {
 } from '../../../oereb_client/static/src/reducer/language';
 
 describe('language reducer', () => {
+
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       current: null,
@@ -56,4 +57,5 @@ describe('language reducer', () => {
     const query = new URLSearchParams(window.location.search);
     expect(query.get('lang')).toEqual('de');
   });
+
 });

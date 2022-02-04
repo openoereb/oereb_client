@@ -9,6 +9,7 @@ beforeEach(() => {
 });
 
 describe('availability reducer', () => {
+
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       key: 'OerebAvailability',
@@ -67,4 +68,5 @@ describe('availability reducer', () => {
       visible: true
     });
   });
+
 });

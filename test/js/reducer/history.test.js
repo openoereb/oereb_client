@@ -9,6 +9,7 @@ beforeEach(() => {
 });
 
 describe('history reducer', () => {
+
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       key: 'OerebHistory',
@@ -138,4 +139,5 @@ describe('history reducer', () => {
     }));
     expect(state.elements).toHaveLength(5);
   });
+
 });

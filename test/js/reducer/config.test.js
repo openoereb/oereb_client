@@ -1,6 +1,7 @@
 import reducer, {update} from '../../../oereb_client/static/src/reducer/config';
 
 describe('config reducer', () => {
+
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       config: {}
@@ -18,4 +19,5 @@ describe('config reducer', () => {
       }
     });
   });
+
 });

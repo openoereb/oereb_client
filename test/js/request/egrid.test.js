@@ -6,6 +6,7 @@ beforeEach(() => {
 });
 
 describe('queryEgridByCoord', () => {
+
   it('should query the real estates at the specified position', async () => {
     fetch.mockResponseOnce(JSON.stringify({foo: 'bar'}));
     const result = await queryEgridByCoord('http://example.com/', [100, 200]);
@@ -19,4 +20,5 @@ describe('queryEgridByCoord', () => {
     expect(url.searchParams.get('EN')).toEqual('100,200');
     expect(url.searchParams.get('_dc')).toEqual('1640995200000');
   });
+
 });

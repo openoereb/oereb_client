@@ -8,6 +8,7 @@ beforeEach(() => {
 });
 
 describe('symbol zoom reducer', () => {
+
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       key: 'OerebSymbolZoom',
@@ -66,4 +67,5 @@ describe('symbol zoom reducer', () => {
       enabled: true
     });
   });
+
 });

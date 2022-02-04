@@ -4,6 +4,7 @@ import reducer, {
   show} from '../../../oereb_client/static/src/reducer/map_query';
 
 describe('map query reducer', () => {
+
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       loading: false,
@@ -67,4 +68,5 @@ describe('map query reducer', () => {
       results: [1, 2, 3]
     });
   });
+
 });
