@@ -1,4 +1,5 @@
 import {mount} from "enzyme";
+import toJson from "enzyme-to-json";
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -28,7 +29,7 @@ describe('documents component', () => {
   });
 
   it('should render documents', () => {
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
   });
 
 });

@@ -1,3 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`availability layer component should render availability layer element 1`] = `ReactWrapper {}`;
+exports[`availability layer component should render availability layer element 1`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebAvailabilityLayer
+    availabilityLayer={
+      VectorLayer {
+        "background_": undefined,
+        "className_": "ol-layer",
+        "declutter_": false,
+        "dispatching_": Object {},
+        "disposed": false,
+        "eventTarget_": undefined,
+        "listeners_": Object {
+          "change:source": Array [
+            [Function],
+          ],
+        },
+        "mapPrecomposeKey_": null,
+        "mapRenderKey_": null,
+        "ol_uid": "2",
+        "on": [Function],
+        "once": [Function],
+        "pendingRemovals_": Object {},
+        "renderBuffer_": 100,
+        "renderer_": null,
+        "revision_": 2,
+        "sourceChangeKey_": null,
+        "state_": null,
+        "styleFunction_": [Function],
+        "style_": [Function],
+        "un": [Function],
+        "updateWhileAnimating_": false,
+        "updateWhileInteracting_": false,
+        "values_": Object {
+          "maxResolution": Infinity,
+          "maxZoom": Infinity,
+          "minResolution": 0,
+          "minZoom": -Infinity,
+          "opacity": 1,
+          "source": null,
+          "visible": true,
+          "zIndex": undefined,
+        },
+      }
+    }
+  />
+</Provider>
+`;

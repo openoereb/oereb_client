@@ -1,4 +1,5 @@
 import {mount} from "enzyme";
+import toJson from "enzyme-to-json";
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -35,15 +36,15 @@ describe('category component', () => {
   });
 
   it('should render category with and without restrictions', () => {
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
     const categories = component.find('.oereb-client-category');
     expect(categories).toHaveLength(3);
     categories.at(1).simulate('click');
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
     categories.at(2).simulate('click');
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
     categories.at(0).simulate('click');
-    expect(component).toMatchSnapshot();
+    expect(toJson(component)).toMatchSnapshot();
   });
 
 });

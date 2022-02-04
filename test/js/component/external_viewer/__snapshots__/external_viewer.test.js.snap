@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`external viewer component should not render button 1`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebExternalViewer />
+</Provider>
+`;
+
+exports[`external viewer component should render button 1`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebExternalViewer>
+    <button
+      className="btn btn-outline-secondary oereb-client-external-viewer"
+      onClick={[Function]}
+      title="WebGIS"
+      type="button"
+    >
+      <i
+        className="bi bi-map"
+      />
+    </button>
+  </OerebExternalViewer>
+</Provider>
+`;
