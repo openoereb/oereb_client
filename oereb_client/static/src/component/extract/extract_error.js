@@ -111,16 +111,14 @@ const OerebExtractError = function () {
       <p>
         {t('extract.error.support.message')}
       </p>
-      <p>
-        <address>
-          <strong>{office1}</strong>
-          {office2}
-          {street}
-          {city}
-          {phone}
-          {email}
-        </address>
-      </p>
+      <address>
+        <strong>{office1}</strong>
+        {office2}
+        {street}
+        {city}
+        {phone}
+        {email}
+      </address>
     </div>
   )
 };
