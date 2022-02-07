@@ -1,6 +1,7 @@
 import {mount} from "enzyme";
 import toJson from "enzyme-to-json";
 import React from "react";
+import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
 import OerebDocuments from "../../../../oereb_client/static/src/component/documents/documents";
@@ -14,10 +15,12 @@ describe('documents component', () => {
   let component;
 
   beforeEach(() => {
-    MainStore.dispatch(initLanguages({
-      default: 'de',
-      available: ['de']
-    }));
+    act(() => {
+      MainStore.dispatch(initLanguages({
+        default: 'de',
+        available: ['de']
+      }));
+    });
     const restrictions = groupRestrictionsByTopic(
       extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership
     )['chStatischeWaldgrenzen']['inForce'];

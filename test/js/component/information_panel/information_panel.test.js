@@ -1,6 +1,7 @@
 import {mount} from "enzyme";
 import toJson from "enzyme-to-json";
 import React from "react";
+import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
 import OerebInformationPanel
@@ -15,15 +16,21 @@ import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
 
 beforeEach(() => {
-  MainStore.dispatch(initLanguages({
-    default: 'de',
-    available: ['de']
-  }));
-  MainStore.dispatch(loadExtract({
-    egrid: 'CH1234',
-    zoom: false
-  }));
-  MainStore.dispatch(showExtract(extract));
+  act(() => {
+    MainStore.dispatch(initLanguages({
+      default: 'de',
+      available: ['de']
+    }));
+  });
+  act(() => {
+    MainStore.dispatch(loadExtract({
+      egrid: 'CH1234',
+      zoom: false
+    }));
+  });
+  act(() => {
+    MainStore.dispatch(showExtract(extract));
+  });
 });
 
 describe('information panel component', () => {
@@ -39,25 +46,33 @@ describe('information panel component', () => {
   });
 
   it('should render general information', () => {
-    MainStore.dispatch(setInformationPanelTab(0));
+    act(() => {
+      MainStore.dispatch(setInformationPanelTab(0));
+    });
     component.update();
     expect(toJson(component)).toMatchSnapshot();
   });
 
   it('should render disclaimer', () => {
-    MainStore.dispatch(setInformationPanelTab(1));
+    act(() => {
+      MainStore.dispatch(setInformationPanelTab(1));
+    });
     component.update();
     expect(toJson(component)).toMatchSnapshot();
   });
 
   it('should render glossary', () => {
-    MainStore.dispatch(setInformationPanelTab(2));
+    act(() => {
+      MainStore.dispatch(setInformationPanelTab(2));
+    });
     component.update();
     expect(toJson(component)).toMatchSnapshot();
   });
 
   it('should filter glossary results', () => {
-    MainStore.dispatch(setInformationPanelTab(2));
+    act(() => {
+      MainStore.dispatch(setInformationPanelTab(2));
+    });
     component.update();
     component.find('input').simulate('change', {target: {value: 'kbs'}});
     component.update();

@@ -1,6 +1,7 @@
 import {mount} from "enzyme";
 import toJson from "enzyme-to-json";
 import React from "react";
+import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
 import OerebCategory from "../../../../oereb_client/static/src/component/category/category";
@@ -14,11 +15,15 @@ describe('category component', () => {
   let component;
 
   beforeEach(() => {
-    MainStore.dispatch(initLanguages({
-      default: 'de',
-      available: ['de']
-    }));
-    MainStore.dispatch(showExtract(extract));
+    act(() => {
+      MainStore.dispatch(initLanguages({
+        default: 'de',
+        available: ['de']
+      }));
+    });
+    act(() => {
+      MainStore.dispatch(showExtract(extract));
+    });
     component = mount(
       <Provider store={MainStore}>
         <OerebCategory title="Test with restrictions initially shown"

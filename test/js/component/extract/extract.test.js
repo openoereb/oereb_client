@@ -1,6 +1,7 @@
 import {mount} from "enzyme";
 import toJson from "enzyme-to-json";
 import React from "react";
+import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
 import OerebExtract from "../../../../oereb_client/static/src/component/extract/extract";
@@ -17,26 +18,30 @@ import extract from "../../../../samples/extract.json";
 describe('extract component', () => {
 
   beforeEach(() => {
-    MainStore.dispatch(initLanguages({
-      default: 'de',
-      available: ['de']
-    }));
-    MainStore.dispatch(update({
-      support: {
-        office1: [{
-          Language: 'de',
-          Text: 'Amt für Geoinformation'
-        }],
-        office2: [{
-          Language: 'de',
-          Text: 'GIS-Fachstelle'
-        }],
-        street: 'Mühlemattstrasse 36',
-        city: '4410 Liestal',
-        email: 'support.gis@bl.ch',
-        phone: '061 552 56 73'
-      }
-    }));
+    act(() => {
+      MainStore.dispatch(initLanguages({
+        default: 'de',
+        available: ['de']
+      }));
+    });
+    act(() => {
+      MainStore.dispatch(update({
+        support: {
+          office1: [{
+            Language: 'de',
+            Text: 'Amt für Geoinformation'
+          }],
+          office2: [{
+            Language: 'de',
+            Text: 'GIS-Fachstelle'
+          }],
+          street: 'Mühlemattstrasse 36',
+          city: '4410 Liestal',
+          email: 'support.gis@bl.ch',
+          phone: '061 552 56 73'
+        }
+      }));
+    });
     const modal = document.createElement('div');
     modal.setAttribute('id', 'permalinkModal');
     const modalTitle = document.createElement('h5');
@@ -47,10 +52,12 @@ describe('extract component', () => {
   });
 
   it('should render loading message', () => {
-    MainStore.dispatch(loadExtract({
-      egrid: 'CH1234',
-      zoom: false
-    }));
+    act(() => {
+      MainStore.dispatch(loadExtract({
+        egrid: 'CH1234',
+        zoom: false
+      }));
+    });
     const component = mount(
       <Provider store={MainStore}>
         <OerebExtract />
@@ -60,7 +67,9 @@ describe('extract component', () => {
   });
 
   it('should render error message', () => {
-    MainStore.dispatch(showError());
+    act(() => {
+      MainStore.dispatch(showError());
+    });
     const component = mount(
       <Provider store={MainStore}>
         <OerebExtract />
@@ -70,11 +79,15 @@ describe('extract component', () => {
   });
 
   it('should render extract data', () => {
-    MainStore.dispatch(loadExtract({
-      egrid: 'CH1234',
-      zoom: false
-    }));
-    MainStore.dispatch(showExtract(extract));
+    act(() => {
+      MainStore.dispatch(loadExtract({
+        egrid: 'CH1234',
+        zoom: false
+      }));
+    });
+    act(() => {
+      MainStore.dispatch(showExtract(extract));
+    });
     const component = mount(
       <Provider store={MainStore}>
         <OerebExtract />
