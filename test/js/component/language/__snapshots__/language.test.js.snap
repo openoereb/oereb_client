@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`language component should show selected language 1`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebLanguage>
+    <div
+      className="oereb-client-language-selector"
+    >
+      <button
+        aria-expanded="false"
+        className="btn btn-outline-secondary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        title="menu.language.title"
+        type="button"
+      >
+        DE
+      </button>
+      <ul
+        className="dropdown-menu"
+      >
+        <li
+          key="0"
+        >
+          <button
+            className="dropdown-item"
+            onClick={[Function]}
+          >
+            EN
+          </button>
+        </li>
+        <li
+          key="1"
+        >
+          <button
+            className="dropdown-item"
+            onClick={[Function]}
+          >
+            DE
+          </button>
+        </li>
+      </ul>
+    </div>
+  </OerebLanguage>
+</Provider>
+`;
+
+exports[`language component should update the selected language 1`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebLanguage>
+    <div
+      className="oereb-client-language-selector"
+    >
+      <button
+        aria-expanded="false"
+        className="btn btn-outline-secondary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        title="menu.language.title"
+        type="button"
+      >
+        EN
+      </button>
+      <ul
+        className="dropdown-menu"
+      >
+        <li
+          key="0"
+        >
+          <button
+            className="dropdown-item"
+            onClick={[Function]}
+          >
+            EN
+          </button>
+        </li>
+        <li
+          key="1"
+        >
+          <button
+            className="dropdown-item"
+            onClick={[Function]}
+          >
+            DE
+          </button>
+        </li>
+      </ul>
+    </div>
+  </OerebLanguage>
+</Provider>
+`;

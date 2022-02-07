@@ -3,6 +3,7 @@ import toJson from "enzyme-to-json";
 import {register} from 'ol/proj/proj4';
 import proj4 from 'proj4';
 import React from "react";
+import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
 import App from "../../../../oereb_client/static/src/component/app/app";
@@ -80,11 +81,13 @@ describe('app component', () => {
       '+ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs'
     );
     register(proj4);
-    component = mount(
-      <Provider store={MainStore}>
-        <App config={config} />
-      </Provider>
-    );
+    act(() => {
+      component = mount(
+        <Provider store={MainStore}>
+          <App config={config} />
+        </Provider>
+      );
+    });
   });
 
   it('should render app element', () => {

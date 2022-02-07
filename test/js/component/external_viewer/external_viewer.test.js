@@ -1,6 +1,7 @@
 import {mount} from "enzyme";
 import toJson from "enzyme-to-json";
 import React from "react";
+import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
 import OerebExternalViewer
@@ -16,25 +17,31 @@ describe('external viewer component', () => {
   let component;
 
   beforeEach(() => {
-    MainStore.dispatch(initLanguages({
-      default: 'de',
-      available: ['de']
-    }));
-    MainStore.dispatch(showExtract(extract));
-    MainStore.dispatch(update({
-      external_viewer: {
-        url: 'http://example.com',
-        tooltip: [
-          {
-            Language: 'de',
-            Text: 'WebGIS'
-          }
-        ],
-        params: [
-          'egrid={egrid}'
-        ]
-      }
-    }));
+    act(() => {
+      MainStore.dispatch(initLanguages({
+        default: 'de',
+        available: ['de']
+      }));
+    });
+    act(() => {
+      MainStore.dispatch(showExtract(extract));
+    });
+    act(() => {
+      MainStore.dispatch(update({
+        external_viewer: {
+          url: 'http://example.com',
+          tooltip: [
+            {
+              Language: 'de',
+              Text: 'WebGIS'
+            }
+          ],
+          params: [
+            'egrid={egrid}'
+          ]
+        }
+      }));
+    });
     component = mount(
       <Provider store={MainStore}>
         <OerebExternalViewer />
@@ -52,7 +59,9 @@ describe('external viewer component', () => {
   });
 
   it('should not render button', () => {
-    MainStore.dispatch(update({}));
+    act(() => {
+      MainStore.dispatch(update({}));
+    });
     const wrapper = mount(
       <Provider store={MainStore}>
         <OerebExternalViewer />
@@ -70,7 +79,9 @@ describe('external viewer component', () => {
   });
 
   it('should not call window.open', () => {
-    MainStore.dispatch(hideExtract());
+    act(() => {
+      MainStore.dispatch(hideExtract());
+    });
     component.find('button').simulate('click');
     expect(window.open.mock.calls).toHaveLength(0);
     window.open.mockReset();
