@@ -55,8 +55,8 @@ jobs:
         env:
           CI: true
         run: |
-          npm install -g full-icu
           node --version
+          npm install full-icu
           make git-attributes
           make lint-js
           make test-js
