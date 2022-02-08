@@ -51,12 +51,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - uses: sarisia/setup-icu@v1
-      - uses: sarisia/action-uses-icu-function@v2
       - name: Run checks
         env:
           CI: true
         run: |
+          npm install -g full-icu
           node --version
           make git-attributes
           make lint-js
