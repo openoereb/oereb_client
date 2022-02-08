@@ -15,6 +15,16 @@ import {initLanguages} from "../../../../oereb_client/static/src/reducer/languag
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
 
+let mockDate;
+
+beforeAll(() => {
+  mockDate = jest.spyOn(Date.prototype, 'toLocaleDateString').mockReturnValue('01.01.2022');
+});
+
+afterAll(() => {
+  mockDate.mockRestore();
+});
+
 beforeEach(() => {
   act(() => {
     MainStore.dispatch(initLanguages({

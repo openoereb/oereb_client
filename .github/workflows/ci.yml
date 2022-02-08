@@ -54,10 +54,8 @@ jobs:
       - name: Run checks
         env:
           CI: true
-          FULL_ICU_PREFER_NPM: true
         run: |
           node --version
-          npm install full-icu
           make git-attributes
           make lint-js
           make test-js
