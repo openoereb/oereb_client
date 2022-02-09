@@ -14,7 +14,7 @@ export const getViewServiceDefinition = function (mapObject, currentLanguage, de
     'url': url,
     'params': {},
     'opacity': mapObject['layerOpacity'],
-    'zIndex': mapObject['layerIndex']
+    'zIndex': 21000 + mapObject['layerIndex']
   };
   const hasNS95 = isObject(mapObject['min_NS95']) && isObject(mapObject['max_NS95']);
   const hasNS03 = isObject(mapObject['min_NS03']) && isObject(mapObject['max_NS03']);
