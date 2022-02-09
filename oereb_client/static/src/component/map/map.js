@@ -93,13 +93,15 @@ const OerebMap = function () {
     source: new SourceClass({
       url: config.availability.url,
       params: config.availability.params
-    })
+    }),
+    zIndex: 10000
   }));
 
   // Create group for topic layers
   const [topicLayers] = useState(new LayerGroup({
     layers: new Collection([]),
-    visible: false
+    visible: false,
+    zIndex: 20000
   }));
 
   // Create real estate layer
@@ -113,7 +115,8 @@ const OerebMap = function () {
         lineCap: 'square',
         lineJoin: 'miter'
       })
-    })
+    }),
+    zIndex: 30000
   }));
 
   if (map === null) {
@@ -140,7 +143,8 @@ const OerebMap = function () {
       const baseLayer = new TileLayer({
         preload: Infinity,
         visible: true,
-        source: source
+        source: source,
+        zIndex: 0
       });
       newMap.addLayer(baseLayer);
       newMap.addLayer(availabilityLayer);
