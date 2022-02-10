@@ -1,6 +1,6 @@
 import {isString} from "lodash";
 
-export const queryExtractById = function (serviceUrl, egrid, language) {
+export const queryExtractById = function (serviceUrl, egrid, timeout, language) {
   const url = new URL(serviceUrl + 'extract/json/');
   url.searchParams.append('EGRID', egrid);
   url.searchParams.append('GEOMETRY', true);
@@ -10,23 +10,23 @@ export const queryExtractById = function (serviceUrl, egrid, language) {
   }
   return new Promise((resolve, reject) => {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 60000);
+    const timer = setTimeout(() => controller.abort(), timeout * 1000);
     fetch(url, {signal: controller.signal})
       .then((response) => {
-        clearTimeout(timeout);
+        clearTimeout(timer);
         if (!response.ok) {
           reject(new Error(response.text()));
         }
         resolve(response.json());
       })
       .catch((error) => {
-        clearTimeout(timeout);
+        clearTimeout(timer);
         reject(error);
       });
   });
 };
 
-export const queryStaticExtractById = function (serviceUrl, egrid, language) {
+export const queryStaticExtractById = function (serviceUrl, egrid, timeout, language) {
   const url = new URL(serviceUrl + 'extract/pdf/');
   url.searchParams.append('EGRID', egrid);
   url.searchParams.append('_dc', new Date().getTime());
@@ -35,17 +35,17 @@ export const queryStaticExtractById = function (serviceUrl, egrid, language) {
   }
   return new Promise((resolve, reject) => {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 120000);
+    const timer = setTimeout(() => controller.abort(), timeout * 1000);
     fetch(url, {signal: controller.signal})
       .then((response) => {
-        clearTimeout(timeout);
+        clearTimeout(timer);
         if (!response.ok) {
           reject(new Error(response.text()));
         }
         resolve(response.arrayBuffer());
       })
       .catch((error) => {
-        clearTimeout(timeout);
+        clearTimeout(timer);
         reject(error);
       });
   });

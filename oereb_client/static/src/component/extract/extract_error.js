@@ -77,7 +77,7 @@ const OerebExtractError = function () {
       egrid: extract.egrid,
       zoom: true
     }));
-    queryExtractById(serviceUrl, extract.egrid, currentLanguage)
+    queryExtractById(serviceUrl, extract.egrid, config.extract_json_timeout, currentLanguage)
       .then((data) => {
         dispatch(showExtract(data));
         dispatch(updateHistory(data));

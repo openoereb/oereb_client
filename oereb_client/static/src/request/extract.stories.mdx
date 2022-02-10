@@ -7,7 +7,7 @@ import {Meta} from '@storybook/addon-docs';
 Queries the extract for the specified E-GRID and language.
 
 ```js
-queryExtractById(applicationUrl, egrid, language);
+queryExtractById(applicationUrl, egrid, timeout, language);
 ```
 
 ### Parameters
@@ -16,7 +16,8 @@ queryExtractById(applicationUrl, egrid, language);
 | --- | --- | --- |
 | applicationUrl | <code>String</code> | The application URL. |
 | egrid | <code>String</code> | The E-GRID to query the extract for. |
-| language | <code>String</code> | The requested language. |
+| timeout | <code>Integer</code> | The specified timeout in seconds. |
+| language | <code>String</code> | (OPTIONAL) The requested language. |
 
 ### Returns
 
@@ -37,7 +38,8 @@ queryStaticExtractById(applicationUrl, egrid, language);
 | --- | --- | --- |
 | applicationUrl | <code>String</code> | The application URL. |
 | egrid | <code>String</code> | The E-GRID to query the static extract for. |
-| language | <code>String</code> | The requested language. |
+| timeout | <code>Integer</code> | The specified timeout in seconds. |
+| language | <code>String</code> | (OPTIONAL) The requested language. |
 
 ### Returns
 

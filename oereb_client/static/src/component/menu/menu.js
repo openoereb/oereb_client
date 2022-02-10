@@ -52,7 +52,7 @@ const OerebMenu = function () {
       egrid: egrid,
       zoom: true
     }));
-    queryExtractById(serviceUrl, egrid, currentLanguage)
+    queryExtractById(serviceUrl, egrid, config.extract_json_timeout, currentLanguage)
       .then((extract) => {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));

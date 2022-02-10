@@ -174,7 +174,9 @@ class Index(object):
             'search': self.config_.get('search', {}),
             'support': self.config_.get('support', {}),
             'external_viewer': self.config_.get('external_viewer', {}),
-            'use_tile_wms': self.config_.get('use_tile_wms', False)
+            'use_tile_wms': self.config_.get('use_tile_wms', False),
+            'extract_json_timeout': self.config_.get('extract_json_timeout', 60),
+            'extract_pdf_timeout': self.config_.get('extract_pdf_timeout', 120)
         }
 
     def get_title(self):
