@@ -2,8 +2,9 @@ import {saveAs} from "file-saver";
 import {isString} from "lodash";
 import React, {useRef} from "react";
 import {useTranslation} from "react-i18next";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
+import {showError} from "../../reducer/extract";
 import {queryStaticExtractById} from "../../request/extract";
 
 /**
@@ -14,6 +15,7 @@ const OerebStaticExtract = function () {
   const config = useSelector((state) => state.config).config;
   const extract = useSelector((state) => state.extract);
   const icon = useRef(null);
+  const dispatch = useDispatch();
 
   const requestStaticExtract = function () {
     if (extract.visible && isString(extract.egrid)) {
@@ -30,6 +32,7 @@ const OerebStaticExtract = function () {
         .catch(() => {
           icon.current.classList.remove('spinner-grow', 'spinner-grow-sm');
           icon.current.classList.add('bi', 'bi-file-earmark-pdf');
+          dispatch(showError());
         });
     }
   };
