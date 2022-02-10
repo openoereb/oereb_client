@@ -28,7 +28,7 @@ const OerebLanguage = function() {
           egrid: extract.egrid,
           zoom: false
         }));
-        queryExtractById(serviceUrl, extract.egrid, lang)
+        queryExtractById(serviceUrl, extract.egrid, config.extract_json_timeout, lang)
           .then((data) => {
             dispatch(showExtract(data));
             dispatch(updateHistory(data));

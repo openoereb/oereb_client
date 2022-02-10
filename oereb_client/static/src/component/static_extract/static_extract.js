@@ -14,6 +14,8 @@ const OerebStaticExtract = function () {
   const {t} = useTranslation();
   const config = useSelector((state) => state.config).config;
   const extract = useSelector((state) => state.extract);
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
   const icon = useRef(null);
   const dispatch = useDispatch();
 
@@ -22,7 +24,7 @@ const OerebStaticExtract = function () {
       const identifier = extract.data['GetExtractByIdResponse']['extract']['ExtractIdentifier'];
       icon.current.classList.remove('bi', 'bi-file-earmark-pdf');
       icon.current.classList.add('spinner-grow', 'spinner-grow-sm');
-      queryStaticExtractById(config.service_url, extract.egrid)
+      queryStaticExtractById(config.service_url, extract.egrid, config.extract_pdf_timeout, currentLanguage)
         .then((pdfFile) => {
           const fileName = identifier + '.pdf';
           icon.current.classList.remove('spinner-grow', 'spinner-grow-sm');

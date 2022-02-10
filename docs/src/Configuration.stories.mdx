@@ -78,10 +78,6 @@ following example shows such a configuration and explains the parameters.
 # OeREB Client
 oereb_client:
 
-  # Optional parameter to display a short notice in the user interface.
-  # Remove this parameter for production instances.
-  test_instance_notice: Development
-
   # Global application configuration
   # Mandatory:
   #   - title                 The multilingual application title
@@ -174,16 +170,6 @@ oereb_client:
       LAYERS: oereb_published_municipalities
       FORMAT: image/png
 
-  # Optional parameter to enable tiled WMS requests (default is False)
-  use_tile_wms: True
-
-  # OeREB web service base URL (optional)
-  # This parameter is only needed, if you are running your OeREB web
-  # service in a separate application/container with a different base URL.
-  # Do not use this parameter, if you are including the OeREB Client as a
-  # plugin in an existing pyramid_oereb instance.
-  service_url: https://my.oereb-web-service.ch/
-
   # Search configuration
   # Specify a list to use the internal search proxy or an URL to use an external endpoint.
   # search: https://my.search-endpoint.ch/
@@ -265,11 +251,31 @@ oereb_client:
     email: support@example.com
     phone: 061 123 45 67
 
-  # Custom CSS file
+  # [OPTIONAL] Enable tiled WMS requests (default is False)
+  use_tile_wms: True
+
+  # [OPTIONAL] OeREB web service base URL
+  # This parameter is only needed, if you are running your OeREB web
+  # service in a separate application/container with a different base URL.
+  # Do not use this parameter, if you are including the OeREB Client as a
+  # plugin in an existing pyramid_oereb instance.
+  service_url: https://my.oereb-web-service.ch/
+
+  # [OPTIONAL] Custom CSS file
   # Add the URL to a custom CSS file to adjust styles.
   custom_css_url: https://example.com/mystyle.css
 
-  # Enable Google Analytics by specifying account key. Leave this
+  # [OPTIONAL] Specifiy timeout for extract requests in seconds (Default: 60)
+  extract_json_timeout: 60
+
+  # [OPTIONAL] Specifiy timeout for static extract requests seconds (Default: 120)
+  extract_pdf_timeout: 120
+
+  # [OPTIONAL] Display a short notice in the user interface.
+  # Remove this parameter for production instances.
+  test_instance_notice: Development
+
+  # [OPTIONAL] Enable Google Analytics by specifying account key. Leave this
   # parameter undefined to disable Google Analytics.
   google_analytics: UA-12345678-9
 ```
