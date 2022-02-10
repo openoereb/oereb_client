@@ -8,7 +8,22 @@ export const queryExtractById = function (serviceUrl, egrid, language) {
   if (language) {
     url.searchParams.append('LANG', language);
   }
-  return fetch(url).then((response) => response.json());
+  return new Promise((resolve, reject) => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 60000);
+    fetch(url, {signal: controller.signal})
+      .then((response) => {
+        clearTimeout(timeout);
+        if (!response.ok) {
+          reject(new Error(response.text()));
+        }
+        resolve(response.json());
+      })
+      .catch((error) => {
+        clearTimeout(timeout);
+        reject(error);
+      });
+  });
 };
 
 export const queryStaticExtractById = function (serviceUrl, egrid, language) {
@@ -18,7 +33,22 @@ export const queryStaticExtractById = function (serviceUrl, egrid, language) {
   if (language) {
     url.searchParams.append('LANG', language);
   }
-  return fetch(url).then((response) => response.arrayBuffer());
+  return new Promise((resolve, reject) => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 120000);
+    fetch(url, {signal: controller.signal})
+      .then((response) => {
+        clearTimeout(timeout);
+        if (!response.ok) {
+          reject(new Error(response.text()));
+        }
+        resolve(response.arrayBuffer());
+      })
+      .catch((error) => {
+        clearTimeout(timeout);
+        reject(error);
+      });
+  });
 };
 
 export const sanitizeTopicCode = function (theme) {
