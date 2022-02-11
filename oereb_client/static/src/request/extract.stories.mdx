@@ -65,12 +65,34 @@ sanitizeTopicCode(code);
 <code>String</code> The sanitized topic code.
 
 
+# getParentTheme
+
+A helper function to determine the parent theme for a specific subtheme
+out of the list of concerned themes.
+
+```js
+getParentTheme(theme, concernedThemes);
+```
+
+### Parameters
+
+| Param | Type | Description |
+| --- | --- | --- |
+| theme | <code>Object</code> | The subtheme object. |
+| concernedThemes | <code>Array</code> | The list of concerned themes. |
+
+### Returns
+
+<code>Object</code> The parent theme.
+
+
 # groupRestrictionsByTopic
 
 A helper function grouping the available restrictions by topic code for easier access.
+The concerned themes are needed to find the parent theme for subthemes.
 
 ```js
-groupRestrictionsByTopic(restrictions);
+groupRestrictionsByTopic(restrictions, concernedThemes);
 ```
 
 ### Parameters
@@ -78,6 +100,7 @@ groupRestrictionsByTopic(restrictions);
 | Param | Type | Description |
 | --- | --- | --- |
 | restrictions | <code>Array</code> | The list of restrictions. |
+| concernedThemes | <code>Array</code> | The list of concerned themes. |
 
 ### Returns
 

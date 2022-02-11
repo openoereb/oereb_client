@@ -23,7 +23,10 @@ const OerebTopicsWithRestriction = function (props) {
       .filter((key) => key === mainCode || key.startsWith(mainCode + '_'));
     const list = subCodes.map((code, key2) => {
       const themeRestrictions = restrictions[code];
-      const title = getLocalizedText(themeRestrictions.text, currentLanguage, defaultLanguage);
+      let title = getLocalizedText(themeRestrictions.themeText, currentLanguage, defaultLanguage);
+      if (themeRestrictions.subThemeText !== null) {
+        title += ': ' + getLocalizedText(themeRestrictions.subThemeText, currentLanguage, defaultLanguage);
+      }
       let inForce = null;
       let changeWithPreEffect = null;
       let changeWithoutPreEffect = null;

@@ -59,14 +59,35 @@ export const sanitizeTopicCode = function (theme) {
   return code;
 };
 
-export const groupRestrictionsByTopic = function (restrictions) {
+export const getParentTheme = function(theme, concernedThemes) {
+  let result = null;
+  concernedThemes.forEach((parent) => {
+    if (parent.Code === theme.Code) {
+      result = parent;
+      return null;
+    }
+  });
+  return result;
+};
+
+export const groupRestrictionsByTopic = function (restrictions, concernedThemes) {
   const restrictionsByTopic = {};
   restrictions.forEach((restriction) => {
     const code = sanitizeTopicCode(restriction.Theme);
     const lawstatus = restriction.Lawstatus.Code;
     if (!Reflect.apply(Object.prototype.hasOwnProperty, restrictionsByTopic, [code])) {
+      let themeText = null;
+      let subThemeText = null;
+      if (isString(restriction.Theme.SubCode)) {
+        subThemeText = restriction.Theme.Text;
+        themeText = getParentTheme(restriction.Theme, concernedThemes).Text;
+      }
+      else {
+        themeText = restriction.Theme.Text;
+      }
       restrictionsByTopic[code] = {
-        text: restriction.Theme.Text,
+        themeText: themeText,
+        subThemeText: subThemeText,
         inForce: [],
         changeWithPreEffect: [],
         changeWithoutPreEffect: []
