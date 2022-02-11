@@ -61,12 +61,12 @@ export const sanitizeTopicCode = function (theme) {
 
 export const getParentTheme = function(theme, concernedThemes) {
   let result = null;
-  concernedThemes.forEach((parent) => {
-    if (parent.Code === theme.Code) {
-      result = parent;
-      return null;
+  for (let i = 0; i < concernedThemes.length; i++) {
+    if (concernedThemes[i].Code === theme.Code) {
+      result = concernedThemes[i];
+      break;
     }
-  });
+  }
   return result;
 };
 
