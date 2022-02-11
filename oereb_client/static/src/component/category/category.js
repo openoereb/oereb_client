@@ -61,7 +61,10 @@ const OerebCategory = function (props) {
 
   const topicList = (() => {
     if (restriction && isArray(extract.RealEstate.RestrictionOnLandownership)) {
-      const restrictions = groupRestrictionsByTopic(extract.RealEstate.RestrictionOnLandownership);
+      const restrictions = groupRestrictionsByTopic(
+        extract.RealEstate.RestrictionOnLandownership,
+        extract.ConcernedTheme
+      );
       return (
         <OerebTopicsWithRestriction data={topics} restrictions={restrictions} />
       );
