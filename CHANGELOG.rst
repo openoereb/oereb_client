@@ -1,6 +1,15 @@
 Changelog
 ---------
 
+2.0.0-beta.4
+************
+
+https://github.com/openoereb/oereb_client/milestone/6
+
+- Fix layer order in OpenLayers
+- Configurable timeout for extract requests
+- Replace grequests with requests-futures
+
 2.0.0-beta.3
 ************
 

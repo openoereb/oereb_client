@@ -10,8 +10,7 @@ RUN apk --update add \
         nodejs \
         npm \
         uwsgi-python3 \
-        python3-dev \
-        libffi-dev
+        python3-dev
 
 COPY . /app
 
@@ -33,8 +32,7 @@ USER 0
 
 RUN apk --update add \
         bash \
-        uwsgi-python3 \
-        libffi
+        uwsgi-python3
 
 COPY --from=builder --chown=1001:0 /app/.venv /app/.venv
 COPY --from=builder --chown=1001:0 /app/oereb_client/*.py /app/oereb_client/
