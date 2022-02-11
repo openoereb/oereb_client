@@ -28,12 +28,6 @@ For that, you can include
 [pyramid_oereb](https://openoereb.github.io/pyramid_oereb/doc/) in the
 same Pyramid application, for example.
 
-In order to use the integrated search proxy, you have to add the following
-two lines in your application's root file. Usually, this should be the
-`__init__.py` containing the `main` function of your application. Insert
-`import gevent.monkey` as the first import and call `gevent.monkey.patch_all()`
-immediately after your imports.
-
 Having all set up, you can proceed with installation of the OeREB
 Client.
 

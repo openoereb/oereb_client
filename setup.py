@@ -6,7 +6,7 @@ import sys
 from setuptools import setup, find_packages
 from datetime import datetime
 
-VERSION = '2.0.0-beta.3'
+VERSION = '2.0.0-beta.4'
 
 test_mode = False
 is_beta = False
@@ -26,9 +26,9 @@ with codecs.open(os.path.join(here, 'CHANGELOG.rst'), encoding='utf-8') as f:
     CHANGES = f.read()
 
 requires = [
-    'grequests',
     'pyramid',
     'pyramid_mako',
+    'requests-futures',
     'waitress'
 ]
 

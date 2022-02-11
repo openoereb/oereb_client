@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
+from concurrent.futures import Future
 import httpretty
 import json
 
-from grequests import AsyncRequest
 from pyramid.testing import testConfig
 
 from oereb_client.views import get_localized_text
@@ -74,11 +74,12 @@ def test_init_with_language(mock_request):
 def test_create_request(mock_request):
     with testConfig(settings=settings):
         search = Search(mock_request)
-        req = search.create_request_(settings.get('oereb_client').get('search')[0], 'abc')
-        assert isinstance(req, AsyncRequest)
-        assert req.method == 'GET'
-        assert req.url == 'https://example.com/search?query=egr+abc&limit=5'
-        assert req.kwargs.get('timeout') == 10
+        req = search.create_request_(0, settings.get('oereb_client').get('search')[0], 'abc')
+        assert isinstance(req, Future)
+        assert req.index == 0
+        resp = req.result()
+        assert resp.request.method == 'GET'
+        assert resp.request.url == 'https://example.com/search?query=egr+abc&limit=5'
 
 
 @httpretty.activate
@@ -92,9 +93,9 @@ def test_send_requests(mock_request):
         mock_request.params.update({'term': 'foo'})
         search = Search(mock_request)
         results = search.send_requests_()
-        assert isinstance(results, list)
-        assert len(results) == 1
-        assert results[0].text == 'bar'
+        result_list = list(results)
+        assert len(result_list) == 1
+        assert result_list[0].result().text == 'bar'
 
 
 @httpretty.activate

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import grequests
-
+from concurrent.futures import as_completed
 from pyramid.path import DottedNameResolver
+from requests_futures.sessions import FuturesSession
 
 from oereb_client.views import get_localized_text
 
@@ -18,18 +18,21 @@ class Search(object):
         self.config_ = request.registry.settings.get('oereb_client', {})
         self.lang_ = request.params.get('lang') or self.config_.get('application').get('default_language')
         self.default_lang_ = self.config_.get('application').get('default_language')
+        self.session_ = FuturesSession(max_workers=len(self.config_['search']))
 
-    def create_request_(self, config, term):
-        return grequests.get(config['url'].format(
+    def create_request_(self, idx, config, term):
+        request = self.session_.get(config['url'].format(
             term=term,
             lang=self.lang_,
             **config['params']
         ), timeout=10, verify=config.get('verify_certificate', True))
+        request.index = idx
+        return request
 
     def send_requests_(self):
         term = self.request_.params.get('term')
-        requests = [self.create_request_(cfg, term) for cfg in self.config_['search']]
-        return grequests.map(requests, exception_handler=self.exception_handler_)
+        requests = [self.create_request_(i, cfg, term) for i, cfg in enumerate(self.config_['search'])]
+        return as_completed(requests)
 
     def render(self):
         """
@@ -40,12 +43,13 @@ class Search(object):
 
         """
         result_sets = []
-        for i, req in enumerate(self.send_requests_()):
+        for i, req in enumerate(sorted(self.send_requests_(), key=lambda r: r.index)):
+            response = req.result()
             if 'hook_method' in self.config_['search'][i]:
                 method = DottedNameResolver().resolve(self.config_['search'][i]['hook_method'])
-                results = method(self.config_['search'][i], req.json(), self.lang_, self.default_lang_)
+                results = method(self.config_['search'][i], response.json(), self.lang_, self.default_lang_)
             else:
-                results = req.json()
+                results = response.json()
             if results is not None:
                 result_sets.append({
                     'title': get_localized_text(
