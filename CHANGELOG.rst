@@ -9,6 +9,7 @@ https://github.com/openoereb/oereb_client/milestone/6
 - Fix layer order in OpenLayers
 - Configurable timeout for extract requests
 - Replace grequests with requests-futures
+- Fix rendering of subthemes
 
 2.0.0-beta.3
 ************
