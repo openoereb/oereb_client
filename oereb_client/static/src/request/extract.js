@@ -14,10 +14,12 @@ export const queryExtractById = function (serviceUrl, egrid, timeout, language) 
     fetch(url, {signal: controller.signal})
       .then((response) => {
         clearTimeout(timer);
-        if (!response.ok) {
+        if (response.ok) {
+          resolve(response.json());
+        }
+        else {
           reject(new Error(response.text()));
         }
-        resolve(response.json());
       })
       .catch((error) => {
         clearTimeout(timer);
@@ -39,10 +41,12 @@ export const queryStaticExtractById = function (serviceUrl, egrid, timeout, lang
     fetch(url, {signal: controller.signal})
       .then((response) => {
         clearTimeout(timer);
-        if (!response.ok) {
+        if (response.ok) {
+          resolve(response.arrayBuffer());
+        }
+        else {
           reject(new Error(response.text()));
         }
-        resolve(response.arrayBuffer());
       })
       .catch((error) => {
         clearTimeout(timer);
