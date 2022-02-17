@@ -27,7 +27,8 @@ const getDocuments = function (restrictions) {
         'OfficialNumber': document['OfficialNumber'],
         'ArticleNumber': document['ArticleNumber'] || [],
         'Article': document['Article'] || [],
-        'TextAtWeb': [document['TextAtWeb']]
+        'TextAtWeb': [document['TextAtWeb']],
+        'Index': document['Index']
       }, documents);
     });
   });
