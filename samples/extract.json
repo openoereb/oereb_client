@@ -466,6 +466,65 @@
                                         }
                                     ]
                                 },
+                                "Index": 2,
+                                "Title": [
+                                    {
+                                        "Language": "de",
+                                        "Text": "Altlasten-Verordnung"
+                                    }
+                                ],
+                                "Lawstatus": {
+                                    "Code": "inForce",
+                                    "Text": [
+                                        {
+                                            "Language": "de",
+                                            "Text": "Rechtskr\u00e4ftig"
+                                        }
+                                    ]
+                                },
+                                "TextAtWeb": [
+                                    {
+                                        "Language": "de",
+                                        "Text": "http://www.admin.ch/ch/d/sr/c814_680.html"
+                                    }
+                                ],
+                                "ResponsibleOffice": {
+                                    "Name": [
+                                        {
+                                            "Language": "de",
+                                            "Text": "Bundesamt f\u00fcr Verkehr BAV"
+                                        }
+                                    ],
+                                    "OfficeAtWeb": [
+                                        {
+                                            "Language": "de",
+                                            "Text": "https://www.bav.admin.ch/bav/de/home.html"
+                                        }
+                                    ]
+                                },
+                                "Abbreviation": [
+                                    {
+                                        "Language": "de",
+                                        "Text": "AltlV"
+                                    }
+                                ],
+                                "OfficialNumber": [
+                                    {
+                                        "Language": "de",
+                                        "Text": "SR 814.680"
+                                    }
+                                ]
+                            },
+                            {
+                                "Type": {
+                                    "Code": "Law",
+                                    "Text": [
+                                        {
+                                            "Language": "de",
+                                            "Text": "Gesetzliche Grundlage"
+                                        }
+                                    ]
+                                },
                                 "Index": 1,
                                 "Title": [
                                     {
@@ -512,65 +571,6 @@
                                     {
                                         "Language": "de",
                                         "Text": "SR 814.01"
-                                    }
-                                ]
-                            },
-                            {
-                                "Type": {
-                                    "Code": "Law",
-                                    "Text": [
-                                        {
-                                            "Language": "de",
-                                            "Text": "Gesetzliche Grundlage"
-                                        }
-                                    ]
-                                },
-                                "Index": 1,
-                                "Title": [
-                                    {
-                                        "Language": "de",
-                                        "Text": "Altlasten-Verordnung"
-                                    }
-                                ],
-                                "Lawstatus": {
-                                    "Code": "inForce",
-                                    "Text": [
-                                        {
-                                            "Language": "de",
-                                            "Text": "Rechtskr\u00e4ftig"
-                                        }
-                                    ]
-                                },
-                                "TextAtWeb": [
-                                    {
-                                        "Language": "de",
-                                        "Text": "http://www.admin.ch/ch/d/sr/c814_680.html"
-                                    }
-                                ],
-                                "ResponsibleOffice": {
-                                    "Name": [
-                                        {
-                                            "Language": "de",
-                                            "Text": "Bundesamt f\u00fcr Verkehr BAV"
-                                        }
-                                    ],
-                                    "OfficeAtWeb": [
-                                        {
-                                            "Language": "de",
-                                            "Text": "https://www.bav.admin.ch/bav/de/home.html"
-                                        }
-                                    ]
-                                },
-                                "Abbreviation": [
-                                    {
-                                        "Language": "de",
-                                        "Text": "AltlV"
-                                    }
-                                ],
-                                "OfficialNumber": [
-                                    {
-                                        "Language": "de",
-                                        "Text": "SR 814.680"
                                     }
                                 ]
                             }
