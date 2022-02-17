@@ -121,7 +121,7 @@ jobs:
     name: Build Docker Image (Dev)
     needs:
       - build
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -191,7 +191,7 @@ jobs:
     name: Deploy to PyPI Test
     needs:
       - build
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
