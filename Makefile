@@ -8,7 +8,7 @@ PYTHON_VERSION ?= python3
 
 # Package name and version
 PKG = oereb_client
-PKG_VERSION = $(if ${VERSION},${VERSION},master)
+PKG_VERSION = $(if ${VERSION},${VERSION},main)
 
 # JavaScript source files
 SRC_JS = $(shell find $(PKG)/static/src -name '*.js')
