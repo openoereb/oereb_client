@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import logging
-import yaml
+from pyaml_env import parse_config
 from pyramid.config import Configurator
 from pyramid_mako import add_mako_renderer
 
@@ -27,9 +27,8 @@ def main(global_config, **settings):  # pragma: no cover
         elif log_level in ['debug', 'dev', 'development']:
             log.setLevel(logging.DEBUG)
 
-    with open(settings.get('config')) as f:
-        yml = yaml.safe_load(f.read())
-        settings.update(yml)
+    yml = parse_config(settings.get('config'))
+    settings.update(yml)
 
     config = Configurator(settings=settings)
     config.include('oereb_client')
