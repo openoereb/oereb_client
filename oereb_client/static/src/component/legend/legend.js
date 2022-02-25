@@ -8,23 +8,38 @@ import {useSelector} from 'react-redux';
 
 import {getLocalizedText} from '../../util/language';
 
+export const getGeomType = function(item) {
+  if (Reflect.apply(Object.prototype.hasOwnProperty, item, ['NrOfPoints'])) {
+    return 'Point';
+  }
+  if (Reflect.apply(Object.prototype.hasOwnProperty, item, ['LengthShare'])) {
+    return 'LineString';
+  }
+  if (Reflect.apply(Object.prototype.hasOwnProperty, item, ['AreaShare'])) {
+    return 'Polygon';
+  }
+  return null;
+};
+
 const getLegendEntries = function (restrictions) {
   var legendEntries = [];
   for (var i = 0; i < restrictions.length; i++) {
+    const geomType = getGeomType(restrictions[i]);
     var existing = false;
     for (var j = 0; j < legendEntries.length; j++) {
-      if (legendEntries[j]['TypeCode'] === restrictions[i]['TypeCode']) {
+      if (
+        legendEntries[j]['TypeCode'] === restrictions[i]['TypeCode'] &&
+        legendEntries[j]['GeomType'] === restrictions[i]['GeomType']
+      ) {
         existing = true;
-        if (Reflect.apply(Object.prototype.hasOwnProperty, restrictions[i], ['NrOfPoints'])) {
+        if (geomType === 'Point') {
           legendEntries[j]['NrOfPoints'] += restrictions[i]['NrOfPoints'];
         }
-        if (Reflect.apply(Object.prototype.hasOwnProperty, restrictions[i], ['LengthShare'])) {
+        if (geomType === 'LineString') {
           legendEntries[j]['LengthShare'] += restrictions[i]['LengthShare'];
         }
-        if (Reflect.apply(Object.prototype.hasOwnProperty, restrictions[i], ['AreaShare'])) {
+        if (geomType === 'Polygon') {
           legendEntries[j]['AreaShare'] += restrictions[i]['AreaShare'];
-        }
-        if (Reflect.apply(Object.prototype.hasOwnProperty, restrictions[i], ['PartInPercent'])) {
           legendEntries[j]['PartInPercent'] += restrictions[i]['PartInPercent'];
         }
         break;
@@ -32,21 +47,20 @@ const getLegendEntries = function (restrictions) {
     }
     if (!existing) {
       var legendEntry = {
+        'GeomType': geomType,
         'TypeCode': restrictions[i]['TypeCode'],
         'LegendText': restrictions[i]['LegendText'],
         'SymbolRef': restrictions[i]['SymbolRef'],
         'SubTheme': restrictions[i]['SubTheme']
       };
-      if (Reflect.apply(Object.prototype.hasOwnProperty, restrictions[i], ['NrOfPoints'])) {
+      if (geomType === 'Point') {
         legendEntry['NrOfPoints'] = restrictions[i]['NrOfPoints'];
       }
-      if (Reflect.apply(Object.prototype.hasOwnProperty, restrictions[i], ['LengthShare'])) {
+      if (geomType === 'LineString') {
         legendEntry['LengthShare'] = restrictions[i]['LengthShare'];
       }
-      if (Reflect.apply(Object.prototype.hasOwnProperty, restrictions[i], ['AreaShare'])) {
+      if (geomType === 'Polygon') {
         legendEntry['AreaShare'] = restrictions[i]['AreaShare'];
-      }
-      if (Reflect.apply(Object.prototype.hasOwnProperty, restrictions[i], ['PartInPercent'])) {
         legendEntry['PartInPercent'] = restrictions[i]['PartInPercent'];
       }
       legendEntries.push(legendEntry);
@@ -56,20 +70,21 @@ const getLegendEntries = function (restrictions) {
 };
 
 const getPercent = function (entry) {
-  if (Reflect.apply(Object.prototype.hasOwnProperty, entry, ['PartInPercent'])) {
+  if (getGeomType(entry) === 'Polygon') {
     return entry['PartInPercent'].toFixed(1) + '%';
   }
   return null;
 };
 
 const getPart = function (entry) {
-  if (Reflect.apply(Object.prototype.hasOwnProperty, entry, ['NrOfPoints'])) {
+  const geomType = getGeomType(entry);
+  if (geomType === 'Point') {
     return entry['NrOfPoints'].toFixed(0);
   }
-  if (Reflect.apply(Object.prototype.hasOwnProperty, entry, ['LengthShare'])) {
+  if (geomType === 'LineString') {
     return entry['LengthShare'].toFixed(0) + ' m';
   }
-  if (Reflect.apply(Object.prototype.hasOwnProperty, entry, ['AreaShare'])) {
+  if (geomType === 'Polygon') {
     return <span>{entry['AreaShare'].toFixed(0)} m<sup>2</sup></span>;
   }
   return null;
