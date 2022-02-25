@@ -74,6 +74,12 @@ Add your configuration in the created `oereb_client.yml` or mount this file into
 your container. The top-level element has to be called `oereb_client`. The
 following example shows such a configuration and explains the parameters.
 
+> **Note:** The configuration file is parsed using
+[pyaml-env](https://github.com/mkaranasou/pyaml_env). This allows you to use
+environment variables in your configuration, which will be interpreted when
+the configuration is parsed on application start up. Please refer to the
+linked project site to see how to use this feature.
+
 ```yaml
 # OeREB Client
 oereb_client:
