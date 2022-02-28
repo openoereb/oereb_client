@@ -29,7 +29,7 @@ const getLegendEntries = function (restrictions) {
     for (var j = 0; j < legendEntries.length; j++) {
       if (
         legendEntries[j]['TypeCode'] === restrictions[i]['TypeCode'] &&
-        legendEntries[j]['GeomType'] === restrictions[i]['GeomType']
+        legendEntries[j]['GeomType'] === geomType
       ) {
         existing = true;
         if (geomType === 'Point') {
