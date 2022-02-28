@@ -7,6 +7,5 @@ pyflakes==2.4.0
 pyramid_debugtoolbar==4.9
 pytest==7.0.1
 pytest-cov==3.0.0
-pyaml-env==1.1.5
 twine==3.8.0
 -e .
