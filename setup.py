@@ -26,6 +26,7 @@ with codecs.open(os.path.join(here, 'CHANGELOG.rst'), encoding='utf-8') as f:
     CHANGES = f.read()
 
 requires = [
+    'pyaml-env',
     'pyramid',
     'pyramid_mako',
     'requests-futures',
