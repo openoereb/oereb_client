@@ -128,8 +128,8 @@ const OerebLegend = function (props) {
         <td>
           <img className="oereb-client-symbol" src={symbolRef} />
         </td>
-        <td className="text-end">{part}</td>
-        <td className="text-end">{percent}</td>
+        <td className="text-end text-nowrap">{part}</td>
+        <td className="text-end text-nowrap">{percent}</td>
       </tr>
     );
   });
@@ -158,8 +158,8 @@ const OerebLegend = function (props) {
         <tr>
           <th>{t('extract.topic.legend.type')}</th>
           <th></th>
-          <th className="text-end">{t('extract.topic.legend.part')}</th>
-          <th className="text-end">{t('extract.topic.legend.part_in_percent')}</th>
+          <th className="text-end text-nowrap">{t('extract.topic.legend.part')}</th>
+          <th className="text-end text-nowrap">{t('extract.topic.legend.part_in_percent')}</th>
         </tr>
       </thead>
       <tbody ref={tableBody}>
