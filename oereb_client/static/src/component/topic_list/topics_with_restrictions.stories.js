@@ -11,7 +11,8 @@ export default {
 
 export const WithRestrictions = () => {
   const restrictions = groupRestrictionsByTopic(
-    data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership
+    data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
+    data.GetExtractByIdResponse.extract.ConcernedTheme
   );
   return <OerebTopicsWithRestriction data={data['GetExtractByIdResponse']['extract']['ConcernedTheme']}
     restrictions={restrictions} />;
