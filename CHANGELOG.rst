@@ -16,6 +16,7 @@ https://github.com/openoereb/oereb_client/milestone/6
 - Use pyaml-env to parse the configuration
 - Fix legend for different geometries with same type code
 - Reverse history elements
+- Fix legend layout
 - Dependency updates
 
 2.0.0-beta.3
