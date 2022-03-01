@@ -33,6 +33,7 @@ exports[`availability layer component should render availability layer element 1
         "once": [Function],
         "pendingRemovals_": Object {},
         "renderBuffer_": 100,
+        "rendered": false,
         "renderer_": null,
         "revision_": 2,
         "sourceChangeKey_": null,

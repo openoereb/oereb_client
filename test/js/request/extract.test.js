@@ -17,6 +17,7 @@ describe('queryExtractById', () => {
     const result = await queryExtractById(
       'http://example.com/',
       'CH1234567890',
+      1,
       'de'
     );
     expect(result).toEqual({
@@ -40,6 +41,7 @@ describe('queryStaticExtractById', () => {
     const result = await queryStaticExtractById(
       'http://example.com/',
       'CH1234567890',
+      1,
       'de'
     );
     const resultStr = Reflect.apply(String.fromCharCode, undefined, new Uint8Array(result));
@@ -125,7 +127,15 @@ describe('groupRestrictionsByTopic', () => {
         }
       }
     ];
-    const result = groupRestrictionsByTopic(restrictions);
+    const concernedThemes = [
+      {
+        Code: 'ch.Topic1'
+      },
+      {
+        Code: 'ch.Topic2'
+      }
+    ];
+    const result = groupRestrictionsByTopic(restrictions, concernedThemes);
     expect(result['chTopic1_chSubTopic1']['inForce']).toHaveLength(2);
     expect(result['chTopic1_chSubTopic1']['changeWithPreEffect']).toHaveLength(1);
     expect(result['chTopic1_chSubTopic1']['changeWithoutPreEffect']).toHaveLength(0);

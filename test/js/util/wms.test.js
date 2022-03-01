@@ -18,7 +18,7 @@ describe('getViewServiceDefinition', () => {
     expect(getViewServiceDefinition(mapObject, 'en', 'en')).toEqual({
       url: 'http://exmaple.com/wms',
       opacity: 0.5,
-      zIndex: 1,
+      zIndex: 21001,
       params: {
         SERVICE: 'WMS',
         VERSION: '1.3.0',
