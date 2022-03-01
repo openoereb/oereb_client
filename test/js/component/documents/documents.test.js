@@ -22,7 +22,8 @@ describe('documents component', () => {
       }));
     });
     const restrictions = groupRestrictionsByTopic(
-      extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership
+      extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
+      extract.GetExtractByIdResponse.extract.ConcernedTheme
     )['chStatischeWaldgrenzen']['inForce'];
     component = mount(
       <Provider store={MainStore}>
