@@ -23,7 +23,7 @@ const OerebMenu = function () {
   const config = useSelector((state) => state.config).config;
   const showAvailabilityLayer = useSelector((state) => state.availability).visible;
   const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
-  const history = useSelector((state) => state.history).elements;
+  const history = useSelector((state) => state.history).elements.slice().reverse();
   const dispatch = useDispatch();
   const searchUrl = config.search_url;
   const serviceUrl = config.service_url;
