@@ -11,7 +11,8 @@ export default {
 
 export const ResponsibleOffice = () => {
   const restrictions = groupRestrictionsByTopic(
-    data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership
+    data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
+    data.GetExtractByIdResponse.extract.ConcernedTheme
   )['chBelasteteStandorteOeffentlicherVerkehr']['changeWithPreEffect'];
   return <OerebResponsibleOffice restrictions={restrictions} />
 };
