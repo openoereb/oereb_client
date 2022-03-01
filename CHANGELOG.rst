@@ -12,6 +12,11 @@ https://github.com/openoereb/oereb_client/milestone/6
 - Fix rendering of subthemes
 - Fix sorting of documents
 - Drop support for Python 3.6
+- Sort legend entries
+- Use pyaml-env to parse the configuration
+- Fix legend for different geometries with same type code
+- Reverse history elements
+- Dependency updates
 
 2.0.0-beta.3
 ************
