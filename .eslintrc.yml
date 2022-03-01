@@ -276,3 +276,5 @@ plugins:
 settings:
   react:
     version: detect
+ignorePatterns:
+  - 'test/js/**/assets/**/*.js'
