@@ -24,7 +24,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@popperjs/core": "^2.11.2",
-    "@reduxjs/toolkit": "^1.7.2",
+    "@reduxjs/toolkit": "^1.8.0",
     "@storybook/addon-docs": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
