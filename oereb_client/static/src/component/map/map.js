@@ -29,7 +29,7 @@ import OerebMapQuery from '../map_query/map_query';
 import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';
 import OerebTopicLayer from '../topic_layers/topic_layers';
 
-const getBaseLayerSourceWms = function (config) {
+export const getBaseLayerSourceWms = function (config) {
   return Promise.resolve(new TileWMS({
     url: config['url'],
     params: config['params'],
@@ -37,7 +37,7 @@ const getBaseLayerSourceWms = function (config) {
   }));
 };
 
-const getBaseLayerSourceWmts = function (config) {
+export const getBaseLayerSourceWmts = function (config) {
   const parser = new WMTSCapabilities();
   return new Promise(function (resolve, reject) {
     fetch(config['url'])
@@ -59,7 +59,7 @@ const getBaseLayerSourceWmts = function (config) {
   });
 };
 
-const getBaseLayerSource = function (config) {
+export const getBaseLayerSource = function (config) {
   if (config['type'].toLowerCase() === 'wms') {
     return getBaseLayerSourceWms(config);
   }
