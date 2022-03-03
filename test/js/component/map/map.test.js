@@ -41,6 +41,7 @@ const config = {
 };
 
 beforeEach(() => {
+  fetch.resetMocks();
   proj4.defs(
     'EPSG:2056',
     '+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 ' +
