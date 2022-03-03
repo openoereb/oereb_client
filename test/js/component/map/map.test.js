@@ -36,7 +36,8 @@ const config = {
     params: {
       LAYERS: 'availability'
     }
-  }
+  },
+  use_tile_wms: false
 };
 
 beforeEach(() => {
