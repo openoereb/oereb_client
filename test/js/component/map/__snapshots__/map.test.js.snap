@@ -55843,6 +55843,7 @@ exports[`map component should render map 1`] = `
         }
       />
       <OerebTopicLayer
+        tiled={false}
         topicLayers={
           LayerGroup {
             "background_": undefined,
