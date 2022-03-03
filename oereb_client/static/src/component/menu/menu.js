@@ -147,17 +147,17 @@ const OerebMenu = function () {
     }
   };
 
-  const searchResultList = searchResults.map((resultSet) => {
+  const searchResultList = searchResults.map((resultSet, key1) => {
     if (resultSet.results.length > 0) {
-      const results = resultSet.results.map((result, key) =>
-        <button key={key}
+      const results = resultSet.results.map((result, key2) =>
+        <button key={key2}
           className="list-group-item list-group-item-action search-result text-start"
           onClick={querySearchResult.bind(this, result)}>
           {result.label}
         </button>
       );
       const title =
-        <div className="list-group result-list">
+        <div key={key1} className="list-group result-list">
           <div className="list-group-item">
             <strong>{resultSet.title}</strong>
             <span className="badge bg-secondary float-end">{resultSet.results.length}</span>
