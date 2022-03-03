@@ -1,0 +1,5114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`map query component should render map query 1`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebMapQuery
+    map={
+      Map {
+        "animationDelay_": [Function],
+        "boundHandleBrowserEvent_": [Function],
+        "controls": Collection {
+          "array_": Array [
+            Zoom {
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "element": <div
+                class="ol-zoom ol-unselectable ol-control"
+                style="pointer-events: auto;"
+              >
+                <button
+                  class="ol-zoom-in"
+                  title="Zoom in"
+                  type="button"
+                >
+                  +
+                </button>
+                <button
+                  class="ol-zoom-out"
+                  title="Zoom out"
+                  type="button"
+                >
+                  –
+                </button>
+              </div>,
+              "eventTarget_": undefined,
+              "listenerKeys": Array [
+                Object {
+                  "listener": [Function],
+                  "target": [Circular],
+                  "type": "postrender",
+                },
+              ],
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "3",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "target_": null,
+              "un": [Function],
+              "values_": null,
+            },
+            Rotate {
+              "autoHide_": true,
+              "callResetNorth_": undefined,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "element": <div
+                class="ol-rotate ol-unselectable ol-control ol-hidden"
+                style="pointer-events: auto;"
+              >
+                <button
+                  class="ol-rotate-reset"
+                  title="Reset rotation"
+                  type="button"
+                >
+                  <span
+                    class="ol-compass"
+                  >
+                    ⇧
+                  </span>
+                </button>
+              </div>,
+              "eventTarget_": undefined,
+              "label_": <span
+                class="ol-compass"
+              >
+                ⇧
+              </span>,
+              "listenerKeys": Array [
+                Object {
+                  "listener": [Function],
+                  "target": [Circular],
+                  "type": "postrender",
+                },
+              ],
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "4",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "rotation_": undefined,
+              "target_": null,
+              "un": [Function],
+              "values_": null,
+            },
+            Attribution {
+              "collapseLabel_": <span
+                class="ol-attribution-collapse"
+              >
+                ›
+              </span>,
+              "collapsed_": true,
+              "collapsible_": true,
+              "dispatching_": null,
+              "disposed": false,
+              "element": <div
+                class="ol-attribution ol-unselectable ol-control ol-collapsed"
+                style="pointer-events: auto;"
+              >
+                <button
+                  aria-expanded="false"
+                  title="Attributions"
+                  type="button"
+                >
+                  <span
+                    class="ol-attribution-expand"
+                  >
+                    i
+                  </span>
+                </button>
+                <ul />
+              </div>,
+              "eventTarget_": undefined,
+              "label_": <span
+                class="ol-attribution-expand"
+              >
+                i
+              </span>,
+              "listenerKeys": Array [
+                Object {
+                  "listener": [Function],
+                  "target": [Circular],
+                  "type": "postrender",
+                },
+              ],
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "5",
+              "on": [Function],
+              "once": [Function],
+              "overrideCollapsible_": false,
+              "pendingRemovals_": null,
+              "renderedAttributions_": Array [],
+              "renderedVisible_": true,
+              "revision_": 0,
+              "target_": null,
+              "toggleButton_": <button
+                aria-expanded="false"
+                title="Attributions"
+                type="button"
+              >
+                <span
+                  class="ol-attribution-expand"
+                >
+                  i
+                </span>
+              </button>,
+              "ulElement_": <ul />,
+              "un": [Function],
+              "userCollapsed_": true,
+              "values_": null,
+            },
+          ],
+          "dispatching_": null,
+          "disposed": false,
+          "eventTarget_": undefined,
+          "listeners_": Object {
+            "add": Array [
+              [Function],
+            ],
+            "remove": Array [
+              [Function],
+            ],
+          },
+          "ol_uid": "2",
+          "on": [Function],
+          "once": [Function],
+          "pendingRemovals_": null,
+          "revision_": 0,
+          "un": [Function],
+          "unique_": false,
+          "values_": Object {
+            "length": 3,
+          },
+        },
+        "coordinateToPixelTransform_": Array [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+        ],
+        "dispatching_": Object {},
+        "disposed": false,
+        "eventTarget_": undefined,
+        "frameIndex_": 0,
+        "frameState_": null,
+        "interactions": Collection {
+          "array_": Array [
+            DragRotate {
+              "condition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "lastAngle_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "7",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            DoubleClickZoom {
+              "delta_": 1,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "8",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            DragPan {
+              "condition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "kinetic_": Kinetic {
+                "angle_": 0,
+                "decay_": -0.005,
+                "delay_": 100,
+                "initialVelocity_": 0,
+                "minVelocity_": 0.05,
+                "points_": Array [],
+              },
+              "lastCentroid": null,
+              "listeners_": null,
+              "map_": [Circular],
+              "noKinetic_": false,
+              "ol_uid": "9",
+              "on": [Function],
+              "once": [Function],
+              "panning_": false,
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            PinchRotate {
+              "anchor_": null,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "lastAngle_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "10",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "rotating_": false,
+              "rotationDelta_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "threshold_": 0.3,
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            PinchZoom {
+              "anchor_": null,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 400,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "lastDistance_": undefined,
+              "lastScaleDelta_": 1,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "11",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            KeyboardPan {
+              "condition_": [Function],
+              "defaultCondition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 100,
+              "eventTarget_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "12",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "pixelDelta_": 128,
+              "revision_": 0,
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            KeyboardZoom {
+              "condition_": [Function],
+              "delta_": 1,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 100,
+              "eventTarget_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "13",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            MouseWheelZoom {
+              "condition_": [Function],
+              "constrainResolution_": false,
+              "deltaPerZoom_": 300,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "lastAnchor_": null,
+              "lastDelta_": 0,
+              "listeners_": null,
+              "map_": [Circular],
+              "maxDelta_": 1,
+              "mode_": undefined,
+              "ol_uid": "14",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "startTime_": undefined,
+              "timeout_": 80,
+              "totalDelta_": 0,
+              "trackpadEventGap_": 400,
+              "un": [Function],
+              "useAnchor_": true,
+              "values_": Object {
+                "active": true,
+              },
+            },
+            DragZoom {
+              "boxEndCondition_": [Function],
+              "box_": RenderBox {
+                "disposed": false,
+                "element_": <div
+                  class="ol-box ol-dragzoom"
+                  style="position: absolute; pointer-events: auto;"
+                />,
+                "endPixel_": null,
+                "geometry_": null,
+                "map_": null,
+                "startPixel_": null,
+              },
+              "condition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 200,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "listeners_": null,
+              "map_": [Circular],
+              "minArea_": 64,
+              "ol_uid": "15",
+              "on": [Function],
+              "once": [Function],
+              "out_": false,
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "startPixel_": null,
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+          ],
+          "dispatching_": null,
+          "disposed": false,
+          "eventTarget_": undefined,
+          "listeners_": Object {
+            "add": Array [
+              [Function],
+            ],
+            "remove": Array [
+              [Function],
+            ],
+          },
+          "ol_uid": "6",
+          "on": [Function],
+          "once": [Function],
+          "pendingRemovals_": null,
+          "revision_": 0,
+          "un": [Function],
+          "unique_": false,
+          "values_": Object {
+            "length": 9,
+          },
+        },
+        "keyboardEventTarget_": null,
+        "layerGroupPropertyListenerKeys_": Array [
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "propertychange",
+          },
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "change",
+          },
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "addlayer",
+          },
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "removelayer",
+          },
+        ],
+        "listeners_": Object {
+          "change:layergroup": Array [
+            [Function],
+          ],
+          "change:size": Array [
+            [Function],
+          ],
+          "change:target": Array [
+            [Function],
+          ],
+          "change:view": Array [
+            [Function],
+          ],
+          "postrender": Array [
+            [Function],
+            [Function],
+            [Function],
+            [Function],
+          ],
+        },
+        "mapBrowserEventHandler_": null,
+        "maxTilesLoading_": 16,
+        "moveTolerance_": undefined,
+        "ol_uid": "16",
+        "on": [Function],
+        "once": [Function],
+        "overlayContainerStopEvent_": <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; pointer-events: auto; display: none;"
+          >
+            <div
+              class="oereb-client-overlay"
+            />
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              –
+            </button>
+          </div>
+          <div
+            class="ol-rotate ol-unselectable ol-control ol-hidden"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="ol-rotate-reset"
+              title="Reset rotation"
+              type="button"
+            >
+              <span
+                class="ol-compass"
+              >
+                ⇧
+              </span>
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-collapsed"
+            style="pointer-events: auto;"
+          >
+            <button
+              aria-expanded="false"
+              title="Attributions"
+              type="button"
+            >
+              <span
+                class="ol-attribution-expand"
+              >
+                i
+              </span>
+            </button>
+            <ul />
+          </div>
+        </div>,
+        "overlayContainer_": <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        />,
+        "overlayIdIndex_": Object {},
+        "overlays_": Collection {
+          "array_": Array [
+            Overlay {
+              "autoPan": Object {
+                "animation": true,
+                "margin": 0,
+              },
+              "dispatching_": Object {},
+              "disposed": false,
+              "element": <div
+                class="ol-overlay-container ol-selectable"
+                style="position: absolute; pointer-events: auto; display: none;"
+              >
+                <div
+                  class="oereb-client-overlay"
+                />
+              </div>,
+              "eventTarget_": undefined,
+              "id": undefined,
+              "insertFirst": true,
+              "listeners_": Object {
+                "change:element": Array [
+                  [Function],
+                ],
+                "change:map": Array [
+                  [Function],
+                ],
+                "change:offset": Array [
+                  [Function],
+                ],
+                "change:position": Array [
+                  [Function],
+                ],
+                "change:positioning": Array [
+                  [Function],
+                ],
+              },
+              "mapPostrenderListenerKey": Object {
+                "listener": [Function],
+                "target": [Circular],
+                "type": "postrender",
+              },
+              "ol_uid": "21",
+              "on": [Function],
+              "once": [Function],
+              "options": Object {
+                "autoPan": Object {
+                  "animation": true,
+                  "margin": 0,
+                },
+                "offset": Array [
+                  -17,
+                  -17,
+                ],
+              },
+              "pendingRemovals_": Object {},
+              "rendered": Object {
+                "transform_": "",
+                "visible": false,
+              },
+              "revision_": 0,
+              "stopEvent": true,
+              "un": [Function],
+              "values_": Object {
+                "element": <div
+                  class="oereb-client-overlay"
+                />,
+                "map": [Circular],
+                "offset": Array [
+                  -17,
+                  -17,
+                ],
+                "positioning": "top-left",
+              },
+            },
+          ],
+          "dispatching_": Object {},
+          "disposed": false,
+          "eventTarget_": undefined,
+          "listeners_": Object {
+            "add": Array [
+              [Function],
+            ],
+            "remove": Array [
+              [Function],
+            ],
+          },
+          "ol_uid": "20",
+          "on": [Function],
+          "once": [Function],
+          "pendingRemovals_": Object {},
+          "revision_": 0,
+          "un": [Function],
+          "unique_": false,
+          "values_": Object {
+            "length": 1,
+          },
+        },
+        "pendingRemovals_": Object {},
+        "pixelRatio_": 1,
+        "pixelToCoordinateTransform_": Array [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+        ],
+        "postRenderFunctions_": Array [],
+        "previousExtent_": null,
+        "renderer_": null,
+        "revision_": 0,
+        "targetChangeHandlerKeys_": null,
+        "tileQueue_": TileQueue {
+          "boundHandleTileChange_": [Function],
+          "elements_": Array [],
+          "keyFunction_": [Function],
+          "priorities_": Array [],
+          "priorityFunction_": [Function],
+          "queuedElements_": Object {},
+          "tileChangeCallback_": [Function],
+          "tilesLoadingKeys_": Object {},
+          "tilesLoading_": 0,
+        },
+        "un": [Function],
+        "values_": Object {
+          "layergroup": LayerGroup {
+            "background_": undefined,
+            "className_": "ol-layer",
+            "dispatching_": Object {},
+            "disposed": false,
+            "eventTarget_": undefined,
+            "layersListenerKeys_": Array [
+              Object {
+                "listener": [Function],
+                "target": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "type": "add",
+              },
+              Object {
+                "listener": [Function],
+                "target": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "type": "remove",
+              },
+            ],
+            "listenerKeys_": Object {},
+            "listeners_": Object {
+              "addlayer": Array [
+                [Function],
+              ],
+              "change": Array [
+                [Function],
+              ],
+              "change:layers": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+              "removelayer": Array [
+                [Function],
+              ],
+            },
+            "ol_uid": "17",
+            "on": [Function],
+            "once": [Function],
+            "pendingRemovals_": Object {},
+            "revision_": 1,
+            "state_": null,
+            "un": [Function],
+            "values_": Object {
+              "layers": Collection {
+                "array_": Array [],
+                "dispatching_": null,
+                "disposed": false,
+                "eventTarget_": undefined,
+                "listeners_": Object {
+                  "add": Array [
+                    [Function],
+                  ],
+                  "remove": Array [
+                    [Function],
+                  ],
+                },
+                "ol_uid": "18",
+                "on": [Function],
+                "once": [Function],
+                "pendingRemovals_": null,
+                "revision_": 0,
+                "un": [Function],
+                "unique_": true,
+                "values_": Object {
+                  "length": 0,
+                },
+              },
+              "maxResolution": Infinity,
+              "maxZoom": Infinity,
+              "minResolution": 0,
+              "minZoom": -Infinity,
+              "opacity": 1,
+              "visible": true,
+              "zIndex": undefined,
+            },
+          },
+          "target": undefined,
+          "view": View {
+            "animations_": Array [],
+            "cancelAnchor_": undefined,
+            "constraints_": Object {
+              "center": [Function],
+              "resolution": [Function],
+              "rotation": [Function],
+            },
+            "dispatching_": null,
+            "disposed": false,
+            "eventTarget_": undefined,
+            "hints_": Array [
+              0,
+              0,
+            ],
+            "listeners_": Object {
+              "change": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+            },
+            "maxResolution_": 156543.03392804097,
+            "minResolution_": 0.0005831682455839253,
+            "minZoom_": 0,
+            "nextCenter_": null,
+            "ol_uid": "19",
+            "on": [Function],
+            "once": [Function],
+            "padding_": undefined,
+            "pendingRemovals_": null,
+            "projection_": EPSG3857Projection {
+              "axisOrientation_": "enu",
+              "canWrapX_": true,
+              "code_": "EPSG:3857",
+              "defaultTileGrid_": null,
+              "extent_": Array [
+                -20037508.342789244,
+                -20037508.342789244,
+                20037508.342789244,
+                20037508.342789244,
+              ],
+              "getPointResolutionFunc_": [Function],
+              "global_": true,
+              "metersPerUnit_": undefined,
+              "units_": "m",
+              "worldExtent_": Array [
+                -180,
+                -85,
+                180,
+                85,
+              ],
+            },
+            "resolutions_": undefined,
+            "revision_": 0,
+            "targetCenter_": undefined,
+            "targetResolution_": undefined,
+            "targetRotation_": 0,
+            "un": [Function],
+            "values_": Object {
+              "center": undefined,
+              "rotation": 0,
+            },
+            "viewportSize_": Array [
+              100,
+              100,
+            ],
+            "zoomFactor_": 2,
+          },
+        },
+        "viewChangeListenerKey_": Object {
+          "listener": [Function],
+          "target": View {
+            "animations_": Array [],
+            "cancelAnchor_": undefined,
+            "constraints_": Object {
+              "center": [Function],
+              "resolution": [Function],
+              "rotation": [Function],
+            },
+            "dispatching_": null,
+            "disposed": false,
+            "eventTarget_": undefined,
+            "hints_": Array [
+              0,
+              0,
+            ],
+            "listeners_": Object {
+              "change": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+            },
+            "maxResolution_": 156543.03392804097,
+            "minResolution_": 0.0005831682455839253,
+            "minZoom_": 0,
+            "nextCenter_": null,
+            "ol_uid": "19",
+            "on": [Function],
+            "once": [Function],
+            "padding_": undefined,
+            "pendingRemovals_": null,
+            "projection_": EPSG3857Projection {
+              "axisOrientation_": "enu",
+              "canWrapX_": true,
+              "code_": "EPSG:3857",
+              "defaultTileGrid_": null,
+              "extent_": Array [
+                -20037508.342789244,
+                -20037508.342789244,
+                20037508.342789244,
+                20037508.342789244,
+              ],
+              "getPointResolutionFunc_": [Function],
+              "global_": true,
+              "metersPerUnit_": undefined,
+              "units_": "m",
+              "worldExtent_": Array [
+                -180,
+                -85,
+                180,
+                85,
+              ],
+            },
+            "resolutions_": undefined,
+            "revision_": 0,
+            "targetCenter_": undefined,
+            "targetResolution_": undefined,
+            "targetRotation_": 0,
+            "un": [Function],
+            "values_": Object {
+              "center": undefined,
+              "rotation": 0,
+            },
+            "viewportSize_": Array [
+              100,
+              100,
+            ],
+            "zoomFactor_": 2,
+          },
+          "type": "change",
+        },
+        "viewPropertyListenerKey_": Object {
+          "listener": [Function],
+          "target": View {
+            "animations_": Array [],
+            "cancelAnchor_": undefined,
+            "constraints_": Object {
+              "center": [Function],
+              "resolution": [Function],
+              "rotation": [Function],
+            },
+            "dispatching_": null,
+            "disposed": false,
+            "eventTarget_": undefined,
+            "hints_": Array [
+              0,
+              0,
+            ],
+            "listeners_": Object {
+              "change": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+            },
+            "maxResolution_": 156543.03392804097,
+            "minResolution_": 0.0005831682455839253,
+            "minZoom_": 0,
+            "nextCenter_": null,
+            "ol_uid": "19",
+            "on": [Function],
+            "once": [Function],
+            "padding_": undefined,
+            "pendingRemovals_": null,
+            "projection_": EPSG3857Projection {
+              "axisOrientation_": "enu",
+              "canWrapX_": true,
+              "code_": "EPSG:3857",
+              "defaultTileGrid_": null,
+              "extent_": Array [
+                -20037508.342789244,
+                -20037508.342789244,
+                20037508.342789244,
+                20037508.342789244,
+              ],
+              "getPointResolutionFunc_": [Function],
+              "global_": true,
+              "metersPerUnit_": undefined,
+              "units_": "m",
+              "worldExtent_": Array [
+                -180,
+                -85,
+                180,
+                85,
+              ],
+            },
+            "resolutions_": undefined,
+            "revision_": 0,
+            "targetCenter_": undefined,
+            "targetResolution_": undefined,
+            "targetRotation_": 0,
+            "un": [Function],
+            "values_": Object {
+              "center": undefined,
+              "rotation": 0,
+            },
+            "viewportSize_": Array [
+              100,
+              100,
+            ],
+            "zoomFactor_": 2,
+          },
+          "type": "propertychange",
+        },
+        "viewport_": <div
+          class="ol-viewport"
+          style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlaycontainer"
+            style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+          />
+          <div
+            class="ol-overlaycontainer-stopevent"
+            style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+          >
+            <div
+              class="ol-overlay-container ol-selectable"
+              style="position: absolute; pointer-events: auto; display: none;"
+            >
+              <div
+                class="oereb-client-overlay"
+              />
+            </div>
+            <div
+              class="ol-zoom ol-unselectable ol-control"
+              style="pointer-events: auto;"
+            >
+              <button
+                class="ol-zoom-in"
+                title="Zoom in"
+                type="button"
+              >
+                +
+              </button>
+              <button
+                class="ol-zoom-out"
+                title="Zoom out"
+                type="button"
+              >
+                –
+              </button>
+            </div>
+            <div
+              class="ol-rotate ol-unselectable ol-control ol-hidden"
+              style="pointer-events: auto;"
+            >
+              <button
+                class="ol-rotate-reset"
+                title="Reset rotation"
+                type="button"
+              >
+                <span
+                  class="ol-compass"
+                >
+                  ⇧
+                </span>
+              </button>
+            </div>
+            <div
+              class="ol-attribution ol-unselectable ol-control ol-collapsed"
+              style="pointer-events: auto;"
+            >
+              <button
+                aria-expanded="false"
+                title="Attributions"
+                type="button"
+              >
+                <span
+                  class="ol-attribution-expand"
+                >
+                  i
+                </span>
+              </button>
+              <ul />
+            </div>
+          </div>
+        </div>,
+      }
+    }
+  >
+    <div
+      className="oereb-client-overlay"
+    />
+  </OerebMapQuery>
+</Provider>
+`;
+
+exports[`map query component should render map query 2`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebMapQuery
+    map={
+      Map {
+        "animationDelay_": [Function],
+        "boundHandleBrowserEvent_": [Function],
+        "controls": Collection {
+          "array_": Array [
+            Zoom {
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "element": <div
+                class="ol-zoom ol-unselectable ol-control"
+                style="pointer-events: auto;"
+              >
+                <button
+                  class="ol-zoom-in"
+                  title="Zoom in"
+                  type="button"
+                >
+                  +
+                </button>
+                <button
+                  class="ol-zoom-out"
+                  title="Zoom out"
+                  type="button"
+                >
+                  –
+                </button>
+              </div>,
+              "eventTarget_": undefined,
+              "listenerKeys": Array [
+                Object {
+                  "listener": [Function],
+                  "target": [Circular],
+                  "type": "postrender",
+                },
+              ],
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "3",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "target_": null,
+              "un": [Function],
+              "values_": null,
+            },
+            Rotate {
+              "autoHide_": true,
+              "callResetNorth_": undefined,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "element": <div
+                class="ol-rotate ol-unselectable ol-control ol-hidden"
+                style="pointer-events: auto;"
+              >
+                <button
+                  class="ol-rotate-reset"
+                  title="Reset rotation"
+                  type="button"
+                >
+                  <span
+                    class="ol-compass"
+                  >
+                    ⇧
+                  </span>
+                </button>
+              </div>,
+              "eventTarget_": undefined,
+              "label_": <span
+                class="ol-compass"
+              >
+                ⇧
+              </span>,
+              "listenerKeys": Array [
+                Object {
+                  "listener": [Function],
+                  "target": [Circular],
+                  "type": "postrender",
+                },
+              ],
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "4",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "rotation_": undefined,
+              "target_": null,
+              "un": [Function],
+              "values_": null,
+            },
+            Attribution {
+              "collapseLabel_": <span
+                class="ol-attribution-collapse"
+              >
+                ›
+              </span>,
+              "collapsed_": true,
+              "collapsible_": true,
+              "dispatching_": null,
+              "disposed": false,
+              "element": <div
+                class="ol-attribution ol-unselectable ol-control ol-collapsed"
+                style="pointer-events: auto;"
+              >
+                <button
+                  aria-expanded="false"
+                  title="Attributions"
+                  type="button"
+                >
+                  <span
+                    class="ol-attribution-expand"
+                  >
+                    i
+                  </span>
+                </button>
+                <ul />
+              </div>,
+              "eventTarget_": undefined,
+              "label_": <span
+                class="ol-attribution-expand"
+              >
+                i
+              </span>,
+              "listenerKeys": Array [
+                Object {
+                  "listener": [Function],
+                  "target": [Circular],
+                  "type": "postrender",
+                },
+              ],
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "5",
+              "on": [Function],
+              "once": [Function],
+              "overrideCollapsible_": false,
+              "pendingRemovals_": null,
+              "renderedAttributions_": Array [],
+              "renderedVisible_": true,
+              "revision_": 0,
+              "target_": null,
+              "toggleButton_": <button
+                aria-expanded="false"
+                title="Attributions"
+                type="button"
+              >
+                <span
+                  class="ol-attribution-expand"
+                >
+                  i
+                </span>
+              </button>,
+              "ulElement_": <ul />,
+              "un": [Function],
+              "userCollapsed_": true,
+              "values_": null,
+            },
+          ],
+          "dispatching_": null,
+          "disposed": false,
+          "eventTarget_": undefined,
+          "listeners_": Object {
+            "add": Array [
+              [Function],
+            ],
+            "remove": Array [
+              [Function],
+            ],
+          },
+          "ol_uid": "2",
+          "on": [Function],
+          "once": [Function],
+          "pendingRemovals_": null,
+          "revision_": 0,
+          "un": [Function],
+          "unique_": false,
+          "values_": Object {
+            "length": 3,
+          },
+        },
+        "coordinateToPixelTransform_": Array [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+        ],
+        "dispatching_": Object {},
+        "disposed": false,
+        "eventTarget_": undefined,
+        "frameIndex_": 0,
+        "frameState_": null,
+        "interactions": Collection {
+          "array_": Array [
+            DragRotate {
+              "condition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "lastAngle_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "7",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            DoubleClickZoom {
+              "delta_": 1,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "8",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            DragPan {
+              "condition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "kinetic_": Kinetic {
+                "angle_": 0,
+                "decay_": -0.005,
+                "delay_": 100,
+                "initialVelocity_": 0,
+                "minVelocity_": 0.05,
+                "points_": Array [],
+              },
+              "lastCentroid": null,
+              "listeners_": null,
+              "map_": [Circular],
+              "noKinetic_": false,
+              "ol_uid": "9",
+              "on": [Function],
+              "once": [Function],
+              "panning_": false,
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            PinchRotate {
+              "anchor_": null,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "lastAngle_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "10",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "rotating_": false,
+              "rotationDelta_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "threshold_": 0.3,
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            PinchZoom {
+              "anchor_": null,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 400,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "lastDistance_": undefined,
+              "lastScaleDelta_": 1,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "11",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            KeyboardPan {
+              "condition_": [Function],
+              "defaultCondition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 100,
+              "eventTarget_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "12",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "pixelDelta_": 128,
+              "revision_": 0,
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            KeyboardZoom {
+              "condition_": [Function],
+              "delta_": 1,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 100,
+              "eventTarget_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "13",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            MouseWheelZoom {
+              "condition_": [Function],
+              "constrainResolution_": false,
+              "deltaPerZoom_": 300,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "lastAnchor_": null,
+              "lastDelta_": 0,
+              "listeners_": null,
+              "map_": [Circular],
+              "maxDelta_": 1,
+              "mode_": undefined,
+              "ol_uid": "14",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "startTime_": undefined,
+              "timeout_": 80,
+              "totalDelta_": 0,
+              "trackpadEventGap_": 400,
+              "un": [Function],
+              "useAnchor_": true,
+              "values_": Object {
+                "active": true,
+              },
+            },
+            DragZoom {
+              "boxEndCondition_": [Function],
+              "box_": RenderBox {
+                "disposed": false,
+                "element_": <div
+                  class="ol-box ol-dragzoom"
+                  style="position: absolute; pointer-events: auto;"
+                />,
+                "endPixel_": null,
+                "geometry_": null,
+                "map_": null,
+                "startPixel_": null,
+              },
+              "condition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 200,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "listeners_": null,
+              "map_": [Circular],
+              "minArea_": 64,
+              "ol_uid": "15",
+              "on": [Function],
+              "once": [Function],
+              "out_": false,
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "startPixel_": null,
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+          ],
+          "dispatching_": null,
+          "disposed": false,
+          "eventTarget_": undefined,
+          "listeners_": Object {
+            "add": Array [
+              [Function],
+            ],
+            "remove": Array [
+              [Function],
+            ],
+          },
+          "ol_uid": "6",
+          "on": [Function],
+          "once": [Function],
+          "pendingRemovals_": null,
+          "revision_": 0,
+          "un": [Function],
+          "unique_": false,
+          "values_": Object {
+            "length": 9,
+          },
+        },
+        "keyboardEventTarget_": null,
+        "layerGroupPropertyListenerKeys_": Array [
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "propertychange",
+          },
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "change",
+          },
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "addlayer",
+          },
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "removelayer",
+          },
+        ],
+        "listeners_": Object {
+          "change:layergroup": Array [
+            [Function],
+          ],
+          "change:size": Array [
+            [Function],
+          ],
+          "change:target": Array [
+            [Function],
+          ],
+          "change:view": Array [
+            [Function],
+          ],
+          "postrender": Array [
+            [Function],
+            [Function],
+            [Function],
+            [Function],
+          ],
+        },
+        "mapBrowserEventHandler_": null,
+        "maxTilesLoading_": 16,
+        "moveTolerance_": undefined,
+        "ol_uid": "16",
+        "on": [Function],
+        "once": [Function],
+        "overlayContainerStopEvent_": <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; pointer-events: auto; display: none;"
+          >
+            <div
+              class="oereb-client-overlay"
+            >
+              <div
+                class="loader"
+              >
+                <div
+                  class="spinner-grow"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              –
+            </button>
+          </div>
+          <div
+            class="ol-rotate ol-unselectable ol-control ol-hidden"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="ol-rotate-reset"
+              title="Reset rotation"
+              type="button"
+            >
+              <span
+                class="ol-compass"
+              >
+                ⇧
+              </span>
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-collapsed"
+            style="pointer-events: auto;"
+          >
+            <button
+              aria-expanded="false"
+              title="Attributions"
+              type="button"
+            >
+              <span
+                class="ol-attribution-expand"
+              >
+                i
+              </span>
+            </button>
+            <ul />
+          </div>
+        </div>,
+        "overlayContainer_": <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        />,
+        "overlayIdIndex_": Object {},
+        "overlays_": Collection {
+          "array_": Array [
+            Overlay {
+              "autoPan": Object {
+                "animation": true,
+                "margin": 0,
+              },
+              "dispatching_": Object {},
+              "disposed": false,
+              "element": <div
+                class="ol-overlay-container ol-selectable"
+                style="position: absolute; pointer-events: auto; display: none;"
+              >
+                <div
+                  class="oereb-client-overlay"
+                >
+                  <div
+                    class="loader"
+                  >
+                    <div
+                      class="spinner-grow"
+                    />
+                  </div>
+                </div>
+              </div>,
+              "eventTarget_": undefined,
+              "id": undefined,
+              "insertFirst": true,
+              "listeners_": Object {
+                "change:element": Array [
+                  [Function],
+                ],
+                "change:map": Array [
+                  [Function],
+                ],
+                "change:offset": Array [
+                  [Function],
+                ],
+                "change:position": Array [
+                  [Function],
+                ],
+                "change:positioning": Array [
+                  [Function],
+                ],
+              },
+              "mapPostrenderListenerKey": Object {
+                "listener": [Function],
+                "target": [Circular],
+                "type": "postrender",
+              },
+              "ol_uid": "21",
+              "on": [Function],
+              "once": [Function],
+              "options": Object {
+                "autoPan": Object {
+                  "animation": true,
+                  "margin": 0,
+                },
+                "offset": Array [
+                  -17,
+                  -17,
+                ],
+              },
+              "pendingRemovals_": Object {},
+              "rendered": Object {
+                "transform_": "",
+                "visible": false,
+              },
+              "revision_": 0,
+              "stopEvent": true,
+              "un": [Function],
+              "values_": Object {
+                "element": <div
+                  class="oereb-client-overlay"
+                >
+                  <div
+                    class="loader"
+                  >
+                    <div
+                      class="spinner-grow"
+                    />
+                  </div>
+                </div>,
+                "map": [Circular],
+                "offset": Array [
+                  -17,
+                  -17,
+                ],
+                "position": Array [
+                  0,
+                  0,
+                ],
+                "positioning": "top-left",
+              },
+            },
+          ],
+          "dispatching_": Object {},
+          "disposed": false,
+          "eventTarget_": undefined,
+          "listeners_": Object {
+            "add": Array [
+              [Function],
+            ],
+            "remove": Array [
+              [Function],
+            ],
+          },
+          "ol_uid": "20",
+          "on": [Function],
+          "once": [Function],
+          "pendingRemovals_": Object {},
+          "revision_": 0,
+          "un": [Function],
+          "unique_": false,
+          "values_": Object {
+            "length": 1,
+          },
+        },
+        "pendingRemovals_": Object {},
+        "pixelRatio_": 1,
+        "pixelToCoordinateTransform_": Array [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+        ],
+        "postRenderFunctions_": Array [],
+        "previousExtent_": null,
+        "renderer_": null,
+        "revision_": 0,
+        "targetChangeHandlerKeys_": null,
+        "tileQueue_": TileQueue {
+          "boundHandleTileChange_": [Function],
+          "elements_": Array [],
+          "keyFunction_": [Function],
+          "priorities_": Array [],
+          "priorityFunction_": [Function],
+          "queuedElements_": Object {},
+          "tileChangeCallback_": [Function],
+          "tilesLoadingKeys_": Object {},
+          "tilesLoading_": 0,
+        },
+        "un": [Function],
+        "values_": Object {
+          "layergroup": LayerGroup {
+            "background_": undefined,
+            "className_": "ol-layer",
+            "dispatching_": Object {},
+            "disposed": false,
+            "eventTarget_": undefined,
+            "layersListenerKeys_": Array [
+              Object {
+                "listener": [Function],
+                "target": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "type": "add",
+              },
+              Object {
+                "listener": [Function],
+                "target": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "type": "remove",
+              },
+            ],
+            "listenerKeys_": Object {},
+            "listeners_": Object {
+              "addlayer": Array [
+                [Function],
+              ],
+              "change": Array [
+                [Function],
+              ],
+              "change:layers": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+              "removelayer": Array [
+                [Function],
+              ],
+            },
+            "ol_uid": "17",
+            "on": [Function],
+            "once": [Function],
+            "pendingRemovals_": Object {},
+            "revision_": 1,
+            "state_": null,
+            "un": [Function],
+            "values_": Object {
+              "layers": Collection {
+                "array_": Array [],
+                "dispatching_": null,
+                "disposed": false,
+                "eventTarget_": undefined,
+                "listeners_": Object {
+                  "add": Array [
+                    [Function],
+                  ],
+                  "remove": Array [
+                    [Function],
+                  ],
+                },
+                "ol_uid": "18",
+                "on": [Function],
+                "once": [Function],
+                "pendingRemovals_": null,
+                "revision_": 0,
+                "un": [Function],
+                "unique_": true,
+                "values_": Object {
+                  "length": 0,
+                },
+              },
+              "maxResolution": Infinity,
+              "maxZoom": Infinity,
+              "minResolution": 0,
+              "minZoom": -Infinity,
+              "opacity": 1,
+              "visible": true,
+              "zIndex": undefined,
+            },
+          },
+          "target": undefined,
+          "view": View {
+            "animations_": Array [],
+            "cancelAnchor_": undefined,
+            "constraints_": Object {
+              "center": [Function],
+              "resolution": [Function],
+              "rotation": [Function],
+            },
+            "dispatching_": null,
+            "disposed": false,
+            "eventTarget_": undefined,
+            "hints_": Array [
+              0,
+              0,
+            ],
+            "listeners_": Object {
+              "change": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+            },
+            "maxResolution_": 156543.03392804097,
+            "minResolution_": 0.0005831682455839253,
+            "minZoom_": 0,
+            "nextCenter_": null,
+            "ol_uid": "19",
+            "on": [Function],
+            "once": [Function],
+            "padding_": undefined,
+            "pendingRemovals_": null,
+            "projection_": EPSG3857Projection {
+              "axisOrientation_": "enu",
+              "canWrapX_": true,
+              "code_": "EPSG:3857",
+              "defaultTileGrid_": null,
+              "extent_": Array [
+                -20037508.342789244,
+                -20037508.342789244,
+                20037508.342789244,
+                20037508.342789244,
+              ],
+              "getPointResolutionFunc_": [Function],
+              "global_": true,
+              "metersPerUnit_": undefined,
+              "units_": "m",
+              "worldExtent_": Array [
+                -180,
+                -85,
+                180,
+                85,
+              ],
+            },
+            "resolutions_": undefined,
+            "revision_": 0,
+            "targetCenter_": undefined,
+            "targetResolution_": undefined,
+            "targetRotation_": 0,
+            "un": [Function],
+            "values_": Object {
+              "center": undefined,
+              "rotation": 0,
+            },
+            "viewportSize_": Array [
+              100,
+              100,
+            ],
+            "zoomFactor_": 2,
+          },
+        },
+        "viewChangeListenerKey_": Object {
+          "listener": [Function],
+          "target": View {
+            "animations_": Array [],
+            "cancelAnchor_": undefined,
+            "constraints_": Object {
+              "center": [Function],
+              "resolution": [Function],
+              "rotation": [Function],
+            },
+            "dispatching_": null,
+            "disposed": false,
+            "eventTarget_": undefined,
+            "hints_": Array [
+              0,
+              0,
+            ],
+            "listeners_": Object {
+              "change": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+            },
+            "maxResolution_": 156543.03392804097,
+            "minResolution_": 0.0005831682455839253,
+            "minZoom_": 0,
+            "nextCenter_": null,
+            "ol_uid": "19",
+            "on": [Function],
+            "once": [Function],
+            "padding_": undefined,
+            "pendingRemovals_": null,
+            "projection_": EPSG3857Projection {
+              "axisOrientation_": "enu",
+              "canWrapX_": true,
+              "code_": "EPSG:3857",
+              "defaultTileGrid_": null,
+              "extent_": Array [
+                -20037508.342789244,
+                -20037508.342789244,
+                20037508.342789244,
+                20037508.342789244,
+              ],
+              "getPointResolutionFunc_": [Function],
+              "global_": true,
+              "metersPerUnit_": undefined,
+              "units_": "m",
+              "worldExtent_": Array [
+                -180,
+                -85,
+                180,
+                85,
+              ],
+            },
+            "resolutions_": undefined,
+            "revision_": 0,
+            "targetCenter_": undefined,
+            "targetResolution_": undefined,
+            "targetRotation_": 0,
+            "un": [Function],
+            "values_": Object {
+              "center": undefined,
+              "rotation": 0,
+            },
+            "viewportSize_": Array [
+              100,
+              100,
+            ],
+            "zoomFactor_": 2,
+          },
+          "type": "change",
+        },
+        "viewPropertyListenerKey_": Object {
+          "listener": [Function],
+          "target": View {
+            "animations_": Array [],
+            "cancelAnchor_": undefined,
+            "constraints_": Object {
+              "center": [Function],
+              "resolution": [Function],
+              "rotation": [Function],
+            },
+            "dispatching_": null,
+            "disposed": false,
+            "eventTarget_": undefined,
+            "hints_": Array [
+              0,
+              0,
+            ],
+            "listeners_": Object {
+              "change": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+            },
+            "maxResolution_": 156543.03392804097,
+            "minResolution_": 0.0005831682455839253,
+            "minZoom_": 0,
+            "nextCenter_": null,
+            "ol_uid": "19",
+            "on": [Function],
+            "once": [Function],
+            "padding_": undefined,
+            "pendingRemovals_": null,
+            "projection_": EPSG3857Projection {
+              "axisOrientation_": "enu",
+              "canWrapX_": true,
+              "code_": "EPSG:3857",
+              "defaultTileGrid_": null,
+              "extent_": Array [
+                -20037508.342789244,
+                -20037508.342789244,
+                20037508.342789244,
+                20037508.342789244,
+              ],
+              "getPointResolutionFunc_": [Function],
+              "global_": true,
+              "metersPerUnit_": undefined,
+              "units_": "m",
+              "worldExtent_": Array [
+                -180,
+                -85,
+                180,
+                85,
+              ],
+            },
+            "resolutions_": undefined,
+            "revision_": 0,
+            "targetCenter_": undefined,
+            "targetResolution_": undefined,
+            "targetRotation_": 0,
+            "un": [Function],
+            "values_": Object {
+              "center": undefined,
+              "rotation": 0,
+            },
+            "viewportSize_": Array [
+              100,
+              100,
+            ],
+            "zoomFactor_": 2,
+          },
+          "type": "propertychange",
+        },
+        "viewport_": <div
+          class="ol-viewport"
+          style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlaycontainer"
+            style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+          />
+          <div
+            class="ol-overlaycontainer-stopevent"
+            style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+          >
+            <div
+              class="ol-overlay-container ol-selectable"
+              style="position: absolute; pointer-events: auto; display: none;"
+            >
+              <div
+                class="oereb-client-overlay"
+              >
+                <div
+                  class="loader"
+                >
+                  <div
+                    class="spinner-grow"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="ol-zoom ol-unselectable ol-control"
+              style="pointer-events: auto;"
+            >
+              <button
+                class="ol-zoom-in"
+                title="Zoom in"
+                type="button"
+              >
+                +
+              </button>
+              <button
+                class="ol-zoom-out"
+                title="Zoom out"
+                type="button"
+              >
+                –
+              </button>
+            </div>
+            <div
+              class="ol-rotate ol-unselectable ol-control ol-hidden"
+              style="pointer-events: auto;"
+            >
+              <button
+                class="ol-rotate-reset"
+                title="Reset rotation"
+                type="button"
+              >
+                <span
+                  class="ol-compass"
+                >
+                  ⇧
+                </span>
+              </button>
+            </div>
+            <div
+              class="ol-attribution ol-unselectable ol-control ol-collapsed"
+              style="pointer-events: auto;"
+            >
+              <button
+                aria-expanded="false"
+                title="Attributions"
+                type="button"
+              >
+                <span
+                  class="ol-attribution-expand"
+                >
+                  i
+                </span>
+              </button>
+              <ul />
+            </div>
+          </div>
+        </div>,
+      }
+    }
+  >
+    <div
+      className="oereb-client-overlay"
+    />
+  </OerebMapQuery>
+</Provider>
+`;
+
+exports[`map query component should render map query 3`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebMapQuery
+    map={
+      Map {
+        "animationDelay_": [Function],
+        "boundHandleBrowserEvent_": [Function],
+        "controls": Collection {
+          "array_": Array [
+            Zoom {
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "element": <div
+                class="ol-zoom ol-unselectable ol-control"
+                style="pointer-events: auto;"
+              >
+                <button
+                  class="ol-zoom-in"
+                  title="Zoom in"
+                  type="button"
+                >
+                  +
+                </button>
+                <button
+                  class="ol-zoom-out"
+                  title="Zoom out"
+                  type="button"
+                >
+                  –
+                </button>
+              </div>,
+              "eventTarget_": undefined,
+              "listenerKeys": Array [
+                Object {
+                  "listener": [Function],
+                  "target": [Circular],
+                  "type": "postrender",
+                },
+              ],
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "3",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "target_": null,
+              "un": [Function],
+              "values_": null,
+            },
+            Rotate {
+              "autoHide_": true,
+              "callResetNorth_": undefined,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "element": <div
+                class="ol-rotate ol-unselectable ol-control ol-hidden"
+                style="pointer-events: auto;"
+              >
+                <button
+                  class="ol-rotate-reset"
+                  title="Reset rotation"
+                  type="button"
+                >
+                  <span
+                    class="ol-compass"
+                  >
+                    ⇧
+                  </span>
+                </button>
+              </div>,
+              "eventTarget_": undefined,
+              "label_": <span
+                class="ol-compass"
+              >
+                ⇧
+              </span>,
+              "listenerKeys": Array [
+                Object {
+                  "listener": [Function],
+                  "target": [Circular],
+                  "type": "postrender",
+                },
+              ],
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "4",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "rotation_": undefined,
+              "target_": null,
+              "un": [Function],
+              "values_": null,
+            },
+            Attribution {
+              "collapseLabel_": <span
+                class="ol-attribution-collapse"
+              >
+                ›
+              </span>,
+              "collapsed_": true,
+              "collapsible_": true,
+              "dispatching_": null,
+              "disposed": false,
+              "element": <div
+                class="ol-attribution ol-unselectable ol-control ol-collapsed"
+                style="pointer-events: auto;"
+              >
+                <button
+                  aria-expanded="false"
+                  title="Attributions"
+                  type="button"
+                >
+                  <span
+                    class="ol-attribution-expand"
+                  >
+                    i
+                  </span>
+                </button>
+                <ul />
+              </div>,
+              "eventTarget_": undefined,
+              "label_": <span
+                class="ol-attribution-expand"
+              >
+                i
+              </span>,
+              "listenerKeys": Array [
+                Object {
+                  "listener": [Function],
+                  "target": [Circular],
+                  "type": "postrender",
+                },
+              ],
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "5",
+              "on": [Function],
+              "once": [Function],
+              "overrideCollapsible_": false,
+              "pendingRemovals_": null,
+              "renderedAttributions_": Array [],
+              "renderedVisible_": true,
+              "revision_": 0,
+              "target_": null,
+              "toggleButton_": <button
+                aria-expanded="false"
+                title="Attributions"
+                type="button"
+              >
+                <span
+                  class="ol-attribution-expand"
+                >
+                  i
+                </span>
+              </button>,
+              "ulElement_": <ul />,
+              "un": [Function],
+              "userCollapsed_": true,
+              "values_": null,
+            },
+          ],
+          "dispatching_": null,
+          "disposed": false,
+          "eventTarget_": undefined,
+          "listeners_": Object {
+            "add": Array [
+              [Function],
+            ],
+            "remove": Array [
+              [Function],
+            ],
+          },
+          "ol_uid": "2",
+          "on": [Function],
+          "once": [Function],
+          "pendingRemovals_": null,
+          "revision_": 0,
+          "un": [Function],
+          "unique_": false,
+          "values_": Object {
+            "length": 3,
+          },
+        },
+        "coordinateToPixelTransform_": Array [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+        ],
+        "dispatching_": Object {},
+        "disposed": false,
+        "eventTarget_": undefined,
+        "frameIndex_": 0,
+        "frameState_": null,
+        "interactions": Collection {
+          "array_": Array [
+            DragRotate {
+              "condition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "lastAngle_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "7",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            DoubleClickZoom {
+              "delta_": 1,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "8",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            DragPan {
+              "condition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "kinetic_": Kinetic {
+                "angle_": 0,
+                "decay_": -0.005,
+                "delay_": 100,
+                "initialVelocity_": 0,
+                "minVelocity_": 0.05,
+                "points_": Array [],
+              },
+              "lastCentroid": null,
+              "listeners_": null,
+              "map_": [Circular],
+              "noKinetic_": false,
+              "ol_uid": "9",
+              "on": [Function],
+              "once": [Function],
+              "panning_": false,
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            PinchRotate {
+              "anchor_": null,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "lastAngle_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "10",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "rotating_": false,
+              "rotationDelta_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "threshold_": 0.3,
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            PinchZoom {
+              "anchor_": null,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 400,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "lastDistance_": undefined,
+              "lastScaleDelta_": 1,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "11",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "stopDown": [Function],
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            KeyboardPan {
+              "condition_": [Function],
+              "defaultCondition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 100,
+              "eventTarget_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "12",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "pixelDelta_": 128,
+              "revision_": 0,
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            KeyboardZoom {
+              "condition_": [Function],
+              "delta_": 1,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 100,
+              "eventTarget_": undefined,
+              "listeners_": null,
+              "map_": [Circular],
+              "ol_uid": "13",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+            MouseWheelZoom {
+              "condition_": [Function],
+              "constrainResolution_": false,
+              "deltaPerZoom_": 300,
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 250,
+              "eventTarget_": undefined,
+              "lastAnchor_": null,
+              "lastDelta_": 0,
+              "listeners_": null,
+              "map_": [Circular],
+              "maxDelta_": 1,
+              "mode_": undefined,
+              "ol_uid": "14",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "startTime_": undefined,
+              "timeout_": 80,
+              "totalDelta_": 0,
+              "trackpadEventGap_": 400,
+              "un": [Function],
+              "useAnchor_": true,
+              "values_": Object {
+                "active": true,
+              },
+            },
+            DragZoom {
+              "boxEndCondition_": [Function],
+              "box_": RenderBox {
+                "disposed": false,
+                "element_": <div
+                  class="ol-box ol-dragzoom"
+                  style="position: absolute; pointer-events: auto;"
+                />,
+                "endPixel_": null,
+                "geometry_": null,
+                "map_": null,
+                "startPixel_": null,
+              },
+              "condition_": [Function],
+              "dispatching_": null,
+              "disposed": false,
+              "duration_": 200,
+              "eventTarget_": undefined,
+              "handlingDownUpSequence": false,
+              "listeners_": null,
+              "map_": [Circular],
+              "minArea_": 64,
+              "ol_uid": "15",
+              "on": [Function],
+              "once": [Function],
+              "out_": false,
+              "pendingRemovals_": null,
+              "revision_": 0,
+              "startPixel_": null,
+              "targetPointers": Array [],
+              "trackedPointers_": Object {},
+              "un": [Function],
+              "values_": Object {
+                "active": true,
+              },
+            },
+          ],
+          "dispatching_": null,
+          "disposed": false,
+          "eventTarget_": undefined,
+          "listeners_": Object {
+            "add": Array [
+              [Function],
+            ],
+            "remove": Array [
+              [Function],
+            ],
+          },
+          "ol_uid": "6",
+          "on": [Function],
+          "once": [Function],
+          "pendingRemovals_": null,
+          "revision_": 0,
+          "un": [Function],
+          "unique_": false,
+          "values_": Object {
+            "length": 9,
+          },
+        },
+        "keyboardEventTarget_": null,
+        "layerGroupPropertyListenerKeys_": Array [
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "propertychange",
+          },
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "change",
+          },
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "addlayer",
+          },
+          Object {
+            "listener": [Function],
+            "target": LayerGroup {
+              "background_": undefined,
+              "className_": "ol-layer",
+              "dispatching_": Object {},
+              "disposed": false,
+              "eventTarget_": undefined,
+              "layersListenerKeys_": Array [
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "add",
+                },
+                Object {
+                  "listener": [Function],
+                  "target": Collection {
+                    "array_": Array [],
+                    "dispatching_": null,
+                    "disposed": false,
+                    "eventTarget_": undefined,
+                    "listeners_": Object {
+                      "add": Array [
+                        [Function],
+                      ],
+                      "remove": Array [
+                        [Function],
+                      ],
+                    },
+                    "ol_uid": "18",
+                    "on": [Function],
+                    "once": [Function],
+                    "pendingRemovals_": null,
+                    "revision_": 0,
+                    "un": [Function],
+                    "unique_": true,
+                    "values_": Object {
+                      "length": 0,
+                    },
+                  },
+                  "type": "remove",
+                },
+              ],
+              "listenerKeys_": Object {},
+              "listeners_": Object {
+                "addlayer": Array [
+                  [Function],
+                ],
+                "change": Array [
+                  [Function],
+                ],
+                "change:layers": Array [
+                  [Function],
+                ],
+                "propertychange": Array [
+                  [Function],
+                ],
+                "removelayer": Array [
+                  [Function],
+                ],
+              },
+              "ol_uid": "17",
+              "on": [Function],
+              "once": [Function],
+              "pendingRemovals_": Object {},
+              "revision_": 1,
+              "state_": null,
+              "un": [Function],
+              "values_": Object {
+                "layers": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "maxResolution": Infinity,
+                "maxZoom": Infinity,
+                "minResolution": 0,
+                "minZoom": -Infinity,
+                "opacity": 1,
+                "visible": true,
+                "zIndex": undefined,
+              },
+            },
+            "type": "removelayer",
+          },
+        ],
+        "listeners_": Object {
+          "change:layergroup": Array [
+            [Function],
+          ],
+          "change:size": Array [
+            [Function],
+          ],
+          "change:target": Array [
+            [Function],
+          ],
+          "change:view": Array [
+            [Function],
+          ],
+          "postrender": Array [
+            [Function],
+            [Function],
+            [Function],
+            [Function],
+          ],
+        },
+        "mapBrowserEventHandler_": null,
+        "maxTilesLoading_": 16,
+        "moveTolerance_": undefined,
+        "ol_uid": "16",
+        "on": [Function],
+        "once": [Function],
+        "overlayContainerStopEvent_": <div
+          class="ol-overlaycontainer-stopevent"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        >
+          <div
+            class="ol-overlay-container ol-selectable"
+            style="position: absolute; pointer-events: auto; display: none;"
+          >
+            <div
+              class="oereb-client-overlay"
+            >
+              <div
+                class="results"
+              >
+                <div
+                  class="background-icon"
+                />
+                <div
+                  class="content list-group"
+                >
+                  <button
+                    class="list-group-item list-group-item-action text-end"
+                    type="button"
+                  >
+                    <strong
+                      class="bi bi-x"
+                    />
+                  </button>
+                  <button
+                    class="list-group-item list-group-item-action"
+                    type="button"
+                  >
+                    <small>
+                      map_query.result.text
+                       
+                      0815
+                    </small>
+                  </button>
+                  <button
+                    class="list-group-item list-group-item-action"
+                    type="button"
+                  >
+                    <small>
+                      map_query.result.text
+                       
+                      1234
+                    </small>
+                  </button>
+                </div>
+                <div
+                  class="icon"
+                >
+                  <div
+                    class="icon-outer"
+                  >
+                    <div
+                      class="icon-inner"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ol-zoom ol-unselectable ol-control"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="ol-zoom-in"
+              title="Zoom in"
+              type="button"
+            >
+              +
+            </button>
+            <button
+              class="ol-zoom-out"
+              title="Zoom out"
+              type="button"
+            >
+              –
+            </button>
+          </div>
+          <div
+            class="ol-rotate ol-unselectable ol-control ol-hidden"
+            style="pointer-events: auto;"
+          >
+            <button
+              class="ol-rotate-reset"
+              title="Reset rotation"
+              type="button"
+            >
+              <span
+                class="ol-compass"
+              >
+                ⇧
+              </span>
+            </button>
+          </div>
+          <div
+            class="ol-attribution ol-unselectable ol-control ol-collapsed"
+            style="pointer-events: auto;"
+          >
+            <button
+              aria-expanded="false"
+              title="Attributions"
+              type="button"
+            >
+              <span
+                class="ol-attribution-expand"
+              >
+                i
+              </span>
+            </button>
+            <ul />
+          </div>
+        </div>,
+        "overlayContainer_": <div
+          class="ol-overlaycontainer"
+          style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+        />,
+        "overlayIdIndex_": Object {},
+        "overlays_": Collection {
+          "array_": Array [
+            Overlay {
+              "autoPan": Object {
+                "animation": true,
+                "margin": 0,
+              },
+              "dispatching_": Object {},
+              "disposed": false,
+              "element": <div
+                class="ol-overlay-container ol-selectable"
+                style="position: absolute; pointer-events: auto; display: none;"
+              >
+                <div
+                  class="oereb-client-overlay"
+                >
+                  <div
+                    class="results"
+                  >
+                    <div
+                      class="background-icon"
+                    />
+                    <div
+                      class="content list-group"
+                    >
+                      <button
+                        class="list-group-item list-group-item-action text-end"
+                        type="button"
+                      >
+                        <strong
+                          class="bi bi-x"
+                        />
+                      </button>
+                      <button
+                        class="list-group-item list-group-item-action"
+                        type="button"
+                      >
+                        <small>
+                          map_query.result.text
+                           
+                          0815
+                        </small>
+                      </button>
+                      <button
+                        class="list-group-item list-group-item-action"
+                        type="button"
+                      >
+                        <small>
+                          map_query.result.text
+                           
+                          1234
+                        </small>
+                      </button>
+                    </div>
+                    <div
+                      class="icon"
+                    >
+                      <div
+                        class="icon-outer"
+                      >
+                        <div
+                          class="icon-inner"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>,
+              "eventTarget_": undefined,
+              "id": undefined,
+              "insertFirst": true,
+              "listeners_": Object {
+                "change:element": Array [
+                  [Function],
+                ],
+                "change:map": Array [
+                  [Function],
+                ],
+                "change:offset": Array [
+                  [Function],
+                ],
+                "change:position": Array [
+                  [Function],
+                ],
+                "change:positioning": Array [
+                  [Function],
+                ],
+              },
+              "mapPostrenderListenerKey": Object {
+                "listener": [Function],
+                "target": [Circular],
+                "type": "postrender",
+              },
+              "ol_uid": "21",
+              "on": [Function],
+              "once": [Function],
+              "options": Object {
+                "autoPan": Object {
+                  "animation": true,
+                  "margin": 0,
+                },
+                "offset": Array [
+                  -17,
+                  -17,
+                ],
+              },
+              "pendingRemovals_": Object {},
+              "rendered": Object {
+                "transform_": "",
+                "visible": false,
+              },
+              "revision_": 0,
+              "stopEvent": true,
+              "un": [Function],
+              "values_": Object {
+                "element": <div
+                  class="oereb-client-overlay"
+                >
+                  <div
+                    class="results"
+                  >
+                    <div
+                      class="background-icon"
+                    />
+                    <div
+                      class="content list-group"
+                    >
+                      <button
+                        class="list-group-item list-group-item-action text-end"
+                        type="button"
+                      >
+                        <strong
+                          class="bi bi-x"
+                        />
+                      </button>
+                      <button
+                        class="list-group-item list-group-item-action"
+                        type="button"
+                      >
+                        <small>
+                          map_query.result.text
+                           
+                          0815
+                        </small>
+                      </button>
+                      <button
+                        class="list-group-item list-group-item-action"
+                        type="button"
+                      >
+                        <small>
+                          map_query.result.text
+                           
+                          1234
+                        </small>
+                      </button>
+                    </div>
+                    <div
+                      class="icon"
+                    >
+                      <div
+                        class="icon-outer"
+                      >
+                        <div
+                          class="icon-inner"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>,
+                "map": [Circular],
+                "offset": Array [
+                  -17,
+                  -17,
+                ],
+                "position": Array [
+                  0,
+                  0,
+                ],
+                "positioning": "top-left",
+              },
+            },
+          ],
+          "dispatching_": Object {},
+          "disposed": false,
+          "eventTarget_": undefined,
+          "listeners_": Object {
+            "add": Array [
+              [Function],
+            ],
+            "remove": Array [
+              [Function],
+            ],
+          },
+          "ol_uid": "20",
+          "on": [Function],
+          "once": [Function],
+          "pendingRemovals_": Object {},
+          "revision_": 0,
+          "un": [Function],
+          "unique_": false,
+          "values_": Object {
+            "length": 1,
+          },
+        },
+        "pendingRemovals_": Object {},
+        "pixelRatio_": 1,
+        "pixelToCoordinateTransform_": Array [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+        ],
+        "postRenderFunctions_": Array [],
+        "previousExtent_": null,
+        "renderer_": null,
+        "revision_": 0,
+        "targetChangeHandlerKeys_": null,
+        "tileQueue_": TileQueue {
+          "boundHandleTileChange_": [Function],
+          "elements_": Array [],
+          "keyFunction_": [Function],
+          "priorities_": Array [],
+          "priorityFunction_": [Function],
+          "queuedElements_": Object {},
+          "tileChangeCallback_": [Function],
+          "tilesLoadingKeys_": Object {},
+          "tilesLoading_": 0,
+        },
+        "un": [Function],
+        "values_": Object {
+          "layergroup": LayerGroup {
+            "background_": undefined,
+            "className_": "ol-layer",
+            "dispatching_": Object {},
+            "disposed": false,
+            "eventTarget_": undefined,
+            "layersListenerKeys_": Array [
+              Object {
+                "listener": [Function],
+                "target": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "type": "add",
+              },
+              Object {
+                "listener": [Function],
+                "target": Collection {
+                  "array_": Array [],
+                  "dispatching_": null,
+                  "disposed": false,
+                  "eventTarget_": undefined,
+                  "listeners_": Object {
+                    "add": Array [
+                      [Function],
+                    ],
+                    "remove": Array [
+                      [Function],
+                    ],
+                  },
+                  "ol_uid": "18",
+                  "on": [Function],
+                  "once": [Function],
+                  "pendingRemovals_": null,
+                  "revision_": 0,
+                  "un": [Function],
+                  "unique_": true,
+                  "values_": Object {
+                    "length": 0,
+                  },
+                },
+                "type": "remove",
+              },
+            ],
+            "listenerKeys_": Object {},
+            "listeners_": Object {
+              "addlayer": Array [
+                [Function],
+              ],
+              "change": Array [
+                [Function],
+              ],
+              "change:layers": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+              "removelayer": Array [
+                [Function],
+              ],
+            },
+            "ol_uid": "17",
+            "on": [Function],
+            "once": [Function],
+            "pendingRemovals_": Object {},
+            "revision_": 1,
+            "state_": null,
+            "un": [Function],
+            "values_": Object {
+              "layers": Collection {
+                "array_": Array [],
+                "dispatching_": null,
+                "disposed": false,
+                "eventTarget_": undefined,
+                "listeners_": Object {
+                  "add": Array [
+                    [Function],
+                  ],
+                  "remove": Array [
+                    [Function],
+                  ],
+                },
+                "ol_uid": "18",
+                "on": [Function],
+                "once": [Function],
+                "pendingRemovals_": null,
+                "revision_": 0,
+                "un": [Function],
+                "unique_": true,
+                "values_": Object {
+                  "length": 0,
+                },
+              },
+              "maxResolution": Infinity,
+              "maxZoom": Infinity,
+              "minResolution": 0,
+              "minZoom": -Infinity,
+              "opacity": 1,
+              "visible": true,
+              "zIndex": undefined,
+            },
+          },
+          "target": undefined,
+          "view": View {
+            "animations_": Array [],
+            "cancelAnchor_": undefined,
+            "constraints_": Object {
+              "center": [Function],
+              "resolution": [Function],
+              "rotation": [Function],
+            },
+            "dispatching_": null,
+            "disposed": false,
+            "eventTarget_": undefined,
+            "hints_": Array [
+              0,
+              0,
+            ],
+            "listeners_": Object {
+              "change": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+            },
+            "maxResolution_": 156543.03392804097,
+            "minResolution_": 0.0005831682455839253,
+            "minZoom_": 0,
+            "nextCenter_": null,
+            "ol_uid": "19",
+            "on": [Function],
+            "once": [Function],
+            "padding_": undefined,
+            "pendingRemovals_": null,
+            "projection_": EPSG3857Projection {
+              "axisOrientation_": "enu",
+              "canWrapX_": true,
+              "code_": "EPSG:3857",
+              "defaultTileGrid_": null,
+              "extent_": Array [
+                -20037508.342789244,
+                -20037508.342789244,
+                20037508.342789244,
+                20037508.342789244,
+              ],
+              "getPointResolutionFunc_": [Function],
+              "global_": true,
+              "metersPerUnit_": undefined,
+              "units_": "m",
+              "worldExtent_": Array [
+                -180,
+                -85,
+                180,
+                85,
+              ],
+            },
+            "resolutions_": undefined,
+            "revision_": 0,
+            "targetCenter_": undefined,
+            "targetResolution_": undefined,
+            "targetRotation_": 0,
+            "un": [Function],
+            "values_": Object {
+              "center": undefined,
+              "rotation": 0,
+            },
+            "viewportSize_": Array [
+              100,
+              100,
+            ],
+            "zoomFactor_": 2,
+          },
+        },
+        "viewChangeListenerKey_": Object {
+          "listener": [Function],
+          "target": View {
+            "animations_": Array [],
+            "cancelAnchor_": undefined,
+            "constraints_": Object {
+              "center": [Function],
+              "resolution": [Function],
+              "rotation": [Function],
+            },
+            "dispatching_": null,
+            "disposed": false,
+            "eventTarget_": undefined,
+            "hints_": Array [
+              0,
+              0,
+            ],
+            "listeners_": Object {
+              "change": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+            },
+            "maxResolution_": 156543.03392804097,
+            "minResolution_": 0.0005831682455839253,
+            "minZoom_": 0,
+            "nextCenter_": null,
+            "ol_uid": "19",
+            "on": [Function],
+            "once": [Function],
+            "padding_": undefined,
+            "pendingRemovals_": null,
+            "projection_": EPSG3857Projection {
+              "axisOrientation_": "enu",
+              "canWrapX_": true,
+              "code_": "EPSG:3857",
+              "defaultTileGrid_": null,
+              "extent_": Array [
+                -20037508.342789244,
+                -20037508.342789244,
+                20037508.342789244,
+                20037508.342789244,
+              ],
+              "getPointResolutionFunc_": [Function],
+              "global_": true,
+              "metersPerUnit_": undefined,
+              "units_": "m",
+              "worldExtent_": Array [
+                -180,
+                -85,
+                180,
+                85,
+              ],
+            },
+            "resolutions_": undefined,
+            "revision_": 0,
+            "targetCenter_": undefined,
+            "targetResolution_": undefined,
+            "targetRotation_": 0,
+            "un": [Function],
+            "values_": Object {
+              "center": undefined,
+              "rotation": 0,
+            },
+            "viewportSize_": Array [
+              100,
+              100,
+            ],
+            "zoomFactor_": 2,
+          },
+          "type": "change",
+        },
+        "viewPropertyListenerKey_": Object {
+          "listener": [Function],
+          "target": View {
+            "animations_": Array [],
+            "cancelAnchor_": undefined,
+            "constraints_": Object {
+              "center": [Function],
+              "resolution": [Function],
+              "rotation": [Function],
+            },
+            "dispatching_": null,
+            "disposed": false,
+            "eventTarget_": undefined,
+            "hints_": Array [
+              0,
+              0,
+            ],
+            "listeners_": Object {
+              "change": Array [
+                [Function],
+              ],
+              "propertychange": Array [
+                [Function],
+              ],
+            },
+            "maxResolution_": 156543.03392804097,
+            "minResolution_": 0.0005831682455839253,
+            "minZoom_": 0,
+            "nextCenter_": null,
+            "ol_uid": "19",
+            "on": [Function],
+            "once": [Function],
+            "padding_": undefined,
+            "pendingRemovals_": null,
+            "projection_": EPSG3857Projection {
+              "axisOrientation_": "enu",
+              "canWrapX_": true,
+              "code_": "EPSG:3857",
+              "defaultTileGrid_": null,
+              "extent_": Array [
+                -20037508.342789244,
+                -20037508.342789244,
+                20037508.342789244,
+                20037508.342789244,
+              ],
+              "getPointResolutionFunc_": [Function],
+              "global_": true,
+              "metersPerUnit_": undefined,
+              "units_": "m",
+              "worldExtent_": Array [
+                -180,
+                -85,
+                180,
+                85,
+              ],
+            },
+            "resolutions_": undefined,
+            "revision_": 0,
+            "targetCenter_": undefined,
+            "targetResolution_": undefined,
+            "targetRotation_": 0,
+            "un": [Function],
+            "values_": Object {
+              "center": undefined,
+              "rotation": 0,
+            },
+            "viewportSize_": Array [
+              100,
+              100,
+            ],
+            "zoomFactor_": 2,
+          },
+          "type": "propertychange",
+        },
+        "viewport_": <div
+          class="ol-viewport"
+          style="position: relative; overflow: hidden; width: 100%; height: 100%;"
+        >
+          <div
+            class="ol-overlaycontainer"
+            style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+          />
+          <div
+            class="ol-overlaycontainer-stopevent"
+            style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
+          >
+            <div
+              class="ol-overlay-container ol-selectable"
+              style="position: absolute; pointer-events: auto; display: none;"
+            >
+              <div
+                class="oereb-client-overlay"
+              >
+                <div
+                  class="results"
+                >
+                  <div
+                    class="background-icon"
+                  />
+                  <div
+                    class="content list-group"
+                  >
+                    <button
+                      class="list-group-item list-group-item-action text-end"
+                      type="button"
+                    >
+                      <strong
+                        class="bi bi-x"
+                      />
+                    </button>
+                    <button
+                      class="list-group-item list-group-item-action"
+                      type="button"
+                    >
+                      <small>
+                        map_query.result.text
+                         
+                        0815
+                      </small>
+                    </button>
+                    <button
+                      class="list-group-item list-group-item-action"
+                      type="button"
+                    >
+                      <small>
+                        map_query.result.text
+                         
+                        1234
+                      </small>
+                    </button>
+                  </div>
+                  <div
+                    class="icon"
+                  >
+                    <div
+                      class="icon-outer"
+                    >
+                      <div
+                        class="icon-inner"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ol-zoom ol-unselectable ol-control"
+              style="pointer-events: auto;"
+            >
+              <button
+                class="ol-zoom-in"
+                title="Zoom in"
+                type="button"
+              >
+                +
+              </button>
+              <button
+                class="ol-zoom-out"
+                title="Zoom out"
+                type="button"
+              >
+                –
+              </button>
+            </div>
+            <div
+              class="ol-rotate ol-unselectable ol-control ol-hidden"
+              style="pointer-events: auto;"
+            >
+              <button
+                class="ol-rotate-reset"
+                title="Reset rotation"
+                type="button"
+              >
+                <span
+                  class="ol-compass"
+                >
+                  ⇧
+                </span>
+              </button>
+            </div>
+            <div
+              class="ol-attribution ol-unselectable ol-control ol-collapsed"
+              style="pointer-events: auto;"
+            >
+              <button
+                aria-expanded="false"
+                title="Attributions"
+                type="button"
+              >
+                <span
+                  class="ol-attribution-expand"
+                >
+                  i
+                </span>
+              </button>
+              <ul />
+            </div>
+          </div>
+        </div>,
+      }
+    }
+  >
+    <div
+      className="oereb-client-overlay"
+    />
+  </OerebMapQuery>
+</Provider>
+`;
