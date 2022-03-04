@@ -121,9 +121,9 @@ describe('search', () => {
           value: '2600000 1200000'
         }
       });
-      await sleep(100);
+      await sleep(500);
+      component.update();
     });
-    component.update();
     expect(toJson(component)).toMatchSnapshot();
     expect(fetch.mock.calls).toHaveLength(1);
   });
@@ -136,9 +136,51 @@ describe('search', () => {
           value: '7.72867 47.48910'
         }
       });
-      await sleep(100);
+      await sleep(500);
+      component.update();
     });
-    component.update();
+    expect(toJson(component)).toMatchSnapshot();
+    expect(fetch.mock.calls).toHaveLength(1);
+  });
+
+  it('should show results', async () => {
+    fetch.mockResponseOnce(JSON.stringify([
+      {
+        title: 'Set 1',
+        results: [
+          {
+            label: 'Result 1',
+            coordinates: [0.0, 0.0]
+          },
+          {
+            label: 'Result 2',
+            coordinates: [1.0, 1.0]
+          }
+        ]
+      },
+      {
+        title: 'Set 2',
+        results: [
+          {
+            label: 'Result 3',
+            egrid: 'CH1234'
+          },
+          {
+            label: 'Result 4',
+            egrid: 'CH5678'
+          }
+        ]
+      }
+    ]));
+    await act(async () => {
+      component.find('input').simulate('change', {
+        target: {
+          value: 'abc'
+        }
+      });
+      await sleep(500);
+      component.update();
+    });
     expect(toJson(component)).toMatchSnapshot();
     expect(fetch.mock.calls).toHaveLength(1);
   });

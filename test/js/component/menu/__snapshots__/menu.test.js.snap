@@ -402,3 +402,192 @@ exports[`search should show LV95 coordinates 1`] = `
   </OerebMenu>
 </Provider>
 `;
+
+exports[`search should show results 1`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebMenu>
+    <div
+      className="oereb-client-menu d-flex flex-column pb-3"
+    >
+      <div
+        className="flex-grow-1 row justify-content-evenly"
+      >
+        <div
+          className="col"
+        >
+          <img
+            className="img-fluid p-2"
+            src="http://localhost:8080/samples/static/logo_oereb_de.png"
+          />
+        </div>
+        <div
+          className="col text-end"
+        >
+          <img
+            className="img-fluid p-2"
+            src="http://localhost:8080/samples/static/logo_bl.png"
+          />
+        </div>
+      </div>
+      <div
+        className="container-fluid"
+      >
+        <div
+          className="input-group"
+        >
+          <button
+            aria-expanded="false"
+            className="btn btn-outline-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            title="menu.settings.title"
+            type="button"
+          >
+            <i
+              className="bi bi-gear-fill"
+            />
+          </button>
+          <ul
+            className="dropdown-menu"
+          >
+            <li>
+              <button
+                className="dropdown-item"
+                onClick={[Function]}
+              >
+                <span>
+                  <i
+                    className="bi bi-check-square"
+                  />
+                   
+                  menu.settings.availability
+                </span>
+              </button>
+            </li>
+            <li>
+              <button
+                className="dropdown-item"
+                onClick={[Function]}
+              >
+                <span>
+                  <i
+                    className="bi bi-check-square"
+                  />
+                   
+                  menu.settings.symbol_zoom
+                </span>
+              </button>
+            </li>
+          </ul>
+          <button
+            aria-expanded="false"
+            className="btn btn-outline-secondary dropdown-toggle disabled"
+            data-bs-toggle="dropdown"
+            title="menu.history.title"
+            type="button"
+          >
+            <i
+              className="bi bi-clock-history"
+            />
+          </button>
+          <ul
+            className="dropdown-menu"
+          />
+          <input
+            className="form-control"
+            onChange={[Function]}
+            placeholder="menu.search.placeholder"
+            type="text"
+            value="abc"
+          />
+          <button
+            className="btn btn-outline-secondary"
+            onClick={[Function]}
+            title="menu.search.reset"
+            type="button"
+          >
+            <i
+              className="bi bi-trash"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        className="container-fluid"
+      >
+        <div
+          className="list-group result-list"
+          key="0"
+        >
+          <div
+            className="list-group-item"
+          >
+            <strong>
+              Set 1
+            </strong>
+            <span
+              className="badge bg-secondary float-end"
+            >
+              2
+            </span>
+          </div>
+          <button
+            className="list-group-item list-group-item-action search-result text-start"
+            key="0"
+            onClick={[Function]}
+          >
+            Result 1
+          </button>
+          <button
+            className="list-group-item list-group-item-action search-result text-start"
+            key="1"
+            onClick={[Function]}
+          >
+            Result 2
+          </button>
+        </div>
+        <div
+          className="list-group result-list"
+          key="1"
+        >
+          <div
+            className="list-group-item"
+          >
+            <strong>
+              Set 2
+            </strong>
+            <span
+              className="badge bg-secondary float-end"
+            >
+              2
+            </span>
+          </div>
+          <button
+            className="list-group-item list-group-item-action search-result text-start"
+            key="0"
+            onClick={[Function]}
+          >
+            Result 3
+          </button>
+          <button
+            className="list-group-item list-group-item-action search-result text-start"
+            key="1"
+            onClick={[Function]}
+          >
+            Result 4
+          </button>
+        </div>
+      </div>
+    </div>
+  </OerebMenu>
+</Provider>
+`;
