@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`static extract component should render static extract button 1`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebStaticExtract>
+    <button
+      className="btn btn-outline-secondary oereb-client-static-extract"
+      onClick={[Function]}
+      title="extract.static_extract.title"
+      type="button"
+    >
+      <i
+        className="bi bi-file-earmark-pdf"
+      />
+    </button>
+  </OerebStaticExtract>
+</Provider>
+`;
