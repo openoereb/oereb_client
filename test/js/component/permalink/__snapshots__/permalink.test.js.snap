@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`permalink component should render permalink modal 1`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebPermalink>
+    <button
+      className="btn btn-outline-secondary oereb-client-permalink"
+      onClick={[Function]}
+      title="extract.permalink.title"
+      type="button"
+    >
+      <i
+        className="bi bi-link-45deg"
+      />
+    </button>
+  </OerebPermalink>
+</Provider>
+`;
+
+exports[`permalink component should render permalink modal 2`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <OerebPermalink>
+    <button
+      className="btn btn-outline-secondary oereb-client-permalink"
+      onClick={[Function]}
+      title="extract.permalink.title"
+      type="button"
+    >
+      <i
+        className="bi bi-link-45deg"
+      />
+    </button>
+  </OerebPermalink>
+</Provider>
+`;
