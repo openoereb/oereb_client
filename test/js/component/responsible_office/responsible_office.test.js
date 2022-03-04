@@ -4,12 +4,14 @@ import React from "react";
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
-import OerebRealEstate from "../../../../oereb_client/static/src/component/real_estate/real_estate";
+import OerebResponsibleOffice from
+  "../../../../oereb_client/static/src/component/responsible_office/responsible_office";
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
+import {groupRestrictionsByTopic} from "../../../../oereb_client/static/src/request/extract";
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
 
-describe('real estate component', () => {
+describe('responsible office component', () => {
 
   let component;
 
@@ -20,14 +22,18 @@ describe('real estate component', () => {
         available: ['de']
       }));
     });
+    const restrictions = groupRestrictionsByTopic(
+      extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
+      extract.GetExtractByIdResponse.extract.ConcernedTheme
+    )['chStatischeWaldgrenzen']['inForce'];
     component = mount(
       <Provider store={MainStore}>
-        <OerebRealEstate data={extract.GetExtractByIdResponse.extract.RealEstate} />
+        <OerebResponsibleOffice restrictions={restrictions} />
       </Provider>
     );
   });
 
-  it('should render real estate', () => {
+  it('should render responsible office', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
 

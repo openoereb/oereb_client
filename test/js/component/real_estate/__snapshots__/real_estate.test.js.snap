@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`real estate component should render legend 1`] = `
+exports[`real estate component should render real estate 1`] = `
 <Provider
   store={
     Object {
