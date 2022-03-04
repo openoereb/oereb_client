@@ -38,10 +38,9 @@ describe('permalink component', () => {
         available: ['de']
       }));
     });
-    render(
-      modal,
-      document.body
-    );
+    const el = document.createElement('div');
+    document.body.append(el);
+    render(modal, el);
     component = mount(
       <Provider store={MainStore}>
         <OerebPermalink />
