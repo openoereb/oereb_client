@@ -10,6 +10,7 @@ def includeme(config):
     Args:
         config (pyramid.config.Configurator): The application's configuration object.
     """
+
     # Static views
     config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
 
