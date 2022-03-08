@@ -1,4 +1,4 @@
-"""OeREB Client Package"""
+"""OeREB Client Package."""
 # -*- coding: utf-8 -*-
 import os
 import logging
