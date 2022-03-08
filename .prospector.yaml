@@ -1,0 +1,4 @@
+pydocstyle:
+  disable:
+    - D202
+    - D212
