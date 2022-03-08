@@ -4,11 +4,11 @@ from oereb_client.views.search import Search
 
 
 def includeme(config):
-    """Route and view definitions used by this application.
+    """
+    Route and view definitions used by this application.
 
     Args:
         config (pyramid.config.Configurator): The application's configuration object.
-
     """
 
     # Static views

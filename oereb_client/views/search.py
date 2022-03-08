@@ -8,11 +8,11 @@ from oereb_client.views import get_localized_text
 
 class Search(object):
     def __init__(self, request):
-        """Entry point for search rendering.
+        """
+        Entry point for search rendering.
 
         Args:
             request (pyramid.request.Request): The request instance.
-
         """
         self.request_ = request
         self.config_ = request.registry.settings.get('oereb_client', {})
@@ -40,7 +40,6 @@ class Search(object):
 
         Returns:
             list of dict: The search results.
-
         """
         result_sets = []
         for i, req in enumerate(sorted(self.send_requests_(), key=lambda r: r.index)):
