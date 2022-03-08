@@ -1,4 +1,4 @@
-"""OeREB Client views"""
+"""OeREB Client views."""
 # -*- coding: utf-8 -*-
 
 

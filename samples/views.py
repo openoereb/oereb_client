@@ -8,8 +8,7 @@ from pyramid.httpexceptions import HTTPBadRequest, HTTPOk, HTTPServerError
 
 class Sample(object):
     def __init__(self, request):
-        """
-        Entry point for sample rendering.
+        """Entry point for sample rendering.
 
         Args:
             request (pyramid.request.Request): The request instance.
