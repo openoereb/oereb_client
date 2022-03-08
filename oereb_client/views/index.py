@@ -5,11 +5,11 @@ from oereb_client import __version__
 
 class Index(object):
     def __init__(self, request):
-        """Entry point for index rendering.
+        """
+        Entry point for index rendering.
 
         Args:
             request (pyramid.request.Request): The request instance.
-
         """
         self.request_ = request
         self.config_ = request.registry.settings.get('oereb_client', {})
@@ -64,7 +64,6 @@ class Index(object):
 
         Returns:
             bool: True if requested in debug mode.
-
         """
         local = self.request_.application_url.startswith('http://localhost')
         debug = self.request_.params.get('debug') == 'true'
@@ -76,7 +75,6 @@ class Index(object):
 
         Returns:
             str or None: The Google Analytics configuration.
-
         """
         return self.config_.get('google_analytics', None)
 
@@ -86,7 +84,6 @@ class Index(object):
 
         Returns:
             str or None: The URL of the custom CSS file.
-
         """
         return self.config_.get('custom_css_url', None)
 
@@ -96,7 +93,6 @@ class Index(object):
 
         Returns:
             dict: The application configuration.
-
         """
         cfg = self.config_.get('application', {})
 
@@ -157,7 +153,6 @@ class Index(object):
 
         Returns:
             str: The JSON-encoded configuration.
-
         """
         return {
             'test_instance_notice': self.config_.get('test_instance_notice', None),
@@ -198,7 +193,6 @@ class Index(object):
 
         Returns:
             dict: Dictionary with rendering parameters.
-
         """
         return {
             'debug': self.is_debug_(),

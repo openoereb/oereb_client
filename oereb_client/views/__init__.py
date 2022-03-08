@@ -1,6 +1,9 @@
+"""OeREB Client views"""
 # -*- coding: utf-8 -*-
 
+
 def get_localized_text(multilingual_text, language, default_language):
+    """Return localized text from multilingual element."""
     if not isinstance(multilingual_text, list):
         return multilingual_text
     text = None

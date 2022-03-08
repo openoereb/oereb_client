@@ -1,3 +1,4 @@
+"""OeREB Client Package"""
 # -*- coding: utf-8 -*-
 import os
 import logging
@@ -14,9 +15,11 @@ log = logging.getLogger('oereb_client')
 
 def main(global_config, **settings):  # pragma: no cover
     """
-    This function returns a Pyramid WSGI application. This is necessary for development of
-    your plugin or if the application is run in a container. It is intended to leave this
-    section as is and do configuration in the includeme section only.
+    This function returns a Pyramid WSGI application.
+
+    This is necessary for development of your plugin or if the application
+    is run in a container. It is intended to leave this section as is and
+    do configuration in the includeme section only.
     """
     if 'LOG_LEVEL' in os.environ:
         log_level = '{0}'.format(os.environ.get('LOG_LEVEL')).lower()
@@ -47,9 +50,6 @@ def includeme(config):  # pragma: no cover
     :param config: The configurator object from the including pyramid module.
     :type geometries: Configurator
     """
-    # If you need access to the settings in this part, you can get them via
-    # settings = config.get_settings()
-    global route_prefix
 
     config.include('pyramid_mako')
 
