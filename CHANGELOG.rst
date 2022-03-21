@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+2.0.0
+*****
+
+https://github.com/openoereb/oereb_client/milestone/7
+
+- Display municipality name at the bottom of its logo
+
 2.0.0-beta.4
 ************
 
