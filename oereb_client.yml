@@ -38,6 +38,7 @@ oereb_client:
     projection: "EPSG:2056"
     style: default
     format: image/png
+    attributions: © Amt für Geoinformation, Kanton Basel-Landschaft.
 
   availability:
     url: https://geoview.bl.ch/main/oereb/mapservproxy

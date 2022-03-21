@@ -86,12 +86,14 @@ describe('getBaseLayerSourceWms', () => {
         LAYERS: 'grundkarte_farbig',
         FORMAT: 'image/png'
       },
-      projection: 'EPSG:2056'
+      projection: 'EPSG:2056',
+      attributions: 'baselayer wms'
     });
     expect(source).toBeInstanceOf(TileWMS);
     expect(source.getParams()['LAYERS']).toEqual('grundkarte_farbig');
     expect(source.getParams()['FORMAT']).toEqual('image/png');
     expect(source.getProjection().getCode()).toEqual('EPSG:2056');
+    expect(source.getAttributions()()[0]).toEqual('baselayer wms');
   });
 
 });
@@ -106,7 +108,8 @@ describe('getBaseLayerSourceWmts', () => {
       matrixSet: 'swissgrid',
       projection: 'EPSG:2056',
       style: 'default',
-      format: 'image/png'
+      format: 'image/png',
+      attributions: 'baselayer wmts'
     });
     expect(source).toBeInstanceOf(WMTS);
     expect(source.getLayer()).toEqual('grundkarte_farbig');
@@ -114,6 +117,7 @@ describe('getBaseLayerSourceWmts', () => {
     expect(source.getProjection().getCode()).toEqual('EPSG:2056');
     expect(source.getStyle()).toEqual('default');
     expect(source.getFormat()).toEqual('image/png');
+    expect(source.getAttributions()()[0]).toEqual('baselayer wmts');
     expect(fetch.mock.calls).toHaveLength(1);
   });
 
