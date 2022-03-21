@@ -516,16 +516,27 @@ exports[`information panel component should render general information 1`] = `
                       extract.information_panel.general_information.further_participants
                     </h5>
                     <div
-                      className="card-text d-flex align-items-center flex-column"
+                      className="card-text d-flex align-items-stretch flex-column"
                     >
-                      <img
-                        className="img-fluid oereb-client-federal-logo"
-                        src="http://localhost:8080/samples/static/logo_confederation.png"
-                      />
-                      <img
-                        className="img-fluid oereb-client-municipality-logo"
-                        src="http://localhost:8080/samples/static/diegten.png"
-                      />
+                      <div
+                        className="text-center"
+                      >
+                        <img
+                          className="img-fluid oereb-client-federal-logo"
+                          src="http://localhost:8080/samples/static/logo_confederation.png"
+                        />
+                      </div>
+                      <div
+                        className="text-center"
+                      >
+                        <img
+                          className="img-fluid oereb-client-municipality-logo"
+                          src="http://localhost:8080/samples/static/diegten.png"
+                        />
+                        <p>
+                          Oberwil (BL)
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

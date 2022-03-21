@@ -52,7 +52,9 @@ const OerebGeneralInformation = function () {
 
   const federalLogo = extract.data['GetExtractByIdResponse']['extract']['FederalLogoRef'];
   const municipalityLogo = extract.data['GetExtractByIdResponse']['extract']['MunicipalityLogoRef'];
-  let logosFlexClass = 'card-text d-flex align-items-center';
+  const municipalityName = extract
+    .data['GetExtractByIdResponse']['extract']['RealEstate']['MunicipalityName'];
+  let logosFlexClass = 'card-text d-flex align-items-stretch';
   if (document.body.offsetWidth < 1200) {
     logosFlexClass += ' flex-column';
   }
@@ -117,8 +119,13 @@ const OerebGeneralInformation = function () {
                 {t('extract.information_panel.general_information.further_participants')}
               </h5>
               <div className={logosFlexClass}>
-                <img src={federalLogo} className="img-fluid oereb-client-federal-logo" />
-                <img src={municipalityLogo} className="img-fluid oereb-client-municipality-logo" />
+                <div className="text-center">
+                  <img src={federalLogo} className="img-fluid oereb-client-federal-logo" />
+                </div>
+                <div className="text-center">
+                  <img src={municipalityLogo} className="img-fluid oereb-client-municipality-logo" />
+                  <p>{municipalityName}</p>
+                </div>
               </div>
             </div>
           </div>
