@@ -146,6 +146,7 @@ oereb_client:
   #   params:
   #     LAYERS: layer1,layer2
   #     FORMAT: image/png
+  #   attributions: optional copyright
   #
   # WMTS configuration:
   #   type: wmts
@@ -155,6 +156,7 @@ oereb_client:
   #   projection: "EPSG:2056"
   #   style: default
   #   format: image/png
+  #   attributions: optional copyright
   #
   base_layer:
     type: wmts
@@ -164,6 +166,7 @@ oereb_client:
     projection: "EPSG:2056"
     style: default
     format: image/png
+    attributions: Add your copyright here
 
   # The availability layer can be used to display an overview of the
   # available/published municipalities. You have to define a WMS URL and
@@ -175,6 +178,7 @@ oereb_client:
     params:
       LAYERS: oereb_published_municipalities
       FORMAT: image/png
+    attributions: optional copyright or notice
 
   # Search configuration
   # Specify a list to use the internal search proxy or an URL to use an external endpoint.
