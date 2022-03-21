@@ -3,6 +3,7 @@
  */
 
 @import "ol/ol.css";
+@import "bootstrap/scss/bootstrap.scss";
 
 .oereb-client-map {
   position: absolute;
@@ -14,4 +15,26 @@
 
 .ol-zoom {
   visibility: hidden;
+}
+
+.ol-control,
+.ol-attribution.ol-uncollapsible {
+  border-radius: 0;
+}
+
+.ol-control {
+  button,
+  button:hover,
+  button:focus {
+    border-radius: 0;
+    color: $secondary;
+    border: 1px solid $secondary;
+    background-color: $white;
+
+    .ol-attribution-expand,
+    .ol-attribution-collapse {
+      color: $secondary;
+      background-color: none;
+    }
+  }
 }

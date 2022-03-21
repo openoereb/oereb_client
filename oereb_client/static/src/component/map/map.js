@@ -1,7 +1,8 @@
 import './map.scss';
 
+import {isArray, isString} from 'lodash';
 import {Collection} from 'ol';
-import {defaults} from 'ol/control';
+import {Attribution, defaults} from 'ol/control';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
 import LayerGroup from 'ol/layer/Group';
 import ImageLayer from 'ol/layer/Image';
@@ -30,11 +31,15 @@ import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';
 import OerebTopicLayer from '../topic_layers/topic_layers';
 
 export const getBaseLayerSourceWms = function (config) {
-  return Promise.resolve(new TileWMS({
+  const wmsConfig = {
     url: config['url'],
     params: config['params'],
     projection: 'EPSG:2056'
-  }));
+  };
+  if (isString(config['attributions']) || isArray(config['attributions'])) {
+    wmsConfig['attributions'] = config['attributions'];
+  }
+  return Promise.resolve(new TileWMS(wmsConfig));
 };
 
 export const getBaseLayerSourceWmts = function (config) {
@@ -51,6 +56,9 @@ export const getBaseLayerSourceWmts = function (config) {
           }
         });
         const wmtsConfig = optionsFromCapabilities(wmtsCaps, wmtsOptions);
+        if (isString(config['attributions']) || isArray(config['attributions'])) {
+          wmtsConfig['attributions'] = config['attributions'];
+        }
         resolve(new WMTS(wmtsConfig));
       })
       .catch((error) => {
@@ -88,14 +96,18 @@ const OerebMap = function () {
   }
 
   // Create availability layer
-  const [availabilityLayer] = useState(new LayerClass({
+  const availabilityConfig = {
     preload: Infinity,
     source: new SourceClass({
       url: config.availability.url,
       params: config.availability.params
     }),
     zIndex: 10000
-  }));
+  };
+  if (isString(config.availability['attributions']) || isArray(config.availability['attributions'])) {
+    availabilityConfig['attributions'] = config.availability['attributions'];
+  }
+  const [availabilityLayer] = useState(new LayerClass(availabilityConfig));
 
   // Create group for topic layers
   const [topicLayers] = useState(new LayerGroup({
@@ -126,10 +138,15 @@ const OerebMap = function () {
     const mapY = parseFloat(query.get('map_y')) || config.view.map_y;
     const mapZoom = parseFloat(query.get('map_zoom')) || config.view.map_zoom;
 
+    // Add attribution
+    const attribution = new Attribution({
+      collapsible: document.body.offsetWidth < 1200
+    });
+
     const newMap = new Map({
       controls: defaults({
         attribution: false
-      }),
+      }).extend([attribution]),
       view: new View({
         center: [mapX, mapY],
         zoom: mapZoom,
