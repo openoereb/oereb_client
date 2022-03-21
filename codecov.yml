@@ -2,10 +2,10 @@ coverage:
   status:
     project:
       default:
-        threshold: 10%
+        threshold: 1%
     patch:
       default:
-        threshold: 20%
+        threshold: 3%
 comment:
   layout: "diff"
   behavior: default
