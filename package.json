@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "oereb_client",
-  "version": "2.0.0-beta.4",
+  "version": "2.0.0",
   "description": "OEREB Client based on Vue.js, OpenLayers and Bootstrap.",
   "repository": {
     "type": "git",
