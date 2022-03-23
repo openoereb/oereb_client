@@ -1,6 +1,21 @@
 # -*- coding: utf-8 -*-
+from pyramid.httpexceptions import HTTPNotFound
+
 from oereb_client.views.index import Index
 from oereb_client.views.search import Search
+
+
+def __not_found(request):
+    """
+    Custom view for HTTP 404 (Not Found) exceptions.
+
+    Args:
+        request (pyramid.request.Request): The request instance.
+
+    Returns:
+        pyramid.httpexceptions.HTTPNotFound: HTTP 404 response.
+    """
+    return HTTPNotFound()
 
 
 def includeme(config):
@@ -29,5 +44,8 @@ def includeme(config):
                     route_name='{0}/search'.format(config.route_prefix),
                     renderer='json',
                     request_method='GET')
+
+    # custom exception view
+    config.add_notfound_view(__not_found, append_slash=True)
 
     config.commit()
