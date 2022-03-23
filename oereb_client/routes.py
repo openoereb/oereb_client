@@ -5,7 +5,7 @@ from oereb_client.views.index import Index
 from oereb_client.views.search import Search
 
 
-def __not_found(request):
+def __not_found(request):  # pylint: disable=unused-argument
     """
     Custom view for HTTP 404 (Not Found) exceptions.
 
