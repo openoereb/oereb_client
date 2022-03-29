@@ -10,6 +10,7 @@ https://github.com/openoereb/oereb_client/milestone/7
 - Add configurable attributions for base layers
 - Enable "append_slash" for routes
 - Add loading indicator for WMS requests
+- Show real estate type in map query results and extract
 
 2.0.0-beta.4
 ************
