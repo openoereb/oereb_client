@@ -24,12 +24,62 @@ class Sample(object):
                     {
                         'egrid': 'CH0815',
                         'number': '0815',
-                        'identDN': 'SAMPLE'
+                        'identDN': 'SAMPLE1',
+                        'type': {
+                            'Code': 'Distinct_and_permanent_rights.BuildingRight',
+                            'Text': [
+                                {
+                                    'Language': 'de',
+                                    'Text': 'Baurecht'
+                                },
+                                {
+                                    'Language': 'fr',
+                                    'Text': 'Droit de superficie'
+                                },
+                                {
+                                    'Language': 'it',
+                                    'Text': 'Diritto di superficie'
+                                },
+                                {
+                                    'Language': 'rm',
+                                    'Text': 'Dretg da construcziun'
+                                },
+                                {
+                                    'Language': 'en',
+                                    'Text': 'Building right'
+                                }
+                            ]
+                        }
                     },
                     {
                         'egrid': 'CH1234',
                         'number': '1234',
-                        'identDN': 'SAMPLE'
+                        'identDN': 'SAMPLE2',
+                        'type': {
+                            'Code': 'RealEstate',
+                            'Text': [
+                                {
+                                    'Language': 'de',
+                                    'Text': 'Liegenschaft'
+                                },
+                                {
+                                    'Language': 'fr',
+                                    'Text': 'Bien-fonds'
+                                },
+                                {
+                                    'Language': 'it',
+                                    'Text': 'Bene immobile'
+                                },
+                                {
+                                    'Language': 'rm',
+                                    'Text': 'Bain immobigliar'
+                                },
+                                {
+                                    'Language': 'en',
+                                    'Text': 'Property'
+                                }
+                            ]
+                        }
                     }
                 ]
             }
