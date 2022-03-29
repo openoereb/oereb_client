@@ -53,8 +53,7 @@
     "real_estate": {
       "area": "Surface",
       "at": "à",
-      "egrid": "E-GRID",
-      "real_estate": "Bien-fonds"
+      "egrid": "E-GRID"
     },
     "show": "Afficher l'extrait",
     "static_extract": {
@@ -77,11 +76,6 @@
       },
       "opacity": "Opacité",
       "responsible_office": "Service compétent"
-    }
-  },
-  "map_query": {
-    "result": {
-      "text": "Extrait pour le bien-fonds"
     }
   },
   "menu": {

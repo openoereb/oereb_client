@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
+import {useSelector} from 'react-redux';
+
+import {getLocalizedText} from '../../util/language';
 
 /**
  * This component shows the real estate information.
@@ -12,11 +15,15 @@ const OerebRealEstate = function (props) {
   const municipality = realEstate.MunicipalityName;
   const egrid = realEstate.EGRID;
   const area = realEstate.LandRegistryArea;
+  const language = useSelector((state) => state.language);
+  const currentLanguage = language.current;
+  const defaultLanguage = language.default;
+  const type = getLocalizedText(realEstate.Type.Text, currentLanguage, defaultLanguage);
 
   return (
     <div className="container-fluid mt-3 oereb-client-real-estate">
       <h5>
-        {t('extract.real_estate.real_estate')} {number} {t('extract.real_estate.at')} {municipality}
+        {type} {number} {t('extract.real_estate.at')} {municipality}
       </h5>
       <div className="row row-cols-2">
         <div className="col-3"><strong>{t('extract.real_estate.egrid')}:</strong></div>

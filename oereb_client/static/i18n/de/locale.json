@@ -53,8 +53,7 @@
     "real_estate": {
       "area": "Fläche",
       "at": "in",
-      "egrid": "E-GRID",
-      "real_estate": "Grundstück"
+      "egrid": "E-GRID"
     },
     "show": "Auszug einblenden",
     "static_extract": {
@@ -77,11 +76,6 @@
       },
       "opacity": "Deckkraft",
       "responsible_office": "Zuständige Stelle"
-    }
-  },
-  "map_query": {
-    "result": {
-      "text": "Auszug für Grundstück"
     }
   },
   "menu": {

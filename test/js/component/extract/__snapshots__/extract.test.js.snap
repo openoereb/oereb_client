@@ -5215,7 +5215,7 @@ exports[`extract component should render extract data 1`] = `
               className="container-fluid mt-3 oereb-client-real-estate"
             >
               <h5>
-                extract.real_estate.real_estate
+                Liegenschaft
                  
                 70
                  

@@ -3,7 +3,6 @@ import './map_query.scss';
 import Overlay from 'ol/Overlay';
 import PropTypes from 'prop-types';
 import React, {useEffect, useRef, useState} from 'react';
-import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {setViewServices} from '../../reducer/accordion';
@@ -11,18 +10,19 @@ import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {hide} from '../../reducer/map_query';
 import {queryExtractById} from '../../request/extract';
+import {getLocalizedText} from '../../util/language';
 
 /**
  * A OpenLayers overlay component to select a real estate in the map.
  */
 const OerebMapQuery = function (props) {
-  const {t} = useTranslation();
   const dispatch = useDispatch();
   const config = useSelector((state) => state.config).config;
   const mapQuery = useSelector((state) => state.mapQuery);
   const mapQueryElement = useRef(null);
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
+  const defaultLanguage = language.default;
   const [overlay, setOverlay] = useState(null);
 
   const serviceUrl = config.service_url;
@@ -68,12 +68,13 @@ const OerebMapQuery = function (props) {
   const listResults = mapQuery.results.map((result, key) => {
     const number = result.number;
     const egrid = result.egrid;
+    const type = getLocalizedText(result.type.Text, currentLanguage, defaultLanguage);
     return (
       <button key={key}
         onClick={queryExtract.bind(this, egrid)}
         type="button"
         className="list-group-item list-group-item-action">
-        <small>{t('map_query.result.text')} {number}</small>
+        <small>{type} {number}</small>
       </button>
     );
   });
