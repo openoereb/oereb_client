@@ -8,6 +8,8 @@ https://github.com/openoereb/oereb_client/milestone/7
 
 - Display municipality name at the bottom of its logo
 - Add configurable attributions for base layers
+- Enable "append_slash" for routes
+- Add loading indicator for WMS requests
 
 2.0.0-beta.4
 ************
