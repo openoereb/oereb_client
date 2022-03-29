@@ -10520,7 +10520,9 @@ exports[`extract component should render extract data 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <div>
+                                  <div
+                                    className="oereb-topic-lawstatus"
+                                  >
                                     <small
                                       className="fst-italic"
                                     >
@@ -11812,7 +11814,9 @@ exports[`extract component should render extract data 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <div>
+                                  <div
+                                    className="oereb-topic-lawstatus"
+                                  >
                                     <small
                                       className="fst-italic"
                                     >
@@ -13409,7 +13413,9 @@ exports[`extract component should render extract data 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <div>
+                                  <div
+                                    className="oereb-topic-lawstatus"
+                                  >
                                     <small
                                       className="fst-italic"
                                     >
@@ -15915,7 +15921,9 @@ exports[`extract component should render extract data 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <div>
+                                  <div
+                                    className="oereb-topic-lawstatus"
+                                  >
                                     <small
                                       className="fst-italic"
                                     >
@@ -18079,7 +18087,9 @@ exports[`extract component should render extract data 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <div>
+                                  <div
+                                    className="oereb-topic-lawstatus"
+                                  >
                                     <small
                                       className="fst-italic"
                                     >
@@ -19256,7 +19266,9 @@ exports[`extract component should render extract data 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <div>
+                                  <div
+                                    className="oereb-topic-lawstatus"
+                                  >
                                     <small
                                       className="fst-italic"
                                     >
@@ -22078,7 +22090,9 @@ exports[`extract component should render extract data 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <div>
+                                  <div
+                                    className="oereb-topic-lawstatus"
+                                  >
                                     <small
                                       className="fst-italic"
                                     >
@@ -25365,7 +25379,9 @@ exports[`extract component should render extract data 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <div>
+                                  <div
+                                    className="oereb-topic-lawstatus"
+                                  >
                                     <small
                                       className="fst-italic"
                                     >
@@ -26688,7 +26704,9 @@ exports[`extract component should render extract data 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <div>
+                                  <div
+                                    className="oereb-topic-lawstatus"
+                                  >
                                     <small
                                       className="fst-italic"
                                     >
@@ -28729,7 +28747,9 @@ exports[`extract component should render extract data 1`] = `
                                   onClick={[Function]}
                                   type="button"
                                 >
-                                  <div>
+                                  <div
+                                    className="oereb-topic-lawstatus"
+                                  >
                                     <small
                                       className="fst-italic"
                                     >

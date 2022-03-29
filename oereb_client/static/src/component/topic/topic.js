@@ -1,3 +1,5 @@
+import './topic.scss';
+
 import {Collapse} from 'bootstrap';
 import LayerGroup from 'ol/layer/Group';
 import PropTypes from 'prop-types';
@@ -22,6 +24,7 @@ const OerebTopic = function (props) {
   const collapseButton = useRef(null);
   const [active, setActive] = useState(false);
   const [opacity, setOpacity] = useState(1.0);
+  const [loading, setLoading] = useState(false);
   const activeTopic = useSelector((state) => state.accordion).topic;
   const topicLayers = useSelector((state) => state.map).topicLayers;
   const language = useSelector((state) => state.language);
@@ -55,6 +58,12 @@ const OerebTopic = function (props) {
     }
   });
 
+  let loadingIndicator = null;
+  if (loading) {
+    loadingIndicator =
+      <div className="spinner-grow spinner-grow-sm text-secondary float-end me-2"></div>;
+  }
+
   useEffect(() => {
     if (topicLayers instanceof LayerGroup) {
       topicLayers.setOpacity(opacity);
@@ -65,12 +74,18 @@ const OerebTopic = function (props) {
     if (activeTopic === collapseEl.current) {
       setActive(!active);
       dispatch(setActiveTopic(null));
-      dispatch(setViewServices([]));
+      dispatch(setViewServices({
+        viewServices: [],
+        callback: null
+      }));
     }
     else {
       setActive(true);
       dispatch(setActiveTopic(collapseEl.current));
-      dispatch(setViewServices(viewServices));
+      dispatch(setViewServices({
+        viewServices: viewServices,
+        callback: setLoading
+      }));
     }
   }
 
@@ -87,8 +102,9 @@ const OerebTopic = function (props) {
           type="button"
           onClick={toggle}
           ref={collapseButton}>
-          <div>
+          <div className="oereb-topic-lawstatus">
             <small className="fst-italic">{lawstatus}</small>
+            {loadingIndicator}
           </div>
         </button>
       </h2>

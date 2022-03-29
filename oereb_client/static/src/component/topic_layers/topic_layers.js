@@ -1,4 +1,4 @@
-import {isArray, isNumber} from 'lodash';
+import {isArray, isFunction, isNumber} from 'lodash';
 import ImageLayer from 'ol/layer/Image';
 import TileLayer from 'ol/layer/Tile';
 import ImageWMS from 'ol/source/ImageWMS';
@@ -12,6 +12,7 @@ const OerebTopicLayer = function (props) {
   const topicLayers = props.topicLayers;
   const tiled = props.tiled;
   const viewServices = useSelector((state) => state.accordion).viewServices;
+  const callback = useSelector((state) => state.accordion).callback;
   const extractVisible = useSelector((state) => state.extract).visible;
   const language = useSelector((state) => state.language);
   const currentLanguage = language.current;
@@ -31,16 +32,28 @@ const OerebTopicLayer = function (props) {
       }
       const opacity = isNumber(definition['opacity']) ? definition['opacity'] : 1.0;
       const zIndex = isNumber(definition['zIndex']) ? definition['zIndex'] : 1.0;
+      const source = new SourceClass({
+        url: definition['url'],
+        params: definition['params'],
+        projection: 'EPSG:2056'
+      });
+      if (isFunction(callback)) {
+        source.on('imageloadstart', () => {
+          callback(true);
+        });
+        source.on('imageloadend', () => {
+          callback(false);
+        });
+        source.on('imageloaderror', () => {
+          callback(false);
+        });
+      }
       return new LayerClass({
         preload: Infinity,
         visible: true,
         opacity: opacity,
         zIndex: zIndex,
-        source: new SourceClass({
-          url: definition['url'],
-          params: definition['params'],
-          projection: 'EPSG:2056'
-        })
+        source: source
       });
     });
     topicLayers.getLayers().extend(layers);

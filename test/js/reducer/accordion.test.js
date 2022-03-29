@@ -10,7 +10,8 @@ describe('accordion reducer', () => {
     expect(reducer(undefined, {})).toEqual({
       category: null,
       topic: null,
-      viewServices: []
+      viewServices: [],
+      callback: null
     });
   });
 
@@ -20,7 +21,8 @@ describe('accordion reducer', () => {
     expect(state).toEqual({
       category: 'test',
       topic: null,
-      viewServices: []
+      viewServices: [],
+      callback: null
     });
   });
 
@@ -30,17 +32,22 @@ describe('accordion reducer', () => {
     expect(state).toEqual({
       category: null,
       topic: 'test',
-      viewServices: []
+      viewServices: [],
+      callback: null
     });
   });
 
   it('should update the view services', () => {
     let state = reducer(undefined, {});
-    state = reducer(state, setViewServices([1, 2, 3]));
+    state = reducer(state, setViewServices({
+      viewServices: [1, 2, 3],
+      callback: 'foo'
+    }));
     expect(state).toEqual({
       category: null,
       topic: null,
-      viewServices: [1, 2, 3]
+      viewServices: [1, 2, 3],
+      callback: 'foo'
     });
   });
 
