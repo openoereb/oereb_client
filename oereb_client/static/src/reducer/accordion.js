@@ -5,7 +5,8 @@ export const accordionSlice = createSlice({
   initialState: {
     category: null,
     topic: null,
-    viewServices: []
+    viewServices: [],
+    callback: null
   },
   reducers: {
     setActiveCategory: (state, action) => {
@@ -15,7 +16,8 @@ export const accordionSlice = createSlice({
       state.topic = action.payload;
     },
     setViewServices: (state, action) => {
-      state.viewServices = action.payload;
+      state.viewServices = action.payload.viewServices;
+      state.callback = action.payload.callback;
     }
   }
 });

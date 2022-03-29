@@ -5187,7 +5187,9 @@ exports[`topic with restriction component should render topics 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <div>
+                  <div
+                    className="oereb-topic-lawstatus"
+                  >
                     <small
                       className="fst-italic"
                     >
@@ -6479,7 +6481,9 @@ exports[`topic with restriction component should render topics 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <div>
+                  <div
+                    className="oereb-topic-lawstatus"
+                  >
                     <small
                       className="fst-italic"
                     >
@@ -8076,7 +8080,9 @@ exports[`topic with restriction component should render topics 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <div>
+                  <div
+                    className="oereb-topic-lawstatus"
+                  >
                     <small
                       className="fst-italic"
                     >
@@ -10582,7 +10588,9 @@ exports[`topic with restriction component should render topics 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <div>
+                  <div
+                    className="oereb-topic-lawstatus"
+                  >
                     <small
                       className="fst-italic"
                     >
@@ -12746,7 +12754,9 @@ exports[`topic with restriction component should render topics 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <div>
+                  <div
+                    className="oereb-topic-lawstatus"
+                  >
                     <small
                       className="fst-italic"
                     >
@@ -13923,7 +13933,9 @@ exports[`topic with restriction component should render topics 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <div>
+                  <div
+                    className="oereb-topic-lawstatus"
+                  >
                     <small
                       className="fst-italic"
                     >
@@ -16745,7 +16757,9 @@ exports[`topic with restriction component should render topics 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <div>
+                  <div
+                    className="oereb-topic-lawstatus"
+                  >
                     <small
                       className="fst-italic"
                     >
@@ -20032,7 +20046,9 @@ exports[`topic with restriction component should render topics 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <div>
+                  <div
+                    className="oereb-topic-lawstatus"
+                  >
                     <small
                       className="fst-italic"
                     >
@@ -21355,7 +21371,9 @@ exports[`topic with restriction component should render topics 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <div>
+                  <div
+                    className="oereb-topic-lawstatus"
+                  >
                     <small
                       className="fst-italic"
                     >
@@ -23396,7 +23414,9 @@ exports[`topic with restriction component should render topics 1`] = `
                   onClick={[Function]}
                   type="button"
                 >
-                  <div>
+                  <div
+                    className="oereb-topic-lawstatus"
+                  >
                     <small
                       className="fst-italic"
                     >

@@ -957,7 +957,9 @@ exports[`topic component should render topic 1`] = `
           onClick={[Function]}
           type="button"
         >
-          <div>
+          <div
+            className="oereb-topic-lawstatus"
+          >
             <small
               className="fst-italic"
             >
@@ -5044,7 +5046,9 @@ exports[`topic component should render topic 2`] = `
           onClick={[Function]}
           type="button"
         >
-          <div>
+          <div
+            className="oereb-topic-lawstatus"
+          >
             <small
               className="fst-italic"
             >
