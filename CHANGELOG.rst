@@ -1,6 +1,11 @@
 Changelog
 ---------
 
+2.0.1
+*****
+
+https://github.com/openoereb/oereb_client/milestone/8
+
 2.0.0
 *****
 
