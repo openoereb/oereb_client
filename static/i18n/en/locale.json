@@ -53,8 +53,7 @@
     "real_estate": {
       "area": "Area",
       "at": "at",
-      "egrid": "E-GRID",
-      "real_estate": "Real estate"
+      "egrid": "E-GRID"
     },
     "show": "Expand extract",
     "static_extract": {
@@ -77,11 +76,6 @@
       },
       "opacity": "Opacity",
       "responsible_office": "Responsible office"
-    }
-  },
-  "map_query": {
-    "result": {
-      "text": "Extract for real estate"
     }
   },
   "menu": {
