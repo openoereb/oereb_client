@@ -15517,6 +15517,7 @@ exports[`map component should render map 1`] = `
                 [Function],
               ],
             },
+            "loaded_": true,
             "mapBrowserEventHandler_": MapBrowserEventHandler {
               "activePointers_": 0,
               "boundHandleTouchMove_": [Function],
@@ -35893,6 +35894,7 @@ exports[`map component should render map 1`] = `
                 [Function],
               ],
             },
+            "loaded_": true,
             "mapBrowserEventHandler_": MapBrowserEventHandler {
               "activePointers_": 0,
               "boundHandleTouchMove_": [Function],
@@ -52487,6 +52489,7 @@ exports[`map component should render map 1`] = `
                     [Function],
                   ],
                 },
+                "loaded_": true,
                 "mapBrowserEventHandler_": MapBrowserEventHandler {
                   "activePointers_": 0,
                   "boundHandleTouchMove_": [Function],
@@ -69462,6 +69465,7 @@ exports[`map component should render map 1`] = `
                     [Function],
                   ],
                 },
+                "loaded_": true,
                 "mapBrowserEventHandler_": MapBrowserEventHandler {
                   "activePointers_": 0,
                   "boundHandleTouchMove_": [Function],

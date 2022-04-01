@@ -15697,6 +15697,7 @@ exports[`app component should render app element 1`] = `
                     [Function],
                   ],
                 },
+                "loaded_": true,
                 "mapBrowserEventHandler_": MapBrowserEventHandler {
                   "activePointers_": 0,
                   "boundHandleTouchMove_": [Function],
@@ -36242,6 +36243,7 @@ exports[`app component should render app element 1`] = `
                     [Function],
                   ],
                 },
+                "loaded_": true,
                 "mapBrowserEventHandler_": MapBrowserEventHandler {
                   "activePointers_": 0,
                   "boundHandleTouchMove_": [Function],
@@ -53005,6 +53007,7 @@ exports[`app component should render app element 1`] = `
                         [Function],
                       ],
                     },
+                    "loaded_": true,
                     "mapBrowserEventHandler_": MapBrowserEventHandler {
                       "activePointers_": 0,
                       "boundHandleTouchMove_": [Function],
@@ -70110,6 +70113,7 @@ exports[`app component should render app element 1`] = `
                         [Function],
                       ],
                     },
+                    "loaded_": true,
                     "mapBrowserEventHandler_": MapBrowserEventHandler {
                       "activePointers_": 0,
                       "boundHandleTouchMove_": [Function],
