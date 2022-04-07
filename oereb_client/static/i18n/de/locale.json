@@ -60,10 +60,6 @@
       "title": "Auszug als PDF anfordern"
     },
     "topic": {
-      "complete_legend": {
-        "hide": "vollständige Legende verbergen",
-        "show": "vollständige Legende anzeigen"
-      },
       "document": {
         "hints": "Weitere Informationen und Hinweise",
         "laws": "Gesetzliche Grundlagen",
@@ -99,6 +95,9 @@
       "availability": "verfügbare Gemeinden anzeigen",
       "symbol_zoom": "Legendensymbole vergrössern",
       "title": "Einstellungen"
+    },
+    "user_guide": {
+      "title": "Benutzerhandbuch"
     }
   }
 }

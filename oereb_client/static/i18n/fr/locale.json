@@ -60,10 +60,6 @@
       "title": "Générer l'extrait PDF"
     },
     "topic": {
-      "complete_legend": {
-        "hide": "Cacher la légende",
-        "show": "Afficher la légende"
-      },
       "document": {
         "hints": "Informations et renvois supplémentaires",
         "laws": "Bases légales",
@@ -99,6 +95,9 @@
       "availability": "Afficher les communes disponibles",
       "symbol_zoom": "Agrandir la légende",
       "title": "Configuration"
+    },
+    "user_guide": {
+      "title": "Manuel"
     }
   }
 }
