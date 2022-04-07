@@ -216,7 +216,24 @@ oereb_client:
         prefix: gs
       hook_method: my.package.hook_real_estate
 
-  # Link to external viewer/portal
+  # Your support address. This will be shown if an error occurs.
+  support:
+    office1:
+      - Language: en
+        Text: My Department
+      - Language: de
+        Text: Meine Direktion
+    office2:
+      - Language: en
+        Text: My Office
+      - Language: de
+        Text: Meine Dienststelle
+    street: Street 1a
+    city: 1234 City
+    email: support@example.com
+    phone: 061 123 45 67
+
+  # [OPTIONAL] Link to external viewer/portal
   # Use this parameter to configure the link to an external viewer or
   # portal. The defined URL gets opened in a new tab. The list of
   # parameters gets joined with "&" and is appended to the URL. You
@@ -244,22 +261,9 @@ oereb_client:
       - "egrid={egrid}"
       - "foo=bar"
 
-  # Your support address. This will be shown if an error occurs.
-  support:
-    office1:
-      - Language: en
-        Text: My Department
-      - Language: de
-        Text: Meine Direktion
-    office2:
-      - Language: en
-        Text: My Office
-      - Language: de
-        Text: Meine Dienststelle
-    street: Street 1a
-    city: 1234 City
-    email: support@example.com
-    phone: 061 123 45 67
+  # [OPTIONAL] URL of the user guide (website or document).
+  # If present, "{lang}" will be replaced with the currenty selected language.
+  user_guide: https://example.com/guide/{lang}.pdf
 
   # [OPTIONAL] Enable tiled WMS requests (default is False)
   use_tile_wms: True
