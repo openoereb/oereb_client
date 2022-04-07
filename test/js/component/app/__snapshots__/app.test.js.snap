@@ -74689,6 +74689,7 @@ exports[`app component should render app element 1`] = `
                   className="bi bi-trash"
                 />
               </button>
+              <OerebUserGuide />
             </div>
           </div>
           <div

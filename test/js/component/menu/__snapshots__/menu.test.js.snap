@@ -116,6 +116,7 @@ exports[`menu component should render menu 1`] = `
               className="bi bi-trash"
             />
           </button>
+          <OerebUserGuide />
         </div>
       </div>
       <div
@@ -242,6 +243,7 @@ exports[`search should show GNSS coordinates 1`] = `
               className="bi bi-trash"
             />
           </button>
+          <OerebUserGuide />
         </div>
       </div>
       <div
@@ -368,6 +370,7 @@ exports[`search should show LV95 coordinates 1`] = `
               className="bi bi-trash"
             />
           </button>
+          <OerebUserGuide />
         </div>
       </div>
       <div
@@ -519,6 +522,7 @@ exports[`search should show results 1`] = `
               className="bi bi-trash"
             />
           </button>
+          <OerebUserGuide />
         </div>
       </div>
       <div
