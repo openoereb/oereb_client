@@ -17,6 +17,7 @@ import {searchTerm} from '../../request/search';
 import {getCoordinates, isGNSS, isLV95} from '../../util/coordinate';
 import {getLocalizedUrl} from '../../util/language';
 import OerebLanguage from '../language/language';
+import OerebUserGuide from '../user_guide/user_guide';
 
 const OerebMenu = function () {
   const {t} = useTranslation();
@@ -293,6 +294,7 @@ const OerebMenu = function () {
             onChange={handleSearch}
             placeholder={t('menu.search.placeholder')} />
           {searchResetButton}
+          <OerebUserGuide />
         </div>
       </div>
       <div className="container-fluid">
