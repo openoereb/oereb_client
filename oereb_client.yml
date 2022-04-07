@@ -112,4 +112,6 @@ oereb_client:
     email: support.gis@bl.ch
     phone: 061 552 56 73
 
+  user_guide: https://example.com/guide/{lang}
+
   custom_css_url: samples/static/custom.css
