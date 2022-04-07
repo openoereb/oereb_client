@@ -1,6 +1,6 @@
 import {isString} from "lodash";
 import React from "react";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
 
 import {format} from "../../util/string";
