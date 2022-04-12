@@ -114,13 +114,13 @@ const OerebMap = function () {
   const maskSurroundingConfig = {
     preload: Infinity,
     source: new SourceClass({
-      url: config.maskSurrounding.url
+      url: config.mask_surrounding.url
     }),
     opacity: 0.6,
     zIndex: 10000
   };
-  if (isString(config.maskSurrounding['attributions']) || isArray(config.maskSurrounding['attributions'])) {
-    maskSurroundingConfig['attributions'] = config.maskSurrounding['attributions'];
+  if (isString(config.mask_surrounding['attributions']) || isArray(config.mask_surrounding['attributions'])) {
+    mask_surrounding['attributions'] = config.mask_surrounding['attributions'];
   }
   const [maskSurroundingLayer] = useState(new LayerClass(maskSurroundingConfig));
 
