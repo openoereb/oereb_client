@@ -2,6 +2,7 @@ import {configureStore} from '@reduxjs/toolkit';
 
 import accordionReducer from '../reducer/accordion';
 import availabilityReducer from '../reducer/availability';
+import maskSurroundingReducer from '../reducer/mask_surrounding';
 import configReducer from '../reducer/config';
 import extractReducer from '../reducer/extract';
 import historyReducer from '../reducer/history';
@@ -19,6 +20,7 @@ const MainStore = configureStore({
     accordion: accordionReducer,
     language: languageReducer,
     availability: availabilityReducer,
+    maskSurrounding: maskSurroundingReducer,
     symbolZoom: symbolZoomReducer,
     history: historyReducer
   },

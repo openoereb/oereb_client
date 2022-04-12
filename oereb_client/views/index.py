@@ -49,6 +49,9 @@ class Index(object):
         if not isinstance(self.config_.get('availability'), dict):
             raise ConfigurationError('Missing "availability" configuration')
 
+        if not isinstance(self.config_.get('maskSurrounding'), dict):
+            raise ConfigurationError('Missing "maskSurrounding" configuration')
+
         if not (
             isinstance(self.config_.get('search'), list) or
             isinstance(self.config_.get('search'), str)
@@ -166,6 +169,7 @@ class Index(object):
             'view': self.config_.get('view', {}),
             'base_layer': self.config_.get('base_layer', {}),
             'availability': self.config_.get('availability', {}),
+            'maskSurrounding': self.config_.get('maskSurrounding', {}),
             'search': self.config_.get('search', {}),
             'support': self.config_.get('support', {}),
             'external_viewer': self.config_.get('external_viewer', {}),

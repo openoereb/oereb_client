@@ -4,6 +4,7 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 
 import {initAvailability, setAvailabilityPrefix} from '../../reducer/availability';
+import {initMaskSurrounding, setMaskSurroundingPrefix} from '../../reducer/mask_surrounding';
 import {update} from '../../reducer/config';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {initHistory, setHistoryPrefix, updateHistory} from '../../reducer/history';
@@ -30,10 +31,12 @@ const App = function (props) {
     const prefix = config.application.local_storage_prefix;
     dispatch(setHistoryPrefix(prefix));
     dispatch(setAvailabilityPrefix(prefix));
+    dispatch(setMaskSurroundingPrefix(prefix));
     dispatch(setSymbolZoomPrefix(prefix));
   }
   dispatch(initHistory());
   dispatch(initAvailability());
+  dispatch(initMaskSurrounding());
   dispatch(initSymbolZoom());
 
   if (query.has('egrid')) {

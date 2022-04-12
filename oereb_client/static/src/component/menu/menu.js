@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {setViewServices} from '../../reducer/accordion';
 import {showAvailability} from '../../reducer/availability';
+import {showMaskSurrounding} from '../../reducer/mask_surrounding';
 import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {hide, loadAt, show} from '../../reducer/map_query';
@@ -23,6 +24,7 @@ const OerebMenu = function () {
   const {t} = useTranslation();
   const config = useSelector((state) => state.config).config;
   const showAvailabilityLayer = useSelector((state) => state.availability).visible;
+  const maskSurroundingLayer = useSelector((state) => state.maskSurrounding).visible;
   const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
   const history = useSelector((state) => state.history).elements.slice().reverse();
   const dispatch = useDispatch();
@@ -217,6 +219,22 @@ const OerebMenu = function () {
     dispatch(showAvailability(!showAvailabilityLayer));
   }
 
+  //TODO: Übersetzung Text "Maske Umkantone"
+  const maskSurroundingText = (() => {
+    if (maskSurroundingLayer) {
+      return (
+        <span><i className="bi bi-check-square"></i>Maske Umkantone</span>
+      );
+    }
+    return (
+      <span><i className="bi bi-square"></i>Maske Umkantone</span>
+    );
+  })();
+
+  const toggleMaskSurrounding = function () {
+    dispatch(showMaskSurrounding(!maskSurroundingLayer));
+  }
+
   const symbolZoomText = (() => {
     if (symbolZoomEnabled) {
       return (
@@ -270,6 +288,11 @@ const OerebMenu = function () {
             <li>
               <button className="dropdown-item" onClick={toggleAvailabilityLayer}>
                 {showAvailabilityText}
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={toggleMaskSurrounding}>
+                {maskSurroundingText}
               </button>
             </li>
             <li>

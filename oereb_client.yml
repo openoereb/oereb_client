@@ -46,6 +46,9 @@ oereb_client:
       LAYERS: oereb_published_municipalities
       FORMAT: image/png
 
+  maskSurrounding:
+    url: https://oereb-dev.geo.bl.ch/wms?TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1&REQUEST=GetMap&LAYERS=outside_bl_area&STYLES=default&SRS=EPSG:2056&FORMAT=image/png&WIDTH=1000&HEIGHT=1000&BBOX=2590500,1236000,2646000,1278000
+
   search:
     - title:
         - Language: en
