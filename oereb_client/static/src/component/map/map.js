@@ -117,13 +117,13 @@ const OerebMap = function () {
       url: config.maskSurrounding.url,
       params: config.maskSurrounding.params
     }),
+    opacity: 0.6,
     zIndex: 10000
   };
   if (isString(config.maskSurrounding['attributions']) || isArray(config.maskSurrounding['attributions'])) {
     maskSurroundingConfig['attributions'] = config.maskSurrounding['attributions'];
   }
   const [maskSurroundingLayer] = useState(new LayerClass(maskSurroundingConfig));
-  
 
   // Create group for topic layers
   const [topicLayers] = useState(new LayerGroup({

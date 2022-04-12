@@ -223,11 +223,11 @@ const OerebMenu = function () {
   const maskSurroundingText = (() => {
     if (maskSurroundingLayer) {
       return (
-        <span><i className="bi bi-check-square"></i>Maske Umkantone</span>
+        <span><i className="bi bi-check-square"></i> Maske Umkantone</span>
       );
     }
     return (
-      <span><i className="bi bi-square"></i>Maske Umkantone</span>
+      <span><i className="bi bi-square"></i> Maske Umkantone</span>
     );
   })();
 
