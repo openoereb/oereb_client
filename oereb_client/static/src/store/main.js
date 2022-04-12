@@ -19,7 +19,7 @@ const MainStore = configureStore({
     accordion: accordionReducer,
     language: languageReducer,
     availability: availabilityReducer,
-    symbolZoom: symbolZoomReducer, 
+    symbolZoom: symbolZoomReducer,
     history: historyReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({

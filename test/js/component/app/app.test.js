@@ -66,6 +66,10 @@ const config = {
       FORMAT: 'image/png'
     }
   },
+  mask_surrounding: {
+    url: 'http://example.com/wms',
+    visible: true
+  },
   search: 'http://example.com/search',
   use_tile_wms: false
 };

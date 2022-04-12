@@ -26,8 +26,8 @@ import {hide, loadAt, show} from '../../reducer/map_query';
 import {queryEgridByCoord} from '../../request/egrid';
 import {queryExtractById} from '../../request/extract';
 import OerebAvailabilityLayer from '../availability_layer/availability_layer';
-import OerebMaskSurroundingLayer from '../mask_surrounding_layer/mask_surrounding_layer';
 import OerebMapQuery from '../map_query/map_query';
+import OerebMaskSurroundingLayer from '../mask_surrounding_layer/mask_surrounding_layer';
 import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';
 import OerebTopicLayer from '../topic_layers/topic_layers';
 
@@ -120,7 +120,7 @@ const OerebMap = function () {
     zIndex: 10000
   };
   if (isString(config.mask_surrounding['attributions']) || isArray(config.mask_surrounding['attributions'])) {
-    mask_surrounding['attributions'] = config.mask_surrounding['attributions'];
+    maskSurroundingConfig['attributions'] = config.mask_surrounding['attributions'];
   }
   const [maskSurroundingLayer] = useState(new LayerClass(maskSurroundingConfig));
 
