@@ -3,10 +3,9 @@ import {useSelector} from 'react-redux';
 
 const OerebMaskSurroundingLayer = function (props) {
   const config = useSelector((state) => state.config).config;
-  const visible = config.mask_surrounding.visible;
   const maskSurroundingLayer = props.maskSurroundingLayer;
 
-  maskSurroundingLayer.setVisible(visible);
+  maskSurroundingLayer.setVisible(config.mask_surrounding.url == 'no_url' ? false : true);
 
   return null;
 };

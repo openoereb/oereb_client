@@ -114,7 +114,8 @@ const OerebMap = function () {
   const maskSurroundingConfig = {
     preload: Infinity,
     source: new SourceClass({
-      url: config.mask_surrounding.url
+      url: config.mask_surrounding.url,
+      params: config.mask_surrounding.params
     }),
     opacity: 0.6,
     zIndex: 40000

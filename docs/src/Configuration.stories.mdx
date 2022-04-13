@@ -294,10 +294,17 @@ oereb_client:
   google_analytics: UA-12345678-9
 
   # [OPTIONAL] The mask_surrounding layer can be used to lay a mask (half-transparent
-  # white layer) on the surrounding cantons. You have to define a WMS URL.
-  # This parameter does not have to be configured. If it is configured, url has to be defined.
+  # white layer) on the surrounding cantons. You have to define a WMS URL and
+  # params according to the ol.source.ImageWMS documentation:
+  # https://openlayers.org/en/v4.2.0/apidoc/ol.source.ImageWMS.html
+  # At least "LAYERS" has to be defined.
+  # This parameter does not have to be configured.
   mask_surrounding:
     url: https://example.com/wms
+    params:
+      LAYERS: outside_bl_area
+      FORMAT: image/png
+    attributions: optional copyright or notice
 ```
 
 ### Search
