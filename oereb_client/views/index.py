@@ -175,7 +175,7 @@ class Index(object):
             'view': self.config_.get('view', {}),
             'base_layer': self.config_.get('base_layer', {}),
             'availability': self.config_.get('availability', {}),
-            'mask_surrounding': self.config_.get('mask_surrounding', {}),
+            'mask_surrounding': self.config_.get('mask_surrounding'),
             'search': self.config_.get('search', {}),
             'support': self.config_.get('support', {}),
             'external_viewer': self.config_.get('external_viewer', {}),
