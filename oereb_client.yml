@@ -51,15 +51,6 @@ oereb_client:
     params:
       LAYERS: outside_bl_area
       FORMAT: image/png
-      TRANSPARENT: TRUE
-      SERVICE: WMS
-      VERSION: 1.1
-      REQUEST: GetMap
-      STYLES: default
-      SRS: EPSG:2056
-      WIDTH: 1000
-      HEIGHT: 1000
-      BBOX: 2590500,1236000,2646000,1278000
 
   search:
     - title:
