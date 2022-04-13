@@ -47,13 +47,15 @@ const OerebMenu = function () {
     languageSelector = <OerebLanguage />;
   }
 
-  const queryExtract = function (egrid) {
+  const queryExtract = function (egrid, identdn, number) {
     dispatch(setViewServices([]));
     dispatch(loadExtract({
       egrid: egrid,
+      identdn: identdn,
+      number: number,
       zoom: true
     }));
-    queryExtractById(serviceUrl, egrid, config.extract_json_timeout, currentLanguage)
+    queryExtractById(serviceUrl, egrid, identdn, number, config.extract_json_timeout, currentLanguage)
       .then((extract) => {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));
@@ -97,7 +99,10 @@ const OerebMenu = function () {
   const querySearchResult = function(result) {
     resetSearch();
     if (isString(result.egrid)) {
-      queryExtract(result.egrid);
+      queryExtract(result.egrid, null, null);
+    }
+    else if (isString(result.identdn) && isString(result.number)) {
+      queryExtract(null, result.identdn, result.number);
     }
     else if (isArray(result.coordinates)) {
       queryEgrid(result.coordinates);

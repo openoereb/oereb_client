@@ -17,6 +17,8 @@ describe('extract reducer', () => {
       collapsed: false,
       error: false,
       egrid: null,
+      identdn: null,
+      number: null,
       information: false,
       tab: 0,
       data: {}
@@ -28,6 +30,8 @@ describe('extract reducer', () => {
     let state = reducer(undefined, {});
     state = reducer(state, loadExtract({
       egrid: 'CH123456789',
+      identdn: 'foo',
+      number: '1234',
       zoom: true
     }));
     expect(state).toEqual({
@@ -37,6 +41,8 @@ describe('extract reducer', () => {
       collapsed: false,
       error: false,
       egrid: 'CH123456789',
+      identdn: 'foo',
+      number: '1234',
       information: false,
       tab: 0,
       data: {}
@@ -48,6 +54,8 @@ describe('extract reducer', () => {
     let state = reducer(undefined, {});
     state = reducer(state, loadExtract({
       egrid: 'CH123456789',
+      identdn: 'foo',
+      number: '1234',
       zoom: false
     }));
     state = reducer(state, showExtract({
@@ -60,6 +68,8 @@ describe('extract reducer', () => {
       collapsed: false,
       error: false,
       egrid: 'CH123456789',
+      identdn: 'foo',
+      number: '1234',
       information: false,
       tab: 0,
       data: {
@@ -72,6 +82,8 @@ describe('extract reducer', () => {
     let state = reducer(undefined, {});
     state = reducer(state, loadExtract({
       egrid: 'CH123456789',
+      identdn: 'foo',
+      number: '1234',
       zoom: false
     }));
     state = reducer(state, showExtract({
@@ -85,6 +97,8 @@ describe('extract reducer', () => {
       collapsed: false,
       error: false,
       egrid: null,
+      identdn: null,
+      number: null,
       information: false,
       tab: 0,
       data: {}
@@ -96,6 +110,8 @@ describe('extract reducer', () => {
     let state = reducer(undefined, {});
     state = reducer(state, loadExtract({
       egrid: 'CH123456789',
+      identdn: 'foo',
+      number: '1234',
       zoom: false
     }));
     window.history.pushState = jest.fn();
@@ -107,6 +123,8 @@ describe('extract reducer', () => {
       collapsed: false,
       error: true,
       egrid: 'CH123456789',
+      identdn: 'foo',
+      number: '1234',
       information: false,
       tab: 0,
       data: {}
@@ -124,6 +142,8 @@ describe('extract reducer', () => {
       collapsed: true,
       error: false,
       egrid: null,
+      identdn: null,
+      number: null,
       information: false,
       tab: 0,
       data: {}
@@ -136,6 +156,8 @@ describe('extract reducer', () => {
       collapsed: false,
       error: false,
       egrid: null,
+      identdn: null,
+      number: null,
       information: false,
       tab: 0,
       data: {}
@@ -153,6 +175,8 @@ describe('extract reducer', () => {
       collapsed: false,
       error: false,
       egrid: null,
+      identdn: null,
+      number: null,
       information: true,
       tab: 0,
       data: {}
@@ -165,6 +189,8 @@ describe('extract reducer', () => {
       collapsed: false,
       error: false,
       egrid: null,
+      identdn: null,
+      number: null,
       information: false,
       tab: 0,
       data: {}
@@ -181,6 +207,8 @@ describe('extract reducer', () => {
       collapsed: false,
       error: false,
       egrid: null,
+      identdn: null,
+      number: null,
       information: false,
       tab: 1,
       data: {}

@@ -1,8 +1,14 @@
 import {isString} from "lodash";
 
-export const queryExtractById = function (serviceUrl, egrid, timeout, language) {
+export const queryExtractById = function (serviceUrl, egrid, identdn, number, timeout, language) {
   const url = new URL(serviceUrl + 'extract/json/');
-  url.searchParams.append('EGRID', egrid);
+  if (egrid !== null) {
+    url.searchParams.append('EGRID', egrid);
+  }
+  else {
+    url.searchParams.append('IDENTDN', identdn);
+    url.searchParams.append('NUMBER', number);
+  }
   url.searchParams.append('GEOMETRY', true);
   url.searchParams.append('_dc', new Date().getTime());
   if (language) {
@@ -28,9 +34,15 @@ export const queryExtractById = function (serviceUrl, egrid, timeout, language) 
   });
 };
 
-export const queryStaticExtractById = function (serviceUrl, egrid, timeout, language) {
+export const queryStaticExtractById = function (serviceUrl, egrid, identdn, number, timeout, language) {
   const url = new URL(serviceUrl + 'extract/pdf/');
-  url.searchParams.append('EGRID', egrid);
+  if (egrid !== null) {
+    url.searchParams.append('EGRID', egrid);
+  }
+  else {
+    url.searchParams.append('IDENTDN', identdn);
+    url.searchParams.append('NUMBER', number);
+  }
   url.searchParams.append('_dc', new Date().getTime());
   if (language) {
     url.searchParams.append('LANG', language);

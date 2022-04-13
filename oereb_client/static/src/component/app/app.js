@@ -36,13 +36,27 @@ const App = function (props) {
   dispatch(initAvailability());
   dispatch(initSymbolZoom());
 
-  if (query.has('egrid')) {
-    const egrid = query.get('egrid');
+  const hasEgrid = query.has('egrid');
+  const hasIdentdn = query.has('identdn') && query.has('number');
+
+  if (hasEgrid || hasIdentdn) {
+    const egrid = query.get('egrid') || null;
+    const identdn = query.get('identdn') || null;
+    const number = query.get('number') || null;
     dispatch(loadExtract({
       egrid: egrid,
+      identdn: identdn,
+      number: number,
       zoom: true
     }));
-    queryExtractById(config.service_url, egrid, config.extract_json_timeout, query.get('lang'))
+    queryExtractById(
+      config.service_url,
+      egrid,
+      identdn,
+      number,
+      config.extract_json_timeout,
+      query.get('lang')
+    )
       .then((extract) => {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));

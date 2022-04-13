@@ -1,5 +1,4 @@
 import {saveAs} from "file-saver";
-import {isString} from "lodash";
 import React, {useRef} from "react";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
@@ -20,11 +19,18 @@ const OerebStaticExtract = function () {
   const dispatch = useDispatch();
 
   const requestStaticExtract = function () {
-    if (extract.visible && isString(extract.egrid)) {
+    if (extract.visible) {
       const identifier = extract.data['GetExtractByIdResponse']['extract']['ExtractIdentifier'];
       icon.current.classList.remove('bi', 'bi-file-earmark-pdf');
       icon.current.classList.add('spinner-grow', 'spinner-grow-sm');
-      queryStaticExtractById(config.service_url, extract.egrid, config.extract_pdf_timeout, currentLanguage)
+      queryStaticExtractById(
+        config.service_url,
+        extract.egrid,
+        extract.identdn,
+        extract.number,
+        config.extract_pdf_timeout,
+        currentLanguage
+      )
         .then((pdfFile) => {
           const fileName = identifier + '.pdf';
           icon.current.classList.remove('spinner-grow', 'spinner-grow-sm');
