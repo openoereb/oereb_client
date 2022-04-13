@@ -49,9 +49,6 @@ class Index(object):
         if not isinstance(self.config_.get('availability'), dict):
             raise ConfigurationError('Missing "availability" configuration')
 
-        if not isinstance(self.config_.get('mask_surrounding'), dict):
-            raise ConfigurationError('Missing "mask_surrounding" configuration')
-
         if not (
             isinstance(self.config_.get('search'), list) or
             isinstance(self.config_.get('search'), str)
@@ -157,6 +154,15 @@ class Index(object):
         Returns:
             str: The JSON-encoded configuration.
         """
+
+        if not isinstance(self.config_.get('mask_surrounding'), dict):
+            self.config_.update({
+                'mask_surrounding': {
+                    'url': 'no_url',
+                    'visible': False
+                }
+            })
+
         return {
             'test_instance_notice': self.config_.get('test_instance_notice', None),
             'application_url': self.request_.route_url(
