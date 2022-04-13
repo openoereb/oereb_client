@@ -180,15 +180,6 @@ oereb_client:
       FORMAT: image/png
     attributions: optional copyright or notice
 
-# The mask_surrounding layer can be used to lay a mask (half-transparent
-  # white layer) on the surrounding cantons. You have to define a WMS URL and
-  # set visible to true, if the layer should be shown.
-  # This parameter does not have to be configured. If it is configured, at
-  # least "url" has to be defined.
-  mask_surrounding:
-    url: https://example.com/wms
-    visible: true
-
   # Search configuration
   # Specify a list to use the internal search proxy or an URL to use an external endpoint.
   # search: https://my.search-endpoint.ch/
@@ -301,6 +292,12 @@ oereb_client:
   # [OPTIONAL] Enable Google Analytics by specifying account key. Leave this
   # parameter undefined to disable Google Analytics.
   google_analytics: UA-12345678-9
+
+  # [OPTIONAL] The mask_surrounding layer can be used to lay a mask (half-transparent
+  # white layer) on the surrounding cantons. You have to define a WMS URL.
+  # This parameter does not have to be configured. If it is configured, url has to be defined.
+  mask_surrounding:
+    url: https://example.com/wms
 ```
 
 ### Search
