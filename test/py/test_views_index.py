@@ -50,6 +50,10 @@ settings = {
             'url': 'http://geowms.bl.ch',
             'layer': 'oereb_availability'
         },
+        'mask_surrounding': {
+            'url': 'http://geowms.bl.ch',
+            'visible': True
+        },
         'search': [
             {
                 'title': [
@@ -128,6 +132,7 @@ def test_get_config(mock_request):
             'view': settings.get('oereb_client').get('view'),
             'base_layer': settings.get('oereb_client').get('base_layer'),
             'availability': settings.get('oereb_client').get('availability'),
+            'mask_surrounding': settings.get('oereb_client').get('mask_surrounding'),
             'search': settings.get('oereb_client').get('search'),
             'support': settings.get('oereb_client').get('support'),
             'external_viewer': settings.get('oereb_client').get('external_viewer'),
@@ -158,6 +163,7 @@ def test_get_config_tiled(mock_request):
             'view': settings.get('oereb_client').get('view'),
             'base_layer': settings.get('oereb_client').get('base_layer'),
             'availability': settings.get('oereb_client').get('availability'),
+            'mask_surrounding': settings.get('oereb_client').get('mask_surrounding'),
             'search': settings.get('oereb_client').get('search'),
             'support': settings.get('oereb_client').get('support'),
             'external_viewer': settings.get('oereb_client').get('external_viewer'),
@@ -188,6 +194,7 @@ def test_get_config_custom_timeout(mock_request):
             'view': settings.get('oereb_client').get('view'),
             'base_layer': settings.get('oereb_client').get('base_layer'),
             'availability': settings.get('oereb_client').get('availability'),
+            'mask_surrounding': settings.get('oereb_client').get('mask_surrounding'),
             'search': settings.get('oereb_client').get('search'),
             'support': settings.get('oereb_client').get('support'),
             'external_viewer': settings.get('oereb_client').get('external_viewer'),

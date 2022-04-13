@@ -46,6 +46,12 @@ oereb_client:
       LAYERS: oereb_published_municipalities
       FORMAT: image/png
 
+  mask_surrounding:
+    url: https://oereb-dev.geo.bl.ch/wms
+    params:
+      LAYERS: outside_bl_area
+      FORMAT: image/png
+
   search:
     - title:
         - Language: en

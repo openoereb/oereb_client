@@ -37,6 +37,10 @@ const config = {
       LAYERS: 'availability'
     }
   },
+  mask_surrounding: {
+    url: 'http://example.com/wms',
+    visible: true
+  },
   use_tile_wms: false
 };
 
