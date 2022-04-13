@@ -18,6 +18,7 @@ import extract from "../../../../samples/extract.json";
 describe('extract component', () => {
 
   beforeEach(() => {
+    fetch.resetMocks();
     act(() => {
       MainStore.dispatch(initLanguages({
         default: 'de',
@@ -26,6 +27,7 @@ describe('extract component', () => {
     });
     act(() => {
       MainStore.dispatch(update({
+        service_url: 'http://example.com/',
         support: {
           office1: [{
             Language: 'de',
@@ -68,6 +70,12 @@ describe('extract component', () => {
 
   it('should render error message', () => {
     act(() => {
+      MainStore.dispatch(loadExtract({
+        egrid: 'CH1234',
+        zoom: false
+      }));
+    });
+    act(() => {
       MainStore.dispatch(showError());
     });
     const component = mount(
@@ -76,6 +84,13 @@ describe('extract component', () => {
       </Provider>
     );
     expect(toJson(component)).toMatchSnapshot();
+    fetch.mockResponseOnce(JSON.stringify(extract));
+    component.find('button').at(1).simulate('click');
+    expect(fetch.mock.calls).toHaveLength(1);
+    const url = new URL(fetch.mock.calls[0][0]);
+    expect(url.host).toEqual('example.com');
+    expect(url.pathname).toEqual('/extract/json/');
+    expect(url.searchParams.get('EGRID')).toEqual('CH1234');
   });
 
   it('should render extract data', () => {
