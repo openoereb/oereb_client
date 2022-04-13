@@ -8,6 +8,7 @@ https://github.com/openoereb/oereb_client/milestone/8
 
 - Fix typo in french translation
 - Add configurable user guide button
+- Add mask layer
 - Add support for IDENTDN and NUMBER
 
 2.0.0
