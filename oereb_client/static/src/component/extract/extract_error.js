@@ -75,9 +75,18 @@ const OerebExtractError = function () {
   const retryExtract = function () {
     dispatch(loadExtract({
       egrid: extract.egrid,
+      identdn: extract.identdn,
+      number: extract.number,
       zoom: true
     }));
-    queryExtractById(serviceUrl, extract.egrid, config.extract_json_timeout, currentLanguage)
+    queryExtractById(
+      serviceUrl,
+      extract.egrid,
+      extract.identdn,
+      extract.number,
+      config.extract_json_timeout,
+      currentLanguage
+    )
       .then((data) => {
         dispatch(showExtract(data));
         dispatch(updateHistory(data));

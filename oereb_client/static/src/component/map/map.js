@@ -214,12 +214,16 @@ const OerebMap = function () {
           }
           else if (results.length === 1) {
             const egrid = results[0].egrid;
+            const identdn = results[0].identdn;
+            const number = results[0].number;
             dispatch(hide());
             dispatch(loadExtract({
               egrid: egrid,
+              identdn: identdn,
+              number: number,
               zoom: false
             }));
-            queryExtractById(serviceUrl, egrid, config.extract_json_timeout, currentLanguage)
+            queryExtractById(serviceUrl, egrid, identdn, number, config.extract_json_timeout, currentLanguage)
               .then((extract) => {
                 dispatch(showExtract(extract));
                 dispatch(updateHistory(extract));

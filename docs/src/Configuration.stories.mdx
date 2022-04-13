@@ -337,18 +337,22 @@ To be able to aggregate the results, they have to match the following structure.
   {
     "label": "Search result 1",
     "egrid": "CH1234567890",
+    "identdn": "SAMPLE1",
+    "number": "1234",
     "coordinates": [2600000.0, 1200000.0]
   },
   {
     "label": "Search result 2",
     "egrid": "CH9876543210",
+    "identdn": "SAMPLE2",
+    "number": "9876",
     "coordinates": [2600001.0, 1200001.0]
   },
   ...
 ]
 ```
 
-Only one of the attributes `egrid` and `coordinates` is necessary, whereby using `egrid` should be
+Only one of `egrid`, `coordinates` or `identdn` and `number` is necessary, whereby using `egrid` should be
 the preferred solution.
 
 If your configured endpoint for a certain category is not able to return this structure, you can
@@ -390,7 +394,8 @@ The returned results need to match the following structure.
       },
       {
         "label": "CH9876543210",
-        "egrid": "CH9876543210"
+        "identdn": "SAMPLE2",
+        "number": "9876"
       },
       ...
     ]

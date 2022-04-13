@@ -7,7 +7,7 @@ import {Meta} from '@storybook/addon-docs';
 Queries the extract for the specified E-GRID and language.
 
 ```js
-queryExtractById(applicationUrl, egrid, timeout, language);
+queryExtractById(applicationUrl, egrid, identdn, number, timeout, language);
 ```
 
 ### Parameters
@@ -16,6 +16,8 @@ queryExtractById(applicationUrl, egrid, timeout, language);
 | --- | --- | --- |
 | applicationUrl | <code>String</code> | The application URL. |
 | egrid | <code>String</code> | The E-GRID to query the extract for. |
+| identdn | <code>String</code> | The IDENTDN to query the extract for. |
+| number | <code>String</code> | The real estate number to query the extract for. |
 | timeout | <code>Integer</code> | The specified timeout in seconds. |
 | language | <code>String</code> | (OPTIONAL) The requested language. |
 
@@ -29,7 +31,7 @@ queryExtractById(applicationUrl, egrid, timeout, language);
 Queries the static extract (PDF) for the specified E-GRID and language.
 
 ```js
-queryStaticExtractById(applicationUrl, egrid, language);
+queryStaticExtractById(applicationUrl, egrid, identdn, number, language);
 ```
 
 ### Parameters
@@ -38,6 +40,8 @@ queryStaticExtractById(applicationUrl, egrid, language);
 | --- | --- | --- |
 | applicationUrl | <code>String</code> | The application URL. |
 | egrid | <code>String</code> | The E-GRID to query the static extract for. |
+| identdn | <code>String</code> | The IDENTDN to query the static extract for. |
+| number | <code>String</code> | The real estate number to query the static extract for. |
 | timeout | <code>Integer</code> | The specified timeout in seconds. |
 | language | <code>String</code> | (OPTIONAL) The requested language. |
 

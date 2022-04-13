@@ -9,6 +9,8 @@ export const extractSlice = createSlice({
     collapsed: false,
     error: false,
     egrid: null,
+    identdn: null,
+    number: null,
     information: false,
     tab: 0,
     data: {}
@@ -23,10 +25,18 @@ export const extractSlice = createSlice({
         state.information = false;
         state.tab = 0;
         state.egrid = action.payload.egrid;
+        state.identdn = action.payload.identdn;
+        state.number = action.payload.number;
         state.zoom = action.payload.zoom;
         state.data = {};
         const query = new URLSearchParams(window.location.search);
-        query.set('egrid', state.egrid);
+        if (state.egrid !== null) {
+          query.set('egrid', state.egrid);
+        }
+        else if (state.identdn !== null && state.number !== null) {
+          query.set('identdn', state.identdn);
+          query.set('number', state.number);
+        }
         window.history.pushState(null, null, '?' + query.toString());
       }
     },
@@ -50,6 +60,8 @@ export const extractSlice = createSlice({
       state.data = {};
       const query = new URLSearchParams(window.location.search);
       query.delete('egrid');
+      query.delete('identdn');
+      query.delete('number');
       window.history.pushState(null, null, '?' + query.toString());
     },
     hideExtract: (state) => {
@@ -59,11 +71,15 @@ export const extractSlice = createSlice({
       state.collapsed = false;
       state.error = false;
       state.egrid = null;
+      state.identdn = null;
+      state.number = null;
       state.information = false;
       state.tab = 0;
       state.data = {};
       const query = new URLSearchParams(window.location.search);
       query.delete('egrid');
+      query.delete('identdn');
+      query.delete('number');
       window.history.pushState(null, null, '?' + query.toString());
     },
     toggleCollapsed: (state) => {

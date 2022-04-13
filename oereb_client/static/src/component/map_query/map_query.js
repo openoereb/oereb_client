@@ -48,14 +48,16 @@ const OerebMapQuery = function (props) {
     dispatch(hide());
   };
 
-  const queryExtract = function (egrid) {
+  const queryExtract = function (egrid, identdn, number) {
     dispatch(hide());
     dispatch(setViewServices([]));
     dispatch(loadExtract({
       egrid: egrid,
+      identdn: identdn,
+      number: number,
       zoom: false
     }));
-    queryExtractById(serviceUrl, egrid, config.extract_json_timeout, currentLanguage)
+    queryExtractById(serviceUrl, egrid, identdn, number, config.extract_json_timeout, currentLanguage)
       .then((extract) => {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));
@@ -66,12 +68,13 @@ const OerebMapQuery = function (props) {
   };
 
   const listResults = mapQuery.results.map((result, key) => {
-    const number = result.number;
     const egrid = result.egrid;
+    const identdn = result.identdn;
+    const number = result.number;
     const type = getLocalizedText(result.type.Text, currentLanguage, defaultLanguage);
     return (
       <button key={key}
-        onClick={queryExtract.bind(this, egrid)}
+        onClick={queryExtract.bind(this, egrid, identdn, number)}
         type="button"
         className="list-group-item list-group-item-action">
         <small>{type} {number}</small>

@@ -8,6 +8,7 @@ https://github.com/openoereb/oereb_client/milestone/8
 
 - Fix typo in french translation
 - Add configurable user guide button
+- Add support for IDENTDN and NUMBER
 
 2.0.0
 *****
@@ -154,20 +155,7 @@ https://gitlab.com/gf-bl/oereb/oereb_client/milestones/18
 - Configurable link to WebGIS
 - Add configuration for Google Analytics
 
-1.2.5
-*****
-
-https://gitlab.com/gf-bl/oereb/oereb_client/milestones/17
-
-- Improve layout for responsible offices
-- Improve sorting of glossary
-
-1.2.4
-*****
-
-https://gitlab.com/gf-bl/oereb/oereb_client/milestones/16
-
-- Adjust legend titles according to PDF specification
+1.2.5Add support for IDENTDN and NUMBERion
 - Add responsible offices from geometries
 - Specify OEREB logo via configuration
 

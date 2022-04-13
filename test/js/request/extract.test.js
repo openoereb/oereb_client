@@ -12,11 +12,13 @@ beforeEach(() => {
 
 describe('queryExtractById', () => {
 
-  it('should query the extract for the specified id', async () => {
+  it('should query the extract for the specified egrid', async () => {
     fetch.mockResponseOnce(JSON.stringify({foo: 'bar'}));
     const result = await queryExtractById(
       'http://example.com/',
       'CH1234567890',
+      'foo',
+      '1234',
       1,
       'de'
     );
@@ -32,15 +34,40 @@ describe('queryExtractById', () => {
     expect(url.searchParams.get('_dc')).toEqual('1640995200000');
   });
 
+  it('should query the extract for the specified identdn and number', async () => {
+    fetch.mockResponseOnce(JSON.stringify({foo: 'bar'}));
+    const result = await queryExtractById(
+      'http://example.com/',
+      null,
+      'foo',
+      '1234',
+      1,
+      'de'
+    );
+    expect(result).toEqual({
+      foo: 'bar'
+    });
+    expect(fetch.mock.calls).toHaveLength(1);
+    const url = new URL(fetch.mock.calls[0][0]);
+    expect(url.host).toEqual('example.com');
+    expect(url.pathname).toEqual('/extract/json/');
+    expect(url.searchParams.get('IDENTDN')).toEqual('foo');
+    expect(url.searchParams.get('NUMBER')).toEqual('1234');
+    expect(url.searchParams.get('LANG')).toEqual('de');
+    expect(url.searchParams.get('_dc')).toEqual('1640995200000');
+  });
+
 });
 
 describe('queryStaticExtractById', () => {
 
-  it('should query the static extract for the specified id', async () => {
+  it('should query the static extract for the specified egrid', async () => {
     fetch.mockResponseOnce('foo');
     const result = await queryStaticExtractById(
       'http://example.com/',
       'CH1234567890',
+      'foo',
+      '1234',
       1,
       'de'
     );
@@ -51,6 +78,28 @@ describe('queryStaticExtractById', () => {
     expect(url.host).toEqual('example.com');
     expect(url.pathname).toEqual('/extract/pdf/');
     expect(url.searchParams.get('EGRID')).toEqual('CH1234567890');
+    expect(url.searchParams.get('LANG')).toEqual('de');
+    expect(url.searchParams.get('_dc')).toEqual('1640995200000');
+  });
+
+  it('should query the static extract for the specified identdn and number', async () => {
+    fetch.mockResponseOnce('foo');
+    const result = await queryStaticExtractById(
+      'http://example.com/',
+      null,
+      'foo',
+      '1234',
+      1,
+      'de'
+    );
+    const resultStr = Reflect.apply(String.fromCharCode, undefined, new Uint8Array(result));
+    expect(resultStr).toEqual('foo');
+    expect(fetch.mock.calls).toHaveLength(1);
+    const url = new URL(fetch.mock.calls[0][0]);
+    expect(url.host).toEqual('example.com');
+    expect(url.pathname).toEqual('/extract/pdf/');
+    expect(url.searchParams.get('IDENTDN')).toEqual('foo');
+    expect(url.searchParams.get('NUMBER')).toEqual('1234');
     expect(url.searchParams.get('LANG')).toEqual('de');
     expect(url.searchParams.get('_dc')).toEqual('1640995200000');
   });
