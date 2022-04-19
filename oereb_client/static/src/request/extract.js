@@ -2,7 +2,7 @@ import {isString} from "lodash";
 
 export const queryExtractById = function (serviceUrl, egrid, identdn, number, timeout, language) {
   const url = new URL(serviceUrl + 'extract/json/');
-  if (egrid !== null) {
+  if (isString(egrid)) {
     url.searchParams.append('EGRID', egrid);
   }
   else {
@@ -36,7 +36,7 @@ export const queryExtractById = function (serviceUrl, egrid, identdn, number, ti
 
 export const queryStaticExtractById = function (serviceUrl, egrid, identdn, number, timeout, language) {
   const url = new URL(serviceUrl + 'extract/pdf/');
-  if (egrid !== null) {
+  if (isString(egrid)) {
     url.searchParams.append('EGRID', egrid);
   }
   else {

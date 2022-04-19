@@ -214,7 +214,7 @@ const OerebMap = function () {
           }
           else if (results.length === 1) {
             const egrid = results[0].egrid;
-            const identdn = results[0].identdn;
+            const identdn = results[0].identDN;
             const number = results[0].number;
             dispatch(hide());
             dispatch(loadExtract({
