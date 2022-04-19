@@ -3,9 +3,7 @@ coverage:
     project:
       default:
         threshold: 1%
-    patch:
-      default:
-        threshold: 3%
+    patch: no
 comment:
   layout: "diff"
   behavior: default
