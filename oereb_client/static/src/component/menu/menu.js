@@ -240,7 +240,7 @@ const OerebMenu = function () {
   const historyElements = history.map((element, key) =>
     <li key={key}>
       <button className="dropdown-item"
-        onClick={queryExtract.bind(this, element['EGRID'])}>
+        onClick={queryExtract.bind(this, element['EGRID'], element['IdentDN'], element['Number'])}>
         {element['Municipality']} {element['Number']} ({element['EGRID']})
       </button>
     </li>

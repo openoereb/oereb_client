@@ -69,7 +69,7 @@ const OerebMapQuery = function (props) {
 
   const listResults = mapQuery.results.map((result, key) => {
     const egrid = result.egrid;
-    const identdn = result.identdn;
+    const identdn = result.identDN;
     const number = result.number;
     const type = getLocalizedText(result.type.Text, currentLanguage, defaultLanguage);
     return (

@@ -52,7 +52,7 @@ class Sample(object):
                         }
                     },
                     {
-                        'egrid': 'CH1234',
+                        'egrid': None,
                         'number': '1234',
                         'identDN': 'SAMPLE2',
                         'type': {
@@ -88,7 +88,10 @@ class Sample(object):
 
     def get_extract_by_id(self):
         time.sleep(2)
-        if self._request.params.get('EGRID') == 'CH1234':
+        has_egrid = self._request.params.get('EGRID') == 'CH1234'
+        has_ident = self._request.params.get('IDENTDN') == 'SAMPLE2' and \
+            self._request.params.get('NUMBER') == '1234'
+        if has_egrid or has_ident:
             with open(pkg_resources.resource_filename('samples', 'extract.json')) as f:
                 content = json.loads(f.read())
             return HTTPOk(json_body=content)
