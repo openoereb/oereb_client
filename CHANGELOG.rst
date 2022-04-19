@@ -96,7 +96,20 @@ https://github.com/openoereb/oereb_client/milestone/3
 https://github.com/openoereb/oereb_client/milestone/1
 
 - Move project to https://github.com/openoereb/oereb_client
-- Customizable E-GRID style
+- Customizable E-GRID style1.2.5
+*****
+
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/17
+
+- Improve layout for responsible offices
+- Improve sorting of glossary
+
+1.2.4
+*****
+
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/16
+
+- Adjust legend titles according to PDF specification
 - Dependency updates
 
 1.3.6
@@ -156,7 +169,20 @@ https://gitlab.com/gf-bl/oereb/oereb_client/milestones/18
 - Configurable link to WebGIS
 - Add configuration for Google Analytics
 
-1.2.5Add support for IDENTDN and NUMBERion
+1.2.5
+*****
+
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/17
+
+- Improve layout for responsible offices
+- Improve sorting of glossary
+
+1.2.4
+*****
+
+https://gitlab.com/gf-bl/oereb/oereb_client/milestones/16
+
+- Adjust legend titles according to PDF specification
 - Add responsible offices from geometries
 - Specify OEREB logo via configuration
 
