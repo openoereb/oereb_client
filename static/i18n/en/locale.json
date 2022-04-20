@@ -60,10 +60,6 @@
       "title": "Request extract as PDF"
     },
     "topic": {
-      "complete_legend": {
-        "hide": "Hide complete legend",
-        "show": "Show complete legend"
-      },
       "document": {
         "hints": "Further information and hints",
         "laws": "Legal bases",
@@ -96,9 +92,12 @@
       }
     },
     "settings": {
-      "availability": "Show available municiplities",
+      "availability": "Show available municipalities",
       "symbol_zoom": "Zoom on legend symbols",
       "title": "Settings"
+    },
+    "user_guide": {
+      "title": "User guide"
     }
   }
 }
