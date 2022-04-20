@@ -96,20 +96,7 @@ https://github.com/openoereb/oereb_client/milestone/3
 https://github.com/openoereb/oereb_client/milestone/1
 
 - Move project to https://github.com/openoereb/oereb_client
-- Customizable E-GRID style1.2.5
-*****
-
-https://gitlab.com/gf-bl/oereb/oereb_client/milestones/17
-
-- Improve layout for responsible offices
-- Improve sorting of glossary
-
-1.2.4
-*****
-
-https://gitlab.com/gf-bl/oereb/oereb_client/milestones/16
-
-- Adjust legend titles according to PDF specification
+- Customizable E-GRID style
 - Dependency updates
 
 1.3.6
