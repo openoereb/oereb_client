@@ -117,7 +117,7 @@ const OerebMap = function () {
       url: config.mask_surrounding.url,
       params: config.mask_surrounding.params
     }),
-    opacity: 0.6,
+    opacity: 0.8,
     zIndex: 40000
   };
   if (isString(config.mask_surrounding['attributions']) || isArray(config.mask_surrounding['attributions'])) {
