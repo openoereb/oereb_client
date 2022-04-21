@@ -52,7 +52,11 @@ settings = {
         },
         'mask_surrounding': {
             'url': 'http://geowms.bl.ch',
-            'visible': True
+            'params': {
+                'LAYERS': 'outside_bl_area',
+                'FORMAT': 'image/png'
+            },
+            'opacity': 0.8
         },
         'search': [
             {

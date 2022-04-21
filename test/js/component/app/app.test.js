@@ -68,7 +68,11 @@ const config = {
   },
   mask_surrounding: {
     url: 'http://example.com/wms',
-    visible: true
+    params: {
+      LAYERS: 'outside_bl_area',
+      FORMAT: 'image/png'
+    },
+    opacity: 0.8
   },
   search: 'http://example.com/search',
   use_tile_wms: false
