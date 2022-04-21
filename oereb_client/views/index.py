@@ -159,7 +159,8 @@ class Index(object):
             self.config_.update({
                 'mask_surrounding': {
                     'url': 'no_url',
-                    'visible': False
+                    'params': {},
+                    'opacity': None
                 }
             })
 
