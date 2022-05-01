@@ -20,7 +20,7 @@
   "license": "BSD-2-Clause",
   "homepage": "https://gitlab.com/gf-bl/oereb_client#README",
   "devDependencies": {
-    "@babel/core": "^7.17.8",
+    "@babel/core": "^7.17.10",
     "@babel/plugin-transform-runtime": "^7.16.10",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
