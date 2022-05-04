@@ -4,6 +4,13 @@ Changelog
 2.0.1
 *****
 
+https://github.com/openoereb/oereb_client/milestone/9
+
+- Dependency updates
+
+2.0.1
+*****
+
 https://github.com/openoereb/oereb_client/milestone/8
 
 - Fix typo in french translation
