@@ -971,22 +971,26 @@ exports[`legend component should render legend 1`] = `
         <tr
           key="0"
         >
-          <td>
-            Belastet, untersuchungsbedürftig
-          </td>
-          <td>
+          <td
+            className="oereb-client-symbol"
+          >
             <img
               className="oereb-client-symbol"
               src="samples/static/symbol2.png"
             />
           </td>
           <td
-            className="text-end text-nowrap"
+            className="oereb-client-legend-text"
+          >
+            Belastet, untersuchungsbedürftig
+          </td>
+          <td
+            className="oereb-client-legend-text text-end text-nowrap"
           >
             202 m
           </td>
           <td
-            className="text-end text-nowrap"
+            className="oereb-client-legend-text text-end text-nowrap"
           />
         </tr>
       </tbody>
