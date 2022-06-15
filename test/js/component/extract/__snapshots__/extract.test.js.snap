@@ -10865,22 +10865,26 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="0"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol3.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             101 m
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           />
                                         </tr>
                                       </tbody>
@@ -12159,22 +12163,26 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="0"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol3.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             63 m
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           />
                                         </tr>
                                       </tbody>
@@ -14051,17 +14059,21 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="0"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol2.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             <span>
                                               3608
@@ -14072,7 +14084,7 @@ exports[`extract component should render extract data 1`] = `
                                             </span>
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             10.3%
                                           </td>
@@ -14080,22 +14092,26 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="1"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol1.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             2
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           />
                                         </tr>
                                       </tbody>
@@ -16572,17 +16588,21 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="0"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol2.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             <span>
                                               7824
@@ -16593,7 +16613,7 @@ exports[`extract component should render extract data 1`] = `
                                             </span>
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             22.3%
                                           </td>
@@ -18309,22 +18329,26 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="0"
                                         >
-                                          <td>
-                                            Belastet, keine schädlichen oder lästigen Einwirkungen zu erwarten
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol1.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, keine schädlichen oder lästigen Einwirkungen zu erwarten
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             1
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           />
                                         </tr>
                                       </tbody>
@@ -19902,17 +19926,21 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="0"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol2.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             <span>
                                               3608
@@ -19923,7 +19951,7 @@ exports[`extract component should render extract data 1`] = `
                                             </span>
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             10.3%
                                           </td>
@@ -19931,22 +19959,26 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="1"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol1.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             2
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           />
                                         </tr>
                                       </tbody>
@@ -23063,17 +23095,21 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="0"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol2.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             <span>
                                               7824
@@ -23084,7 +23120,7 @@ exports[`extract component should render extract data 1`] = `
                                             </span>
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             22.3%
                                           </td>
@@ -23092,22 +23128,26 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="1"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol3.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             101 m
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           />
                                         </tr>
                                       </tbody>
@@ -25723,22 +25763,26 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="0"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol3.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             63 m
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           />
                                         </tr>
                                       </tbody>
@@ -27071,17 +27115,21 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="0"
                                         >
-                                          <td>
-                                            Fassungsbereich (Zone S1)
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol2.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Fassungsbereich (Zone S1)
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             <span>
                                               7824
@@ -27092,7 +27140,7 @@ exports[`extract component should render extract data 1`] = `
                                             </span>
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             22.3%
                                           </td>
@@ -29755,22 +29803,26 @@ exports[`extract component should render extract data 1`] = `
                                         <tr
                                           key="0"
                                         >
-                                          <td>
-                                            Belastet, untersuchungsbedürftig
-                                          </td>
-                                          <td>
+                                          <td
+                                            className="oereb-client-symbol"
+                                          >
                                             <img
                                               className="oereb-client-symbol"
                                               src="samples/static/symbol2.png"
                                             />
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text"
+                                          >
+                                            Belastet, untersuchungsbedürftig
+                                          </td>
+                                          <td
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           >
                                             202 m
                                           </td>
                                           <td
-                                            className="text-end text-nowrap"
+                                            className="oereb-client-legend-text text-end text-nowrap"
                                           />
                                         </tr>
                                       </tbody>

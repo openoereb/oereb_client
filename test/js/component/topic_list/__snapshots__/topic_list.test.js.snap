@@ -5532,22 +5532,26 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="0"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol3.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             101 m
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           />
                         </tr>
                       </tbody>
@@ -6826,22 +6830,26 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="0"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol3.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             63 m
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           />
                         </tr>
                       </tbody>
@@ -8718,17 +8726,21 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="0"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol2.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             <span>
                               3608
@@ -8739,7 +8751,7 @@ exports[`topic with restriction component should render topics 1`] = `
                             </span>
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             10.3%
                           </td>
@@ -8747,22 +8759,26 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="1"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol1.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             2
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           />
                         </tr>
                       </tbody>
@@ -11239,17 +11255,21 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="0"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol2.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             <span>
                               7824
@@ -11260,7 +11280,7 @@ exports[`topic with restriction component should render topics 1`] = `
                             </span>
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             22.3%
                           </td>
@@ -12976,22 +12996,26 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="0"
                         >
-                          <td>
-                            Belastet, keine schädlichen oder lästigen Einwirkungen zu erwarten
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol1.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, keine schädlichen oder lästigen Einwirkungen zu erwarten
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             1
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           />
                         </tr>
                       </tbody>
@@ -14569,17 +14593,21 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="0"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol2.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             <span>
                               3608
@@ -14590,7 +14618,7 @@ exports[`topic with restriction component should render topics 1`] = `
                             </span>
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             10.3%
                           </td>
@@ -14598,22 +14626,26 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="1"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol1.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             2
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           />
                         </tr>
                       </tbody>
@@ -17730,17 +17762,21 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="0"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol2.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             <span>
                               7824
@@ -17751,7 +17787,7 @@ exports[`topic with restriction component should render topics 1`] = `
                             </span>
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             22.3%
                           </td>
@@ -17759,22 +17795,26 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="1"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol3.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             101 m
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           />
                         </tr>
                       </tbody>
@@ -20390,22 +20430,26 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="0"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol3.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             63 m
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           />
                         </tr>
                       </tbody>
@@ -21738,17 +21782,21 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="0"
                         >
-                          <td>
-                            Fassungsbereich (Zone S1)
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol2.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Fassungsbereich (Zone S1)
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             <span>
                               7824
@@ -21759,7 +21807,7 @@ exports[`topic with restriction component should render topics 1`] = `
                             </span>
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             22.3%
                           </td>
@@ -24422,22 +24470,26 @@ exports[`topic with restriction component should render topics 1`] = `
                         <tr
                           key="0"
                         >
-                          <td>
-                            Belastet, untersuchungsbedürftig
-                          </td>
-                          <td>
+                          <td
+                            className="oereb-client-symbol"
+                          >
                             <img
                               className="oereb-client-symbol"
                               src="samples/static/symbol2.png"
                             />
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text"
+                          >
+                            Belastet, untersuchungsbedürftig
+                          </td>
+                          <td
+                            className="oereb-client-legend-text text-end text-nowrap"
                           >
                             202 m
                           </td>
                           <td
-                            className="text-end text-nowrap"
+                            className="oereb-client-legend-text text-end text-nowrap"
                           />
                         </tr>
                       </tbody>
