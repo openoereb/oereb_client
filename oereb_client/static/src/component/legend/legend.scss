@@ -8,8 +8,16 @@ table.oereb-client-legend {
     font-weight: normal;
   }
 
+  td.oereb-client-legend-text {
+    padding-top: 0.4em;
+  }
+
+  td.oereb-client-symbol {
+    width: $symbol-width + 1em;
+  }
+
   img.oereb-client-symbol {
-    border: 1px solid $symbol-border-color;
+    border: none;
     width: $symbol-width;
     height: $symbol-height;
   }
