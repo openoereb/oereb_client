@@ -124,12 +124,12 @@ const OerebLegend = function (props) {
     const percent = getPercent(entry);
     return (
       <tr key={key}>
-        <td>{information}</td>
-        <td>
+        <td className="oereb-client-symbol">
           <img className="oereb-client-symbol" src={symbolRef} />
         </td>
-        <td className="text-end text-nowrap">{part}</td>
-        <td className="text-end text-nowrap">{percent}</td>
+        <td className="oereb-client-legend-text">{information}</td>
+        <td className="oereb-client-legend-text text-end text-nowrap">{part}</td>
+        <td className="oereb-client-legend-text text-end text-nowrap">{percent}</td>
       </tr>
     );
   });
