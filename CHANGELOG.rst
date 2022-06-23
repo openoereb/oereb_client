@@ -1,11 +1,13 @@
 Changelog
 ---------
 
-2.0.1
+2.0.2
 *****
 
 https://github.com/openoereb/oereb_client/milestone/9
 
+- Remove border for legend symbols
+- Adapt static extract layout for legend items
 - Dependency updates
 
 2.0.1
