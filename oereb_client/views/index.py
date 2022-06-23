@@ -155,15 +155,6 @@ class Index(object):
             str: The JSON-encoded configuration.
         """
 
-        if not isinstance(self.config_.get('mask_surrounding'), dict):
-            self.config_.update({
-                'mask_surrounding': {
-                    'url': 'no_url',
-                    'params': {},
-                    'opacity': None
-                }
-            })
-
         return {
             'test_instance_notice': self.config_.get('test_instance_notice', None),
             'application_url': self.request_.route_url(

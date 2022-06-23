@@ -1,6 +1,6 @@
 import './map.scss';
 
-import {isArray, isString} from 'lodash';
+import {isArray, isObject, isString} from 'lodash';
 import {Collection} from 'ol';
 import {Attribution, defaults} from 'ol/control';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
@@ -27,7 +27,6 @@ import {queryEgridByCoord} from '../../request/egrid';
 import {queryExtractById} from '../../request/extract';
 import OerebAvailabilityLayer from '../availability_layer/availability_layer';
 import OerebMapQuery from '../map_query/map_query';
-import OerebMaskSurroundingLayer from '../mask_surrounding_layer/mask_surrounding_layer';
 import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';
 import OerebTopicLayer from '../topic_layers/topic_layers';
 
@@ -111,19 +110,26 @@ const OerebMap = function () {
   const [availabilityLayer] = useState(new LayerClass(availabilityConfig));
 
   // Create mask_surrounding layer
-  const maskSurroundingConfig = {
-    preload: Infinity,
-    source: new SourceClass({
-      url: config.mask_surrounding.url,
-      params: config.mask_surrounding.params
-    }),
-    opacity: config.mask_surrounding.opacity,
-    zIndex: 40000
-  };
-  if (isString(config.mask_surrounding['attributions']) || isArray(config.mask_surrounding['attributions'])) {
-    maskSurroundingConfig['attributions'] = config.mask_surrounding['attributions'];
+  let maskSurroundingLayerObject = null;
+  if (isObject(config.mask_surrounding)) {
+    const maskSurroundingConfig = {
+      preload: Infinity,
+      source: new SourceClass({
+        url: config.mask_surrounding.url,
+        params: config.mask_surrounding.params
+      }),
+      opacity: config.mask_surrounding.opacity,
+      zIndex: 40000
+    };
+    if (
+      isString(config.mask_surrounding['attributions']) ||
+      isArray(config.mask_surrounding['attributions'])
+    ) {
+      maskSurroundingConfig['attributions'] = config.mask_surrounding['attributions'];
+    }
+    maskSurroundingLayerObject = new LayerClass(maskSurroundingConfig);
   }
-  const [maskSurroundingLayer] = useState(new LayerClass(maskSurroundingConfig));
+  const [maskSurroundingLayer] = useState(maskSurroundingLayerObject);
 
   // Create group for topic layers
   const [topicLayers] = useState(new LayerGroup({
@@ -181,7 +187,9 @@ const OerebMap = function () {
       });
       newMap.addLayer(baseLayer);
       newMap.addLayer(availabilityLayer);
-      newMap.addLayer(maskSurroundingLayer);
+      if (maskSurroundingLayer !== null) {
+        newMap.addLayer(maskSurroundingLayer);
+      }
       newMap.addLayer(topicLayers);
       newMap.addLayer(realEstateLayer);
       dispatch(initMap({
@@ -252,13 +260,11 @@ const OerebMap = function () {
   let realEstateLayerComponent = null;
   let topicLayerComponent = null;
   let availabilityLayerComponent = null;
-  let maskSurroundingLayerComponent = null;
   if (map instanceof Map) {
     mapQueryComponent = <OerebMapQuery map={map} />;
     realEstateLayerComponent = <OerebRealEstateLayer map={map} realEstateLayer={realEstateLayer} />;
     topicLayerComponent = <OerebTopicLayer topicLayers={topicLayers} tiled={tiled} />;
     availabilityLayerComponent = <OerebAvailabilityLayer availabilityLayer={availabilityLayer} />;
-    maskSurroundingLayerComponent = <OerebMaskSurroundingLayer maskSurroundingLayer={maskSurroundingLayer} />;
   }
 
   return (
@@ -267,7 +273,6 @@ const OerebMap = function () {
       {realEstateLayerComponent}
       {topicLayerComponent}
       {availabilityLayerComponent}
-      {maskSurroundingLayerComponent}
       <div ref={mapElement} className="oereb-client-map"></div>
     </div>
   );
