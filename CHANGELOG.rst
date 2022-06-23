@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+2.0.3
+*****
+
+https://github.com/openoereb/oereb_client/milestone/10
+
+- Fix optional parameter mask_surrounding
+
 2.0.2
 *****
 

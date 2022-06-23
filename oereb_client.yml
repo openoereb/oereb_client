@@ -41,7 +41,7 @@ oereb_client:
     attributions: © Amt für Geoinformation, Kanton Basel-Landschaft.
 
   availability:
-    url: https://geoview.bl.ch/main/oereb/mapservproxy
+    url: https://oereb.geo.bl.ch/wms
     params:
       LAYERS: oereb_published_municipalities
       FORMAT: image/png
