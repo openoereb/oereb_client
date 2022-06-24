@@ -5,7 +5,7 @@
 <!-- OEREB Client, version ${config['version']} -->
 <html lang="de">
   <head>
-  
+
     % if google_gtag:
     <script async src="https://www.googletagmanager.com/gtag/js?id=${google_gtag}"></script>
     <script>
@@ -15,7 +15,7 @@
       gtag('config', '${google_gtag}');
     </script>
     % endif
-  
+
     % if google_analytics:
     <script type="text/javascript">
       var _gaq = _gaq || [];
@@ -29,7 +29,7 @@
       })();
     </script>
     % endif
-    
+
     <title>${title}</title>
     <link rel="shortcut icon" type="image/png" href="${config['application']['icon']}"/>
     <meta charset="utf-8">

@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+2.0.5
+*****
+
+https://github.com/openoereb/oereb_client/milestone/12
+
+- Add option for Google global site tag
+
 2.0.4
 *****
 
