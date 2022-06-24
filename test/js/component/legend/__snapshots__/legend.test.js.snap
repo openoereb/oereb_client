@@ -972,7 +972,7 @@ exports[`legend component should render legend 1`] = `
           key="0"
         >
           <td
-            className="oereb-client-symbol"
+            className="oereb-client-symbol-cell"
           >
             <img
               className="oereb-client-symbol"

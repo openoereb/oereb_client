@@ -1966,7 +1966,7 @@ exports[`topic component should render topic 1`] = `
                   key="0"
                 >
                   <td
-                    className="oereb-client-symbol"
+                    className="oereb-client-symbol-cell"
                   >
                     <img
                       className="oereb-client-symbol"
@@ -6059,7 +6059,7 @@ exports[`topic component should render topic 2`] = `
                   key="0"
                 >
                   <td
-                    className="oereb-client-symbol"
+                    className="oereb-client-symbol-cell"
                   >
                     <img
                       className="oereb-client-symbol"

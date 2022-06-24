@@ -10866,7 +10866,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="0"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -12164,7 +12164,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="0"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -14060,7 +14060,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="0"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -14093,7 +14093,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="1"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -16589,7 +16589,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="0"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -18330,7 +18330,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="0"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -19927,7 +19927,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="0"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -19960,7 +19960,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="1"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -23096,7 +23096,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="0"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -23129,7 +23129,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="1"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -25764,7 +25764,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="0"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -27116,7 +27116,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="0"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
@@ -29804,7 +29804,7 @@ exports[`extract component should render extract data 1`] = `
                                           key="0"
                                         >
                                           <td
-                                            className="oereb-client-symbol"
+                                            className="oereb-client-symbol-cell"
                                           >
                                             <img
                                               className="oereb-client-symbol"
