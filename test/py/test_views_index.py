@@ -84,6 +84,7 @@ settings = {
         'support': {
             'office1': 'Test'
         },
+        'google_gtag': 'G-123456789',
         'google_analytics': 'UA-12345678-9'
     }
 }
@@ -112,6 +113,7 @@ def test_render(mock_request):
         index = Index(mock_request)
         assert index.render() == {
             'debug': index.is_debug_(),
+            'google_gtag': index.get_google_gtag_(),
             'google_analytics': index.get_google_analytics_(),
             'custom_css_url': index.get_custom_css_url_(),
             'config': index.get_config(),
@@ -213,6 +215,12 @@ def test_get_google_analytics(mock_request):
     with testConfig(settings=settings):
         index = Index(mock_request)
         assert index.get_google_analytics_() == settings.get('oereb_client').get('google_analytics')
+
+
+def test_get_google_gtag(mock_request):
+    with testConfig(settings=settings):
+        index = Index(mock_request)
+        assert index.get_google_gtag_() == settings.get('oereb_client').get('google_gtag')
 
 
 def test_get_custom_css_url(mock_request):
