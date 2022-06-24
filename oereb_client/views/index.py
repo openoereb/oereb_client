@@ -77,7 +77,7 @@ class Index(object):
             str or None: The Google Analytics configuration.
         """
         return self.config_.get('google_analytics', None)
-    
+
     def get_google_gtag_(self):
         """
         Returns the configured Google global site tag.
