@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+2.0.4
+*****
+
+https://github.com/openoereb/oereb_client/milestone/11
+
+- Fix trigger for zoom on legend symbols
+
 2.0.3
 *****
 
