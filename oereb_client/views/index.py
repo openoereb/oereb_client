@@ -77,6 +77,15 @@ class Index(object):
             str or None: The Google Analytics configuration.
         """
         return self.config_.get('google_analytics', None)
+    
+    def get_google_gtag_(self):
+        """
+        Returns the configured Google global site tag.
+
+        Returns:
+            str or None: The configured Google global site tag.
+        """
+        return self.config_.get('google_gtag', None)
 
     def get_custom_css_url_(self):
         """
@@ -200,6 +209,7 @@ class Index(object):
         return {
             'debug': self.is_debug_(),
             'google_analytics': self.get_google_analytics_(),
+            'google_gtag': self.get_google_gtag_(),
             'custom_css_url': self.get_custom_css_url_(),
             'config': self.get_config(),
             'title': self.get_title()
