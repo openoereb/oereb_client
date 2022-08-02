@@ -230,7 +230,6 @@ exports[`map query component should render map query 1`] = `
               "revision_": 0,
               "stopDown": [Function],
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -280,7 +279,6 @@ exports[`map query component should render map query 1`] = `
               "revision_": 0,
               "stopDown": [Function],
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -306,7 +304,6 @@ exports[`map query component should render map query 1`] = `
               "stopDown": [Function],
               "targetPointers": Array [],
               "threshold_": 0.3,
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -330,7 +327,6 @@ exports[`map query component should render map query 1`] = `
               "revision_": 0,
               "stopDown": [Function],
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -434,7 +430,6 @@ exports[`map query component should render map query 1`] = `
               "revision_": 0,
               "startPixel_": null,
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -1854,7 +1849,6 @@ exports[`map query component should render map query 2`] = `
               "revision_": 0,
               "stopDown": [Function],
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -1904,7 +1898,6 @@ exports[`map query component should render map query 2`] = `
               "revision_": 0,
               "stopDown": [Function],
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -1930,7 +1923,6 @@ exports[`map query component should render map query 2`] = `
               "stopDown": [Function],
               "targetPointers": Array [],
               "threshold_": 0.3,
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -1954,7 +1946,6 @@ exports[`map query component should render map query 2`] = `
               "revision_": 0,
               "stopDown": [Function],
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -2058,7 +2049,6 @@ exports[`map query component should render map query 2`] = `
               "revision_": 0,
               "startPixel_": null,
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -3514,7 +3504,6 @@ exports[`map query component should render map query 3`] = `
               "revision_": 0,
               "stopDown": [Function],
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -3564,7 +3553,6 @@ exports[`map query component should render map query 3`] = `
               "revision_": 0,
               "stopDown": [Function],
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -3590,7 +3578,6 @@ exports[`map query component should render map query 3`] = `
               "stopDown": [Function],
               "targetPointers": Array [],
               "threshold_": 0.3,
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -3614,7 +3601,6 @@ exports[`map query component should render map query 3`] = `
               "revision_": 0,
               "stopDown": [Function],
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
@@ -3718,7 +3704,6 @@ exports[`map query component should render map query 3`] = `
               "revision_": 0,
               "startPixel_": null,
               "targetPointers": Array [],
-              "trackedPointers_": Object {},
               "un": [Function],
               "values_": Object {
                 "active": true,
