@@ -89,7 +89,7 @@ exports[`extract component should render error message 1`] = `
               />
                
               <a
-                ng-href="mailto:{config.support.email}"
+                href="mailto:support.gis@bl.ch"
               >
                 support.gis@bl.ch
               </a>
