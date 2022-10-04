@@ -5,7 +5,7 @@ OeREB Client
 |build status| |coverage report| |codacy report|
 
 
-OEREB Client is a web application based on AngularJS, OpenLayers 3 and Bootstrap.
+OEREB Client is a web application based on React.js, OpenLayers and Bootstrap.
 
 It is used as client application for the OEREB Server (pyramid_oereb_).
 
