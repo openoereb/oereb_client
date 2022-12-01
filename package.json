@@ -36,7 +36,7 @@
     "@storybook/react": "^6.5.6",
     "@storybook/theming": "^6.5.6",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
-    "babel-jest": "^29.2.2",
+    "babel-jest": "^29.3.1",
     "babel-loader": "^9.0.1",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.8.3",
