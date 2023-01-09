@@ -6,6 +6,8 @@ Changelog
 
 https://github.com/openoereb/oereb_client/milestone/13
 
+- Update node version
+
 2.0.5
 *****
 
