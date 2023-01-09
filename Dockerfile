@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.14 AS builder
+FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.17 AS builder
 
 USER 0
 
@@ -26,7 +26,7 @@ RUN python3 -m venv .venv && \
 
 USER 1001
 
-FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.14
+FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.17
 
 USER 0
 
