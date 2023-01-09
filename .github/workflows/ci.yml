@@ -90,7 +90,7 @@ jobs:
         run: |
           make build
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: static
           path: oereb_client/static
@@ -116,7 +116,7 @@ jobs:
         run: |
           make doc
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: doc
           path: docs/build
