@@ -4,6 +4,6 @@
     "config:base"
   ],
   "reviewers": [
-    "@openoereb/bl"
+    "team:openoereb/bl"
   ]
 }
