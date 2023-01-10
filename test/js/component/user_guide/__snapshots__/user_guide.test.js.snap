@@ -3,7 +3,7 @@
 exports[`user guide component should not render button 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -19,7 +19,7 @@ exports[`user guide component should not render button 1`] = `
 exports[`user guide component should render button 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],

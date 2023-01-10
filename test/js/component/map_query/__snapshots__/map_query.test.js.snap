@@ -3,7 +3,7 @@
 exports[`map query component should render map query 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -18,7 +18,7 @@ exports[`map query component should render map query 1`] = `
         "animationDelay_": [Function],
         "boundHandleBrowserEvent_": [Function],
         "controls": Collection {
-          "array_": Array [
+          "array_": [
             Zoom {
               "dispatching_": null,
               "disposed": false,
@@ -43,8 +43,8 @@ exports[`map query component should render map query 1`] = `
                 </button>
               </div>,
               "eventTarget_": undefined,
-              "listenerKeys": Array [
-                Object {
+              "listenerKeys": [
+                {
                   "listener": [Function],
                   "target": [Circular],
                   "type": "postrender",
@@ -89,8 +89,8 @@ exports[`map query component should render map query 1`] = `
               >
                 ⇧
               </span>,
-              "listenerKeys": Array [
-                Object {
+              "listenerKeys": [
+                {
                   "listener": [Function],
                   "target": [Circular],
                   "type": "postrender",
@@ -141,8 +141,8 @@ exports[`map query component should render map query 1`] = `
               >
                 i
               </span>,
-              "listenerKeys": Array [
-                Object {
+              "listenerKeys": [
+                {
                   "listener": [Function],
                   "target": [Circular],
                   "type": "postrender",
@@ -155,7 +155,7 @@ exports[`map query component should render map query 1`] = `
               "once": [Function],
               "overrideCollapsible_": false,
               "pendingRemovals_": null,
-              "renderedAttributions_": Array [],
+              "renderedAttributions_": [],
               "renderedVisible_": true,
               "revision_": 0,
               "target_": null,
@@ -179,11 +179,11 @@ exports[`map query component should render map query 1`] = `
           "dispatching_": null,
           "disposed": false,
           "eventTarget_": undefined,
-          "listeners_": Object {
-            "add": Array [
+          "listeners_": {
+            "add": [
               [Function],
             ],
-            "remove": Array [
+            "remove": [
               [Function],
             ],
           },
@@ -194,11 +194,11 @@ exports[`map query component should render map query 1`] = `
           "revision_": 0,
           "un": [Function],
           "unique_": false,
-          "values_": Object {
+          "values_": {
             "length": 3,
           },
         },
-        "coordinateToPixelTransform_": Array [
+        "coordinateToPixelTransform_": [
           1,
           0,
           0,
@@ -206,13 +206,13 @@ exports[`map query component should render map query 1`] = `
           0,
           0,
         ],
-        "dispatching_": Object {},
+        "dispatching_": {},
         "disposed": false,
         "eventTarget_": undefined,
         "frameIndex_": 0,
         "frameState_": null,
         "interactions": Collection {
-          "array_": Array [
+          "array_": [
             DragRotate {
               "condition_": [Function],
               "dispatching_": null,
@@ -229,9 +229,9 @@ exports[`map query component should render map query 1`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -249,7 +249,7 @@ exports[`map query component should render map query 1`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -265,7 +265,7 @@ exports[`map query component should render map query 1`] = `
                 "delay_": 100,
                 "initialVelocity_": 0,
                 "minVelocity_": 0.05,
-                "points_": Array [],
+                "points_": [],
               },
               "lastCentroid": null,
               "listeners_": null,
@@ -278,9 +278,9 @@ exports[`map query component should render map query 1`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -302,10 +302,10 @@ exports[`map query component should render map query 1`] = `
               "rotating_": false,
               "rotationDelta_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "threshold_": 0.3,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -326,9 +326,9 @@ exports[`map query component should render map query 1`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -348,7 +348,7 @@ exports[`map query component should render map query 1`] = `
               "pixelDelta_": 128,
               "revision_": 0,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -367,7 +367,7 @@ exports[`map query component should render map query 1`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -396,7 +396,7 @@ exports[`map query component should render map query 1`] = `
               "trackpadEventGap_": 400,
               "un": [Function],
               "useAnchor_": true,
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -429,9 +429,9 @@ exports[`map query component should render map query 1`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "startPixel_": null,
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -439,11 +439,11 @@ exports[`map query component should render map query 1`] = `
           "dispatching_": null,
           "disposed": false,
           "eventTarget_": undefined,
-          "listeners_": Object {
-            "add": Array [
+          "listeners_": {
+            "add": [
               [Function],
             ],
-            "remove": Array [
+            "remove": [
               [Function],
             ],
           },
@@ -454,33 +454,33 @@ exports[`map query component should render map query 1`] = `
           "revision_": 0,
           "un": [Function],
           "unique_": false,
-          "values_": Object {
+          "values_": {
             "length": 9,
           },
         },
         "keyboardEventTarget_": null,
-        "layerGroupPropertyListenerKeys_": Array [
-          Object {
+        "layerGroupPropertyListenerKeys_": [
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -491,24 +491,24 @@ exports[`map query component should render map query 1`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -519,49 +519,49 @@ exports[`map query component should render map query 1`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -572,7 +572,7 @@ exports[`map query component should render map query 1`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -587,27 +587,27 @@ exports[`map query component should render map query 1`] = `
             },
             "type": "propertychange",
           },
-          Object {
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -618,24 +618,24 @@ exports[`map query component should render map query 1`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -646,49 +646,49 @@ exports[`map query component should render map query 1`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -699,7 +699,7 @@ exports[`map query component should render map query 1`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -714,27 +714,27 @@ exports[`map query component should render map query 1`] = `
             },
             "type": "change",
           },
-          Object {
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -745,24 +745,24 @@ exports[`map query component should render map query 1`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -773,49 +773,49 @@ exports[`map query component should render map query 1`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -826,7 +826,7 @@ exports[`map query component should render map query 1`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -841,27 +841,27 @@ exports[`map query component should render map query 1`] = `
             },
             "type": "addlayer",
           },
-          Object {
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -872,24 +872,24 @@ exports[`map query component should render map query 1`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -900,49 +900,49 @@ exports[`map query component should render map query 1`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -953,7 +953,7 @@ exports[`map query component should render map query 1`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -969,20 +969,20 @@ exports[`map query component should render map query 1`] = `
             "type": "removelayer",
           },
         ],
-        "listeners_": Object {
-          "change:layergroup": Array [
+        "listeners_": {
+          "change:layergroup": [
             [Function],
           ],
-          "change:size": Array [
+          "change:size": [
             [Function],
           ],
-          "change:target": Array [
+          "change:target": [
             [Function],
           ],
-          "change:view": Array [
+          "change:view": [
             [Function],
           ],
-          "postrender": Array [
+          "postrender": [
             [Function],
             [Function],
             [Function],
@@ -1065,15 +1065,15 @@ exports[`map query component should render map query 1`] = `
           class="ol-overlaycontainer"
           style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />,
-        "overlayIdIndex_": Object {},
+        "overlayIdIndex_": {},
         "overlays_": Collection {
-          "array_": Array [
+          "array_": [
             Overlay {
-              "autoPan": Object {
+              "autoPan": {
                 "animation": true,
                 "margin": 0,
               },
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "element": <div
                 class="ol-overlay-container ol-selectable"
@@ -1086,24 +1086,24 @@ exports[`map query component should render map query 1`] = `
               "eventTarget_": undefined,
               "id": undefined,
               "insertFirst": true,
-              "listeners_": Object {
-                "change:element": Array [
+              "listeners_": {
+                "change:element": [
                   [Function],
                 ],
-                "change:map": Array [
+                "change:map": [
                   [Function],
                 ],
-                "change:offset": Array [
+                "change:offset": [
                   [Function],
                 ],
-                "change:position": Array [
+                "change:position": [
                   [Function],
                 ],
-                "change:positioning": Array [
+                "change:positioning": [
                   [Function],
                 ],
               },
-              "mapPostrenderListenerKey": Object {
+              "mapPostrenderListenerKey": {
                 "listener": [Function],
                 "target": [Circular],
                 "type": "postrender",
@@ -1111,30 +1111,30 @@ exports[`map query component should render map query 1`] = `
               "ol_uid": "21",
               "on": [Function],
               "once": [Function],
-              "options": Object {
-                "autoPan": Object {
+              "options": {
+                "autoPan": {
                   "animation": true,
                   "margin": 0,
                 },
-                "offset": Array [
+                "offset": [
                   -17,
                   -17,
                 ],
               },
-              "pendingRemovals_": Object {},
-              "rendered": Object {
+              "pendingRemovals_": {},
+              "rendered": {
                 "transform_": "",
                 "visible": false,
               },
               "revision_": 0,
               "stopEvent": true,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "element": <div
                   class="oereb-client-overlay"
                 />,
                 "map": [Circular],
-                "offset": Array [
+                "offset": [
                   -17,
                   -17,
                 ],
@@ -1142,31 +1142,31 @@ exports[`map query component should render map query 1`] = `
               },
             },
           ],
-          "dispatching_": Object {},
+          "dispatching_": {},
           "disposed": false,
           "eventTarget_": undefined,
-          "listeners_": Object {
-            "add": Array [
+          "listeners_": {
+            "add": [
               [Function],
             ],
-            "remove": Array [
+            "remove": [
               [Function],
             ],
           },
           "ol_uid": "6",
           "on": [Function],
           "once": [Function],
-          "pendingRemovals_": Object {},
+          "pendingRemovals_": {},
           "revision_": 0,
           "un": [Function],
           "unique_": false,
-          "values_": Object {
+          "values_": {
             "length": 1,
           },
         },
-        "pendingRemovals_": Object {},
+        "pendingRemovals_": {},
         "pixelRatio_": 1,
-        "pixelToCoordinateTransform_": Array [
+        "pixelToCoordinateTransform_": [
           1,
           0,
           0,
@@ -1174,43 +1174,43 @@ exports[`map query component should render map query 1`] = `
           0,
           0,
         ],
-        "postRenderFunctions_": Array [],
+        "postRenderFunctions_": [],
         "previousExtent_": null,
         "renderer_": null,
         "revision_": 0,
         "targetChangeHandlerKeys_": null,
         "tileQueue_": TileQueue {
           "boundHandleTileChange_": [Function],
-          "elements_": Array [],
+          "elements_": [],
           "keyFunction_": [Function],
-          "priorities_": Array [],
+          "priorities_": [],
           "priorityFunction_": [Function],
-          "queuedElements_": Object {},
+          "queuedElements_": {},
           "tileChangeCallback_": [Function],
-          "tilesLoadingKeys_": Object {},
+          "tilesLoadingKeys_": {},
           "tilesLoading_": 0,
         },
         "un": [Function],
-        "values_": Object {
+        "values_": {
           "layergroup": LayerGroup {
             "background_": undefined,
             "className_": "ol-layer",
-            "dispatching_": Object {},
+            "dispatching_": {},
             "disposed": false,
             "eventTarget_": undefined,
-            "layersListenerKeys_": Array [
-              Object {
+            "layersListenerKeys_": [
+              {
                 "listener": [Function],
                 "target": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -1221,24 +1221,24 @@ exports[`map query component should render map query 1`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
                 "type": "add",
               },
-              Object {
+              {
                 "listener": [Function],
                 "target": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -1249,49 +1249,49 @@ exports[`map query component should render map query 1`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
                 "type": "remove",
               },
             ],
-            "listenerKeys_": Object {},
-            "listeners_": Object {
-              "addlayer": Array [
+            "listenerKeys_": {},
+            "listeners_": {
+              "addlayer": [
                 [Function],
               ],
-              "change": Array [
+              "change": [
                 [Function],
               ],
-              "change:layers": Array [
+              "change:layers": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
-              "removelayer": Array [
+              "removelayer": [
                 [Function],
               ],
             },
             "ol_uid": "3",
             "on": [Function],
             "once": [Function],
-            "pendingRemovals_": Object {},
+            "pendingRemovals_": {},
             "revision_": 1,
             "state_": null,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "layers": Collection {
-                "array_": Array [],
+                "array_": [],
                 "dispatching_": null,
                 "disposed": false,
                 "eventTarget_": undefined,
-                "listeners_": Object {
-                  "add": Array [
+                "listeners_": {
+                  "add": [
                     [Function],
                   ],
-                  "remove": Array [
+                  "remove": [
                     [Function],
                   ],
                 },
@@ -1302,7 +1302,7 @@ exports[`map query component should render map query 1`] = `
                 "revision_": 0,
                 "un": [Function],
                 "unique_": true,
-                "values_": Object {
+                "values_": {
                   "length": 0,
                 },
               },
@@ -1317,9 +1317,9 @@ exports[`map query component should render map query 1`] = `
           },
           "target": undefined,
           "view": View {
-            "animations_": Array [],
+            "animations_": [],
             "cancelAnchor_": undefined,
-            "constraints_": Object {
+            "constraints_": {
               "center": [Function],
               "resolution": [Function],
               "rotation": [Function],
@@ -1327,15 +1327,15 @@ exports[`map query component should render map query 1`] = `
             "dispatching_": null,
             "disposed": false,
             "eventTarget_": undefined,
-            "hints_": Array [
+            "hints_": [
               0,
               0,
             ],
-            "listeners_": Object {
-              "change": Array [
+            "listeners_": {
+              "change": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
             },
@@ -1353,7 +1353,7 @@ exports[`map query component should render map query 1`] = `
               "canWrapX_": true,
               "code_": "EPSG:3857",
               "defaultTileGrid_": null,
-              "extent_": Array [
+              "extent_": [
                 -20037508.342789244,
                 -20037508.342789244,
                 20037508.342789244,
@@ -1363,7 +1363,7 @@ exports[`map query component should render map query 1`] = `
               "global_": true,
               "metersPerUnit_": undefined,
               "units_": "m",
-              "worldExtent_": Array [
+              "worldExtent_": [
                 -180,
                 -85,
                 180,
@@ -1376,23 +1376,23 @@ exports[`map query component should render map query 1`] = `
             "targetResolution_": undefined,
             "targetRotation_": 0,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "center": undefined,
               "rotation": 0,
             },
-            "viewportSize_": Array [
+            "viewportSize_": [
               100,
               100,
             ],
             "zoomFactor_": 2,
           },
         },
-        "viewChangeListenerKey_": Object {
+        "viewChangeListenerKey_": {
           "listener": [Function],
           "target": View {
-            "animations_": Array [],
+            "animations_": [],
             "cancelAnchor_": undefined,
-            "constraints_": Object {
+            "constraints_": {
               "center": [Function],
               "resolution": [Function],
               "rotation": [Function],
@@ -1400,15 +1400,15 @@ exports[`map query component should render map query 1`] = `
             "dispatching_": null,
             "disposed": false,
             "eventTarget_": undefined,
-            "hints_": Array [
+            "hints_": [
               0,
               0,
             ],
-            "listeners_": Object {
-              "change": Array [
+            "listeners_": {
+              "change": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
             },
@@ -1426,7 +1426,7 @@ exports[`map query component should render map query 1`] = `
               "canWrapX_": true,
               "code_": "EPSG:3857",
               "defaultTileGrid_": null,
-              "extent_": Array [
+              "extent_": [
                 -20037508.342789244,
                 -20037508.342789244,
                 20037508.342789244,
@@ -1436,7 +1436,7 @@ exports[`map query component should render map query 1`] = `
               "global_": true,
               "metersPerUnit_": undefined,
               "units_": "m",
-              "worldExtent_": Array [
+              "worldExtent_": [
                 -180,
                 -85,
                 180,
@@ -1449,11 +1449,11 @@ exports[`map query component should render map query 1`] = `
             "targetResolution_": undefined,
             "targetRotation_": 0,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "center": undefined,
               "rotation": 0,
             },
-            "viewportSize_": Array [
+            "viewportSize_": [
               100,
               100,
             ],
@@ -1461,12 +1461,12 @@ exports[`map query component should render map query 1`] = `
           },
           "type": "change",
         },
-        "viewPropertyListenerKey_": Object {
+        "viewPropertyListenerKey_": {
           "listener": [Function],
           "target": View {
-            "animations_": Array [],
+            "animations_": [],
             "cancelAnchor_": undefined,
-            "constraints_": Object {
+            "constraints_": {
               "center": [Function],
               "resolution": [Function],
               "rotation": [Function],
@@ -1474,15 +1474,15 @@ exports[`map query component should render map query 1`] = `
             "dispatching_": null,
             "disposed": false,
             "eventTarget_": undefined,
-            "hints_": Array [
+            "hints_": [
               0,
               0,
             ],
-            "listeners_": Object {
-              "change": Array [
+            "listeners_": {
+              "change": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
             },
@@ -1500,7 +1500,7 @@ exports[`map query component should render map query 1`] = `
               "canWrapX_": true,
               "code_": "EPSG:3857",
               "defaultTileGrid_": null,
-              "extent_": Array [
+              "extent_": [
                 -20037508.342789244,
                 -20037508.342789244,
                 20037508.342789244,
@@ -1510,7 +1510,7 @@ exports[`map query component should render map query 1`] = `
               "global_": true,
               "metersPerUnit_": undefined,
               "units_": "m",
-              "worldExtent_": Array [
+              "worldExtent_": [
                 -180,
                 -85,
                 180,
@@ -1523,11 +1523,11 @@ exports[`map query component should render map query 1`] = `
             "targetResolution_": undefined,
             "targetRotation_": 0,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "center": undefined,
               "rotation": 0,
             },
-            "viewportSize_": Array [
+            "viewportSize_": [
               100,
               100,
             ],
@@ -1622,7 +1622,7 @@ exports[`map query component should render map query 1`] = `
 exports[`map query component should render map query 2`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -1637,7 +1637,7 @@ exports[`map query component should render map query 2`] = `
         "animationDelay_": [Function],
         "boundHandleBrowserEvent_": [Function],
         "controls": Collection {
-          "array_": Array [
+          "array_": [
             Zoom {
               "dispatching_": null,
               "disposed": false,
@@ -1662,8 +1662,8 @@ exports[`map query component should render map query 2`] = `
                 </button>
               </div>,
               "eventTarget_": undefined,
-              "listenerKeys": Array [
-                Object {
+              "listenerKeys": [
+                {
                   "listener": [Function],
                   "target": [Circular],
                   "type": "postrender",
@@ -1708,8 +1708,8 @@ exports[`map query component should render map query 2`] = `
               >
                 ⇧
               </span>,
-              "listenerKeys": Array [
-                Object {
+              "listenerKeys": [
+                {
                   "listener": [Function],
                   "target": [Circular],
                   "type": "postrender",
@@ -1760,8 +1760,8 @@ exports[`map query component should render map query 2`] = `
               >
                 i
               </span>,
-              "listenerKeys": Array [
-                Object {
+              "listenerKeys": [
+                {
                   "listener": [Function],
                   "target": [Circular],
                   "type": "postrender",
@@ -1774,7 +1774,7 @@ exports[`map query component should render map query 2`] = `
               "once": [Function],
               "overrideCollapsible_": false,
               "pendingRemovals_": null,
-              "renderedAttributions_": Array [],
+              "renderedAttributions_": [],
               "renderedVisible_": true,
               "revision_": 0,
               "target_": null,
@@ -1798,11 +1798,11 @@ exports[`map query component should render map query 2`] = `
           "dispatching_": null,
           "disposed": false,
           "eventTarget_": undefined,
-          "listeners_": Object {
-            "add": Array [
+          "listeners_": {
+            "add": [
               [Function],
             ],
-            "remove": Array [
+            "remove": [
               [Function],
             ],
           },
@@ -1813,11 +1813,11 @@ exports[`map query component should render map query 2`] = `
           "revision_": 0,
           "un": [Function],
           "unique_": false,
-          "values_": Object {
+          "values_": {
             "length": 3,
           },
         },
-        "coordinateToPixelTransform_": Array [
+        "coordinateToPixelTransform_": [
           1,
           0,
           0,
@@ -1825,13 +1825,13 @@ exports[`map query component should render map query 2`] = `
           0,
           0,
         ],
-        "dispatching_": Object {},
+        "dispatching_": {},
         "disposed": false,
         "eventTarget_": undefined,
         "frameIndex_": 0,
         "frameState_": null,
         "interactions": Collection {
-          "array_": Array [
+          "array_": [
             DragRotate {
               "condition_": [Function],
               "dispatching_": null,
@@ -1848,9 +1848,9 @@ exports[`map query component should render map query 2`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -1868,7 +1868,7 @@ exports[`map query component should render map query 2`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -1884,7 +1884,7 @@ exports[`map query component should render map query 2`] = `
                 "delay_": 100,
                 "initialVelocity_": 0,
                 "minVelocity_": 0.05,
-                "points_": Array [],
+                "points_": [],
               },
               "lastCentroid": null,
               "listeners_": null,
@@ -1897,9 +1897,9 @@ exports[`map query component should render map query 2`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -1921,10 +1921,10 @@ exports[`map query component should render map query 2`] = `
               "rotating_": false,
               "rotationDelta_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "threshold_": 0.3,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -1945,9 +1945,9 @@ exports[`map query component should render map query 2`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -1967,7 +1967,7 @@ exports[`map query component should render map query 2`] = `
               "pixelDelta_": 128,
               "revision_": 0,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -1986,7 +1986,7 @@ exports[`map query component should render map query 2`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -2015,7 +2015,7 @@ exports[`map query component should render map query 2`] = `
               "trackpadEventGap_": 400,
               "un": [Function],
               "useAnchor_": true,
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -2048,9 +2048,9 @@ exports[`map query component should render map query 2`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "startPixel_": null,
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -2058,11 +2058,11 @@ exports[`map query component should render map query 2`] = `
           "dispatching_": null,
           "disposed": false,
           "eventTarget_": undefined,
-          "listeners_": Object {
-            "add": Array [
+          "listeners_": {
+            "add": [
               [Function],
             ],
-            "remove": Array [
+            "remove": [
               [Function],
             ],
           },
@@ -2073,33 +2073,33 @@ exports[`map query component should render map query 2`] = `
           "revision_": 0,
           "un": [Function],
           "unique_": false,
-          "values_": Object {
+          "values_": {
             "length": 9,
           },
         },
         "keyboardEventTarget_": null,
-        "layerGroupPropertyListenerKeys_": Array [
-          Object {
+        "layerGroupPropertyListenerKeys_": [
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -2110,24 +2110,24 @@ exports[`map query component should render map query 2`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -2138,49 +2138,49 @@ exports[`map query component should render map query 2`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -2191,7 +2191,7 @@ exports[`map query component should render map query 2`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -2206,27 +2206,27 @@ exports[`map query component should render map query 2`] = `
             },
             "type": "propertychange",
           },
-          Object {
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -2237,24 +2237,24 @@ exports[`map query component should render map query 2`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -2265,49 +2265,49 @@ exports[`map query component should render map query 2`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -2318,7 +2318,7 @@ exports[`map query component should render map query 2`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -2333,27 +2333,27 @@ exports[`map query component should render map query 2`] = `
             },
             "type": "change",
           },
-          Object {
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -2364,24 +2364,24 @@ exports[`map query component should render map query 2`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -2392,49 +2392,49 @@ exports[`map query component should render map query 2`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -2445,7 +2445,7 @@ exports[`map query component should render map query 2`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -2460,27 +2460,27 @@ exports[`map query component should render map query 2`] = `
             },
             "type": "addlayer",
           },
-          Object {
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -2491,24 +2491,24 @@ exports[`map query component should render map query 2`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -2519,49 +2519,49 @@ exports[`map query component should render map query 2`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -2572,7 +2572,7 @@ exports[`map query component should render map query 2`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -2588,20 +2588,20 @@ exports[`map query component should render map query 2`] = `
             "type": "removelayer",
           },
         ],
-        "listeners_": Object {
-          "change:layergroup": Array [
+        "listeners_": {
+          "change:layergroup": [
             [Function],
           ],
-          "change:size": Array [
+          "change:size": [
             [Function],
           ],
-          "change:target": Array [
+          "change:target": [
             [Function],
           ],
-          "change:view": Array [
+          "change:view": [
             [Function],
           ],
-          "postrender": Array [
+          "postrender": [
             [Function],
             [Function],
             [Function],
@@ -2692,15 +2692,15 @@ exports[`map query component should render map query 2`] = `
           class="ol-overlaycontainer"
           style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />,
-        "overlayIdIndex_": Object {},
+        "overlayIdIndex_": {},
         "overlays_": Collection {
-          "array_": Array [
+          "array_": [
             Overlay {
-              "autoPan": Object {
+              "autoPan": {
                 "animation": true,
                 "margin": 0,
               },
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "element": <div
                 class="ol-overlay-container ol-selectable"
@@ -2721,24 +2721,24 @@ exports[`map query component should render map query 2`] = `
               "eventTarget_": undefined,
               "id": undefined,
               "insertFirst": true,
-              "listeners_": Object {
-                "change:element": Array [
+              "listeners_": {
+                "change:element": [
                   [Function],
                 ],
-                "change:map": Array [
+                "change:map": [
                   [Function],
                 ],
-                "change:offset": Array [
+                "change:offset": [
                   [Function],
                 ],
-                "change:position": Array [
+                "change:position": [
                   [Function],
                 ],
-                "change:positioning": Array [
+                "change:positioning": [
                   [Function],
                 ],
               },
-              "mapPostrenderListenerKey": Object {
+              "mapPostrenderListenerKey": {
                 "listener": [Function],
                 "target": [Circular],
                 "type": "postrender",
@@ -2746,25 +2746,25 @@ exports[`map query component should render map query 2`] = `
               "ol_uid": "21",
               "on": [Function],
               "once": [Function],
-              "options": Object {
-                "autoPan": Object {
+              "options": {
+                "autoPan": {
                   "animation": true,
                   "margin": 0,
                 },
-                "offset": Array [
+                "offset": [
                   -17,
                   -17,
                 ],
               },
-              "pendingRemovals_": Object {},
-              "rendered": Object {
+              "pendingRemovals_": {},
+              "rendered": {
                 "transform_": "",
                 "visible": false,
               },
               "revision_": 0,
               "stopEvent": true,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "element": <div
                   class="oereb-client-overlay"
                 >
@@ -2777,11 +2777,11 @@ exports[`map query component should render map query 2`] = `
                   </div>
                 </div>,
                 "map": [Circular],
-                "offset": Array [
+                "offset": [
                   -17,
                   -17,
                 ],
-                "position": Array [
+                "position": [
                   0,
                   0,
                 ],
@@ -2789,31 +2789,31 @@ exports[`map query component should render map query 2`] = `
               },
             },
           ],
-          "dispatching_": Object {},
+          "dispatching_": {},
           "disposed": false,
           "eventTarget_": undefined,
-          "listeners_": Object {
-            "add": Array [
+          "listeners_": {
+            "add": [
               [Function],
             ],
-            "remove": Array [
+            "remove": [
               [Function],
             ],
           },
           "ol_uid": "6",
           "on": [Function],
           "once": [Function],
-          "pendingRemovals_": Object {},
+          "pendingRemovals_": {},
           "revision_": 0,
           "un": [Function],
           "unique_": false,
-          "values_": Object {
+          "values_": {
             "length": 1,
           },
         },
-        "pendingRemovals_": Object {},
+        "pendingRemovals_": {},
         "pixelRatio_": 1,
-        "pixelToCoordinateTransform_": Array [
+        "pixelToCoordinateTransform_": [
           1,
           0,
           0,
@@ -2821,43 +2821,43 @@ exports[`map query component should render map query 2`] = `
           0,
           0,
         ],
-        "postRenderFunctions_": Array [],
+        "postRenderFunctions_": [],
         "previousExtent_": null,
         "renderer_": null,
         "revision_": 0,
         "targetChangeHandlerKeys_": null,
         "tileQueue_": TileQueue {
           "boundHandleTileChange_": [Function],
-          "elements_": Array [],
+          "elements_": [],
           "keyFunction_": [Function],
-          "priorities_": Array [],
+          "priorities_": [],
           "priorityFunction_": [Function],
-          "queuedElements_": Object {},
+          "queuedElements_": {},
           "tileChangeCallback_": [Function],
-          "tilesLoadingKeys_": Object {},
+          "tilesLoadingKeys_": {},
           "tilesLoading_": 0,
         },
         "un": [Function],
-        "values_": Object {
+        "values_": {
           "layergroup": LayerGroup {
             "background_": undefined,
             "className_": "ol-layer",
-            "dispatching_": Object {},
+            "dispatching_": {},
             "disposed": false,
             "eventTarget_": undefined,
-            "layersListenerKeys_": Array [
-              Object {
+            "layersListenerKeys_": [
+              {
                 "listener": [Function],
                 "target": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -2868,24 +2868,24 @@ exports[`map query component should render map query 2`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
                 "type": "add",
               },
-              Object {
+              {
                 "listener": [Function],
                 "target": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -2896,49 +2896,49 @@ exports[`map query component should render map query 2`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
                 "type": "remove",
               },
             ],
-            "listenerKeys_": Object {},
-            "listeners_": Object {
-              "addlayer": Array [
+            "listenerKeys_": {},
+            "listeners_": {
+              "addlayer": [
                 [Function],
               ],
-              "change": Array [
+              "change": [
                 [Function],
               ],
-              "change:layers": Array [
+              "change:layers": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
-              "removelayer": Array [
+              "removelayer": [
                 [Function],
               ],
             },
             "ol_uid": "3",
             "on": [Function],
             "once": [Function],
-            "pendingRemovals_": Object {},
+            "pendingRemovals_": {},
             "revision_": 1,
             "state_": null,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "layers": Collection {
-                "array_": Array [],
+                "array_": [],
                 "dispatching_": null,
                 "disposed": false,
                 "eventTarget_": undefined,
-                "listeners_": Object {
-                  "add": Array [
+                "listeners_": {
+                  "add": [
                     [Function],
                   ],
-                  "remove": Array [
+                  "remove": [
                     [Function],
                   ],
                 },
@@ -2949,7 +2949,7 @@ exports[`map query component should render map query 2`] = `
                 "revision_": 0,
                 "un": [Function],
                 "unique_": true,
-                "values_": Object {
+                "values_": {
                   "length": 0,
                 },
               },
@@ -2964,9 +2964,9 @@ exports[`map query component should render map query 2`] = `
           },
           "target": undefined,
           "view": View {
-            "animations_": Array [],
+            "animations_": [],
             "cancelAnchor_": undefined,
-            "constraints_": Object {
+            "constraints_": {
               "center": [Function],
               "resolution": [Function],
               "rotation": [Function],
@@ -2974,15 +2974,15 @@ exports[`map query component should render map query 2`] = `
             "dispatching_": null,
             "disposed": false,
             "eventTarget_": undefined,
-            "hints_": Array [
+            "hints_": [
               0,
               0,
             ],
-            "listeners_": Object {
-              "change": Array [
+            "listeners_": {
+              "change": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
             },
@@ -3000,7 +3000,7 @@ exports[`map query component should render map query 2`] = `
               "canWrapX_": true,
               "code_": "EPSG:3857",
               "defaultTileGrid_": null,
-              "extent_": Array [
+              "extent_": [
                 -20037508.342789244,
                 -20037508.342789244,
                 20037508.342789244,
@@ -3010,7 +3010,7 @@ exports[`map query component should render map query 2`] = `
               "global_": true,
               "metersPerUnit_": undefined,
               "units_": "m",
-              "worldExtent_": Array [
+              "worldExtent_": [
                 -180,
                 -85,
                 180,
@@ -3023,23 +3023,23 @@ exports[`map query component should render map query 2`] = `
             "targetResolution_": undefined,
             "targetRotation_": 0,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "center": undefined,
               "rotation": 0,
             },
-            "viewportSize_": Array [
+            "viewportSize_": [
               100,
               100,
             ],
             "zoomFactor_": 2,
           },
         },
-        "viewChangeListenerKey_": Object {
+        "viewChangeListenerKey_": {
           "listener": [Function],
           "target": View {
-            "animations_": Array [],
+            "animations_": [],
             "cancelAnchor_": undefined,
-            "constraints_": Object {
+            "constraints_": {
               "center": [Function],
               "resolution": [Function],
               "rotation": [Function],
@@ -3047,15 +3047,15 @@ exports[`map query component should render map query 2`] = `
             "dispatching_": null,
             "disposed": false,
             "eventTarget_": undefined,
-            "hints_": Array [
+            "hints_": [
               0,
               0,
             ],
-            "listeners_": Object {
-              "change": Array [
+            "listeners_": {
+              "change": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
             },
@@ -3073,7 +3073,7 @@ exports[`map query component should render map query 2`] = `
               "canWrapX_": true,
               "code_": "EPSG:3857",
               "defaultTileGrid_": null,
-              "extent_": Array [
+              "extent_": [
                 -20037508.342789244,
                 -20037508.342789244,
                 20037508.342789244,
@@ -3083,7 +3083,7 @@ exports[`map query component should render map query 2`] = `
               "global_": true,
               "metersPerUnit_": undefined,
               "units_": "m",
-              "worldExtent_": Array [
+              "worldExtent_": [
                 -180,
                 -85,
                 180,
@@ -3096,11 +3096,11 @@ exports[`map query component should render map query 2`] = `
             "targetResolution_": undefined,
             "targetRotation_": 0,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "center": undefined,
               "rotation": 0,
             },
-            "viewportSize_": Array [
+            "viewportSize_": [
               100,
               100,
             ],
@@ -3108,12 +3108,12 @@ exports[`map query component should render map query 2`] = `
           },
           "type": "change",
         },
-        "viewPropertyListenerKey_": Object {
+        "viewPropertyListenerKey_": {
           "listener": [Function],
           "target": View {
-            "animations_": Array [],
+            "animations_": [],
             "cancelAnchor_": undefined,
-            "constraints_": Object {
+            "constraints_": {
               "center": [Function],
               "resolution": [Function],
               "rotation": [Function],
@@ -3121,15 +3121,15 @@ exports[`map query component should render map query 2`] = `
             "dispatching_": null,
             "disposed": false,
             "eventTarget_": undefined,
-            "hints_": Array [
+            "hints_": [
               0,
               0,
             ],
-            "listeners_": Object {
-              "change": Array [
+            "listeners_": {
+              "change": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
             },
@@ -3147,7 +3147,7 @@ exports[`map query component should render map query 2`] = `
               "canWrapX_": true,
               "code_": "EPSG:3857",
               "defaultTileGrid_": null,
-              "extent_": Array [
+              "extent_": [
                 -20037508.342789244,
                 -20037508.342789244,
                 20037508.342789244,
@@ -3157,7 +3157,7 @@ exports[`map query component should render map query 2`] = `
               "global_": true,
               "metersPerUnit_": undefined,
               "units_": "m",
-              "worldExtent_": Array [
+              "worldExtent_": [
                 -180,
                 -85,
                 180,
@@ -3170,11 +3170,11 @@ exports[`map query component should render map query 2`] = `
             "targetResolution_": undefined,
             "targetRotation_": 0,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "center": undefined,
               "rotation": 0,
             },
-            "viewportSize_": Array [
+            "viewportSize_": [
               100,
               100,
             ],
@@ -3277,7 +3277,7 @@ exports[`map query component should render map query 2`] = `
 exports[`map query component should render map query 3`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -3292,7 +3292,7 @@ exports[`map query component should render map query 3`] = `
         "animationDelay_": [Function],
         "boundHandleBrowserEvent_": [Function],
         "controls": Collection {
-          "array_": Array [
+          "array_": [
             Zoom {
               "dispatching_": null,
               "disposed": false,
@@ -3317,8 +3317,8 @@ exports[`map query component should render map query 3`] = `
                 </button>
               </div>,
               "eventTarget_": undefined,
-              "listenerKeys": Array [
-                Object {
+              "listenerKeys": [
+                {
                   "listener": [Function],
                   "target": [Circular],
                   "type": "postrender",
@@ -3363,8 +3363,8 @@ exports[`map query component should render map query 3`] = `
               >
                 ⇧
               </span>,
-              "listenerKeys": Array [
-                Object {
+              "listenerKeys": [
+                {
                   "listener": [Function],
                   "target": [Circular],
                   "type": "postrender",
@@ -3415,8 +3415,8 @@ exports[`map query component should render map query 3`] = `
               >
                 i
               </span>,
-              "listenerKeys": Array [
-                Object {
+              "listenerKeys": [
+                {
                   "listener": [Function],
                   "target": [Circular],
                   "type": "postrender",
@@ -3429,7 +3429,7 @@ exports[`map query component should render map query 3`] = `
               "once": [Function],
               "overrideCollapsible_": false,
               "pendingRemovals_": null,
-              "renderedAttributions_": Array [],
+              "renderedAttributions_": [],
               "renderedVisible_": true,
               "revision_": 0,
               "target_": null,
@@ -3453,11 +3453,11 @@ exports[`map query component should render map query 3`] = `
           "dispatching_": null,
           "disposed": false,
           "eventTarget_": undefined,
-          "listeners_": Object {
-            "add": Array [
+          "listeners_": {
+            "add": [
               [Function],
             ],
-            "remove": Array [
+            "remove": [
               [Function],
             ],
           },
@@ -3468,11 +3468,11 @@ exports[`map query component should render map query 3`] = `
           "revision_": 0,
           "un": [Function],
           "unique_": false,
-          "values_": Object {
+          "values_": {
             "length": 3,
           },
         },
-        "coordinateToPixelTransform_": Array [
+        "coordinateToPixelTransform_": [
           1,
           0,
           0,
@@ -3480,13 +3480,13 @@ exports[`map query component should render map query 3`] = `
           0,
           0,
         ],
-        "dispatching_": Object {},
+        "dispatching_": {},
         "disposed": false,
         "eventTarget_": undefined,
         "frameIndex_": 0,
         "frameState_": null,
         "interactions": Collection {
-          "array_": Array [
+          "array_": [
             DragRotate {
               "condition_": [Function],
               "dispatching_": null,
@@ -3503,9 +3503,9 @@ exports[`map query component should render map query 3`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -3523,7 +3523,7 @@ exports[`map query component should render map query 3`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -3539,7 +3539,7 @@ exports[`map query component should render map query 3`] = `
                 "delay_": 100,
                 "initialVelocity_": 0,
                 "minVelocity_": 0.05,
-                "points_": Array [],
+                "points_": [],
               },
               "lastCentroid": null,
               "listeners_": null,
@@ -3552,9 +3552,9 @@ exports[`map query component should render map query 3`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -3576,10 +3576,10 @@ exports[`map query component should render map query 3`] = `
               "rotating_": false,
               "rotationDelta_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "threshold_": 0.3,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -3600,9 +3600,9 @@ exports[`map query component should render map query 3`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "stopDown": [Function],
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -3622,7 +3622,7 @@ exports[`map query component should render map query 3`] = `
               "pixelDelta_": 128,
               "revision_": 0,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -3641,7 +3641,7 @@ exports[`map query component should render map query 3`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -3670,7 +3670,7 @@ exports[`map query component should render map query 3`] = `
               "trackpadEventGap_": 400,
               "un": [Function],
               "useAnchor_": true,
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -3703,9 +3703,9 @@ exports[`map query component should render map query 3`] = `
               "pendingRemovals_": null,
               "revision_": 0,
               "startPixel_": null,
-              "targetPointers": Array [],
+              "targetPointers": [],
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "active": true,
               },
             },
@@ -3713,11 +3713,11 @@ exports[`map query component should render map query 3`] = `
           "dispatching_": null,
           "disposed": false,
           "eventTarget_": undefined,
-          "listeners_": Object {
-            "add": Array [
+          "listeners_": {
+            "add": [
               [Function],
             ],
-            "remove": Array [
+            "remove": [
               [Function],
             ],
           },
@@ -3728,33 +3728,33 @@ exports[`map query component should render map query 3`] = `
           "revision_": 0,
           "un": [Function],
           "unique_": false,
-          "values_": Object {
+          "values_": {
             "length": 9,
           },
         },
         "keyboardEventTarget_": null,
-        "layerGroupPropertyListenerKeys_": Array [
-          Object {
+        "layerGroupPropertyListenerKeys_": [
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -3765,24 +3765,24 @@ exports[`map query component should render map query 3`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -3793,49 +3793,49 @@ exports[`map query component should render map query 3`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -3846,7 +3846,7 @@ exports[`map query component should render map query 3`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -3861,27 +3861,27 @@ exports[`map query component should render map query 3`] = `
             },
             "type": "propertychange",
           },
-          Object {
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -3892,24 +3892,24 @@ exports[`map query component should render map query 3`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -3920,49 +3920,49 @@ exports[`map query component should render map query 3`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -3973,7 +3973,7 @@ exports[`map query component should render map query 3`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -3988,27 +3988,27 @@ exports[`map query component should render map query 3`] = `
             },
             "type": "change",
           },
-          Object {
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -4019,24 +4019,24 @@ exports[`map query component should render map query 3`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -4047,49 +4047,49 @@ exports[`map query component should render map query 3`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -4100,7 +4100,7 @@ exports[`map query component should render map query 3`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -4115,27 +4115,27 @@ exports[`map query component should render map query 3`] = `
             },
             "type": "addlayer",
           },
-          Object {
+          {
             "listener": [Function],
             "target": LayerGroup {
               "background_": undefined,
               "className_": "ol-layer",
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "eventTarget_": undefined,
-              "layersListenerKeys_": Array [
-                Object {
+              "layersListenerKeys_": [
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -4146,24 +4146,24 @@ exports[`map query component should render map query 3`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "add",
                 },
-                Object {
+                {
                   "listener": [Function],
                   "target": Collection {
-                    "array_": Array [],
+                    "array_": [],
                     "dispatching_": null,
                     "disposed": false,
                     "eventTarget_": undefined,
-                    "listeners_": Object {
-                      "add": Array [
+                    "listeners_": {
+                      "add": [
                         [Function],
                       ],
-                      "remove": Array [
+                      "remove": [
                         [Function],
                       ],
                     },
@@ -4174,49 +4174,49 @@ exports[`map query component should render map query 3`] = `
                     "revision_": 0,
                     "un": [Function],
                     "unique_": true,
-                    "values_": Object {
+                    "values_": {
                       "length": 0,
                     },
                   },
                   "type": "remove",
                 },
               ],
-              "listenerKeys_": Object {},
-              "listeners_": Object {
-                "addlayer": Array [
+              "listenerKeys_": {},
+              "listeners_": {
+                "addlayer": [
                   [Function],
                 ],
-                "change": Array [
+                "change": [
                   [Function],
                 ],
-                "change:layers": Array [
+                "change:layers": [
                   [Function],
                 ],
-                "propertychange": Array [
+                "propertychange": [
                   [Function],
                 ],
-                "removelayer": Array [
+                "removelayer": [
                   [Function],
                 ],
               },
               "ol_uid": "3",
               "on": [Function],
               "once": [Function],
-              "pendingRemovals_": Object {},
+              "pendingRemovals_": {},
               "revision_": 1,
               "state_": null,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "layers": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -4227,7 +4227,7 @@ exports[`map query component should render map query 3`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
@@ -4243,20 +4243,20 @@ exports[`map query component should render map query 3`] = `
             "type": "removelayer",
           },
         ],
-        "listeners_": Object {
-          "change:layergroup": Array [
+        "listeners_": {
+          "change:layergroup": [
             [Function],
           ],
-          "change:size": Array [
+          "change:size": [
             [Function],
           ],
-          "change:target": Array [
+          "change:target": [
             [Function],
           ],
-          "change:view": Array [
+          "change:view": [
             [Function],
           ],
-          "postrender": Array [
+          "postrender": [
             [Function],
             [Function],
             [Function],
@@ -4390,15 +4390,15 @@ exports[`map query component should render map query 3`] = `
           class="ol-overlaycontainer"
           style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"
         />,
-        "overlayIdIndex_": Object {},
+        "overlayIdIndex_": {},
         "overlays_": Collection {
-          "array_": Array [
+          "array_": [
             Overlay {
-              "autoPan": Object {
+              "autoPan": {
                 "animation": true,
                 "margin": 0,
               },
-              "dispatching_": Object {},
+              "dispatching_": {},
               "disposed": false,
               "element": <div
                 class="ol-overlay-container ol-selectable"
@@ -4462,24 +4462,24 @@ exports[`map query component should render map query 3`] = `
               "eventTarget_": undefined,
               "id": undefined,
               "insertFirst": true,
-              "listeners_": Object {
-                "change:element": Array [
+              "listeners_": {
+                "change:element": [
                   [Function],
                 ],
-                "change:map": Array [
+                "change:map": [
                   [Function],
                 ],
-                "change:offset": Array [
+                "change:offset": [
                   [Function],
                 ],
-                "change:position": Array [
+                "change:position": [
                   [Function],
                 ],
-                "change:positioning": Array [
+                "change:positioning": [
                   [Function],
                 ],
               },
-              "mapPostrenderListenerKey": Object {
+              "mapPostrenderListenerKey": {
                 "listener": [Function],
                 "target": [Circular],
                 "type": "postrender",
@@ -4487,25 +4487,25 @@ exports[`map query component should render map query 3`] = `
               "ol_uid": "21",
               "on": [Function],
               "once": [Function],
-              "options": Object {
-                "autoPan": Object {
+              "options": {
+                "autoPan": {
                   "animation": true,
                   "margin": 0,
                 },
-                "offset": Array [
+                "offset": [
                   -17,
                   -17,
                 ],
               },
-              "pendingRemovals_": Object {},
-              "rendered": Object {
+              "pendingRemovals_": {},
+              "rendered": {
                 "transform_": "",
                 "visible": false,
               },
               "revision_": 0,
               "stopEvent": true,
               "un": [Function],
-              "values_": Object {
+              "values_": {
                 "element": <div
                   class="oereb-client-overlay"
                 >
@@ -4561,11 +4561,11 @@ exports[`map query component should render map query 3`] = `
                   </div>
                 </div>,
                 "map": [Circular],
-                "offset": Array [
+                "offset": [
                   -17,
                   -17,
                 ],
-                "position": Array [
+                "position": [
                   0,
                   0,
                 ],
@@ -4573,31 +4573,31 @@ exports[`map query component should render map query 3`] = `
               },
             },
           ],
-          "dispatching_": Object {},
+          "dispatching_": {},
           "disposed": false,
           "eventTarget_": undefined,
-          "listeners_": Object {
-            "add": Array [
+          "listeners_": {
+            "add": [
               [Function],
             ],
-            "remove": Array [
+            "remove": [
               [Function],
             ],
           },
           "ol_uid": "6",
           "on": [Function],
           "once": [Function],
-          "pendingRemovals_": Object {},
+          "pendingRemovals_": {},
           "revision_": 0,
           "un": [Function],
           "unique_": false,
-          "values_": Object {
+          "values_": {
             "length": 1,
           },
         },
-        "pendingRemovals_": Object {},
+        "pendingRemovals_": {},
         "pixelRatio_": 1,
-        "pixelToCoordinateTransform_": Array [
+        "pixelToCoordinateTransform_": [
           1,
           0,
           0,
@@ -4605,43 +4605,43 @@ exports[`map query component should render map query 3`] = `
           0,
           0,
         ],
-        "postRenderFunctions_": Array [],
+        "postRenderFunctions_": [],
         "previousExtent_": null,
         "renderer_": null,
         "revision_": 0,
         "targetChangeHandlerKeys_": null,
         "tileQueue_": TileQueue {
           "boundHandleTileChange_": [Function],
-          "elements_": Array [],
+          "elements_": [],
           "keyFunction_": [Function],
-          "priorities_": Array [],
+          "priorities_": [],
           "priorityFunction_": [Function],
-          "queuedElements_": Object {},
+          "queuedElements_": {},
           "tileChangeCallback_": [Function],
-          "tilesLoadingKeys_": Object {},
+          "tilesLoadingKeys_": {},
           "tilesLoading_": 0,
         },
         "un": [Function],
-        "values_": Object {
+        "values_": {
           "layergroup": LayerGroup {
             "background_": undefined,
             "className_": "ol-layer",
-            "dispatching_": Object {},
+            "dispatching_": {},
             "disposed": false,
             "eventTarget_": undefined,
-            "layersListenerKeys_": Array [
-              Object {
+            "layersListenerKeys_": [
+              {
                 "listener": [Function],
                 "target": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -4652,24 +4652,24 @@ exports[`map query component should render map query 3`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
                 "type": "add",
               },
-              Object {
+              {
                 "listener": [Function],
                 "target": Collection {
-                  "array_": Array [],
+                  "array_": [],
                   "dispatching_": null,
                   "disposed": false,
                   "eventTarget_": undefined,
-                  "listeners_": Object {
-                    "add": Array [
+                  "listeners_": {
+                    "add": [
                       [Function],
                     ],
-                    "remove": Array [
+                    "remove": [
                       [Function],
                     ],
                   },
@@ -4680,49 +4680,49 @@ exports[`map query component should render map query 3`] = `
                   "revision_": 0,
                   "un": [Function],
                   "unique_": true,
-                  "values_": Object {
+                  "values_": {
                     "length": 0,
                   },
                 },
                 "type": "remove",
               },
             ],
-            "listenerKeys_": Object {},
-            "listeners_": Object {
-              "addlayer": Array [
+            "listenerKeys_": {},
+            "listeners_": {
+              "addlayer": [
                 [Function],
               ],
-              "change": Array [
+              "change": [
                 [Function],
               ],
-              "change:layers": Array [
+              "change:layers": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
-              "removelayer": Array [
+              "removelayer": [
                 [Function],
               ],
             },
             "ol_uid": "3",
             "on": [Function],
             "once": [Function],
-            "pendingRemovals_": Object {},
+            "pendingRemovals_": {},
             "revision_": 1,
             "state_": null,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "layers": Collection {
-                "array_": Array [],
+                "array_": [],
                 "dispatching_": null,
                 "disposed": false,
                 "eventTarget_": undefined,
-                "listeners_": Object {
-                  "add": Array [
+                "listeners_": {
+                  "add": [
                     [Function],
                   ],
-                  "remove": Array [
+                  "remove": [
                     [Function],
                   ],
                 },
@@ -4733,7 +4733,7 @@ exports[`map query component should render map query 3`] = `
                 "revision_": 0,
                 "un": [Function],
                 "unique_": true,
-                "values_": Object {
+                "values_": {
                   "length": 0,
                 },
               },
@@ -4748,9 +4748,9 @@ exports[`map query component should render map query 3`] = `
           },
           "target": undefined,
           "view": View {
-            "animations_": Array [],
+            "animations_": [],
             "cancelAnchor_": undefined,
-            "constraints_": Object {
+            "constraints_": {
               "center": [Function],
               "resolution": [Function],
               "rotation": [Function],
@@ -4758,15 +4758,15 @@ exports[`map query component should render map query 3`] = `
             "dispatching_": null,
             "disposed": false,
             "eventTarget_": undefined,
-            "hints_": Array [
+            "hints_": [
               0,
               0,
             ],
-            "listeners_": Object {
-              "change": Array [
+            "listeners_": {
+              "change": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
             },
@@ -4784,7 +4784,7 @@ exports[`map query component should render map query 3`] = `
               "canWrapX_": true,
               "code_": "EPSG:3857",
               "defaultTileGrid_": null,
-              "extent_": Array [
+              "extent_": [
                 -20037508.342789244,
                 -20037508.342789244,
                 20037508.342789244,
@@ -4794,7 +4794,7 @@ exports[`map query component should render map query 3`] = `
               "global_": true,
               "metersPerUnit_": undefined,
               "units_": "m",
-              "worldExtent_": Array [
+              "worldExtent_": [
                 -180,
                 -85,
                 180,
@@ -4807,23 +4807,23 @@ exports[`map query component should render map query 3`] = `
             "targetResolution_": undefined,
             "targetRotation_": 0,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "center": undefined,
               "rotation": 0,
             },
-            "viewportSize_": Array [
+            "viewportSize_": [
               100,
               100,
             ],
             "zoomFactor_": 2,
           },
         },
-        "viewChangeListenerKey_": Object {
+        "viewChangeListenerKey_": {
           "listener": [Function],
           "target": View {
-            "animations_": Array [],
+            "animations_": [],
             "cancelAnchor_": undefined,
-            "constraints_": Object {
+            "constraints_": {
               "center": [Function],
               "resolution": [Function],
               "rotation": [Function],
@@ -4831,15 +4831,15 @@ exports[`map query component should render map query 3`] = `
             "dispatching_": null,
             "disposed": false,
             "eventTarget_": undefined,
-            "hints_": Array [
+            "hints_": [
               0,
               0,
             ],
-            "listeners_": Object {
-              "change": Array [
+            "listeners_": {
+              "change": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
             },
@@ -4857,7 +4857,7 @@ exports[`map query component should render map query 3`] = `
               "canWrapX_": true,
               "code_": "EPSG:3857",
               "defaultTileGrid_": null,
-              "extent_": Array [
+              "extent_": [
                 -20037508.342789244,
                 -20037508.342789244,
                 20037508.342789244,
@@ -4867,7 +4867,7 @@ exports[`map query component should render map query 3`] = `
               "global_": true,
               "metersPerUnit_": undefined,
               "units_": "m",
-              "worldExtent_": Array [
+              "worldExtent_": [
                 -180,
                 -85,
                 180,
@@ -4880,11 +4880,11 @@ exports[`map query component should render map query 3`] = `
             "targetResolution_": undefined,
             "targetRotation_": 0,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "center": undefined,
               "rotation": 0,
             },
-            "viewportSize_": Array [
+            "viewportSize_": [
               100,
               100,
             ],
@@ -4892,12 +4892,12 @@ exports[`map query component should render map query 3`] = `
           },
           "type": "change",
         },
-        "viewPropertyListenerKey_": Object {
+        "viewPropertyListenerKey_": {
           "listener": [Function],
           "target": View {
-            "animations_": Array [],
+            "animations_": [],
             "cancelAnchor_": undefined,
-            "constraints_": Object {
+            "constraints_": {
               "center": [Function],
               "resolution": [Function],
               "rotation": [Function],
@@ -4905,15 +4905,15 @@ exports[`map query component should render map query 3`] = `
             "dispatching_": null,
             "disposed": false,
             "eventTarget_": undefined,
-            "hints_": Array [
+            "hints_": [
               0,
               0,
             ],
-            "listeners_": Object {
-              "change": Array [
+            "listeners_": {
+              "change": [
                 [Function],
               ],
-              "propertychange": Array [
+              "propertychange": [
                 [Function],
               ],
             },
@@ -4931,7 +4931,7 @@ exports[`map query component should render map query 3`] = `
               "canWrapX_": true,
               "code_": "EPSG:3857",
               "defaultTileGrid_": null,
-              "extent_": Array [
+              "extent_": [
                 -20037508.342789244,
                 -20037508.342789244,
                 20037508.342789244,
@@ -4941,7 +4941,7 @@ exports[`map query component should render map query 3`] = `
               "global_": true,
               "metersPerUnit_": undefined,
               "units_": "m",
-              "worldExtent_": Array [
+              "worldExtent_": [
                 -180,
                 -85,
                 180,
@@ -4954,11 +4954,11 @@ exports[`map query component should render map query 3`] = `
             "targetResolution_": undefined,
             "targetRotation_": 0,
             "un": [Function],
-            "values_": Object {
+            "values_": {
               "center": undefined,
               "rotation": 0,
             },
-            "viewportSize_": Array [
+            "viewportSize_": [
               100,
               100,
             ],

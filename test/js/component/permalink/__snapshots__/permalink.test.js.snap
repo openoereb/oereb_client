@@ -3,7 +3,7 @@
 exports[`permalink component should render permalink modal 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -30,7 +30,7 @@ exports[`permalink component should render permalink modal 1`] = `
 exports[`permalink component should render permalink modal 2`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
