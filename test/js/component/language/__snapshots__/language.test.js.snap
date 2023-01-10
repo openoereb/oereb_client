@@ -3,7 +3,7 @@
 exports[`language component should show selected language 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -57,7 +57,7 @@ exports[`language component should show selected language 1`] = `
 exports[`language component should update the selected language 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],

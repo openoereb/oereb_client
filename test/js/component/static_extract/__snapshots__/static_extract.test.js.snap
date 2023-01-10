@@ -3,7 +3,7 @@
 exports[`static extract component should render static extract button 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],

@@ -3,7 +3,7 @@
 exports[`menu component should render menu 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -130,7 +130,7 @@ exports[`menu component should render menu 1`] = `
 exports[`search should show GNSS coordinates 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -257,7 +257,7 @@ exports[`search should show GNSS coordinates 1`] = `
 exports[`search should show LV95 coordinates 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -409,7 +409,7 @@ exports[`search should show LV95 coordinates 1`] = `
 exports[`search should show results 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],

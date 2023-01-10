@@ -3,7 +3,7 @@
 exports[`availability layer component should render availability layer element 1`] = `
 <Provider
   store={
-    Object {
+    {
       "@@observable": [Function],
       "dispatch": [Function],
       "getState": [Function],
@@ -18,11 +18,11 @@ exports[`availability layer component should render availability layer element 1
         "background_": undefined,
         "className_": "ol-layer",
         "declutter_": false,
-        "dispatching_": Object {},
+        "dispatching_": {},
         "disposed": false,
         "eventTarget_": undefined,
-        "listeners_": Object {
-          "change:source": Array [
+        "listeners_": {
+          "change:source": [
             [Function],
           ],
         },
@@ -31,7 +31,7 @@ exports[`availability layer component should render availability layer element 1
         "ol_uid": "2",
         "on": [Function],
         "once": [Function],
-        "pendingRemovals_": Object {},
+        "pendingRemovals_": {},
         "renderBuffer_": 100,
         "rendered": false,
         "renderer_": null,
@@ -43,7 +43,7 @@ exports[`availability layer component should render availability layer element 1
         "un": [Function],
         "updateWhileAnimating_": false,
         "updateWhileInteracting_": false,
-        "values_": Object {
+        "values_": {
           "maxResolution": Infinity,
           "maxZoom": Infinity,
           "minResolution": 0,
