@@ -7,6 +7,28 @@ import {Provider} from "react-redux";
 import App from "../../../../oereb_client/static/src/component/app/app";
 import MainStore from "../../../../oereb_client/static/src/store/main";
 
+
+jest.mock(
+  '../../../../oereb_client/static/src/component/map/map',
+  /* eslint-disable react/display-name */
+  () => () => <div>Mocked Map</div>
+);
+jest.mock(
+  '../../../../oereb_client/static/src/component/information_panel/information_panel',
+  /* eslint-disable react/display-name */
+  () => () => <div>Mocked Information Panel</div>
+);
+jest.mock(
+  '../../../../oereb_client/static/src/component/extract/extract',
+  /* eslint-disable react/display-name */
+  () => () => <div>Mocked Extract</div>
+);
+jest.mock(
+  '../../../../oereb_client/static/src/component/menu/menu',
+  /* eslint-disable react/display-name */
+  () => () => <div>Mocked Menu</div>
+);
+
 const config = {
   application: {
     title: [{
