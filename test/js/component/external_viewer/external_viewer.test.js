@@ -1,6 +1,6 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -15,6 +15,7 @@ import extract from "../../../../samples/extract.json";
 describe('external viewer component', () => {
 
   let component;
+  let user;
 
   beforeEach(() => {
     act(() => {
@@ -42,11 +43,12 @@ describe('external viewer component', () => {
         }
       }));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebExternalViewer />
       </Provider>
     );
+    user = userEvent.setup();
     window.open = jest.fn();
   });
 
@@ -55,34 +57,34 @@ describe('external viewer component', () => {
   });
 
   it('should render button', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
   it('should not render button', () => {
     act(() => {
       MainStore.dispatch(update({}));
     });
-    const wrapper = mount(
+    const wrapper = render(
       <Provider store={MainStore}>
         <OerebExternalViewer />
       </Provider>
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
-  it('should call window.open', () => {
-    component.find('button').simulate('click');
+  it('should call window.open', async () => {
+    await user.click(component.container.querySelector('button'));
     expect(window.open.mock.calls).toHaveLength(1);
     expect(window.open.mock.calls[0][0]).toEqual('http://example.com?egrid=CH1234');
     expect(window.open.mock.calls[0][1]).toEqual('_blank');
     window.open.mockReset();
   });
 
-  it('should not call window.open', () => {
+  it('should not call window.open', async () => {
     act(() => {
       MainStore.dispatch(hideExtract());
     });
-    component.find('button').simulate('click');
+    await user.click(component.container.querySelector('button'));
     expect(window.open.mock.calls).toHaveLength(0);
     window.open.mockReset();
   });

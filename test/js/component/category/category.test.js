@@ -1,6 +1,6 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -13,6 +13,7 @@ import extract from "../../../../samples/extract.json";
 describe('category component', () => {
 
   let component;
+  let user;
 
   beforeEach(() => {
     act(() => {
@@ -24,7 +25,7 @@ describe('category component', () => {
     act(() => {
       MainStore.dispatch(showExtract(extract));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebCategory title="Test with restrictions initially shown"
           data={extract.GetExtractByIdResponse.extract.ConcernedTheme}
@@ -38,18 +39,32 @@ describe('category component', () => {
           restriction={false} />
       </Provider>
     );
+    user = userEvent.setup();
   });
 
-  it('should render category with and without restrictions', () => {
-    expect(toJson(component)).toMatchSnapshot();
-    const categories = component.find('.oereb-client-category');
+  it('should render category with and without restrictions', async () => {
+    await new Promise(r => setTimeout(r, 500));
+    let categories = component.container.querySelectorAll('.oereb-client-category');
     expect(categories).toHaveLength(3);
-    categories.at(1).simulate('click');
-    expect(toJson(component)).toMatchSnapshot();
-    categories.at(2).simulate('click');
-    expect(toJson(component)).toMatchSnapshot();
-    categories.at(0).simulate('click');
-    expect(toJson(component)).toMatchSnapshot();
+
+    expect(component.asFragment()).toMatchSnapshot();
+    expect(categories[0].querySelector('.accordion-collapse')).toHaveClass('show');
+    expect(categories[1].querySelector('.accordion-collapse')).not.toHaveClass('show');
+    expect(categories[2].querySelector('.accordion-collapse')).not.toHaveClass('show');
+
+    await user.click(categories[1].querySelector('.accordion-button'));
+    await new Promise(r => setTimeout(r, 500));
+    expect(component.asFragment()).toMatchSnapshot();
+    expect(categories[0].querySelector('.accordion-collapse')).not.toHaveClass('show');
+    expect(categories[1].querySelector('.accordion-collapse')).toHaveClass('show');
+    expect(categories[2].querySelector('.accordion-collapse')).not.toHaveClass('show');
+
+    await user.click(categories[2].querySelector('.accordion-button'));
+    await new Promise(r => setTimeout(r, 500));
+    expect(component.asFragment()).toMatchSnapshot();
+    expect(categories[0].querySelector('.accordion-collapse')).not.toHaveClass('show');
+    expect(categories[1].querySelector('.accordion-collapse')).not.toHaveClass('show');
+    expect(categories[2].querySelector('.accordion-collapse')).toHaveClass('show');
   });
 
 });

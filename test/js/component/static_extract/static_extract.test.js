@@ -1,7 +1,7 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import FileSaver from "file-saver";
 import React from "react";
+import {render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -20,6 +20,7 @@ const sleep = function(time) {
 describe('static extract component', () => {
 
   let component;
+  let user;
 
   beforeEach(() => {
     fetch.resetMocks();
@@ -43,25 +44,23 @@ describe('static extract component', () => {
     act(() => {
       MainStore.dispatch(showExtract(extract));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebStaticExtract />
       </Provider>
     );
+    user = userEvent.setup();
   });
 
   it('should render static extract button', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
   it('should request static extract', async () => {
     const mockSave = jest.spyOn(FileSaver, 'saveAs');
     fetch.mockResponseOnce('foo');
-    await act(async () => {
-      component.find('button').simulate('click');
-      await sleep(500);
-      component.update();
-    });
+    await user.click(component.container.querySelector('button'));
+    await sleep(500);
     expect(fetch.mock.calls).toHaveLength(1);
     expect(mockSave).toHaveBeenCalled();
   });

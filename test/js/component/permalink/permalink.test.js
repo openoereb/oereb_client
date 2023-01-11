@@ -1,7 +1,6 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
-import {render} from "react-dom";
+import {render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -12,6 +11,7 @@ import MainStore from "../../../../oereb_client/static/src/store/main";
 describe('permalink component', () => {
 
   let component;
+  let user;
 
   const modal =
     <div className="modal fade" id="permalinkModal" tabIndex="-1" aria-hidden="true">
@@ -41,17 +41,18 @@ describe('permalink component', () => {
     const el = document.createElement('div');
     document.body.append(el);
     render(modal, el);
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebPermalink />
       </Provider>
     );
+    user = userEvent.setup();
   });
 
-  it('should render permalink modal', () => {
-    expect(toJson(component)).toMatchSnapshot();
-    component.find('button').simulate('click');
-    expect(toJson(component)).toMatchSnapshot();
+  it('should render permalink modal', async () => {
+    expect(component.asFragment()).toMatchSnapshot();
+    await user.click(component.container.querySelector('button'));
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

@@ -1,6 +1,6 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -8,10 +8,12 @@ import OerebUserGuide from "../../../../oereb_client/static/src/component/user_g
 import {update} from "../../../../oereb_client/static/src/reducer/config";
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import MainStore from "../../../../oereb_client/static/src/store/main";
+import { async } from "regenerator-runtime";
 
 describe('user guide component', () => {
 
   let component;
+  let user;
 
   beforeEach(() => {
     act(() => {
@@ -25,11 +27,12 @@ describe('user guide component', () => {
         user_guide: 'https://example.com/guide/{lang}.pdf'
       }));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebUserGuide />
       </Provider>
     );
+    user = userEvent.setup();
     window.open = jest.fn();
   });
 
@@ -38,23 +41,23 @@ describe('user guide component', () => {
   });
 
   it('should render button', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
   it('should not render button', () => {
     act(() => {
       MainStore.dispatch(update({}));
     });
-    const wrapper = mount(
+    const wrapper = render(
       <Provider store={MainStore}>
         <OerebUserGuide />
       </Provider>
     );
-    expect(toJson(wrapper)).toMatchSnapshot();
+    expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
-  it('should call window.open', () => {
-    component.find('button').simulate('click');
+  it('should call window.open', async () => {
+    await user.click(component.container.querySelector('button'));
     expect(window.open.mock.calls).toHaveLength(1);
     expect(window.open.mock.calls[0][0]).toEqual('https://example.com/guide/de.pdf');
     expect(window.open.mock.calls[0][1]).toEqual('_blank');

@@ -1,6 +1,5 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -25,7 +24,7 @@ describe('legend component', () => {
       extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
       extract.GetExtractByIdResponse.extract.ConcernedTheme
     )['chStatischeWaldgrenzen']['inForce'];
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebLegend restrictions={restrictions} />
       </Provider>
@@ -33,7 +32,7 @@ describe('legend component', () => {
   });
 
   it('should render legend', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

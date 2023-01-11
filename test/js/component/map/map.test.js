@@ -1,10 +1,9 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import {register} from "ol/proj/proj4";
 import TileWMS from 'ol/source/TileWMS';
 import WMTS from 'ol/source/WMTS';
 import proj4 from "proj4";
 import React from "react";
+import {render} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -72,7 +71,7 @@ describe('map component', () => {
     act(() => {
       MainStore.dispatch(update(config));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebMap />
       </Provider>
@@ -80,7 +79,7 @@ describe('map component', () => {
   });
 
   it('should render map', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

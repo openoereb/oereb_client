@@ -1,9 +1,8 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import {Map} from "ol";
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from "ol/source/Vector";
 import React from "react";
+import {render} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -32,7 +31,7 @@ describe('real estate layer component', () => {
     act(() => {
       MainStore.dispatch(showExtract(extract));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebRealEstateLayer realEstateLayer={layer} map={map} />
       </Provider>
@@ -40,7 +39,7 @@ describe('real estate layer component', () => {
   });
 
   it('should render real estate layer element', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

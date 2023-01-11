@@ -1,1158 +1,186 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`documents component should render documents 1`] = `
-<Provider
-  store={
-    {
-      "@@observable": [Function],
-      "dispatch": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <OerebDocuments
-    restrictions={
-      [
-        {
-          "Geometry": [
-            {
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "Line": {
-                "coordinates": [
-                  [
-                    2608906.85,
-                    1261915.2,
-                  ],
-                  [
-                    2608887.35,
-                    1261815.76,
-                  ],
-                ],
-                "crs": "EPSG:2056",
-                "type": "LineString",
-              },
-            },
-          ],
-          "Lawstatus": {
-            "Code": "inForce",
-            "Text": [
-              {
-                "Language": "de",
-                "Text": "Rechtskräftig",
-              },
-            ],
-          },
-          "LegalProvisions": [
-            {
-              "Index": 2,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "https://oereb-gr-preview.000.ch/api/attachments/197",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Baugesetz, 3891.100",
-                },
-              ],
-              "Type": {
-                "Code": "LegalProvision",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtsvorschrift",
-                  },
-                ],
-              },
-            },
-            {
-              "Abbreviation": [
-                {
-                  "Language": "de",
-                  "Text": "KRVO",
-                },
-              ],
-              "Index": 1,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "OfficialNumber": [
-                {
-                  "Language": "de",
-                  "Text": "BR 801.110",
-                },
-              ],
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2934?locale=de",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Raumplanungsverordnung für den Kanton Graubünden",
-                },
-              ],
-              "Type": {
-                "Code": "Law",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Gesetzliche Grundlage",
-                  },
-                ],
-              },
-            },
-            {
-              "Abbreviation": [
-                {
-                  "Language": "de",
-                  "Text": "RPG",
-                },
-              ],
-              "Index": 1,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "OfficialNumber": [
-                {
-                  "Language": "de",
-                  "Text": "SR 700",
-                },
-              ],
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "http://www.lexfind.ch/dtah/167348/2",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Bundesgesetz über die Raumplanung (Raumplanungsgesetz, RPG)",
-                },
-              ],
-              "Type": {
-                "Code": "Law",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Gesetzliche Grundlage",
-                  },
-                ],
-              },
-            },
-            {
-              "Abbreviation": [
-                {
-                  "Language": "de",
-                  "Text": "KRG",
-                },
-              ],
-              "Index": 1,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "OfficialNumber": [
-                {
-                  "Language": "de",
-                  "Text": "BR 801.100",
-                },
-              ],
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2936?locale=de",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Raumplanungsgesetz für den Kanton Graubünden",
-                },
-              ],
-              "Type": {
-                "Code": "Law",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Gesetzliche Grundlage",
-                  },
-                ],
-              },
-            },
-            {
-              "Index": 2,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "https://oereb-gr-preview.000.ch/api/attachments/213",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Revision Ortsplanung, 07.447",
-                },
-              ],
-              "Type": {
-                "Code": "LegalProvision",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtsvorschrift",
-                  },
-                ],
-              },
-            },
-            {
-              "Index": 2,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "https://oereb-gr-preview.000.ch/api/attachments/198",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Baugesetz, 3891.100",
-                },
-              ],
-              "Type": {
-                "Code": "LegalProvision",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtsvorschrift",
-                  },
-                ],
-              },
-            },
-            {
-              "Index": 2,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "https://oereb-gr-preview.000.ch/api/attachments/214",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Revision Ortsplanung, 07.447",
-                },
-              ],
-              "Type": {
-                "Code": "LegalProvision",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtsvorschrift",
-                  },
-                ],
-              },
-            },
-            {
-              "Index": 3,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "http://example.com/goodhint1",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Guter Ratschlag",
-                },
-              ],
-              "Type": {
-                "Code": "Hint",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Hinweis",
-                  },
-                ],
-              },
-            },
-            {
-              "Index": 3,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "http://example.com/goodhint2",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Guter Ratschlag",
-                },
-              ],
-              "Type": {
-                "Code": "Hint",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Hinweis",
-                  },
-                ],
-              },
-            },
-            {
-              "Index": 3,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "http://example.com/goodhint3",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Seht guter Ratschlag mit langem titel: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis venenatis posuere. Nunc sollicitudin fermentum bibendum. Nulla ut massa enim. Sed rhoncus euismod venenatis",
-                },
-              ],
-              "Type": {
-                "Code": "Hint",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Hinweis",
-                  },
-                ],
-              },
-            },
-          ],
-          "LegendText": [
-            {
-              "Language": "de",
-              "Text": "Belastet, untersuchungsbedürftig",
-            },
-          ],
-          "LengthShare": 101,
-          "Map": {
-            "ReferenceWMS": [
-              {
-                "Language": "de",
-                "Text": "https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetMap&VERSION=1.3.0&STYLES=default&CRS=EPSG%3A2056&BBOX=2608564.1173571427%2C1261670.8114999998%2C2609194.3826428573%2C1262028.7715&WIDTH=493&HEIGHT=280&FORMAT=image%2Fpng&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SRS=EPSG%3A2056",
-              },
-            ],
-            "layerIndex": 1,
-            "layerOpacity": 0.75,
-            "max": {
-              "coordinates": [
-                2609194.3826428573,
-                1262028.7715,
-              ],
-              "crs": "EPSG:2056",
-              "type": "Point",
-            },
-            "min": {
-              "coordinates": [
-                2608564.1173571427,
-                1261670.8114999998,
-              ],
-              "crs": "EPSG:2056",
-              "type": "Point",
-            },
-          },
-          "ResponsibleOffice": {
-            "Name": [
-              {
-                "Language": "de",
-                "Text": "Bundesamt für Verkehr BAV",
-              },
-            ],
-            "OfficeAtWeb": [
-              {
-                "Language": "de",
-                "Text": "https://www.bav.admin.ch/bav/de/home.html",
-              },
-            ],
-          },
-          "SymbolRef": "samples/static/symbol2.png",
-          "Theme": {
-            "Code": "ch.StatischeWaldgrenzen",
-            "Text": [
-              {
-                "Language": "de",
-                "Text": "Statische Waldgrenzen",
-              },
-            ],
-          },
-          "TypeCode": "StaoTyp2",
-          "TypeCodelist": "https://models.geo.admin.ch/BAFU/KbS_Codetexte_V1_4.xml",
-        },
-        {
-          "Geometry": [
-            {
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "Line": {
-                "coordinates": [
-                  [
-                    2608906.85,
-                    1261915.2,
-                  ],
-                  [
-                    2608887.35,
-                    1261815.76,
-                  ],
-                ],
-                "crs": "EPSG:2056",
-                "type": "LineString",
-              },
-            },
-          ],
-          "Lawstatus": {
-            "Code": "inForce",
-            "Text": [
-              {
-                "Language": "de",
-                "Text": "Rechtskräftig",
-              },
-            ],
-          },
-          "LegalProvisions": [
-            {
-              "Index": 2,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "https://oereb-gr-preview.000.ch/api/attachments/197",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Baugesetz, 3891.100",
-                },
-              ],
-              "Type": {
-                "Code": "LegalProvision",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtsvorschrift",
-                  },
-                ],
-              },
-            },
-            {
-              "Abbreviation": [
-                {
-                  "Language": "de",
-                  "Text": "KRVO",
-                },
-              ],
-              "Index": 1,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "OfficialNumber": [
-                {
-                  "Language": "de",
-                  "Text": "BR 801.110",
-                },
-              ],
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2934?locale=de",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Raumplanungsverordnung für den Kanton Graubünden",
-                },
-              ],
-              "Type": {
-                "Code": "Law",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Gesetzliche Grundlage",
-                  },
-                ],
-              },
-            },
-            {
-              "Abbreviation": [
-                {
-                  "Language": "de",
-                  "Text": "RPG",
-                },
-              ],
-              "Index": 1,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "OfficialNumber": [
-                {
-                  "Language": "de",
-                  "Text": "SR 700",
-                },
-              ],
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "http://www.lexfind.ch/dtah/167348/2",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Bundesgesetz über die Raumplanung (Raumplanungsgesetz, RPG)",
-                },
-              ],
-              "Type": {
-                "Code": "Law",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Gesetzliche Grundlage",
-                  },
-                ],
-              },
-            },
-            {
-              "Abbreviation": [
-                {
-                  "Language": "de",
-                  "Text": "KRG",
-                },
-              ],
-              "Index": 1,
-              "Lawstatus": {
-                "Code": "inForce",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Rechtskräftig",
-                  },
-                ],
-              },
-              "OfficialNumber": [
-                {
-                  "Language": "de",
-                  "Text": "BR 801.100",
-                },
-              ],
-              "ResponsibleOffice": {
-                "Name": [
-                  {
-                    "Language": "de",
-                    "Text": "Bundesamt für Verkehr BAV",
-                  },
-                ],
-                "OfficeAtWeb": [
-                  {
-                    "Language": "de",
-                    "Text": "https://www.bav.admin.ch/bav/de/home.html",
-                  },
-                ],
-              },
-              "TextAtWeb": [
-                {
-                  "Language": "de",
-                  "Text": "https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2936?locale=de",
-                },
-              ],
-              "Title": [
-                {
-                  "Language": "de",
-                  "Text": "Raumplanungsgesetz für den Kanton Graubünden",
-                },
-              ],
-              "Type": {
-                "Code": "Law",
-                "Text": [
-                  {
-                    "Language": "de",
-                    "Text": "Gesetzliche Grundlage",
-                  },
-                ],
-              },
-            },
-          ],
-          "LegendText": [
-            {
-              "Language": "de",
-              "Text": "Belastet, untersuchungsbedürftig",
-            },
-          ],
-          "LengthShare": 101,
-          "Map": {
-            "ReferenceWMS": [
-              {
-                "Language": "de",
-                "Text": "https://wms.geo.admin.ch/?SERVICE=WMS&REQUEST=GetMap&VERSION=1.3.0&STYLES=default&CRS=EPSG%3A2056&BBOX=2608564.1173571427%2C1261670.8114999998%2C2609194.3826428573%2C1262028.7715&WIDTH=493&HEIGHT=280&FORMAT=image%2Fpng&LAYERS=ch.bav.kataster-belasteter-standorte-oev.oereb&SRS=EPSG%3A2056",
-              },
-            ],
-            "layerIndex": 1,
-            "layerOpacity": 0.75,
-            "max": {
-              "coordinates": [
-                2609194.3826428573,
-                1262028.7715,
-              ],
-              "crs": "EPSG:2056",
-              "type": "Point",
-            },
-            "min": {
-              "coordinates": [
-                2608564.1173571427,
-                1261670.8114999998,
-              ],
-              "crs": "EPSG:2056",
-              "type": "Point",
-            },
-          },
-          "ResponsibleOffice": {
-            "Name": [
-              {
-                "Language": "de",
-                "Text": "Bundesamt für Verkehr BAV",
-              },
-            ],
-            "OfficeAtWeb": [
-              {
-                "Language": "de",
-                "Text": "https://www.bav.admin.ch/bav/de/home.html",
-              },
-            ],
-          },
-          "SymbolRef": "samples/static/symbol2.png",
-          "Theme": {
-            "Code": "ch.StatischeWaldgrenzen",
-            "Text": [
-              {
-                "Language": "de",
-                "Text": "Statische Waldgrenzen",
-              },
-            ],
-          },
-          "TypeCode": "StaoTyp2",
-          "TypeCodelist": "https://models.geo.admin.ch/BAFU/KbS_Codetexte_V1_4.xml",
-        },
-      ]
-    }
+<DocumentFragment>
+  <dl
+    class="oereb-client-documents mb-2"
   >
-    <dl
-      className="oereb-client-documents mb-2"
+    <dt>
+      extract.topic.document.legal_provisions
+    </dt>
+    <dd
+      class="oereb-client-document ms-2"
     >
-      <dt>
-        extract.topic.document.legal_provisions
-      </dt>
-      <dd
-        className="oereb-client-document ms-2"
-        key="0"
+      <span>
+        Baugesetz, 3891.100
+      </span>
+      <ul
+        class="ps-2 mb-2"
       >
-        <span>
-          Baugesetz, 3891.100
-        </span>
-        <ul
-          className="ps-2 mb-2"
-        >
-          <li
-            key="0"
+        <li>
+          <a
+            href="https://oereb-gr-preview.000.ch/api/attachments/197"
+            rel="noreferrer"
+            target="_blank"
           >
-            <a
-              href="https://oereb-gr-preview.000.ch/api/attachments/197"
-              rel="noreferrer"
-              target="_blank"
-            >
-              https://oereb-gr-preview.000.ch/api/attachments/197
-            </a>
-          </li>
-          <li
-            key="1"
+            https://oereb-gr-preview.000.ch/api/attachments/197
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://oereb-gr-preview.000.ch/api/attachments/198"
+            rel="noreferrer"
+            target="_blank"
           >
-            <a
-              href="https://oereb-gr-preview.000.ch/api/attachments/198"
-              rel="noreferrer"
-              target="_blank"
-            >
-              https://oereb-gr-preview.000.ch/api/attachments/198
-            </a>
-          </li>
-        </ul>
-      </dd>
-      <dd
-        className="oereb-client-document ms-2"
-        key="1"
+            https://oereb-gr-preview.000.ch/api/attachments/198
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dd
+      class="oereb-client-document ms-2"
+    >
+      <span>
+        Revision Ortsplanung, 07.447
+      </span>
+      <ul
+        class="ps-2 mb-2"
       >
-        <span>
-          Revision Ortsplanung, 07.447
-        </span>
-        <ul
-          className="ps-2 mb-2"
-        >
-          <li
-            key="0"
+        <li>
+          <a
+            href="https://oereb-gr-preview.000.ch/api/attachments/213"
+            rel="noreferrer"
+            target="_blank"
           >
-            <a
-              href="https://oereb-gr-preview.000.ch/api/attachments/213"
-              rel="noreferrer"
-              target="_blank"
-            >
-              https://oereb-gr-preview.000.ch/api/attachments/213
-            </a>
-          </li>
-          <li
-            key="1"
+            https://oereb-gr-preview.000.ch/api/attachments/213
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://oereb-gr-preview.000.ch/api/attachments/214"
+            rel="noreferrer"
+            target="_blank"
           >
-            <a
-              href="https://oereb-gr-preview.000.ch/api/attachments/214"
-              rel="noreferrer"
-              target="_blank"
-            >
-              https://oereb-gr-preview.000.ch/api/attachments/214
-            </a>
-          </li>
-        </ul>
-      </dd>
-      <dt>
-        extract.topic.document.laws
-      </dt>
-      <dd
-        className="oereb-client-document ms-2"
-        key="0"
+            https://oereb-gr-preview.000.ch/api/attachments/214
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt>
+      extract.topic.document.laws
+    </dt>
+    <dd
+      class="oereb-client-document ms-2"
+    >
+      <span>
+        Raumplanungsverordnung für den Kanton Graubünden (KRVO), BR 801.110
+      </span>
+      <ul
+        class="ps-2 mb-2"
       >
-        <span>
-          Raumplanungsverordnung für den Kanton Graubünden (KRVO), BR 801.110
-        </span>
-        <ul
-          className="ps-2 mb-2"
-        >
-          <li
-            key="0"
+        <li>
+          <a
+            href="https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2934?locale=de"
+            rel="noreferrer"
+            target="_blank"
           >
-            <a
-              href="https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2934?locale=de"
-              rel="noreferrer"
-              target="_blank"
-            >
-              https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2934?locale=de
-            </a>
-          </li>
-        </ul>
-      </dd>
-      <dd
-        className="oereb-client-document ms-2"
-        key="1"
+            https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2934?locale=de
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dd
+      class="oereb-client-document ms-2"
+    >
+      <span>
+        Bundesgesetz über die Raumplanung (Raumplanungsgesetz, RPG) (RPG), SR 700
+      </span>
+      <ul
+        class="ps-2 mb-2"
       >
-        <span>
-          Bundesgesetz über die Raumplanung (Raumplanungsgesetz, RPG) (RPG), SR 700
-        </span>
-        <ul
-          className="ps-2 mb-2"
-        >
-          <li
-            key="0"
+        <li>
+          <a
+            href="http://www.lexfind.ch/dtah/167348/2"
+            rel="noreferrer"
+            target="_blank"
           >
-            <a
-              href="http://www.lexfind.ch/dtah/167348/2"
-              rel="noreferrer"
-              target="_blank"
-            >
-              http://www.lexfind.ch/dtah/167348/2
-            </a>
-          </li>
-        </ul>
-      </dd>
-      <dd
-        className="oereb-client-document ms-2"
-        key="2"
+            http://www.lexfind.ch/dtah/167348/2
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dd
+      class="oereb-client-document ms-2"
+    >
+      <span>
+        Raumplanungsgesetz für den Kanton Graubünden (KRG), BR 801.100
+      </span>
+      <ul
+        class="ps-2 mb-2"
       >
-        <span>
-          Raumplanungsgesetz für den Kanton Graubünden (KRG), BR 801.100
-        </span>
-        <ul
-          className="ps-2 mb-2"
-        >
-          <li
-            key="0"
+        <li>
+          <a
+            href="https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2936?locale=de"
+            rel="noreferrer"
+            target="_blank"
           >
-            <a
-              href="https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2936?locale=de"
-              rel="noreferrer"
-              target="_blank"
-            >
-              https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2936?locale=de
-            </a>
-          </li>
-        </ul>
-      </dd>
-      <dt>
-        extract.topic.document.hints
-      </dt>
-      <dd
-        className="oereb-client-document ms-2"
-        key="0"
+            https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2936?locale=de
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt>
+      extract.topic.document.hints
+    </dt>
+    <dd
+      class="oereb-client-document ms-2"
+    >
+      <span>
+        Guter Ratschlag
+      </span>
+      <ul
+        class="ps-2 mb-2"
       >
-        <span>
-          Guter Ratschlag
-        </span>
-        <ul
-          className="ps-2 mb-2"
-        >
-          <li
-            key="0"
+        <li>
+          <a
+            href="http://example.com/goodhint1"
+            rel="noreferrer"
+            target="_blank"
           >
-            <a
-              href="http://example.com/goodhint1"
-              rel="noreferrer"
-              target="_blank"
-            >
-              http://example.com/goodhint1
-            </a>
-          </li>
-          <li
-            key="1"
+            http://example.com/goodhint1
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://example.com/goodhint2"
+            rel="noreferrer"
+            target="_blank"
           >
-            <a
-              href="http://example.com/goodhint2"
-              rel="noreferrer"
-              target="_blank"
-            >
-              http://example.com/goodhint2
-            </a>
-          </li>
-        </ul>
-      </dd>
-      <dd
-        className="oereb-client-document ms-2"
-        key="1"
+            http://example.com/goodhint2
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dd
+      class="oereb-client-document ms-2"
+    >
+      <span>
+        Seht guter Ratschlag mit langem titel: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis venenatis posuere. Nunc sollicitudin fermentum bibendum. Nulla ut massa enim. Sed rhoncus euismod venenatis
+      </span>
+      <ul
+        class="ps-2 mb-2"
       >
-        <span>
-          Seht guter Ratschlag mit langem titel: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis venenatis posuere. Nunc sollicitudin fermentum bibendum. Nulla ut massa enim. Sed rhoncus euismod venenatis
-        </span>
-        <ul
-          className="ps-2 mb-2"
-        >
-          <li
-            key="0"
+        <li>
+          <a
+            href="http://example.com/goodhint3"
+            rel="noreferrer"
+            target="_blank"
           >
-            <a
-              href="http://example.com/goodhint3"
-              rel="noreferrer"
-              target="_blank"
-            >
-              http://example.com/goodhint3
-            </a>
-          </li>
-        </ul>
-      </dd>
-    </dl>
-  </OerebDocuments>
-</Provider>
+            http://example.com/goodhint3
+          </a>
+        </li>
+      </ul>
+    </dd>
+  </dl>
+</DocumentFragment>
 `;
