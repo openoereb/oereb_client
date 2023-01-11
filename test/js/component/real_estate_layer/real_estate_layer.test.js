@@ -1,9 +1,8 @@
-import {render} from '@testing-library/react';
+import {act, render} from '@testing-library/react';
 import {Map} from "ol";
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from "ol/source/Vector";
 import React from "react";
-import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
 import OerebRealEstateLayer from

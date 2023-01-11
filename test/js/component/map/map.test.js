@@ -1,10 +1,9 @@
-import {render} from '@testing-library/react';
+import {act, render} from '@testing-library/react';
 import {register} from "ol/proj/proj4";
 import TileWMS from 'ol/source/TileWMS';
 import WMTS from 'ol/source/WMTS';
 import proj4 from "proj4";
 import React from "react";
-import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
 import OerebMap, {
