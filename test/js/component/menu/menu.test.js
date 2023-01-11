@@ -77,11 +77,13 @@ describe('menu component', () => {
     act(() => {
       MainStore.dispatch(update(config));
     });
-    component = render(
-      <Provider store={MainStore}>
-        <OerebMenu />
-      </Provider>
-    );
+    act(() => {
+      component = render(
+        <Provider store={MainStore}>
+          <OerebMenu />
+        </Provider>
+      );
+    });
   });
 
   it('should render menu', () => {
@@ -169,11 +171,13 @@ describe('search', () => {
         ]
       }
     ]));
-    fireEvent.change(component.container.querySelector('input'), {
-      target: {
-        value: 'abc'
-      }
-    });
+    act(() => {
+      fireEvent.change(component.container.querySelector('input'), {
+        target: {
+          value: 'abc'
+        }
+      });
+    })
     await sleep(500);
     await waitFor(() => {
       expect(component.asFragment()).toMatchSnapshot();

@@ -1,4 +1,4 @@
-import {render} from '@testing-library/react';
+import {render, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import React from "react";
 import {act} from "react-dom/test-utils";
@@ -9,6 +9,17 @@ import {showExtract} from "../../../../oereb_client/static/src/reducer/extract";
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
+
+jest.mock(
+  '../../../../oereb_client/static/src/component/topic_list/topics_with_restrictions',
+  /* eslint-disable react/display-name */
+  () => () => <div>Mocked topics with restrictions</div>
+);
+jest.mock(
+  '../../../../oereb_client/static/src/component/topic_list/topics_without_restriction',
+  /* eslint-disable react/display-name */
+  () => () => <div>Mocked topics without restrictions</div>
+);
 
 describe('category component', () => {
 
@@ -47,24 +58,30 @@ describe('category component', () => {
     const categories = component.container.querySelectorAll('.oereb-client-category');
     expect(categories).toHaveLength(3);
 
-    expect(component.asFragment()).toMatchSnapshot();
-    expect(categories[0].querySelector('.accordion-collapse')).toHaveClass('show');
-    expect(categories[1].querySelector('.accordion-collapse')).not.toHaveClass('show');
-    expect(categories[2].querySelector('.accordion-collapse')).not.toHaveClass('show');
+    await waitFor(() => {
+      expect(component.asFragment()).toMatchSnapshot();
+      expect(categories[0].querySelector('.accordion-collapse')).toHaveClass('show');
+      expect(categories[1].querySelector('.accordion-collapse')).not.toHaveClass('show');
+      expect(categories[2].querySelector('.accordion-collapse')).not.toHaveClass('show');
+    });
 
     await user.click(categories[1].querySelector('.accordion-button'));
     await new Promise((r) => setTimeout(r, 500));
-    expect(component.asFragment()).toMatchSnapshot();
-    expect(categories[0].querySelector('.accordion-collapse')).not.toHaveClass('show');
-    expect(categories[1].querySelector('.accordion-collapse')).toHaveClass('show');
-    expect(categories[2].querySelector('.accordion-collapse')).not.toHaveClass('show');
+    await waitFor(() => {
+      expect(component.asFragment()).toMatchSnapshot();
+      expect(categories[0].querySelector('.accordion-collapse')).not.toHaveClass('show');
+      expect(categories[1].querySelector('.accordion-collapse')).toHaveClass('show');
+      expect(categories[2].querySelector('.accordion-collapse')).not.toHaveClass('show');
+    });
 
     await user.click(categories[2].querySelector('.accordion-button'));
     await new Promise((r) => setTimeout(r, 500));
-    expect(component.asFragment()).toMatchSnapshot();
-    expect(categories[0].querySelector('.accordion-collapse')).not.toHaveClass('show');
-    expect(categories[1].querySelector('.accordion-collapse')).not.toHaveClass('show');
-    expect(categories[2].querySelector('.accordion-collapse')).toHaveClass('show');
+    await waitFor(() => {
+      expect(component.asFragment()).toMatchSnapshot();
+      expect(categories[0].querySelector('.accordion-collapse')).not.toHaveClass('show');
+      expect(categories[1].querySelector('.accordion-collapse')).not.toHaveClass('show');
+      expect(categories[2].querySelector('.accordion-collapse')).toHaveClass('show');
+    });
   });
 
 });
