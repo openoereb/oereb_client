@@ -1,8 +1,8 @@
+import {render} from '@testing-library/react';
 import {Map} from "ol";
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from "ol/source/Vector";
 import React from "react";
-import {render} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 

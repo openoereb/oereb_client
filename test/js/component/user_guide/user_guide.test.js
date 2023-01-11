@@ -1,6 +1,6 @@
-import React from "react";
 import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React from "react";
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -8,7 +8,6 @@ import OerebUserGuide from "../../../../oereb_client/static/src/component/user_g
 import {update} from "../../../../oereb_client/static/src/reducer/config";
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import MainStore from "../../../../oereb_client/static/src/store/main";
-import { async } from "regenerator-runtime";
 
 describe('user guide component', () => {
 

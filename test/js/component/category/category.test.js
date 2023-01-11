@@ -1,6 +1,6 @@
-import React from "react";
 import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
+import React from "react";
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -43,8 +43,8 @@ describe('category component', () => {
   });
 
   it('should render category with and without restrictions', async () => {
-    await new Promise(r => setTimeout(r, 500));
-    let categories = component.container.querySelectorAll('.oereb-client-category');
+    await new Promise((r) => setTimeout(r, 500));
+    const categories = component.container.querySelectorAll('.oereb-client-category');
     expect(categories).toHaveLength(3);
 
     expect(component.asFragment()).toMatchSnapshot();
@@ -53,14 +53,14 @@ describe('category component', () => {
     expect(categories[2].querySelector('.accordion-collapse')).not.toHaveClass('show');
 
     await user.click(categories[1].querySelector('.accordion-button'));
-    await new Promise(r => setTimeout(r, 500));
+    await new Promise((r) => setTimeout(r, 500));
     expect(component.asFragment()).toMatchSnapshot();
     expect(categories[0].querySelector('.accordion-collapse')).not.toHaveClass('show');
     expect(categories[1].querySelector('.accordion-collapse')).toHaveClass('show');
     expect(categories[2].querySelector('.accordion-collapse')).not.toHaveClass('show');
 
     await user.click(categories[2].querySelector('.accordion-button'));
-    await new Promise(r => setTimeout(r, 500));
+    await new Promise((r) => setTimeout(r, 500));
     expect(component.asFragment()).toMatchSnapshot();
     expect(categories[0].querySelector('.accordion-collapse')).not.toHaveClass('show');
     expect(categories[1].querySelector('.accordion-collapse')).not.toHaveClass('show');
