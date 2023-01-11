@@ -1,8 +1,8 @@
+import {render} from '@testing-library/react';
 import React from "react";
-
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
-import {render} from '@testing-library/react';
+
 import OerebDocuments from "../../../../oereb_client/static/src/component/documents/documents";
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import {groupRestrictionsByTopic} from "../../../../oereb_client/static/src/request/extract";

@@ -1,12 +1,11 @@
+import {render, waitFor} from '@testing-library/react'
 import {register} from 'ol/proj/proj4';
 import proj4 from 'proj4';
 import React from "react";
-import {render, waitFor} from '@testing-library/react'
 import {Provider} from "react-redux";
 
 import App from "../../../../oereb_client/static/src/component/app/app";
 import MainStore from "../../../../oereb_client/static/src/store/main";
-import { async } from 'regenerator-runtime';
 
 const config = {
   application: {

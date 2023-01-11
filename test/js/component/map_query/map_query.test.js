@@ -1,6 +1,6 @@
+import {render} from '@testing-library/react';
 import {Map} from "ol";
 import React from "react";
-import {render} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 

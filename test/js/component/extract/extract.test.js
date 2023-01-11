@@ -1,6 +1,6 @@
-import React from "react";
 import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React from "react";
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -14,7 +14,6 @@ import {
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
-import { async } from "regenerator-runtime";
 
 describe('extract component', () => {
 
