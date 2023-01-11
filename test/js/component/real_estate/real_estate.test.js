@@ -1,6 +1,5 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -20,7 +19,7 @@ describe('real estate component', () => {
         available: ['de']
       }));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebRealEstate data={extract.GetExtractByIdResponse.extract.RealEstate} />
       </Provider>
@@ -28,7 +27,7 @@ describe('real estate component', () => {
   });
 
   it('should render real estate', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

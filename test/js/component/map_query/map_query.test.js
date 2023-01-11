@@ -1,7 +1,6 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import {Map} from "ol";
 import React from "react";
+import {render} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -23,7 +22,7 @@ describe('map query component', () => {
         available: ['de']
       }));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebMapQuery map={map} />
       </Provider>
@@ -31,14 +30,14 @@ describe('map query component', () => {
   });
 
   it('should render map query', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
     act(() => {
       MainStore.dispatch(loadAt({
         posX: 0.0,
         posY: 0.0
       }));
     });
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
     act(() => {
       MainStore.dispatch(show({
         results: [
@@ -105,7 +104,7 @@ describe('map query component', () => {
         ]
       }));
     });
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

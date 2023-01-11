@@ -1,6 +1,6 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -13,6 +13,7 @@ import extract from "../../../../samples/extract.json";
 describe('topic component', () => {
 
   let component;
+  let user;
 
   beforeEach(() => {
     act(() => {
@@ -25,17 +26,18 @@ describe('topic component', () => {
       extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
       extract.GetExtractByIdResponse.extract.ConcernedTheme
     )['chStatischeWaldgrenzen']['inForce'];
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebTopic restrictions={restrictions} />
       </Provider>
     );
+    user = userEvent.setup();
   });
 
-  it('should render topic', () => {
-    expect(toJson(component)).toMatchSnapshot();
-    component.find('button').simulate('click');
-    expect(toJson(component)).toMatchSnapshot();
+  it('should render topic', async () => {
+    expect(component.asFragment()).toMatchSnapshot();
+    await user.click(component.container.querySelector('button'));
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

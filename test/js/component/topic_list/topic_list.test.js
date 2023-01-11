@@ -1,6 +1,5 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -28,7 +27,7 @@ describe('topic with restriction component', () => {
       extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
       extract.GetExtractByIdResponse.extract.ConcernedTheme
     );
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebTopicsWithRestriction
           data= {extract.GetExtractByIdResponse.extract.ConcernedTheme}
@@ -38,7 +37,7 @@ describe('topic with restriction component', () => {
   });
 
   it('should render topics', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });
@@ -54,7 +53,7 @@ describe('topic without restriction component', () => {
         available: ['de']
       }));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebTopicsWithoutRestriction
           data= {extract.GetExtractByIdResponse.extract.NotConcernedTheme} />
@@ -63,7 +62,7 @@ describe('topic without restriction component', () => {
   });
 
   it('should render topics', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

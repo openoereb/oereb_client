@@ -1,9 +1,8 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import LayerGroup from "ol/layer/Group";
 import ImageLayer from "ol/layer/Image";
 import TileLayer from "ol/layer/Tile";
 import React from "react";
+import {render} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -49,12 +48,12 @@ describe('topic layers component', () => {
   });
 
   it('should render untiled topic layer element', () => {
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebTopicLayer topicLayers={layers} tiled={false} />
       </Provider>
     );
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
     expect(layers.getLayers().getLength()).toBe(1);
     expect(layers.getLayers().item(0)).toBeInstanceOf(ImageLayer);
     act(() => {
@@ -62,17 +61,17 @@ describe('topic layers component', () => {
         type: 'imageloadstart'
       });
     });
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
     expect(callback).toHaveBeenCalledWith(true);
   });
 
   it('should render tiled topic layer element', () => {
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebTopicLayer topicLayers={layers} tiled={true} />
       </Provider>
     );
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
     expect(layers.getLayers().getLength()).toBe(1);
     expect(layers.getLayers().item(0)).toBeInstanceOf(TileLayer);
     act(() => {
@@ -80,7 +79,7 @@ describe('topic layers component', () => {
         type: 'imageloadend'
       });
     });
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
     expect(callback).toHaveBeenCalledWith(false);
   });
 

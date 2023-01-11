@@ -1,9 +1,8 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
-
+import {render} from '@testing-library/react';
 import OerebDocuments from "../../../../oereb_client/static/src/component/documents/documents";
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import {groupRestrictionsByTopic} from "../../../../oereb_client/static/src/request/extract";
@@ -25,7 +24,7 @@ describe('documents component', () => {
       extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
       extract.GetExtractByIdResponse.extract.ConcernedTheme
     )['chStatischeWaldgrenzen']['inForce'];
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebDocuments restrictions={restrictions} />
       </Provider>
@@ -33,7 +32,7 @@ describe('documents component', () => {
   });
 
   it('should render documents', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

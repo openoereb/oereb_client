@@ -1,6 +1,5 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -26,7 +25,7 @@ describe('responsible office component', () => {
       extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
       extract.GetExtractByIdResponse.extract.ConcernedTheme
     )['chStatischeWaldgrenzen']['inForce'];
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebResponsibleOffice restrictions={restrictions} />
       </Provider>
@@ -34,7 +33,7 @@ describe('responsible office component', () => {
   });
 
   it('should render responsible office', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

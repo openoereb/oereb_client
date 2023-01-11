@@ -1,6 +1,6 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -14,8 +14,11 @@ import {
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
+import { async } from "regenerator-runtime";
 
 describe('extract component', () => {
+
+  let user;
 
   beforeEach(() => {
     fetch.resetMocks();
@@ -51,6 +54,7 @@ describe('extract component', () => {
     modal.appendChild(modalTitle);
     modal.appendChild(modalInput);
     document.body.appendChild(modal);
+    user = userEvent.setup();
   });
 
   it('should render loading message', () => {
@@ -60,15 +64,15 @@ describe('extract component', () => {
         zoom: false
       }));
     });
-    const component = mount(
+    const component = render(
       <Provider store={MainStore}>
         <OerebExtract />
       </Provider>
     );
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
-  it('should render error message', () => {
+  it('should render error message', async () => {
     act(() => {
       MainStore.dispatch(loadExtract({
         egrid: 'CH1234',
@@ -78,14 +82,14 @@ describe('extract component', () => {
     act(() => {
       MainStore.dispatch(showError());
     });
-    const component = mount(
+    const component = render(
       <Provider store={MainStore}>
         <OerebExtract />
       </Provider>
     );
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
     fetch.mockResponseOnce(JSON.stringify(extract));
-    component.find('button').at(1).simulate('click');
+    await user.click(component.container.querySelectorAll('button')[1]);
     expect(fetch.mock.calls).toHaveLength(1);
     const url = new URL(fetch.mock.calls[0][0]);
     expect(url.host).toEqual('example.com');
@@ -103,12 +107,12 @@ describe('extract component', () => {
     act(() => {
       MainStore.dispatch(showExtract(extract));
     });
-    const component = mount(
+    const component = render(
       <Provider store={MainStore}>
         <OerebExtract />
       </Provider>
     );
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

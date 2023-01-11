@@ -1,109 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`language component should show selected language 1`] = `
-<Provider
-  store={
-    {
-      "@@observable": [Function],
-      "dispatch": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <OerebLanguage>
-    <div
-      className="oereb-client-language-selector"
+<DocumentFragment>
+  <div
+    class="oereb-client-language-selector"
+  >
+    <button
+      aria-expanded="false"
+      class="btn btn-outline-secondary dropdown-toggle"
+      data-bs-toggle="dropdown"
+      title="menu.language.title"
+      type="button"
     >
-      <button
-        aria-expanded="false"
-        className="btn btn-outline-secondary dropdown-toggle"
-        data-bs-toggle="dropdown"
-        title="menu.language.title"
-        type="button"
-      >
-        DE
-      </button>
-      <ul
-        className="dropdown-menu"
-      >
-        <li
-          key="0"
+      DE
+    </button>
+    <ul
+      class="dropdown-menu"
+    >
+      <li>
+        <button
+          class="dropdown-item"
         >
-          <button
-            className="dropdown-item"
-            onClick={[Function]}
-          >
-            EN
-          </button>
-        </li>
-        <li
-          key="1"
+          EN
+        </button>
+      </li>
+      <li>
+        <button
+          class="dropdown-item"
         >
-          <button
-            className="dropdown-item"
-            onClick={[Function]}
-          >
-            DE
-          </button>
-        </li>
-      </ul>
-    </div>
-  </OerebLanguage>
-</Provider>
+          DE
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`language component should update the selected language 1`] = `
-<Provider
-  store={
-    {
-      "@@observable": [Function],
-      "dispatch": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <OerebLanguage>
-    <div
-      className="oereb-client-language-selector"
+<DocumentFragment>
+  <div
+    class="oereb-client-language-selector"
+  >
+    <button
+      aria-expanded="false"
+      class="btn btn-outline-secondary dropdown-toggle"
+      data-bs-toggle="dropdown"
+      title="menu.language.title"
+      type="button"
     >
-      <button
-        aria-expanded="false"
-        className="btn btn-outline-secondary dropdown-toggle"
-        data-bs-toggle="dropdown"
-        title="menu.language.title"
-        type="button"
-      >
-        EN
-      </button>
-      <ul
-        className="dropdown-menu"
-      >
-        <li
-          key="0"
+      EN
+    </button>
+    <ul
+      class="dropdown-menu"
+    >
+      <li>
+        <button
+          class="dropdown-item"
         >
-          <button
-            className="dropdown-item"
-            onClick={[Function]}
-          >
-            EN
-          </button>
-        </li>
-        <li
-          key="1"
+          EN
+        </button>
+      </li>
+      <li>
+        <button
+          class="dropdown-item"
         >
-          <button
-            className="dropdown-item"
-            onClick={[Function]}
-          >
-            DE
-          </button>
-        </li>
-      </ul>
-    </div>
-  </OerebLanguage>
-</Provider>
+          DE
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
 `;

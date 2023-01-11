@@ -1,44 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`user guide component should not render button 1`] = `
-<Provider
-  store={
-    {
-      "@@observable": [Function],
-      "dispatch": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <OerebUserGuide />
-</Provider>
-`;
+exports[`user guide component should not render button 1`] = `<DocumentFragment />`;
 
 exports[`user guide component should render button 1`] = `
-<Provider
-  store={
-    {
-      "@@observable": [Function],
-      "dispatch": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <OerebUserGuide>
-    <button
-      className="btn btn-outline-secondary oereb-client-user-guide"
-      onClick={[Function]}
-      title="menu.user_guide.title"
-      type="button"
-    >
-      <i
-        className="bi bi-question-circle"
-      />
-    </button>
-  </OerebUserGuide>
-</Provider>
+<DocumentFragment>
+  <button
+    class="btn btn-outline-secondary oereb-client-user-guide"
+    title="menu.user_guide.title"
+    type="button"
+  >
+    <i
+      class="bi bi-question-circle"
+    />
+  </button>
+</DocumentFragment>
 `;

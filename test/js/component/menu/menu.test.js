@@ -1,6 +1,5 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render, fireEvent, waitFor} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -78,7 +77,7 @@ describe('menu component', () => {
     act(() => {
       MainStore.dispatch(update(config));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebMenu />
       </Provider>
@@ -86,7 +85,7 @@ describe('menu component', () => {
   });
 
   it('should render menu', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });
@@ -106,7 +105,7 @@ describe('search', () => {
     act(() => {
       MainStore.dispatch(update(config));
     });
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebMenu />
       </Provider>
@@ -115,32 +114,30 @@ describe('search', () => {
 
   it('should show LV95 coordinates', async () => {
     fetch.mockResponseOnce('[]');
-    await act(async () => {
-      component.find('input').simulate('change', {
-        target: {
-          value: '2600000 1200000'
-        }
-      });
-      await sleep(500);
-      component.update();
+    fireEvent.change(component.container.querySelector('input'), {
+      target: {
+        value: '2600000 1200000'
+      }
     });
-    expect(toJson(component)).toMatchSnapshot();
-    expect(fetch.mock.calls).toHaveLength(1);
+    await sleep(500);
+    await waitFor(() => {
+      expect(component.asFragment()).toMatchSnapshot();
+      expect(fetch.mock.calls).toHaveLength(1);
+    });
   });
 
   it('should show GNSS coordinates', async () => {
     fetch.mockResponseOnce('[]');
-    await act(async () => {
-      component.find('input').simulate('change', {
-        target: {
-          value: '7.72867 47.48910'
-        }
-      });
-      await sleep(500);
-      component.update();
+    fireEvent.change(component.container.querySelector('input'), {
+      target: {
+        value: '7.72867 47.48910'
+      }
     });
-    expect(toJson(component)).toMatchSnapshot();
-    expect(fetch.mock.calls).toHaveLength(1);
+    await sleep(500);
+    await waitFor(() => {
+      expect(component.asFragment()).toMatchSnapshot();
+      expect(fetch.mock.calls).toHaveLength(1);
+    });
   });
 
   it('should show results', async () => {
@@ -172,17 +169,16 @@ describe('search', () => {
         ]
       }
     ]));
-    await act(async () => {
-      component.find('input').simulate('change', {
-        target: {
-          value: 'abc'
-        }
-      });
-      await sleep(500);
-      component.update();
+    fireEvent.change(component.container.querySelector('input'), {
+      target: {
+        value: 'abc'
+      }
     });
-    expect(toJson(component)).toMatchSnapshot();
-    expect(fetch.mock.calls).toHaveLength(1);
+    await sleep(500);
+    await waitFor(() => {
+      expect(component.asFragment()).toMatchSnapshot();
+      expect(fetch.mock.calls).toHaveLength(1);
+    });
   });
 
 });

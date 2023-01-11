@@ -1,15 +1,9 @@
-import 'regenerator-runtime/runtime';
+import '@testing-library/jest-dom';
 
-import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17';
-import Enzyme from 'enzyme';
 import fetchMock from "jest-fetch-mock";
 import {initReactI18next} from "react-i18next";
 
 import i18n from '../../oereb_client/static/src/i18n';
-
-Enzyme.configure({
-  adapter: new EnzymeAdapter()
-});
 
 fetchMock.enableMocks();
 

@@ -1,13 +1,12 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import {register} from 'ol/proj/proj4';
 import proj4 from 'proj4';
 import React from "react";
-import {act} from "react-dom/test-utils";
+import {render, waitFor} from '@testing-library/react'
 import {Provider} from "react-redux";
 
 import App from "../../../../oereb_client/static/src/component/app/app";
 import MainStore from "../../../../oereb_client/static/src/store/main";
+import { async } from 'regenerator-runtime';
 
 const config = {
   application: {
@@ -89,17 +88,17 @@ describe('app component', () => {
       '+ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs'
     );
     register(proj4);
-    act(() => {
-      component = mount(
-        <Provider store={MainStore}>
-          <App config={config} />
-        </Provider>
-      );
-    });
+    component = render(
+      <Provider store={MainStore}>
+        <App config={config} />
+      </Provider>
+    );
   });
 
-  it('should render app element', () => {
-    expect(toJson(component)).toMatchSnapshot();
+  it('should render app element', async () => {
+    await waitFor(() => {
+      expect(component.asFragment()).toMatchSnapshot();
+    });
   });
 
 });

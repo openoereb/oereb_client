@@ -1,7 +1,6 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import VectorLayer from 'ol/layer/Vector';
 import React from "react";
+import {render} from '@testing-library/react'
 import {Provider} from "react-redux";
 
 import OerebAvailabilityLayer from
@@ -14,7 +13,7 @@ describe('availability layer component', () => {
 
   beforeEach(() => {
     const layer = new VectorLayer();
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebAvailabilityLayer availabilityLayer={layer} />
       </Provider>
@@ -22,7 +21,7 @@ describe('availability layer component', () => {
   });
 
   it('should render availability layer element', () => {
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
 });

@@ -1,6 +1,5 @@
-import {mount} from "enzyme";
-import toJson from "enzyme-to-json";
 import React from "react";
+import {render, fireEvent, waitFor} from '@testing-library/react';
 import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
@@ -48,7 +47,7 @@ describe('information panel component', () => {
   let component;
 
   beforeEach(() => {
-    component = mount(
+    component = render(
       <Provider store={MainStore}>
         <OerebInformationPanel />
       </Provider>
@@ -59,34 +58,31 @@ describe('information panel component', () => {
     act(() => {
       MainStore.dispatch(setInformationPanelTab(0));
     });
-    component.update();
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
   it('should render disclaimer', () => {
     act(() => {
       MainStore.dispatch(setInformationPanelTab(1));
     });
-    component.update();
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
   it('should render glossary', () => {
     act(() => {
       MainStore.dispatch(setInformationPanelTab(2));
     });
-    component.update();
-    expect(toJson(component)).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
-  it('should filter glossary results', () => {
+  it('should filter glossary results', async () => {
     act(() => {
       MainStore.dispatch(setInformationPanelTab(2));
     });
-    component.update();
-    component.find('input').simulate('change', {target: {value: 'kbs'}});
-    component.update();
-    expect(toJson(component)).toMatchSnapshot();
+    fireEvent.change(component.container.querySelector('input'), {target: {value: 'kbs'}});
+    await waitFor(() => {
+      expect(component.asFragment()).toMatchSnapshot();
+    });
   });
 
 });
