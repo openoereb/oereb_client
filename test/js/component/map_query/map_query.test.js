@@ -1,7 +1,6 @@
-import {render} from '@testing-library/react';
+import {act, render} from '@testing-library/react';
 import {Map} from "ol";
 import React from "react";
-import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
 import OerebMapQuery from "../../../../oereb_client/static/src/component/map_query/map_query";
@@ -11,11 +10,11 @@ import MainStore from "../../../../oereb_client/static/src/store/main";
 
 describe('map query component', () => {
 
-  const map = new Map();
-
   let component;
+  let map;
 
   beforeEach(() => {
+    map = new Map();
     act(() => {
       MainStore.dispatch(initLanguages({
         default: 'de',

@@ -1,9 +1,8 @@
-import {render} from '@testing-library/react';
+import {act, render} from '@testing-library/react';
 import LayerGroup from "ol/layer/Group";
 import ImageLayer from "ol/layer/Image";
 import TileLayer from "ol/layer/Tile";
 import React from "react";
-import {act} from "react-dom/test-utils";
 import {Provider} from "react-redux";
 
 import OerebTopicLayer from
