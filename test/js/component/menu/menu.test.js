@@ -1,4 +1,4 @@
-import {act, fireEvent, render, waitFor} from '@testing-library/react';
+import {act, fireEvent, render, waitFor, waitForElementToBeRemoved} from '@testing-library/react';
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -6,10 +6,6 @@ import OerebMenu from "../../../../oereb_client/static/src/component/menu/menu";
 import {update} from "../../../../oereb_client/static/src/reducer/config";
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import MainStore from "../../../../oereb_client/static/src/store/main";
-
-const sleep = function(time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-};
 
 const config = {
   application: {
@@ -120,11 +116,9 @@ describe('search', () => {
         value: '2600000 1200000'
       }
     });
-    await sleep(500);
-    await waitFor(() => {
-      expect(component.asFragment()).toMatchSnapshot();
-      expect(fetch.mock.calls).toHaveLength(1);
-    });
+    await act(async () => {});
+    expect(component.asFragment()).toMatchSnapshot();
+    expect(fetch.mock.calls).toHaveLength(1);
   });
 
   it('should show GNSS coordinates', async () => {
@@ -134,11 +128,9 @@ describe('search', () => {
         value: '7.72867 47.48910'
       }
     });
-    await sleep(500);
-    await waitFor(() => {
-      expect(component.asFragment()).toMatchSnapshot();
-      expect(fetch.mock.calls).toHaveLength(1);
-    });
+    await act(async () => {});
+    expect(component.asFragment()).toMatchSnapshot();
+    expect(fetch.mock.calls).toHaveLength(1);
   });
 
   it('should show results', async () => {
@@ -170,18 +162,14 @@ describe('search', () => {
         ]
       }
     ]));
-    act(() => {
-      fireEvent.change(component.container.querySelector('input'), {
-        target: {
-          value: 'abc'
-        }
-      });
-    })
-    await sleep(500);
-    await waitFor(() => {
-      expect(component.asFragment()).toMatchSnapshot();
-      expect(fetch.mock.calls).toHaveLength(1);
+    fireEvent.change(component.container.querySelector('input'), {
+      target: {
+        value: 'abc'
+      }
     });
+    await act(async () => {});
+    expect(component.asFragment()).toMatchSnapshot();
+    expect(fetch.mock.calls).toHaveLength(1);
   });
 
 });
