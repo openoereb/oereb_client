@@ -7,6 +7,7 @@ Changelog
 https://github.com/openoereb/oereb_client/milestone/13
 
 - Update node version
+- Replace Enzyme with React Testing Library
 
 2.0.5
 *****
