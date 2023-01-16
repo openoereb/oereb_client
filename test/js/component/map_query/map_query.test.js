@@ -22,9 +22,11 @@ describe('map query component', () => {
       }));
     });
     component = render(
-      <Provider store={MainStore}>
-        <OerebMapQuery map={map} />
-      </Provider>
+      <div>
+        <Provider store={MainStore}>
+          <OerebMapQuery map={map} />
+        </Provider>
+      </div>
     );
   });
 

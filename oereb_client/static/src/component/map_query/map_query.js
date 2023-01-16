@@ -28,20 +28,19 @@ const OerebMapQuery = function (props) {
   const serviceUrl = config.service_url;
   const map = props.map;
 
-  if (overlay === null) {
-    const newOverlay = new Overlay({
-      autoPan: {
-        animation: true,
-        margin: Math.min(document.body.offsetWidth, document.body.offsetHeight) / 2
-      },
-      offset: [-17, -17]
-    });
-    map.addOverlay(newOverlay);
-    setOverlay(newOverlay);
-  }
-
   useEffect(() => {
-    overlay.setElement(mapQueryElement.current);
+    if (overlay === null) {
+      const newOverlay = new Overlay({
+        element: mapQueryElement.current,
+        autoPan: {
+          animation: true,
+          margin: Math.min(document.body.offsetWidth, document.body.offsetHeight) / 2
+        },
+        offset: [-17, -17]
+      });
+      map.addOverlay(newOverlay);
+      setOverlay(newOverlay);
+    }
   });
 
   const close = function () {
