@@ -1,13 +1,15 @@
 Changelog
 ---------
 
-2.0.6 (current dev)
+2.1.0 (current dev)
 *******************
 
 https://github.com/openoereb/oereb_client/milestone/13
 
 - Update node version
+- Update to React 18
 - Replace Enzyme with React Testing Library
+- Drop support for Python 3.7
 
 2.0.5
 *****
