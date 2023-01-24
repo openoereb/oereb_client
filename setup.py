@@ -6,7 +6,7 @@ import sys
 from setuptools import setup, find_packages
 from datetime import datetime
 
-VERSION = '2.0.6'
+VERSION = '2.1.0'
 
 test_mode = False
 is_beta = False
@@ -46,7 +46,6 @@ setup(
     classifiers=[
         "License :: OSI Approved :: BSD License",
         development_status,
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
