@@ -8,6 +8,7 @@ https://github.com/openoereb/oereb_client/milestone/13
 
 - Update node version
 - Update to React 18
+- Apply new React root API
 - Replace Enzyme with React Testing Library
 - Drop support for Python 3.7
 

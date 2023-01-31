@@ -4,7 +4,7 @@ import './i18n';
 import {register} from 'ol/proj/proj4';
 import proj4 from 'proj4';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 import {Provider} from 'react-redux';
 
 import App from './component/app/app';
@@ -19,9 +19,10 @@ proj4.defs(
 
 register(proj4);
 
-ReactDOM.render(
+const container = document.getElementById('app');
+const root = createRoot(container);
+root.render(
   <Provider store={MainStore}>
     <App config={JSON.parse(document.getElementById('config').textContent)} />
-  </Provider>,
-  document.getElementById('app')
+  </Provider>
 );
