@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 
 import fetchMock from "jest-fetch-mock";
 import {initReactI18next} from "react-i18next";
+import ResizeObserver from "resize-observer-polyfill";
 
 import i18n from '../../oereb_client/static/src/i18n';
 
@@ -21,3 +22,5 @@ i18n
       de: {}
     }
   });
+
+global.ResizeObserver = ResizeObserver
