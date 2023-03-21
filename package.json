@@ -52,7 +52,7 @@
     "file-loader": "^6.2.0",
     "file-saver": "^2.0.5",
     "glob-parent": "^6.0.2",
-    "i18next": "^22.4.12",
+    "i18next": "^22.4.13",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.2.0",
     "i18next-scanner": "^4.2.0",
