@@ -7,7 +7,7 @@
     "team:bl"
   ],
   "rangeStrategy": "bump",
-  "automergeSchedule": [
+  "schedule": [
     "before 3am on the first day of the month"
   ]
 }
