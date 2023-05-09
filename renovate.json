@@ -6,5 +6,8 @@
   "reviewers": [
     "team:bl"
   ],
-  "rangeStrategy": "bump"
+  "rangeStrategy": "bump",
+  "automergeSchedule": [
+    "before 3am on the first day of the month"
+  ]
 }
