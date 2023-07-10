@@ -71,7 +71,7 @@
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
-    "style-loader": "^3.3.2",
+    "style-loader": "^3.3.3",
     "trim": ">=1.0.1",
     "trim-newlines": "^5.0.0",
     "ts-jest": "^29.1.0",
