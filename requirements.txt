@@ -1,5 +1,5 @@
 defusedxml==0.7.1
-flake8==6.0.0
+flake8==6.1.0
 httpretty==1.1.4
 pluggy==1.2.0
 pycodestyle==2.10.0
