@@ -50,7 +50,7 @@
     "eslint-plugin-jest-dom": "^5.1.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-storybook": "^0.6.13",
+    "eslint-plugin-storybook": "^0.6.14",
     "file-loader": "^6.2.0",
     "file-saver": "^2.0.5",
     "glob-parent": "^6.0.2",
