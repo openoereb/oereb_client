@@ -1,0 +1,310 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`category component > should render category with and without restrictions 1`] = `
+<DocumentFragment>
+  <div
+    class="accordion-item mt-3 oereb-client-category"
+  >
+    <h2
+      class="accordion-header"
+    >
+      <button
+        class="accordion-button ps-1"
+        type="button"
+      >
+        <div
+          class="container-fluid"
+        >
+          <strong>
+            Test with restrictions initially shown
+          </strong>
+          <span
+            class="badge rounded-pill bg-secondary float-end"
+          >
+            5
+          </span>
+        </div>
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse show"
+      style=""
+    >
+      <div>
+        Mocked topics with restrictions
+      </div>
+    </div>
+  </div>
+  <div
+    class="accordion-item mt-3 oereb-client-category"
+  >
+    <h2
+      class="accordion-header"
+    >
+      <button
+        class="accordion-button collapsed ps-1"
+        type="button"
+      >
+        <div
+          class="container-fluid"
+        >
+          <strong>
+            Test with restrictions
+          </strong>
+          <span
+            class="badge rounded-pill bg-secondary float-end"
+          >
+            5
+          </span>
+        </div>
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse"
+    >
+      <div>
+        Mocked topics with restrictions
+      </div>
+    </div>
+  </div>
+  <div
+    class="accordion-item mt-3 oereb-client-category"
+  >
+    <h2
+      class="accordion-header"
+    >
+      <button
+        class="accordion-button collapsed ps-1"
+        type="button"
+      >
+        <div
+          class="container-fluid"
+        >
+          <strong>
+            Test without restrictions
+          </strong>
+          <span
+            class="badge rounded-pill bg-secondary float-end"
+          >
+            10
+          </span>
+        </div>
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse"
+    >
+      <div>
+        Mocked topics without restrictions
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`category component > should render category with and without restrictions 2`] = `
+<DocumentFragment>
+  <div
+    class="accordion-item mt-3 oereb-client-category"
+  >
+    <h2
+      class="accordion-header"
+    >
+      <button
+        class="accordion-button ps-1 collapsed"
+        type="button"
+      >
+        <div
+          class="container-fluid"
+        >
+          <strong>
+            Test with restrictions initially shown
+          </strong>
+          <span
+            class="badge rounded-pill bg-secondary float-end"
+          >
+            5
+          </span>
+        </div>
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse"
+      style=""
+    >
+      <div>
+        Mocked topics with restrictions
+      </div>
+    </div>
+  </div>
+  <div
+    class="accordion-item mt-3 oereb-client-category"
+  >
+    <h2
+      class="accordion-header"
+    >
+      <button
+        class="accordion-button ps-1"
+        type="button"
+      >
+        <div
+          class="container-fluid"
+        >
+          <strong>
+            Test with restrictions
+          </strong>
+          <span
+            class="badge rounded-pill bg-secondary float-end"
+          >
+            5
+          </span>
+        </div>
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse show"
+      style=""
+    >
+      <div>
+        Mocked topics with restrictions
+      </div>
+    </div>
+  </div>
+  <div
+    class="accordion-item mt-3 oereb-client-category"
+  >
+    <h2
+      class="accordion-header"
+    >
+      <button
+        class="accordion-button collapsed ps-1"
+        type="button"
+      >
+        <div
+          class="container-fluid"
+        >
+          <strong>
+            Test without restrictions
+          </strong>
+          <span
+            class="badge rounded-pill bg-secondary float-end"
+          >
+            10
+          </span>
+        </div>
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse"
+    >
+      <div>
+        Mocked topics without restrictions
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`category component > should render category with and without restrictions 3`] = `
+<DocumentFragment>
+  <div
+    class="accordion-item mt-3 oereb-client-category"
+  >
+    <h2
+      class="accordion-header"
+    >
+      <button
+        class="accordion-button ps-1 collapsed"
+        type="button"
+      >
+        <div
+          class="container-fluid"
+        >
+          <strong>
+            Test with restrictions initially shown
+          </strong>
+          <span
+            class="badge rounded-pill bg-secondary float-end"
+          >
+            5
+          </span>
+        </div>
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse"
+      style=""
+    >
+      <div>
+        Mocked topics with restrictions
+      </div>
+    </div>
+  </div>
+  <div
+    class="accordion-item mt-3 oereb-client-category"
+  >
+    <h2
+      class="accordion-header"
+    >
+      <button
+        class="accordion-button ps-1 collapsed"
+        type="button"
+      >
+        <div
+          class="container-fluid"
+        >
+          <strong>
+            Test with restrictions
+          </strong>
+          <span
+            class="badge rounded-pill bg-secondary float-end"
+          >
+            5
+          </span>
+        </div>
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse"
+      style=""
+    >
+      <div>
+        Mocked topics with restrictions
+      </div>
+    </div>
+  </div>
+  <div
+    class="accordion-item mt-3 oereb-client-category"
+  >
+    <h2
+      class="accordion-header"
+    >
+      <button
+        class="accordion-button ps-1"
+        type="button"
+      >
+        <div
+          class="container-fluid"
+        >
+          <strong>
+            Test without restrictions
+          </strong>
+          <span
+            class="badge rounded-pill bg-secondary float-end"
+          >
+            10
+          </span>
+        </div>
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse show"
+      style=""
+    >
+      <div>
+        Mocked topics without restrictions
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`legend component > should render legend 1`] = `
+<DocumentFragment>
+  <table
+    class="table table-sm mb-2 oereb-client-legend"
+  >
+    <thead>
+      <tr>
+        <th>
+          extract.topic.legend.type
+        </th>
+        <th />
+        <th
+          class="text-end text-nowrap"
+        >
+          extract.topic.legend.part
+        </th>
+        <th
+          class="text-end text-nowrap"
+        >
+          extract.topic.legend.part_in_percent
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          class="oereb-client-symbol-cell"
+        >
+          <img
+            class="oereb-client-symbol"
+            src="samples/static/symbol2.png"
+          />
+        </td>
+        <td
+          class="oereb-client-legend-text"
+        >
+          Belastet, untersuchungsbedürftig
+        </td>
+        <td
+          class="oereb-client-legend-text text-end text-nowrap"
+        >
+          202 m
+        </td>
+        <td
+          class="oereb-client-legend-text text-end text-nowrap"
+        />
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;

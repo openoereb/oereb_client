@@ -1,0 +1,2375 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`topic with restriction component > should render topics 1`] = `
+<DocumentFragment>
+  <div
+    class="accordion-body p-0 oereb-client-topic-list-with-restrictions"
+  >
+    <div
+      class="accordion accordion-flush"
+    >
+      <div
+        class="accordion-item"
+      >
+        <div
+          class="accordion-item p-2 ps-3"
+        >
+          <strong>
+            Nutzungsplanung (kantonal/kommunal): Grundnutzung
+          </strong>
+        </div>
+        <div
+          class="accordion-item oereb-client-topic"
+        >
+          <h2
+            class="accordion-header"
+          >
+            <button
+              class="accordion-button pt-2 pb-2 collapsed"
+              type="button"
+            >
+              <div
+                class="oereb-topic-lawstatus"
+              >
+                <small
+                  class="fst-italic"
+                >
+                  Änderung mit Vorwirkung
+                </small>
+              </div>
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+          >
+            <div
+              class="accordion-body"
+            >
+              <div
+                class="row align-items-center mb-2"
+              >
+                <div
+                  class="col-3"
+                >
+                  <small>
+                    extract.topic.opacity:
+                  </small>
+                </div>
+                <div
+                  class="col-2 pe-2 text-end"
+                >
+                  <small>
+                    100%
+                  </small>
+                </div>
+                <div
+                  class="col-7"
+                >
+                  <input
+                    class="form-range align-middle"
+                    max="100"
+                    min="0"
+                    type="range"
+                    value="100"
+                  />
+                </div>
+              </div>
+              <table
+                class="table table-sm mb-2 oereb-client-legend"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      extract.topic.legend.type
+                    </th>
+                    <th />
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part
+                    </th>
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part_in_percent
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol3.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      101 m
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+              <dl
+                class="oereb-client-documents mb-2"
+              >
+                <dt>
+                  extract.topic.document.legal_provisions
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    B61001
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.laws
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Umweltschutzgesetz (USG), SR 814.01
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_01.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_01.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Altlasten-Verordnung (AltlV), SR 814.680
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_680.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_680.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl
+                class="oereb-client-responsible-office border-top pt-2 mb-2"
+              >
+                <dt>
+                  extract.topic.responsible_office
+                </dt>
+                <dd
+                  class="ms-2"
+                >
+                  <a
+                    href="https://www.bav.admin.ch/bav/de/home.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Bundesamt für Verkehr BAV
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div
+          class="accordion-item oereb-client-topic"
+        >
+          <h2
+            class="accordion-header"
+          >
+            <button
+              class="accordion-button pt-2 pb-2 collapsed"
+              type="button"
+            >
+              <div
+                class="oereb-topic-lawstatus"
+              >
+                <small
+                  class="fst-italic"
+                >
+                  Änderung ohne Vorwirkung
+                </small>
+              </div>
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+          >
+            <div
+              class="accordion-body"
+            >
+              <div
+                class="row align-items-center mb-2"
+              >
+                <div
+                  class="col-3"
+                >
+                  <small>
+                    extract.topic.opacity:
+                  </small>
+                </div>
+                <div
+                  class="col-2 pe-2 text-end"
+                >
+                  <small>
+                    100%
+                  </small>
+                </div>
+                <div
+                  class="col-7"
+                >
+                  <input
+                    class="form-range align-middle"
+                    max="100"
+                    min="0"
+                    type="range"
+                    value="100"
+                  />
+                </div>
+              </div>
+              <table
+                class="table table-sm mb-2 oereb-client-legend"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      extract.topic.legend.type
+                    </th>
+                    <th />
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part
+                    </th>
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part_in_percent
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol3.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      63 m
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+              <dl
+                class="oereb-client-documents mb-2"
+              >
+                <dt>
+                  extract.topic.document.legal_provisions
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    B61001
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.laws
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Umweltschutzgesetz (USG), SR 814.01
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_01.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_01.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Altlasten-Verordnung (AltlV), SR 814.680
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_680.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_680.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl
+                class="oereb-client-responsible-office border-top pt-2 mb-2"
+              >
+                <dt>
+                  extract.topic.responsible_office
+                </dt>
+                <dd
+                  class="ms-2"
+                >
+                  <a
+                    href="https://www.bav.admin.ch/bav/de/home.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Bundesamt für Verkehr BAV
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="accordion-item"
+      >
+        <div
+          class="accordion-item p-2 ps-3"
+        >
+          <strong>
+            Nutzungsplanung (kantonal/kommunal): Überlagernde Elemente
+          </strong>
+        </div>
+        <div
+          class="accordion-item oereb-client-topic"
+        >
+          <h2
+            class="accordion-header"
+          >
+            <button
+              class="accordion-button pt-2 pb-2 collapsed"
+              type="button"
+            >
+              <div
+                class="oereb-topic-lawstatus"
+              >
+                <small
+                  class="fst-italic"
+                >
+                  Rechtskräftig
+                </small>
+              </div>
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+          >
+            <div
+              class="accordion-body"
+            >
+              <div
+                class="row align-items-center mb-2"
+              >
+                <div
+                  class="col-3"
+                >
+                  <small>
+                    extract.topic.opacity:
+                  </small>
+                </div>
+                <div
+                  class="col-2 pe-2 text-end"
+                >
+                  <small>
+                    100%
+                  </small>
+                </div>
+                <div
+                  class="col-7"
+                >
+                  <input
+                    class="form-range align-middle"
+                    max="100"
+                    min="0"
+                    type="range"
+                    value="100"
+                  />
+                </div>
+              </div>
+              <table
+                class="table table-sm mb-2 oereb-client-legend"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      extract.topic.legend.type
+                    </th>
+                    <th />
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part
+                    </th>
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part_in_percent
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol2.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      <span>
+                        3608 m
+                        <sup>
+                          2
+                        </sup>
+                      </span>
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      10.3%
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol1.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      2
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+              <dl
+                class="oereb-client-documents mb-2"
+              >
+                <dt>
+                  extract.topic.document.legal_provisions
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    B61001
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.laws
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Umweltschutzgesetz (USG), SR 814.01
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_01.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_01.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Altlasten-Verordnung (AltlV), SR 814.680
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_680.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_680.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl
+                class="oereb-client-responsible-office border-top pt-2 mb-2"
+              >
+                <dt>
+                  extract.topic.responsible_office
+                </dt>
+                <dd
+                  class="ms-2"
+                >
+                  <a
+                    href="https://www.bav.admin.ch/bav/de/home.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Bundesamt für Verkehr BAV
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div
+          class="accordion-item oereb-client-topic"
+        >
+          <h2
+            class="accordion-header"
+          >
+            <button
+              class="accordion-button pt-2 pb-2 collapsed"
+              type="button"
+            >
+              <div
+                class="oereb-topic-lawstatus"
+              >
+                <small
+                  class="fst-italic"
+                >
+                  Änderung mit Vorwirkung
+                </small>
+              </div>
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+          >
+            <div
+              class="accordion-body"
+            >
+              <div
+                class="row align-items-center mb-2"
+              >
+                <div
+                  class="col-3"
+                >
+                  <small>
+                    extract.topic.opacity:
+                  </small>
+                </div>
+                <div
+                  class="col-2 pe-2 text-end"
+                >
+                  <small>
+                    100%
+                  </small>
+                </div>
+                <div
+                  class="col-7"
+                >
+                  <input
+                    class="form-range align-middle"
+                    max="100"
+                    min="0"
+                    type="range"
+                    value="100"
+                  />
+                </div>
+              </div>
+              <table
+                class="table table-sm mb-2 oereb-client-legend"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      extract.topic.legend.type
+                    </th>
+                    <th />
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part
+                    </th>
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part_in_percent
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol2.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      <span>
+                        7824 m
+                        <sup>
+                          2
+                        </sup>
+                      </span>
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      22.3%
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <dl
+                class="oereb-client-documents mb-2"
+              >
+                <dt>
+                  extract.topic.document.legal_provisions
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Revision Ortsplanung, 07.447
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://oereb-gr-preview.000.ch/api/attachments/214"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://oereb-gr-preview.000.ch/api/attachments/214
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://oereb-gr-preview.000.ch/api/attachments/213"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://oereb-gr-preview.000.ch/api/attachments/213
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    B61001
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.laws
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Umweltschutzgesetz (USG), SR 814.01
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_01.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_01.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Altlasten-Verordnung (AltlV), SR 814.680
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_680.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_680.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Bundesgesetz über die Raumplanung (Raumplanungsgesetz, RPG) (AltlV), SR 700
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.lexfind.ch/dtah/167348/2"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.lexfind.ch/dtah/167348/2
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl
+                class="oereb-client-responsible-office border-top pt-2 mb-2"
+              >
+                <dt>
+                  extract.topic.responsible_office
+                </dt>
+                <dd
+                  class="ms-2"
+                >
+                  <a
+                    href="https://www.bav.admin.ch/bav/de/home.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Bundesamt für Verkehr BAV
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="accordion-item"
+      >
+        <div
+          class="accordion-item p-2 ps-3"
+        >
+          <strong>
+            Kataster der belasteten Standorte im Bereich der zivilen Flugplätze
+          </strong>
+        </div>
+        <div
+          class="accordion-item oereb-client-topic"
+        >
+          <h2
+            class="accordion-header"
+          >
+            <button
+              class="accordion-button pt-2 pb-2 collapsed"
+              type="button"
+            >
+              <div
+                class="oereb-topic-lawstatus"
+              >
+                <small
+                  class="fst-italic"
+                >
+                  Rechtskräftig
+                </small>
+              </div>
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+          >
+            <div
+              class="accordion-body"
+            >
+              <div
+                class="row align-items-center mb-2"
+              >
+                <div
+                  class="col-3"
+                >
+                  <small>
+                    extract.topic.opacity:
+                  </small>
+                </div>
+                <div
+                  class="col-2 pe-2 text-end"
+                >
+                  <small>
+                    100%
+                  </small>
+                </div>
+                <div
+                  class="col-7"
+                >
+                  <input
+                    class="form-range align-middle"
+                    max="100"
+                    min="0"
+                    type="range"
+                    value="100"
+                  />
+                </div>
+              </div>
+              <table
+                class="table table-sm mb-2 oereb-client-legend"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      extract.topic.legend.type
+                    </th>
+                    <th />
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part
+                    </th>
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part_in_percent
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol1.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, keine schädlichen oder lästigen Einwirkungen zu erwarten
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      1
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+              <dl
+                class="oereb-client-documents mb-2"
+              >
+                <dt>
+                  extract.topic.document.legal_provisions
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    BL-Ditt-3-I-01
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://map.geo.admin.ch/?zoom=12&bgLayer=ch.swisstopo.swissimage&layers=ch.bazl.kataster-belasteter-standorte-zivilflugplaetze&layers_opacity=0.75&layers_visibility=true&Y=2603990&X=1254150&lang=de"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://map.geo.admin.ch/?zoom=12&bgLayer=ch.swisstopo.swissimage&layers=ch.bazl.kataster-belasteter-standorte-zivilflugplaetze&layers_opacity=0.75&layers_visibility=true&Y=2603990&X=1254150&lang=de
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl
+                class="oereb-client-responsible-office border-top pt-2 mb-2"
+              >
+                <dt>
+                  extract.topic.responsible_office
+                </dt>
+                <dd
+                  class="ms-2"
+                >
+                  <a
+                    href="https://www.bazl.admin.ch/bazl/de/home/fachleute/flugplaetze/kataster-der-belasteten-standorte-auf-zivilflugplaetzen--kbs-baz.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Bundesamt für Zivilluftfahrt BAZL
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="accordion-item"
+      >
+        <div
+          class="accordion-item p-2 ps-3"
+        >
+          <strong>
+            Kataster der belasteten Standorte im Bereich des öffentlichen Verkehrs
+          </strong>
+        </div>
+        <div
+          class="accordion-item oereb-client-topic"
+        >
+          <h2
+            class="accordion-header"
+          >
+            <button
+              class="accordion-button pt-2 pb-2 collapsed"
+              type="button"
+            >
+              <div
+                class="oereb-topic-lawstatus"
+              >
+                <small
+                  class="fst-italic"
+                >
+                  Rechtskräftig
+                </small>
+              </div>
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+          >
+            <div
+              class="accordion-body"
+            >
+              <div
+                class="row align-items-center mb-2"
+              >
+                <div
+                  class="col-3"
+                >
+                  <small>
+                    extract.topic.opacity:
+                  </small>
+                </div>
+                <div
+                  class="col-2 pe-2 text-end"
+                >
+                  <small>
+                    100%
+                  </small>
+                </div>
+                <div
+                  class="col-7"
+                >
+                  <input
+                    class="form-range align-middle"
+                    max="100"
+                    min="0"
+                    type="range"
+                    value="100"
+                  />
+                </div>
+              </div>
+              <table
+                class="table table-sm mb-2 oereb-client-legend"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      extract.topic.legend.type
+                    </th>
+                    <th />
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part
+                    </th>
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part_in_percent
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol2.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      <span>
+                        3608 m
+                        <sup>
+                          2
+                        </sup>
+                      </span>
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      10.3%
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol1.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      2
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+              <dl
+                class="oereb-client-documents mb-2"
+              >
+                <dt>
+                  extract.topic.document.legal_provisions
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    B61001
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.laws
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Umweltschutzgesetz (USG), SR 814.01
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_01.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_01.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Altlasten-Verordnung (AltlV), SR 814.680
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_680.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_680.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl
+                class="oereb-client-responsible-office border-top pt-2 mb-2"
+              >
+                <dt>
+                  extract.topic.responsible_office
+                </dt>
+                <dd
+                  class="ms-2"
+                >
+                  <a
+                    href="https://www.bav.admin.ch/bav/de/home.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Bundesamt für Verkehr BAV
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div
+          class="accordion-item oereb-client-topic"
+        >
+          <h2
+            class="accordion-header"
+          >
+            <button
+              class="accordion-button pt-2 pb-2 collapsed"
+              type="button"
+            >
+              <div
+                class="oereb-topic-lawstatus"
+              >
+                <small
+                  class="fst-italic"
+                >
+                  Änderung mit Vorwirkung
+                </small>
+              </div>
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+          >
+            <div
+              class="accordion-body"
+            >
+              <div
+                class="row align-items-center mb-2"
+              >
+                <div
+                  class="col-3"
+                >
+                  <small>
+                    extract.topic.opacity:
+                  </small>
+                </div>
+                <div
+                  class="col-2 pe-2 text-end"
+                >
+                  <small>
+                    100%
+                  </small>
+                </div>
+                <div
+                  class="col-7"
+                >
+                  <input
+                    class="form-range align-middle"
+                    max="100"
+                    min="0"
+                    type="range"
+                    value="100"
+                  />
+                </div>
+              </div>
+              <table
+                class="table table-sm mb-2 oereb-client-legend"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      extract.topic.legend.type
+                    </th>
+                    <th />
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part
+                    </th>
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part_in_percent
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol2.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      <span>
+                        7824 m
+                        <sup>
+                          2
+                        </sup>
+                      </span>
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      22.3%
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol3.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      101 m
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+              <dl
+                class="oereb-client-documents mb-2"
+              >
+                <dt>
+                  extract.topic.document.legal_provisions
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Revision Ortsplanung, 07.447
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://oereb-gr-preview.000.ch/api/attachments/214"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://oereb-gr-preview.000.ch/api/attachments/214
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://oereb-gr-preview.000.ch/api/attachments/213"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://oereb-gr-preview.000.ch/api/attachments/213
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    B61001
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.laws
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Umweltschutzgesetz (USG), SR 814.01
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_01.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_01.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Altlasten-Verordnung (AltlV), SR 814.680
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_680.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_680.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Bundesgesetz über die Raumplanung (Raumplanungsgesetz, RPG) (AltlV), SR 700
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.lexfind.ch/dtah/167348/2"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.lexfind.ch/dtah/167348/2
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.hints
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Umweltschutzgesetz (USG), SR 814.01
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_01.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_01.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl
+                class="oereb-client-responsible-office border-top pt-2 mb-2"
+              >
+                <dt>
+                  extract.topic.responsible_office
+                </dt>
+                <dd
+                  class="ms-2"
+                >
+                  <a
+                    href="https://www.bav.admin.ch/bav/de/home.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Bundesamt für Verkehr BAV
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div
+          class="accordion-item oereb-client-topic"
+        >
+          <h2
+            class="accordion-header"
+          >
+            <button
+              class="accordion-button pt-2 pb-2 collapsed"
+              type="button"
+            >
+              <div
+                class="oereb-topic-lawstatus"
+              >
+                <small
+                  class="fst-italic"
+                >
+                  Änderung ohne Vorwirkung
+                </small>
+              </div>
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+          >
+            <div
+              class="accordion-body"
+            >
+              <div
+                class="row align-items-center mb-2"
+              >
+                <div
+                  class="col-3"
+                >
+                  <small>
+                    extract.topic.opacity:
+                  </small>
+                </div>
+                <div
+                  class="col-2 pe-2 text-end"
+                >
+                  <small>
+                    100%
+                  </small>
+                </div>
+                <div
+                  class="col-7"
+                >
+                  <input
+                    class="form-range align-middle"
+                    max="100"
+                    min="0"
+                    type="range"
+                    value="100"
+                  />
+                </div>
+              </div>
+              <table
+                class="table table-sm mb-2 oereb-client-legend"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      extract.topic.legend.type
+                    </th>
+                    <th />
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part
+                    </th>
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part_in_percent
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol3.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      63 m
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+              <dl
+                class="oereb-client-documents mb-2"
+              >
+                <dt>
+                  extract.topic.document.legal_provisions
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    B61001
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.laws
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Umweltschutzgesetz (USG), SR 814.01
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_01.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_01.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Altlasten-Verordnung (AltlV), SR 814.680
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_680.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_680.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl
+                class="oereb-client-responsible-office border-top pt-2 mb-2"
+              >
+                <dt>
+                  extract.topic.responsible_office
+                </dt>
+                <dd
+                  class="ms-2"
+                >
+                  <a
+                    href="https://www.bav.admin.ch/bav/de/home.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Bundesamt für Verkehr BAV
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="accordion-item"
+      >
+        <div
+          class="accordion-item p-2 ps-3"
+        >
+          <strong>
+            Grundwasserschutzzonen
+          </strong>
+        </div>
+        <div
+          class="accordion-item oereb-client-topic"
+        >
+          <h2
+            class="accordion-header"
+          >
+            <button
+              class="accordion-button pt-2 pb-2 collapsed"
+              type="button"
+            >
+              <div
+                class="oereb-topic-lawstatus"
+              >
+                <small
+                  class="fst-italic"
+                >
+                  Rechtskräftig
+                </small>
+              </div>
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+          >
+            <div
+              class="accordion-body"
+            >
+              <div
+                class="row align-items-center mb-2"
+              >
+                <div
+                  class="col-3"
+                >
+                  <small>
+                    extract.topic.opacity:
+                  </small>
+                </div>
+                <div
+                  class="col-2 pe-2 text-end"
+                >
+                  <small>
+                    100%
+                  </small>
+                </div>
+                <div
+                  class="col-7"
+                >
+                  <input
+                    class="form-range align-middle"
+                    max="100"
+                    min="0"
+                    type="range"
+                    value="100"
+                  />
+                </div>
+              </div>
+              <table
+                class="table table-sm mb-2 oereb-client-legend"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      extract.topic.legend.type
+                    </th>
+                    <th />
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part
+                    </th>
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part_in_percent
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol2.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Fassungsbereich (Zone S1)
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      <span>
+                        7824 m
+                        <sup>
+                          2
+                        </sup>
+                      </span>
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      22.3%
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <dl
+                class="oereb-client-documents mb-2"
+              >
+                <dt>
+                  extract.topic.document.legal_provisions
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    B61001
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://www.bav.admin.ch/dam/bav/de/dokumente/das-bav/finanzierung/faktenblatt_fernverkehr_konzessionierung.pdf.download.pdf/d_Faktenblatt_Fernverkehr_und_Konzessionierung%20.pdf
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.laws
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Umweltschutzgesetz (USG), SR 814.01
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_01.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_01.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Altlasten-Verordnung (AltlV), SR 814.680
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.admin.ch/ch/d/sr/c814_680.html"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.admin.ch/ch/d/sr/c814_680.html
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl
+                class="oereb-client-responsible-office border-top pt-2 mb-2"
+              >
+                <dt>
+                  extract.topic.responsible_office
+                </dt>
+                <dd
+                  class="ms-2"
+                >
+                  <a
+                    href="https://www.bav.admin.ch/bav/de/home.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Bundesamt für Verkehr BAV
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="accordion-item"
+      >
+        <div
+          class="accordion-item p-2 ps-3"
+        >
+          <strong>
+            Statische Waldgrenzen
+          </strong>
+        </div>
+        <div
+          class="accordion-item oereb-client-topic"
+        >
+          <h2
+            class="accordion-header"
+          >
+            <button
+              class="accordion-button pt-2 pb-2 collapsed"
+              type="button"
+            >
+              <div
+                class="oereb-topic-lawstatus"
+              >
+                <small
+                  class="fst-italic"
+                >
+                  Rechtskräftig
+                </small>
+              </div>
+            </button>
+          </h2>
+          <div
+            class="accordion-collapse collapse"
+          >
+            <div
+              class="accordion-body"
+            >
+              <div
+                class="row align-items-center mb-2"
+              >
+                <div
+                  class="col-3"
+                >
+                  <small>
+                    extract.topic.opacity:
+                  </small>
+                </div>
+                <div
+                  class="col-2 pe-2 text-end"
+                >
+                  <small>
+                    100%
+                  </small>
+                </div>
+                <div
+                  class="col-7"
+                >
+                  <input
+                    class="form-range align-middle"
+                    max="100"
+                    min="0"
+                    type="range"
+                    value="100"
+                  />
+                </div>
+              </div>
+              <table
+                class="table table-sm mb-2 oereb-client-legend"
+              >
+                <thead>
+                  <tr>
+                    <th>
+                      extract.topic.legend.type
+                    </th>
+                    <th />
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part
+                    </th>
+                    <th
+                      class="text-end text-nowrap"
+                    >
+                      extract.topic.legend.part_in_percent
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td
+                      class="oereb-client-symbol-cell"
+                    >
+                      <img
+                        class="oereb-client-symbol"
+                        src="samples/static/symbol2.png"
+                      />
+                    </td>
+                    <td
+                      class="oereb-client-legend-text"
+                    >
+                      Belastet, untersuchungsbedürftig
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    >
+                      202 m
+                    </td>
+                    <td
+                      class="oereb-client-legend-text text-end text-nowrap"
+                    />
+                  </tr>
+                </tbody>
+              </table>
+              <dl
+                class="oereb-client-documents mb-2"
+              >
+                <dt>
+                  extract.topic.document.legal_provisions
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Baugesetz, 3891.100
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://oereb-gr-preview.000.ch/api/attachments/197"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://oereb-gr-preview.000.ch/api/attachments/197
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://oereb-gr-preview.000.ch/api/attachments/198"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://oereb-gr-preview.000.ch/api/attachments/198
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Revision Ortsplanung, 07.447
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://oereb-gr-preview.000.ch/api/attachments/213"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://oereb-gr-preview.000.ch/api/attachments/213
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://oereb-gr-preview.000.ch/api/attachments/214"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://oereb-gr-preview.000.ch/api/attachments/214
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.laws
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Raumplanungsverordnung für den Kanton Graubünden (KRVO), BR 801.110
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2934?locale=de"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2934?locale=de
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Bundesgesetz über die Raumplanung (Raumplanungsgesetz, RPG) (RPG), SR 700
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://www.lexfind.ch/dtah/167348/2"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://www.lexfind.ch/dtah/167348/2
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Raumplanungsgesetz für den Kanton Graubünden (KRG), BR 801.100
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2936?locale=de"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        https://www.gr-lex.gr.ch/frontend/versions/pdf_file_with_annex/2936?locale=de
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dt>
+                  extract.topic.document.hints
+                </dt>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Guter Ratschlag
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://example.com/goodhint1"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://example.com/goodhint1
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="http://example.com/goodhint2"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://example.com/goodhint2
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+                <dd
+                  class="oereb-client-document ms-2"
+                >
+                  <span>
+                    Seht guter Ratschlag mit langem titel: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis venenatis posuere. Nunc sollicitudin fermentum bibendum. Nulla ut massa enim. Sed rhoncus euismod venenatis
+                  </span>
+                  <ul
+                    class="ps-2 mb-2"
+                  >
+                    <li>
+                      <a
+                        href="http://example.com/goodhint3"
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        http://example.com/goodhint3
+                      </a>
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+              <dl
+                class="oereb-client-responsible-office border-top pt-2 mb-2"
+              >
+                <dt>
+                  extract.topic.responsible_office
+                </dt>
+                <dd
+                  class="ms-2"
+                >
+                  <a
+                    href="https://www.bav.admin.ch/bav/de/home.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Bundesamt für Verkehr BAV
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`topic without restriction component > should render topics 1`] = `
+<DocumentFragment>
+  <div
+    class="accordion-body p-0 oereb-client-topic-list-without-restrictions"
+  >
+    <ul
+      class="list-group list-group-flush"
+    >
+      <li
+        class="list-group-item"
+      >
+        Projektierungszonen Nationalstrassen
+      </li>
+      <li
+        class="list-group-item"
+      >
+        Projektierungszonen Eisenbahnanlagen
+      </li>
+      <li
+        class="list-group-item"
+      >
+        Baulinien Eisenbahnanlagen
+      </li>
+      <li
+        class="list-group-item"
+      >
+        Projektierungszonen Flughafenanlagen
+      </li>
+      <li
+        class="list-group-item"
+      >
+        Baulinien Flughafenanlagen
+      </li>
+      <li
+        class="list-group-item"
+      >
+        Sicherheitszonenplan
+      </li>
+      <li
+        class="list-group-item"
+      >
+        Kataster der belasteten Standorte
+      </li>
+      <li
+        class="list-group-item"
+      >
+        Grundwasserschutzareale
+      </li>
+      <li
+        class="list-group-item"
+      >
+        Lärmempfindlichkeitsstufen (in Nutzungszonen)
+      </li>
+      <li
+        class="list-group-item"
+      >
+        Waldabstandslinien
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

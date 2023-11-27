@@ -26,7 +26,7 @@ describe('extract reducer', () => {
   });
 
   it('should set loading true', () => {
-    window.history.pushState = jest.fn();
+    window.history.pushState = vi.fn();
     let state = reducer(undefined, {});
     state = reducer(state, loadExtract({
       egrid: 'CH123456789',
@@ -106,7 +106,7 @@ describe('extract reducer', () => {
   });
 
   it('should show error', () => {
-    window.history.pushState = jest.fn();
+    window.history.pushState = vi.fn();
     let state = reducer(undefined, {});
     state = reducer(state, loadExtract({
       egrid: 'CH123456789',
@@ -114,7 +114,7 @@ describe('extract reducer', () => {
       number: '1234',
       zoom: false
     }));
-    window.history.pushState = jest.fn();
+    window.history.pushState = vi.fn();
     state = reducer(state, showError());
     expect(state).toEqual({
       loading: false,

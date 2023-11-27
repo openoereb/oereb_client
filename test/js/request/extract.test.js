@@ -7,7 +7,7 @@ import {
 
 beforeEach(() => {
   fetch.resetMocks();
-  jest.useFakeTimers().setSystemTime(new Date('2022-01-01').getTime());
+  vi.useFakeTimers().setSystemTime(new Date('2022-01-01').getTime());
 });
 
 describe('queryExtractById', () => {

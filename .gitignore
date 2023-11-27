@@ -8,7 +8,7 @@
 /dist/
 /build/
 /.coverage
-/.jest-coverage/
+/coverage/
 /.pytest-coverage.xml
 /.coverage.*
 /oereb_client/static/lib/

@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`real estate layer component > should render real estate layer element 1`] = `<DocumentFragment />`;

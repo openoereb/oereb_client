@@ -9,15 +9,15 @@ import {initLanguages} from "../../../../oereb_client/static/src/reducer/languag
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
 
-jest.mock(
+vi.mock(
   '../../../../oereb_client/static/src/component/topic_list/topics_with_restrictions',
   /* eslint-disable react/display-name */
-  () => () => <div>Mocked topics with restrictions</div>
+  () => ({ default: () => <div>Mocked topics with restrictions</div> })
 );
-jest.mock(
+vi.mock(
   '../../../../oereb_client/static/src/component/topic_list/topics_without_restriction',
   /* eslint-disable react/display-name */
-  () => () => <div>Mocked topics without restrictions</div>
+  () => ({ default: () => <div>Mocked topics without restrictions</div> })
 );
 
 describe('category component', () => {

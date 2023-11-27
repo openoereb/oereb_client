@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`user guide component > should not render button 1`] = `<DocumentFragment />`;
+
+exports[`user guide component > should render button 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn-outline-secondary oereb-client-user-guide"
+    title="menu.user_guide.title"
+    type="button"
+  >
+    <i
+      class="bi bi-question-circle"
+    />
+  </button>
+</DocumentFragment>
+`;

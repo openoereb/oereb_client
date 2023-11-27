@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`responsible office component > should render responsible office 1`] = `
+<DocumentFragment>
+  <dl
+    class="oereb-client-responsible-office border-top pt-2 mb-2"
+  >
+    <dt>
+      extract.topic.responsible_office
+    </dt>
+    <dd
+      class="ms-2"
+    >
+      <a
+        href="https://www.bav.admin.ch/bav/de/home.html"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Bundesamt für Verkehr BAV
+      </a>
+    </dd>
+  </dl>
+</DocumentFragment>
+`;

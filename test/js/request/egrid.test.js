@@ -2,7 +2,7 @@ import {queryEgridByCoord} from "../../../oereb_client/static/src/request/egrid"
 
 beforeEach(() => {
   fetch.resetMocks();
-  jest.useFakeTimers().setSystemTime(new Date('2022-01-01').getTime());
+  vi.useFakeTimers().setSystemTime(new Date('2022-01-01').getTime());
 });
 
 describe('queryEgridByCoord', () => {
