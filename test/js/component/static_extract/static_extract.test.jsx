@@ -56,7 +56,7 @@ describe('static extract component', () => {
   });
 
   it('should request static extract', async () => {
-    const mockSave = jest.spyOn(FileSaver, 'saveAs');
+    const mockSave = vi.spyOn(FileSaver, 'saveAs');
     fetch.mockResponseOnce('foo');
     await user.click(component.container.querySelector('button'));
     await sleep(500);

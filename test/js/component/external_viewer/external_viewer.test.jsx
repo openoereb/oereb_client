@@ -48,7 +48,7 @@ describe('external viewer component', () => {
       </Provider>
     );
     user = userEvent.setup();
-    window.open = jest.fn();
+    window.open = vi.fn();
   });
 
   afterEach(() => {

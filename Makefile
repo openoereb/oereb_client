@@ -46,7 +46,7 @@ node_modules/.timestamp: package.json
 
 oereb_client/static/build/.timestamp: node_modules/.timestamp vite.config.js $(SRC_JS) $(SRC_SCSS)
 	rm -rf oereb_client/static/build/
-	./node_modules/.bin/vite build
+	NODE_ENV=production ./node_modules/.bin/vite build
 	touch $@
 
 
@@ -73,7 +73,7 @@ clean:
 	rm -rf .cache
 	rm -rf .pytest_cache
 	rm -f .coverage
-	rm -rf .jest-coverage
+	rm -rf coverage
 	rm -f npm-debug.log
 	rm -rf docs/build
 	rm -f .storybook/oereb_client.json
@@ -100,7 +100,7 @@ lint-js-fix: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)
 
 .PHONY: test-js
 test-js: $(SRC_JS) $(TEST_JS)
-	./node_modules/.bin/jest --coverage --verbose false
+	NODE_ENV=test ./node_modules/.bin/vitest --coverage --run
 
 .PHONY: check-js
 check-js: git-attributes lint-js test-js
@@ -123,7 +123,7 @@ serve: build app.ini
 
 .PHONY: serve-dev
 serve-dev: build app.ini node_modules/.timestamp .venv/.requirements.timestamp
-	./node_modules/.bin/vite build --watch &
+	NODE_ENV=production ./node_modules/.bin/vite build --watch &
 	.venv/bin/pserve app.ini --reload
 
 .PHONY: serve-devwin
@@ -158,6 +158,6 @@ doc: node_modules/.timestamp .storybook/oereb_client.json
 serve-doc: node_modules/.timestamp
 	npx http-server ./docs/build
 
-.PHONY: jest-update-snapshots
-jest-update-snapshots: $(SRC_JS) $(TEST_JS)
-	./node_modules/.bin/jest -u --coverage --verbose false
+.PHONY: update-snapshots
+update-snapshots: $(SRC_JS) $(TEST_JS)
+	./node_modules/.bin/vitest --update --coverage --run

@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`static extract component > should render static extract button 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn-outline-secondary oereb-client-static-extract"
+    title="extract.static_extract.title"
+    type="button"
+  >
+    <i
+      class="bi bi-file-earmark-pdf"
+    />
+  </button>
+</DocumentFragment>
+`;

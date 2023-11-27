@@ -17,7 +17,7 @@ describe('topic layers component', () => {
 
   let component;
   let layers;
-  const callback = jest.fn();
+  const callback = vi.fn();
 
   beforeEach(() => {
     act(() => {

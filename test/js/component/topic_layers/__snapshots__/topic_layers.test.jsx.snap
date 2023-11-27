@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`topic layers component > should render tiled topic layer element 1`] = `<DocumentFragment />`;
+
+exports[`topic layers component > should render tiled topic layer element 2`] = `<DocumentFragment />`;
+
+exports[`topic layers component > should render untiled topic layer element 1`] = `<DocumentFragment />`;
+
+exports[`topic layers component > should render untiled topic layer element 2`] = `<DocumentFragment />`;

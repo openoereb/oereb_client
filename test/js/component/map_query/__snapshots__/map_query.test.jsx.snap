@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`map query component > should render map query 1`] = `
+<DocumentFragment>
+  <div />
+</DocumentFragment>
+`;
+
+exports[`map query component > should render map query 2`] = `
+<DocumentFragment>
+  <div />
+</DocumentFragment>
+`;
+
+exports[`map query component > should render map query 3`] = `
+<DocumentFragment>
+  <div />
+</DocumentFragment>
+`;

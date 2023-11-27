@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`app component > should render app element 1`] = `
+<DocumentFragment>
+  <div
+    class="oereb-client-app"
+  >
+    <div>
+      Mocked Map
+    </div>
+    <div>
+      Mocked Information Panel
+    </div>
+    <div>
+      Mocked Extract
+    </div>
+    <div>
+      Mocked Menu
+    </div>
+  </div>
+</DocumentFragment>
+`;

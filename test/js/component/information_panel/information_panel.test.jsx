@@ -16,7 +16,7 @@ import extract from "../../../../samples/extract.json";
 let mockDate;
 
 beforeAll(() => {
-  mockDate = jest.spyOn(Date.prototype, 'toLocaleDateString').mockReturnValue('01.01.2022');
+  mockDate = vi.spyOn(Date.prototype, 'toLocaleDateString').mockReturnValue('01.01.2022');
 });
 
 afterAll(() => {

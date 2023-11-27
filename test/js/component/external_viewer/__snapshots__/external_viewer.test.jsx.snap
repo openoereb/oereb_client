@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`external viewer component > should not render button 1`] = `<DocumentFragment />`;
+
+exports[`external viewer component > should render button 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn-outline-secondary oereb-client-external-viewer"
+    title="WebGIS"
+    type="button"
+  >
+    <i
+      class="bi bi-map"
+    />
+  </button>
+</DocumentFragment>
+`;

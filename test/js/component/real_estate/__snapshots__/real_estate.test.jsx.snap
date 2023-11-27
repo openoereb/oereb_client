@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`real estate component > should render real estate 1`] = `
+<DocumentFragment>
+  <div
+    class="container-fluid mt-3 oereb-client-real-estate"
+  >
+    <h5>
+      Liegenschaft 70 extract.real_estate.at Oberwil (BL)
+    </h5>
+    <div
+      class="row row-cols-2"
+    >
+      <div
+        class="col-3"
+      >
+        <strong>
+          extract.real_estate.egrid:
+        </strong>
+      </div>
+      <div
+        class="col-9"
+      >
+        CH1234
+      </div>
+    </div>
+    <div
+      class="row row-cols-2"
+    >
+      <div
+        class="col-3"
+      >
+        <strong>
+          extract.real_estate.area:
+        </strong>
+      </div>
+      <div
+        class="col-9"
+      >
+        35121 m²
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
