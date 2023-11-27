@@ -44,9 +44,9 @@ node_modules/.timestamp: package.json
 # Build application
 # *****************
 
-oereb_client/static/build/.timestamp: node_modules/.timestamp webpack.config.js $(SRC_JS) $(SRC_SCSS)
+oereb_client/static/build/.timestamp: node_modules/.timestamp vite.config.js $(SRC_JS) $(SRC_SCSS)
 	rm -rf oereb_client/static/build/
-	./node_modules/.bin/webpack
+	./node_modules/.bin/vite build
 	touch $@
 
 
@@ -123,7 +123,7 @@ serve: build app.ini
 
 .PHONY: serve-dev
 serve-dev: build app.ini node_modules/.timestamp .venv/.requirements.timestamp
-	./node_modules/.bin/webpack --watch &
+	./node_modules/.bin/vite build --watch &
 	.venv/bin/pserve app.ini --reload
 
 .PHONY: serve-devwin
@@ -149,7 +149,8 @@ updates: updates-py updates-js
 doc: node_modules/.timestamp .storybook/oereb_client.json
 	rm -rf docs/build/
 	npm run build-storybook -- --docs --output-dir ./docs/build
-	cp -r oereb_client/static/i18n docs/build/static/i18n
+	mkdir -p docs/build/static/i18n
+	cp -r oereb_client/static/i18n/* docs/build/static/i18n/
 	mkdir -p docs/build/samples
 	cp -r samples/static docs/build/samples/static
 

@@ -22,7 +22,7 @@ RUN python3 -m venv .venv && \
     .venv/bin/pip install pyyaml && \
     .venv/bin/pip install -e . && \
     npm install --legacy-peer-deps && \
-    ./node_modules/.bin/webpack
+    ./node_modules/.bin/vite build
 
 USER 1001
 
