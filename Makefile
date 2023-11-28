@@ -46,7 +46,7 @@ node_modules/.timestamp: package.json
 
 oereb_client/static/build/.timestamp: node_modules/.timestamp vite.config.js $(SRC_JS) $(SRC_SCSS)
 	rm -rf oereb_client/static/build/
-	NODE_ENV=production ./node_modules/.bin/vite build
+	./node_modules/.bin/vite build
 	touch $@
 
 
@@ -100,7 +100,7 @@ lint-js-fix: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)
 
 .PHONY: test-js
 test-js: $(SRC_JS) $(TEST_JS)
-	NODE_ENV=test ./node_modules/.bin/vitest --coverage --run
+	./node_modules/.bin/vitest --coverage --run
 
 .PHONY: check-js
 check-js: git-attributes lint-js test-js
@@ -123,7 +123,7 @@ serve: build app.ini
 
 .PHONY: serve-dev
 serve-dev: build app.ini node_modules/.timestamp .venv/.requirements.timestamp
-	NODE_ENV=production ./node_modules/.bin/vite build --watch &
+	./node_modules/.bin/vite build --watch &
 	.venv/bin/pserve app.ini --reload
 
 .PHONY: serve-devwin

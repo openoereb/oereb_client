@@ -21,6 +21,10 @@ export default defineConfig({
     react(),
     htmlPurge()
   ],
+  define: {
+    // 'process.env.NODE_ENV': '"production"'
+    'process.env': {}
+  },
   test: {
     environment: 'jsdom',
     globals: true,

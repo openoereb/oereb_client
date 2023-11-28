@@ -64,7 +64,7 @@ jobs:
         with:
           name: Frontend
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: .jest-coverage/clover.xml
+          files: coverage/clover.xml
           flags: frontend
           fail_ci_if_error: true
           verbose: true

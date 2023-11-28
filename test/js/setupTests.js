@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom/vitest';
 
-import createFetchMock from "vitest-fetch-mock";
 import {initReactI18next} from "react-i18next";
 import ResizeObserver from "resize-observer-polyfill";
-import { vi } from "vitest";
+import {vi} from "vitest";
+import createFetchMock from "vitest-fetch-mock";
 
 import i18n from '../../oereb_client/static/src/i18n';
 
