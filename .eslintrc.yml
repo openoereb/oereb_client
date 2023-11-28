@@ -1,11 +1,12 @@
 env:
   browser: true
   es6: true
-  jest/globals: true
+  vitest-globals/env: true
 extends:
   - 'eslint:recommended'
   - 'plugin:react/recommended'
   - 'plugin:react/jsx-runtime'
+  - 'plugin:vitest-globals/recommended'
 globals:
   global: false
   module: false
@@ -265,15 +266,15 @@ rules:
     - error
     - never
   react/jsx-uses-react: error
-  jest/no-disabled-tests: warn
-  jest/no-focused-tests: error
-  jest/no-identical-title: error
-  jest/prefer-to-have-length: warn
-  jest/valid-expect: error
+  vitest/no-disabled-tests: warn
+  vitest/no-focused-tests: error
+  vitest/no-identical-title: error
+  vitest/prefer-to-have-length: warn
+  vitest/valid-expect: error
 plugins:
   - react
+  - vitest
   - simple-import-sort
-  - jest
 settings:
   react:
     version: detect
