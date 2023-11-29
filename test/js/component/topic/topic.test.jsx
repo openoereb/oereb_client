@@ -35,7 +35,9 @@ describe('topic component', () => {
 
   it('should render topic', async () => {
     expect(component.asFragment()).toMatchSnapshot();
-    await user.click(component.container.querySelector('button'));
+    await act(async () => {
+      await user.click(component.container.querySelector('button'));
+    });
     expect(component.asFragment()).toMatchSnapshot();
   });
 

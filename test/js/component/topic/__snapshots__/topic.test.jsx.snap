@@ -333,8 +333,8 @@ exports[`topic component > should render topic 2`] = `
       </button>
     </h2>
     <div
-      class="accordion-collapse collapse show"
-      style=""
+      class="accordion-collapse collapsing"
+      style="height: 0px;"
     >
       <div
         class="accordion-body"
