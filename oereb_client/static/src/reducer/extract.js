@@ -13,7 +13,9 @@ export const extractSlice = createSlice({
     number: null,
     information: false,
     tab: 0,
-    data: {}
+    data: {},
+    highlight: true,
+    background: true
   },
   reducers: {
     loadExtract: (state, action) => {
@@ -46,6 +48,8 @@ export const extractSlice = createSlice({
       state.collapsed = false;
       state.error = false;
       state.information = false;
+      state.highlight = true;
+      state.background = true;
       state.tab = 0;
       state.data = action.payload;
     },
@@ -85,6 +89,12 @@ export const extractSlice = createSlice({
     toggleCollapsed: (state) => {
       state.collapsed = !state.collapsed;
     },
+    toggleHighlight: (state) => {
+      state.highlight = !state.highlight;
+    },
+    toggleBackground: (state) => {
+      state.background = !state.background;
+    },
     toggleInformationPanel: (state) => {
       state.information = !state.information;
       if (state.information) {
@@ -103,6 +113,8 @@ export const {
   showError,
   hideExtract,
   toggleCollapsed,
+  toggleHighlight,
+  toggleBackground,
   toggleInformationPanel,
   setInformationPanelTab
 } = extractSlice.actions;

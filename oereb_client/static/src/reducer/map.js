@@ -4,12 +4,14 @@ export const mapSlice = createSlice({
   name: 'map',
   initialState: {
     map: null,
-    topicLayers: null
+    topicLayers: null,
+    baseLayer: null
   },
   reducers: {
     initMap: (state, action) => {
       state.map = action.payload.map;
       state.topicLayers = action.payload.topicLayers;
+      state.baseLayer = action.payload.baseLayer;
     }
   }
 });

@@ -101,6 +101,8 @@
     },
     "settings": {
       "availability": "Afficher les communes disponibles",
+      "show_background_map": "Afficher la carte de fond",
+      "show_real_estate": "Accentuer bien-fonds",
       "symbol_zoom": "Agrandir la légende",
       "title": "Configuration"
     },

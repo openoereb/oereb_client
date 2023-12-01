@@ -32,6 +32,7 @@ import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';
 import OerebTopicLayer from '../topic_layers/topic_layers';
 import { NoDataError } from '../../util/error';
 import { useTranslation } from 'react-i18next';
+import BaseLayer from 'ol/layer/Base';
 
 export const getBaseLayerSourceWms = function (config) {
   const wmsConfig = {
@@ -85,6 +86,8 @@ const OerebMap = function () {
   const mapElement = useRef(null);
   const config = useSelector((state) => state.config).config;
   const language = useSelector((state) => state.language);
+  const background = useSelector((state) => state.extract).background;
+  const backgroundLayer = useSelector((state) => state.map).baseLayer;
   const currentLanguage = language.current;
   const dispatch = useDispatch();
   const query = new URLSearchParams(window.location.search);
@@ -198,7 +201,8 @@ const OerebMap = function () {
       newMap.addLayer(realEstateLayer);
       dispatch(initMap({
         map: newMap,
-        topicLayers: topicLayers
+        topicLayers: topicLayers,
+        baseLayer: baseLayer
       }));
     });
 
@@ -282,6 +286,10 @@ const OerebMap = function () {
     realEstateLayerComponent = <OerebRealEstateLayer map={map} realEstateLayer={realEstateLayer} />;
     topicLayerComponent = <OerebTopicLayer topicLayers={topicLayers} tiled={tiled} />;
     availabilityLayerComponent = <OerebAvailabilityLayer availabilityLayer={availabilityLayer} />;
+  }
+
+  if (backgroundLayer instanceof BaseLayer) {
+    backgroundLayer.setVisible(background);
   }
 
   return (
