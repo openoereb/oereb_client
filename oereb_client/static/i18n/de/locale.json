@@ -101,6 +101,8 @@
     },
     "settings": {
       "availability": "verfügbare Gemeinden anzeigen",
+      "show_background_map": "Hintergrundkarte anzeigen",
+      "show_real_estate": "Grundstück hervorheben",
       "symbol_zoom": "Legendensymbole vergrössern",
       "title": "Einstellungen"
     },

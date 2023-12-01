@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {setViewServices} from '../../reducer/accordion';
 import {showAvailability} from '../../reducer/availability';
-import {loadExtract, showError, showExtract} from '../../reducer/extract';
+import {loadExtract, showError, showExtract, toggleBackground, toggleHighlight} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {hide, loadAt, show} from '../../reducer/map_query';
 import {enableSymbolZoom} from '../../reducer/symbol_zoom';
@@ -24,6 +24,8 @@ const OerebMenu = function () {
   const config = useSelector((state) => state.config).config;
   const showAvailabilityLayer = useSelector((state) => state.availability).visible;
   const symbolZoomEnabled = useSelector((state) => state.symbolZoom).enabled;
+  const highlight = useSelector((state) => state.extract).highlight;
+  const background = useSelector((state) => state.extract).background;
   const history = useSelector((state) => state.history).elements.slice().reverse();
   const dispatch = useDispatch();
   const searchUrl = config.search_url;
@@ -237,6 +239,36 @@ const OerebMenu = function () {
     dispatch(enableSymbolZoom(!symbolZoomEnabled));
   }
 
+  const realEstateText = (() => {
+    if (highlight) {
+      return (
+        <span><i className="bi bi-check-square"></i> {t('menu.settings.show_real_estate')}</span>
+      );
+    }
+    return (
+      <span><i className="bi bi-square"></i> {t('menu.settings.show_real_estate')}</span>
+    );
+  })();
+
+  const toggleRealEstate = function () {
+    dispatch(toggleHighlight());
+  }
+
+  const backgroundMapText = (() => {
+    if (background) {
+      return (
+        <span><i className="bi bi-check-square"></i> {t('menu.settings.show_background_map')}</span>
+      );
+    }
+    return (
+      <span><i className="bi bi-square"></i> {t('menu.settings.show_background_map')}</span>
+    );
+  })();
+
+  const toggleBackgroundMap = function () {
+    dispatch(toggleBackground());
+  }
+
   const historyElements = history.map((element, key) =>
     <li key={key}>
       <button className="dropdown-item"
@@ -280,6 +312,16 @@ const OerebMenu = function () {
             <li>
               <button className="dropdown-item" onClick={toggleSymbolZoom}>
                 {symbolZoomText}
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={toggleRealEstate}>
+                {realEstateText}
+              </button>
+            </li>
+            <li>
+              <button className="dropdown-item" onClick={toggleBackgroundMap}>
+                {backgroundMapText}
               </button>
             </li>
           </ul>

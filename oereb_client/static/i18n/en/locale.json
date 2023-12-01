@@ -101,6 +101,8 @@
     },
     "settings": {
       "availability": "Show available municipalities",
+      "show_background_map": "Show background map",
+      "show_real_estate": "Highlight real estate",
       "symbol_zoom": "Zoom on legend symbols",
       "title": "Settings"
     },

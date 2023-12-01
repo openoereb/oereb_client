@@ -5,11 +5,13 @@ import {useSelector} from 'react-redux';
 
 const OerebRealEstateLayer = function (props) {
   const extract = useSelector((state) => state.extract).data;
+  const highlight = useSelector((state) => state.extract).highlight;
   const zoom = useSelector((state) => state.extract).zoom;
   const realEstateLayer = props.realEstateLayer;
   const map = props.map;
 
   realEstateLayer.getSource().clear();
+  realEstateLayer.setVisible(highlight);
 
   if (Reflect.apply(Object.prototype.hasOwnProperty, extract, ['GetExtractByIdResponse'])) {
     const limit = extract['GetExtractByIdResponse']['extract']['RealEstate']['Limit'];
