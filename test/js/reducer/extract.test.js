@@ -4,7 +4,9 @@ import reducer, {
   setInformationPanelTab,
   showError,
   showExtract,
+  toggleBackground,
   toggleCollapsed,
+  toggleHighlight,
   toggleInformationPanel} from '../../../oereb_client/static/src/reducer/extract';
 
 describe('extract reducer', () => {
@@ -21,7 +23,9 @@ describe('extract reducer', () => {
       number: null,
       information: false,
       tab: 0,
-      data: {}
+      data: {},
+      highlight: true,
+      background: true
     });
   });
 
@@ -45,7 +49,9 @@ describe('extract reducer', () => {
       number: '1234',
       information: false,
       tab: 0,
-      data: {}
+      data: {},
+      highlight: true,
+      background: true
     });
     expect(window.history.pushState).toHaveBeenCalled();
   });
@@ -74,7 +80,9 @@ describe('extract reducer', () => {
       tab: 0,
       data: {
         foo: 'bar'
-      }
+      },
+      highlight: true,
+      background: true
     });
   });
 
@@ -101,7 +109,9 @@ describe('extract reducer', () => {
       number: null,
       information: false,
       tab: 0,
-      data: {}
+      data: {},
+      highlight: true,
+      background: true
     });
   });
 
@@ -127,7 +137,9 @@ describe('extract reducer', () => {
       number: '1234',
       information: false,
       tab: 0,
-      data: {}
+      data: {},
+      highlight: true,
+      background: true
     });
     expect(window.history.pushState).toHaveBeenCalled();
   });
@@ -146,7 +158,9 @@ describe('extract reducer', () => {
       number: null,
       information: false,
       tab: 0,
-      data: {}
+      data: {},
+      highlight: true,
+      background: true
     });
     state = reducer(state, toggleCollapsed());
     expect(state).toEqual({
@@ -160,7 +174,9 @@ describe('extract reducer', () => {
       number: null,
       information: false,
       tab: 0,
-      data: {}
+      data: {},
+      highlight: true,
+      background: true
     });
   });
 
@@ -179,7 +195,9 @@ describe('extract reducer', () => {
       number: null,
       information: true,
       tab: 0,
-      data: {}
+      data: {},
+      highlight: true,
+      background: true
     });
     state = reducer(state, toggleInformationPanel());
     expect(state).toEqual({
@@ -193,7 +211,81 @@ describe('extract reducer', () => {
       number: null,
       information: false,
       tab: 0,
-      data: {}
+      data: {},
+      highlight: true,
+      background: true
+    });
+  });
+
+  it('should toggle real estate highlight', () => {
+    let state = reducer(undefined, {});
+    state = reducer(state, toggleHighlight());
+    expect(state).toEqual({
+      loading: false,
+      zoom: false,
+      visible: false,
+      collapsed: false,
+      error: false,
+      egrid: null,
+      identdn: null,
+      number: null,
+      information: false,
+      tab: 0,
+      data: {},
+      highlight: false,
+      background: true
+    });
+    state = reducer(state, toggleHighlight());
+    expect(state).toEqual({
+      loading: false,
+      zoom: false,
+      visible: false,
+      collapsed: false,
+      error: false,
+      egrid: null,
+      identdn: null,
+      number: null,
+      information: false,
+      tab: 0,
+      data: {},
+      highlight: true,
+      background: true
+    });
+  });
+
+  it('should toggle background map', () => {
+    let state = reducer(undefined, {});
+    state = reducer(state, toggleBackground());
+    expect(state).toEqual({
+      loading: false,
+      zoom: false,
+      visible: false,
+      collapsed: false,
+      error: false,
+      egrid: null,
+      identdn: null,
+      number: null,
+      information: false,
+      tab: 0,
+      data: {},
+      highlight: true,
+      background: false
+    });
+    state = reducer(state, toggleBackground());
+    expect(state).toEqual({
+      loading: false,
+      zoom: false,
+      visible: false,
+      collapsed: false,
+      error: false,
+      egrid: null,
+      identdn: null,
+      number: null,
+      information: false,
+      tab: 0,
+      data: {},
+      highlight: true,
+      background: true
     });
   });
 
@@ -211,7 +303,9 @@ describe('extract reducer', () => {
       number: null,
       information: false,
       tab: 1,
-      data: {}
+      data: {},
+      highlight: true,
+      background: true
     });
   });
 

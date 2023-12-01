@@ -5,7 +5,8 @@ describe('map reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       map: null,
-      topicLayers: null
+      topicLayers: null,
+      baseLayer: null
     });
   });
 
@@ -13,11 +14,13 @@ describe('map reducer', () => {
     let state = reducer(undefined, {});
     state = reducer(state, initMap({
       map: 'foo',
-      topicLayers: 'bar'
+      topicLayers: 'bar',
+      baseLayer: 'baz'
     }));
     expect(state).toEqual({
       map: 'foo',
-      topicLayers: 'bar'
+      topicLayers: 'bar',
+      baseLayer: 'baz'
     });
   });
 
