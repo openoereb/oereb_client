@@ -29,6 +29,7 @@ import OerebAvailabilityLayer from '../availability_layer/availability_layer';
 import OerebMapQuery from '../map_query/map_query';
 import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';
 import OerebTopicLayer from '../topic_layers/topic_layers';
+import { NoDataError } from '../../util/error';
 
 export const getBaseLayerSourceWms = function (config) {
   const wmsConfig = {
@@ -241,10 +242,23 @@ const OerebMap = function () {
               });
           }
           else {
-            dispatch(hide());
+            throw new NoDataError('No data available');
+          }
+        }, (error) => {
+          if (error.status === 204) {
+            throw new NoDataError('No data available');
+          }
+          else {
+            throw new Error();
           }
         })
-        .catch(() => {
+        .catch((err) => {
+          if (err instanceof NoDataError) {
+            console.log('warning');
+          }
+          else {
+            console.log('error');
+          }
           dispatch(hide());
         });
     });
