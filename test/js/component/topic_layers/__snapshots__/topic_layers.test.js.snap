@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`topic layers component should render tiled topic layer element 1`] = `<DocumentFragment />`;
-
-exports[`topic layers component should render tiled topic layer element 2`] = `<DocumentFragment />`;
-
-exports[`topic layers component should render untiled topic layer element 1`] = `<DocumentFragment />`;
-
-exports[`topic layers component should render untiled topic layer element 2`] = `<DocumentFragment />`;
