@@ -12,7 +12,15 @@ describe('getLocalizedText', () => {
     }
   ];
 
-  it('should return null', () => {
+  it('should return null for undefined input value', () => {
+    expect(getLocalizedText(undefined, 'en', 'en')).toBe(null);
+  });
+
+  it('should return null for null as input value', () => {
+    expect(getLocalizedText(null, 'en', 'en')).toBe(null);
+  });
+
+  it('should return null for empty list', () => {
     expect(getLocalizedText([], 'en', 'en')).toBe(null);
   });
 
@@ -41,7 +49,15 @@ describe('getLocalizedUrl', () => {
     }
   ];
 
-  it('should return null', () => {
+  it('should return null for undefined input value', () => {
+    expect(getLocalizedUrl(undefined, 'en', 'en')).toBe(null);
+  });
+
+  it('should return null for null as input value', () => {
+    expect(getLocalizedUrl(null, 'en', 'en')).toBe(null);
+  });
+
+  it('should return null for emtpy list', () => {
     expect(getLocalizedUrl([], 'en', 'en')).toBe(null);
   });
 

@@ -22,3 +22,20 @@ exports[`responsible office component > should render responsible office 1`] = `
   </dl>
 </DocumentFragment>
 `;
+
+exports[`responsible office component > should render responsible office without url 1`] = `
+<DocumentFragment>
+  <dl
+    class="oereb-client-responsible-office border-top pt-2 mb-2"
+  >
+    <dt>
+      extract.topic.responsible_office
+    </dt>
+    <dd
+      class="ms-2"
+    >
+      Bundesamt für Verkehr BAV
+    </dd>
+  </dl>
+</DocumentFragment>
+`;
