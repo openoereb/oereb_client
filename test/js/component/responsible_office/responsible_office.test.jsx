@@ -11,8 +11,6 @@ import extract from "../../../../samples/extract.json";
 
 describe('responsible office component', () => {
 
-  let component;
-
   beforeEach(() => {
     act(() => {
       MainStore.dispatch(initLanguages({
@@ -20,18 +18,34 @@ describe('responsible office component', () => {
         available: ['de']
       }));
     });
+  });
+
+  it('should render responsible office', () => {
     const restrictions = groupRestrictionsByTopic(
       extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
       extract.GetExtractByIdResponse.extract.ConcernedTheme
     )['chStatischeWaldgrenzen']['inForce'];
-    component = render(
+    const component = render(
       <Provider store={MainStore}>
         <OerebResponsibleOffice restrictions={restrictions} />
       </Provider>
     );
+    expect(component.asFragment()).toMatchSnapshot();
   });
 
-  it('should render responsible office', () => {
+  it('should render responsible office without url', () => {
+    const restrictions = groupRestrictionsByTopic(
+      extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
+      extract.GetExtractByIdResponse.extract.ConcernedTheme
+    )['chStatischeWaldgrenzen']['inForce'];
+    restrictions.forEach((restriction) => {
+      restriction['ResponsibleOffice']['OfficeAtWeb'] = null;
+    });
+    const component = render(
+      <Provider store={MainStore}>
+        <OerebResponsibleOffice restrictions={restrictions} />
+      </Provider>
+    );
     expect(component.asFragment()).toMatchSnapshot();
   });
 

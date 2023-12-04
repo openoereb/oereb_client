@@ -1,5 +1,7 @@
+import {isArray} from "lodash";
+
 export const getLocalizedText = function (multilingualText, language, defaultLanguage) {
-  if (multilingualText.length > 0) {
+  if (isArray(multilingualText) && multilingualText.length > 0) {
     let defaultValue = null;
     for (let i = 0; i < multilingualText.length; i++) {
       if (multilingualText[i]['Language'] === language) {
@@ -18,7 +20,7 @@ export const getLocalizedText = function (multilingualText, language, defaultLan
 };
 
 export const getLocalizedUrl = function (multilingualUrl, language, defaultLanguage) {
-  if (multilingualUrl.length > 0) {
+  if (isArray(multilingualUrl) && multilingualUrl.length > 0) {
     let defaultValue = null;
     for (let i = 0; i < multilingualUrl.length; i++) {
       if (multilingualUrl[i]['Language'] === language) {

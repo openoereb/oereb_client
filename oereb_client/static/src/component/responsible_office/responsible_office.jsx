@@ -26,13 +26,22 @@ const OerebResponsibleOffice = function (props) {
   const officeElements = offices.map((office, key) => {
     const localizedName = getLocalizedText(office['Name'], currentLanguage, defaultLanguage);
     const localizedUrl = getLocalizedText(office['OfficeAtWeb'], currentLanguage, defaultLanguage);
-    return (
-      <dd key={key} className="ms-2">
-        <a href={localizedUrl} target="_blank" rel="noreferrer">
+    if (localizedUrl === null) {
+      return (
+        <dd key={key} className="ms-2">
           {localizedName}
-        </a>
-      </dd>
-    );
+        </dd>
+      );
+    }
+    else {
+      return (
+        <dd key={key} className="ms-2">
+          <a href={localizedUrl} target="_blank" rel="noreferrer">
+            {localizedName}
+          </a>
+        </dd>
+      );
+    }
   });
 
   return (
