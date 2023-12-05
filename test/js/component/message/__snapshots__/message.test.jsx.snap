@@ -1,0 +1,102 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`message component > should render error message 1`] = `
+<DocumentFragment>
+  <div
+    class="toast-container position-absolute top-0 end-0 mt-3 me-3"
+  >
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      class="toast align-items-center bg-secondary fade show showing"
+      data-bs-autohide="false"
+      initialized="true"
+      role="alert"
+    >
+      <div
+        class="d-flex"
+      >
+        <div
+          class="ms-3 m-auto h4"
+        >
+          <i
+            class="bi bi-exclamation-triangle-fill text-bg-secondary"
+          />
+        </div>
+        <div
+          class="toast-body text-bg-secondary"
+        >
+          foo
+        </div>
+      </div>
+    </div>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      class="toast align-items-center bg-danger fade show showing"
+      data-bs-autohide="false"
+      initialized="true"
+      role="alert"
+    >
+      <div
+        class="d-flex"
+      >
+        <div
+          class="ms-3 m-auto h4"
+        >
+          <i
+            class="bi bi-x-octagon-fill text-bg-danger"
+          />
+        </div>
+        <div
+          class="toast-body text-bg-danger"
+        >
+          foo
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`message component > should render message container 1`] = `
+<DocumentFragment>
+  <div
+    class="toast-container position-absolute top-0 end-0 mt-3 me-3"
+  />
+</DocumentFragment>
+`;
+
+exports[`message component > should render warning message 1`] = `
+<DocumentFragment>
+  <div
+    class="toast-container position-absolute top-0 end-0 mt-3 me-3"
+  >
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      class="toast align-items-center bg-secondary fade show showing"
+      data-bs-autohide="false"
+      initialized="true"
+      role="alert"
+    >
+      <div
+        class="d-flex"
+      >
+        <div
+          class="ms-3 m-auto h4"
+        >
+          <i
+            class="bi bi-exclamation-triangle-fill text-bg-secondary"
+          />
+        </div>
+        <div
+          class="toast-body text-bg-secondary"
+        >
+          foo
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
