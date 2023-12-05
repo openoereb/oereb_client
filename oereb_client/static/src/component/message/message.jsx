@@ -5,7 +5,7 @@ import { MESSAGE_TIMEOUT } from '../../reducer/message';
 import './message.scss';
 
 /**
- * This component shows messages (warnings, errors) to the user.
+ * This component shows messages (warnings, errors) in the user interface.
  */
 const OerebMessage = function () {
   const element = useRef(null);
