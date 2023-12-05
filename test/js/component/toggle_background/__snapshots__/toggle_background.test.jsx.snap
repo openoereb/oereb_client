@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`toggle background component > should render button 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn-outline-secondary"
+    title="extract.hide_background.title"
+    type="button"
+  >
+    <i
+      class="bi bi-layers-half"
+    />
+  </button>
+</DocumentFragment>
+`;
+
+exports[`toggle background component > should toggle state 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn-secondary"
+    title="extract.hide_background.title"
+    type="button"
+  >
+    <i
+      class="bi bi-layers-half"
+    />
+  </button>
+</DocumentFragment>
+`;
+
+exports[`toggle background component > should toggle state 2`] = `
+<DocumentFragment>
+  <button
+    class="btn btn-outline-secondary"
+    title="extract.hide_background.title"
+    type="button"
+  >
+    <i
+      class="bi bi-layers-half"
+    />
+  </button>
+</DocumentFragment>
+`;

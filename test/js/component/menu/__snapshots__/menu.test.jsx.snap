@@ -69,30 +69,6 @@ exports[`menu component > should render menu 1`] = `
               </span>
             </button>
           </li>
-          <li>
-            <button
-              class="dropdown-item"
-            >
-              <span>
-                <i
-                  class="bi bi-check-square"
-                />
-                 menu.settings.show_real_estate
-              </span>
-            </button>
-          </li>
-          <li>
-            <button
-              class="dropdown-item"
-            >
-              <span>
-                <i
-                  class="bi bi-check-square"
-                />
-                 menu.settings.show_background_map
-              </span>
-            </button>
-          </li>
         </ul>
         <button
           aria-expanded="false"
@@ -202,30 +178,6 @@ exports[`search > should show GNSS coordinates 1`] = `
               </span>
             </button>
           </li>
-          <li>
-            <button
-              class="dropdown-item"
-            >
-              <span>
-                <i
-                  class="bi bi-check-square"
-                />
-                 menu.settings.show_real_estate
-              </span>
-            </button>
-          </li>
-          <li>
-            <button
-              class="dropdown-item"
-            >
-              <span>
-                <i
-                  class="bi bi-check-square"
-                />
-                 menu.settings.show_background_map
-              </span>
-            </button>
-          </li>
         </ul>
         <button
           aria-expanded="false"
@@ -331,30 +283,6 @@ exports[`search > should show LV95 coordinates 1`] = `
                   class="bi bi-check-square"
                 />
                  menu.settings.symbol_zoom
-              </span>
-            </button>
-          </li>
-          <li>
-            <button
-              class="dropdown-item"
-            >
-              <span>
-                <i
-                  class="bi bi-check-square"
-                />
-                 menu.settings.show_real_estate
-              </span>
-            </button>
-          </li>
-          <li>
-            <button
-              class="dropdown-item"
-            >
-              <span>
-                <i
-                  class="bi bi-check-square"
-                />
-                 menu.settings.show_background_map
               </span>
             </button>
           </li>
@@ -485,30 +413,6 @@ exports[`search > should show results 1`] = `
                   class="bi bi-check-square"
                 />
                  menu.settings.symbol_zoom
-              </span>
-            </button>
-          </li>
-          <li>
-            <button
-              class="dropdown-item"
-            >
-              <span>
-                <i
-                  class="bi bi-check-square"
-                />
-                 menu.settings.show_real_estate
-              </span>
-            </button>
-          </li>
-          <li>
-            <button
-              class="dropdown-item"
-            >
-              <span>
-                <i
-                  class="bi bi-check-square"
-                />
-                 menu.settings.show_background_map
               </span>
             </button>
           </li>
