@@ -22,6 +22,12 @@
       "title": "Auszug fehlgeschlagen"
     },
     "hide": "Auszug ausblenden",
+    "hide_background": {
+      "title": "Hintergrundkarte ausblenden"
+    },
+    "hide_highlight": {
+      "title": "Grundstückgrenze ausblenden"
+    },
     "information_panel": {
       "button": {
         "title": "Allgemeine und rechtliche Informationen"
@@ -101,8 +107,6 @@
     },
     "settings": {
       "availability": "verfügbare Gemeinden anzeigen",
-      "show_background_map": "Hintergrundkarte anzeigen",
-      "show_real_estate": "Grundstück hervorheben",
       "symbol_zoom": "Legendensymbole vergrössern",
       "title": "Einstellungen"
     },
