@@ -58,4 +58,6 @@ const OerebPermalink = function () {
   );
 };
 
+OerebPermalink.propTypes = {};
+
 export default OerebPermalink;

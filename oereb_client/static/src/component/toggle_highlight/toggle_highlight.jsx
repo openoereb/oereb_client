@@ -35,4 +35,6 @@ const OerebToggleHighlight = function () {
   );
 };
 
+OerebToggleHighlight.propTypes = {};
+
 export default OerebToggleHighlight;
