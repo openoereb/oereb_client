@@ -74,6 +74,14 @@
       "responsible_office": "Zuständige Stelle"
     }
   },
+  "map": {
+    "error": {
+      "unknown": "Es ist ein Fehler aufgetreten. Sollte dies weiterhin der Fall sein, kontaktieren Sie bitte den Support."
+    },
+    "warning": {
+      "no_data": "An dieser Position sind keine Daten verfügbar."
+    }
+  },
   "menu": {
     "history": {
       "title": "Verlauf"

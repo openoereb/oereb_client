@@ -74,6 +74,14 @@
       "responsible_office": "Responsible office"
     }
   },
+  "map": {
+    "error": {
+      "unknown": "An error occured. Please contact the support, if it continues happening."
+    },
+    "warning": {
+      "no_data": "There is no data available at this position."
+    }
+  },
   "menu": {
     "history": {
       "title": "History"

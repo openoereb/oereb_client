@@ -14,6 +14,7 @@ import OerebExtract from '../extract/extract';
 import OerebInformationPanel from '../information_panel/information_panel';
 import OerebMap from '../map/map';
 import OerebMenu from '../menu/menu';
+import OerebMessage from '../message/message';
 
 const App = function (props) {
   const dispatch = useDispatch();
@@ -68,10 +69,11 @@ const App = function (props) {
 
   return (
     <div className="oereb-client-app">
-      <OerebMap />
-      <OerebInformationPanel />
-      <OerebExtract />
-      <OerebMenu />
+        <OerebMap />
+        <OerebInformationPanel />
+        <OerebExtract />
+        <OerebMenu />
+        <OerebMessage />
     </div>
   );
 };
