@@ -19,7 +19,8 @@ const MainStore = configureStore({
     language: languageReducer,          // Controls the language settings
     availability: availabilityReducer,  // Controls the visibility of the availabiliity layer
     symbolZoom: symbolZoomReducer,      // Controls the zoom for legend symbols (enabled/disabled)
-    history: historyReducer             // Controls the extract history (5 latest real estates)
+    history: historyReducer,            // Controls the extract history (5 latest real estates)
+    message: messageReducer             // Controls warning and error messages
   }
 });
 ```
