@@ -35,4 +35,6 @@ const OerebToggleBackground = function () {
   );
 };
 
+OerebToggleBackground.propTypes = {};
+
 export default OerebToggleBackground;
