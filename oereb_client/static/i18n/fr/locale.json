@@ -74,6 +74,14 @@
       "responsible_office": "Service compétent"
     }
   },
+  "map": {
+    "error": {
+      "unknown": "Une erreur s'est produite. Si cela persiste, veuillez contacter le support."
+    },
+    "warning": {
+      "no_data": "Aucune donnée n'est disponible à cette position."
+    }
+  },
   "menu": {
     "history": {
       "title": "Historique"

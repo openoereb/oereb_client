@@ -131,8 +131,8 @@ serve-devwin: build pserve.ini
 	DEVELOPMENT=true $(VENV_BIN)pserve pserve.ini --reload
 
 .PHONY: scan-locales
-scan-locales: node_modules/.timestamp i18next-scanner.config.js
-	./node_modules/.bin/i18next-scanner --config i18next-scanner.config.js
+scan-locales: node_modules/.timestamp i18next-scanner.config.cjs
+	./node_modules/.bin/i18next-scanner --config i18next-scanner.config.cjs
 
 .PHONY: updates-py
 updates-py: .venv/.requirements.timestamp

@@ -23,6 +23,7 @@ import {loadExtract, showError, showExtract} from '../../reducer/extract';
 import {updateHistory} from '../../reducer/history';
 import {initMap} from '../../reducer/map';
 import {hide, loadAt, show} from '../../reducer/map_query';
+import {showWarning as showWarningMsg, showError as showErrorMsg} from '../../reducer/message';
 import {queryEgridByCoord} from '../../request/egrid';
 import {queryExtractById} from '../../request/extract';
 import OerebAvailabilityLayer from '../availability_layer/availability_layer';
@@ -30,6 +31,7 @@ import OerebMapQuery from '../map_query/map_query';
 import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';
 import OerebTopicLayer from '../topic_layers/topic_layers';
 import { NoDataError } from '../../util/error';
+import { useTranslation } from 'react-i18next';
 
 export const getBaseLayerSourceWms = function (config) {
   const wmsConfig = {
@@ -79,6 +81,7 @@ export const getBaseLayerSource = function (config) {
 };
 
 const OerebMap = function () {
+  const {t} = useTranslation();
   const mapElement = useRef(null);
   const config = useSelector((state) => state.config).config;
   const language = useSelector((state) => state.language);
@@ -254,10 +257,10 @@ const OerebMap = function () {
         })
         .catch((err) => {
           if (err instanceof NoDataError) {
-            console.log('warning');
+            dispatch(showWarningMsg(t('map.warning.no_data')));
           }
           else {
-            console.log('error');
+            dispatch(showErrorMsg(t('map.error.unknown')));
           }
           dispatch(hide());
         });
