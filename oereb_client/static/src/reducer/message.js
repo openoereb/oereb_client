@@ -26,10 +26,10 @@ export const messageSlice = createSlice({
       });
     },
     cleanMessages: (state) => {
-      for(let i=state.messages.length; i>0; i--) {
+      for (let i = state.messages.length; i > 0; i--) {
         const now = Date.now();
-        if (now - state.messages[i-1].timestamp >= MESSAGE_TIMEOUT) {
-          state.messages.splice(i-1, 1);
+        if (now - state.messages[i - 1].timestamp >= MESSAGE_TIMEOUT) {
+          state.messages.splice(i - 1, 1);
         }
       }
     }
@@ -39,7 +39,7 @@ export const messageSlice = createSlice({
 export const {cleanMessages, error, warning} = messageSlice.actions;
 
 export const showWarning = function(text) {
-  return async function(dispatch) {
+  return function(dispatch) {
     dispatch(warning(text));
     setTimeout(() => {
       dispatch(cleanMessages());
@@ -48,7 +48,7 @@ export const showWarning = function(text) {
 }
 
 export const showError = function(text) {
-  return async function(dispatch) {
+  return function(dispatch) {
     dispatch(error(text));
     setTimeout(() => {
       dispatch(cleanMessages());
