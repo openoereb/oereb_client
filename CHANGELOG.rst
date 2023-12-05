@@ -8,6 +8,8 @@ https://github.com/openoereb/oereb_client/milestone/13
 
 - URL for responsible office is now optional
 - Show message in user interface, if "getegrid" returns no results
+- Add option to hide real estate highlight
+- Add option to hide background map
 - Update node version
 - Update to React 18
 - Apply new React root API

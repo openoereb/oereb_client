@@ -9,6 +9,8 @@ import OerebExternalViewer from '../external_viewer/external_viewer';
 import OerebPermalink from '../permalink/permalink';
 import OerebRealEstate from '../real_estate/real_estate';
 import OerebStaticExtract from '../static_extract/static_extract';
+import OerebToggleHighlight from '../toggle_highlight/toggle_highlight';
+import OerebToggleBackground from '../toggle_background/toggle_background';
 
 /**
  * This component contains the loaded extract data, including the extract menu and the real
@@ -74,7 +76,7 @@ const OerebExtractData = function () {
             <i className="bi bi-x-lg"></i>
           </button>
         </div>
-        <div className="btn-group float-start" role="group">
+        <div className="btn-group float-start me-3" role="group">
           <OerebPermalink />
           <OerebExternalViewer />
           <OerebStaticExtract />
@@ -84,6 +86,10 @@ const OerebExtractData = function () {
             onClick={toggleInfo}>
             <i className="bi bi-info-square"></i>
           </button>
+        </div>
+        <div className="btn-group float-start" role="group">
+          <OerebToggleHighlight />
+          <OerebToggleBackground />
         </div>
       </div>
       <OerebRealEstate data={extractData.RealEstate} />

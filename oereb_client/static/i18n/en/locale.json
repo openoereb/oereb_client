@@ -22,6 +22,12 @@
       "title": "Extract failed"
     },
     "hide": "Collapse extract",
+    "hide_background": {
+      "title": "Hide background map"
+    },
+    "hide_highlight": {
+      "title": "Hide real estate border"
+    },
     "information_panel": {
       "button": {
         "title": "General and legal information"
@@ -101,8 +107,6 @@
     },
     "settings": {
       "availability": "Show available municipalities",
-      "show_background_map": "Show background map",
-      "show_real_estate": "Highlight real estate",
       "symbol_zoom": "Zoom on legend symbols",
       "title": "Settings"
     },
