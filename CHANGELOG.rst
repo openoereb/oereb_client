@@ -10,6 +10,7 @@ https://github.com/openoereb/oereb_client/milestone/13
 - Show message in user interface, if "getegrid" returns no results
 - Add option to hide real estate highlight
 - Add option to hide background map
+- Add web app manifest and icons
 - Update node version
 - Update to React 18
 - Apply new React root API
