@@ -112,7 +112,8 @@ class Index(object):
 
         if 'apple_touch_icon' not in cfg:
             cfg.update({
-                'apple_touch_icon': self.request_.static_url('oereb_client:static/images/oereb-apple-touch-icon-192x192.png')
+                'apple_touch_icon': self.request_
+                .static_url('oereb_client:static/images/oereb-apple-touch-icon-192x192.png')
             })
 
         if 'manifest' not in cfg:
