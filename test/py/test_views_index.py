@@ -108,6 +108,7 @@ def test_render(mock_request):
     with testConfig(settings=settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
+        config.add_route('{0}/manifest'.format(config.route_prefix), '/manifest.json')
         config.add_route('{0}/search'.format(config.route_prefix), '/search')
         config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
@@ -125,6 +126,7 @@ def test_get_config(mock_request):
     with testConfig(settings=settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
+        config.add_route('{0}/manifest'.format(config.route_prefix), '/manifest.json')
         config.add_route('{0}/search'.format(config.route_prefix), '/search')
         config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
@@ -156,6 +158,7 @@ def test_get_config_tiled(mock_request):
     with testConfig(settings=custom_settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
+        config.add_route('{0}/manifest'.format(config.route_prefix), '/manifest.json')
         config.add_route('{0}/search'.format(config.route_prefix), '/search')
         config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
@@ -187,6 +190,7 @@ def test_get_config_custom_timeout(mock_request):
     with testConfig(settings=custom_settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
+        config.add_route('{0}/manifest'.format(config.route_prefix), '/manifest.json')
         config.add_route('{0}/search'.format(config.route_prefix), '/search')
         config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
@@ -269,10 +273,14 @@ def test_get_title_specified_language(mock_request):
 
 def test_get_application_config_default(mock_request):
     with testConfig(settings=settings) as config:
+        config.add_route('{0}/manifest'.format(config.route_prefix), '/manifest.json')
         config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
         cfg = index.get_application_config_()
-        assert cfg.get('icon') == 'http://example.com/static/images/favicon.png'
+        assert cfg.get('icon') == 'http://example.com/static/images/oereb-favicon-48x48.png'
+        assert cfg.get('apple_touch_icon') == \
+            'http://example.com/static/images/oereb-apple-touch-icon-192x192.png'
+        assert cfg.get('manifest') == 'http://example.com/manifest.json'
         assert isinstance(cfg.get('logo_oereb'), list)
         assert len(cfg.get('logo_oereb')) == 5
         for logo in cfg.get('logo_oereb'):
