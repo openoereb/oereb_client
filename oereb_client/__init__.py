@@ -57,6 +57,7 @@ def includeme(config):  # pragma: no cover
     add_mako_renderer(config, ".html")
     add_mako_renderer(config, ".xml")
     add_mako_renderer(config, ".js")
+    add_mako_renderer(config, ".json")
 
     config.include('oereb_client.routes')
 
