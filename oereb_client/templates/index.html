@@ -31,7 +31,9 @@
     % endif
 
     <title>${title}</title>
-    <link rel="shortcut icon" type="image/png" href="${config['application']['icon']}"/>
+    <link rel="icon" type="image/png" sizes="48x48" href="${config['application']['icon']}"/>
+    <link rel="apple-touch-icon" href="${config['application']['apple_touch_icon']}"/>
+    <link rel="manifest" href="${config['application']['manifest']}"/>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=9,IE=10,IE=edge,chrome=1" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">

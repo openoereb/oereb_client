@@ -2,6 +2,7 @@
 from pyramid.httpexceptions import HTTPNotFound
 
 from oereb_client.views.index import Index
+from oereb_client.views.manifest import Manifest
 from oereb_client.views.search import Search
 
 
@@ -36,6 +37,15 @@ def includeme(config):
                     route_name='{0}/index'.format(config.route_prefix),
                     renderer='oereb_client:templates/index.html',
                     request_method='GET')
+
+    # manifest.json
+    if 'manifest' not in config.registry.settings.get('oereb_client', {}).get('application', {}):
+        config.add_route('{0}/manifest'.format(config.route_prefix), '/manifest.json')
+        config.add_view(Manifest,
+                        attr='render',
+                        route_name='{0}/manifest'.format(config.route_prefix),
+                        renderer='oereb_client:templates/manifest.json',
+                        request_method='GET')
 
     # search
     config.add_route('{0}/search'.format(config.route_prefix), '/search')

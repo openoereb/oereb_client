@@ -92,6 +92,8 @@ oereb_client:
   #   - default_language      The language used as default
   # Optional:
   #   - icon                  URL to image used as favicon
+  #   - apple_touch_icon      URL to image used as apple touch icon
+  #   - manifest              URL to web app manifest
   #   - logo_oereb            Multilingual URL of the oereb logo
   #   - local_storage_prefix  Prefix used for the local browser storage
   # Logos and Titles have to be provided in each configured language.
@@ -115,7 +117,9 @@ oereb_client:
       - de
       - fr
     default_language: en
-    icon: https://example.com/my_favicon.png
+    icon: https://example.com/my_favicon_48x48.png
+    apple_touch_icon: https://example.com/my_apple_touch_icon_192x192.png
+    manifest: https://example.com/my_manifest.json
     logo_oereb:
       - Language: en
         URL: https://example.com/my_oereb_logo_en.png

@@ -107,7 +107,17 @@ class Index(object):
 
         if 'icon' not in cfg:
             cfg.update({
-                'icon': self.request_.static_url('oereb_client:static/images/favicon.png')
+                'icon': self.request_.static_url('oereb_client:static/images/oereb-favicon-48x48.png')
+            })
+
+        if 'apple_touch_icon' not in cfg:
+            cfg.update({
+                'apple_touch_icon': self.request_.static_url('oereb_client:static/images/oereb-apple-touch-icon-192x192.png')
+            })
+
+        if 'manifest' not in cfg:
+            cfg.update({
+                'manifest': self.request_.route_url('{0}/manifest'.format(self.request_.route_prefix))
             })
 
         if 'logo_oereb' not in cfg:
