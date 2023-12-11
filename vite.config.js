@@ -22,12 +22,29 @@ export default defineConfig({
     htmlPurge()
   ],
   define: {
-    // 'process.env.NODE_ENV': '"production"'
     'process.env': {}
   },
   test: {
     environment: 'jsdom',
     globals: true,
-    setupFiles: './test/js/setupTests.js'
+    setupFiles: './test/js/setupTests.js',
+    coverage: {
+      exclude: [
+        '**/*.config.js',
+        '**/*.config.cjs',
+        'docs/**',
+        '.storybook/**',
+        '**/*.stories.jsx',
+        '.venv/**',
+        'node_modules/**',
+        'test/**',
+        '__mocks__/**',
+        'build/**',
+        'dist/**',
+        '.vscode/**',
+        'oereb_client/static/src/oereb_client.jsx',
+        'oereb_client/static/build/**'
+      ]
+    }
   }
 });

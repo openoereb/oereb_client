@@ -1,10 +1,6 @@
 [run]
 source = oereb_client
 omit =
-    *.config.js
-    *.config.cjs
-    __mocks__/*
-    docs/*
     test/*
     samples/*
     */routes.py
