@@ -122,3 +122,5 @@ oereb_client:
   user_guide: https://example.com/guide/{lang}
 
   custom_css_url: samples/static/custom.css
+
+  show_scale_bar: false

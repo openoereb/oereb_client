@@ -193,6 +193,7 @@ class Index(object):
             'external_viewer': self.config_.get('external_viewer', {}),
             'user_guide': self.config_.get('user_guide'),
             'use_tile_wms': self.config_.get('use_tile_wms', False),
+            'show_scale_bar': self.config_.get('show_scale_bar', False),
             'extract_json_timeout': self.config_.get('extract_json_timeout', 60),
             'extract_pdf_timeout': self.config_.get('extract_pdf_timeout', 120)
         }

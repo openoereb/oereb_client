@@ -4,6 +4,7 @@
 
 @import "ol/ol.css";
 @import "bootstrap/scss/bootstrap.scss";
+@import "../../oereb_client.scss";
 
 .oereb-client-map {
   position: absolute;
@@ -15,6 +16,10 @@
 
 .ol-zoom {
   visibility: hidden;
+}
+
+.ol-scale-bar {
+  transition: left $animation-duration linear;
 }
 
 .ol-control,
