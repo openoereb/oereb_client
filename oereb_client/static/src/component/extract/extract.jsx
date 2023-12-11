@@ -46,6 +46,15 @@ const OerebExtract = function () {
     }
   });
 
+  document.querySelectorAll('.ol-scale-bar').forEach((element) => {
+    if (extract.visible || extract.error) {
+      element.style.left = '513px';
+    }
+    else {
+      element.style.left = '8px';
+    }
+  });
+
   return (
     <div ref={wrapper} className="oereb-client-extract-wrapper">
       {content}

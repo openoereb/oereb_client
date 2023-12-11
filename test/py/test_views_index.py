@@ -146,14 +146,16 @@ def test_get_config(mock_request):
             'external_viewer': settings.get('oereb_client').get('external_viewer'),
             'user_guide': None,
             'use_tile_wms': False,
+            'show_scale_bar': False,
             'extract_json_timeout': 60,
             'extract_pdf_timeout': 120
         }
 
 
-def test_get_config_tiled(mock_request):
+def test_get_optional_parameters(mock_request):
     custom_settings = deepcopy(settings)
     custom_settings['oereb_client']['use_tile_wms'] = True
+    custom_settings['oereb_client']['show_scale_bar'] = True
     custom_settings['oereb_client']['user_guide'] = 'https://example.com/guide'
     with testConfig(settings=custom_settings) as config:
         config.route_prefix = None
@@ -178,6 +180,7 @@ def test_get_config_tiled(mock_request):
             'external_viewer': settings.get('oereb_client').get('external_viewer'),
             'user_guide': 'https://example.com/guide',
             'use_tile_wms': True,
+            'show_scale_bar': True,
             'extract_json_timeout': 60,
             'extract_pdf_timeout': 120
         }
@@ -210,6 +213,7 @@ def test_get_config_custom_timeout(mock_request):
             'external_viewer': settings.get('oereb_client').get('external_viewer'),
             'user_guide': None,
             'use_tile_wms': False,
+            'show_scale_bar': False,
             'extract_json_timeout': 10,
             'extract_pdf_timeout': 20
         }

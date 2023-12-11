@@ -2,7 +2,7 @@ import './map.scss';
 
 import {isArray, isObject, isString} from 'lodash';
 import {Collection} from 'ol';
-import {Attribution, defaults} from 'ol/control';
+import {Attribution, defaults, ScaleLine} from 'ol/control';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
 import LayerGroup from 'ol/layer/Group';
 import ImageLayer from 'ol/layer/Image';
@@ -94,6 +94,7 @@ const OerebMap = function () {
   const serviceUrl = config.service_url;
   const [map, setMap] = useState(null);
   const tiled = config['use_tile_wms'];
+  const showScaleBar = config['show_scale_bar'];
 
   let LayerClass = ImageLayer;
   let SourceClass = ImageWMS;
@@ -167,15 +168,26 @@ const OerebMap = function () {
     const mapY = parseFloat(query.get('map_y')) || config.view.map_y;
     const mapZoom = parseFloat(query.get('map_zoom')) || config.view.map_zoom;
 
+    const controls = [];
+
     // Add attribution
-    const attribution = new Attribution({
+    controls.push(new Attribution({
       collapsible: document.body.offsetWidth < 1200
-    });
+    }));
+
+    // Add scale bar
+    if (showScaleBar) {
+      controls.push(new ScaleLine({
+        units: 'metric',
+        bar: true,
+        steps: 1
+      }));
+    }
 
     const newMap = new Map({
       controls: defaults({
         attribution: false
-      }).extend([attribution]),
+      }).extend(controls),
       view: new View({
         center: [mapX, mapY],
         zoom: mapZoom,

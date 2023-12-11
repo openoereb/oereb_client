@@ -43,7 +43,8 @@ const config = {
     },
     opacity: 0.8
   },
-  use_tile_wms: false
+  use_tile_wms: false,
+  use_scale_bar: true
 };
 
 beforeEach(() => {
