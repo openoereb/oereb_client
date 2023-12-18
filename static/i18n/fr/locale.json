@@ -22,6 +22,12 @@
       "title": "Echec de la génération de l'extrait"
     },
     "hide": "Cacher l'extrait",
+    "hide_background": {
+      "title": "Cacher la carte de fond"
+    },
+    "hide_highlight": {
+      "title": "Cacher la limite de bien-fonds"
+    },
     "information_panel": {
       "button": {
         "title": "Informations générales"
@@ -72,6 +78,14 @@
       },
       "opacity": "Opacité",
       "responsible_office": "Service compétent"
+    }
+  },
+  "map": {
+    "error": {
+      "unknown": "Une erreur s'est produite. Si cela persiste, veuillez contacter le support."
+    },
+    "warning": {
+      "no_data": "Aucune donnée n'est disponible à cette position."
     }
   },
   "menu": {

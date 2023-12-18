@@ -22,6 +22,12 @@
       "title": "Auszug fehlgeschlagen"
     },
     "hide": "Auszug ausblenden",
+    "hide_background": {
+      "title": "Hintergrundkarte ausblenden"
+    },
+    "hide_highlight": {
+      "title": "Grundstückgrenze ausblenden"
+    },
     "information_panel": {
       "button": {
         "title": "Allgemeine und rechtliche Informationen"
@@ -72,6 +78,14 @@
       },
       "opacity": "Deckkraft",
       "responsible_office": "Zuständige Stelle"
+    }
+  },
+  "map": {
+    "error": {
+      "unknown": "Es ist ein Fehler aufgetreten. Sollte dies weiterhin der Fall sein, kontaktieren Sie bitte den Support."
+    },
+    "warning": {
+      "no_data": "An dieser Position sind keine Daten verfügbar."
     }
   },
   "menu": {

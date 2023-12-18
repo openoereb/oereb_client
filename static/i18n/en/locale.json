@@ -22,6 +22,12 @@
       "title": "Extract failed"
     },
     "hide": "Collapse extract",
+    "hide_background": {
+      "title": "Hide background map"
+    },
+    "hide_highlight": {
+      "title": "Hide real estate border"
+    },
     "information_panel": {
       "button": {
         "title": "General and legal information"
@@ -72,6 +78,14 @@
       },
       "opacity": "Opacity",
       "responsible_office": "Responsible office"
+    }
+  },
+  "map": {
+    "error": {
+      "unknown": "An error occured. Please contact the support, if it continues happening."
+    },
+    "warning": {
+      "no_data": "There is no data available at this position."
     }
   },
   "menu": {
