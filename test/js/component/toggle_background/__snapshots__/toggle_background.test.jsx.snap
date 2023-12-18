@@ -3,7 +3,7 @@
 exports[`toggle background component > should render button 1`] = `
 <DocumentFragment>
   <button
-    class="btn btn-outline-secondary"
+    class="btn btn-outline-secondary oereb-client-toggle-background"
     title="extract.hide_background.title"
     type="button"
   >
@@ -17,7 +17,7 @@ exports[`toggle background component > should render button 1`] = `
 exports[`toggle background component > should toggle state 1`] = `
 <DocumentFragment>
   <button
-    class="btn btn-secondary"
+    class="btn btn-secondary oereb-client-toggle-background"
     title="extract.hide_background.title"
     type="button"
   >
@@ -31,7 +31,7 @@ exports[`toggle background component > should toggle state 1`] = `
 exports[`toggle background component > should toggle state 2`] = `
 <DocumentFragment>
   <button
-    class="btn btn-outline-secondary"
+    class="btn btn-outline-secondary oereb-client-toggle-background"
     title="extract.hide_background.title"
     type="button"
   >

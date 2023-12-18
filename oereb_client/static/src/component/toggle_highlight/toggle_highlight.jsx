@@ -19,10 +19,10 @@ const OerebToggleHighlight = function () {
 
   let buttonClass;
   if (highlight) {
-    buttonClass = "btn btn-outline-secondary";
+    buttonClass = "btn btn-outline-secondary oereb-client-toggle-highlight";
   }
   else {
-    buttonClass = "btn btn-secondary";
+    buttonClass = "btn btn-secondary oereb-client-toggle-highlight";
   }
 
   return (

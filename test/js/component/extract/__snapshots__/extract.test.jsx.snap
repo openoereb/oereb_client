@@ -152,7 +152,7 @@ exports[`extract component > should render extract data 1`] = `
           role="group"
         >
           <button
-            class="btn btn-outline-secondary"
+            class="btn btn-outline-secondary oereb-client-toggle-highlight"
             title="extract.hide_highlight.title"
             type="button"
           >
@@ -161,7 +161,7 @@ exports[`extract component > should render extract data 1`] = `
             />
           </button>
           <button
-            class="btn btn-outline-secondary"
+            class="btn btn-outline-secondary oereb-client-toggle-background"
             title="extract.hide_background.title"
             type="button"
           >

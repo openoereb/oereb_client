@@ -19,10 +19,10 @@ const OerebToggleBackground = function () {
 
   let buttonClass;
   if (background) {
-    buttonClass = "btn btn-outline-secondary";
+    buttonClass = "btn btn-outline-secondary oereb-client-toggle-background";
   }
   else {
-    buttonClass = "btn btn-secondary";
+    buttonClass = "btn btn-secondary oereb-client-toggle-background";
   }
 
   return (
