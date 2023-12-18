@@ -1,6 +1,13 @@
 Changelog
 ---------
 
+2.1.1
+*****
+
+https://github.com/openoereb/oereb_client/milestone/14
+
+- Small fixes in UI
+
 2.1.0
 *****
 
