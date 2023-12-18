@@ -1,0 +1,11 @@
+import{M as o}from"./chunk-HLWAVYOI-tMPDmtZb.js";import{j as e}from"./jsx-runtime-xaxriM6s.js";import{u as i}from"./index-EXpe7ZrZ.js";import"./iframe-I-FZaZSb.js";import"../sb-preview/runtime.js";import"./index-NFP2aL9U.js";import"./react-18-89RtvapL.js";import"./index-WO-Izxve.js";import"./chunk-ZGA76URP-PfrU0Dmb.js";import"./pickBy-Eonxbozj.js";import"./_commonjs-dynamic-modules-h-SxKiO4.js";import"./mapValues-ZS6BODhJ.js";import"./index-IqZHJlMI.js";import"./index-PPLHz8o0.js";import"./index-Z8kpRV5R.js";function s(r){const t=Object.assign({h1:"h1",p:"p",pre:"pre",code:"code",h3:"h3",table:"table",thead:"thead",tr:"tr",th:"th",tbody:"tbody",td:"td"},i(),r.components);return e.jsxs(e.Fragment,{children:[e.jsx(o,{title:"API Reference/Util/String"}),`
+`,e.jsx(t.h1,{id:"format",children:"format"}),`
+`,e.jsx(t.p,{children:`Accepts a template string and an object containg the values to be replaced.
+Each key (e.g. {myKey}) in the template string will be replaced with the
+correponding value in the object, if available.`}),`
+`,e.jsx(t.pre,{children:e.jsx(t.code,{className:"language-js",children:`format(input, values);
+`})}),`
+`,e.jsx(t.h3,{id:"parameters",children:"Parameters"}),`
+`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{children:"Param"}),e.jsx(t.th,{children:"Type"}),e.jsx(t.th,{children:"Description"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:"input"}),e.jsx(t.td,{children:e.jsx("code",{children:"String"})}),e.jsx(t.td,{children:"The template string."})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:"values"}),e.jsx(t.td,{children:e.jsx("code",{children:"Object"})}),e.jsx(t.td,{children:"The object containing the values for replacement."})]})]})]}),`
+`,e.jsx(t.h3,{id:"returns",children:"Returns"}),`
+`,e.jsxs(t.p,{children:[e.jsx("code",{children:"String"})," The formatted string."]})]})}function a(r={}){const{wrapper:t}=Object.assign({},i(),r.components);return t?e.jsx(t,{...r,children:e.jsx(s,{...r})}):s(r)}const c=()=>{throw new Error("Docs-only story")};c.parameters={docsOnly:!0};const n={title:"API Reference/Util/String",tags:["stories-mdx"],includeStories:["__page"]};n.parameters=n.parameters||{};n.parameters.docs={...n.parameters.docs||{},page:a};const w=["__page"];export{w as __namedExportsOrder,c as __page,n as default};
