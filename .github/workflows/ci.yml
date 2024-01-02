@@ -201,7 +201,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: static
           path: oereb_client/static
@@ -227,7 +227,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: static
           path: oereb_client/static
@@ -250,7 +250,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download doc artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: doc
           path: docs/build
