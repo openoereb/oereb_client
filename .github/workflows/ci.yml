@@ -33,7 +33,7 @@ jobs:
           make lint-py
           make test-py
       - name: Send coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           name: Backend Python ${{ matrix.python-version }}
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -60,7 +60,7 @@ jobs:
           make lint-js
           make test-js
       - name: Send coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           name: Frontend
           token: ${{ secrets.CODECOV_TOKEN }}
