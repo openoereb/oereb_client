@@ -73,7 +73,7 @@
     "remark-gfm": "^3.0.1",
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.69.6",
-    "sass-loader": "^13.3.3",
+    "sass-loader": "^14.1.0",
     "storybook": "^7.6.12",
     "storybook-react-i18next": "^2.0.10",
     "style-loader": "^3.3.4",
