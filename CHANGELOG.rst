@@ -1,10 +1,13 @@
 Changelog
 ---------
 
-2.1.2 (current dev)
-*******************
+2.1.2
+*****
 
 https://github.com/openoereb/oereb_client/milestone/15
+
+- Improve translations
+- Dependency updates
 
 2.1.1
 *****
