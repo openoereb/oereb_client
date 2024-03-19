@@ -1,0 +1,1 @@
+import{l as s}from"./lodash-Dq-K8hP6.js";const l=new RegExp("({([\\w]*)})","g"),a=function(e,o){if(s.isString(e)){let t=e,r=l.exec(e);for(;r!==null;)t=t.replace(r[1],o[r[2]]||""),r=l.exec(e);return t}return e};export{a as f};
