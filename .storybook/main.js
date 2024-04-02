@@ -3,7 +3,7 @@ import remarkGfm from 'remark-gfm';
 
 export default {
   stories: [
-    '../docs/src/**/*.stories.mdx',
+    '../docs/src/**/*.mdx',
     '../oereb_client/**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
   addons: [

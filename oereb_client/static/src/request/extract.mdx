@@ -1,4 +1,4 @@
-import {Meta} from '@storybook/addon-docs';
+import {Meta} from '@storybook/blocks';
 
 <Meta title="API Reference/Request/Extract" />
 
@@ -25,7 +25,6 @@ queryExtractById(applicationUrl, egrid, identdn, number, timeout, language);
 
 <code>Promise</code> A promise receiving the extract data.
 
-
 # queryStaticExtractById
 
 Queries the static extract (PDF) for the specified E-GRID and language.
@@ -49,7 +48,6 @@ queryStaticExtractById(applicationUrl, egrid, identdn, number, language);
 
 <code>Promise</code> A promise receiving the static extract document.
 
-
 # sanitizeTopicCode
 
 A helper function to remove special characters from the topic code.
@@ -67,7 +65,6 @@ sanitizeTopicCode(code);
 ### Returns
 
 <code>String</code> The sanitized topic code.
-
 
 # getParentTheme
 
@@ -88,7 +85,6 @@ getParentTheme(theme, concernedThemes);
 ### Returns
 
 <code>Object</code> The parent theme.
-
 
 # groupRestrictionsByTopic
 

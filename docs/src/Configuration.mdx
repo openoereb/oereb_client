@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from '@storybook/blocks';
 
 <Meta title="User Guide/Configuration" />
 
@@ -15,7 +15,7 @@ but you don't have to.
 ## Update the Pyramid configuration
 
 > **Note:** This section is not necessary, if the application is run using
-the provided container image.
+> the provided container image.
 
 In this example, the configuration file for the OeREB Client is named
 `oereb_client.yml`. You can create this file in your application's root
@@ -75,10 +75,10 @@ your container. The top-level element has to be called `oereb_client`. The
 following example shows such a configuration and explains the parameters.
 
 > **Note:** The configuration file is parsed using
-[pyaml-env](https://github.com/mkaranasou/pyaml_env). This allows you to use
-environment variables in your configuration, which will be interpreted when
-the configuration is parsed on application start up. Please refer to the
-linked project site to see how to use this feature.
+> [pyaml-env](https://github.com/mkaranasou/pyaml_env). This allows you to use
+> environment variables in your configuration, which will be interpreted when
+> the configuration is parsed on application start up. Please refer to the
+> linked project site to see how to use this feature.
 
 ```yaml
 # OeREB Client
@@ -327,9 +327,10 @@ As mentioned in the configuration example above, you have two options to configu
 2. specify an external endpoint for search requests.
 
 The client always sends one search request using the following URL pattern, where
-- `<search url>` is the URL of the integrated proxy or the configured external endpoint,
-- `<search term>` the entered search value and
-- `<language>` the currently selected language.
+
+* `<search url>` is the URL of the integrated proxy or the configured external endpoint,
+* `<search term>` the entered search value and
+* `<language>` the currently selected language.
 
 ```
 http(s)://<search url>?term=<search term>&lang=<language>

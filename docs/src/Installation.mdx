@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from '@storybook/blocks';
 
 <Meta title="User Guide/Installation" />
 
@@ -12,8 +12,8 @@ If you want to use the provided container image to run the application,
 please refer to the last section of this page.
 
 > **Note:** The usage of a virtual environment is recommended but not
-necessary. For the examples, a virtual environment under ".venv" is
-assumed.
+> necessary. For the examples, a virtual environment under ".venv" is
+> assumed.
 
 ## Requirements
 
@@ -25,7 +25,7 @@ the application.
 
 To make use of the front-end application, you also need a back-end part.
 For that, you can include
-[pyramid_oereb](https://openoereb.github.io/pyramid_oereb/doc/) in the
+[pyramid\_oereb](https://openoereb.github.io/pyramid_oereb/doc/) in the
 same Pyramid application, for example.
 
 Having all set up, you can proceed with installation of the OeREB
@@ -50,7 +50,7 @@ specifiy it. For example:
 ```
 
 > **NOTE:** Use the latest release as long as there is no need for a
-certain version.
+> certain version.
 
 Alternatively, you could add `oereb_client` to a file, like
 *requirements.txt* and use it for downloading:
@@ -60,7 +60,7 @@ Alternatively, you could add `oereb_client` to a file, like
 ```
 
 > **NOTE:** The current development versions are available on TestPyPI
-(https://test.pypi.org/project/oereb-client/).
+> (https://test.pypi.org/project/oereb-client/).
 
 ## Include the plugin
 
@@ -93,9 +93,9 @@ config.include('oereb_client')
 After restarting the application, the plugin should be loaded, but you
 may get some errors because of the still missing configuration.
 
-### 2. Via the application's *.ini file
+### 2. Via the application's \*.ini file
 
-Usually you create one or more *.ini file for a Pyramid application,
+Usually you create one or more \*.ini file for a Pyramid application,
 e.g. *development.ini* and *production.ini*, where you configure the
 application entry point, logging and maybe other global preferences.
 
@@ -142,5 +142,5 @@ To configure the application, you have to mount your configuration file into the
 
 You can adjust the log level using the environment variable `LOG_LEVEL`.
 
-> **NOTE:** _pyramid_oereb_ has to be run in a separate container. You have to use the configuration
-parameter `service_url` to specify the root URL of your OeREB web service.
+> **NOTE:** *pyramid\_oereb* has to be run in a separate container. You have to use the configuration
+> parameter `service_url` to specify the root URL of your OeREB web service.
