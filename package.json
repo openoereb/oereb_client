@@ -53,7 +53,7 @@
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-vitest": "^0.4.1",
-    "eslint-plugin-vitest-globals": "^1.4.0",
+    "eslint-plugin-vitest-globals": "^1.5.0",
     "file-loader": "^6.2.0",
     "file-saver": "^2.0.5",
     "glob-parent": "^6.0.2",
