@@ -2,7 +2,7 @@
 import logging
 
 from concurrent.futures import as_completed
-from datetime import datetime, timedelta
+from datetime import datetime
 from pyramid.path import DottedNameResolver
 from requests_futures.sessions import FuturesSession
 
