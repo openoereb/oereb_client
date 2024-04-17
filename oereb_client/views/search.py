@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
+import logging
+
 from concurrent.futures import as_completed
+from datetime import datetime, timedelta
 from pyramid.path import DottedNameResolver
 from requests_futures.sessions import FuturesSession
 
 from oereb_client.views import get_localized_text
+
+
+log = logging.getLogger('oereb_client')
 
 
 class Search(object):
@@ -41,6 +47,7 @@ class Search(object):
         Returns:
             list of dict: The search results.
         """
+        start_time = datetime.now()
         result_sets = []
         for i, req in enumerate(sorted(self.send_requests_(), key=lambda r: r.index)):
             response = req.result()
@@ -58,6 +65,12 @@ class Search(object):
                     ),
                     'results': results
                 })
+        end_time = datetime.now()
+        duration = end_time - start_time
+        log.debug('Search took {0} ms for term "{1}"'.format(
+            duration.total_seconds() * 1000,
+            self.request_.params.get('term')
+        ))
         return result_sets
 
     @staticmethod

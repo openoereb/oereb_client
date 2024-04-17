@@ -1,8 +1,10 @@
-FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.17
+FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.19
 
 USER 0
 
-RUN apk --update add \
+RUN apk update && \
+    apk upgrade && \
+    apk --update add \
         zsh \
         bash \
         bash-completion \

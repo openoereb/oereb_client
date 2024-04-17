@@ -1,8 +1,10 @@
-FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.17 AS builder
+FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.19 AS builder
 
 USER 0
 
-RUN apk --update add \
+RUN apk update && \
+    apk upgrade && \
+    apk add \
         bash \
         bash-completion \
         shadow \
@@ -26,11 +28,13 @@ RUN python3 -m venv .venv && \
 
 USER 1001
 
-FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.17
+FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.19
 
 USER 0
 
-RUN apk --update add \
+RUN apk update && \
+    apk upgrade && \
+    apk add \
         bash \
         uwsgi-python3
 

@@ -6,6 +6,8 @@ Changelog
 
 https://github.com/openoereb/oereb_client/milestone/16
 
+- Set Python 3.11 as default
+
 2.1.2
 *****
 
