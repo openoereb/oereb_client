@@ -1,0 +1,15 @@
+.oereb-client-topic-list-with-restrictions {
+  .accordion-item {
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+  }
+
+  .accordion-flush > .accordion-item {
+    border-bottom-width: 0;
+  }
+
+  .accordion-flush > .accordion-item:last-child > .accordion-item:last-child {
+    border-bottom-width: 0;
+  }
+}
