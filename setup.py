@@ -6,7 +6,7 @@ import sys
 from setuptools import setup, find_packages
 from datetime import datetime
 
-VERSION = '2.1.3'
+VERSION = '2.1.4'
 
 test_mode = False
 is_beta = False
