@@ -1,8 +1,8 @@
 Changelog
 ---------
 
-2.1.3 (current dev)
-*******************
+2.1.3
+*****
 
 https://github.com/openoereb/oereb_client/milestone/16
 
