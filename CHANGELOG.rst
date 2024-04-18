@@ -7,6 +7,7 @@ Changelog
 https://github.com/openoereb/oereb_client/milestone/16
 
 - Set Python 3.11 as default
+- Fix layout for list of concerned themes
 
 2.1.2
 *****
