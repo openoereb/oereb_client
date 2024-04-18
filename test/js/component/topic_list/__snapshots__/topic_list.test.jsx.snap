@@ -12,7 +12,7 @@ exports[`topic with restriction component > should render topics 1`] = `
         class="accordion-item"
       >
         <div
-          class="accordion-item p-2 ps-3"
+          class="accordion-item p-2 ps-3 oereb-client-topic-with-restrictions"
         >
           <strong>
             Nutzungsplanung (kantonal/kommunal): Grundnutzung
@@ -411,7 +411,7 @@ exports[`topic with restriction component > should render topics 1`] = `
         class="accordion-item"
       >
         <div
-          class="accordion-item p-2 ps-3"
+          class="accordion-item p-2 ps-3 oereb-client-topic-with-restrictions"
         >
           <strong>
             Nutzungsplanung (kantonal/kommunal): Überlagernde Elemente
@@ -896,7 +896,7 @@ exports[`topic with restriction component > should render topics 1`] = `
         class="accordion-item"
       >
         <div
-          class="accordion-item p-2 ps-3"
+          class="accordion-item p-2 ps-3 oereb-client-topic-with-restrictions"
         >
           <strong>
             Kataster der belasteten Standorte im Bereich der zivilen Flugplätze
@@ -1058,7 +1058,7 @@ exports[`topic with restriction component > should render topics 1`] = `
         class="accordion-item"
       >
         <div
-          class="accordion-item p-2 ps-3"
+          class="accordion-item p-2 ps-3 oereb-client-topic-with-restrictions"
         >
           <strong>
             Kataster der belasteten Standorte im Bereich des öffentlichen Verkehrs
@@ -1783,7 +1783,7 @@ exports[`topic with restriction component > should render topics 1`] = `
         class="accordion-item"
       >
         <div
-          class="accordion-item p-2 ps-3"
+          class="accordion-item p-2 ps-3 oereb-client-topic-with-restrictions"
         >
           <strong>
             Grundwasserschutzzonen
@@ -1995,7 +1995,7 @@ exports[`topic with restriction component > should render topics 1`] = `
         class="accordion-item"
       >
         <div
-          class="accordion-item p-2 ps-3"
+          class="accordion-item p-2 ps-3 oereb-client-topic-with-restrictions"
         >
           <strong>
             Statische Waldgrenzen
