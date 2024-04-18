@@ -6,6 +6,8 @@ import {sanitizeTopicCode} from '../../request/extract';
 import {getLocalizedText} from '../../util/language';
 import OerebTopic from '../topic/topic';
 
+import './topics_with_restrictions.scss';
+
 /**
  * This component shows the list of topics which contain restrictions for the currently loaded extract.
  */
@@ -41,7 +43,7 @@ const OerebTopicsWithRestriction = function (props) {
       }
       return (
         <div className="accordion-item" key={`${key1}_${key2}`}>
-          <div className="accordion-item p-2 ps-3">
+          <div className="accordion-item p-2 ps-3 oereb-client-topic-with-restrictions">
             <strong>{title}</strong>
           </div>
           {inForce}
