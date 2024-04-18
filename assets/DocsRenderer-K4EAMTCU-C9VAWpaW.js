@@ -1,0 +1,7 @@
+function __vite__mapDeps(indexes) {
+  if (!__vite__mapDeps.viteFileDeps) {
+    __vite__mapDeps.viteFileDeps = ["./index-DBGhK6Tk.js","./index-Cllag2AU.js"]
+  }
+  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
+}
+import{_ as p}from"./iframe-DPUVvbjk.js";import{R as e,r as c}from"./index-Cllag2AU.js";import{r as l,u}from"./react-18-BYfzS5w0.js";import{C as h,A as E,H as d,D as x}from"./index-C2ABk1ke.js";import"../sb-preview/runtime.js";import"./index-CWjlu4VB.js";import"./index-BzM4uVPd.js";import"./_commonjs-dynamic-modules-TDtrdbi3.js";import"./index-B_J8iUie.js";import"./index-BV8Fj0rc.js";import"./index-DrFu-skq.js";var _={code:h,a:E,...d},D=class extends c.Component{constructor(){super(...arguments),this.state={hasError:!1}}static getDerivedStateFromError(){return{hasError:!0}}componentDidCatch(t){let{showException:r}=this.props;r(t)}render(){let{hasError:t}=this.state,{children:r}=this.props;return t?null:e.createElement(e.Fragment,null,r)}},O=class{constructor(){this.render=async(t,r,o)=>{let n={..._,...r==null?void 0:r.components},s=x;return new Promise((m,i)=>{p(()=>import("./index-DBGhK6Tk.js"),__vite__mapDeps([0,1]),import.meta.url).then(({MDXProvider:a})=>l(e.createElement(D,{showException:i,key:Math.random()},e.createElement(a,{components:n},e.createElement(s,{context:t,docsParameter:r}))),o)).then(()=>m())})},this.unmount=t=>{u(t)}}};export{O as DocsRenderer,_ as defaultComponents};
