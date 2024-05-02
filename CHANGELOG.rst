@@ -6,6 +6,8 @@ Changelog
 
 https://github.com/openoereb/oereb_client/milestone/17
 
+- Dependency updates
+
 2.1.3
 *****
 
