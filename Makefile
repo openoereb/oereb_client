@@ -91,11 +91,11 @@ test-py: .venv/.requirements.timestamp
 	.venv/bin/py.test -vv --cov-config .coveragerc --cov-report xml:.pytest-coverage.xml --cov-report term:skip-covered --cov oereb_client test/py
 
 .PHONY: lint-js
-lint-js: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)
+lint-js: node_modules/.timestamp eslint.config.js $(SRC_JS) $(TEST_JS)
 	./node_modules/.bin/eslint $(SRC_JS) $(TEST_JS)
 
 .PHONY: lint-js-fix
-lint-js-fix: node_modules/.timestamp .eslintrc.yml $(SRC_JS) $(TEST_JS)
+lint-js-fix: node_modules/.timestamp eslint.config.js $(SRC_JS) $(TEST_JS)
 	./node_modules/.bin/eslint --fix $(SRC_JS) $(TEST_JS)
 
 .PHONY: test-js
