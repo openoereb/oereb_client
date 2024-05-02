@@ -15,7 +15,8 @@ RUN apk update && \
         uwsgi-python3 \
         yq \
         python3-dev \
-        libffi-dev
+        libffi-dev \
+        openssh
 
 ENV PATH="/app/.local/bin:${PATH}" \
     DEVELOPMENT=true \
