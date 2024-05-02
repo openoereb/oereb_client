@@ -1,13 +1,12 @@
-const reactRecommended = require('eslint-plugin-react/configs/recommended');
-const vitest = require('eslint-plugin-vitest');
-const vitestGlobalsRecommended = require('eslint-plugin-vitest-globals/configs/recommended');
-const simpleImportSort = require('eslint-plugin-simple-import-sort');
-const globals = require('globals');
+import js from "@eslint/js";
+import reactRecommended from "eslint-plugin-react/configs/recommended.js";
+import vitest from "eslint-plugin-vitest";
+import vitestGlobals from "eslint-plugin-vitest-globals";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 
 export default [
-  "eslint:recommended",
-  ...reactRecommended,
-  ...vitestGlobalsRecommended,
+  js.configs.recommended,
+  reactRecommended,
   {
     files: [
       "oereb_client/**/*.js",
@@ -16,14 +15,10 @@ export default [
     ignores: [
       "test/js/**/assets/**/*.js"
     ],
-    env: {
-      browser: true,
-      es6: true
-    },
     plugins: {
-      vitest,
+      vitest: vitest,
       vitestGlobals,
-      simpleImportSort
+      "simple-import-sort": simpleImportSort
     },
     languageOptions: {
       ...reactRecommended.languageOptions,
@@ -33,9 +28,8 @@ export default [
         }
       },
       globals: {
-        ...globals.browser,
         ...vitest.environments.env.globals,
-        ...vitestGlobalsRecommended.environments.env.globals,
+        ...vitestGlobals.environments.env.globals,
         proj4: "readonly",
         "__dirname": "readonly"
       }
@@ -46,7 +40,7 @@ export default [
       }
     },
     rules: {
-      ...vitest.configs.recommended.rules
+      ...vitest.configs.recommended.rules,
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
       "max-len": ["error", {code: 110}]
