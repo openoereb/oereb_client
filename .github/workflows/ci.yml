@@ -34,10 +34,11 @@ jobs:
           make lint-py
           make test-py
       - name: Send coverage
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v4.2.0
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
           name: Backend Python ${{ matrix.python-version }}
-          token: ${{ secrets.CODECOV_TOKEN }}
           files: .pytest-coverage.xml
           flags: backend
           fail_ci_if_error: true
