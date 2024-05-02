@@ -76,7 +76,7 @@
     "sass-loader": "^14.1.1",
     "storybook": "^8.0.9",
     "storybook-react-i18next": "^3.0.1",
-    "style-loader": "^3.3.4",
+    "style-loader": "^4.0.0",
     "trim": ">=1.0.1",
     "trim-newlines": "^5.0.0",
     "uuid": "^9.0.1",
