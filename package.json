@@ -61,7 +61,7 @@
     "i18next-browser-languagedetector": "^8.0.0",
     "i18next-http-backend": "^2.5.2",
     "i18next-scanner": "^4.4.0",
-    "jsdom": "^24.0.0",
+    "jsdom": "^24.1.0",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.9.0",
     "ol": "^9.1.0",
