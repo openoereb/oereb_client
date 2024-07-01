@@ -7,5 +7,5 @@ pyflakes==3.2.0
 pyramid_debugtoolbar==4.12.1
 pytest==8.2.1
 pytest-cov==5.0.0
-twine==5.1.0
+twine==5.1.1
 -e .
