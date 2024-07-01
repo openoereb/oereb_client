@@ -80,7 +80,7 @@
     "trim": ">=1.0.1",
     "trim-newlines": "^5.0.0",
     "uuid": "^9.0.1",
-    "vite": "^5.2.12",
+    "vite": "^5.3.2",
     "vite-plugin-purgecss": "^0.2.12",
     "vitest": "^1.6.0",
     "vitest-fetch-mock": "^0.2.2"
