@@ -14,7 +14,8 @@ export default [
       "test/**/*.{js,jsx,mjs,cjs,ts,tsx}"
     ],
     ignores: [
-      "test/js/**/assets/**/*.js"
+      "test/js/**/assets/**/*.js",
+      "node_modules/**/*.{js,jsx,mjs,cjs,ts,tsx}",
     ],
     plugins: {
       vitest: vitest,
@@ -33,7 +34,8 @@ export default [
         ...vitest.environments.env.globals,
         ...vitestGlobals.environments.env.globals,
         proj4: "readonly",
-        "__dirname": "readonly"
+        "__dirname": "readonly",
+        global: "readonly"
       }
     },
     settings: {
