@@ -304,6 +304,12 @@ oereb_client:
   # parameter undefined to disable Google Analytics.
   google_analytics: UA-12345678-9
 
+  # [OPTIONAL] Enable Matomo tracking by specifying matomo URL and site ID. Leave this
+  # parameter undefined to disable Matomo.
+  matomo:
+    url: https://matomo.example.com
+    id: 1
+
   # [OPTIONAL] The mask_surrounding layer can be used to lay a mask (half-transparent
   # white layer) on the surrounding cantons. You have to define a WMS URL and
   # params according to the ol.source.ImageWMS documentation:

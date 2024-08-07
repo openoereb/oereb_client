@@ -148,7 +148,8 @@ def test_get_config(mock_request):
             'use_tile_wms': False,
             'show_scale_bar': False,
             'extract_json_timeout': 60,
-            'extract_pdf_timeout': 120
+            'extract_pdf_timeout': 120,
+            'matomo': {}
         }
 
 
@@ -182,7 +183,8 @@ def test_get_optional_parameters(mock_request):
             'use_tile_wms': True,
             'show_scale_bar': True,
             'extract_json_timeout': 60,
-            'extract_pdf_timeout': 120
+            'extract_pdf_timeout': 120,
+            'matomo': {}
         }
 
 
@@ -215,7 +217,8 @@ def test_get_config_custom_timeout(mock_request):
             'use_tile_wms': False,
             'show_scale_bar': False,
             'extract_json_timeout': 10,
-            'extract_pdf_timeout': 20
+            'extract_pdf_timeout': 20,
+            'matomo': {}
         }
 
 

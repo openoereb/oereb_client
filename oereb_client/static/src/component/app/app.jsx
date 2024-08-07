@@ -1,6 +1,6 @@
 import {isString} from 'lodash';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 
 import {initAvailability, setAvailabilityPrefix} from '../../reducer/availability';
@@ -15,6 +15,7 @@ import OerebInformationPanel from '../information_panel/information_panel';
 import OerebMap from '../map/map';
 import OerebMenu from '../menu/menu';
 import OerebMessage from '../message/message';
+import MatomoTracker from '../matomo_tracker/matomo_tracker';
 
 const App = function (props) {
   const dispatch = useDispatch();
@@ -67,6 +68,11 @@ const App = function (props) {
       });
   }
 
+  let tracker = null;
+  if (config['matomo'] && config['matomo']['url'] && config['matomo']['site_id']) {
+    tracker = <MatomoTracker matomoUrl={config['matomo']['url']} siteId={config['matomo']['site_id']} />;
+  }
+
   return (
     <div className="oereb-client-app">
         <OerebMap />
@@ -74,6 +80,7 @@ const App = function (props) {
         <OerebExtract />
         <OerebMenu />
         <OerebMessage />
+        {tracker}
     </div>
   );
 };
