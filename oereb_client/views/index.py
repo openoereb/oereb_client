@@ -195,7 +195,8 @@ class Index(object):
             'use_tile_wms': self.config_.get('use_tile_wms', False),
             'show_scale_bar': self.config_.get('show_scale_bar', False),
             'extract_json_timeout': self.config_.get('extract_json_timeout', 60),
-            'extract_pdf_timeout': self.config_.get('extract_pdf_timeout', 120)
+            'extract_pdf_timeout': self.config_.get('extract_pdf_timeout', 120),
+            'matomo': self.config_.get('matomo', {})
         }
 
     def get_title(self):

@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm';
 export default {
   stories: [
     '../docs/src/**/*.mdx',
-    '../oereb_client/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../oereb_client/**/*.@(mdx|stories.@(js|jsx|ts|tsx))',
   ],
   addons: [
     "@storybook/addon-links",
