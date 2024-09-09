@@ -22,10 +22,10 @@
   "type": "module",
   "devDependencies": {
     "@babel/core": "^7.25.2",
-    "@babel/plugin-transform-runtime": "^7.24.7",
-    "@babel/preset-env": "^7.25.3",
+    "@babel/plugin-transform-runtime": "^7.25.4",
+    "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.24.7",
-    "@babel/runtime": "^7.25.0",
+    "@babel/runtime": "^7.25.6",
     "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^2.2.7",
     "@storybook/addon-docs": "^8.2.7",
