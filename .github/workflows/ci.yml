@@ -10,7 +10,7 @@ jobs:
 
   test-py:
     name: Test Python
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         python-version:
@@ -46,7 +46,7 @@ jobs:
 
   test-js:
     name: Test JavaScript
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node.js
@@ -76,7 +76,7 @@ jobs:
     needs:
       - test-py
       - test-js
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -101,7 +101,7 @@ jobs:
     needs:
       - test-py
       - test-js
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node.js
@@ -127,7 +127,7 @@ jobs:
     needs:
       - build
     if: ${{ github.ref == 'refs/heads/main' }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Extract metadata (tags, labels) for Docker
@@ -162,7 +162,7 @@ jobs:
     needs:
       - build
     if: ${{ startsWith(github.ref, 'refs/tags') }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Extract metadata (tags, labels) for Docker
@@ -197,7 +197,7 @@ jobs:
     needs:
       - build
     if: ${{ github.ref == 'refs/heads/main' }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -223,7 +223,7 @@ jobs:
     needs:
       - build
     if: ${{ startsWith(github.ref, 'refs/tags') }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -248,7 +248,7 @@ jobs:
     needs:
       - build-doc
     if: ${{ startsWith(github.ref, 'refs/tags') }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Download doc artifacts
