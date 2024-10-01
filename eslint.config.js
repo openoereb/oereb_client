@@ -1,7 +1,7 @@
 import js from "@eslint/js";
 import globals from "globals";
 import reactRecommended from "eslint-plugin-react/configs/recommended.js";
-import vitest from "eslint-plugin-vitest";
+import vitest from "@vitest/eslint-plugin";
 import vitestGlobals from "eslint-plugin-vitest-globals";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 
