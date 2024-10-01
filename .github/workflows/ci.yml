@@ -210,8 +210,9 @@ jobs:
       - name: Build packages
         run: |
           ls -ls oereb_client/static/build
-          pip install wheel -r requirements.txt
-          python setup.py --test clean check sdist bdist_wheel
+          python -m venv .venv
+          .venv/bin/pip install wheel setuptools -r requirements.txt
+          .venv/bin/python setup.py --test clean check sdist bdist_wheel
       - name: Upload to PyPI Test
         uses: pypa/gh-action-pypi-publish@v1.10.2
         with:
@@ -236,8 +237,9 @@ jobs:
       - name: Build packages
         run: |
           ls -ls oereb_client/static/build
-          pip install wheel -r requirements.txt
-          python setup.py clean check sdist bdist_wheel
+          python -m venv .venv
+          .venv/bin/pip install wheel setuptools -r requirements.txt
+          .venv/bin/python setup.py clean check sdist bdist_wheel
       - name: Upload to PyPI
         uses: pypa/gh-action-pypi-publish@v1.10.2
         with:
