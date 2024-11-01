@@ -86,7 +86,7 @@
     "vite": "^5.4.10",
     "vite-plugin-purgecss": "^0.2.12",
     "vitest": "^2.1.4",
-    "vitest-fetch-mock": "^0.3.0"
+    "vitest-fetch-mock": "^0.4.1"
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
