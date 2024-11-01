@@ -8,6 +8,7 @@ https://github.com/openoereb/oereb_client/milestone/17
 
 - Include Matomo JavaScript Client
 - Dependency updates
+- Drop support for Python 3.8
 
 2.1.3
 *****
