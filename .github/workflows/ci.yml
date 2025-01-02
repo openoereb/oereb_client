@@ -213,7 +213,7 @@ jobs:
           .venv/bin/pip install wheel setuptools -r requirements.txt
           .venv/bin/python setup.py --test clean check sdist bdist_wheel
       - name: Upload to PyPI Test
-        uses: pypa/gh-action-pypi-publish@v1.12.2
+        uses: pypa/gh-action-pypi-publish@v1.12.3
         with:
           password: ${{ secrets.TEST_PYPI_TOKEN }}
           repository_url: https://test.pypi.org/legacy/
@@ -240,7 +240,7 @@ jobs:
           .venv/bin/pip install wheel setuptools -r requirements.txt
           .venv/bin/python setup.py clean check sdist bdist_wheel
       - name: Upload to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.12.2
+        uses: pypa/gh-action-pypi-publish@v1.12.3
         with:
           password: ${{ secrets.PYPI_TOKEN }}
 
