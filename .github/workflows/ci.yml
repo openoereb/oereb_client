@@ -33,7 +33,7 @@ jobs:
           make lint-py
           make test-py
       - name: Send coverage
-        uses: codecov/codecov-action@v5.0.7
+        uses: codecov/codecov-action@v5.1.2
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
