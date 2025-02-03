@@ -81,7 +81,7 @@
     "style-loader": "^4.0.0",
     "trim": ">=1.0.1",
     "trim-newlines": "^5.0.0",
-    "typescript": "^5.7.2",
+    "typescript": "^5.7.3",
     "uuid": "^11.0.3",
     "vite": "^6.0.11",
     "vite-plugin-purgecss": "^0.2.12",
