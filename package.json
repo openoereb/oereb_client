@@ -77,7 +77,7 @@
     "sass": "^1.83.0",
     "sass-loader": "^16.0.4",
     "storybook": "^8.5.3",
-    "storybook-react-i18next": "^3.1.8",
+    "storybook-react-i18next": "^3.2.1",
     "style-loader": "^4.0.0",
     "trim": ">=1.0.1",
     "trim-newlines": "^5.0.0",
