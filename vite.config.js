@@ -45,6 +45,9 @@ export default defineConfig({
         'oereb_client/static/src/oereb_client.jsx',
         'oereb_client/static/build/**'
       ]
+    },
+    fakeTimers: {
+      toFake: ['setTimeout', 'clearTimeout', 'Date']
     }
   }
 });
