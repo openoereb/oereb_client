@@ -7,6 +7,7 @@ Changelog
 https://github.com/openoereb/oereb_client/milestone/17
 
 - Include Matomo JavaScript Client
+- Fix broken links in docs
 - Dependency updates
 - Drop support for Python 3.8
 
