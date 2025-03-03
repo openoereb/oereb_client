@@ -99,7 +99,7 @@ lint-js-fix: node_modules/.timestamp eslint.config.js $(SRC_JS) $(TEST_JS)
 	./node_modules/.bin/eslint --fix $(SRC_JS) $(TEST_JS)
 
 .PHONY: test-js
-test-js: $(SRC_JS) $(TEST_JS)
+test-js: node_modules/.timestamp vite.config.js $(SRC_JS) $(TEST_JS)
 	./node_modules/.bin/vitest --coverage --run
 
 .PHONY: check-js
