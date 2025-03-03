@@ -318,7 +318,7 @@ exports[`topic component > should render topic 2`] = `
       class="accordion-header"
     >
       <button
-        class="accordion-button pt-2 pb-2"
+        class="accordion-button pt-2 pb-2 collapsed"
         type="button"
       >
         <div
@@ -333,8 +333,7 @@ exports[`topic component > should render topic 2`] = `
       </button>
     </h2>
     <div
-      class="accordion-collapse collapse show"
-      style=""
+      class="accordion-collapse collapse"
     >
       <div
         class="accordion-body"

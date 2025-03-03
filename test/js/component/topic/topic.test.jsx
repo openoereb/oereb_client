@@ -33,9 +33,9 @@ describe('topic component', () => {
     user = userEvent.setup();
   });
 
-  it('should render topic', async () => {
+  it('should render topic', () => {
     expect(component.asFragment()).toMatchSnapshot();
-    await act(async () => {
+    act(async () => {
       await user.click(component.container.querySelector('button'));
     });
     expect(component.asFragment()).toMatchSnapshot();
