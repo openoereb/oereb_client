@@ -72,7 +72,7 @@
     "react-dom": "^19.0.0",
     "react-i18next": "^15.4.1",
     "react-redux": "^9.2.0",
-    "remark-gfm": "^4.0.0",
+    "remark-gfm": "^4.0.1",
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
