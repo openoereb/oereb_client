@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.19
+FROM registry.gitlab.com/geo-bl-ch/docker/python:alpine-3.21
 
 USER 0
 
