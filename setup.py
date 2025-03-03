@@ -38,6 +38,10 @@ if test_mode or is_beta:
 else:
     development_status = "Development Status :: 5 - Production/Stable"
 
+excluded_packages = ['test*']
+if os.environ.get('CI'):
+    excluded_packages.append('samples')
+
 setup(
     name='oereb_client',
     version=VERSION.split('-')[0] + '-dev{0}'.format(timestamp) if test_mode else VERSION,
@@ -58,7 +62,7 @@ setup(
     author_email='karsten.deininger@bl.ch',
     url='https://gitlab.com/gf-bl/oereb_client',
     keywords='web pyramid oereb client react openlayers',
-    packages=find_packages(exclude=['samples', 'test*']),
+    packages=find_packages(exclude=excluded_packages),
     include_package_data=True,
     zip_safe=False,
     install_requires=requires,

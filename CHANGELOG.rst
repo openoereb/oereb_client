@@ -1,13 +1,14 @@
 Changelog
 ---------
 
-2.1.4 (current dev)
+2.2.0 (current dev)
 *******************
 
 https://github.com/openoereb/oereb_client/milestone/17
 
 - Include Matomo JavaScript Client
 - Fix broken links in docs
+- Update Alpine version in container images
 - Dependency updates
 - Drop support for Python 3.8
 

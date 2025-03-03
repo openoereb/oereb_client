@@ -3,6 +3,7 @@ name: CI/CD
 on: push
 
 env:
+  CI: true
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
