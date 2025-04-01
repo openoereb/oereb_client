@@ -59,7 +59,7 @@
     "file-saver": "^2.0.5",
     "glob-parent": "^6.0.2",
     "globals": "^16.0.0",
-    "i18next": "^24.2.2",
+    "i18next": "^24.2.3",
     "i18next-browser-languagedetector": "^8.0.4",
     "i18next-http-backend": "^3.0.2",
     "i18next-scanner": "^4.6.0",
