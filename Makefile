@@ -36,7 +36,7 @@ TEST_JS += $(shell find test/js -name '*.test.js')
 	touch $@
 
 node_modules/.timestamp: package.json
-	npm install --legacy-peer-deps
+	npm install
 	touch $@
 
 
