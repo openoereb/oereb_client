@@ -8,7 +8,6 @@ export default {
   ],
   addons: [
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
     "storybook-react-i18next",
     {
       name: '@storybook/addon-docs',
@@ -21,9 +20,6 @@ export default {
       }
     }
   ],
-  docs: {
-    autodocs: true
-  },
   framework: '@storybook/react-vite',
   async viteFinal(config) {
     // Merge custom configuration into the default config
@@ -35,29 +31,3 @@ export default {
     });
   },
  };
-
-// module.exports = {
-//   stories: ["../docs/src/**/*.stories.mdx", "../oereb_client/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
-//   core: {
-//     builder: '@storybook/builder-vite'
-//   },
-//   addons: [
-//     "@storybook/addon-links",
-//     "@storybook/addon-essentials",
-//     "storybook-react-i18next",
-//     {
-//       name: '@storybook/addon-docs',
-//       options: {
-//         mdxPluginOptions: {
-//           mdxCompileOptions: {
-//             remarkPlugins: [remarkGfm],
-//           }
-//         }
-//       }
-//     }
-//   ],
-//   framework: '@storybook/react-vite',
-//   docs: {
-//     autodocs: true
-//   }
-// };

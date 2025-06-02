@@ -7,7 +7,8 @@ import OerebCategory from "./category";
 
 export default {
   title: 'API Reference/Component/Category',
-  component: OerebCategory
+  component: OerebCategory,
+  tags: ['autodocs']
 };
 
 export const ConcernedTheme = () => {

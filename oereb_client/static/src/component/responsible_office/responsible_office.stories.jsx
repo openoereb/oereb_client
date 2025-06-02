@@ -6,7 +6,8 @@ import OerebResponsibleOffice from "./responsible_office";
 
 export default {
   title: 'API Reference/Component/Responsible Office',
-  component: OerebResponsibleOffice
+  component: OerebResponsibleOffice,
+  tags: ['autodocs']
 };
 
 export const ResponsibleOffice = () => {

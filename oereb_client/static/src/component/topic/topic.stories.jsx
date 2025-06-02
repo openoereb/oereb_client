@@ -6,7 +6,8 @@ import OerebTopic from "./topic";
 
 export default {
   title: 'API Reference/Component/Topic',
-  component: OerebTopic
+  component: OerebTopic,
+  tags: ['autodocs']
 };
 
 export const Topic = () => {

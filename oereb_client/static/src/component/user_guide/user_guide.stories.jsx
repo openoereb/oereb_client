@@ -4,7 +4,8 @@ import OerebUserGuide from "./user_guide";
 
 export default {
   title: 'API Reference/Component/User Guide',
-  component: OerebUserGuide
+  component: OerebUserGuide,
+  tags: ['autodocs']
 };
 
 export const UserGuide = () => <OerebUserGuide />;

@@ -11,7 +11,8 @@ import OerebMapQuery from "./map_query";
 
 export default {
   title: 'API Reference/Component/Map Query',
-  component: OerebMapQuery
+  component: OerebMapQuery,
+  tags: ['autodocs']
 };
 
 export const MapQuery = () => {

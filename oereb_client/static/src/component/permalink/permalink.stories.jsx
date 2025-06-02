@@ -45,7 +45,8 @@ document.body.appendChild(modalWrapper);
 
 export default {
   title: 'API Reference/Component/Permalink',
-  component: OerebPermalink
+  component: OerebPermalink,
+  tags: ['autodocs']
 };
 
 export const Permalink = () => <OerebPermalink />;

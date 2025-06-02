@@ -48,7 +48,8 @@ document.body.appendChild(modalWrapper);
 
 export default {
   title: 'API Reference/Component/Extract/Data',
-  component: OerebExtractData
+  component: OerebExtractData,
+  tags: ['autodocs']
 };
 
 export const Data = () => <OerebExtractData />;

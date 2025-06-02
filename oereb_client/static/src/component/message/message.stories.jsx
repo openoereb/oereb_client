@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 
 export default {
   title: 'API Reference/Component/Message',
-  component: OerebMessage
+  component: OerebMessage,
+  tags: ['autodocs']
 };
 
 export const Message = () => {

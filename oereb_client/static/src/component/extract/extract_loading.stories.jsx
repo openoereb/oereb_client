@@ -6,7 +6,8 @@ import OerebExtractLoading from './extract_loading';
 
 export default {
   title: 'API Reference/Component/Extract/Loading',
-  component: OerebExtractLoading
+  component: OerebExtractLoading,
+  tags: ['autodocs']
 };
 
 export const Loading = () => <OerebExtractLoading />;

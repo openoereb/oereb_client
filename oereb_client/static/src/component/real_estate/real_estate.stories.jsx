@@ -5,7 +5,8 @@ import OerebRealEstate from "./real_estate";
 
 export default {
   title: 'API Reference/Component/Real Estate',
-  component: OerebRealEstate
+  component: OerebRealEstate,
+  tags: ['autodocs']
 };
 
 export const RealEstate = () => <OerebRealEstate data={data.GetExtractByIdResponse.extract.RealEstate} />;

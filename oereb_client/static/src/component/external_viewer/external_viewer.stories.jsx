@@ -4,7 +4,8 @@ import OerebExternalViewer from "./external_viewer";
 
 export default {
   title: 'API Reference/Component/External Viewer',
-  component: OerebExternalViewer
+  component: OerebExternalViewer,
+  tags: ['autodocs']
 };
 
 export const ExternalViewer = () => <OerebExternalViewer />;
