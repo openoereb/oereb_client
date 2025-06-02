@@ -4,7 +4,7 @@ import {v4 as uuidv4} from "uuid";
 export const MESSAGE_TIMEOUT = 10000;
 
 export const messageSlice = createSlice({
-  name: 'message',
+  name: "message",
   initialState: {
     messages: []
   },
@@ -12,7 +12,7 @@ export const messageSlice = createSlice({
     warning: (state, action) => {
       state.messages.push({
         id: uuidv4(),
-        type: 'warning',
+        type: "warning",
         text: action.payload,
         timestamp: Date.now()
       });
@@ -20,7 +20,7 @@ export const messageSlice = createSlice({
     error: (state, action) => {
       state.messages.push({
         id: uuidv4(),
-        type: 'error',
+        type: "error",
         text: action.payload,
         timestamp: Date.now()
       });

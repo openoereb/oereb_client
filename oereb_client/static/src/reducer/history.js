@@ -2,14 +2,14 @@ import {createSlice} from "@reduxjs/toolkit";
 import {isEqual} from "lodash";
 
 export const historySlice = createSlice({
-  name: 'history',
+  name: "history",
   initialState: {
-    key: 'OerebHistory',
+    key: "OerebHistory",
     elements: []
   },
   reducers: {
     setHistoryPrefix: (state, action) => {
-      state.key = action.payload + 'OerebHistory';
+      state.key = action.payload + "OerebHistory";
     },
     initHistory: (state) => {
       const history = localStorage.getItem(state.key);
@@ -22,12 +22,12 @@ export const historySlice = createSlice({
     },
     updateHistory: (state, action) => {
       const extract = action.payload;
-      const realEstate = extract['GetExtractByIdResponse']['extract']['RealEstate'];
+      const realEstate = extract["GetExtractByIdResponse"]["extract"]["RealEstate"];
       const newElement = {
-        EGRID: realEstate['EGRID'],
-        IdentDN: realEstate['IdentDN'],
-        Municipality: realEstate['MunicipalityName'],
-        Number: realEstate['Number']
+        EGRID: realEstate["EGRID"],
+        IdentDN: realEstate["IdentDN"],
+        Municipality: realEstate["MunicipalityName"],
+        Number: realEstate["Number"]
       };
       for (let i = 0; i < state.elements.length; i++) {
         if (isEqual(newElement, state.elements[i])) {

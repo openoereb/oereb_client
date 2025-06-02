@@ -15,22 +15,22 @@ const OerebUserGuide = function () {
   const config = useSelector((state) => state.config).config;
   const currentLanguage = useSelector((state) => state.language).current;
 
-  if (!isString(config['user_guide'])) {
+  if (!isString(config["user_guide"])) {
     return null;
   }
 
   const openUserGuide = function () {
     const values = {
-      'lang': currentLanguage
+      "lang": currentLanguage
     };
-    const url = config['user_guide'];
-    window.open(encodeURI(format(url, values)), '_blank');
+    const url = config["user_guide"];
+    window.open(encodeURI(format(url, values)), "_blank");
   };
 
   return (
     <button type="button"
       className="btn btn-outline-secondary oereb-client-user-guide"
-      title={t('menu.user_guide.title')}
+      title={t("menu.user_guide.title")}
       onClick={openUserGuide}>
       <i className="bi bi-question-circle"></i>
     </button>

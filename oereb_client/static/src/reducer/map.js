@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 export const mapSlice = createSlice({
-  name: 'map',
+  name: "map",
   initialState: {
     map: null,
     topicLayers: null,

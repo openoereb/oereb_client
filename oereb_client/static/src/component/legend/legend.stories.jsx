@@ -5,15 +5,15 @@ import {groupRestrictionsByTopic} from "../../request/extract";
 import OerebLegend from "./legend";
 
 export default {
-  title: 'API Reference/Component/Legend',
+  title: "API Reference/Component/Legend",
   component: OerebLegend,
-  tags: ['autodocs']
+  tags: ["autodocs"]
 };
 
 export const Legend = () => {
   const restrictions = groupRestrictionsByTopic(
     data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
     data.GetExtractByIdResponse.extract.ConcernedTheme
-  )['chBelasteteStandorteOeffentlicherVerkehr']['changeWithPreEffect'];
+  )["chBelasteteStandorteOeffentlicherVerkehr"]["changeWithPreEffect"];
   return <OerebLegend restrictions={restrictions} />
 };

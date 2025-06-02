@@ -1,4 +1,4 @@
-import {act, render} from '@testing-library/react';
+import {act, render} from "@testing-library/react";
 import LayerGroup from "ol/layer/Group";
 import ImageLayer from "ol/layer/Image";
 import TileLayer from "ol/layer/Tile";
@@ -13,7 +13,7 @@ import {initLanguages} from "../../../../oereb_client/static/src/reducer/languag
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
 
-describe('topic layers component', () => {
+describe("topic layers component", () => {
 
   let component;
   let layers;
@@ -22,13 +22,13 @@ describe('topic layers component', () => {
   beforeEach(() => {
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['de']
+        default: "de",
+        available: ["de"]
       }));
     });
     act(() => {
       MainStore.dispatch(loadExtract({
-        egrid: 'CH1234',
+        egrid: "CH1234",
         zoom: false
       }));
     });
@@ -46,7 +46,7 @@ describe('topic layers component', () => {
     layers = new LayerGroup();
   });
 
-  it('should render untiled topic layer element', () => {
+  it("should render untiled topic layer element", () => {
     component = render(
       <Provider store={MainStore}>
         <OerebTopicLayer topicLayers={layers} tiled={false} />
@@ -57,14 +57,14 @@ describe('topic layers component', () => {
     expect(layers.getLayers().item(0)).toBeInstanceOf(ImageLayer);
     act(() => {
       layers.getLayers().item(0).getSource().dispatchEvent({
-        type: 'imageloadstart'
+        type: "imageloadstart"
       });
     });
     expect(component.asFragment()).toMatchSnapshot();
     expect(callback).toHaveBeenCalledWith(true);
   });
 
-  it('should render tiled topic layer element', () => {
+  it("should render tiled topic layer element", () => {
     component = render(
       <Provider store={MainStore}>
         <OerebTopicLayer topicLayers={layers} tiled={true} />
@@ -75,7 +75,7 @@ describe('topic layers component', () => {
     expect(layers.getLayers().item(0)).toBeInstanceOf(TileLayer);
     act(() => {
       layers.getLayers().item(0).getSource().dispatchEvent({
-        type: 'imageloadend'
+        type: "imageloadend"
       });
     });
     expect(component.asFragment()).toMatchSnapshot();

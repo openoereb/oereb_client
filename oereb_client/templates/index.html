@@ -2,7 +2,7 @@
     import json
 %>
 <!DOCTYPE html>
-<!-- OEREB Client, version ${config['version']} -->
+<!-- OEREB Client, version ${config["version"]} -->
 <html lang="de">
   <head>
 
@@ -11,42 +11,42 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${google_gtag}');
+      gtag("js", new Date());
+      gtag("config", "${google_gtag}");
     </script>
     % endif
 
     % if google_analytics:
     <script type="text/javascript">
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', '${google_analytics}']);
-      _gaq.push(['_trackPageview']);
+      _gaq.push(["_setAccount", "${google_analytics}"]);
+      _gaq.push(["_trackPageview"]);
       (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') +
-                  '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        var ga = document.createElement("script"); ga.type = "text/javascript"; ga.async = true;
+        ga.src = ("https:" === document.location.protocol ? "https://ssl" : "http://www") +
+                  ".google-analytics.com/ga.js";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
     % endif
 
     <title>${title}</title>
-    <link rel="icon" type="image/png" sizes="48x48" href="${config['application']['icon']}"/>
-    <link rel="apple-touch-icon" href="${config['application']['apple_touch_icon']}"/>
-    <link rel="manifest" href="${config['application']['manifest']}"/>
+    <link rel="icon" type="image/png" sizes="48x48" href="${config["application"]["icon"]}"/>
+    <link rel="apple-touch-icon" href="${config["application"]["apple_touch_icon"]}"/>
+    <link rel="manifest" href="${config["application"]["manifest"]}"/>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=9,IE=10,IE=edge,chrome=1" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     % if debug:
-    <link rel="stylesheet" href="${request.static_url('oereb_client:../node_modules/openlayers/dist/ol-debug.css')}" type="text/css">
+    <link rel="stylesheet" href="${request.static_url("oereb_client:../node_modules/openlayers/dist/ol-debug.css")}" type="text/css">
     % endif
-    <link rel="stylesheet" href="${request.static_url('oereb_client:static/build/app.css')}" type="text/css">
+    <link rel="stylesheet" href="${request.static_url("oereb_client:static/build/app.css")}" type="text/css">
     % if custom_css_url:
     <link rel="stylesheet" href="${custom_css_url}" type="text/css">
     % endif
-    <base href="${config['application_url']}">
+    <base href="${config["application_url"]}">
 
-    % if config.get('test_instance_notice', None) is not None:
+    % if config.get("test_instance_notice", None) is not None:
     <style>
       #testNotice {
         position: fixed;
@@ -101,32 +101,32 @@
       </div>
     </div>
 
-    % if config.get('test_instance_notice', None) is not None:
+    % if config.get("test_instance_notice", None) is not None:
     <div id="testNotice">
       <div>
         <div>
-          ${config.get('test_instance_notice')}
+          ${config.get("test_instance_notice")}
         </div>
       </div>
     </div>
     <script>
       (function() {
-        let notice = document.getElementById('testNotice');
+        let notice = document.getElementById("testNotice");
         let bottom = Math.round(
           Math.sqrt(Math.pow(notice.offsetWidth, 2)/2.0)/2.0 + notice.offsetHeight/2.0 - 100
         );
-        notice.style.right = '-100px';
-        notice.style.bottom = bottom.toString() + 'px';
-        notice.style.visibility = 'visible';
+        notice.style.right = "-100px";
+        notice.style.bottom = bottom.toString() + "px";
+        notice.style.visibility = "visible";
       })();
     </script>
     % endif
 
     <script>
-      window.applicationUrl = "${config['application_url']}";
+      window.applicationUrl = "${config["application_url"]}";
     </script>
 
-    <script type="module" src="${request.static_url('oereb_client:static/build/app.js')}"></script>
+    <script type="module" src="${request.static_url("oereb_client:static/build/app.js")}"></script>
 
   </body>
 </html>

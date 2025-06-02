@@ -1,4 +1,4 @@
-import {act, fireEvent, render, waitFor} from '@testing-library/react';
+import {act, fireEvent, render, waitFor} from "@testing-library/react";
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -16,7 +16,7 @@ import extract from "../../../../samples/extract.json";
 let mockDate;
 
 beforeAll(() => {
-  mockDate = vi.spyOn(Date.prototype, 'toLocaleDateString').mockReturnValue('01.01.2022');
+  mockDate = vi.spyOn(Date.prototype, "toLocaleDateString").mockReturnValue("01.01.2022");
 });
 
 afterAll(() => {
@@ -26,13 +26,13 @@ afterAll(() => {
 beforeEach(() => {
   act(() => {
     MainStore.dispatch(initLanguages({
-      default: 'de',
-      available: ['de']
+      default: "de",
+      available: ["de"]
     }));
   });
   act(() => {
     MainStore.dispatch(loadExtract({
-      egrid: 'CH1234',
+      egrid: "CH1234",
       zoom: false
     }));
   });
@@ -41,7 +41,7 @@ beforeEach(() => {
   });
 });
 
-describe('information panel component', () => {
+describe("information panel component", () => {
 
   let component;
 
@@ -53,32 +53,32 @@ describe('information panel component', () => {
     );
   });
 
-  it('should render general information', () => {
+  it("should render general information", () => {
     act(() => {
       MainStore.dispatch(setInformationPanelTab(0));
     });
     expect(component.asFragment()).toMatchSnapshot();
   });
 
-  it('should render disclaimer', () => {
+  it("should render disclaimer", () => {
     act(() => {
       MainStore.dispatch(setInformationPanelTab(1));
     });
     expect(component.asFragment()).toMatchSnapshot();
   });
 
-  it('should render glossary', () => {
+  it("should render glossary", () => {
     act(() => {
       MainStore.dispatch(setInformationPanelTab(2));
     });
     expect(component.asFragment()).toMatchSnapshot();
   });
 
-  it('should filter glossary results', async () => {
+  it("should filter glossary results", async () => {
     act(() => {
       MainStore.dispatch(setInformationPanelTab(2));
     });
-    fireEvent.change(component.container.querySelector('input'), {target: {value: 'kbs'}});
+    fireEvent.change(component.container.querySelector("input"), {target: {value: "kbs"}});
     await waitFor(() => {
       expect(component.asFragment()).toMatchSnapshot();
     });

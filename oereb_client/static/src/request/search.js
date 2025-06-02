@@ -1,7 +1,7 @@
 export const searchTerm = function (searchUrl, term, language) {
   const url = new URL(searchUrl);
-  url.searchParams.append('term', term);
-  url.searchParams.append('lang', language);
+  url.searchParams.append("term", term);
+  url.searchParams.append("lang", language);
   let cancel;
   const result = {
     promise: new Promise((resolve, reject) => {
@@ -14,7 +14,7 @@ export const searchTerm = function (searchUrl, term, language) {
           reject(error);
         });
       cancel = function () {
-        reject(new Error('Request canceled'));
+        reject(new Error("Request canceled"));
       }
     }),
     cancel: cancel

@@ -20,9 +20,9 @@ const OerebStaticExtract = function () {
 
   const requestStaticExtract = function () {
     if (extract.visible) {
-      const identifier = extract.data['GetExtractByIdResponse']['extract']['ExtractIdentifier'];
-      icon.current.classList.remove('bi', 'bi-file-earmark-pdf');
-      icon.current.classList.add('spinner-grow', 'spinner-grow-sm');
+      const identifier = extract.data["GetExtractByIdResponse"]["extract"]["ExtractIdentifier"];
+      icon.current.classList.remove("bi", "bi-file-earmark-pdf");
+      icon.current.classList.add("spinner-grow", "spinner-grow-sm");
       queryStaticExtractById(
         config.service_url,
         extract.egrid,
@@ -32,14 +32,14 @@ const OerebStaticExtract = function () {
         currentLanguage
       )
         .then((pdfFile) => {
-          const fileName = identifier + '.pdf';
-          icon.current.classList.remove('spinner-grow', 'spinner-grow-sm');
-          icon.current.classList.add('bi', 'bi-file-earmark-pdf');
-          saveAs(new Blob([pdfFile], {'type': 'application/pdf'}), fileName);
+          const fileName = identifier + ".pdf";
+          icon.current.classList.remove("spinner-grow", "spinner-grow-sm");
+          icon.current.classList.add("bi", "bi-file-earmark-pdf");
+          saveAs(new Blob([pdfFile], {"type": "application/pdf"}), fileName);
         })
         .catch(() => {
-          icon.current.classList.remove('spinner-grow', 'spinner-grow-sm');
-          icon.current.classList.add('bi', 'bi-file-earmark-pdf');
+          icon.current.classList.remove("spinner-grow", "spinner-grow-sm");
+          icon.current.classList.add("bi", "bi-file-earmark-pdf");
           dispatch(showError());
         });
     }
@@ -48,7 +48,7 @@ const OerebStaticExtract = function () {
   return (
     <button type="button"
       className="btn btn-outline-secondary oereb-client-static-extract"
-      title={t('extract.static_extract.title')}
+      title={t("extract.static_extract.title")}
       onClick={requestStaticExtract}>
       <i ref={icon} className="bi bi-file-earmark-pdf"></i>
     </button>

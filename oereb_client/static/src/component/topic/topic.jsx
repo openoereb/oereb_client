@@ -1,18 +1,18 @@
-import './topic.scss';
+import "./topic.scss";
 
-import {Collapse} from 'bootstrap';
-import LayerGroup from 'ol/layer/Group';
-import PropTypes from 'prop-types';
-import React, {useEffect, useRef, useState} from 'react';
-import {useTranslation} from 'react-i18next';
-import {useDispatch, useSelector} from 'react-redux';
+import {Collapse} from "bootstrap";
+import LayerGroup from "ol/layer/Group";
+import PropTypes from "prop-types";
+import React, {useEffect, useRef, useState} from "react";
+import {useTranslation} from "react-i18next";
+import {useDispatch, useSelector} from "react-redux";
 
-import {setActiveTopic, setViewServices} from '../../reducer/accordion';
-import {addIfNotContains} from '../../util/array';
-import {getLocalizedText} from '../../util/language';
-import OerebDocuments from '../documents/documents';
-import OerebLegend from '../legend/legend';
-import OerebResponsibleOffice from '../responsible_office/responsible_office';
+import {setActiveTopic, setViewServices} from "../../reducer/accordion";
+import {addIfNotContains} from "../../util/array";
+import {getLocalizedText} from "../../util/language";
+import OerebDocuments from "../documents/documents";
+import OerebLegend from "../legend/legend";
+import OerebResponsibleOffice from "../responsible_office/responsible_office";
 
 /**
  * This component shows a certain topic of the currently loaded extract.
@@ -34,7 +34,7 @@ const OerebTopic = function (props) {
 
   const viewServices = [];
   restrictions.forEach((restriction) => {
-    const map = restriction['Map'];
+    const map = restriction["Map"];
     addIfNotContains(map, viewServices);
   });
 
@@ -45,16 +45,16 @@ const OerebTopic = function (props) {
     if (activeTopic === collapseEl.current) {
       if (active) {
         collapse.show();
-        collapseButton.current.classList.remove('collapsed');
+        collapseButton.current.classList.remove("collapsed");
       }
       else {
         collapse.hide();
-        collapseButton.current.classList.add('collapsed');
+        collapseButton.current.classList.add("collapsed");
       }
     }
     else {
       collapse.hide();
-      collapseButton.current.classList.add('collapsed');
+      collapseButton.current.classList.add("collapsed");
     }
   });
 
@@ -112,7 +112,7 @@ const OerebTopic = function (props) {
         <div className="accordion-body">
           <div className="row align-items-center mb-2">
             <div className="col-3">
-              <small>{t('extract.topic.opacity')}:</small>
+              <small>{t("extract.topic.opacity")}:</small>
             </div>
             <div className="col-2 pe-2 text-end">
               <small>{Math.round(opacity * 100)}%</small>

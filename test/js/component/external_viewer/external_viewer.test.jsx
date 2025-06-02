@@ -1,5 +1,5 @@
-import {act, render} from '@testing-library/react';
-import userEvent from '@testing-library/user-event'
+import {act, render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event"
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -11,7 +11,7 @@ import {initLanguages} from "../../../../oereb_client/static/src/reducer/languag
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
 
-describe('external viewer component', () => {
+describe("external viewer component", () => {
 
   let component;
   let user;
@@ -19,8 +19,8 @@ describe('external viewer component', () => {
   beforeEach(() => {
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['de']
+        default: "de",
+        available: ["de"]
       }));
     });
     act(() => {
@@ -29,15 +29,15 @@ describe('external viewer component', () => {
     act(() => {
       MainStore.dispatch(update({
         external_viewer: {
-          url: 'http://example.com',
+          url: "http://example.com",
           tooltip: [
             {
-              Language: 'de',
-              Text: 'WebGIS'
+              Language: "de",
+              Text: "WebGIS"
             }
           ],
           params: [
-            'egrid={egrid}'
+            "egrid={egrid}"
           ]
         }
       }));
@@ -55,11 +55,11 @@ describe('external viewer component', () => {
     window.open.mockClear();
   });
 
-  it('should render button', () => {
+  it("should render button", () => {
     expect(component.asFragment()).toMatchSnapshot();
   });
 
-  it('should not render button', () => {
+  it("should not render button", () => {
     act(() => {
       MainStore.dispatch(update({}));
     });
@@ -71,19 +71,19 @@ describe('external viewer component', () => {
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
-  it('should call window.open', async () => {
-    await user.click(component.container.querySelector('button'));
+  it("should call window.open", async () => {
+    await user.click(component.container.querySelector("button"));
     expect(window.open.mock.calls).toHaveLength(1);
-    expect(window.open.mock.calls[0][0]).toEqual('http://example.com?egrid=CH1234');
-    expect(window.open.mock.calls[0][1]).toEqual('_blank');
+    expect(window.open.mock.calls[0][0]).toEqual("http://example.com?egrid=CH1234");
+    expect(window.open.mock.calls[0][1]).toEqual("_blank");
     window.open.mockReset();
   });
 
-  it('should not call window.open', async () => {
+  it("should not call window.open", async () => {
     act(() => {
       MainStore.dispatch(hideExtract());
     });
-    await user.click(component.container.querySelector('button'));
+    await user.click(component.container.querySelector("button"));
     expect(window.open.mock.calls).toHaveLength(0);
     window.open.mockReset();
   });

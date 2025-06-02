@@ -1,11 +1,11 @@
 import React from "react";
-import {useTranslation} from 'react-i18next';
+import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 
-import {loadExtract, showError, showExtract} from '../../reducer/extract';
-import {updateHistory} from '../../reducer/history';
+import {loadExtract, showError, showExtract} from "../../reducer/extract";
+import {updateHistory} from "../../reducer/history";
 import {setLanguage} from "../../reducer/language";
-import {queryExtractById} from '../../request/extract';
+import {queryExtractById} from "../../request/extract";
 
 /**
  * This component provides the language selector.
@@ -63,7 +63,7 @@ const OerebLanguage = function() {
         type="button"
         data-bs-toggle="dropdown"
         aria-expanded="false"
-        title={t('menu.language.title')}>
+        title={t("menu.language.title")}>
         {currentLanguage.toUpperCase()}
       </button>
       <ul className="dropdown-menu">

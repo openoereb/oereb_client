@@ -1,5 +1,5 @@
-import {act, render} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import {act, render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -9,7 +9,7 @@ import {groupRestrictionsByTopic} from "../../../../oereb_client/static/src/requ
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
 
-describe('topic component', () => {
+describe("topic component", () => {
 
   let component;
   let user;
@@ -17,14 +17,14 @@ describe('topic component', () => {
   beforeEach(() => {
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['de']
+        default: "de",
+        available: ["de"]
       }));
     });
     const restrictions = groupRestrictionsByTopic(
       extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
       extract.GetExtractByIdResponse.extract.ConcernedTheme
-    )['chStatischeWaldgrenzen']['inForce'];
+    )["chStatischeWaldgrenzen"]["inForce"];
     component = render(
       <Provider store={MainStore}>
         <OerebTopic restrictions={restrictions} />
@@ -33,10 +33,10 @@ describe('topic component', () => {
     user = userEvent.setup();
   });
 
-  it('should render topic', () => {
+  it("should render topic", () => {
     expect(component.asFragment()).toMatchSnapshot();
     act(async () => {
-      await user.click(component.container.querySelector('button'));
+      await user.click(component.container.querySelector("button"));
     });
     expect(component.asFragment()).toMatchSnapshot();
   });

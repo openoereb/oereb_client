@@ -195,7 +195,7 @@ https://github.com/openoereb/oereb_client/milestone/1
 
 https://gitlab.com/gf-bl/oereb/oereb_client/milestones/24
 
-- Add optional property 'egrid' in search results
+- Add optional property "egrid" in search results
 
 1.3.5
 *****

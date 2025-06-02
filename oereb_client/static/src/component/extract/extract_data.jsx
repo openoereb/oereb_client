@@ -1,16 +1,16 @@
-import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {useDispatch, useSelector} from 'react-redux';
+import React from "react";
+import {useTranslation} from "react-i18next";
+import {useDispatch, useSelector} from "react-redux";
 
-import {setActiveCategory, setActiveTopic, setViewServices} from '../../reducer/accordion';
-import {hideExtract, toggleCollapsed, toggleInformationPanel} from '../../reducer/extract';
-import OerebCategory from '../category/category';
-import OerebExternalViewer from '../external_viewer/external_viewer';
-import OerebPermalink from '../permalink/permalink';
-import OerebRealEstate from '../real_estate/real_estate';
-import OerebStaticExtract from '../static_extract/static_extract';
-import OerebToggleHighlight from '../toggle_highlight/toggle_highlight';
-import OerebToggleBackground from '../toggle_background/toggle_background';
+import {setActiveCategory, setActiveTopic, setViewServices} from "../../reducer/accordion";
+import {hideExtract, toggleCollapsed, toggleInformationPanel} from "../../reducer/extract";
+import OerebCategory from "../category/category";
+import OerebExternalViewer from "../external_viewer/external_viewer";
+import OerebPermalink from "../permalink/permalink";
+import OerebRealEstate from "../real_estate/real_estate";
+import OerebStaticExtract from "../static_extract/static_extract";
+import OerebToggleHighlight from "../toggle_highlight/toggle_highlight";
+import OerebToggleBackground from "../toggle_background/toggle_background";
 
 /**
  * This component contains the loaded extract data, including the extract menu and the real
@@ -28,7 +28,7 @@ const OerebExtractData = function () {
     dispatch(hideExtract());
   };
 
-  const extractData = extract.data['GetExtractByIdResponse']['extract'];
+  const extractData = extract.data["GetExtractByIdResponse"]["extract"];
   const collapsed = extract.collapsed;
 
   const toggleInfo = function () {
@@ -40,11 +40,11 @@ const OerebExtractData = function () {
   };
 
   const collapseButton = (() => {
-    let title = t('extract.hide');
-    let iconClass = 'bi bi-chevron-up';
+    let title = t("extract.hide");
+    let iconClass = "bi bi-chevron-up";
     if (collapsed) {
-      title = t('extract.show');
-      iconClass = 'bi bi-chevron-down';
+      title = t("extract.show");
+      iconClass = "bi bi-chevron-down";
     }
     return (
       <button type="button"
@@ -57,16 +57,16 @@ const OerebExtractData = function () {
   })();
 
   const dataClasses = [
-    'oereb-client-extract',
-    'data container-fluid',
-    'd-flex',
-    'flex-column',
-    'justify-content-start',
-    'align-items-stretch'
+    "oereb-client-extract",
+    "data container-fluid",
+    "d-flex",
+    "flex-column",
+    "justify-content-start",
+    "align-items-stretch"
   ];
 
   return (
-    <div className={dataClasses.join(' ')}>
+    <div className={dataClasses.join(" ")}>
       <div>
         <div className="btn-group float-end" role="group">
           {collapseButton}
@@ -82,7 +82,7 @@ const OerebExtractData = function () {
           <OerebStaticExtract />
           <button type="button"
             className="btn btn-outline-secondary"
-            title={t('extract.information_panel.button.title')}
+            title={t("extract.information_panel.button.title")}
             onClick={toggleInfo}>
             <i className="bi bi-info-square"></i>
           </button>
@@ -94,13 +94,13 @@ const OerebExtractData = function () {
       </div>
       <OerebRealEstate data={extractData.RealEstate} />
       <div className="accordion accordion-flush flex-grow-1 mt-1 mb-2 oereb-client-extract-data">
-        <OerebCategory title={t('extract.category.concerned_theme')} initial={true}
+        <OerebCategory title={t("extract.category.concerned_theme")} initial={true}
           data={extractData.ConcernedTheme}
           restriction={true} />
-        <OerebCategory title={t('extract.category.not_concerned_theme')}
+        <OerebCategory title={t("extract.category.not_concerned_theme")}
           data={extractData.NotConcernedTheme}
           restriction={false} />
-        <OerebCategory title={t('extract.category.theme_without_data')}
+        <OerebCategory title={t("extract.category.theme_without_data")}
           data={extractData.ThemeWithoutData}
           restriction={false} />
       </div>

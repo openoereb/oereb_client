@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   # Update this to the name of the service you want to work with in your docker-compose.yml file
   app:
@@ -36,4 +36,4 @@ services:
     command: /bin/sh -c "while sleep 1000; do :; done"
 
     ports:
-      - '8080:8080'
+      - "8080:8080"

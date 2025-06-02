@@ -1,5 +1,5 @@
-import {render} from '@testing-library/react'
-import VectorLayer from 'ol/layer/Vector';
+import {render} from "@testing-library/react"
+import VectorLayer from "ol/layer/Vector";
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -7,7 +7,7 @@ import OerebAvailabilityLayer from
   "../../../../oereb_client/static/src/component/availability_layer/availability_layer";
 import MainStore from "../../../../oereb_client/static/src/store/main";
 
-describe('availability layer component', () => {
+describe("availability layer component", () => {
 
   let component;
 
@@ -20,7 +20,7 @@ describe('availability layer component', () => {
     );
   });
 
-  it('should render availability layer element', () => {
+  it("should render availability layer element", () => {
     expect(component.asFragment()).toMatchSnapshot();
   });
 

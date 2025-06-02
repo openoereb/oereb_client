@@ -17,17 +17,17 @@ const OerebInformationPanel = function () {
 
   const tabs = [
     {
-      title: t('extract.information_panel.general_information.title'),
+      title: t("extract.information_panel.general_information.title"),
       content: <OerebGeneralInformation />,
       search: false
     },
     {
-      title: t('extract.information_panel.exclusion_of_liability.title'),
+      title: t("extract.information_panel.exclusion_of_liability.title"),
       content: <OerebMultilingualCatalog catalog="Disclaimer" search={search} />,
       search: true
     },
     {
-      title: t('extract.information_panel.glossary.title'),
+      title: t("extract.information_panel.glossary.title"),
       content: <OerebMultilingualCatalog catalog="Glossary" search={search} />,
       search: true
     }
@@ -44,9 +44,9 @@ const OerebInformationPanel = function () {
   };
 
   const tabElements = tabs.map((tab, key) => {
-    let className = 'nav-link';
+    let className = "nav-link";
     if (key === extract.tab) {
-      className += ' active';
+      className += " active";
     }
     return (
       <li key={key} className="nav-item">
@@ -70,7 +70,7 @@ const OerebInformationPanel = function () {
       searchInput =
         <div className="mt-2">
           <input className="form-control"
-            placeholder={t('extract.information_panel.search.placeholder')}
+            placeholder={t("extract.information_panel.search.placeholder")}
             onChange={handleSearch} />
         </div>;
     }
@@ -78,7 +78,7 @@ const OerebInformationPanel = function () {
       searchInput =
         <div className="ms-4">
           <input className="form-control"
-            placeholder={t('extract.information_panel.search.placeholder')}
+            placeholder={t("extract.information_panel.search.placeholder")}
             onChange={handleSearch} />
         </div>;
     }
@@ -117,17 +117,17 @@ const OerebInformationPanel = function () {
   })();
 
   useEffect(() => {
-    panel.current.classList.remove('disabled', 'hidden', 'shown');
+    panel.current.classList.remove("disabled", "hidden", "shown");
     if (extract.visible) {
       if (extract.information) {
-        panel.current.classList.add('shown');
+        panel.current.classList.add("shown");
       }
       else {
-        panel.current.classList.add('hidden');
+        panel.current.classList.add("hidden");
       }
     }
     else {
-      panel.current.classList.add('disabled');
+      panel.current.classList.add("disabled");
     }
   });
 

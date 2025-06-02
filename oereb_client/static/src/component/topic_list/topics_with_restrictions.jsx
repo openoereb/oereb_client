@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
-import React, {useRef} from 'react';
-import {useSelector} from 'react-redux';
+import PropTypes from "prop-types";
+import React, {useRef} from "react";
+import {useSelector} from "react-redux";
 
-import {sanitizeTopicCode} from '../../request/extract';
-import {getLocalizedText} from '../../util/language';
-import OerebTopic from '../topic/topic';
+import {sanitizeTopicCode} from "../../request/extract";
+import {getLocalizedText} from "../../util/language";
+import OerebTopic from "../topic/topic";
 
-import './topics_with_restrictions.scss';
+import "./topics_with_restrictions.scss";
 
 /**
  * This component shows the list of topics which contain restrictions for the currently loaded extract.
@@ -22,12 +22,12 @@ const OerebTopicsWithRestriction = function (props) {
   const topicList = topics.map((topic, key1) => {
     const mainCode = sanitizeTopicCode(topic);
     const subCodes = Object.keys(restrictions)
-      .filter((key) => key === mainCode || key.startsWith(mainCode + '_'));
+      .filter((key) => key === mainCode || key.startsWith(mainCode + "_"));
     const list = subCodes.map((code, key2) => {
       const themeRestrictions = restrictions[code];
       let title = getLocalizedText(themeRestrictions.themeText, currentLanguage, defaultLanguage);
       if (themeRestrictions.subThemeText !== null) {
-        title += ': ' + getLocalizedText(themeRestrictions.subThemeText, currentLanguage, defaultLanguage);
+        title += ": " + getLocalizedText(themeRestrictions.subThemeText, currentLanguage, defaultLanguage);
       }
       let inForce = null;
       let changeWithPreEffect = null;

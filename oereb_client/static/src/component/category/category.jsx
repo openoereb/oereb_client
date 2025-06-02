@@ -1,13 +1,13 @@
-import {Collapse} from 'bootstrap';
-import {isArray} from 'lodash';
-import PropTypes from 'prop-types';
-import React, {useEffect, useRef, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {Collapse} from "bootstrap";
+import {isArray} from "lodash";
+import PropTypes from "prop-types";
+import React, {useEffect, useRef, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
-import {setActiveCategory, setActiveTopic, setViewServices} from '../../reducer/accordion';
-import {groupRestrictionsByTopic} from '../../request/extract';
-import OerebTopicsWithRestriction from '../topic_list/topics_with_restrictions';
-import OerebTopicsWithoutRestriction from '../topic_list/topics_without_restriction';
+import {setActiveCategory, setActiveTopic, setViewServices} from "../../reducer/accordion";
+import {groupRestrictionsByTopic} from "../../request/extract";
+import OerebTopicsWithRestriction from "../topic_list/topics_with_restrictions";
+import OerebTopicsWithoutRestriction from "../topic_list/topics_without_restriction";
 
 /**
  * The container for each category. It uses a bootstrap accordion to show or hide the
@@ -43,16 +43,16 @@ const OerebCategory = function (props) {
     if (activeCategory === collapseEl.current) {
       if (active) {
         collapse.show();
-        collapseButton.current.classList.remove('collapsed');
+        collapseButton.current.classList.remove("collapsed");
       }
       else {
         collapse.hide();
-        collapseButton.current.classList.add('collapsed');
+        collapseButton.current.classList.add("collapsed");
       }
     }
     else {
       collapse.hide();
-      collapseButton.current.classList.add('collapsed');
+      collapseButton.current.classList.add("collapsed");
     }
     if (activeCategory === null && props.initial) {
       toggle();

@@ -1,8 +1,8 @@
 import "ol/ol.css";
 
 import {Map, View} from "ol";
-import TileLayer from 'ol/layer/Tile';
-import OSM from 'ol/source/OSM';
+import TileLayer from "ol/layer/Tile";
+import OSM from "ol/source/OSM";
 import React, {useEffect, useRef} from "react";
 import {useDispatch} from "react-redux";
 
@@ -10,9 +10,9 @@ import {loadAt, show} from "../../reducer/map_query";
 import OerebMapQuery from "./map_query";
 
 export default {
-  title: 'API Reference/Component/Map Query',
+  title: "API Reference/Component/Map Query",
   component: OerebMapQuery,
-  tags: ['autodocs']
+  tags: ["autodocs"]
 };
 
 export const MapQuery = () => {
@@ -42,59 +42,59 @@ export const MapQuery = () => {
       dispatch(show({
         results: [
           {
-            number: '1234',
-            egrid: 'CH1234567890',
+            number: "1234",
+            egrid: "CH1234567890",
             type: {
-              Code: 'RealEstate',
+              Code: "RealEstate",
               Text: [
                 {
-                  Language: 'de',
-                  Text: 'Liegenschaft'
+                  Language: "de",
+                  Text: "Liegenschaft"
                 },
                 {
-                  Language: 'fr',
-                  Text: 'Bien-fonds'
+                  Language: "fr",
+                  Text: "Bien-fonds"
                 },
                 {
-                  Language: 'it',
-                  Text: 'Bene immobile'
+                  Language: "it",
+                  Text: "Bene immobile"
                 },
                 {
-                  Language: 'rm',
-                  Text: 'Bain immobigliar'
+                  Language: "rm",
+                  Text: "Bain immobigliar"
                 },
                 {
-                  Language: 'en',
-                  Text: 'Property'
+                  Language: "en",
+                  Text: "Property"
                 }
               ]
             }
           },
           {
-            number: '5678',
-            egrid: 'CH1234567890',
+            number: "5678",
+            egrid: "CH1234567890",
             type: {
-              Code: 'Distinct_and_permanent_rights.BuildingRight',
+              Code: "Distinct_and_permanent_rights.BuildingRight",
               Text: [
                 {
-                  Language: 'de',
-                  Text: 'Baurecht'
+                  Language: "de",
+                  Text: "Baurecht"
                 },
                 {
-                  Language: 'fr',
-                  Text: 'Droit de superficie'
+                  Language: "fr",
+                  Text: "Droit de superficie"
                 },
                 {
-                  Language: 'it',
-                  Text: 'Diritto di superficie'
+                  Language: "it",
+                  Text: "Diritto di superficie"
                 },
                 {
-                  Language: 'rm',
-                  Text: 'Dretg da construcziun'
+                  Language: "rm",
+                  Text: "Dretg da construcziun"
                 },
                 {
-                  Language: 'en',
-                  Text: 'Building right'
+                  Language: "en",
+                  Text: "Building right"
                 }
               ]
             }
@@ -106,11 +106,11 @@ export const MapQuery = () => {
   return (
     <div>
       <button type="button" className="btn btn-primary" onClick={handleClick}>Show</button>
-      <div ref={mapElement} style={{width: '100%',
-        height: '300px'}} className="mt-3">
+      <div ref={mapElement} style={{width: "100%",
+        height: "300px"}} className="mt-3">
         <OerebMapQuery map={map} />
       </div>
     </div>
   );
 };
-MapQuery.title = 'Map Query';
+MapQuery.title = "Map Query";

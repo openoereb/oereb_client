@@ -1,48 +1,48 @@
-import './map.scss';
+import "./map.scss";
 
-import {isArray, isObject, isString} from 'lodash';
-import {Collection} from 'ol';
-import {Attribution, defaults as controlDefaults, Rotate, ScaleLine} from 'ol/control';
-import WMTSCapabilities from 'ol/format/WMTSCapabilities';
-import {defaults as interactionDefaults} from 'ol/interaction';
-import LayerGroup from 'ol/layer/Group';
-import ImageLayer from 'ol/layer/Image';
-import TileLayer from 'ol/layer/Tile';
-import VectorLayer from 'ol/layer/Vector';
-import Map from 'ol/Map';
-import ImageWMS from 'ol/source/ImageWMS';
-import TileWMS from 'ol/source/TileWMS';
-import VectorSource from 'ol/source/Vector';
-import WMTS, {optionsFromCapabilities} from 'ol/source/WMTS';
-import Stroke from 'ol/style/Stroke';
-import Style from 'ol/style/Style';
-import View from 'ol/View';
-import React, {useEffect, useRef, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {isArray, isObject, isString} from "lodash";
+import {Collection} from "ol";
+import {Attribution, defaults as controlDefaults, Rotate, ScaleLine} from "ol/control";
+import WMTSCapabilities from "ol/format/WMTSCapabilities";
+import {defaults as interactionDefaults} from "ol/interaction";
+import LayerGroup from "ol/layer/Group";
+import ImageLayer from "ol/layer/Image";
+import TileLayer from "ol/layer/Tile";
+import VectorLayer from "ol/layer/Vector";
+import Map from "ol/Map";
+import ImageWMS from "ol/source/ImageWMS";
+import TileWMS from "ol/source/TileWMS";
+import VectorSource from "ol/source/Vector";
+import WMTS, {optionsFromCapabilities} from "ol/source/WMTS";
+import Stroke from "ol/style/Stroke";
+import Style from "ol/style/Style";
+import View from "ol/View";
+import React, {useEffect, useRef, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
-import {loadExtract, showError, showExtract} from '../../reducer/extract';
-import {updateHistory} from '../../reducer/history';
-import {initMap} from '../../reducer/map';
-import {hide, loadAt, show} from '../../reducer/map_query';
-import {showWarning as showWarningMsg, showError as showErrorMsg} from '../../reducer/message';
-import {queryEgridByCoord} from '../../request/egrid';
-import {queryExtractById} from '../../request/extract';
-import OerebAvailabilityLayer from '../availability_layer/availability_layer';
-import OerebMapQuery from '../map_query/map_query';
-import OerebRealEstateLayer from '../real_estate_layer/real_estate_layer';
-import OerebTopicLayer from '../topic_layers/topic_layers';
-import { NoDataError } from '../../util/error';
-import { useTranslation } from 'react-i18next';
-import BaseLayer from 'ol/layer/Base';
+import {loadExtract, showError, showExtract} from "../../reducer/extract";
+import {updateHistory} from "../../reducer/history";
+import {initMap} from "../../reducer/map";
+import {hide, loadAt, show} from "../../reducer/map_query";
+import {showWarning as showWarningMsg, showError as showErrorMsg} from "../../reducer/message";
+import {queryEgridByCoord} from "../../request/egrid";
+import {queryExtractById} from "../../request/extract";
+import OerebAvailabilityLayer from "../availability_layer/availability_layer";
+import OerebMapQuery from "../map_query/map_query";
+import OerebRealEstateLayer from "../real_estate_layer/real_estate_layer";
+import OerebTopicLayer from "../topic_layers/topic_layers";
+import { NoDataError } from "../../util/error";
+import { useTranslation } from "react-i18next";
+import BaseLayer from "ol/layer/Base";
 
 export const getBaseLayerSourceWms = function (config) {
   const wmsConfig = {
-    url: config['url'],
-    params: config['params'],
-    projection: 'EPSG:2056'
+    url: config["url"],
+    params: config["params"],
+    projection: "EPSG:2056"
   };
-  if (isString(config['attributions']) || isArray(config['attributions'])) {
-    wmsConfig['attributions'] = config['attributions'];
+  if (isString(config["attributions"]) || isArray(config["attributions"])) {
+    wmsConfig["attributions"] = config["attributions"];
   }
   return Promise.resolve(new TileWMS(wmsConfig));
 };
@@ -50,19 +50,19 @@ export const getBaseLayerSourceWms = function (config) {
 export const getBaseLayerSourceWmts = function (config) {
   const parser = new WMTSCapabilities();
   return new Promise(function (resolve, reject) {
-    fetch(config['url'])
+    fetch(config["url"])
       .then((response) => response.text())
       .then((xml) => {
         const wmtsCaps = parser.read(xml);
         const wmtsOptions = {};
         Object.entries(config).forEach(([key, value]) => {
-          if (key !== 'url') {
+          if (key !== "url") {
             wmtsOptions[key] = value;
           }
         });
         const wmtsConfig = optionsFromCapabilities(wmtsCaps, wmtsOptions);
-        if (isString(config['attributions']) || isArray(config['attributions'])) {
-          wmtsConfig['attributions'] = config['attributions'];
+        if (isString(config["attributions"]) || isArray(config["attributions"])) {
+          wmtsConfig["attributions"] = config["attributions"];
         }
         resolve(new WMTS(wmtsConfig));
       })
@@ -73,13 +73,13 @@ export const getBaseLayerSourceWmts = function (config) {
 };
 
 export const getBaseLayerSource = function (config) {
-  if (config['type'].toLowerCase() === 'wms') {
+  if (config["type"].toLowerCase() === "wms") {
     return getBaseLayerSourceWms(config);
   }
-  else if (config['type'].toLowerCase() === 'wmts') {
+  else if (config["type"].toLowerCase() === "wmts") {
     return getBaseLayerSourceWmts(config);
   }
-  return Promise.reject(new Error('Invalid base layer type'));
+  return Promise.reject(new Error("Invalid base layer type"));
 };
 
 const OerebMap = function () {
@@ -94,9 +94,9 @@ const OerebMap = function () {
   const query = new URLSearchParams(window.location.search);
   const serviceUrl = config.service_url;
   const [map, setMap] = useState(null);
-  const tiled = config['use_tile_wms'];
-  const showScaleBar = config['show_scale_bar'];
-  const enableRotation = config['enable_rotation'];
+  const tiled = config["use_tile_wms"];
+  const showScaleBar = config["show_scale_bar"];
+  const enableRotation = config["enable_rotation"];
 
   let LayerClass = ImageLayer;
   let SourceClass = ImageWMS;
@@ -114,8 +114,8 @@ const OerebMap = function () {
     }),
     zIndex: 10000
   };
-  if (isString(config.availability['attributions']) || isArray(config.availability['attributions'])) {
-    availabilityConfig['attributions'] = config.availability['attributions'];
+  if (isString(config.availability["attributions"]) || isArray(config.availability["attributions"])) {
+    availabilityConfig["attributions"] = config.availability["attributions"];
   }
   const [availabilityLayer] = useState(new LayerClass(availabilityConfig));
 
@@ -132,10 +132,10 @@ const OerebMap = function () {
       zIndex: 40000
     };
     if (
-      isString(config.mask_surrounding['attributions']) ||
-      isArray(config.mask_surrounding['attributions'])
+      isString(config.mask_surrounding["attributions"]) ||
+      isArray(config.mask_surrounding["attributions"])
     ) {
-      maskSurroundingConfig['attributions'] = config.mask_surrounding['attributions'];
+      maskSurroundingConfig["attributions"] = config.mask_surrounding["attributions"];
     }
     maskSurroundingLayerObject = new LayerClass(maskSurroundingConfig);
   }
@@ -156,8 +156,8 @@ const OerebMap = function () {
       stroke: new Stroke({
         color: [255, 0, 0, 0.75],
         width: 7,
-        lineCap: 'square',
-        lineJoin: 'miter'
+        lineCap: "square",
+        lineJoin: "miter"
       })
     }),
     zIndex: 30000
@@ -166,9 +166,9 @@ const OerebMap = function () {
   if (map === null) {
 
     // Add view
-    const mapX = parseFloat(query.get('map_x')) || config.view.map_x;
-    const mapY = parseFloat(query.get('map_y')) || config.view.map_y;
-    const mapZoom = parseFloat(query.get('map_zoom')) || config.view.map_zoom;
+    const mapX = parseFloat(query.get("map_x")) || config.view.map_x;
+    const mapY = parseFloat(query.get("map_y")) || config.view.map_y;
+    const mapZoom = parseFloat(query.get("map_zoom")) || config.view.map_zoom;
 
     const controls = [];
 
@@ -180,15 +180,15 @@ const OerebMap = function () {
     // Add scale bar
     if (showScaleBar) {
       controls.push(new ScaleLine({
-        units: 'metric',
+        units: "metric",
         bar: true,
         steps: 1
       }));
     }
 
     if (enableRotation) {
-      const rotateControlEl = document.createElement('i');
-      rotateControlEl.setAttribute('class', 'bi bi-arrow-up-circle');
+      const rotateControlEl = document.createElement("i");
+      rotateControlEl.setAttribute("class", "bi bi-arrow-up-circle");
       controls.push(new Rotate({
         label: rotateControlEl
       }));
@@ -207,12 +207,12 @@ const OerebMap = function () {
         center: [mapX, mapY],
         zoom: mapZoom,
         resolutions: config.view.resolutions,
-        projection: 'EPSG:2056'
+        projection: "EPSG:2056"
       })
     });
 
     // Add base layer
-    getBaseLayerSource(config['base_layer']).then(function (source) {
+    getBaseLayerSource(config["base_layer"]).then(function (source) {
       const baseLayer = new TileLayer({
         preload: Infinity,
         visible: true,
@@ -233,15 +233,15 @@ const OerebMap = function () {
       }));
     });
 
-    newMap.on('moveend', function () {
+    newMap.on("moveend", function () {
       const query = new URLSearchParams(window.location.search);
-      query.set('map_x', newMap.getView().getCenter()[0].toFixed(3));
-      query.set('map_y', newMap.getView().getCenter()[1].toFixed(3));
-      query.set('map_zoom', newMap.getView().getZoom().toFixed(0));
-      window.history.pushState(null, null, '?' + query.toString());
+      query.set("map_x", newMap.getView().getCenter()[0].toFixed(3));
+      query.set("map_y", newMap.getView().getCenter()[1].toFixed(3));
+      query.set("map_zoom", newMap.getView().getZoom().toFixed(0));
+      window.history.pushState(null, null, "?" + query.toString());
     });
 
-    newMap.on('singleclick', function (evt) {
+    newMap.on("singleclick", function (evt) {
       const coord = newMap.getEventCoordinate(evt.originalEvent);
       dispatch(loadAt({
         posX: coord[0],
@@ -276,11 +276,11 @@ const OerebMap = function () {
               });
           }
           else {
-            throw new NoDataError('No data available');
+            throw new NoDataError("No data available");
           }
         }, (error) => {
           if (error.status === 204) {
-            throw new NoDataError('No data available');
+            throw new NoDataError("No data available");
           }
           else {
             throw new Error();
@@ -288,10 +288,10 @@ const OerebMap = function () {
         })
         .catch((err) => {
           if (err instanceof NoDataError) {
-            dispatch(showWarningMsg(t('map.warning.no_data')));
+            dispatch(showWarningMsg(t("map.warning.no_data")));
           }
           else {
-            dispatch(showErrorMsg(t('map.error.unknown')));
+            dispatch(showErrorMsg(t("map.error.unknown")));
           }
           dispatch(hide());
         });

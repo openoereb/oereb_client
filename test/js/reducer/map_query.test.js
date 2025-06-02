@@ -1,11 +1,11 @@
 import reducer, {
   hide,
   loadAt,
-  show} from '../../../oereb_client/static/src/reducer/map_query';
+  show} from "../../../oereb_client/static/src/reducer/map_query";
 
-describe('map query reducer', () => {
+describe("map query reducer", () => {
 
-  it('should return the initial state', () => {
+  it("should return the initial state", () => {
     expect(reducer(undefined, {})).toEqual({
       loading: false,
       visible: false,
@@ -15,7 +15,7 @@ describe('map query reducer', () => {
     });
   });
 
-  it('should load a specified position', () => {
+  it("should load a specified position", () => {
     let state = reducer(undefined, {});
     state = reducer(state, loadAt({
       posX: 100.0,
@@ -30,7 +30,7 @@ describe('map query reducer', () => {
     });
   });
 
-  it('should show a specified position', () => {
+  it("should show a specified position", () => {
     let state = reducer(undefined, {});
     state = reducer(state, loadAt({
       posX: 100.0,
@@ -48,7 +48,7 @@ describe('map query reducer', () => {
     });
   });
 
-  it('should hide map query tool', () => {
+  it("should hide map query tool", () => {
     let state = reducer(undefined, {});
     state = reducer(state, loadAt({
       posX: 100.0,

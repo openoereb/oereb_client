@@ -1,11 +1,11 @@
-import './extract.scss';
+import "./extract.scss";
 
-import React, {useEffect, useRef} from 'react';
-import {useSelector} from 'react-redux';
+import React, {useEffect, useRef} from "react";
+import {useSelector} from "react-redux";
 
-import OerebExtractData from './extract_data';
-import OerebExtractError from './extract_error';
-import OerebExtractLoading from './extract_loading';
+import OerebExtractData from "./extract_data";
+import OerebExtractError from "./extract_error";
+import OerebExtractLoading from "./extract_loading";
 
 const OerebExtract = function () {
   const extract = useSelector((state) => state.extract);
@@ -31,27 +31,27 @@ const OerebExtract = function () {
   })();
 
   useEffect(() => {
-    wrapper.current.classList.remove('hidden', 'loading', 'shown', 'collapsed');
+    wrapper.current.classList.remove("hidden", "loading", "shown", "collapsed");
     if (extract.collapsed) {
-      wrapper.current.classList.add('collapsed');
+      wrapper.current.classList.add("collapsed");
     }
     else if (extract.loading) {
-      wrapper.current.classList.add('loading');
+      wrapper.current.classList.add("loading");
     }
     else if (extract.visible || extract.error) {
-      wrapper.current.classList.add('shown');
+      wrapper.current.classList.add("shown");
     }
     else {
-      wrapper.current.classList.add('hidden');
+      wrapper.current.classList.add("hidden");
     }
   });
 
-  document.querySelectorAll('.ol-scale-bar').forEach((element) => {
+  document.querySelectorAll(".ol-scale-bar").forEach((element) => {
     if (extract.visible || extract.error) {
-      element.style.left = '513px';
+      element.style.left = "513px";
     }
     else {
-      element.style.left = '8px';
+      element.style.left = "8px";
     }
   });
 

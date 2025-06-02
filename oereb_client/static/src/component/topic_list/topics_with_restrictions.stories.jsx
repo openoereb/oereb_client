@@ -5,9 +5,9 @@ import {groupRestrictionsByTopic} from "../../request/extract";
 import OerebTopicsWithRestriction from "./topics_with_restrictions";
 
 export default {
-  title: 'API Reference/Component/Topic List/With Restrictions',
+  title: "API Reference/Component/Topic List/With Restrictions",
   component: OerebTopicsWithRestriction,
-  tags: ['autodocs']
+  tags: ["autodocs"]
 };
 
 export const WithRestrictions = () => {
@@ -15,7 +15,7 @@ export const WithRestrictions = () => {
     data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
     data.GetExtractByIdResponse.extract.ConcernedTheme
   );
-  return <OerebTopicsWithRestriction data={data['GetExtractByIdResponse']['extract']['ConcernedTheme']}
+  return <OerebTopicsWithRestriction data={data["GetExtractByIdResponse"]["extract"]["ConcernedTheme"]}
     restrictions={restrictions} />;
 };
-WithRestrictions.title = 'With Restrictions';
+WithRestrictions.title = "With Restrictions";

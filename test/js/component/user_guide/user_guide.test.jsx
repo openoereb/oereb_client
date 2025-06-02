@@ -1,5 +1,5 @@
-import {act, render} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import {act, render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -8,7 +8,7 @@ import {update} from "../../../../oereb_client/static/src/reducer/config";
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import MainStore from "../../../../oereb_client/static/src/store/main";
 
-describe('user guide component', () => {
+describe("user guide component", () => {
 
   let component;
   let user;
@@ -16,13 +16,13 @@ describe('user guide component', () => {
   beforeEach(() => {
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['de']
+        default: "de",
+        available: ["de"]
       }));
     });
     act(() => {
       MainStore.dispatch(update({
-        user_guide: 'https://example.com/guide/{lang}.pdf'
+        user_guide: "https://example.com/guide/{lang}.pdf"
       }));
     });
     component = render(
@@ -38,11 +38,11 @@ describe('user guide component', () => {
     window.open.mockClear();
   });
 
-  it('should render button', () => {
+  it("should render button", () => {
     expect(component.asFragment()).toMatchSnapshot();
   });
 
-  it('should not render button', () => {
+  it("should not render button", () => {
     act(() => {
       MainStore.dispatch(update({}));
     });
@@ -54,11 +54,11 @@ describe('user guide component', () => {
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
-  it('should call window.open', async () => {
-    await user.click(component.container.querySelector('button'));
+  it("should call window.open", async () => {
+    await user.click(component.container.querySelector("button"));
     expect(window.open.mock.calls).toHaveLength(1);
-    expect(window.open.mock.calls[0][0]).toEqual('https://example.com/guide/de.pdf');
-    expect(window.open.mock.calls[0][1]).toEqual('_blank');
+    expect(window.open.mock.calls[0][0]).toEqual("https://example.com/guide/de.pdf");
+    expect(window.open.mock.calls[0][1]).toEqual("_blank");
     window.open.mockReset();
   });
 

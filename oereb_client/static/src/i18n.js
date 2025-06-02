@@ -8,14 +8,14 @@ i18n
   .use(backend)
   .use(initReactI18next)
   .init({
-    ns: ['locale'],
-    defaultNS: 'locale',
-    fallbackLng: 'en',
+    ns: ["locale"],
+    defaultNS: "locale",
+    fallbackLng: "en",
     interpolation: {
       escapeValue: false
     },
     backend: {
-      loadPath: window.applicationUrl + 'static/i18n/{{lng}}/{{ns}}.json'
+      loadPath: window.applicationUrl + "static/i18n/{{lng}}/{{ns}}.json"
     },
     react: {
       useSuspense: false
