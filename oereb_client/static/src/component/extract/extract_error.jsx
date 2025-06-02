@@ -94,7 +94,7 @@ const OerebExtractError = function () {
       .catch(() => {
         dispatch(showError());
       });
-  }
+  };
 
   return (
     <div className="oereb-client-extract oereb-client-extract-error container-fluid">
@@ -129,7 +129,7 @@ const OerebExtractError = function () {
         {email}
       </address>
     </div>
-  )
+  );
 };
 
 export default OerebExtractError;

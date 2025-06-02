@@ -102,8 +102,8 @@ export const groupRestrictionsByTopic = function (restrictions, concernedThemes)
         themeText = restriction.Theme.Text;
       }
       restrictionsByTopic[code] = {
-        themeText: themeText,
-        subThemeText: subThemeText,
+        themeText,
+        subThemeText,
         inForce: [],
         changeWithPreEffect: [],
         changeWithoutPreEffect: []

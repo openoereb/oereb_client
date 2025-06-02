@@ -62,7 +62,7 @@ const OerebInformationPanel = function () {
 
   const handleSearch = function (evt) {
     setSearch(evt.target.value);
-  }
+  };
 
   let searchInput = null;
   if (tabs[extract.tab].search) {

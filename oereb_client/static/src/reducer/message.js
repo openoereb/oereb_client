@@ -44,7 +44,7 @@ export const showWarning = function(text) {
     setTimeout(() => {
       dispatch(cleanMessages());
     }, MESSAGE_TIMEOUT);
-  }
+  };
 }
 
 export const showError = function(text) {

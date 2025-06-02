@@ -51,9 +51,9 @@ const OerebTopicLayer = function (props) {
       return new LayerClass({
         preload: Infinity,
         visible: true,
-        opacity: opacity,
-        zIndex: zIndex,
-        source: source
+        opacity,
+        zIndex,
+        source
       });
     });
     topicLayers.getLayers().extend(layers);

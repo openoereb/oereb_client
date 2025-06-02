@@ -15,5 +15,5 @@ export const Documents = () => {
     data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
     data.GetExtractByIdResponse.extract.ConcernedTheme
   )["chBelasteteStandorteOeffentlicherVerkehr"]["changeWithPreEffect"];
-  return <OerebDocuments restrictions={restrictions} />
+  return <OerebDocuments restrictions={restrictions} />;
 };

@@ -15,7 +15,7 @@ export const MultilingualCatalog = () => {
   const [search, setSearch] = useState(null);
   const handleSearch = function (evt) {
     setSearch(evt.target.value);
-  }
+  };
   return (
     <div>
       <input className="form-control float-end mb-3" placeholder="Search..." onChange={handleSearch} />
@@ -29,6 +29,6 @@ MultilingualCatalog.decorators = [
   (Story) => {
     const dispatch = useDispatch();
     dispatch(showExtract(data));
-    return <Story />
+    return <Story />;
   }
 ];

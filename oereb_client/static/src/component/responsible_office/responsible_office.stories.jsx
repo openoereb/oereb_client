@@ -15,6 +15,6 @@ export const ResponsibleOffice = () => {
     data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
     data.GetExtractByIdResponse.extract.ConcernedTheme
   )["chBelasteteStandorteOeffentlicherVerkehr"]["changeWithPreEffect"];
-  return <OerebResponsibleOffice restrictions={restrictions} />
+  return <OerebResponsibleOffice restrictions={restrictions} />;
 };
 ResponsibleOffice.title = "Responsible Office";

@@ -15,5 +15,5 @@ export const Legend = () => {
     data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
     data.GetExtractByIdResponse.extract.ConcernedTheme
   )["chBelasteteStandorteOeffentlicherVerkehr"]["changeWithPreEffect"];
-  return <OerebLegend restrictions={restrictions} />
+  return <OerebLegend restrictions={restrictions} />;
 };

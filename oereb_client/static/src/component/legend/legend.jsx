@@ -67,18 +67,24 @@ const getLegendEntries = function (restrictions) {
     }
   }
   return legendEntries.sort((a, b) => {
-    if ((a["AreaShare"] || 0) > (b["AreaShare"] || 0))
+    if ((a["AreaShare"] || 0) > (b["AreaShare"] || 0)) {
       return -1;
-    if ((a["AreaShare"] || 0) < (b["AreaShare"] || 0))
+    }
+    if ((a["AreaShare"] || 0) < (b["AreaShare"] || 0)) {
       return 1;
-    if ((a["LengthShare"] || 0) > (b["LengthShare"] || 0))
+    }
+    if ((a["LengthShare"] || 0) > (b["LengthShare"] || 0)) {
       return -1;
-    if ((a["LengthShare"] || 0) < (b["LengthShare"] || 0))
+    }
+    if ((a["LengthShare"] || 0) < (b["LengthShare"] || 0)) {
       return 1;
-    if ((a["NrOfPoints"] || 0) > (b["NrOfPoints"] || 0))
+    }
+    if ((a["NrOfPoints"] || 0) > (b["NrOfPoints"] || 0)) {
       return -1;
-    if ((a["NrOfPoints"] || 0) < (b["NrOfPoints"] || 0))
+    }
+    if ((a["NrOfPoints"] || 0) < (b["NrOfPoints"] || 0)) {
       return 1;
+    }
     return 0;
   });
 };

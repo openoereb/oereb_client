@@ -83,11 +83,11 @@ const OerebTopic = function (props) {
       setActive(true);
       dispatch(setActiveTopic(collapseEl.current));
       dispatch(setViewServices({
-        viewServices: viewServices,
+        viewServices,
         callback: setLoading
       }));
     }
-  }
+  };
 
   const handleOpacity = function (evt) {
     setOpacity(evt.target.value / 100);

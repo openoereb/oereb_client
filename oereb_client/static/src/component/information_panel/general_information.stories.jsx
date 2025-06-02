@@ -17,6 +17,6 @@ GeneralInformation.decorators = [
   (Story) => {
     const dispatch = useDispatch();
     dispatch(showExtract(data));
-    return <Story />
+    return <Story />;
   }
 ];

@@ -18,6 +18,6 @@ Loading.decorators = [
       egrid: "CH1234567890",
       zoom: false
     }));
-    return <Story />
+    return <Story />;
   }
 ];

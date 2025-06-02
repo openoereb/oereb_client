@@ -1,4 +1,4 @@
-import {render, waitFor} from "@testing-library/react"
+import {render, waitFor} from "@testing-library/react";
 import {register} from "ol/proj/proj4";
 import proj4 from "proj4";
 import React from "react";

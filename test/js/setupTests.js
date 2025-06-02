@@ -26,4 +26,4 @@ i18n
     }
   });
 
-global.ResizeObserver = ResizeObserver
+global.ResizeObserver = ResizeObserver;

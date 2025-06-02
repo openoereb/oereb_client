@@ -3,7 +3,7 @@ from pyramid.exceptions import ConfigurationError
 from oereb_client import __version__
 
 
-class Index(object):
+class Index():
     def __init__(self, request):
         """
         Entry point for index rendering.
@@ -17,9 +17,9 @@ class Index(object):
 
     def validate_(self):
         if not isinstance(self.config_, dict):
-            raise ConfigurationError('Configuration needs to be a dictionary, got {0} instead'.format(
-                type(self.config_)
-            ))
+            raise ConfigurationError(
+                f'Configuration needs to be a dictionary, got {type(self.config_)} instead'
+            )
 
         if not isinstance(self.config_.get('application'), dict):
             raise ConfigurationError('Missing "application" configuration')
@@ -118,7 +118,7 @@ class Index(object):
 
         if 'manifest' not in cfg:
             cfg.update({
-                'manifest': self.request_.route_url('{0}/manifest'.format(self.request_.route_prefix))
+                'manifest': self.request_.route_url(f'{self.request_.route_prefix}/manifest')
             })
 
         if 'logo_oereb' not in cfg:
@@ -155,17 +155,13 @@ class Index(object):
             if service_url[-1] != '/':
                 service_url += '/'
             return service_url
-        return self.request_.route_url(
-            '{0}/index'.format(self.request_.route_prefix)
-        )
+        return self.request_.route_url(f'{self.request_.route_prefix}/index')
 
     def get_search_url_(self):
         search = self.config_.get('search', None)
         if isinstance(search, str):
             return search
-        return self.request_.route_url(
-            '{0}/search'.format(self.request_.route_prefix)
-        )
+        return self.request_.route_url(f'{self.request_.route_prefix}/search')
 
     def get_config(self):
         """
@@ -177,9 +173,7 @@ class Index(object):
 
         return {
             'test_instance_notice': self.config_.get('test_instance_notice', None),
-            'application_url': self.request_.route_url(
-                '{0}/index'.format(self.request_.route_prefix)
-            ),
+            'application_url': self.request_.route_url(f'{self.request_.route_prefix}/index'),
             'service_url': self.get_service_url_(),
             'search_url': self.get_search_url_(),
             'application': self.get_application_config_(),
@@ -207,7 +201,7 @@ class Index(object):
                 if item['Language'] == self.request_.params.get('lang'):
                     title = item['Text']
                     break
-                elif item['Language'] == self.config_['application']['default_language']:
+                if item['Language'] == self.config_['application']['default_language']:
                     title = item['Text']
         if title is None:
             title = self.config_['application']['title'][0]['Text']

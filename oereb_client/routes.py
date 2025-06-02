@@ -31,27 +31,27 @@ def includeme(config):
     config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
 
     # index.html
-    config.add_route('{0}/index'.format(config.route_prefix), '/')
+    config.add_route(f'{config.route_prefix}/index', '/')
     config.add_view(Index,
                     attr='render',
-                    route_name='{0}/index'.format(config.route_prefix),
+                    route_name=f'{config.route_prefix}/index',
                     renderer='oereb_client:templates/index.html',
                     request_method='GET')
 
     # manifest.json
     if 'manifest' not in config.registry.settings.get('oereb_client', {}).get('application', {}):
-        config.add_route('{0}/manifest'.format(config.route_prefix), '/manifest.json')
+        config.add_route(f'{config.route_prefix}/manifest', '/manifest.json')
         config.add_view(Manifest,
                         attr='render',
-                        route_name='{0}/manifest'.format(config.route_prefix),
+                        route_name=f'{config.route_prefix}/manifest',
                         renderer='oereb_client:templates/manifest.json',
                         request_method='GET')
 
     # search
-    config.add_route('{0}/search'.format(config.route_prefix), '/search')
+    config.add_route(f'{config.route_prefix}/search', '/search')
     config.add_view(Search,
                     attr='render',
-                    route_name='{0}/search'.format(config.route_prefix),
+                    route_name=f'{config.route_prefix}/search',
                     renderer='json',
                     request_method='GET')
 

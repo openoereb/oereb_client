@@ -15,6 +15,6 @@ Error.decorators = [
   (Story) => {
     const dispatch = useDispatch();
     dispatch(showError());
-    return <Story />
+    return <Story />;
   }
 ];
