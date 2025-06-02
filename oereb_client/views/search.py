@@ -68,7 +68,8 @@ class Search():
         end_time = datetime.now()
         duration = end_time - start_time
         ms = duration.total_seconds() * 1000
-        log.debug(f'Search took {ms} ms for term "{self.request_.params.get('term')}"')
+        term = self.request_.params.get('term')
+        log.debug(f'Search took {ms} ms for term "{term}"')
         return result_sets
 
     @staticmethod
