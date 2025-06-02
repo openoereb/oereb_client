@@ -6,6 +6,10 @@ Changelog
 
 https://github.com/openoereb/oereb_client/milestone/18
 
+- Fix visibility of rotation control
+- Add option to enable/disable map rotation
+- Dependency updates
+
 2.2.0
 *****
 
