@@ -194,6 +194,7 @@ class Index(object):
             'user_guide': self.config_.get('user_guide'),
             'use_tile_wms': self.config_.get('use_tile_wms', False),
             'show_scale_bar': self.config_.get('show_scale_bar', False),
+            'enable_rotation': self.config_.get('enable_rotation', True),
             'extract_json_timeout': self.config_.get('extract_json_timeout', 60),
             'extract_pdf_timeout': self.config_.get('extract_pdf_timeout', 120),
             'matomo': self.config_.get('matomo', {})
