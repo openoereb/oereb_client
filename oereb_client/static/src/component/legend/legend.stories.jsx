@@ -6,7 +6,8 @@ import OerebLegend from "./legend";
 
 export default {
   title: 'API Reference/Component/Legend',
-  component: OerebLegend
+  component: OerebLegend,
+  tags: ['autodocs']
 };
 
 export const Legend = () => {

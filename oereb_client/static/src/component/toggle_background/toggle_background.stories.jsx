@@ -4,7 +4,8 @@ import OerebToggleBackground from "./toggle_background";
 
 export default {
   title: 'API Reference/Component/Toggle Background',
-  component: OerebToggleBackground
+  component: OerebToggleBackground,
+  tags: ['autodocs']
 };
 
 export const ResponsibleOffice = () => <OerebToggleBackground />;

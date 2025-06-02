@@ -4,7 +4,8 @@ import OerebStaticExtract from "./static_extract";
 
 export default {
   title: 'API Reference/Component/Static Extract',
-  component: OerebStaticExtract
+  component: OerebStaticExtract,
+  tags: ['autodocs']
 };
 
 export const StaticExtract = () => <OerebStaticExtract />;

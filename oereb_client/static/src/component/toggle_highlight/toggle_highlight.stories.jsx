@@ -4,7 +4,8 @@ import OerebToggleHighlight from "./toggle_highlight";
 
 export default {
   title: 'API Reference/Component/Toggle Highlight',
-  component: OerebToggleHighlight
+  component: OerebToggleHighlight,
+  tags: ['autodocs']
 };
 
 export const ResponsibleOffice = () => <OerebToggleHighlight />;

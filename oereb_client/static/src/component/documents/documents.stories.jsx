@@ -6,7 +6,8 @@ import OerebDocuments from "./documents";
 
 export default {
   title: 'API Reference/Component/Documents',
-  component: OerebDocuments
+  component: OerebDocuments,
+  tags: ['autodocs']
 };
 
 export const Documents = () => {

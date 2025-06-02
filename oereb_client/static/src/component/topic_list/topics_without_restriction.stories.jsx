@@ -5,7 +5,8 @@ import OerebTopicsWithoutRestriction from "./topics_without_restriction";
 
 export default {
   title: 'API Reference/Component/Topic List/Without Restriction',
-  component: OerebTopicsWithoutRestriction
+  component: OerebTopicsWithoutRestriction,
+  tags: ['autodocs']
 };
 
 export const WithoutRestriction = () => <OerebTopicsWithoutRestriction

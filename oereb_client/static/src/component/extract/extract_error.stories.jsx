@@ -6,7 +6,8 @@ import OerebExtractError from './extract_error';
 
 export default {
   title: 'API Reference/Component/Extract/Error',
-  component: OerebExtractError
+  component: OerebExtractError,
+  tags: ['autodocs']
 };
 
 export const Error = () => <OerebExtractError />;

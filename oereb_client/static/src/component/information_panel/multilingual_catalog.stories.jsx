@@ -7,7 +7,8 @@ import OerebMultilingualCatalog from './multilingual_catalog';
 
 export default {
   title: 'API Reference/Component/Information Panel/Multilingual Catalog',
-  component: OerebMultilingualCatalog
+  component: OerebMultilingualCatalog,
+  tags: ['autodocs']
 };
 
 export const MultilingualCatalog = () => {

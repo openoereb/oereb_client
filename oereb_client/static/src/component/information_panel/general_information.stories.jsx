@@ -7,7 +7,8 @@ import OerebGeneralInformation from './general_information';
 
 export default {
   title: 'API Reference/Component/Information Panel/General Information',
-  component: OerebGeneralInformation
+  component: OerebGeneralInformation,
+  tags: ['autodocs']
 };
 
 export const GeneralInformation = () => <OerebGeneralInformation />;
