@@ -2,8 +2,9 @@ import './map.scss';
 
 import {isArray, isObject, isString} from 'lodash';
 import {Collection} from 'ol';
-import {Attribution, defaults, ScaleLine} from 'ol/control';
+import {Attribution, defaults as controlDefaults, Rotate, ScaleLine} from 'ol/control';
 import WMTSCapabilities from 'ol/format/WMTSCapabilities';
+import {defaults as interactionDefaults} from 'ol/interaction';
 import LayerGroup from 'ol/layer/Group';
 import ImageLayer from 'ol/layer/Image';
 import TileLayer from 'ol/layer/Tile';
@@ -95,6 +96,7 @@ const OerebMap = function () {
   const [map, setMap] = useState(null);
   const tiled = config['use_tile_wms'];
   const showScaleBar = config['show_scale_bar'];
+  const enableRotation = config['enable_rotation'];
 
   let LayerClass = ImageLayer;
   let SourceClass = ImageWMS;
@@ -184,10 +186,23 @@ const OerebMap = function () {
       }));
     }
 
+    if (enableRotation) {
+      const rotateControlEl = document.createElement('i');
+      rotateControlEl.setAttribute('class', 'bi bi-arrow-up-circle');
+      controls.push(new Rotate({
+        label: rotateControlEl
+      }));
+    }
+
     const newMap = new Map({
-      controls: defaults({
-        attribution: false
+      controls: controlDefaults({
+        attribution: false,
+        rotate: false
       }).extend(controls),
+      interactions: interactionDefaults({
+        altShiftDragRotate: enableRotation,
+        pinchRotate: enableRotation
+      }),
       view: new View({
         center: [mapX, mapY],
         zoom: mapZoom,
