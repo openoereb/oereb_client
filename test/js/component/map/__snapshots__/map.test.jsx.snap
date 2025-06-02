@@ -52,22 +52,6 @@ exports[`map component > should render map 1`] = `
             </button>
           </div>
           <div
-            class="ol-rotate ol-unselectable ol-control ol-hidden"
-            style="pointer-events: auto;"
-          >
-            <button
-              class="ol-rotate-reset"
-              title="Reset rotation"
-              type="button"
-            >
-              <span
-                class="ol-compass"
-              >
-                ⇧
-              </span>
-            </button>
-          </div>
-          <div
             class="ol-attribution ol-unselectable ol-control ol-collapsed"
             style="pointer-events: auto;"
           >

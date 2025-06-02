@@ -147,6 +147,7 @@ def test_get_config(mock_request):
             'user_guide': None,
             'use_tile_wms': False,
             'show_scale_bar': False,
+            'enable_rotation': True,
             'extract_json_timeout': 60,
             'extract_pdf_timeout': 120,
             'matomo': {}
@@ -157,6 +158,7 @@ def test_get_optional_parameters(mock_request):
     custom_settings = deepcopy(settings)
     custom_settings['oereb_client']['use_tile_wms'] = True
     custom_settings['oereb_client']['show_scale_bar'] = True
+    custom_settings['oereb_client']['enable_rotation'] = False
     custom_settings['oereb_client']['user_guide'] = 'https://example.com/guide'
     with testConfig(settings=custom_settings) as config:
         config.route_prefix = None
@@ -182,6 +184,7 @@ def test_get_optional_parameters(mock_request):
             'user_guide': 'https://example.com/guide',
             'use_tile_wms': True,
             'show_scale_bar': True,
+            'enable_rotation': False,
             'extract_json_timeout': 60,
             'extract_pdf_timeout': 120,
             'matomo': {}
@@ -216,6 +219,7 @@ def test_get_config_custom_timeout(mock_request):
             'user_guide': None,
             'use_tile_wms': False,
             'show_scale_bar': False,
+            'enable_rotation': True,
             'extract_json_timeout': 10,
             'extract_pdf_timeout': 20,
             'matomo': {}
