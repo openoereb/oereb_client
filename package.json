@@ -48,7 +48,7 @@
     "acorn": "^8.14.1",
     "babel-loader": "^10.0.0",
     "bootstrap": "^5.3.6",
-    "bootstrap-icons": "^1.12.1",
+    "bootstrap-icons": "^1.13.1",
     "css-loader": "^7.1.2",
     "eslint": "^9.28.0",
     "eslint-plugin-react": "^7.37.5",
