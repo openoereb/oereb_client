@@ -6,9 +6,9 @@ import {showExtract} from "../../reducer/extract";
 import OerebCategory from "./category";
 
 export default {
-  title: 'API Reference/Component/Category',
+  title: "API Reference/Component/Category",
   component: OerebCategory,
-  tags: ['autodocs']
+  tags: ["autodocs"]
 };
 
 export const ConcernedTheme = () => {
@@ -16,28 +16,28 @@ export const ConcernedTheme = () => {
   dispatch(showExtract(data));
   return (
     <OerebCategory title="Concerned theme"
-      data={data['GetExtractByIdResponse']['extract']['ConcernedTheme']}
+      data={data["GetExtractByIdResponse"]["extract"]["ConcernedTheme"]}
       restriction={true} />
   );
 };
-ConcernedTheme.title = 'Concerned theme';
+ConcernedTheme.title = "Concerned theme";
 
 export const NotConcernedTheme = () => {
   const dispatch = useDispatch();
   dispatch(showExtract(data));
   return (
     <OerebCategory title="Not concerned theme"
-      data={data['GetExtractByIdResponse']['extract']['NotConcernedTheme']} />
+      data={data["GetExtractByIdResponse"]["extract"]["NotConcernedTheme"]} />
   );
 };
-NotConcernedTheme.title = 'Not concerned theme';
+NotConcernedTheme.title = "Not concerned theme";
 
 export const ThemeWithoutData = () => {
   const dispatch = useDispatch();
   dispatch(showExtract(data));
   return (
     <OerebCategory title="Theme without data"
-      data={data['GetExtractByIdResponse']['extract']['ThemeWithoutData']} />
+      data={data["GetExtractByIdResponse"]["extract"]["ThemeWithoutData"]} />
   );
 };
-ThemeWithoutData.title = 'Theme without data';
+ThemeWithoutData.title = "Theme without data";

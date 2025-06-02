@@ -1,4 +1,4 @@
-import {act, fireEvent, render} from '@testing-library/react';
+import {act, fireEvent, render} from "@testing-library/react";
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -11,62 +11,62 @@ const config = {
   application: {
     title: [
       {
-        Language: 'en',
-        Text: 'PLR Cadastre, Canton of Basel-Landschaft'
+        Language: "en",
+        Text: "PLR Cadastre, Canton of Basel-Landschaft"
       },
       {
-        Language: 'de',
-        Text: 'ÖREB-Kataster, Kanton Basel-Landschaft'
+        Language: "de",
+        Text: "ÖREB-Kataster, Kanton Basel-Landschaft"
       },
       {
-        Language: 'fr',
-        Text: 'Cadastre RDPPF, Canton de Bâle-Campagne'
+        Language: "fr",
+        Text: "Cadastre RDPPF, Canton de Bâle-Campagne"
       }
     ],
     logo_oereb: [
       {
-        Language: 'en',
-        URL: 'http://localhost:8080/samples/static/logo_oereb_en.png'
+        Language: "en",
+        URL: "http://localhost:8080/samples/static/logo_oereb_en.png"
       },
       {
-        Language: 'de',
-        URL: 'http://localhost:8080/samples/static/logo_oereb_de.png'
+        Language: "de",
+        URL: "http://localhost:8080/samples/static/logo_oereb_de.png"
       },
       {
-        Language: 'fr',
-        URL: 'http://localhost:8080/samples/static/logo_oereb_fr.png'
+        Language: "fr",
+        URL: "http://localhost:8080/samples/static/logo_oereb_fr.png"
       }
     ],
     logo_canton: [
       {
-        Language: 'en',
-        URL: 'http://localhost:8080/samples/static/logo_bl.png'
+        Language: "en",
+        URL: "http://localhost:8080/samples/static/logo_bl.png"
       },
       {
-        Language: 'de',
-        URL: 'http://localhost:8080/samples/static/logo_bl.png'
+        Language: "de",
+        URL: "http://localhost:8080/samples/static/logo_bl.png"
       },
       {
-        Language: 'fr',
-        URL: 'http://localhost:8080/samples/static/logo_bl.png'
+        Language: "fr",
+        URL: "http://localhost:8080/samples/static/logo_bl.png"
       }
     ],
-    local_storage_prefix: 'bl',
-    languages: ['en', 'de', 'fr'],
-    default_language: 'en'
+    local_storage_prefix: "bl",
+    languages: ["en", "de", "fr"],
+    default_language: "en"
   },
-  search_url: 'http://example.com/search'
+  search_url: "http://example.com/search"
 };
 
-describe('menu component', () => {
+describe("menu component", () => {
 
   let component;
 
   beforeEach(() => {
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['de']
+        default: "de",
+        available: ["de"]
       }));
     });
     act(() => {
@@ -81,13 +81,13 @@ describe('menu component', () => {
     });
   });
 
-  it('should render menu', () => {
+  it("should render menu", () => {
     expect(component.asFragment()).toMatchSnapshot();
   });
 
 });
 
-describe('search', () => {
+describe("search", () => {
 
   let component;
 
@@ -95,8 +95,8 @@ describe('search', () => {
     fetch.resetMocks();
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['de']
+        default: "de",
+        available: ["de"]
       }));
     });
     act(() => {
@@ -109,11 +109,11 @@ describe('search', () => {
     );
   });
 
-  it('should show LV95 coordinates', async () => {
-    fetch.mockResponseOnce('[]');
-    fireEvent.change(component.container.querySelector('input'), {
+  it("should show LV95 coordinates", async () => {
+    fetch.mockResponseOnce("[]");
+    fireEvent.change(component.container.querySelector("input"), {
       target: {
-        value: '2600000 1200000'
+        value: "2600000 1200000"
       }
     });
     await act(async () => {});
@@ -121,11 +121,11 @@ describe('search', () => {
     expect(fetch.mock.calls).toHaveLength(1);
   });
 
-  it('should show GNSS coordinates', async () => {
-    fetch.mockResponseOnce('[]');
-    fireEvent.change(component.container.querySelector('input'), {
+  it("should show GNSS coordinates", async () => {
+    fetch.mockResponseOnce("[]");
+    fireEvent.change(component.container.querySelector("input"), {
       target: {
-        value: '7.72867 47.48910'
+        value: "7.72867 47.48910"
       }
     });
     await act(async () => {});
@@ -133,38 +133,38 @@ describe('search', () => {
     expect(fetch.mock.calls).toHaveLength(1);
   });
 
-  it('should show results', async () => {
+  it("should show results", async () => {
     fetch.mockResponseOnce(JSON.stringify([
       {
-        title: 'Set 1',
+        title: "Set 1",
         results: [
           {
-            label: 'Result 1',
+            label: "Result 1",
             coordinates: [0.0, 0.0]
           },
           {
-            label: 'Result 2',
+            label: "Result 2",
             coordinates: [1.0, 1.0]
           }
         ]
       },
       {
-        title: 'Set 2',
+        title: "Set 2",
         results: [
           {
-            label: 'Result 3',
-            egrid: 'CH1234'
+            label: "Result 3",
+            egrid: "CH1234"
           },
           {
-            label: 'Result 4',
-            egrid: 'CH5678'
+            label: "Result 4",
+            egrid: "CH5678"
           }
         ]
       }
     ]));
-    fireEvent.change(component.container.querySelector('input'), {
+    fireEvent.change(component.container.querySelector("input"), {
       target: {
-        value: 'abc'
+        value: "abc"
       }
     });
     await act(async () => {});

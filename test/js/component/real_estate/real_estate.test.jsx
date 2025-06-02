@@ -1,4 +1,4 @@
-import {act, render} from '@testing-library/react';
+import {act, render} from "@testing-library/react";
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -7,15 +7,15 @@ import {initLanguages} from "../../../../oereb_client/static/src/reducer/languag
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
 
-describe('real estate component', () => {
+describe("real estate component", () => {
 
   let component;
 
   beforeEach(() => {
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['de']
+        default: "de",
+        available: ["de"]
       }));
     });
     component = render(
@@ -25,7 +25,7 @@ describe('real estate component', () => {
     );
   });
 
-  it('should render real estate', () => {
+  it("should render real estate", () => {
     expect(component.asFragment()).toMatchSnapshot();
   });
 

@@ -17,16 +17,16 @@ const OerebExternalViewer = function () {
   const defaultLanguage = language.default;
 
   const validConfig =
-    isObject(config['external_viewer']) &&
-    isArray(config['external_viewer']['tooltip']) &&
-    isString(config['external_viewer']['url']);
+    isObject(config["external_viewer"]) &&
+    isArray(config["external_viewer"]["tooltip"]) &&
+    isString(config["external_viewer"]["url"]);
 
   if (!validConfig) {
     return null;
   }
 
   const title = getLocalizedText(
-    config['external_viewer']['tooltip'],
+    config["external_viewer"]["tooltip"],
     currentLanguage,
     defaultLanguage
   );
@@ -34,28 +34,28 @@ const OerebExternalViewer = function () {
   const openExternalViewer = function () {
     if (extract.visible) {
       const urlParams = new URLSearchParams(window.location.search);
-      const realEstate = extract.data['GetExtractByIdResponse']['extract']['RealEstate'];
+      const realEstate = extract.data["GetExtractByIdResponse"]["extract"]["RealEstate"];
       const values = {
-        'map_x': urlParams.get('map_x'),
-        'map_y': urlParams.get('map_y'),
-        'map_zoom': urlParams.get('map_zoom'),
-        'lang': urlParams.get('lang'),
-        'canton': realEstate['Canton'],
-        'egrid': realEstate['EGRID'],
-        'fosnr': realEstate['FosNr'],
-        'identdn': realEstate['IdentDN'],
-        'municipality': realEstate['MunicipalityName'],
-        'number': realEstate['Number']
+        "map_x": urlParams.get("map_x"),
+        "map_y": urlParams.get("map_y"),
+        "map_zoom": urlParams.get("map_zoom"),
+        "lang": urlParams.get("lang"),
+        "canton": realEstate["Canton"],
+        "egrid": realEstate["EGRID"],
+        "fosnr": realEstate["FosNr"],
+        "identdn": realEstate["IdentDN"],
+        "municipality": realEstate["MunicipalityName"],
+        "number": realEstate["Number"]
       };
-      let url = config['external_viewer']['url'];
-      if (url.indexOf('?') === -1) {
-        url += '?';
+      let url = config["external_viewer"]["url"];
+      if (url.indexOf("?") === -1) {
+        url += "?";
       }
-      const params = config['external_viewer']['params'];
+      const params = config["external_viewer"]["params"];
       if (isArray(params)) {
-        url += params.join('&');
+        url += params.join("&");
       }
-      window.open(encodeURI(format(url, values)), '_blank');
+      window.open(encodeURI(format(url, values)), "_blank");
     }
   };
 

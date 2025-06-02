@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 export const accordionSlice = createSlice({
-  name: 'accordion',
+  name: "accordion",
   initialState: {
     category: null,
     topic: null,

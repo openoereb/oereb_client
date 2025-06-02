@@ -1,18 +1,18 @@
 import {isString} from "lodash";
 
 export const queryExtractById = function (serviceUrl, egrid, identdn, number, timeout, language) {
-  const url = new URL(serviceUrl + 'extract/json/');
+  const url = new URL(serviceUrl + "extract/json/");
   if (isString(egrid)) {
-    url.searchParams.append('EGRID', egrid);
+    url.searchParams.append("EGRID", egrid);
   }
   else {
-    url.searchParams.append('IDENTDN', identdn);
-    url.searchParams.append('NUMBER', number);
+    url.searchParams.append("IDENTDN", identdn);
+    url.searchParams.append("NUMBER", number);
   }
-  url.searchParams.append('GEOMETRY', true);
-  url.searchParams.append('_dc', new Date().getTime());
+  url.searchParams.append("GEOMETRY", true);
+  url.searchParams.append("_dc", new Date().getTime());
   if (language) {
-    url.searchParams.append('LANG', language);
+    url.searchParams.append("LANG", language);
   }
   return new Promise((resolve, reject) => {
     const controller = new AbortController();
@@ -35,17 +35,17 @@ export const queryExtractById = function (serviceUrl, egrid, identdn, number, ti
 };
 
 export const queryStaticExtractById = function (serviceUrl, egrid, identdn, number, timeout, language) {
-  const url = new URL(serviceUrl + 'extract/pdf/');
+  const url = new URL(serviceUrl + "extract/pdf/");
   if (isString(egrid)) {
-    url.searchParams.append('EGRID', egrid);
+    url.searchParams.append("EGRID", egrid);
   }
   else {
-    url.searchParams.append('IDENTDN', identdn);
-    url.searchParams.append('NUMBER', number);
+    url.searchParams.append("IDENTDN", identdn);
+    url.searchParams.append("NUMBER", number);
   }
-  url.searchParams.append('_dc', new Date().getTime());
+  url.searchParams.append("_dc", new Date().getTime());
   if (language) {
-    url.searchParams.append('LANG', language);
+    url.searchParams.append("LANG", language);
   }
   return new Promise((resolve, reject) => {
     const controller = new AbortController();
@@ -68,9 +68,9 @@ export const queryStaticExtractById = function (serviceUrl, egrid, identdn, numb
 };
 
 export const sanitizeTopicCode = function (theme) {
-  let code = theme.Code.replace('.', '').replace('-', '').replace('_', '');
+  let code = theme.Code.replace(".", "").replace("-", "").replace("_", "");
   if (isString(theme.SubCode)) {
-    code += '_' + theme.SubCode.replace('.', '').replace('-', '').replace('_', '');
+    code += "_" + theme.SubCode.replace(".", "").replace("-", "").replace("_", "");
   }
   return code;
 };

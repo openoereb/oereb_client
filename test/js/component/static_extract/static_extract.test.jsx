@@ -1,5 +1,5 @@
-import {act, render} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import {act, render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import FileSaver from "file-saver";
 import React from "react";
 import {Provider} from "react-redux";
@@ -16,7 +16,7 @@ const sleep = function(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 };
 
-describe('static extract component', () => {
+describe("static extract component", () => {
 
   let component;
   let user;
@@ -25,18 +25,18 @@ describe('static extract component', () => {
     fetch.resetMocks();
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['de']
+        default: "de",
+        available: ["de"]
       }));
     });
     act(() => {
       MainStore.dispatch(update({
-        service_url: 'http://example.com/pdf'
+        service_url: "http://example.com/pdf"
       }));
     });
     act(() => {
       MainStore.dispatch(loadExtract({
-        egrid: 'CH1234',
+        egrid: "CH1234",
         zoom: false
       }));
     });
@@ -51,14 +51,14 @@ describe('static extract component', () => {
     user = userEvent.setup();
   });
 
-  it('should render static extract button', () => {
+  it("should render static extract button", () => {
     expect(component.asFragment()).toMatchSnapshot();
   });
 
-  it('should request static extract', async () => {
-    const mockSave = vi.spyOn(FileSaver, 'saveAs');
-    fetch.mockResponseOnce('foo');
-    await user.click(component.container.querySelector('button'));
+  it("should request static extract", async () => {
+    const mockSave = vi.spyOn(FileSaver, "saveAs");
+    fetch.mockResponseOnce("foo");
+    await user.click(component.container.querySelector("button"));
     await sleep(500);
     expect(fetch.mock.calls).toHaveLength(1);
     expect(mockSave).toHaveBeenCalled();

@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {useSelector} from 'react-redux';
+import PropTypes from "prop-types";
+import React from "react";
+import {useTranslation} from "react-i18next";
+import {useSelector} from "react-redux";
 
-import {getLocalizedText} from '../../util/language';
+import {getLocalizedText} from "../../util/language";
 
 /**
  * This component shows the real estate information.
@@ -23,14 +23,14 @@ const OerebRealEstate = function (props) {
   return (
     <div className="container-fluid mt-3 oereb-client-real-estate">
       <h5>
-        {type} {number} {t('extract.real_estate.at')} {municipality}
+        {type} {number} {t("extract.real_estate.at")} {municipality}
       </h5>
       <div className="row row-cols-2">
-        <div className="col-3"><strong>{t('extract.real_estate.egrid')}:</strong></div>
+        <div className="col-3"><strong>{t("extract.real_estate.egrid")}:</strong></div>
         <div className="col-9">{egrid}</div>
       </div>
       <div className="row row-cols-2">
-        <div className="col-3"><strong>{t('extract.real_estate.area')}:</strong></div>
+        <div className="col-3"><strong>{t("extract.real_estate.area")}:</strong></div>
         <div className="col-9">{area} m²</div>
       </div>
     </div>

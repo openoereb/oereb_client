@@ -1,8 +1,8 @@
-import { Toast } from 'bootstrap';
-import React, { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
-import { MESSAGE_TIMEOUT } from '../../reducer/message';
-import './message.scss';
+import { Toast } from "bootstrap";
+import React, { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { MESSAGE_TIMEOUT } from "../../reducer/message";
+import "./message.scss";
 
 /**
  * This component shows messages (warnings, errors) in the user interface.
@@ -15,14 +15,14 @@ const OerebMessage = function () {
     let toastClass;
     let toastBodyClass;
     let toastIcon;
-    if (message.type === 'error') {
-      toastClass = 'toast align-items-center bg-danger';
-      toastBodyClass = 'toast-body text-bg-danger';
+    if (message.type === "error") {
+      toastClass = "toast align-items-center bg-danger";
+      toastBodyClass = "toast-body text-bg-danger";
       toastIcon = <i className="bi bi-x-octagon-fill text-bg-danger"></i>;
     }
     else {
-      toastClass = 'toast align-items-center bg-secondary';
-      toastBodyClass = 'toast-body text-bg-secondary';
+      toastClass = "toast align-items-center bg-secondary";
+      toastBodyClass = "toast-body text-bg-secondary";
       toastIcon = <i className="bi bi-exclamation-triangle-fill text-bg-secondary"></i>;
     }
     return (
@@ -40,16 +40,16 @@ const OerebMessage = function () {
   });
 
   useEffect(() => {
-    const toasts = element.current.querySelectorAll('.toast');
+    const toasts = element.current.querySelectorAll(".toast");
     toasts.forEach((toastEl) => {
-      if (!toastEl.hasAttribute('initialized')) {
+      if (!toastEl.hasAttribute("initialized")) {
         const toast = Toast.getOrCreateInstance(toastEl);
         toast.show();
         setTimeout(() => {
           toast.hide();
         }, MESSAGE_TIMEOUT - 500);
       }
-      toastEl.setAttribute('initialized', true);
+      toastEl.setAttribute("initialized", true);
     });
   }, [items]);
 

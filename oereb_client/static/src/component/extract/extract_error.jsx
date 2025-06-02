@@ -1,11 +1,11 @@
-import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {useDispatch, useSelector} from 'react-redux';
+import React from "react";
+import {useTranslation} from "react-i18next";
+import {useDispatch, useSelector} from "react-redux";
 
-import {hideExtract, loadExtract, showError, showExtract} from '../../reducer/extract';
-import {updateHistory} from '../../reducer/history';
-import {queryExtractById} from '../../request/extract';
-import {getLocalizedText} from '../../util/language';
+import {hideExtract, loadExtract, showError, showExtract} from "../../reducer/extract";
+import {updateHistory} from "../../reducer/history";
+import {queryExtractById} from "../../request/extract";
+import {getLocalizedText} from "../../util/language";
 
 /**
  * This component shows an error message if the extract request has failed.
@@ -35,7 +35,7 @@ const OerebExtractError = function () {
       return (
         <span>
           <br />
-          <i className="bi bi-telephone-fill" title={t('extract.error.support.phone.title')}></i>&nbsp;
+          <i className="bi bi-telephone-fill" title={t("extract.error.support.phone.title")}></i>&nbsp;
           {config.support.phone}
         </span>
       );
@@ -48,8 +48,8 @@ const OerebExtractError = function () {
       return (
         <span>
           <br />
-          <i className="bi bi-envelope-fill" title={t('extract.error.support.email.title')}></i>&nbsp;
-          <a href={'mailto:' + config.support.email}>
+          <i className="bi bi-envelope-fill" title={t("extract.error.support.email.title")}></i>&nbsp;
+          <a href={"mailto:" + config.support.email}>
             {config.support.email}
           </a>
         </span>
@@ -107,18 +107,18 @@ const OerebExtractError = function () {
       </p>
       <h3>
         <i className="bi bi-exclamation-circle-fill text-secondary"></i>&nbsp;
-        {t('extract.error.title')}
+        {t("extract.error.title")}
       </h3>
       <p>
-        {t('extract.error.message')}
+        {t("extract.error.message")}
       </p>
       <p className="text-center">
         <button onClick={retryExtract} className="btn btn-secondary">
-          {t('extract.error.button.text')}
+          {t("extract.error.button.text")}
         </button>
       </p>
       <p>
-        {t('extract.error.support.message')}
+        {t("extract.error.support.message")}
       </p>
       <address>
         <strong>{office1}</strong>

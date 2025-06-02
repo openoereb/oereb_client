@@ -5,15 +5,15 @@ import {groupRestrictionsByTopic} from "../../request/extract";
 import OerebTopic from "./topic";
 
 export default {
-  title: 'API Reference/Component/Topic',
+  title: "API Reference/Component/Topic",
   component: OerebTopic,
-  tags: ['autodocs']
+  tags: ["autodocs"]
 };
 
 export const Topic = () => {
   const restrictions = groupRestrictionsByTopic(
     data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
     data.GetExtractByIdResponse.extract.ConcernedTheme
-  )['chBelasteteStandorteOeffentlicherVerkehr']['changeWithPreEffect'];
+  )["chBelasteteStandorteOeffentlicherVerkehr"]["changeWithPreEffect"];
   return <OerebTopic restrictions={restrictions} />
 };

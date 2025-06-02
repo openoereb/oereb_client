@@ -2,14 +2,14 @@ import {createSlice} from "@reduxjs/toolkit";
 import {isBoolean, isString} from "lodash";
 
 export const symbolZoomSlice = createSlice({
-  name: 'symbolZoom',
+  name: "symbolZoom",
   initialState: {
-    key: 'OerebSymbolZoom',
+    key: "OerebSymbolZoom",
     enabled: true
   },
   reducers: {
     setSymbolZoomPrefix: (state, action) => {
-      state.key = action.payload + 'OerebSymbolZoom';
+      state.key = action.payload + "OerebSymbolZoom";
     },
     initSymbolZoom: (state) => {
       const enabled = localStorage.getItem(state.key);

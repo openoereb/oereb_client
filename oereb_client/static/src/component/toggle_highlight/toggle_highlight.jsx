@@ -1,9 +1,9 @@
-import '../../oereb_client.scss';
+import "../../oereb_client.scss";
 
-import React from 'react';
-import {useTranslation} from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleHighlight } from '../../reducer/extract';
+import React from "react";
+import {useTranslation} from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleHighlight } from "../../reducer/extract";
 
 /**
  * A simple button component to hide the real estate highlight.
@@ -29,7 +29,7 @@ const OerebToggleHighlight = function () {
     <button type="button"
       className={buttonClass}
       onClick={toggle}
-      title={t('extract.hide_highlight.title')}>
+      title={t("extract.hide_highlight.title")}>
       <i className="bi bi-bounding-box-circles"></i>
     </button>
   );

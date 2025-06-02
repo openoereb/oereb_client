@@ -2,14 +2,14 @@ import {createSlice} from "@reduxjs/toolkit";
 import {isBoolean, isString} from "lodash";
 
 export const availabilitySlice = createSlice({
-  name: 'availability',
+  name: "availability",
   initialState: {
-    key: 'OerebAvailability',
+    key: "OerebAvailability",
     visible: true
   },
   reducers: {
     setAvailabilityPrefix: (state, action) => {
-      state.key = action.payload + 'OerebAvailability';
+      state.key = action.payload + "OerebAvailability";
     },
     initAvailability: (state) => {
       const availability = localStorage.getItem(state.key);

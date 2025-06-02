@@ -20,15 +20,15 @@ const OerebMultilingualCatalog = function (props) {
   const validExtract =
     extract.visible &&
     isObject(extract.data) &&
-    isObject(extract.data['GetExtractByIdResponse']) &&
-    isObject(extract.data['GetExtractByIdResponse']['extract']);
+    isObject(extract.data["GetExtractByIdResponse"]) &&
+    isObject(extract.data["GetExtractByIdResponse"]["extract"]);
 
   if (!validExtract) {
     return null;
   }
 
   const highlight = function (item, highlight) {
-    const parts = item.split(new RegExp(`(${highlight})`, 'gi')).map((part, key) => {
+    const parts = item.split(new RegExp(`(${highlight})`, "gi")).map((part, key) => {
       if (part.toLocaleLowerCase() === highlight.toLocaleLowerCase()) {
         return <mark className="ps-0 pe-0" key={key}>{part}</mark>;
       }
@@ -39,11 +39,11 @@ const OerebMultilingualCatalog = function (props) {
     );
   };
 
-  const catalog = extract.data['GetExtractByIdResponse']['extract'][catalogName];
+  const catalog = extract.data["GetExtractByIdResponse"]["extract"][catalogName];
 
   const localizedCatalog = catalog.map((item) => ({
-    title: getLocalizedText(item['Title'], currentLanguage, defaultLanguage),
-    content: getLocalizedText(item['Content'], currentLanguage, defaultLanguage)
+    title: getLocalizedText(item["Title"], currentLanguage, defaultLanguage),
+    content: getLocalizedText(item["Content"], currentLanguage, defaultLanguage)
   }))
     .filter((item) => {
       if (isString(search) && search.length > 0) {

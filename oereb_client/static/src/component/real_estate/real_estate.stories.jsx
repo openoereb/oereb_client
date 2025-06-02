@@ -4,10 +4,10 @@ import data from "../../../../../samples/extract.json";
 import OerebRealEstate from "./real_estate";
 
 export default {
-  title: 'API Reference/Component/Real Estate',
+  title: "API Reference/Component/Real Estate",
   component: OerebRealEstate,
-  tags: ['autodocs']
+  tags: ["autodocs"]
 };
 
 export const RealEstate = () => <OerebRealEstate data={data.GetExtractByIdResponse.extract.RealEstate} />;
-RealEstate.title = 'Real Estate';
+RealEstate.title = "Real Estate";

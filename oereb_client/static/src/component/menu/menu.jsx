@@ -1,23 +1,23 @@
-import './menu.scss';
+import "./menu.scss";
 
-import {isArray, isString} from 'lodash';
-import React, {useState} from 'react';
-import {useTranslation} from 'react-i18next';
-import {useDispatch, useSelector} from 'react-redux';
+import {isArray, isString} from "lodash";
+import React, {useState} from "react";
+import {useTranslation} from "react-i18next";
+import {useDispatch, useSelector} from "react-redux";
 
-import {setViewServices} from '../../reducer/accordion';
-import {showAvailability} from '../../reducer/availability';
-import {loadExtract, showError, showExtract} from '../../reducer/extract';
-import {updateHistory} from '../../reducer/history';
-import {hide, loadAt, show} from '../../reducer/map_query';
-import {enableSymbolZoom} from '../../reducer/symbol_zoom';
-import {queryEgridByCoord} from '../../request/egrid';
-import {queryExtractById} from '../../request/extract';
-import {searchTerm} from '../../request/search';
-import {getCoordinates, isGNSS, isLV95} from '../../util/coordinate';
-import {getLocalizedUrl} from '../../util/language';
-import OerebLanguage from '../language/language';
-import OerebUserGuide from '../user_guide/user_guide';
+import {setViewServices} from "../../reducer/accordion";
+import {showAvailability} from "../../reducer/availability";
+import {loadExtract, showError, showExtract} from "../../reducer/extract";
+import {updateHistory} from "../../reducer/history";
+import {hide, loadAt, show} from "../../reducer/map_query";
+import {enableSymbolZoom} from "../../reducer/symbol_zoom";
+import {queryEgridByCoord} from "../../request/egrid";
+import {queryExtractById} from "../../request/extract";
+import {searchTerm} from "../../request/search";
+import {getCoordinates, isGNSS, isLV95} from "../../util/coordinate";
+import {getLocalizedUrl} from "../../util/language";
+import OerebLanguage from "../language/language";
+import OerebUserGuide from "../user_guide/user_guide";
 
 const OerebMenu = function () {
   const {t} = useTranslation();
@@ -36,7 +36,7 @@ const OerebMenu = function () {
   const defaultLanguage = language.default;
   const availableLanguages = language.available;
 
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [pendingRequest, setPendingRequest] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -94,7 +94,7 @@ const OerebMenu = function () {
   };
 
   const resetSearch = function () {
-    setSearch('');
+    setSearch("");
     setSearchResults([]);
   };
 
@@ -126,7 +126,7 @@ const OerebMenu = function () {
         let allResults = [];
         if (isLV95(searchValue)) {
           allResults = allResults.concat([{
-            title: t('menu.search.title.coordinates.lv95'),
+            title: t("menu.search.title.coordinates.lv95"),
             results: [{
               label: searchValue,
               coordinates: getCoordinates(searchValue)
@@ -135,7 +135,7 @@ const OerebMenu = function () {
         }
         if (isGNSS(searchValue)) {
           allResults = allResults.concat([{
-            title: t('menu.search.title.coordinates.wgs84'),
+            title: t("menu.search.title.coordinates.wgs84"),
             results: [{
               label: searchValue,
               coordinates: getCoordinates(searchValue)
@@ -182,7 +182,7 @@ const OerebMenu = function () {
       return (
         <button className="btn btn-outline-secondary"
           type="button"
-          title={t('menu.search.reset')}
+          title={t("menu.search.reset")}
           disabled>
           <i className="bi bi-trash"></i>
         </button>
@@ -200,7 +200,7 @@ const OerebMenu = function () {
     return (
       <button onClick={resetSearch}
         className="btn btn-outline-secondary"
-        title={t('menu.search.reset')}
+        title={t("menu.search.reset")}
         type="button">
         <i className="bi bi-trash"></i>
       </button>
@@ -212,11 +212,11 @@ const OerebMenu = function () {
   const showAvailabilityText = (() => {
     if (showAvailabilityLayer) {
       return (
-        <span><i className="bi bi-check-square"></i> {t('menu.settings.availability')}</span>
+        <span><i className="bi bi-check-square"></i> {t("menu.settings.availability")}</span>
       );
     }
     return (
-      <span><i className="bi bi-square"></i> {t('menu.settings.availability')}</span>
+      <span><i className="bi bi-square"></i> {t("menu.settings.availability")}</span>
     );
   })();
 
@@ -227,11 +227,11 @@ const OerebMenu = function () {
   const symbolZoomText = (() => {
     if (symbolZoomEnabled) {
       return (
-        <span><i className="bi bi-check-square"></i> {t('menu.settings.symbol_zoom')}</span>
+        <span><i className="bi bi-check-square"></i> {t("menu.settings.symbol_zoom")}</span>
       );
     }
     return (
-      <span><i className="bi bi-square"></i> {t('menu.settings.symbol_zoom')}</span>
+      <span><i className="bi bi-square"></i> {t("menu.settings.symbol_zoom")}</span>
     );
   })();
 
@@ -242,15 +242,15 @@ const OerebMenu = function () {
   const historyElements = history.map((element, key) =>
     <li key={key}>
       <button className="dropdown-item"
-        onClick={queryExtract.bind(this, element['EGRID'], element['IdentDN'], element['Number'])}>
-        {element['Municipality']} {element['Number']} ({element['EGRID']})
+        onClick={queryExtract.bind(this, element["EGRID"], element["IdentDN"], element["Number"])}>
+        {element["Municipality"]} {element["Number"]} ({element["EGRID"]})
       </button>
     </li>
   );
 
-  let historyButtonClass = 'btn btn-outline-secondary dropdown-toggle';
+  let historyButtonClass = "btn btn-outline-secondary dropdown-toggle";
   if (history.length < 1) {
-    historyButtonClass += ' disabled';
+    historyButtonClass += " disabled";
   }
 
   return (
@@ -270,7 +270,7 @@ const OerebMenu = function () {
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            title={t('menu.settings.title')}>
+            title={t("menu.settings.title")}>
             <i className="bi bi-gear-fill"></i>
           </button>
           <ul className="dropdown-menu">
@@ -289,7 +289,7 @@ const OerebMenu = function () {
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            title={t('menu.history.title')}>
+            title={t("menu.history.title")}>
             <i className="bi bi-clock-history"></i>
           </button>
           <ul className="dropdown-menu">
@@ -299,7 +299,7 @@ const OerebMenu = function () {
             className="form-control"
             value={search}
             onChange={handleSearch}
-            placeholder={t('menu.search.placeholder')} />
+            placeholder={t("menu.search.placeholder")} />
           {searchResetButton}
           <OerebUserGuide />
         </div>

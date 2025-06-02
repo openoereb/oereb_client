@@ -2,55 +2,55 @@ import reducer, {
   initHistory,
   setHistoryPrefix,
   updateHistory
-} from '../../../oereb_client/static/src/reducer/history';
+} from "../../../oereb_client/static/src/reducer/history";
 
 beforeEach(() => {
   localStorage.clear();
 });
 
-describe('history reducer', () => {
+describe("history reducer", () => {
 
-  it('should return the initial state', () => {
+  it("should return the initial state", () => {
     expect(reducer(undefined, {})).toEqual({
-      key: 'OerebHistory',
+      key: "OerebHistory",
       elements: []
     });
   });
 
-  it('should set history prefix', () => {
+  it("should set history prefix", () => {
     let state = reducer(undefined, {});
-    state = reducer(state, setHistoryPrefix('test'));
+    state = reducer(state, setHistoryPrefix("test"));
     expect(state).toEqual({
-      key: 'testOerebHistory',
+      key: "testOerebHistory",
       elements: []
     });
   });
 
-  it('should init default history', () => {
+  it("should init default history", () => {
     let state = reducer(undefined, {});
     state = reducer(state, initHistory());
     expect(state).toEqual({
-      key: 'OerebHistory',
+      key: "OerebHistory",
       elements: []
     });
   });
 
-  it('should init existing history', () => {
+  it("should init existing history", () => {
     const element = {
-      EGRID: 'CH123456789',
-      Municipality: 'Testwil',
-      Number: '1'
+      EGRID: "CH123456789",
+      Municipality: "Testwil",
+      Number: "1"
     };
     let state = reducer(undefined, {});
     localStorage.setItem(state.key, JSON.stringify([element]));
     state = reducer(state, initHistory());
     expect(state).toEqual({
-      key: 'OerebHistory',
+      key: "OerebHistory",
       elements: [element]
     });
   });
 
-  it('should update history', () => {
+  it("should update history", () => {
     let state = reducer(undefined, {});
     state = reducer(state, initHistory());
     expect(state.elements).toHaveLength(0);
@@ -58,9 +58,9 @@ describe('history reducer', () => {
       GetExtractByIdResponse: {
         extract: {
           RealEstate: {
-            EGRID: 'CH1234',
-            MunicipalityName: 'Testwil',
-            Number: '1'
+            EGRID: "CH1234",
+            MunicipalityName: "Testwil",
+            Number: "1"
           }
         }
       }
@@ -70,9 +70,9 @@ describe('history reducer', () => {
       GetExtractByIdResponse: {
         extract: {
           RealEstate: {
-            EGRID: 'CH1234',
-            MunicipalityName: 'Testwil',
-            Number: '1'
+            EGRID: "CH1234",
+            MunicipalityName: "Testwil",
+            Number: "1"
           }
         }
       }
@@ -82,9 +82,9 @@ describe('history reducer', () => {
       GetExtractByIdResponse: {
         extract: {
           RealEstate: {
-            EGRID: 'CH2345',
-            MunicipalityName: 'Testwil',
-            Number: '2'
+            EGRID: "CH2345",
+            MunicipalityName: "Testwil",
+            Number: "2"
           }
         }
       }
@@ -94,9 +94,9 @@ describe('history reducer', () => {
       GetExtractByIdResponse: {
         extract: {
           RealEstate: {
-            EGRID: 'CH3456',
-            MunicipalityName: 'Testwil',
-            Number: '3'
+            EGRID: "CH3456",
+            MunicipalityName: "Testwil",
+            Number: "3"
           }
         }
       }
@@ -106,9 +106,9 @@ describe('history reducer', () => {
       GetExtractByIdResponse: {
         extract: {
           RealEstate: {
-            EGRID: 'CH4567',
-            MunicipalityName: 'Testwil',
-            Number: '4'
+            EGRID: "CH4567",
+            MunicipalityName: "Testwil",
+            Number: "4"
           }
         }
       }
@@ -118,9 +118,9 @@ describe('history reducer', () => {
       GetExtractByIdResponse: {
         extract: {
           RealEstate: {
-            EGRID: 'CH5678',
-            MunicipalityName: 'Testwil',
-            Number: '5'
+            EGRID: "CH5678",
+            MunicipalityName: "Testwil",
+            Number: "5"
           }
         }
       }
@@ -130,9 +130,9 @@ describe('history reducer', () => {
       GetExtractByIdResponse: {
         extract: {
           RealEstate: {
-            EGRID: 'CH6789',
-            MunicipalityName: 'Testwil',
-            Number: '6'
+            EGRID: "CH6789",
+            MunicipalityName: "Testwil",
+            Number: "6"
           }
         }
       }

@@ -1,6 +1,6 @@
-import {act, render} from '@testing-library/react';
+import {act, render} from "@testing-library/react";
 import {Map} from "ol";
-import VectorLayer from 'ol/layer/Vector';
+import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import React from "react";
 import {Provider} from "react-redux";
@@ -11,7 +11,7 @@ import {loadExtract, showExtract} from "../../../../oereb_client/static/src/redu
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import extract from "../../../../samples/extract.json";
 
-describe('real estate layer component', () => {
+describe("real estate layer component", () => {
 
   let component;
 
@@ -23,7 +23,7 @@ describe('real estate layer component', () => {
     map.addLayer(layer);
     act(() => {
       MainStore.dispatch(loadExtract({
-        egrid: 'CH1234',
+        egrid: "CH1234",
         zoom: false
       }));
     });
@@ -37,7 +37,7 @@ describe('real estate layer component', () => {
     );
   });
 
-  it('should render real estate layer element', () => {
+  it("should render real estate layer element", () => {
     expect(component.asFragment()).toMatchSnapshot();
   });
 

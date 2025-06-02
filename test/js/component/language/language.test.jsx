@@ -1,5 +1,5 @@
-import {act, render} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import {act, render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -8,7 +8,7 @@ import {hideExtract} from "../../../../oereb_client/static/src/reducer/extract";
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import MainStore from "../../../../oereb_client/static/src/store/main";
 
-describe('language component', () => {
+describe("language component", () => {
 
   let component;
   let user;
@@ -16,8 +16,8 @@ describe('language component', () => {
   beforeEach(() => {
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['en', 'de']
+        default: "de",
+        available: ["en", "de"]
       }));
     });
     component = render(
@@ -28,16 +28,16 @@ describe('language component', () => {
     user = userEvent.setup();
   });
 
-  it('should show selected language', () => {
+  it("should show selected language", () => {
     expect(component.asFragment()).toMatchSnapshot();
   });
 
-  it('should update the selected language', async () => {
+  it("should update the selected language", async () => {
     act(() => {
       MainStore.dispatch(hideExtract());
     });
-    await user.click(component.container.querySelectorAll('.dropdown-item')[0]);
-    expect(MainStore.getState().language.current).toEqual('en');
+    await user.click(component.container.querySelectorAll(".dropdown-item")[0]);
+    expect(MainStore.getState().language.current).toEqual("en");
     expect(component.asFragment()).toMatchSnapshot();
   });
 

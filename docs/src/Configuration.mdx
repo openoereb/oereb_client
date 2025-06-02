@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="User Guide/Configuration" />
 
@@ -59,8 +59,8 @@ def main(global_config, **settings):
     """
     config = Configurator(settings=settings)
     settings = config.get_settings()
-    with codecs.open(settings.get('oereb_client.cfg'), encoding='utf-8') as f:
-        settings.update(yaml.load(f.read()).get('vars'))
+    with codecs.open(settings.get("oereb_client.cfg"), encoding="utf-8") as f:
+        settings.update(yaml.load(f.read()).get("vars"))
     ...
     config.scan()
     return config.make_wsgi_app()

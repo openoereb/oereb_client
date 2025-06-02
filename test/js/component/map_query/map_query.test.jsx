@@ -1,4 +1,4 @@
-import {act, render} from '@testing-library/react';
+import {act, render} from "@testing-library/react";
 import {Map} from "ol";
 import React from "react";
 import {Provider} from "react-redux";
@@ -8,7 +8,7 @@ import {initLanguages} from "../../../../oereb_client/static/src/reducer/languag
 import {loadAt, show} from "../../../../oereb_client/static/src/reducer/map_query";
 import MainStore from "../../../../oereb_client/static/src/store/main";
 
-describe('map query component', () => {
+describe("map query component", () => {
 
   let component;
   let map;
@@ -17,8 +17,8 @@ describe('map query component', () => {
     map = new Map();
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['de']
+        default: "de",
+        available: ["de"]
       }));
     });
     component = render(
@@ -30,7 +30,7 @@ describe('map query component', () => {
     );
   });
 
-  it('should render map query', () => {
+  it("should render map query", () => {
     expect(component.asFragment()).toMatchSnapshot();
     act(() => {
       MainStore.dispatch(loadAt({
@@ -43,61 +43,61 @@ describe('map query component', () => {
       MainStore.dispatch(show({
         results: [
           {
-            egrid: 'CH0815',
-            number: '0815',
-            identDN: 'SAMPLE1',
+            egrid: "CH0815",
+            number: "0815",
+            identDN: "SAMPLE1",
             type: {
-              Code: 'Distinct_and_permanent_rights.BuildingRight',
+              Code: "Distinct_and_permanent_rights.BuildingRight",
               Text: [
                 {
-                  Language: 'de',
-                  Text: 'Baurecht'
+                  Language: "de",
+                  Text: "Baurecht"
                 },
                 {
-                  Language: 'fr',
-                  Text: 'Droit de superficie'
+                  Language: "fr",
+                  Text: "Droit de superficie"
                 },
                 {
-                  Language: 'it',
-                  Text: 'Diritto di superficie'
+                  Language: "it",
+                  Text: "Diritto di superficie"
                 },
                 {
-                  Language: 'rm',
-                  Text: 'Dretg da construcziun'
+                  Language: "rm",
+                  Text: "Dretg da construcziun"
                 },
                 {
-                  Language: 'en',
-                  Text: 'Building right'
+                  Language: "en",
+                  Text: "Building right"
                 }
               ]
             }
           },
           {
-            egrid: 'CH1234',
-            number: '1234',
-            identDN: 'SAMPLE2',
+            egrid: "CH1234",
+            number: "1234",
+            identDN: "SAMPLE2",
             type: {
-              Code: 'RealEstate',
+              Code: "RealEstate",
               Text: [
                 {
-                  Language: 'de',
-                  Text: 'Liegenschaft'
+                  Language: "de",
+                  Text: "Liegenschaft"
                 },
                 {
-                  Language: 'fr',
-                  Text: 'Bien-fonds'
+                  Language: "fr",
+                  Text: "Bien-fonds"
                 },
                 {
-                  Language: 'it',
-                  Text: 'Bene immobile'
+                  Language: "it",
+                  Text: "Bene immobile"
                 },
                 {
-                  Language: 'rm',
-                  Text: 'Bain immobigliar'
+                  Language: "rm",
+                  Text: "Bain immobigliar"
                 },
                 {
-                  Language: 'en',
-                  Text: 'Property'
+                  Language: "en",
+                  Text: "Property"
                 }
               ]
             }

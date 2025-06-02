@@ -1,5 +1,5 @@
-import {act, render} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import {act, render} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 import {Provider} from "react-redux";
 
@@ -7,7 +7,7 @@ import OerebPermalink from "../../../../oereb_client/static/src/component/permal
 import {initLanguages} from "../../../../oereb_client/static/src/reducer/language";
 import MainStore from "../../../../oereb_client/static/src/store/main";
 
-describe('permalink component', () => {
+describe("permalink component", () => {
 
   let component;
   let user;
@@ -33,11 +33,11 @@ describe('permalink component', () => {
   beforeEach(() => {
     act(() => {
       MainStore.dispatch(initLanguages({
-        default: 'de',
-        available: ['de']
+        default: "de",
+        available: ["de"]
       }));
     });
-    const el = document.createElement('div');
+    const el = document.createElement("div");
     document.body.append(el);
     render(modal, el);
     component = render(
@@ -48,9 +48,9 @@ describe('permalink component', () => {
     user = userEvent.setup();
   });
 
-  it('should render permalink modal', async () => {
+  it("should render permalink modal", async () => {
     expect(component.asFragment()).toMatchSnapshot();
-    await user.click(component.container.querySelector('button'));
+    await user.click(component.container.querySelector("button"));
     expect(component.asFragment()).toMatchSnapshot();
   });
 

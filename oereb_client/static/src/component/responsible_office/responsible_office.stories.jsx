@@ -5,16 +5,16 @@ import {groupRestrictionsByTopic} from "../../request/extract";
 import OerebResponsibleOffice from "./responsible_office";
 
 export default {
-  title: 'API Reference/Component/Responsible Office',
+  title: "API Reference/Component/Responsible Office",
   component: OerebResponsibleOffice,
-  tags: ['autodocs']
+  tags: ["autodocs"]
 };
 
 export const ResponsibleOffice = () => {
   const restrictions = groupRestrictionsByTopic(
     data.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership,
     data.GetExtractByIdResponse.extract.ConcernedTheme
-  )['chBelasteteStandorteOeffentlicherVerkehr']['changeWithPreEffect'];
+  )["chBelasteteStandorteOeffentlicherVerkehr"]["changeWithPreEffect"];
   return <OerebResponsibleOffice restrictions={restrictions} />
 };
-ResponsibleOffice.title = 'Responsible Office';
+ResponsibleOffice.title = "Responsible Office";

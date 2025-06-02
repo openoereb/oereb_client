@@ -1,30 +1,30 @@
 import {addDocumentIfNotContained} from "../../../oereb_client/static/src/util/documents";
 
-describe('addDocumentIfNotContained', () => {
+describe("addDocumentIfNotContained", () => {
 
   const document1 = {
     Type: {
-      Code: 'law'
+      Code: "law"
     },
-    Title: 'foo',
-    OfficialTitle: 'bar',
-    Lawstatus: 'inForce',
-    ArticleNumber: ['Art. 1'],
-    TextAtWeb: ['http://example.com/doc1']
+    Title: "foo",
+    OfficialTitle: "bar",
+    Lawstatus: "inForce",
+    ArticleNumber: ["Art. 1"],
+    TextAtWeb: ["http://example.com/doc1"]
   };
 
   const document2 = {
     Type: {
-      Code: 'law'
+      Code: "law"
     },
-    Title: 'foo',
-    OfficialTitle: 'bar',
-    Lawstatus: 'inForce',
-    ArticleNumber: ['Art. 2'],
-    TextAtWeb: ['http://example.com/doc2']
+    Title: "foo",
+    OfficialTitle: "bar",
+    Lawstatus: "inForce",
+    ArticleNumber: ["Art. 2"],
+    TextAtWeb: ["http://example.com/doc2"]
   };
 
-  it('should not add duplicate documents', () => {
+  it("should not add duplicate documents", () => {
     const target = {
       legalProvision: [],
       law: [],

@@ -3,12 +3,12 @@ import {useDispatch} from "react-redux";
 
 import data from "../../../../../samples/extract.json";
 import {showExtract} from "../../reducer/extract";
-import OerebMultilingualCatalog from './multilingual_catalog';
+import OerebMultilingualCatalog from "./multilingual_catalog";
 
 export default {
-  title: 'API Reference/Component/Information Panel/Multilingual Catalog',
+  title: "API Reference/Component/Information Panel/Multilingual Catalog",
   component: OerebMultilingualCatalog,
-  tags: ['autodocs']
+  tags: ["autodocs"]
 };
 
 export const MultilingualCatalog = () => {
@@ -24,7 +24,7 @@ export const MultilingualCatalog = () => {
     </div>
   );
 };
-MultilingualCatalog.title = 'Multilingual Catalog';
+MultilingualCatalog.title = "Multilingual Catalog";
 MultilingualCatalog.decorators = [
   (Story) => {
     const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 export const mapQuerySlice = createSlice({
-  name: 'mapQuery',
+  name: "mapQuery",
   initialState: {
     loading: false,
     visible: false,

@@ -1,21 +1,21 @@
-import './style.scss';
-import {Provider} from 'react-redux';
-import {update} from '../oereb_client/static/src/reducer/config';
-import {initLanguages} from '../oereb_client/static/src/reducer/language';
-import MainStore from '../oereb_client/static/src/store/main';
-import config from './oereb_client.json';
-import OerebTheme from './theme';
-import {useDispatch} from 'react-redux';
-import _ from 'lodash';
-import i18n from '../oereb_client/static/src/i18n';
+import "./style.scss";
+import {Provider} from "react-redux";
+import {update} from "../oereb_client/static/src/reducer/config";
+import {initLanguages} from "../oereb_client/static/src/reducer/language";
+import MainStore from "../oereb_client/static/src/store/main";
+import config from "./oereb_client.json";
+import OerebTheme from "./theme";
+import {useDispatch} from "react-redux";
+import _ from "lodash";
+import i18n from "../oereb_client/static/src/i18n";
 
 const preview = {
   globals: {
-    locale: 'en',
+    locale: "en",
     locales: {
-      en: 'English',
-      de: 'Deutsch',
-      fr: 'Français'
+      en: "English",
+      de: "Deutsch",
+      fr: "Français"
     }
   },
   decorators: [
@@ -25,18 +25,18 @@ const preview = {
         application: {
           logo_oereb: [
             {
-              Language: 'en',
-              URL: 'samples/static/logo_oereb.png'
+              Language: "en",
+              URL: "samples/static/logo_oereb.png"
             }
           ]
         },
-        application_url: 'https://example.com',
-        service_url: 'https://example.com'
-      }, config['oereb_client']);
+        application_url: "https://example.com",
+        service_url: "https://example.com"
+      }, config["oereb_client"]);
       dispatch(update(cfg));
       dispatch(initLanguages({
-        available: cfg['application']['languages'],
-        default: cfg['application']['default_language']
+        available: cfg["application"]["languages"],
+        default: cfg["application"]["default_language"]
       }));
       return <Story />;
     },
@@ -60,13 +60,13 @@ const preview = {
     options: {
       storySort: {
         order: [
-          'OeREB Client',
-          'User Guide',
+          "OeREB Client",
+          "User Guide",
           [
-            'Installation',
-            'Configuration'
+            "Installation",
+            "Configuration"
           ],
-          'API Reference'
+          "API Reference"
         ]
       }
     },
@@ -75,7 +75,7 @@ const preview = {
           hidden: true,
       },
     },
-    viewMode: 'docs',
+    viewMode: "docs",
     docs: {
       theme: OerebTheme
     }

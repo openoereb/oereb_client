@@ -1,7 +1,7 @@
-import {Feature} from 'ol';
-import MultiPolygon from 'ol/geom/MultiPolygon';
-import PropTypes from 'prop-types';
-import {useSelector} from 'react-redux';
+import {Feature} from "ol";
+import MultiPolygon from "ol/geom/MultiPolygon";
+import PropTypes from "prop-types";
+import {useSelector} from "react-redux";
 
 const OerebRealEstateLayer = function (props) {
   const extract = useSelector((state) => state.extract).data;
@@ -13,9 +13,9 @@ const OerebRealEstateLayer = function (props) {
   realEstateLayer.getSource().clear();
   realEstateLayer.setVisible(highlight);
 
-  if (Reflect.apply(Object.prototype.hasOwnProperty, extract, ['GetExtractByIdResponse'])) {
-    const limit = extract['GetExtractByIdResponse']['extract']['RealEstate']['Limit'];
-    const geometry = new MultiPolygon(limit['coordinates']);
+  if (Reflect.apply(Object.prototype.hasOwnProperty, extract, ["GetExtractByIdResponse"])) {
+    const limit = extract["GetExtractByIdResponse"]["extract"]["RealEstate"]["Limit"];
+    const geometry = new MultiPolygon(limit["coordinates"]);
     realEstateLayer.getSource().addFeature(new Feature(geometry));
     if (zoom) {
       let padding = [10, 10, 10, 500];

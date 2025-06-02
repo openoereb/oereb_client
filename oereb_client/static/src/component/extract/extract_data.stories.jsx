@@ -3,38 +3,38 @@ import {useDispatch} from "react-redux";
 
 import data from "../../../../../samples/extract.json";
 import {showExtract} from "../../reducer/extract";
-import OerebExtractData from './extract_data';
+import OerebExtractData from "./extract_data";
 
-const modalWrapper = document.createElement('div');
-modalWrapper.setAttribute('class', 'modal fade');
-modalWrapper.setAttribute('id', 'permalinkModal');
-modalWrapper.setAttribute('tabIndex', '-1');
-modalWrapper.setAttribute('aria-hidden', 'true');
+const modalWrapper = document.createElement("div");
+modalWrapper.setAttribute("class", "modal fade");
+modalWrapper.setAttribute("id", "permalinkModal");
+modalWrapper.setAttribute("tabIndex", "-1");
+modalWrapper.setAttribute("aria-hidden", "true");
 
-const modalDialog = document.createElement('div');
-modalDialog.setAttribute('class', 'modal-dialog modal-lg');
+const modalDialog = document.createElement("div");
+modalDialog.setAttribute("class", "modal-dialog modal-lg");
 
-const modalContent = document.createElement('div');
-modalContent.setAttribute('class', 'modal-content');
+const modalContent = document.createElement("div");
+modalContent.setAttribute("class", "modal-content");
 
-const modalHeader = document.createElement('div');
-modalHeader.setAttribute('class', 'modal-header');
+const modalHeader = document.createElement("div");
+modalHeader.setAttribute("class", "modal-header");
 
-const modalTitle = document.createElement('h5');
-modalTitle.setAttribute('class', 'modal-title');
-modalTitle.textContent = 'Permalink';
+const modalTitle = document.createElement("h5");
+modalTitle.setAttribute("class", "modal-title");
+modalTitle.textContent = "Permalink";
 
-const modalClose = document.createElement('button');
-modalClose.setAttribute('type', 'button');
-modalClose.setAttribute('class', 'btn-close');
-modalClose.setAttribute('data-bs-dismiss', 'modal');
-modalClose.setAttribute('aria-label', 'Close');
+const modalClose = document.createElement("button");
+modalClose.setAttribute("type", "button");
+modalClose.setAttribute("class", "btn-close");
+modalClose.setAttribute("data-bs-dismiss", "modal");
+modalClose.setAttribute("aria-label", "Close");
 
-const modalBody = document.createElement('div');
-modalBody.setAttribute('class', 'modal-body');
+const modalBody = document.createElement("div");
+modalBody.setAttribute("class", "modal-body");
 
-const modalForm = document.createElement('input');
-modalForm.setAttribute('class', 'form-control');
+const modalForm = document.createElement("input");
+modalForm.setAttribute("class", "form-control");
 
 modalWrapper.appendChild(modalDialog);
 modalDialog.appendChild(modalContent);
@@ -47,9 +47,9 @@ modalBody.appendChild(modalForm);
 document.body.appendChild(modalWrapper);
 
 export default {
-  title: 'API Reference/Component/Extract/Data',
+  title: "API Reference/Component/Extract/Data",
   component: OerebExtractData,
-  tags: ['autodocs']
+  tags: ["autodocs"]
 };
 
 export const Data = () => <OerebExtractData />;

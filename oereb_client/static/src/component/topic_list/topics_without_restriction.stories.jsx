@@ -4,11 +4,11 @@ import data from "../../../../../samples/extract.json";
 import OerebTopicsWithoutRestriction from "./topics_without_restriction";
 
 export default {
-  title: 'API Reference/Component/Topic List/Without Restriction',
+  title: "API Reference/Component/Topic List/Without Restriction",
   component: OerebTopicsWithoutRestriction,
-  tags: ['autodocs']
+  tags: ["autodocs"]
 };
 
 export const WithoutRestriction = () => <OerebTopicsWithoutRestriction
-  data={data['GetExtractByIdResponse']['extract']['ConcernedTheme']} />;
-WithoutRestriction.title = 'Without Restriction';
+  data={data["GetExtractByIdResponse"]["extract"]["ConcernedTheme"]} />;
+WithoutRestriction.title = "Without Restriction";

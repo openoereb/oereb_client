@@ -1,16 +1,16 @@
-import './map_query.scss';
+import "./map_query.scss";
 
-import Overlay from 'ol/Overlay';
-import PropTypes from 'prop-types';
-import React, {useEffect, useRef, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import Overlay from "ol/Overlay";
+import PropTypes from "prop-types";
+import React, {useEffect, useRef, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
-import {setViewServices} from '../../reducer/accordion';
-import {loadExtract, showError, showExtract} from '../../reducer/extract';
-import {updateHistory} from '../../reducer/history';
-import {hide} from '../../reducer/map_query';
-import {queryExtractById} from '../../request/extract';
-import {getLocalizedText} from '../../util/language';
+import {setViewServices} from "../../reducer/accordion";
+import {loadExtract, showError, showExtract} from "../../reducer/extract";
+import {updateHistory} from "../../reducer/history";
+import {hide} from "../../reducer/map_query";
+import {queryExtractById} from "../../request/extract";
+import {getLocalizedText} from "../../util/language";
 
 /**
  * A OpenLayers overlay component to select a real estate in the map.

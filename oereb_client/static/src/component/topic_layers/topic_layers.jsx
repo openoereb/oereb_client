@@ -1,12 +1,12 @@
-import {isArray, isFunction, isNumber} from 'lodash';
-import ImageLayer from 'ol/layer/Image';
-import TileLayer from 'ol/layer/Tile';
-import ImageWMS from 'ol/source/ImageWMS';
-import TileWMS from 'ol/source/TileWMS';
-import PropTypes from 'prop-types';
-import {useSelector} from 'react-redux';
+import {isArray, isFunction, isNumber} from "lodash";
+import ImageLayer from "ol/layer/Image";
+import TileLayer from "ol/layer/Tile";
+import ImageWMS from "ol/source/ImageWMS";
+import TileWMS from "ol/source/TileWMS";
+import PropTypes from "prop-types";
+import {useSelector} from "react-redux";
 
-import {getViewServiceDefinition} from '../../util/wms';
+import {getViewServiceDefinition} from "../../util/wms";
 
 const OerebTopicLayer = function (props) {
   const topicLayers = props.topicLayers;
@@ -30,21 +30,21 @@ const OerebTopicLayer = function (props) {
         LayerClass = TileLayer;
         SourceClass = TileWMS;
       }
-      const opacity = isNumber(definition['opacity']) ? definition['opacity'] : 1.0;
-      const zIndex = isNumber(definition['zIndex']) ? definition['zIndex'] : 1.0;
+      const opacity = isNumber(definition["opacity"]) ? definition["opacity"] : 1.0;
+      const zIndex = isNumber(definition["zIndex"]) ? definition["zIndex"] : 1.0;
       const source = new SourceClass({
-        url: definition['url'],
-        params: definition['params'],
-        projection: 'EPSG:2056'
+        url: definition["url"],
+        params: definition["params"],
+        projection: "EPSG:2056"
       });
       if (isFunction(callback)) {
-        source.on('imageloadstart', () => {
+        source.on("imageloadstart", () => {
           callback(true);
         });
-        source.on('imageloadend', () => {
+        source.on("imageloadend", () => {
           callback(false);
         });
-        source.on('imageloaderror', () => {
+        source.on("imageloaderror", () => {
           callback(false);
         });
       }
