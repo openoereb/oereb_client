@@ -1,0 +1,10 @@
+engines:
+  eslint-9: {}
+  pylintpython3: {}
+  stylelint: {}
+
+exclude_paths:
+  - '__mocks__/**'
+  - 'test/**'
+  - 'samples/**'
+  - '.devcontainer/**'
