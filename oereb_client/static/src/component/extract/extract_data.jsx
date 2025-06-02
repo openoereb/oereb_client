@@ -105,7 +105,7 @@ const OerebExtractData = function () {
           restriction={false} />
       </div>
     </div>
-  )
+  );
 };
 
 export default OerebExtractData;

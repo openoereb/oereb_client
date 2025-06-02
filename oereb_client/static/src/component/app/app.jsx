@@ -46,9 +46,9 @@ const App = function (props) {
     const identdn = query.get("identdn") || null;
     const number = query.get("number") || null;
     dispatch(loadExtract({
-      egrid: egrid,
-      identdn: identdn,
-      number: number,
+      egrid,
+      identdn,
+      number,
       zoom: true
     }));
     queryExtractById(

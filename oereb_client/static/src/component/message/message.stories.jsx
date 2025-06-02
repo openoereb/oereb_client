@@ -27,5 +27,5 @@ export const Message = () => {
       <button type="button" className="btn btn-primary me-3" onClick={error}>Show error</button>
       <OerebMessage />
     </div>
-  )
+  );
 };

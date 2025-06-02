@@ -2,7 +2,7 @@
 from oereb_client.views import get_localized_text
 
 
-class Manifest(object):
+class Manifest():
     def __init__(self, request):
         """
         Entry point for manifest rendering.
@@ -17,5 +17,5 @@ class Manifest(object):
         language = self.config_.get('default_language')
         return {
             'name': get_localized_text(self.config_.get('title'), language, language),
-            'start_url': self.request_.route_url('{0}/index'.format(self.request_.route_prefix))
+            'start_url': self.request_.route_url(f'{self.request_.route_prefix}/index')
         }

@@ -23,7 +23,7 @@ const OerebRealEstateLayer = function (props) {
         padding = [190, 10, 10, 10];
       }
       map.getView().fit(geometry, {
-        padding: padding
+        padding
       });
     }
   }

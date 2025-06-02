@@ -52,9 +52,9 @@ const OerebMenu = function () {
   const queryExtract = function (egrid, identdn, number) {
     dispatch(setViewServices([]));
     dispatch(loadExtract({
-      egrid: egrid,
-      identdn: identdn,
-      number: number,
+      egrid,
+      identdn,
+      number,
       zoom: true
     }));
     queryExtractById(serviceUrl, egrid, identdn, number, config.extract_json_timeout, currentLanguage)
@@ -77,7 +77,7 @@ const OerebMenu = function () {
         const results = egrids.GetEGRIDResponse;
         if (results.length > 1) {
           dispatch(show({
-            results: results
+            results
           }));
         }
         else if (results.length === 1) {
@@ -222,7 +222,7 @@ const OerebMenu = function () {
 
   const toggleAvailabilityLayer = function () {
     dispatch(showAvailability(!showAvailabilityLayer));
-  }
+  };
 
   const symbolZoomText = (() => {
     if (symbolZoomEnabled) {

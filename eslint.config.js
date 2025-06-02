@@ -18,7 +18,7 @@ export default [
       "node_modules/**/*.{js,jsx,mjs,cjs,ts,tsx}",
     ],
     plugins: {
-      vitest: vitest,
+      vitest,
       vitestGlobals,
       "simple-import-sort": simpleImportSort
     },

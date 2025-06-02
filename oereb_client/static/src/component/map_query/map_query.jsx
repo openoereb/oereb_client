@@ -51,9 +51,9 @@ const OerebMapQuery = function (props) {
     dispatch(hide());
     dispatch(setViewServices([]));
     dispatch(loadExtract({
-      egrid: egrid,
-      identdn: identdn,
-      number: number,
+      egrid,
+      identdn,
+      number,
       zoom: false
     }));
     queryExtractById(serviceUrl, egrid, identdn, number, config.extract_json_timeout, currentLanguage)

@@ -12,7 +12,7 @@ from oereb_client.views import get_localized_text
 log = logging.getLogger('oereb_client')
 
 
-class Search(object):
+class Search():
     def __init__(self, request):
         """
         Entry point for search rendering.
@@ -67,10 +67,8 @@ class Search(object):
                 })
         end_time = datetime.now()
         duration = end_time - start_time
-        log.debug('Search took {0} ms for term "{1}"'.format(
-            duration.total_seconds() * 1000,
-            self.request_.params.get('term')
-        ))
+        ms = duration.total_seconds() * 1000
+        log.debug(f'Search took {ms} ms for term "{self.request_.params.get('term')}"')
         return result_sets
 
     @staticmethod

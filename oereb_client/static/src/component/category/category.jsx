@@ -34,7 +34,7 @@ const OerebCategory = function (props) {
     dispatch(setActiveCategory(collapseEl.current));
     dispatch(setActiveTopic(null));
     dispatch(setViewServices([]));
-  }
+  };
 
   useEffect(() => {
     const collapse = new Collapse(collapseEl.current, {

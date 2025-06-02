@@ -8,10 +8,10 @@ export const getViewServiceDefinition = function (mapObject, currentLanguage, de
   ).split("?");
   const url = parts[0];
   const definition = {
-    "url": url,
-    "params": {},
-    "opacity": mapObject["layerOpacity"],
-    "zIndex": 21000 + mapObject["layerIndex"]
+    url,
+    params: {},
+    opacity: mapObject["layerOpacity"],
+    zIndex: 21000 + mapObject["layerIndex"]
   };
   const params = parts[1].split("&");
   for (let i = 0; i < params.length; i++) {

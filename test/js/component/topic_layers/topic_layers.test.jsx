@@ -40,7 +40,7 @@ describe("topic layers component", () => {
         viewServices: [
           extract.GetExtractByIdResponse.extract.RealEstate.RestrictionOnLandownership[0].Map
         ],
-        callback: callback
+        callback
       }));
     });
     layers = new LayerGroup();

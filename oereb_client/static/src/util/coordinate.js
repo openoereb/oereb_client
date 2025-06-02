@@ -9,7 +9,7 @@ const parseCoordinateMatch = function(match) {
     return [
       parseFloat(match[1]),
       parseFloat(match[4])
-    ]
+    ];
   }
   return null;
 };
@@ -31,4 +31,4 @@ export const getCoordinates = function(value) {
     return parseCoordinateMatch(reLV95.exec(value));
   }
   return null;
-}
+};

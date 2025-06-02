@@ -24,7 +24,7 @@ const OerebExtractLoading = function () {
         {t("extract.loading.message")}
       </p>
     </div>
-  )
+  );
 };
 
 export default OerebExtractLoading;

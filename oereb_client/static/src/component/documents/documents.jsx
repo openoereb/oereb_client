@@ -71,7 +71,7 @@ const formatDocument = function (doc, docKey, language, defaultLanguage) {
       </ul>
     </dd>
   );
-}
+};
 
 /**
  * A component containing the legal documents of a certain topic. The documents are separeted in
