@@ -3,6 +3,10 @@ from oereb_client.views import get_localized_text
 
 
 class Manifest():
+    """
+    Manifest view.
+    """
+
     def __init__(self, request):
         """
         Entry point for manifest rendering.

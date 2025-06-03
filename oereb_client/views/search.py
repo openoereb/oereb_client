@@ -13,6 +13,10 @@ log = logging.getLogger('oereb_client')
 
 
 class Search():
+    """
+    Search view.
+    """
+
     def __init__(self, request):
         """
         Entry point for search rendering.
