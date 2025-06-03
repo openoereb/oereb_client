@@ -4,9 +4,13 @@ from oereb_client import __version__
 
 
 class Index():
+    """
+    Index view.
+    """
+    
     def __init__(self, request):
         """
-        Entry point for index rendering.
+        Entrypoint for index rendering.
 
         Args:
             request (pyramid.request.Request): The request instance.
