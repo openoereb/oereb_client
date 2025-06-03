@@ -7,7 +7,7 @@ class Index():
     """
     Index view.
     """
-    
+
     def __init__(self, request):
         """
         Entrypoint for index rendering.
