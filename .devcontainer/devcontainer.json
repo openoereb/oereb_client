@@ -15,28 +15,32 @@
   // connected. This is typically a file mount in .devcontainer/docker-compose.yml
   "workspaceFolder": "/app",
   // Set *default* container specific settings.json values on container create.
-  "settings": {
-    "files.watcherExclude": {
-      "**/.git/objects/**": true,
-      "**/.git/subtree-cache/**": true,
-      "**/.venv/*/**": true,
-      "**/node_modules/*/**": true,
-      "./docs/build/*/**": true
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.watcherExclude": {
+          "**/.git/objects/**": true,
+          "**/.git/subtree-cache/**": true,
+          "**/.venv/*/**": true,
+          "**/node_modules/*/**": true,
+          "./docs/build/*/**": true
+        }
+      },
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "lokalise.i18n-ally",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.makefile-tools",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "redhat.vscode-commons",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "sibiraj-s.vscode-scss-formatter",
+        "silvenon.mdx"
+      ]
     }
   },
-  // Add the IDs of extensions you want installed when the container is created.
-  "extensions": [
-    "lokalise.i18n-ally",
-    "ms-azuretools.vscode-docker",
-    "ms-vscode.makefile-tools",
-    "ms-python.vscode-pylance",
-    "ms-python.python",
-    "redhat.vscode-commons",
-    "redhat.vscode-xml",
-    "redhat.vscode-yaml",
-    "sibiraj-s.vscode-scss-formatter",
-    "silvenon.mdx"
-  ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
   // Uncomment the next line if you want start specific services in your Docker Compose config.
