@@ -1,5 +1,0 @@
-import{r as n,R as s}from"./index-F28aNuxU.js";import{I as f}from"./context-2JaK5s97.js";function m({i18n:o,defaultNS:a,children:e}){const r=n.useMemo(()=>({i18n:o,defaultNS:a}),[o,a]);return n.createElement(f.Provider,{value:r},e)}const{useGlobals:g,useEffect:_}=__STORYBOOK_MODULE_PREVIEW_API__;var E=(o,a)=>{let[e,r]=g();return _(()=>{let{parameters:{locale:t}}=a;t&&r({locale:t})},[]),o(a)},p={decorators:[E],initialGlobals:{locale:"",locales:{}}},i=p;const{useGlobals:v,useState:d,useEffect:l}=__STORYBOOK_MODULE_PREVIEW_API__;var O=(o,a)=>{let{parameters:{i18n:e}}=a;e===void 0&&console.error(`The 'i18n' parameter is missing in 'parameters' configuration of preview.js. Define the 'i18n' parameter as follows:
-parameters: {
-    i18n,
-},
-`);let r=e==null?void 0:e.language,[{locale:t}]=v(),[c,u]=d(0);return l(()=>{if(e)return e.on("languageChanged",()=>{u(Date.now())}),()=>e.off("languageChanged")},[e]),l(()=>{e&&t&&r&&t!==r&&e.changeLanguage(t)},[r,t,e]),s.createElement(n.Fragment,{key:c},s.createElement(m,{i18n:e},o(a)))},I=i.decorators||[],P={...i,decorators:[...I,O]},b=P;export{b as default};

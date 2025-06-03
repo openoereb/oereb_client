@@ -1,9 +1,0 @@
-import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as s}from"./index-zKTt_uPv.js";import{M as c}from"./index-DFikv7bs.js";import"./index-F28aNuxU.js";import"./iframe-_WNx4s3R.js";import"./index-frLDzS5o.js";import"./index-BOSlZsdm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";function n(t){const r={code:"code",h1:"h1",h3:"h3",p:"p",pre:"pre",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...s(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(c,{title:"API Reference/Request/Search"}),`
-`,e.jsx(r.h1,{id:"searchterm",children:"searchTerm"}),`
-`,e.jsx(r.p,{children:"Queries the search service with the specified value and language."}),`
-`,e.jsx(r.pre,{children:e.jsx(r.code,{className:"language-js",children:`searchTerm(applicationUrl, term, language);
-`})}),`
-`,e.jsx(r.h3,{id:"parameters",children:"Parameters"}),`
-`,e.jsxs(r.table,{children:[e.jsx(r.thead,{children:e.jsxs(r.tr,{children:[e.jsx(r.th,{children:"Param"}),e.jsx(r.th,{children:"Type"}),e.jsx(r.th,{children:"Description"})]})}),e.jsxs(r.tbody,{children:[e.jsxs(r.tr,{children:[e.jsx(r.td,{children:"applicationUrl"}),e.jsx(r.td,{children:e.jsx("code",{children:"String"})}),e.jsx(r.td,{children:"The application URL."})]}),e.jsxs(r.tr,{children:[e.jsx(r.td,{children:"term"}),e.jsx(r.td,{children:e.jsx("code",{children:"String"})}),e.jsx(r.td,{children:"The search value."})]}),e.jsxs(r.tr,{children:[e.jsx(r.td,{children:"language"}),e.jsx(r.td,{children:e.jsx("code",{children:"String"})}),e.jsx(r.td,{children:"The language used for the search request."})]})]})]}),`
-`,e.jsx(r.h3,{id:"returns",children:"Returns"}),`
-`,e.jsxs(r.p,{children:[e.jsx("code",{children:"Object"})," An object containing a promise receiving the search results and a method to cancel the current request."]})]})}function p(t={}){const{wrapper:r}={...s(),...t.components};return r?e.jsx(r,{...t,children:e.jsx(n,{...t})}):n(t)}export{p as default};

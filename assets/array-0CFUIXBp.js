@@ -1,0 +1,7 @@
+import{j as e}from"./iframe-BVmJ0_b8.js";import{useMDXComponents as d}from"./index-uN8qgVDV.js";import{M as s}from"./blocks-o8SxcfTE.js";import"./index-bwzKRnxw.js";function r(n){const t={code:"code",h1:"h1",h3:"h3",p:"p",pre:"pre",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...d(),...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(s,{title:"API Reference/Util/Array"}),`
+`,e.jsx(t.h1,{id:"addifnotcontains",children:"addIfNotContains"}),`
+`,e.jsx(t.p,{children:"Adds an element to an array only if the array does not already contain the element."}),`
+`,e.jsx(t.pre,{children:e.jsx(t.code,{className:"language-js",children:`addIfNotContains(item, target);
+`})}),`
+`,e.jsx(t.h3,{id:"parameters",children:"Parameters"}),`
+`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{children:"Param"}),e.jsx(t.th,{children:"Type"}),e.jsx(t.th,{children:"Description"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:"item"}),e.jsx(t.td,{children:e.jsx("code",{children:"*"})}),e.jsx(t.td,{children:"The element to add."})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:"target"}),e.jsx(t.td,{children:e.jsx("code",{children:"Array"})}),e.jsx(t.td,{children:"The target array."})]})]})]})]})}function o(n={}){const{wrapper:t}={...d(),...n.components};return t?e.jsx(t,{...n,children:e.jsx(r,{...n})}):r(n)}export{o as default};
