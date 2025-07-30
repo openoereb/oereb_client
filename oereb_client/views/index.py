@@ -167,7 +167,7 @@ class Index():
         if isinstance(search, str):
             return search
         return self.request_.route_url(f'{self.request_.route_prefix}/search')
-    
+
     def get_active_messages_(self):
         messages = []
         now = datetime.now()
@@ -243,23 +243,23 @@ class Index():
             'config': self.get_config(),
             'title': self.get_title()
         }
-    
+
     @staticmethod
     def parse_date_(date_string):
         if date_string is None:
             return None
-        
+
         date_formats = [
             "%Y-%m-%d",           # 2025-04-02
             "%d.%m.%Y",           # 02.04.2025
             "%Y-%m-%d %H:%M:%S",  # 2025-04-02 14:30:45
             "%d.%m.%Y %H:%M:%S"   # 02.04.2025 14:30:45
         ]
-    
+
         for date_format in date_formats:
             try:
                 return datetime.strptime(date_string, date_format)
             except ValueError:
                 continue
-        
+
         raise ValueError(f"Could not parse date string: {date_string}")
