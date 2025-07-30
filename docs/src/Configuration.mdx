@@ -326,6 +326,17 @@ oereb_client:
       FORMAT: image/png
     opacity: 0.8
     attributions: optional copyright or notice
+
+  # [OPTIONAL] Specify a number of notices that are shown on application start.
+  # The text can be defined in multiple languages. You can also specify one or two
+  # dates to automatically enable and/or disable each notice. The value "null" means
+  # no restriction.
+  messages:
+    - text:
+        en: My example notice
+        de: Meine Beispielmeldung
+      from: null
+      until: null
 ```
 
 ### Search
