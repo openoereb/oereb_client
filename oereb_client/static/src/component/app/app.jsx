@@ -1,6 +1,6 @@
-import {isString} from "lodash";
+import {isArray, isString} from "lodash";
 import PropTypes from "prop-types";
-import React, {useEffect} from "react";
+import React from "react";
 import {useDispatch} from "react-redux";
 
 import {initAvailability, setAvailabilityPrefix} from "../../reducer/availability";
@@ -16,6 +16,7 @@ import OerebMap from "../map/map";
 import OerebMenu from "../menu/menu";
 import OerebMessage from "../message/message";
 import MatomoTracker from "../matomo_tracker/matomo_tracker";
+import { showInfo } from "../../reducer/message";
 
 const App = function (props) {
   const dispatch = useDispatch();
@@ -71,6 +72,13 @@ const App = function (props) {
   let tracker = null;
   if (config["matomo"] && config["matomo"]["url"] && config["matomo"]["site_id"]) {
     tracker = <MatomoTracker matomoUrl={config["matomo"]["url"]} siteId={config["matomo"]["site_id"]} />;
+  }
+
+  // Show initial messages
+  if (isArray(config["messages"])) {
+    config["messages"].forEach(message => {
+      dispatch(showInfo(message["text"], true));
+    });
   }
 
   return (

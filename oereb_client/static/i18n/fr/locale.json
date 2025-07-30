@@ -113,5 +113,10 @@
     "user_guide": {
       "title": "Aide"
     }
+  },
+  "message": {
+    "error": "Erreur",
+    "info": "Information",
+    "warning": "Alerte"
   }
 }
