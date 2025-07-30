@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 from pyramid.exceptions import ConfigurationError
 from oereb_client import __version__
 
@@ -166,6 +167,21 @@ class Index():
         if isinstance(search, str):
             return search
         return self.request_.route_url(f'{self.request_.route_prefix}/search')
+    
+    def get_active_messages_(self):
+        messages = []
+        now = datetime.now()
+        for message in self.config_.get('messages', []):
+            date_from = self.parse_date_(message['from'])
+            date_until = self.parse_date_(message['until'])
+            active = True
+            if date_from is not None and date_from > now:
+                active = False
+            if date_until is not None and date_until < now:
+                active = False
+            if active:
+                messages.append(message)
+        return messages
 
     def get_config(self):
         """
@@ -195,7 +211,8 @@ class Index():
             'enable_rotation': self.config_.get('enable_rotation', True),
             'extract_json_timeout': self.config_.get('extract_json_timeout', 60),
             'extract_pdf_timeout': self.config_.get('extract_pdf_timeout', 120),
-            'matomo': self.config_.get('matomo', {})
+            'matomo': self.config_.get('matomo', {}),
+            'messages': self.get_active_messages_()
         }
 
     def get_title(self):
@@ -226,3 +243,23 @@ class Index():
             'config': self.get_config(),
             'title': self.get_title()
         }
+    
+    @staticmethod
+    def parse_date_(date_string):
+        if date_string is None:
+            return None
+        
+        date_formats = [
+            "%Y-%m-%d",           # 2025-04-02
+            "%d.%m.%Y",           # 02.04.2025
+            "%Y-%m-%d %H:%M:%S",  # 2025-04-02 14:30:45
+            "%d.%m.%Y %H:%M:%S"   # 02.04.2025 14:30:45
+        ]
+    
+        for date_format in date_formats:
+            try:
+                return datetime.strptime(date_string, date_format)
+            except ValueError:
+                continue
+        
+        raise ValueError(f"Could not parse date string: {date_string}")

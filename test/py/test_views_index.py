@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import pytest
 from copy import deepcopy
+from datetime import datetime, timedelta
 from pyramid.config import ConfigurationError
 from pyramid.testing import testConfig
 
@@ -16,6 +17,9 @@ def remove_key(d, key, sub_key=None):
         c.get('oereb_client').pop(key)
     return c
 
+
+now = datetime.now()
+date_format = '%Y-%m-%d'
 
 search_url = 'https://geoview.bl.ch/main/wsgi/bl_fulltextsearch?query={prefix}+{term}&limit={limit}'
 settings = {
@@ -104,6 +108,61 @@ def test_is_not_debug(mock_request):
         assert not index.is_debug_()
 
 
+@pytest.mark.parametrize('message,count', [
+    (
+        {
+            'text': {
+                'en': 'foo'
+            },
+            'from': None,
+            'until': None
+        },
+        1
+    ),
+    (
+        {
+            'text': {
+                'en': 'foo'
+            },
+            'from': datetime.strftime(now - timedelta(days=2), date_format),
+            'until': datetime.strftime(now + timedelta(days=2), date_format)
+        },
+        1
+    ),
+    (
+        {
+            'text': {
+                'en': 'foo'
+            },
+            'from': datetime.strftime(now - timedelta(days=10), date_format),
+            'until': datetime.strftime(now - timedelta(days=5), date_format)
+        },
+        0
+    ),
+    (
+        {
+            'text': {
+                'en': 'foo'
+            },
+            'from': datetime.strftime(now + timedelta(days=5), date_format),
+            'until': datetime.strftime(now + timedelta(days=10), date_format)
+        },
+        0
+    )
+])
+def test_get_active_messages(message, count, mock_request):
+    custom_settings = deepcopy(settings)
+    custom_settings['oereb_client']['messages'] = [message]
+    with testConfig(settings=custom_settings) as config:
+        config.route_prefix = None
+        config.add_route('{0}/index'.format(config.route_prefix), '/')
+        config.add_route('{0}/manifest'.format(config.route_prefix), '/manifest.json')
+        config.add_route('{0}/search'.format(config.route_prefix), '/search')
+        config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
+        index = Index(mock_request)
+        assert len(index.get_active_messages_()) == count
+
+
 def test_render(mock_request):
     with testConfig(settings=settings) as config:
         config.route_prefix = None
@@ -150,7 +209,8 @@ def test_get_config(mock_request):
             'enable_rotation': True,
             'extract_json_timeout': 60,
             'extract_pdf_timeout': 120,
-            'matomo': {}
+            'matomo': {},
+            'messages': []
         }
 
 
@@ -160,6 +220,15 @@ def test_get_optional_parameters(mock_request):
     custom_settings['oereb_client']['show_scale_bar'] = True
     custom_settings['oereb_client']['enable_rotation'] = False
     custom_settings['oereb_client']['user_guide'] = 'https://example.com/guide'
+    custom_settings['oereb_client']['messages'] = [
+        {
+            'text': {
+                'en': 'foo'
+            },
+            'from': None,
+            'until': None
+        }
+    ]
     with testConfig(settings=custom_settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
@@ -187,7 +256,16 @@ def test_get_optional_parameters(mock_request):
             'enable_rotation': False,
             'extract_json_timeout': 60,
             'extract_pdf_timeout': 120,
-            'matomo': {}
+            'matomo': {},
+            'messages': [
+                {
+                    'text': {
+                        'en': 'foo'
+                    },
+                    'from': None,
+                    'until': None
+                }
+            ]
         }
 
 
@@ -222,7 +300,8 @@ def test_get_config_custom_timeout(mock_request):
             'enable_rotation': True,
             'extract_json_timeout': 10,
             'extract_pdf_timeout': 20,
-            'matomo': {}
+            'matomo': {},
+            'messages': []
         }
 
 
@@ -324,3 +403,18 @@ def test_get_search_url(search, result, mock_request):
         config.add_route('{0}/search'.format(config.route_prefix), '/search')
         index = Index(mock_request)
         assert index.get_search_url_() == result
+
+
+@pytest.mark.parametrize('date_string', [
+    '2025-03-02',
+    '02.03.2025',
+    '2025-03-02 00:00:00',
+    '02.03.2025 00:00:00'
+])
+def test_parse_date_string(date_string):
+    fmt = '%Y-%m-%d %H:%M:%S'
+    assert datetime.strftime(Index.parse_date_(date_string), fmt) == '2025-03-02 00:00:00'
+
+
+def test_parse_date_none():
+    assert Index.parse_date_(None) is None

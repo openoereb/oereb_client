@@ -3,56 +3,147 @@
 exports[`message component > should render error message 1`] = `
 <DocumentFragment>
   <div
-    class="toast-container position-absolute top-0 end-0 mt-3 me-3"
+    class="toast-container position-absolute bottom-0 end-0 mb-3 me-3"
   >
     <div
       aria-atomic="true"
       aria-live="assertive"
-      class="toast align-items-center bg-secondary fade show showing"
+      class="toast fade show showing"
       data-bs-autohide="false"
+      data-oereb-message-confirm="false"
+      data-oereb-message-id="a81dad33-08cf-4b50-b0c6-d14bcc427df8"
       initialized="true"
       role="alert"
     >
       <div
-        class="d-flex"
+        class="toast-header"
       >
-        <div
-          class="ms-3 m-auto h4"
+        <i
+          class="bi bi-info-circle-fill text-primary me-2"
+        />
+        <strong
+          class="me-auto"
         >
-          <i
-            class="bi bi-exclamation-triangle-fill text-bg-secondary"
-          />
-        </div>
-        <div
-          class="toast-body text-bg-secondary"
-        >
-          foo
-        </div>
+          message.info
+        </strong>
+        <button
+          aria-label="Close"
+          class="btn-close"
+          type="button"
+        />
+      </div>
+      <div
+        class="toast-body"
+      >
+        foo
       </div>
     </div>
     <div
       aria-atomic="true"
       aria-live="assertive"
-      class="toast align-items-center bg-danger fade show showing"
+      class="toast fade show showing"
       data-bs-autohide="false"
+      data-oereb-message-confirm="false"
+      data-oereb-message-id="a81dad33-08cf-4b50-b0c6-d14bcc427df8"
       initialized="true"
       role="alert"
     >
       <div
-        class="d-flex"
+        class="toast-header"
       >
-        <div
-          class="ms-3 m-auto h4"
+        <i
+          class="bi bi-exclamation-triangle-fill text-warning me-2"
+        />
+        <strong
+          class="me-auto"
         >
-          <i
-            class="bi bi-x-octagon-fill text-bg-danger"
-          />
-        </div>
-        <div
-          class="toast-body text-bg-danger"
+          message.warning
+        </strong>
+        <button
+          aria-label="Close"
+          class="btn-close"
+          type="button"
+        />
+      </div>
+      <div
+        class="toast-body"
+      >
+        foo
+      </div>
+    </div>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      class="toast fade show showing"
+      data-bs-autohide="false"
+      data-oereb-message-confirm="false"
+      data-oereb-message-id="a81dad33-08cf-4b50-b0c6-d14bcc427df8"
+      initialized="true"
+      role="alert"
+    >
+      <div
+        class="toast-header"
+      >
+        <i
+          class="bi bi-x-octagon-fill text-danger me-2"
+        />
+        <strong
+          class="me-auto"
         >
-          foo
-        </div>
+          message.error
+        </strong>
+        <button
+          aria-label="Close"
+          class="btn-close"
+          type="button"
+        />
+      </div>
+      <div
+        class="toast-body"
+      >
+        foo
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`message component > should render info message 1`] = `
+<DocumentFragment>
+  <div
+    class="toast-container position-absolute bottom-0 end-0 mb-3 me-3"
+  >
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      class="toast fade show showing"
+      data-bs-autohide="false"
+      data-oereb-message-confirm="false"
+      data-oereb-message-id="a81dad33-08cf-4b50-b0c6-d14bcc427df8"
+      initialized="true"
+      role="alert"
+    >
+      <div
+        class="toast-header"
+      >
+        <i
+          class="bi bi-info-circle-fill text-primary me-2"
+        />
+        <strong
+          class="me-auto"
+        >
+          message.info
+        </strong>
+        <button
+          aria-label="Close"
+          class="btn-close"
+          type="button"
+        />
+      </div>
+      <div
+        class="toast-body"
+      >
+        foo
       </div>
     </div>
   </div>
@@ -62,7 +153,7 @@ exports[`message component > should render error message 1`] = `
 exports[`message component > should render message container 1`] = `
 <DocumentFragment>
   <div
-    class="toast-container position-absolute top-0 end-0 mt-3 me-3"
+    class="toast-container position-absolute bottom-0 end-0 mb-3 me-3"
   />
 </DocumentFragment>
 `;
@@ -70,31 +161,72 @@ exports[`message component > should render message container 1`] = `
 exports[`message component > should render warning message 1`] = `
 <DocumentFragment>
   <div
-    class="toast-container position-absolute top-0 end-0 mt-3 me-3"
+    class="toast-container position-absolute bottom-0 end-0 mb-3 me-3"
   >
     <div
       aria-atomic="true"
       aria-live="assertive"
-      class="toast align-items-center bg-secondary fade show showing"
+      class="toast fade show showing"
       data-bs-autohide="false"
+      data-oereb-message-confirm="false"
+      data-oereb-message-id="a81dad33-08cf-4b50-b0c6-d14bcc427df8"
       initialized="true"
       role="alert"
     >
       <div
-        class="d-flex"
+        class="toast-header"
       >
-        <div
-          class="ms-3 m-auto h4"
+        <i
+          class="bi bi-info-circle-fill text-primary me-2"
+        />
+        <strong
+          class="me-auto"
         >
-          <i
-            class="bi bi-exclamation-triangle-fill text-bg-secondary"
-          />
-        </div>
-        <div
-          class="toast-body text-bg-secondary"
+          message.info
+        </strong>
+        <button
+          aria-label="Close"
+          class="btn-close"
+          type="button"
+        />
+      </div>
+      <div
+        class="toast-body"
+      >
+        foo
+      </div>
+    </div>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      class="toast fade show showing"
+      data-bs-autohide="false"
+      data-oereb-message-confirm="false"
+      data-oereb-message-id="a81dad33-08cf-4b50-b0c6-d14bcc427df8"
+      initialized="true"
+      role="alert"
+    >
+      <div
+        class="toast-header"
+      >
+        <i
+          class="bi bi-exclamation-triangle-fill text-warning me-2"
+        />
+        <strong
+          class="me-auto"
         >
-          foo
-        </div>
+          message.warning
+        </strong>
+        <button
+          aria-label="Close"
+          class="btn-close"
+          type="button"
+        />
+      </div>
+      <div
+        class="toast-body"
+      >
+        foo
       </div>
     </div>
   </div>
