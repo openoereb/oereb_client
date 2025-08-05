@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
+import logging
+
 from datetime import datetime
+from pyaml_env import parse_config
 from pyramid.exceptions import ConfigurationError
 from oereb_client import __version__
+
+
+log = logging.getLogger('oereb_client')
 
 
 class Index():
@@ -169,9 +175,16 @@ class Index():
         return self.request_.route_url(f'{self.request_.route_prefix}/search')
 
     def get_active_messages_(self):
-        messages = []
+        filtered_messages = []
         now = datetime.now()
-        for message in self.config_.get('messages', []):
+
+        try:
+            messages = parse_config(self.config_.get('messages_file', 'messages.yml')).get('messages', [])
+        except Exception as e:
+            log.debug(e)
+            return []
+
+        for message in messages:
             date_from = self.parse_date_(message['from'])
             date_until = self.parse_date_(message['until'])
             active = True
@@ -180,8 +193,9 @@ class Index():
             if date_until is not None and date_until < now:
                 active = False
             if active:
-                messages.append(message)
-        return messages
+                filtered_messages.append(message)
+
+        return filtered_messages
 
     def get_config(self):
         """
