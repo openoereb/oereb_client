@@ -327,6 +327,20 @@ oereb_client:
     opacity: 0.8
     attributions: optional copyright or notice
 
+  # [OPTIONAL] Specify the YAML file containing the messages initially shown on
+  # application start (see section below for more information about its content).
+  # Default: messages.yml
+  messages_file: path/to/my/custom/messages.yml
+```
+
+### Messages file
+
+You can optionally add a file with messages to be shown on application start. This
+can be used to announce new features, new data or service maintenance. If the file
+cannot be found, no messages are shown. The contents of the file should look like
+the following example.
+
+```yaml
   # [OPTIONAL] Specify a number of notices that are shown on application start.
   # The text can be defined in multiple languages. You can also specify one or two
   # dates to automatically enable and/or disable each notice. The value "null" means

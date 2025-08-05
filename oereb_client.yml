@@ -126,11 +126,3 @@ oereb_client:
   show_scale_bar: false
 
   enable_rotation: true
-
-  messages:
-    - text:
-        en: This is just a demo to show the notice function.
-        de: Dies ist nur eine Demo der Benachtichtigungsfunktion.
-        fr: Il s'agit simplement d'une démo pour montrer la fonction de notification.
-      from: null
-      until: null
