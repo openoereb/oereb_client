@@ -89,7 +89,8 @@ settings = {
             'office1': 'Test'
         },
         'google_gtag': 'G-123456789',
-        'google_analytics': 'UA-12345678-9'
+        'google_analytics': 'UA-12345678-9',
+        'messages_file': 'missing.yml'
     }
 }
 
@@ -108,51 +109,27 @@ def test_is_not_debug(mock_request):
         assert not index.is_debug_()
 
 
-@pytest.mark.parametrize('message,count', [
+@pytest.mark.parametrize('messages_file,result', [
     (
-        {
-            'text': {
-                'en': 'foo'
-            },
-            'from': None,
-            'until': None
-        },
-        1
+        'test/py/resources/missing.yml',
+        []
     ),
     (
-        {
-            'text': {
-                'en': 'foo'
-            },
-            'from': datetime.strftime(now - timedelta(days=2), date_format),
-            'until': datetime.strftime(now + timedelta(days=2), date_format)
-        },
-        1
-    ),
-    (
-        {
-            'text': {
-                'en': 'foo'
-            },
-            'from': datetime.strftime(now - timedelta(days=10), date_format),
-            'until': datetime.strftime(now - timedelta(days=5), date_format)
-        },
-        0
-    ),
-    (
-        {
-            'text': {
-                'en': 'foo'
-            },
-            'from': datetime.strftime(now + timedelta(days=5), date_format),
-            'until': datetime.strftime(now + timedelta(days=10), date_format)
-        },
-        0
+        'test/resources/messages.yml',
+        [
+            {
+                'text': {
+                    'en': 'foo'
+                },
+                'from': None,
+                'until': None
+            }
+        ]
     )
 ])
-def test_get_active_messages(message, count, mock_request):
+def test_get_messages_from_file(messages_file, result, mock_request):
     custom_settings = deepcopy(settings)
-    custom_settings['oereb_client']['messages'] = [message]
+    custom_settings['oereb_client']['messages_file'] = messages_file
     with testConfig(settings=custom_settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
@@ -160,7 +137,61 @@ def test_get_active_messages(message, count, mock_request):
         config.add_route('{0}/search'.format(config.route_prefix), '/search')
         config.add_static_view('static', 'oereb_client:static', cache_max_age=3600)
         index = Index(mock_request)
-        assert len(index.get_active_messages_()) == count
+        assert index.get_messages_from_file_() == result
+
+
+@pytest.mark.parametrize('messages,count', [
+    (
+        [
+            {
+                'text': {
+                    'en': 'foo'
+                },
+                'from': None,
+                'until': None
+            }
+        ],
+        1
+    ),
+    (
+        [
+            {
+                'text': {
+                    'en': 'foo'
+                },
+                'from': datetime.strftime(now - timedelta(days=2), date_format),
+                'until': datetime.strftime(now + timedelta(days=2), date_format)
+            }
+        ],
+        1
+    ),
+    (
+        [
+            {
+                'text': {
+                    'en': 'foo'
+                },
+                'from': datetime.strftime(now - timedelta(days=10), date_format),
+                'until': datetime.strftime(now - timedelta(days=5), date_format)
+            }
+        ],
+        0
+    ),
+    (
+        [
+            {
+                'text': {
+                    'en': 'foo'
+                },
+                'from': datetime.strftime(now + timedelta(days=5), date_format),
+                'until': datetime.strftime(now + timedelta(days=10), date_format)
+            }
+        ],
+        0
+    )
+])
+def test_get_active_messages(messages, count):
+    assert len(Index.get_active_messages_(messages)) == count
 
 
 def test_render(mock_request):
@@ -220,15 +251,7 @@ def test_get_optional_parameters(mock_request):
     custom_settings['oereb_client']['show_scale_bar'] = True
     custom_settings['oereb_client']['enable_rotation'] = False
     custom_settings['oereb_client']['user_guide'] = 'https://example.com/guide'
-    custom_settings['oereb_client']['messages'] = [
-        {
-            'text': {
-                'en': 'foo'
-            },
-            'from': None,
-            'until': None
-        }
-    ]
+    custom_settings['oereb_client']['messages_file'] = 'test/resources/messages.yml'
     with testConfig(settings=custom_settings) as config:
         config.route_prefix = None
         config.add_route('{0}/index'.format(config.route_prefix), '/')
