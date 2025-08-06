@@ -6,6 +6,8 @@ Changelog
 
 https://github.com/openoereb/oereb_client/milestone/19
 
+- Add configurable notices shown on application start
+
 2.3.0
 *****
 

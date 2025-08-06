@@ -9,11 +9,21 @@ export const messageSlice = createSlice({
     messages: []
   },
   reducers: {
+    info: (state, action) => {
+      state.messages.push({
+        id: uuidv4(),
+        type: "info",
+        text: action.payload.text,
+        confirmation: action.payload.confirmation,
+        timestamp: Date.now()
+      });
+    },
     warning: (state, action) => {
       state.messages.push({
         id: uuidv4(),
         type: "warning",
-        text: action.payload,
+        text: action.payload.text,
+        confirmation: action.payload.confirmation,
         timestamp: Date.now()
       });
     },
@@ -21,39 +31,66 @@ export const messageSlice = createSlice({
       state.messages.push({
         id: uuidv4(),
         type: "error",
-        text: action.payload,
+        text: action.payload.text,
+        confirmation: action.payload.confirmation,
         timestamp: Date.now()
       });
+    },
+    close: (state, action) => {
+      for (let i = 0; i < state.messages.length; i++) {
+        if (state.messages[i].id === action.payload) {
+          state.messages.splice(i, 1);
+          break;
+        }
+      }
     },
     cleanMessages: (state) => {
       for (let i = state.messages.length; i > 0; i--) {
         const now = Date.now();
-        if (now - state.messages[i - 1].timestamp >= MESSAGE_TIMEOUT) {
-          state.messages.splice(i - 1, 1);
+        if (!state.messages[i-1].confirmation && now - state.messages[i-1].timestamp >= MESSAGE_TIMEOUT) {
+          state.messages.splice(i-1, 1);
         }
       }
     }
   }
 });
 
-export const {cleanMessages, error, warning} = messageSlice.actions;
+export const {cleanMessages, info, error, warning, close} = messageSlice.actions;
 
-export const showWarning = function(text) {
+export const showInfo = function(text, confirmation) {
   return function(dispatch) {
-    dispatch(warning(text));
+    dispatch(info({
+      text: text,
+      confirmation: confirmation || false
+    }));
     setTimeout(() => {
       dispatch(cleanMessages());
     }, MESSAGE_TIMEOUT);
   };
 }
 
-export const showError = function(text) {
+export const showWarning = function(text, confirmation) {
   return function(dispatch) {
-    dispatch(error(text));
+    dispatch(warning({
+      text: text,
+      confirmation: confirmation || false
+    }));
     setTimeout(() => {
       dispatch(cleanMessages());
     }, MESSAGE_TIMEOUT);
-  }
+  };
+}
+
+export const showError = function(text, confirmation) {
+  return function(dispatch) {
+    dispatch(error({
+      text: text,
+      confirmation: confirmation || false
+    }));
+    setTimeout(() => {
+      dispatch(cleanMessages());
+    }, MESSAGE_TIMEOUT);
+  };
 }
 
 export default messageSlice.reducer;

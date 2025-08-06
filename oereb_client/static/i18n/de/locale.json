@@ -113,5 +113,10 @@
     "user_guide": {
       "title": "Benutzerhandbuch"
     }
+  },
+  "message": {
+    "error": "Fehler",
+    "info": "Information",
+    "warning": "Warnung"
   }
 }

@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
+import logging
+
+from datetime import datetime
+from pyaml_env import parse_config
 from pyramid.exceptions import ConfigurationError
 from oereb_client import __version__
+
+
+log = logging.getLogger('oereb_client')
 
 
 class Index():
@@ -167,6 +174,13 @@ class Index():
             return search
         return self.request_.route_url(f'{self.request_.route_prefix}/search')
 
+    def get_messages_from_file_(self):
+        try:
+            return parse_config(self.config_.get('messages_file', 'messages.yml')).get('messages', [])
+        except Exception as e:
+            log.debug(e)
+            return []
+
     def get_config(self):
         """
         Returns the JSON-encoded configuration.
@@ -195,7 +209,8 @@ class Index():
             'enable_rotation': self.config_.get('enable_rotation', True),
             'extract_json_timeout': self.config_.get('extract_json_timeout', 60),
             'extract_pdf_timeout': self.config_.get('extract_pdf_timeout', 120),
-            'matomo': self.config_.get('matomo', {})
+            'matomo': self.config_.get('matomo', {}),
+            'messages': self.get_active_messages_(self.get_messages_from_file_())
         }
 
     def get_title(self):
@@ -226,3 +241,61 @@ class Index():
             'config': self.get_config(),
             'title': self.get_title()
         }
+
+    @staticmethod
+    def parse_date_(date_string):
+        """
+        Parses date strings in multiple formats.
+
+        Args:
+            date_string (str): Input date as string.
+
+        Returns:
+            datetime.datetime: Parsed datetime object.
+        """
+
+        if date_string is None:
+            return None
+
+        date_formats = [
+            "%Y-%m-%d",           # 2025-04-02
+            "%d.%m.%Y",           # 02.04.2025
+            "%Y-%m-%d %H:%M:%S",  # 2025-04-02 14:30:45
+            "%d.%m.%Y %H:%M:%S"   # 02.04.2025 14:30:45
+        ]
+
+        for date_format in date_formats:
+            try:
+                return datetime.strptime(date_string, date_format)
+            except ValueError:
+                continue
+
+        raise ValueError(f"Could not parse date string: {date_string}")
+
+    @staticmethod
+    def get_active_messages_(messages):
+        """
+        Filter messages by their "from" and "until" values.
+
+        Args:
+            messages (list): The list of specified messages.
+
+        Returns:
+            list: The list of filtered (active) messages.
+        """
+
+        filtered_messages = []
+        now = datetime.now()
+
+        for message in messages:
+            date_from = Index.parse_date_(message['from'])
+            date_until = Index.parse_date_(message['until'])
+            active = True
+            if date_from is not None and date_from > now:
+                active = False
+            if date_until is not None and date_until < now:
+                active = False
+            if active:
+                filtered_messages.append(message)
+
+        return filtered_messages
