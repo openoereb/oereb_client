@@ -174,28 +174,12 @@ class Index():
             return search
         return self.request_.route_url(f'{self.request_.route_prefix}/search')
 
-    def get_active_messages_(self):
-        filtered_messages = []
-        now = datetime.now()
-
+    def get_messages_from_file_(self):
         try:
-            messages = parse_config(self.config_.get('messages_file', 'messages.yml')).get('messages', [])
+            return parse_config(self.config_.get('messages_file', 'messages.yml')).get('messages', [])
         except Exception as e:
             log.debug(e)
             return []
-
-        for message in messages:
-            date_from = self.parse_date_(message['from'])
-            date_until = self.parse_date_(message['until'])
-            active = True
-            if date_from is not None and date_from > now:
-                active = False
-            if date_until is not None and date_until < now:
-                active = False
-            if active:
-                filtered_messages.append(message)
-
-        return filtered_messages
 
     def get_config(self):
         """
@@ -226,7 +210,7 @@ class Index():
             'extract_json_timeout': self.config_.get('extract_json_timeout', 60),
             'extract_pdf_timeout': self.config_.get('extract_pdf_timeout', 120),
             'matomo': self.config_.get('matomo', {}),
-            'messages': self.get_active_messages_()
+            'messages': self.get_active_messages_(self.get_messages_from_file_())
         }
 
     def get_title(self):
@@ -260,6 +244,16 @@ class Index():
 
     @staticmethod
     def parse_date_(date_string):
+        """
+        Parses date strings in multiple formats.
+
+        Args:
+            date_string (str): Input date as string.
+
+        Returns:
+            datetime.datetime: Parsed datetime object.
+        """
+
         if date_string is None:
             return None
 
@@ -277,3 +271,31 @@ class Index():
                 continue
 
         raise ValueError(f"Could not parse date string: {date_string}")
+
+    @staticmethod
+    def get_active_messages_(messages):
+        """
+        Filter messages by their "from" and "until" values.
+
+        Args:
+            messages (list): The list of specified messages.
+
+        Returns:
+            list: The list of filtered (active) messages.
+        """
+
+        filtered_messages = []
+        now = datetime.now()
+
+        for message in messages:
+            date_from = Index.parse_date_(message['from'])
+            date_until = Index.parse_date_(message['until'])
+            active = True
+            if date_from is not None and date_from > now:
+                active = False
+            if date_until is not None and date_until < now:
+                active = False
+            if active:
+                filtered_messages.append(message)
+
+        return filtered_messages
