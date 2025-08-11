@@ -19,7 +19,8 @@
           "title": "Phone"
         }
       },
-      "title": "Extract failed"
+      "title": "Extract failed",
+      "too_many_requests": "Too many requests. Please try again later."
     },
     "hide": "Collapse extract",
     "hide_background": {

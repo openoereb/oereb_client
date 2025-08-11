@@ -6,6 +6,8 @@ import {hideExtract, loadExtract, showError, showExtract} from "../../reducer/ex
 import {updateHistory} from "../../reducer/history";
 import {queryExtractById} from "../../request/extract";
 import {getLocalizedText} from "../../util/language";
+import {TooManyRequestsError} from "../../util/error";
+import {showWarning} from "../../reducer/message";
 
 /**
  * This component shows an error message if the extract request has failed.
@@ -91,8 +93,14 @@ const OerebExtractError = function () {
         dispatch(showExtract(data));
         dispatch(updateHistory(data));
       })
-      .catch(() => {
-        dispatch(showError());
+      .catch((error) => {
+        if (error instanceof TooManyRequestsError) {
+          dispatch(hideExtract());
+          dispatch(showWarning(t('extract.error.too_many_requests'), true));
+        }
+        else {
+          dispatch(showError());
+        }
       });
   };
 

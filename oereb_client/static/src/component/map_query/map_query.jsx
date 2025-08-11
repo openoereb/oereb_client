@@ -6,11 +6,14 @@ import React, {useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {setViewServices} from "../../reducer/accordion";
-import {loadExtract, showError, showExtract} from "../../reducer/extract";
+import {hideExtract, loadExtract, showError, showExtract} from "../../reducer/extract";
 import {updateHistory} from "../../reducer/history";
 import {hide} from "../../reducer/map_query";
 import {queryExtractById} from "../../request/extract";
 import {getLocalizedText} from "../../util/language";
+import {TooManyRequestsError} from "../../util/error";
+import {showWarning} from "../../reducer/message";
+import {useTranslation} from "react-i18next";
 
 /**
  * A OpenLayers overlay component to select a real estate in the map.
@@ -24,6 +27,7 @@ const OerebMapQuery = function (props) {
   const currentLanguage = language.current;
   const defaultLanguage = language.default;
   const [overlay, setOverlay] = useState(null);
+  const {t} = useTranslation();
 
   const serviceUrl = config.service_url;
   const map = props.map;
@@ -61,8 +65,14 @@ const OerebMapQuery = function (props) {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));
       })
-      .catch(() => {
-        dispatch(showError());
+      .catch((error) => {
+        if (error instanceof TooManyRequestsError) {
+          dispatch(hideExtract());
+          dispatch(showWarning(t('extract.error.too_many_requests'), true));
+        }
+        else {
+          dispatch(showError());
+        }
       });
   };
 

@@ -7,6 +7,7 @@ Changelog
 https://github.com/openoereb/oereb_client/milestone/19
 
 - Add configurable notices shown on application start
+- Show warning if server returns HTTP 429 Too Many Requests
 
 2.3.0
 *****

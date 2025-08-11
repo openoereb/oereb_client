@@ -20,7 +20,7 @@ import View from "ol/View";
 import React, {useEffect, useRef, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {loadExtract, showError, showExtract} from "../../reducer/extract";
+import {hideExtract, loadExtract, showError, showExtract} from "../../reducer/extract";
 import {updateHistory} from "../../reducer/history";
 import {initMap} from "../../reducer/map";
 import {hide, loadAt, show} from "../../reducer/map_query";
@@ -31,8 +31,8 @@ import OerebAvailabilityLayer from "../availability_layer/availability_layer";
 import OerebMapQuery from "../map_query/map_query";
 import OerebRealEstateLayer from "../real_estate_layer/real_estate_layer";
 import OerebTopicLayer from "../topic_layers/topic_layers";
-import { NoDataError } from "../../util/error";
-import { useTranslation } from "react-i18next";
+import {NoDataError, TooManyRequestsError} from "../../util/error";
+import {useTranslation} from "react-i18next";
 import BaseLayer from "ol/layer/Base";
 
 export const getBaseLayerSourceWms = function (config) {
@@ -271,8 +271,14 @@ const OerebMap = function () {
                 dispatch(showExtract(extract));
                 dispatch(updateHistory(extract));
               })
-              .catch(() => {
-                dispatch(showError());
+              .catch((error) => {
+                if (error instanceof TooManyRequestsError) {
+                  dispatch(hideExtract());
+                  dispatch(showWarningMsg(t('extract.error.too_many_requests'), true));
+                }
+                else {
+                  dispatch(showError());
+                }
               });
           }
           else {
@@ -282,6 +288,9 @@ const OerebMap = function () {
           if (error.status === 204) {
             throw new NoDataError("No data available");
           }
+          else if (error.status === 429) {
+            throw new TooManyRequestsError("Too many requests");
+          }
           else {
             throw new Error();
           }
@@ -289,6 +298,9 @@ const OerebMap = function () {
         .catch((err) => {
           if (err instanceof NoDataError) {
             dispatch(showWarningMsg(t("map.warning.no_data")));
+          }
+          else if (err instanceof TooManyRequestsError) {
+            dispatch(showWarningMsg(t("extract.error.too_many_requests"), true));
           }
           else {
             dispatch(showErrorMsg(t("map.error.unknown")));

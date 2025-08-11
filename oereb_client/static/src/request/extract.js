@@ -1,5 +1,7 @@
 import {isString} from "lodash";
 
+import {TooManyRequestsError} from "../util/error";
+
 export const queryExtractById = function (serviceUrl, egrid, identdn, number, timeout, language) {
   const url = new URL(serviceUrl + "extract/json/");
   if (isString(egrid)) {
@@ -22,6 +24,9 @@ export const queryExtractById = function (serviceUrl, egrid, identdn, number, ti
         clearTimeout(timer);
         if (response.ok) {
           resolve(response.json());
+        }
+        else if (response.status === 429) {
+          reject(new TooManyRequestsError(response.text()))
         }
         else {
           reject(new Error(response.text()));
@@ -55,6 +60,9 @@ export const queryStaticExtractById = function (serviceUrl, egrid, identdn, numb
         clearTimeout(timer);
         if (response.ok) {
           resolve(response.arrayBuffer());
+        }
+        else if (response.status === 429) {
+          reject(new TooManyRequestsError(response.text()))
         }
         else {
           reject(new Error(response.text()));

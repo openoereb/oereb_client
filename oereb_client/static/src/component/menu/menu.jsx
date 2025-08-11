@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {setViewServices} from "../../reducer/accordion";
 import {showAvailability} from "../../reducer/availability";
-import {loadExtract, showError, showExtract} from "../../reducer/extract";
+import {hideExtract, loadExtract, showError, showExtract} from "../../reducer/extract";
 import {updateHistory} from "../../reducer/history";
 import {hide, loadAt, show} from "../../reducer/map_query";
 import {enableSymbolZoom} from "../../reducer/symbol_zoom";
@@ -18,6 +18,8 @@ import {getCoordinates, isGNSS, isLV95} from "../../util/coordinate";
 import {getLocalizedUrl} from "../../util/language";
 import OerebLanguage from "../language/language";
 import OerebUserGuide from "../user_guide/user_guide";
+import {TooManyRequestsError} from "../../util/error";
+import {showWarning} from "../../reducer/message";
 
 const OerebMenu = function () {
   const {t} = useTranslation();
@@ -62,8 +64,14 @@ const OerebMenu = function () {
         dispatch(showExtract(extract));
         dispatch(updateHistory(extract));
       })
-      .catch(() => {
-        dispatch(showError());
+      .catch((error) => {
+        if (error instanceof TooManyRequestsError) {
+          dispatch(hideExtract());
+          dispatch(showWarning(t('extract.error.too_many_requests'), true));
+        }
+        else {
+          dispatch(showError());
+        }
       });
   };
 
@@ -88,7 +96,10 @@ const OerebMenu = function () {
           dispatch(hide());
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        if (err.status === 429) {
+          dispatch(showWarning(t("extract.error.too_many_requests")), true);
+        }
         dispatch(hide());
       });
   };

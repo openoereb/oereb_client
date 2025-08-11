@@ -19,7 +19,8 @@
           "title": "Telefon"
         }
       },
-      "title": "Auszug fehlgeschlagen"
+      "title": "Auszug fehlgeschlagen",
+      "too_many_requests": "Zu viele Abfragen in zu kurzer Zeit. Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal."
     },
     "hide": "Auszug ausblenden",
     "hide_background": {
