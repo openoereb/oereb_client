@@ -19,7 +19,8 @@
           "title": "Téléphone"
         }
       },
-      "title": "Echec de la génération de l'extrait"
+      "title": "Echec de la génération de l'extrait",
+      "too_many_requests": "Trop de requêtes en trop peu de temps. Veuillez réessayer plus tard."
     },
     "hide": "Cacher l'extrait",
     "hide_background": {

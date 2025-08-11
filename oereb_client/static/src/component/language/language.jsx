@@ -2,10 +2,12 @@ import React from "react";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 
-import {loadExtract, showError, showExtract} from "../../reducer/extract";
+import {hideExtract, loadExtract, showError, showExtract} from "../../reducer/extract";
 import {updateHistory} from "../../reducer/history";
 import {setLanguage} from "../../reducer/language";
 import {queryExtractById} from "../../request/extract";
+import {TooManyRequestsError} from "../../util/error";
+import {showWarning} from "../../reducer/message";
 
 /**
  * This component provides the language selector.
@@ -42,8 +44,14 @@ const OerebLanguage = function() {
             dispatch(showExtract(data));
             dispatch(updateHistory(data));
           })
-          .catch(() => {
-            dispatch(showError());
+          .catch((error) => {
+            if (error instanceof TooManyRequestsError) {
+              dispatch(hideExtract());
+              dispatch(showWarning(t('extract.error.too_many_requests'), true));
+            }
+            else {
+              dispatch(showError());
+            }
           });
       }
     }

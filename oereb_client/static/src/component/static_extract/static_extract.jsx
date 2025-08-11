@@ -3,8 +3,10 @@ import React, {useRef} from "react";
 import {useTranslation} from "react-i18next";
 import {useDispatch, useSelector} from "react-redux";
 
-import {showError} from "../../reducer/extract";
+import {hideExtract, showError} from "../../reducer/extract";
 import {queryStaticExtractById} from "../../request/extract";
+import {showWarning} from "../../reducer/message";
+import {TooManyRequestsError} from "../../util/error";
 
 /**
  * A simple button to request the static extract for the currently loaded real estate.
@@ -37,10 +39,17 @@ const OerebStaticExtract = function () {
           icon.current.classList.add("bi", "bi-file-earmark-pdf");
           saveAs(new Blob([pdfFile], {"type": "application/pdf"}), fileName);
         })
-        .catch(() => {
+        .catch((error) => {
+          console.log(error);
           icon.current.classList.remove("spinner-grow", "spinner-grow-sm");
           icon.current.classList.add("bi", "bi-file-earmark-pdf");
-          dispatch(showError());
+          if (error instanceof TooManyRequestsError) {
+            dispatch(hideExtract());
+            dispatch(showWarning(t('extract.error.too_many_requests'), true));
+          }
+          else {
+            dispatch(showError());
+          }
         });
     }
   };
