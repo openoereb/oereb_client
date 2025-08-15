@@ -1,0 +1,7 @@
+import{j as e}from"./iframe-BRWzqT9J.js";import{useMDXComponents as o}from"./index-a2XW11_U.js";import{M as d}from"./blocks-DjkJG0Lw.js";import"./preload-helper-D9Z9MdNV.js";import"./index-BL8cfqU8.js";function r(n){const t={code:"code",h1:"h1",h3:"h3",p:"p",pre:"pre",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...o(),...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(d,{title:"API Reference/Component/MatomoTracker"}),`
+`,e.jsx(t.h1,{id:"app",children:"App"}),`
+`,e.jsx(t.p,{children:"A hidden component enabling user tracking using Matomo."}),`
+`,e.jsx(t.pre,{children:e.jsx(t.code,{className:"language-jsx",children:`<MatomoTracker matomoUrl={matomoUrl} siteId={siteId} />
+`})}),`
+`,e.jsx(t.h3,{id:"parameters",children:"Parameters"}),`
+`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{children:"Param"}),e.jsx(t.th,{children:"Type"}),e.jsx(t.th,{children:"Description"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:"matomoUrl"}),e.jsx(t.td,{children:e.jsx("code",{children:"String"})}),e.jsx(t.td,{children:"The URL of the Matomo instance."})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:"siteId"}),e.jsx(t.td,{children:e.jsx("code",{children:"Number"})}),e.jsx(t.td,{children:"The ID of the Site configured in Matomo."})]})]})]})]})}function l(n={}){const{wrapper:t}={...o(),...n.components};return t?e.jsx(t,{...n,children:e.jsx(r,{...n})}):r(n)}export{l as default};

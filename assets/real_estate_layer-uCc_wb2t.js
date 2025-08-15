@@ -1,0 +1,7 @@
+import{j as e}from"./iframe-BRWzqT9J.js";import{useMDXComponents as s}from"./index-a2XW11_U.js";import{M as a}from"./blocks-DjkJG0Lw.js";import"./preload-helper-D9Z9MdNV.js";import"./index-BL8cfqU8.js";function n(r){const t={code:"code",h1:"h1",h3:"h3",p:"p",pre:"pre",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...s(),...r.components};return e.jsxs(e.Fragment,{children:[e.jsx(a,{title:"API Reference/Component/Real Estate Layer"}),`
+`,e.jsx(t.h1,{id:"real-estate-layer",children:"Real Estate Layer"}),`
+`,e.jsx(t.p,{children:"This component binds the visibility of the real estate layer to the corresponding Redux slice."}),`
+`,e.jsx(t.pre,{children:e.jsx(t.code,{className:"language-jsx",children:`<OerebRealEstateLayer map={map} realEstateLayer={realEstateLayer} />
+`})}),`
+`,e.jsx(t.h3,{id:"parameters",children:"Parameters"}),`
+`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{children:"Param"}),e.jsx(t.th,{children:"Type"}),e.jsx(t.th,{children:"Description"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:"map"}),e.jsx(t.td,{children:e.jsx("code",{children:"ol.Map"})}),e.jsx(t.td,{children:"The map instance."})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:"realEstateLayer"}),e.jsx(t.td,{children:e.jsx("code",{children:"ol.layer.Vector"})}),e.jsx(t.td,{children:"The layer instance showing the current real estate."})]})]})]})]})}function o(r={}){const{wrapper:t}={...s(),...r.components};return t?e.jsx(t,{...r,children:e.jsx(n,{...r})}):n(r)}export{o as default};

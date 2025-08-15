@@ -1,7 +1,0 @@
-import{j as e}from"./iframe-BVmJ0_b8.js";import{useMDXComponents as s}from"./index-uN8qgVDV.js";import{M as i}from"./blocks-o8SxcfTE.js";import"./index-bwzKRnxw.js";function n(r){const t={code:"code",h1:"h1",h3:"h3",p:"p",pre:"pre",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",...s(),...r.components};return e.jsxs(e.Fragment,{children:[e.jsx(i,{title:"API Reference/Component/Topic Layers"}),`
-`,e.jsx(t.h1,{id:"topic-layers",children:"Topic Layers"}),`
-`,e.jsx(t.p,{children:"This component binds the visibility of the topic layers to the corresponding Redux slice."}),`
-`,e.jsx(t.pre,{children:e.jsx(t.code,{className:"language-jsx",children:`<OerebTopicLayer topicLayers={topicLayers} />
-`})}),`
-`,e.jsx(t.h3,{id:"parameters",children:"Parameters"}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{children:"Param"}),e.jsx(t.th,{children:"Type"}),e.jsx(t.th,{children:"Description"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:"topicLayers"}),e.jsx(t.td,{children:e.jsx("code",{children:"ol.layer.Group"})}),e.jsx(t.td,{children:"The layer group containing the topic layers."})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:"tiled"}),e.jsx(t.td,{children:e.jsx("code",{children:"bool"})}),e.jsx(t.td,{children:"Set true, to use tiled WMS requests."})]})]})]})]})}function l(r={}){const{wrapper:t}={...s(),...r.components};return t?e.jsx(t,{...r,children:e.jsx(n,{...r})}):n(r)}export{l as default};
