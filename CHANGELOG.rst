@@ -1,6 +1,11 @@
 Changelog
 ---------
 
+2.4.1 (current dev)
+*****
+
+https://github.com/openoereb/oereb_client/milestone/20
+
 2.4.0
 *****
 
