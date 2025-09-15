@@ -61,7 +61,7 @@
     "i18next-scanner": "^4.6.0",
     "jsdom": "^27.0.0",
     "lodash": "^4.17.21",
-    "mini-css-extract-plugin": "^2.9.2",
+    "mini-css-extract-plugin": "^2.9.4",
     "ol": "^10.6.1",
     "proj4": "^2.19.10",
     "react": "^19.1.1",
