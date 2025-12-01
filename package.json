@@ -27,7 +27,7 @@
     "@babel/preset-react": "^7.28.5",
     "@babel/runtime": "^7.28.4",
     "@popperjs/core": "^2.11.8",
-    "@reduxjs/toolkit": "^2.9.2",
+    "@reduxjs/toolkit": "^2.11.0",
     "@storybook/addon-docs": "^9.1.16",
     "@storybook/addon-links": "^9.1.16",
     "@storybook/builder-vite": "^9.1.16",
