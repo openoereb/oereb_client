@@ -101,7 +101,7 @@ jobs:
         run: |
           make build
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: static
           path: oereb_client/static
@@ -129,7 +129,7 @@ jobs:
         run: |
           make doc
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: doc
           path: docs/build
@@ -223,7 +223,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
       - name: Download build artifacts
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: static
           path: oereb_client/static
@@ -252,7 +252,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
       - name: Download build artifacts
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: static
           path: oereb_client/static
@@ -279,7 +279,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Download doc artifacts
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: doc
           path: docs/build
