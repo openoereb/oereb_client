@@ -70,7 +70,7 @@
     "react-redux": "^9.2.0",
     "remark-gfm": "^4.0.1",
     "resize-observer-polyfill": "^1.5.1",
-    "sass": "^1.97.2",
+    "sass": "^1.97.3",
     "sass-loader": "^16.0.6",
     "storybook": "^10.2.3",
     "storybook-react-i18next": "^10.0.1",
