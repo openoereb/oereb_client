@@ -23,7 +23,7 @@ settings = {
                         'Text': 'E-GRID'
                     }
                 ],
-                'url': 'https://example.com/search?query={prefix}+{term}&limit={limit}',
+                'url': 'http://test.it/search?query={prefix}+{term}&limit={limit}',
                 'params': {
                     'limit': 5,
                     'prefix': 'egr'
@@ -71,7 +71,8 @@ def test_init_with_language(mock_request):
         assert search.default_lang_ == 'en'
 
 
-def test_create_request(mock_request):
+def test_create_request(mock_request, requests_mock):
+    requests_mock.get('http://test.it/search?query=egr+abc&limit=5', text='test')
     with testConfig(settings=settings):
         search = Search(mock_request)
         req = search.create_request_(0, settings.get('oereb_client').get('search')[0], 'abc')
@@ -79,14 +80,14 @@ def test_create_request(mock_request):
         assert req.index == 0
         resp = req.result()
         assert resp.request.method == 'GET'
-        assert resp.request.url == 'https://example.com/search?query=egr+abc&limit=5'
+        assert resp.request.url == 'http://test.it/search?query=egr+abc&limit=5'
 
 
 @httpretty.activate
 def test_send_requests(mock_request):
     httpretty.register_uri(
         httpretty.GET,
-        'https://example.com/search?query=egr+foo&limit=5',
+        'http://test.it/search?query=egr+foo&limit=5',
         body='bar'
     )
     with testConfig(settings=settings):
@@ -108,7 +109,7 @@ def test_render(mock_request):
     ]
     httpretty.register_uri(
         httpretty.GET,
-        'https://example.com/search?query=egr+foo&limit=5',
+        'http://test.it/search?query=egr+foo&limit=5',
         body=json.dumps(response_text)
     )
     with testConfig(settings=settings):
