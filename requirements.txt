@@ -8,6 +8,6 @@ pyramid_debugtoolbar==4.12.1
 pytest==9.0.2
 pytest-cov==7.0.0
 requests-mock==1.12.1
-setuptools<82
+setuptools<83
 twine==6.2.0
 -e .
