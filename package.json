@@ -50,7 +50,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-storybook": "^10.3.3",
-    "eslint-plugin-vitest-globals": "^1.5.0",
+    "eslint-plugin-vitest-globals": "^1.6.1",
     "file-loader": "^6.2.0",
     "file-saver": "^2.0.5",
     "glob-parent": "^6.0.2",
