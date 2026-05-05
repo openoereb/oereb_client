@@ -1,5 +1,6 @@
 import {vi} from "vitest";
 
+import * as messageSlice from "../../../oereb_client/static/src/reducer/message";
 import reducer, {
   cleanMessages,
   close,
@@ -8,7 +9,6 @@ import reducer, {
   showInfo,
   showWarning,
   warning} from "../../../oereb_client/static/src/reducer/message";
-import * as messageSlice from "../../../oereb_client/static/src/reducer/message";
 
 describe("message reducer", () => {
 
