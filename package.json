@@ -46,7 +46,7 @@
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "css-loader": "^7.1.4",
-    "eslint": "^9.39.4",
+    "eslint": "^10.6.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-simple-import-sort": "^13.0.0",
     "eslint-plugin-storybook": "^10.4.6",
