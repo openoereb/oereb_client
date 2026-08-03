@@ -39,7 +39,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@typescript-eslint/utils": "^8.62.1",
     "@vitejs/plugin-react": "^6.0.5",
-    "@vitest/coverage-v8": "^4.1.9",
+    "@vitest/coverage-v8": "^4.1.10",
     "@vitest/eslint-plugin": "^1.6.26",
     "acorn": "^8.17.0",
     "babel-loader": "^10.1.1",
@@ -80,7 +80,7 @@
     "uuid": "^14.0.1",
     "vite": "^8.1.2",
     "vite-plugin-purgecss": "^0.2.13",
-    "vitest": "^4.1.9",
+    "vitest": "^4.1.10",
     "vitest-fetch-mock": "^0.4.5"
   },
   "scripts": {
