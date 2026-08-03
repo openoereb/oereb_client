@@ -41,7 +41,7 @@
     "@vitejs/plugin-react": "^6.0.5",
     "@vitest/coverage-v8": "^4.1.10",
     "@vitest/eslint-plugin": "^1.6.26",
-    "acorn": "^8.17.0",
+    "acorn": "^8.18.0",
     "babel-loader": "^10.1.1",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
