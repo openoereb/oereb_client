@@ -40,7 +40,7 @@
     "@typescript-eslint/utils": "^8.62.1",
     "@vitejs/plugin-react": "^6.0.5",
     "@vitest/coverage-v8": "^4.1.9",
-    "@vitest/eslint-plugin": "^1.6.20",
+    "@vitest/eslint-plugin": "^1.6.26",
     "acorn": "^8.17.0",
     "babel-loader": "^10.1.1",
     "bootstrap": "^5.3.8",
