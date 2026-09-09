@@ -6,12 +6,13 @@ import OerebMessage from "../../../../oereb_client/static/src/component/message/
 import MainStore from "../../../../oereb_client/static/src/store/main";
 import { error, info, warning } from "../../../../oereb_client/static/src/reducer/message";
 
+vi.mock('uuid', () => ({ v4: () => 'a81dad33-08cf-4b50-b0c6-d14bcc427df8' }));
+
 describe("message component", () => {
 
   let component;
 
   beforeEach(() => {
-    vi.mock('uuid', () => ({ v4: () => 'a81dad33-08cf-4b50-b0c6-d14bcc427df8' }));
     component = render(
       <Provider store={MainStore}>
         <OerebMessage />
