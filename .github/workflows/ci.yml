@@ -14,7 +14,7 @@ jobs:
 
   test-py:
     name: Test Python
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
     strategy:
@@ -52,7 +52,7 @@ jobs:
 
   test-js:
     name: Test JavaScript
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
     steps:
@@ -84,7 +84,7 @@ jobs:
     needs:
       - test-py
       - test-js
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
     steps:
@@ -111,7 +111,7 @@ jobs:
     needs:
       - test-py
       - test-js
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
     steps:
@@ -139,7 +139,7 @@ jobs:
     needs:
       - build
     if: ${{ github.ref == 'refs/heads/main' }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       packages: write
@@ -177,7 +177,7 @@ jobs:
     needs:
       - build
     if: ${{ startsWith(github.ref, 'refs/tags') }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       packages: write
@@ -215,7 +215,7 @@ jobs:
     needs:
       - build
     if: ${{ github.ref == 'refs/heads/main' }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
     steps:
@@ -244,7 +244,7 @@ jobs:
     needs:
       - build
     if: ${{ startsWith(github.ref, 'refs/tags') }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
     steps:
@@ -272,7 +272,7 @@ jobs:
     needs:
       - build-doc
     if: ${{ startsWith(github.ref, 'refs/tags') }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: write
       pages: write
