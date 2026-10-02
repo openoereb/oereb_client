@@ -2,7 +2,7 @@ defusedxml==0.7.1
 flake8==7.3.0
 httpretty==1.1.4
 pluggy==1.6.0
-pycodestyle==2.14.0
+pycodestyle==2.15.0
 pyflakes==3.4.0
 pyramid_debugtoolbar==4.12.1
 pytest==9.1.1
