@@ -212,7 +212,29 @@ exports[`search > should show GNSS coordinates 1`] = `
     </div>
     <div
       class="container-fluid"
-    />
+    >
+      <div
+        class="list-group result-list"
+      >
+        <div
+          class="list-group-item"
+        >
+          <strong>
+            menu.search.title.coordinates.wgs84
+          </strong>
+          <span
+            class="badge bg-secondary float-end"
+          >
+            1
+          </span>
+        </div>
+        <button
+          class="list-group-item list-group-item-action search-result text-start"
+        >
+          7.72867 47.48910
+        </button>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;
